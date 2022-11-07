@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "Add Blood Type" 
 ?>
 
 <!DOCTYPE html>
@@ -121,12 +121,12 @@ $metaTitle = "System User Reservations"
 
                     </div>
                     <div class="box">
-                        <p class="add-reservation-title">Add Blood Reserve</p>
-                        <form action="/reservation/add_reserve" method="post">
+                        <p class="add-reservation-title">Add Blood Type</p>
+                        <form action="/reservation/add_reserve_type" method="post">
                             <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
+                                <label class="reserve-id-lable" for="type_id">Type ID:</label>
                                 <br>
-                                <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['rowCount']+1 ?>" disabled>
+                                <input id="type_id" class="reserve-id-input" type="text" name="type_id" autofocus placeholder="<?php echo $_SESSION['MaxTypeID']+1 ?>" disabled>
                             </div>
                             <div class="blood-group-container">
                                 <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
@@ -147,18 +147,18 @@ $metaTitle = "System User Reservations"
                                 <script src="../../../public/js/custom-select.js"></script>
                             </div>
                             <div class="quantity-container">
-                                <label class="quantity-lable" for="quantity">Quantity:</label>
+                                <label class="quantity-lable" for="Storing_Constraints">Storing Constraints:</label>
                                 <br>
-                                <input id="quantity" class="quantity-input" type="text" name="quantity" autofocus placeholder="Quantity" required>
+                                <input id="Storing_Constraints" class="quantity-input" type="text" name="Storing_Constraints" autofocus placeholder="Storing Constraints" required>
                             </div>
                             <div class="expiry-constraints-container">
                                 <label class="expiry-constraints-lable" for="expiry_constraints">Expiry Constraints:</label>
                                 <br>
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required>
 
-                                <button class='brown-button' type='submit' name='add-reservation'>Add Reservation</button>
+                                <button class='brown-button' type='submit' name='add-reservation-type'>Add Type</button>
                                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-                                <a class='outline-button' type='reset' name='cancel-adding' href="/reservation">Cancel Adding</a>
+                                <a class='outline-button' type='reset' name='cancel-adding' href="/reservation/type">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
                             </div>
                         </form>

@@ -49,7 +49,7 @@ $metaTitle = "System User Dashboard"
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?></p>
+                    <p><?php echo ($_SESSION['type']); ?> <br> <?php echo ($_SESSION['bloodbankname']); ?></p>
                 </div>
                 <div class="role-sub">
 

@@ -50,7 +50,8 @@ class User extends Controller
 
             //set session variables
             $_SESSION['login'] = "loggedin";
-            $_SESSION['username'] = $uname;
+            $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);
             $this->view->render('systemuser/dashboard');
 
             

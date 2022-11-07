@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "Blood Type - Reservations" 
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +16,7 @@ $metaTitle = "System User Reservations"
 
      <!-- CSS Files -->
     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
-    <link href="../../../public/css/extra/custom-select.css" rel="stylesheet">
-
+    
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
@@ -29,6 +28,7 @@ $metaTitle = "System User Reservations"
 
 </head>
 <body>
+    
     <!-- header -->
     <div class="top-bar">
         <div class="logo">
@@ -121,48 +121,83 @@ $metaTitle = "System User Reservations"
 
                     </div>
                     <div class="box">
-                        <p class="add-reservation-title">Add Blood Reserve</p>
-                        <form action="/reservation/add_reserve" method="post">
-                            <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
-                                <br>
-                                <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['rowCount']+1 ?>" disabled>
-                            </div>
-                            <div class="blood-group-container">
-                                <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
-                                <br>
-                                
-                                <div class="custom-select">
-                                    <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" required>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB+">AB+</option>
-                                    </select>
-                                </div>
-                                <script src="../../../public/js/custom-select.js"></script>
-                            </div>
-                            <div class="quantity-container">
-                                <label class="quantity-lable" for="quantity">Quantity:</label>
-                                <br>
-                                <input id="quantity" class="quantity-input" type="text" name="quantity" autofocus placeholder="Quantity" required>
-                            </div>
-                            <div class="expiry-constraints-container">
-                                <label class="expiry-constraints-lable" for="expiry_constraints">Expiry Constraints:</label>
-                                <br>
-                                <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required>
+                        <p class="add-reservation-title">Blood Types</p>
+                        
+                        <a href="/reservation/add_type" class="brown-button types-reservation">Add Type</a>
+                        <img class="typebutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
+                        
+                        <a href="/reservation/" class="brown-button expired-stock-btn">Back to Reservas</a>
+                        <img class="expired-stocks-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="expired-stocks">
 
-                                <button class='brown-button' type='submit' name='add-reservation'>Add Reservation</button>
-                                <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-                                <a class='outline-button' type='reset' name='cancel-adding' href="/reservation">Cancel Adding</a>
-                                <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
-                            </div>
-                        </form>
-                    </div>
+                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
+                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
+
+                        <table class="blood-types-table" style="width:90%">
+                        <tr>
+                            <th>Type ID</th>
+                            <th>Name</th>
+                            <th>Storing Constraints</th>
+                            <th>Expiry Constraints</th>
+                            <th>Action</th>
+                        </tr>
+                        <hr class="blood-types-line">
+                        <?php 
+                        $results_per_page = 7;
+                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_page = ceil($number_of_results / $results_per_page);
+
+                        //determine which page number visitor is currently on  
+                        if (!isset ($_GET['page']) ) {  
+                            $page = 1;  
+                        } else {  
+                            $page = $_GET['page'];  
+                        }  
+                         //determine the sql LIMIT starting number for the results on the displaying page  
+                        $page_first_result = ($page-1) * $results_per_page;  
+                        $result = $_SESSION['bloodtypes'];
+
+                        //display the link of the pages in URL  
+                          
+
+                        // print_r($result[0]);die();
+                        if ($_SESSION['rowCount'] > 0) {
+                           
+                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                echo '<div class="table-content-types"> <tr>
+                                        <td>' . $row["TypeID"]. "</td>
+                                        <td>" . $row["Name"] . "</td>
+                                        <td>" . $row["Storing_temperature"] . "</td>
+                                        <td>" . $row["Expiry_constraint"] . '</td>
+                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                    </tr> </div>';
+                                
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        echo '<div class="pag-box">';
+                        if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        }
+                  
+                        for($page = 1; $page<= $number_of_page; $page++) {  
+                            if ($page == $_GET['page']) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        if ($_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        }
+                          
+                        echo '</div>' ;?>
+                        
+                        </table>
 
                 </div>
 

@@ -50,7 +50,7 @@ $metaTitle = "System User Reservations"
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?></p>
+                    <p><?php echo ($_SESSION['type']); ?> <br> <?php echo ($_SESSION['bloodbankname']); ?></p>
                 </div>
                 <div class="role-sub">
 
@@ -121,10 +121,18 @@ $metaTitle = "System User Reservations"
                     </div>
                     <div class="box">
                         <p class="add-reservation-title">Blood Reserves</p>
-                        <a href="/reservation/add" class="brown-button add-new-reservation">Add New</a>
+                        
+                        <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
                         <img class="addbutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
 
+                        <a href="/reservation/type?page=1" class="brown-button types-reservation">Types</a>
+                        <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
+
                         <a href="#" class="brown-button expired-stock-btn">Expired Stocks</a>
+                        <img class="expired-stocks-img" src="./../../public/img/dashboard/expired-stocks.png" alt="expired-stocks">
+
+                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
+                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
 
                 </div>
 
