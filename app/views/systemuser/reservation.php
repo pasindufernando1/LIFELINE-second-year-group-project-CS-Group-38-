@@ -134,7 +134,7 @@ $metaTitle = "System User Reservations"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
 
-                </div>
+                    </div>
 
             </div>
 
