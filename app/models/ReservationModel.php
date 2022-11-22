@@ -19,6 +19,8 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
+
+    
     public function getAllTypes()
     {
         $data = $this->db->select("*", "bloodcategory",null);

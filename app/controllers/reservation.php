@@ -56,6 +56,7 @@ class Reservation extends Controller
             
         
     }
+    
     function type()
     {
         if (isset($_SESSION['login'])) {

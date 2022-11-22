@@ -196,7 +196,7 @@ $metaTitle = "Blood Type - Reservations"
                         }
                           
                         echo '</div>' ;?>
-                        
+            
                         </table>
 
                 </div>
