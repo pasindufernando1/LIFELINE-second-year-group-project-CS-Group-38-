@@ -58,8 +58,5 @@ class AdminUser extends Controller
         header("Location: /admin/login");
     }
 
-    function forgetPassword()
-    {
-        $this->view->render('signup/hospitalsignup');
-    }
+    
 }

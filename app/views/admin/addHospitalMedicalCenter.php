@@ -139,15 +139,6 @@ $metaTitle = "Admin Dashboard"
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
                         <form action="/usermanage/addHospitalMedCenter" method="post" enctype="multipart/form-data">
-                            
-                            <!-- Image -->
-                            <div class="image-upload">
-                                <label for="file-input">
-                                    <input id="file-input" type="file" name="image" />
-                                </label>
-                            </div>
-                                
-
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Name:</label>
                                 <br>
@@ -282,13 +273,8 @@ $metaTitle = "Admin Dashboard"
                         </form>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
-
 </body>
 </html>
