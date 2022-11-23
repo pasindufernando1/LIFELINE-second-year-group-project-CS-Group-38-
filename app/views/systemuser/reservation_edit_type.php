@@ -32,42 +32,36 @@ $metaTitle = "System User Reservations"
 <body>
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
 
-            
+    <!-- Side bar -->
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
                     <div class="box">
-                        <p class="add-reservation-title">Add Blood Reserve</p>
-                        <form action="/reservation/add_reserve" method="post">
+                        <?php echo '<p class="add-reservation-title">Edit Blood Type - ID: '.$_SESSION['type_id'].'</p>';
+                        echo '<form action="/reservation/edit_types/'.$_SESSION['type_id']. '" method="post">' ?>
                             <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
+                                <label class="reserve-id-lable" for="type_id">Type ID:</label>
                                 <br>
-                                <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['MaxPacketID']+1 ?>" disabled>
+                                <input id="type_id" class="reserve-id-input" type="text" name="type_id" autofocus placeholder="<?php echo $_SESSION['type_id'] ?>" disabled>
                             </div>
-                            <div class="blood-group-container">
+                            <<div class="blood-group-container">
                                 <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
                                 <br>
+                                <input id="blood_group" class="blood-group-input" type="text" name="blood_group" autofocus placeholder="Blood Group/Type" required>
                                 
-                                <div class="custom-select">
-                                    <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" required>
-                                        <?php $result = $_SESSION['bloodtypes']; 
-                                        foreach($result as $row){
-                                        echo '<option value="'.$row["Name"].'">'.$row["Name"].'</option>';
-                                        }?>
-                                        
-                                    </select>
-                                </div>
-                                <script src="../../../public/js/custom-select.js"></script>
                             </div>
                             <div class="quantity-container">
-                                <label class="quantity-lable" for="quantity">Quantity:</label>
+                                <label class="quantity-lable" for="Storing_Constraints">Storing Constraints:</label>
                                 <br>
-                                <input id="quantity" class="quantity-input" type="text" name="quantity" autofocus placeholder="Quantity" required>
+                                <input id="Storing_Constraints" class="quantity-input" type="text" name="Storing_Constraints" autofocus placeholder="Storing Constraints" required>
                             </div>
                             <div class="expiry-constraints-container">
-                                
-                                <button class='brown-button' type='submit' name='add-reservation'>Add Reservation</button>
+                                <label class="expiry-constraints-lable" for="expiry_constraints">Expiry Constraints:</label>
+                                <br>
+                                <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required>
+
+                                <button class='brown-button' type='submit' name='update-blood-type'>Update Blood Type</button>
                                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-                                <a class='outline-button' type='reset' name='cancel-adding' href="/reservation?page=1">Cancel Adding</a>
+                                <a class='outline-button' type='reset' name='cancel-adding' href="/reservation/type?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
                             </div>
                         </form>

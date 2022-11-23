@@ -19,6 +19,9 @@ $metaTitle = "Blood Type - Reservations"
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
+     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/reservation.css" rel="stylesheet">
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
@@ -29,108 +32,92 @@ $metaTitle = "Blood Type - Reservations"
 </head>
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/dashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/dashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/dashboard/test-profile.png" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br> <?php echo ($_SESSION['bloodbankname']); ?></p>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/dashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/user/logout">Log Out</a>
-                </div>
-            </div>
-
-            <!-- Side bar -->
-            <div class="side-bar">
-                <div class="side-nav">
-                    <div class="dashboard-non menu-item">
-                        
-                        <img class="" src="./../../public/img/dashboard/non-active/dashboard.png" alt="dashboard">
-                        <img class="reservation-non-active dash " src="../../../public/img/dashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
-
-
-                    </div>
-                    <div class="reservation-selected ">
-                        <div class="marker"></div>
-                        <img class="reservation-active" src="./../../public/img/dashboard/active/reservation.png" alt="reservation">
-                        <p class="reservation-act "><a href="/reservation">Reservation</a></p>
-
-                    </div>
-                    <div class="donor-cards menu-item">
-                        <img src="./../../public/img/dashboard/non-active/cards.png" alt="donor-cards">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/cards.png" alt="donor-cards">
-                        <p class="cards-nav "><a href="#">Donor Cards</a></p>
-
-                    </div>
-                    <div class="inventory menu-item">
-                        <img src="./../../public/img/dashboard/non-active/inventory.png" alt="inventory">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/inventory.png" alt="inventory">
-                        <p class="inventory-nav "><a href="#">Inventory</a></p>
-
-                    </div>
-                    <div class="donors menu-item">
-                        <img src="./../../public/img/dashboard/non-active/donors.png" alt="donors">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/donors.png" alt="donors">
-                        <p class="donors-nav menu-item"><a href="#">Donors</a></p>
-
-                    </div>
-                    <div class="reports menu-item">
-                        <img src="./../../public/img/dashboard/non-active/reports.png" alt="reports">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/reports.png" alt="reports">
-                        <p class="reports-nav "><a href="#">Reports</a></p>
-
-                    </div>
-                    <div class="campaigns menu-item">
-                        <img src="./../../public/img/dashboard/non-active/campaigns.png" alt="campaigns">
-                        <img class="reservation-non-active " src="./../../public/img/dashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav "><a href="#">Campaigns</a></p>
-
-                    </div>
-                    <div class="line"></div>
-                    <div class="profile menu-item">
-                        <img src="./../../public/img/dashboard/non-active/profile.png" alt="profile">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-
-                    </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
+    <!-- Side bar -->
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
+            
                     <div class="box">
                         <p class="add-reservation-title">Blood Types</p>
                         
                         <a href="/reservation/add_type" class="brown-button types-reservation">Add Type</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
                         
-                        <a href="/reservation/" class="brown-button expired-stock-btn">Back to Reservas</a>
+                        <a href="/reservation?page=1" class="brown-button expired-stock-btn">Back to Reservas</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="expired-stocks">
 
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
 
+<<<<<<< Updated upstream:views/systemuser/reservation_type.php
+=======
+                        <table class="blood-types-table" style="width:90%">
+                        <tr>
+                            <th>Type ID</th>
+                            <th>Name</th>
+                            <th>Storing Constraints</th>
+                            <th>Expiry Constraints</th>
+                            <th>Action</th>
+                        </tr>
+                        <hr class="blood-types-line">
+                        <?php 
+                        $results_per_page = 7;
+                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_page = ceil($number_of_results / $results_per_page);
+
+                        //determine which page number visitor is currently on  
+                        if (!isset ($_GET['page']) ) {  
+                            $page = 1;  
+                        } else {  
+                            $page = $_GET['page'];  
+                        }  
+                         //determine the sql LIMIT starting number for the results on the displaying page  
+                        $page_first_result = ($page-1) * $results_per_page;  
+                        $result = $_SESSION['bloodtypes'];
+
+                        //display the link of the pages in URL  
+                          
+
+                        // print_r($result[0]);die();
+                        if ($_SESSION['rowCount'] > 0) {
+                           
+                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                echo '<div class="table-content-types"> <tr>
+                                        <td>' . $row["TypeID"]. "</td>
+                                        <td>" . $row["Name"] . "</td>
+                                        <td>" . $row["Storing_temperature"] . "</td>
+                                        <td>" . $row["Expiry_constraint"] . '</td>
+                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_type_id/'.$row["TypeID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                    </tr> </div>';
+                                
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        echo '<div class="pag-box">';
+                        if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        }
+                  
+                        for($page = 1; $page<= $number_of_page; $page++) {  
+                            if ($page == $_GET['page']) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        if ($_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        }
+                          
+                        echo '</div>' ;?>
+                        
+                        </table>
+
+>>>>>>> Stashed changes:app/views/systemuser/reservation_type.php
                 </div>
 
             </div>

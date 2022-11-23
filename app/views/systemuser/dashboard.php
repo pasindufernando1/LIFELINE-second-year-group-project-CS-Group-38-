@@ -28,99 +28,11 @@ $metaTitle = "System User Dashboard"
 </head>
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/dashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/dashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/dashboard/test-profile.png" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br> <?php echo ($_SESSION['bloodbankname']); ?></p>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/dashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/user/logout">Log Out</a>
-                </div>
-            </div>
-
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
+    <?php require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?> 
+    
             <!-- Side bar -->
-            <div class="side-bar">
-                <div class="side-nav">
-                    <div class="dashboard menu-items">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/dashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-active"><a href="/user/dashboard">Dashboard</a></p>
-
-
-                    </div>
-                    <div class="reservation menu-item">
-                        <img class="reservation-active" src="./../../public/img/dashboard/non-active/reservation.png" alt="reservation">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/reservation.png" alt="reservation">
-                        <p class="reservation-nav menu-item"><a href="/reservation">Reservation</a></p>
-
-                    </div>
-                    <div class="donor-cards menu-item">
-                        <img src="./../../public/img/dashboard/non-active/cards.png" alt="donor-cards">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/cards.png" alt="donor-cards">
-                        <p class="cards-nav "><a href="#">Donor Cards</a></p>
-
-                    </div>
-                    <div class="inventory menu-item">
-                        <img src="./../../public/img/dashboard/non-active/inventory.png" alt="inventory">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/inventory.png" alt="inventory">
-                        <p class="inventory-nav "><a href="#">Inventory</a></p>
-
-                    </div>
-                    <div class="donors menu-item">
-                        <img src="./../../public/img/dashboard/non-active/donors.png" alt="donors">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/donors.png" alt="donors">
-                        <p class="donors-nav menu-item"><a href="#">Donors</a></p>
-
-                    </div>
-                    <div class="reports menu-item">
-                        <img src="./../../public/img/dashboard/non-active/reports.png" alt="reports">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/reports.png" alt="reports">
-                        <p class="reports-nav "><a href="#">Reports</a></p>
-
-                    </div>
-                    <div class="campaigns menu-item">
-                        <img src="./../../public/img/dashboard/non-active/campaigns.png" alt="campaigns">
-                        <img class="reservation-non-active " src="./../../public/img/dashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav "><a href="#">Campaigns</a></p>
-
-                    </div>
-                    <div class="line"></div>
-                    <div class="profile menu-item">
-                        <img src="./../../public/img/dashboard/non-active/profile.png" alt="profile">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-
-                    </div>
-
-                </div>
-
-            </div>
+            
 
 
         </div>

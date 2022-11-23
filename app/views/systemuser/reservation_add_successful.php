@@ -16,6 +16,7 @@ $metaTitle = "Reservations Added Successfully"
 
      <!-- CSS Files -->
     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
     <link href="../../../public/css/extra/custom-select.css" rel="stylesheet">
 
     <!-- Font Files -->
@@ -30,6 +31,7 @@ $metaTitle = "Reservations Added Successfully"
 </head>
 <body>
     <!-- header -->
+<<<<<<< Updated upstream
     <div class="top-bar">
         <div class="logo">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
@@ -120,11 +122,17 @@ $metaTitle = "Reservations Added Successfully"
                         <p class="profile-nav "><a href="#">Profile</a></p>
 
                     </div>
+=======
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
+
+    <!-- Side bar -->
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
+>>>>>>> Stashed changes
                     <div class="box">
                         <div class="message-container">
                             <img class="success-msg-img" src="./../../public/img/dashboard/success-msg-img.png" alt="success-msg-img">
                             <p class="success-msg-txt">Successfully added to the reserves !</p>
-                            <a href="/reservation" class="brown-button back-to-reserve">Back to reserves</a>
+                            <a href="/reservation?page=1" class="brown-button back-to-reserve">Back to reserves</a>
                             <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
                         </div>
                     </div>
