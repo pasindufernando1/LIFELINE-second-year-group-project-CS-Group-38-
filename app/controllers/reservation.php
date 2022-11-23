@@ -56,7 +56,6 @@ class Reservation extends Controller
             
         
     }
-    
     function type()
     {
         if (isset($_SESSION['login'])) {
@@ -76,11 +75,8 @@ class Reservation extends Controller
             }
         }
         else{
-            $this->view->render('authentication/login');
-            
-        }
-            
-        
+            $this->view->render('authentication/login');    
+        }    
     }
 
     function add_type()

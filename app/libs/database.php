@@ -106,7 +106,7 @@ class Database extends PDO
             }
             $query .= ") VALUES(";
             foreach ($param as $element) {
-                if ($element == $param[count($columns) - 1]) {
+                if ($element == $param[count($columns) -1]) {
                     $query .= $element ;
                 } else {
                     $query .= $element . ",";

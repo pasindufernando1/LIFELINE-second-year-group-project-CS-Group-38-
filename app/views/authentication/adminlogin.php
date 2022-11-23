@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <!-- CSS Files -->
-        <link href="../../../public/css/admin/login.css" rel="stylesheet">
+        <link href="../../../public/css/login.css" rel="stylesheet">
     </head>
     
 
@@ -15,10 +15,10 @@
         <div class="container">
             <img class="logo-img" src="../../../public/img/logo/logo-horizontal.jpg" alt="">
             <div class="title">
-                <p>Blood Banks & Donation Management System</p>
+                <p>Blood Banks & Management System</p>
             </div>
             <div class="sub-1">
-                <p>Log In As Admin</p>
+                <p>Log In to LIFELINE</p>
             </div>
             <div class="sub-2">
                 <p>Enter your username and password below</p>
@@ -32,7 +32,7 @@
                 <label class="password-lable" for="password">Password:</label>
                 <br>
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Enter Password" required>
-                <a href="/adminuser/forgetPassword/"><button class="forget-password" name="forget-password">Forgot password?</p></a>
+                <p class="forget-password">Forgot password?</p>
                 <br>
                 <?php if (isset($_SESSION['error'])) {  ?>
                 <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
@@ -42,9 +42,6 @@
                 <button class='login-button' type='submit' name='login'>Login</button>
                 
             </form>
-            <div class="image">
-                <img src="../../../public/img/admindashboard/adminloginpagered.jpg" alt="">
-            </div>
 
         </div>
           

@@ -10,7 +10,6 @@ class ReservationModel extends Model
 
 
     public function addReserve($inputs)
-        
     {
         $columns = array('blood_group', 'quantity', 'expiry_constraints');
         $param = array(':blood_group', ':quantity', ':expiry_constraints');
@@ -19,7 +18,6 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
-
     
     public function getAllTypes()
     {

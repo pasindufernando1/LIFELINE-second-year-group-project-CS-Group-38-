@@ -14,7 +14,7 @@ body {
     border-bottom: 1px solid #E8E8E8;
 }
 
-.logo img {
+ .logo img {
     position: sticky;
     width: 262px;
     height: 82px;
@@ -229,7 +229,7 @@ body {
     border-radius: 0px 8px 8px 0px;
 }
 
-.reservation {
+.requestBlood {
     position: absolute;
     left: 5px;
     top: 60px;
@@ -239,7 +239,7 @@ body {
     background: white;
 }
 
-.reservation-selected {
+.requestBlood-selected {
     position: absolute;
     left: 5px;
     top: 60px;
@@ -249,7 +249,7 @@ body {
     background: #F8F8F8;
 }
 
-.reservation img {
+.requestBlood img {
     position: absolute;
     width: 29px;
     height: 29px;
@@ -258,7 +258,7 @@ body {
     margin-top: 15px;
 }
 
-.reservation-selected img {
+.requestBlood-selected img {
     position: absolute;
     width: 29px;
     height: 29px;
@@ -267,7 +267,7 @@ body {
     margin-top: 15px;
 }
 
-.reservation-nav a {
+.requestBlood-nav a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -284,77 +284,7 @@ body {
     margin-top: 15px;
 }
 
-.reservation-act a {
-    position: absolute;
-    width: 114px;
-    height: 28px;
-    left: 70.74px;
-    top: 2px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #BF1B16;
-    text-decoration: none;
-    margin-top: 15px;
-}
-
-.users {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.users img {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    left: 2px;
-    top: 0px;
-    margin-top: 145px;
-}
-
-.users-selected{
-    position: absolute;
-    left: 5px;
-    top: 120px;
-    box-sizing: border-box;
-    width: 272.49px;
-    height: 62px;
-    background: #F8F8F8;
-}
-
-.users-selected img {
-    position: absolute;
-    width: 29px;
-    height: 29px;
-    left: 0px;
-    margin-left: 17px;
-    margin-top: 15px;
-}
-
-.users-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 145px;
-}
-
-.users-act a {
+.requestBlood-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -370,220 +300,6 @@ body {
     text-decoration: none;
     margin-top: 15px;
 }
-
-.inventory {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.inventory img {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    left: 2px;
-    top: 0px;
-    margin-top: 210px;
-}
-
-.inventory-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 212px;
-}
-
-.donors {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.donors img {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    left: 2px;
-    top: 0px;
-    margin-top: 275px;
-}
-
-.donors-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 277px;
-}
-
-.reports {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.reports img {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    left: 2px;
-    top: 0px;
-    margin-top: 340px;
-}
-
-.reports-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 342px;
-}
-
-.campaigns {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.campaigns img {
-    position: absolute;
-    width: 51px;
-    height: 34px;
-    left: -8px;
-    top: 0px;
-    margin-top: 405px;
-}
-
-.campaigns-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 407px;
-}
-
-.badges {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.badges img {
-    position: absolute;
-    width: 40px;
-    height: 30px;
-    left: -4px;
-    top: 0px;
-    margin-top: 465px;
-}
-
-.badges-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 467px;
-}
-
-.advertisements {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 22px;
-    top: 0px;
-}
-
-.advertisements img {
-    position: absolute;
-    width: 40px;
-    height: 30px;
-    top: 0px;
-    margin-top: 522px;
-}
-
-.advertisements-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 52.74px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 522px;
-}
-
-.line {
-    position: absolute;
-    width: 271.98px;
-    height: 0px;
-    left: 0.51px;
-    top: 456.5px;
-    border: 1.01829px solid #E0E0E0;
-    margin-top: 110px;
-}
-
 .profile {
     position: absolute;
     width: 170.74px;
@@ -598,7 +314,7 @@ body {
     right: 95.37%;
     top: 67.04%;
     bottom: 30.31%;
-    top: 0px;
+    top: -423px;
     margin-top: 575px;
 }
 
@@ -607,7 +323,7 @@ body {
     width: 122px;
     height: 28px;
     left: 52.74px;
-    top: 0px;
+    top: -423px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -627,14 +343,21 @@ body {
     text-decoration: none;
 }
 
-.reservation-non-active {
+.requestBlood-non-active {
     display: none;
 }
 
-.menu-item:hover .reservation-non-active {
+.menu-item:hover .requestBlood-non-active {
     display: block;
 }
 
+.profile-non-active {
+    display: none;
+}
+
+.menu-item:hover .profile-non-active {
+    display: block;
+}
 .dropdown-content {
     display: none;
     position: absolute;

@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['error'] = '';
 
-class AdminUser extends Controller
+class HospitalUser extends Controller
 {
 
     function __construct()
@@ -15,13 +15,13 @@ class AdminUser extends Controller
         
         //redirect to login if not logged in or login button is not clicked
         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
-            header("Location: /authentication/adminlogin");
+            header("Location: /authentication/hospitalslogin");
         }
         
         //if already logged in redirect to the admin dashboard
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/dashboard');
+            if ($_SESSION['type'] == "Hospitals") {
+                $this->view->render('hospitals/dashboard');
                 exit;
             }
         }
@@ -30,7 +30,8 @@ class AdminUser extends Controller
         //get POST data from login page
         $uname = $_POST['username'];
         $pwd = $_POST['password'];
-
+        
+        
 
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
@@ -40,13 +41,15 @@ class AdminUser extends Controller
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
-            $this->view->render('admin/dashboard');
-
+            $_SESSION['User_ID'] = $this->model-> getUserID($uname);
             
+            $this->view->render('hospitals/dashboard');
+            
+                
         }
          else {
             $_SESSION['error'] = 'Incorrect Username or Password';
-            header("Location: /admin/login");
+            header("Location: /hospitals/login");
         }
     }
 
@@ -56,6 +59,6 @@ class AdminUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /admin/login");
+        header("Location: /hospitals/login");
     }
 }
