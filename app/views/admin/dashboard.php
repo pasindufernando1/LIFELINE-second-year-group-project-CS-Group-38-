@@ -84,7 +84,7 @@ $metaTitle = "Admin Dashboard"
                     <div class="users menu-item">
                         <img src="./../../public/img/admindashboard/non-active/cards.png" alt="donor-cards">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/cards.png" alt="donor-cards">
-                        <p class="users-nav "><a href="/usermanage">Users</a></p>
+                        <p class="users-nav "><a href="/usermanage/type?page=1">Users</a></p>
 
                     </div>
                     <div class="inventory menu-item">

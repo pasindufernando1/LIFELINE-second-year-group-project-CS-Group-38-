@@ -40,17 +40,30 @@ class GetcampaignModel extends Model
 
     public function ifregistered($user_ID, $campaign_ID)
     {
-        if ($this->db->select('count', "register_to_campaign", "WHERE DonorID =:DonorID", ':DonorID', $user_ID) > 0 && $this->db->select('count', "register_to_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campaign_ID) > 0) {
-            {
+        if ($this->db->select('count', "register_to_campaign", "WHERE DonorID =:DonorID", ':DonorID', $user_ID) > 0) {
+            if(($this->db->select('CampaignID', "register_to_campaign", "WHERE DonorID =:DonorID", ':DonorID', $user_ID))[0][0]==$campaign_ID){
                 return true;
             }
-        } 
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
         
     }
 
-    public function putregistraion($inputs, $campaign_ID)
+    public function get_campreg_info($user_ID){
+        $reg_data = ($this->db->select('Emergency_contact_no,Contact_no', "register_to_campaign", "WHERE DonorID =:DonorID", ':DonorID', $user_ID))[0];
+        
+        return $reg_data;
+
+
+    }
+
+    public function putregistraion($inputs)
     {
-        if ($this->db->select('count', "register_to_campaign", "WHERE CampaignID = :CampaignID;", ':CampaignID', $campaign_ID) == 0) {
             $columns = array('DonorID', 'CampaignID','Emergency_contact_no', 'Contact_no');
             $param = array(':DonorID', ':CampaignID', ':Emergency_contact_no', ':Contact_no' );
             $result = $this->db->insert("register_to_campaign", $columns, $param, $inputs);
@@ -58,8 +71,6 @@ class GetcampaignModel extends Model
                 return true;
             } else
                 print_r($result);
-        } else
-            return false;
     }
 
     public function get_reg_info($campid,$user_ID){
@@ -68,12 +79,4 @@ class GetcampaignModel extends Model
         return $ret_reg_info;
     }
 
-    function deleteReserveTypes($type_id)
-    {
-        $result = $this->db->delete("bloodcategory", "WHERE  TypeID = :type_id ;", ':type_id', $type_id);
-        if ($result == "Success") {
-            return true;
-        } else print_r($result);
-    
-    }
 }

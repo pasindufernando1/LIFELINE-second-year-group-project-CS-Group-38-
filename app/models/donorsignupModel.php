@@ -42,11 +42,26 @@ class DonorsignupModel extends Model
             }
     }
 
-     public function insertdonor($donor_inputs)
+    public function insertdonor($donor_inputs)
     {
         $columns = array('UserID', 'Fullname','NIC', 'DOB', 'Gender','BloodType','Number', 'LaneName', 'City', 'District', 'Province');
         $param = array(':UserID', ':Fullname',':NIC', ':DOB', ':Gender',':BloodType',':Number', ':LaneName', ':City', ':District', ':Province');
         $result = $this->db->insert("donor", $columns, $param, $donor_inputs);
+        if ($result == "Success") {
+            return true;
+        } 
+        else
+            {
+                print_r($result);
+            }
+    }
+
+    public function insertcontact($user_ID,$tellno)
+    {
+        $columns = array('UserID','ContactNumber');
+        $param = array(':UserID',':ContactNumber');
+        $inputs = array($user_ID, $tellno);
+        $result = $this->db->insert("usercontactnumber", $columns, $param,$inputs);
         if ($result == "Success") {
             return true;
         } 

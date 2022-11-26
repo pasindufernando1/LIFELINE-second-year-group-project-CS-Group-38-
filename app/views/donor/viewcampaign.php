@@ -2,7 +2,9 @@
 $_SESSION['selected_campid'] = $_GET['camp'];
 // print_r($_SESSION['selected_campid']);
 // die();
-// print_r($_SESSION['org_name']);
+// print_r($_SESSION['campaign_array1']);
+// die();
+// print_r($_GET['camp']);
 // die();
 $metaTitle = "Donor Dashboard" 
 ?>
@@ -70,7 +72,7 @@ $metaTitle = "Donor Dashboard"
             </div>
 
             <!-- Side bar -->
-            <div class="side-bar">
+            <div class="view-campaign-side-bar">
                 <div class="side-nav">
                     <div class="dashboard menu-items">
                         <div class="dashboard-marker"></div>
@@ -120,33 +122,43 @@ $metaTitle = "Donor Dashboard"
                         <p class="profile-nav "><a href="#">Profile</a></p>
 
                     </div>
-                    <div style="text-align: center;font-family: 'Poppins'"class="box">
-                        <h1><?php echo 'Donation Campaign : '.($_SESSION['campaign_array'][0]);?></h1>
-                        <br/>
-                        <p><?php echo 'Organized By : '.($_SESSION['org_name']);?></p> 
-                        <br/>
-                        <p><?php echo 'Date : '.($_SESSION['campaign_array'][3]); ?> </p>
-                        <br/>
-                        <p><?php echo 'Starting Time : '.($_SESSION['campaign_array'][4]); ?></p>
-                        <br/>
-                        <p><?php echo 'Ending Time : '.($_SESSION['campaign_array'][5]); ?> </p>
-                        <br/>
-                        <p><?php echo 'Location : '.($_SESSION['campaign_array'][1]); ?></p>
-                        <br/>
-                        <p><?php echo 'Number of Beds : '.($_SESSION['campaign_array'][2]); ?></p>
-                        <br/>
-                        <p><?php echo 'Number of donors : '.($_SESSION['campaign_array'][3]); ?></p>
-                        <br/>
-                        <?php 
+                    
+                    <?php 
                         if($_SESSION['if_registered']==0){
-                            echo '<a href="/getcampaign/reg_to_campaign?camp=' . $_SESSION['selected_campid'] . '"><button class="reg-btn">Register</button>';
+                            echo '<div class="view-campaign-box">
+                            <h1>Donation Campaign : '.($_SESSION['campaign_array'][0]).'</h1>
+                            <p>Organized By : '.($_SESSION['org_name']).'</p>
+                            <p>Date : '.($_SESSION['campaign_array'][3]).'</p>
+                            <p>Starting Time : '.($_SESSION['campaign_array'][4]).'</p>
+                            <p>Ending Time : '.($_SESSION['campaign_array'][5]).'</p>
+                            <p>Location : '.($_SESSION['campaign_array'][1]).'</p>
+                            <p>Number of Beds : '.($_SESSION['campaign_array'][2]).'</p>
+                            <a href="/getcampaign/reg_to_campaign?camp=' . $_SESSION['selected_campid'] . '"><button class="reg-btn">Register</button>
+                            </div>';
                         }
                         else{
-                            echo '<a href="/getcampaign/view_campaign_reg?camp=' . $_SESSION['selected_campid'] . '"><button class="reg-btn">View Registration Information</button>';;
+                            echo '<div class="div-box">
+                            <div class="left-box"> 
+                                <h1>Donation Campaign : '.($_SESSION['campaign_array'][0]).'</h1>
+                                <p>Organized By : '.($_SESSION['org_name']).'</p>
+                                <p>Date : '.($_SESSION['campaign_array'][3]).'</p>
+                                <p>Starting Time : '.($_SESSION['campaign_array'][4]).'</p>
+                                <p>Ending Time : '.($_SESSION['campaign_array'][5]).'</p>
+                                <p>Location : '.($_SESSION['campaign_array'][1]).'</p>
+                                <p>Number of Beds : '.($_SESSION['campaign_array'][2]).'</p>
+                            </div>
+                            <div class="right-box">
+                                <h1>Registration Details</h1>
+                                <p>Emergency Contact Number : '. $_SESSION['reg_info']['Emergency_contact_no'].'</p>
+                                <p>Contact Number : '. $_SESSION['reg_info']['Contact_no'].'</p>
+                                <br>
+                                <a class="outline-regedit-button" href="/getcampaign/view_campaign_reg?camp=' . $_SESSION['selected_campid'] . '">Update
+                                <img src = "./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
+                                <a class="outline-regdelete-button" href="/getcampaign/view_campaign_reg?camp=' . $_SESSION['selected_campid'] . '">Delete
+                                <img src = "./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
+                                </div>';
                         }
                         ?>
-
-                    </div>
                 </div>
             </div>
         </div>

@@ -170,15 +170,9 @@ fieldset {
 }
 
 .reg-btn {
-
-
     justify-content: center;
-
-
     gap: 9.06px;
-
-
-    width: 706px;
+    width: 334px;
     height: 52px;
     left: 514px;
     top: 790px;
@@ -187,6 +181,27 @@ fieldset {
     color: #FFF;
     background: #640E0B;
     border-radius: 10.8716px;
+}
+
+.reg-edit-btn-txt {
+    border: 2px #000000;
+    width: 135px;
+    height: 40px;
+    margin-left: 25px;
+}
+
+.reg-edit-btn {
+    position: sticky;
+    width: 35px;
+    height: 35px;
+    margin-left: 25px;
+}
+
+.reg-delete-btn {
+    position: sticky;
+    width: 35px;
+    height: 35px;
+    margin-left: 25px;
 }
 
 .search {
@@ -302,6 +317,17 @@ fieldset {
     top: 37px;
     background: #EBEBEB;
     cursor: pointer;
+}
+
+.view-campaign-side-bar {
+    position: absolute;
+    width: 277.49px;
+    height: 768px;
+    left: -5px;
+    top: 102px;
+    background: #FFFFFF;
+    border-right: 1px;
+    border-color: #000000;
 }
 
 .side-bar {
@@ -838,15 +864,72 @@ fieldset {
 
 .box {
     box-sizing: border-box;
+    width: 50%;
     position: absolute;
     width: 1565px;
-    height: 1225px;
+    height: 1285px;
     left: 316px;
     top: 0;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
+    text-align: center;
+}
+
+.view-campaign-box {
+    box-sizing: border-box;
+    width: 50%;
+    position: absolute;
+    width: 1565px;
+    height: 1285px;
+    left: 316px;
+    top: 0;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.div-box {
+    box-sizing: border-box;
+    width: 50%;
+    position: absolute;
+    display: flex;
+    width: 1565px;
+    height: 746px;
+    left: 316px;
+    top: 0;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left-box {
+    position: flex;
+    float: left;
+    width: 45%;
+    border: 1px solid #ECEEF7;
+    border-radius: 7px;
+    box-shadow: 2px;
+    height: 45%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
+}
+
+.right-box {
+    position: flex;
+    float: right;
+    width: 45%;
+    border: 1px solid #ECEEF7;
+    border-radius: 7px;
+    box-shadow: 2px;
+    height: 45%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
 
 
@@ -1121,6 +1204,54 @@ a {
     height: 52.49px;
     left: 1155px;
     top: 150px;
+    background: #F7F7F7;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+}
+
+.outline-regedit-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 203.66px;
+    height: 52.49px;
+    left: 911px;
+    background: #F7F7F7;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+}
+
+.outline-regdelete-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 1194px;
+    width: 203.66px;
+    height: 52.49px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1432,6 +1563,13 @@ td {
     display: flex;
     margin-top: 725px;
     margin-right: 192px;
+}
+
+.temp {
+    border: 1px solid #640E0B;
+    border-radius: 4px;
+    height: 40px;
+    width: 250px;
 }
 
 .pag-div {

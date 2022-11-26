@@ -12,9 +12,20 @@ class ReservationModel extends Model
     public function addReserve($inputs)
         
     {
-        $columns = array('blood_group', 'quantity', 'expiry_constraints');
-        $param = array(':blood_group', ':quantity', ':expiry_constraints');
-        $result = $this->db->insert("reservation", $columns, $param, $inputs);
+        $columns = array('quantity', 'TypeID', 'Status');
+        $param = array(':quantity', ':TypeID', ':Status');
+        $result = $this->db->insert("bloodpacket", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
+    function editReserve($reserve_id, $inputs)
+    {
+        $_SESSION['reserve_id'] = $reserve_id;
+        $columns = array('quantity', 'TypeID', 'Status');
+        $param = array(':quantity', ':TypeID', ':Status');
+        $result = $this->db->update("bloodpacket", $columns, $param, $inputs, ':reserve_id', $reserve_id, "WHERE packetID = :reserve_id;");
         if ($result == "Success") {
             return true;
         } else print_r($result);
@@ -25,10 +36,23 @@ class ReservationModel extends Model
         return $data;
     }
 
-    public function getCountReservationId()
+    public function getAllPackets()
     {
-        $countReservation = $this->db->select("*", "reservation",null);
+        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID");
+        return $packets;
+    }
+
+    public function getMaxPacketID()
+    {
+        $MaxPacketID = $this->db->select("MAX(PacketID)", "bloodpacket",null);
+        return ($MaxPacketID[0]['MAX(PacketID)']);
         
+    }
+
+    public function getTypeIDFromName($bloodtype)
+    {
+        $TypeIDFromName = $this->db->select("TypeID","bloodcategory","WHERE  Name = :bloodtype",':bloodtype',$bloodtype);
+        return $TypeIDFromName[0]['TypeID'];
     }
 
     public function getMaxTypeID()
@@ -41,8 +65,8 @@ class ReservationModel extends Model
     public function addReserveTypes($inputs)
         
     {
-        $columns = array('Name', 'Expiry_constraint', 'Storing_temperature');
-        $param = array(':Name', ':Expiry_constraint', ':Storing_temperature');
+        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint');
+        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint');
         $result = $this->db->insert("bloodcategory", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
@@ -56,5 +80,16 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     
+    }
+
+    function editReserveTypes($type_id, $inputs)
+    {
+        $_SESSION['type_id'] = $type_id;
+        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint');
+        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint');
+        $result = $this->db->update("bloodcategory", $columns, $param, $inputs, ':type_id', $type_id, "WHERE TypeID = :type_id;");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
     }
 }

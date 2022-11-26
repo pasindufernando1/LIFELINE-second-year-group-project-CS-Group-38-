@@ -15,7 +15,7 @@
 
     <body>
         <div class="signup-container">
-            <img class="logo-img" src="../../../public/img/logo/logo-horizontal.jpg" alt="">
+            <img class="signup-logo-img" src="../../../public/img/logo/logo-horizontal.jpg" alt="">
             <div class="title">
                 <p>Blood Banks & Management System</p>
             </div>
@@ -94,7 +94,7 @@
                     <option value="Trincomalee">Trincomalee</option>
                     <option value="Vavuniya">Vavuniya</option>
                 </select>
-                <select id="province" class="province-input custom-select" type="text" name="province" autofocus placeholder="District" required>
+                <select id="province" class="province-input custom-select" type="text" name="province" autofocus placeholder="Province" required>
                                         <!-- Show placeholder -->
                     <option value="Central">Central</option>
                     <option value="Eastern">Eastern</option>
@@ -106,7 +106,6 @@
                     <option value="Uva">Uva</option>
                     <option value="Western">Western</option>
                 </select>
-                <input id="province" class="province-input" type="text" name="province" autofocus placeholder="Province" required>
                 <br>
                 <label class="email-lable" for="email">EMAIL</label>
                 <br>
@@ -123,24 +122,24 @@
                 <br>
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
                 <br>
-                <table class="reg-table" width="1420px" style="margin-left: auto;margin-right: auto;"  >
+                <table class="reg-table" width="100%"  >
                         <col style="width:70%">
                         <col style="width:15%">
                         <col style="width:15%">
                         <tr><td colspan="3" style="text-align: center;">Please select the appropriate option to following options</td></tr>
-                        <tr><td></td><td>Yes</td><td>No</td></tr>
+                        <tr><td></td><td class="options">Yes</td><td class="options">No</td></tr>
                         <tr>
                             <td class = "reg-question" >Have you already given blood in the last 8 weeks?</td>
-                            <td><fieldset><input type="radio" name="g1" value="on" required></td>
-                            <td><input type="radio" name="g1" value="off"></fieldset></td></tr>
+                            <td class="options"><fieldset><input type="radio" name="g1" value="on" required></td>
+                            <td class="options"><input type="radio" name="g1" value="off"></fieldset></td></tr>
                         <tr>
                             <td class = "reg-question" >Are you pregnant or breastfeeding?</td>
-                            <td><fieldset><input type="radio" name="g2" value="on" required></td>
-                            <td><input type="radio" name="g2" value="off"></fieldset></td></tr>
+                            <td class="options"><fieldset><input type="radio" name="g2" value="on" required></td>
+                            <td class="options"><input type="radio" name="g2" value="off"></fieldset></td></tr>
                         <tr>
                             <td class = "reg-question" >Have you ever had injections of human pituitary growth hormone, pituitary gonadotrophin (fertility medicine) or seen a neurosurgeon or neurologist?</td>
-                            <td><fieldset><input type="radio" name="g3" value="on" required></td>
-                            <td><input type="radio" name="g3" value="off"></fieldset></td></tr>
+                            <td class="options"><fieldset><input type="radio" name="g3" value="on" required></td>
+                            <td class="options"><input type="radio" name="g3" value="off"></fieldset></td></tr>
                         </table>
 
                 <button class='signup-button' type='submit' name='signup'>SUBMIT</button>

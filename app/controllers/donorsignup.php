@@ -47,8 +47,8 @@ class Donorsignup extends Controller
                     $province = $_POST['province'];
                     $tellno = $_POST['tel'];
                     $donor_input = array($user_ID,$fullname, $nic, $dob, $gender, $bloodtype, $number, $lane, $city, $district, $province);
-                    if($this->model->insertdonor($donor_input)){
-                        $this->view->render('authentication/donorsignupsuccessful');
+                    if($this->model->insertdonor($donor_input) && $this->model->insertcontact($user_ID,$tellno)){
+                        $this->view->render('authentication/donorlogin');
                     }
                }
 

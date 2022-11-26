@@ -128,7 +128,7 @@ $metaTitle = "Donor Dashboard"
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
-                        $results_per_page = 7;
+                        $results_per_page = 6;
                         $number_of_results = $_SESSION['rowCount'];
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
@@ -153,7 +153,7 @@ $metaTitle = "Donor Dashboard"
                                         <td>" . $row["Date"] . "</td>
                                         <td>" . $row["Starting_time"] . "</td>
                                         <td>" . $row["Ending_time"] . '</td>
-                                        <td> <a href="/getcampaign/view_campaign?camp='.$row["CampaignID"].'"> <button class="register-btn" > View </button> </a> </td>
+                                        <td> <a href="/getcampaign/view_campaign?camp='.$row["CampaignID"].'"> <button class="register-btn" name="view_camp_info" > View </button> </a> </td>
                                     </tr> </div>';
                                 
                             }

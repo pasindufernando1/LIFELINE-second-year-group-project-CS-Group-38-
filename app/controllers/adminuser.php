@@ -26,7 +26,6 @@ class AdminUser extends Controller
             }
         }
 
-
         //get POST data from login page
         $uname = $_POST['username'];
         $pwd = $_POST['password'];
@@ -58,4 +57,6 @@ class AdminUser extends Controller
         session_regenerate_id(true);
         header("Location: /admin/login");
     }
+
+    
 }

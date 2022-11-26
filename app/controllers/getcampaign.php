@@ -35,26 +35,33 @@ class Getcampaign extends Controller
     function view_campaign(){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "donor") {
-                $campid = $_SESSION['selected_campid'];
-                $camp_info = $this->model->get_campaign_info($campid);
-                $_SESSION['campaign_array'] = $camp_info;
-                $_SESSION['org_name'] = $this->model->get_org_name($_SESSION['campaign_array'][7]);
+
+                $_SESSION['selected_campid'] = $_GET['camp'];
+            
+                    $campid = $_SESSION['selected_campid'];
+                    $camp_info = $this->model->get_campaign_info($campid);
+                    $_SESSION['campaign_array'] = $camp_info;
+                    $_SESSION['org_name'] = $this->model->get_org_name($_SESSION['campaign_array'][7]);
                 
                 //Get registration status
-                $email = $_SESSION['email'];
-                $user_ID = $this->model->get_user_id($email);
-                $campaign_ID = $_SESSION['selected_campid'];
+                    $email = $_SESSION['email'];
+                    $user_ID = $this->model->get_user_id($email);
+                    $campaign_ID = $_SESSION['selected_campid'];
                 if($this->model->ifregistered($user_ID,$campaign_ID)){
                     // print_r('already registered');
                     // die();
                     $_SESSION['if_registered'] = 1;
+                    $_SESSION['reg_info']= $this->model->get_campreg_info($user_ID);
                 }
                 else{
                     $_SESSION['if_registered'] = 0;
                 }
 
-                $this->view->render('donor/viewcampaign');
+               // $this->view->render('donor/viewcampaign');
+               $this->view->render('donor/viewcampaign');
                 exit;
+                
+               
             } 
         }
         else{
@@ -88,21 +95,29 @@ class Getcampaign extends Controller
     {
         
         if ($_SESSION['type'] == "donor") {
+            
             if (!isset($_POST['reg-to-campaign'])) {
+                print_r("awa");
+            die();
                 header("Location: /getcampaign/index");
                 exit;
             }
 
             //for($i=1;$i<12;$i++){
                 //$rdiobtn =strval($i);
+            
             if($_POST['g1']== "on" ||$_POST['g2']== "on"||$_POST['g3']== "on"||$_POST['g4']== "on"||$_POST['g5']== "on"||$_POST['g6']== "on"||$_POST['g7']== "on"||$_POST['g8']== "on"||$_POST['g9']== "on"||$_POST['g10']== "on"||$_POST['g11']== "on" ){
                 header("Location: /getcampaign/regtocampaignunsuccessful");
                 exit;
             }
             else{
+               
                 $email = $_SESSION['email'];
+                 
                 $user_ID = $this->model->get_user_id($email);
+                
                 $campaign_ID = $_SESSION['selected_campid'];
+
 
                 if($this->model->ifregistered($user_ID,$campaign_ID)){
                     print_r('already registered');
@@ -112,14 +127,21 @@ class Getcampaign extends Controller
                     $contno = $_POST['contno'];
                     $emcontno = $_POST['emcontno'];
                     $user_ID = $this->model->get_user_id($email);
+                    
 
                     $inputs = array($user_ID ,$campaign_ID,$contno, $emcontno);
-
+                    
                     // print_r($user_ID);
                     // die();
 
-                    if ($this->model->putregistraion($inputs,$campaign_ID)){
+                    if ($this->model->putregistraion($inputs,$campaign_ID,$user_ID)){
+                        // print_r($inputs);
+                        // die();
                         header("Location: /getcampaign/regtocampaignsuccessful");
+                    }
+                    else{
+                        print_r($inputs);
+                    die();
                     }
                 }
             }
@@ -190,4 +212,8 @@ class Getcampaign extends Controller
         }
     }
 
+
+
+
+    
 }

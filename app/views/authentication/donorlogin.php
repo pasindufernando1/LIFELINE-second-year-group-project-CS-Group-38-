@@ -14,7 +14,7 @@
 
     <body>
         <div class="container">
-            <img class="logo-img" src="../../../public/img/logo/logo-horizontal.jpg" alt="">
+            <img class="login-logo-img" src="../../../public/img/logo/logo-horizontal.jpg" alt="">
             <div class="title">
                 <p>Blood Banks & Management System</p>
             </div>
@@ -26,13 +26,13 @@
             </div>
 
             <form class="login-form" action="/donoruser/dashboard" method="post" id="user-login" name="login-form">
-                <label class="username-lable" for="username">User Name:</label>
+                <label class="login-username-lable" for="username">User Name:</label>
                 <br>
-                <input id="username" class="username-input" type="text" name="username" autofocus placeholder="Enter Username" required>
+                <input id="username" class="login-username-input" type="text" name="username" autofocus placeholder="Enter Username" required>
                 <br>
-                <label class="password-lable" for="password">Password:</label>
+                <label class="login-password-lable" for="password">Password:</label>
                 <br>
-                <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Enter Password" required>
+                <input id="password" class="login-password-input" type="password" name="password" autofocus placeholder="Enter Password" required>
                 <p class="forget-password">Forgot password?</p>
                 <br>
                 <?php if (isset($_SESSION['error'])) {  ?>
@@ -45,7 +45,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <p>Not Registered?<a href="/donorsignup/signup/">SignUp</a></p>
+                <p class="not-reg">Not Registered?<a href="/donorsignup/signup/">SignUp</a></p>
                 
             </form>
 

@@ -1,25 +1,25 @@
 .container {
     box-sizing: border-box;
     position: absolute;
-    left: 189px;
+    left: 98px;
     right: 219px;
     top: 224px;
     bottom: 50px;
     background: #FFFFFF;
     border: 1px solid #640E0B;
     border-radius: 8px;
+    display: flex;
     float: left;
     width: 50%;
+    border-color: rgb(83 86 105 / 24%);
 }
-
-
 
 .logo-img {
     position: absolute;
-    width: 30%;
-    height: 14%;
-    left: 35%;
-    top: 2%;
+    width: 262px;
+    height: 82px;
+    left: 350px;
+    top: 26px;
 }
 
 .title p {
@@ -161,21 +161,36 @@
     color: #FFFFFF;
 }
 
+.login-button:hover {
+    background: #efeaea;
+    transition: 0.3s;
+    color: #640E0B;
+    font-size: 13.6835px;
+    
+}
+
 .forget-password {
     position: absolute;
-    width: 85px;
-    height: 13px;
+    width: 107px;
+    height: 21px;
     right: 32px;
-    top: 74px;
+    top: 79px;
     font-family: 'Mulish';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 10px;
     line-height: 13px;
-    /* identical to box height */
     text-align: right;
     letter-spacing: 0.1px;
     color: #640E0B;
+    background: none;
+    border: none;
+    
+}
+
+.forget-password:hover {
+    color: #EB5550;
+    transition: 0.3s;
 }
 
 .signup-p p {
@@ -199,15 +214,39 @@
 .error-pwd {
     position: absolute;
     height: 20px;
-    left: calc(50% - 158px/2 - 28px);
-    top: -30px;
+    left: calc(267% - 158px/2 - 610px);
+    top: -120px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    /* identical to box height, or 143% */
     text-align: center;
     letter-spacing: 0.3px;
     color: #ff0800;
+}
+
+/* Transition to input fields */
+.username-input:focus {
+    border: 2px solid #640E0B;
+    transition: 0.3s;
+}
+
+.image img{
+    position: absolute;
+    right: 0px;
+    top: -56px;
+    bottom: 11px;
+    width: 76%;
+    height: 115%;
+    left: 111%;
+
+}
+
+/* animation to input fields */
+.username-input:focus {
+    border: 2px solid #640E0B;
+    transition: 0.3s;
+    color: #360806;
+
 }
