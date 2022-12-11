@@ -15,7 +15,7 @@ $metaTitle = "Admin Dashboard"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/dashboard.css" rel="stylesheet">
+    <link href="../../../public/css/admin/add.css" rel="stylesheet">
 
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -129,7 +129,7 @@ $metaTitle = "Admin Dashboard"
                     </div>
 
                     <div class="box">
-                        <p class="add-user-title">Add Hospital/Medical Center</p>
+                        <p class="add-user-title">Add Donor</p>
                         
                         <!-- <a href="/reservation/add" class="brown-button addnew-user">Add New</a>
                         <img class="adduser-pic" src="./../../public/img/dashboard/add-button.png" alt="add-button">
@@ -137,21 +137,37 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <form action="/usermanage/addHospitalMedCenter" method="post">
+                        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data">
                             <div class="quantity-container">
-                                <label class="quantity-lable" for="name">Name:</label>
+                                <label class="quantity-lable" for="name">Full name</label>
                                 <br>
-                                <input id="quantity" class="quantity-input" type="text" name="name" autofocus placeholder="Hospital/Medical Center Name" required>
+                                <input id="quantity" class="quantity-input" type="text" name="name" autofocus placeholder="Full name" required>
                             </div>
-                            <div class="reg-container">
-                                <label class="reg-lable" for="regno">Registration number:</label>
+                            <div class="nic-container">
+                                <label id="nic-label" class="nic-lable" for="nic">NIC no</label>
                                 <br>
-                                <input id="regno" class="reg-input" type="text" name="regno" autofocus placeholder="Registration Number" required>
+                                <input id="nic" class="nic-input" type="text" name="nic" autofocus placeholder="NIC no" required>
                             </div>
-                            <div class="status-container">
-                                <label class="status-lable" for="status">Status</label>
+                            <div class="dob-container">
+                                <label id="dob-label" class="dob-lable" for="dob">DOB</label>
                                 <br>
-                                <input id="status" class="status-input" type="text" name="status" autofocus placeholder="Status" required>
+                                <input id="dob" class="dob-input" type="date" name="dob" autofocus placeholder="Date of birth" required>
+                            </div>
+                            <div class="bloodtype-container">
+                                <label class="bloodtype-lable" for="bloodtype">Blood Type</label>
+                                <br>
+                                <select id="bloodtype" class="bloodtype-input" type="text" name="bloodtype" autofocus placeholder="Blood Type" required>
+                                    <!-- Placeholder -->
+                                    <option value="" disabled selected hidden>Select Blood Type</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
                             </div>
                             <div class="location-container">
                                 <label class="location-lable" for="location">Location:</label>
@@ -159,17 +175,60 @@ $metaTitle = "Admin Dashboard"
                                 <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required>
                                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required>
                                 <input id="city" class="city-input" type="text" name="city" autofocus placeholder="City" required>
-                                <input id="district" class="district-input" type="text" name="district" autofocus placeholder="District" required>
-                                <input id="province" class="province-input" type="text" name="province" autofocus placeholder="Province" required>
+                                
+                                <select id="district" class="district-input custom-select" type="text" name="district" autofocus placeholder="District"required>
+                                        <!-- Show placeholder -->
+                                        <option value="" disabled selected hidden>District</option>
+                                        <option value="Ampara">Ampara</option>
+                                        <option value="Anuradhapura">Anuradhapura</option>
+                                        <option value="Badulla">Badulla</option>
+                                        <option value="Batticaloa">Batticaloa</option>
+                                        <option value="Colombo">Colombo</option>
+                                        <option value="Galle">Galle</option>
+                                        <option value="Gampaha">Gampaha</option>
+                                        <option value="Hambantota">Hambantota</option>
+                                        <option value="Jaffna">Jaffna</option>
+                                        <option value="Kalutara">Kalutara</option>
+                                        <option value="Kandy">Kandy</option>
+                                        <option value="Kegalle">Kegalle</option>
+                                        <option value="Kilinochchi">Kilinochchi</option>
+                                        <option value="Kurunegala">Kurunegala</option>
+                                        <option value="Mannar">Mannar</option>
+                                        <option value="Matale">Matale</option>
+                                        <option value="Matara">Matara</option>
+                                        <option value="Monaragala">Monaragala</option>
+                                        <option value="Mullaitivu">Mullaitivu</option>
+                                        <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                        <option value="Polonnaruwa">Polonnaruwa</option>
+                                        <option value="Puttalam">Puttalam</option>
+                                        <option value="Ratnapura">Ratnapura</option>
+                                        <option value="Trincomalee">Trincomalee</option>
+                                        <option value="Vavuniya">Vavuniya</option>
+                                </select>
+                                
+                                <script src="../../../public/js/custom-select.js"></script>
+                                <select id="province" class="province-input custom-select" type="text" name="province" autofocus placeholder="Province" required>
+                                        <!-- Show placeholder -->
+                                        <option value="" disabled selected hidden>Province</option>
+                                        <option value="Central">Central</option>
+                                        <option value="Eastern">Eastern</option>
+                                        <option value="North Central">North Central</option>
+                                        <option value="Northern">Northern</option>
+                                        <option value="North Western">North Western</option>
+                                        <option value="Sabaragamuwa">Sabaragamuwa</option>
+                                        <option value="Southern">Southern</option>
+                                        <option value="Uva">Uva</option>
+                                        <option value="Western">Western</option>
+                                </select>
 
                             </div>
                             <div class="email-container">
-                                <label class="email-lable" for="email">Email</label>
+                                <label id="email-label" class="email-lable" for="email">Email</label>
                                 <br>
                                 <input id="email" class="email-input" type="text" name="email" autofocus placeholder="Email" required>
                             </div>
                             <div class="contact-container">
-                                <label class="contact-lable" for="contact">Contact No</label>
+                                <label id="contact-label" class="contact-lable" for="contact">Contact No</label>
                                 <br>
                                 <input id="contact" class="contact-input" type="text" name="contact" autofocus placeholder="Contact number" required>
                             </div>
@@ -184,9 +243,9 @@ $metaTitle = "Admin Dashboard"
                                 <input id="uid" class="uid-input" type="text" name="uid" autofocus placeholder="UserID">
                             </div> -->
                             <div class="password-container">
-                                <label class="password-lable" for="password">Password</label>
+                                <label id="password-label" class="password-lable" for="password">Password</label>
                                 <br>
-                                <input id="password" class="password-input" type="text" name="password" autofocus placeholder="Password" required>
+                                <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
                             </div>
                             <!-- <div class="reserve-id-container">
                                 <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
@@ -221,21 +280,17 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required> -->
                             <div>
-                                <button class='brown-button' type='submit' name='add-hosmed'>Add Hospital/Medical Center</button>
+                                <button id="submit-btn" class='brown-button' type='submit' name='add-donor'>Add Donor</button>
                                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
-                                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage">Cancel Adding</a>
+                                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
-
+    <script src="../../../public/js/validation/uservalidation.js"></script>
 </body>
 </html>

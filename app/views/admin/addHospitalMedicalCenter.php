@@ -23,6 +23,7 @@ $metaTitle = "Admin Dashboard"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+   
 
     
 
@@ -131,28 +132,25 @@ $metaTitle = "Admin Dashboard"
 
                     <div class="box">
                         <p class="add-user-title">Add Hospital/Medical Center</p>
-                        
-                        <!-- <a href="/reservation/add" class="brown-button addnew-user">Add New</a>
-                        <img class="adduser-pic" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-
-                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
-                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
-
                         <form action="/usermanage/addHospitalMedCenter" method="post" enctype="multipart/form-data">
                             <div class="quantity-container">
-                                <label class="quantity-lable" for="name">Name:</label>
+                                <label id= "hospital_name-label" class="quantity-lable" for="name">Name:</label>
                                 <br>
-                                <input id="quantity" class="quantity-input" type="text" name="name" autofocus placeholder="Hospital/Medical Center Name" required>
+                                <input id="hospital_name" class="quantity-input" type="text" name="name" autofocus placeholder="Hospital/Medical Center Name" required>
                             </div>
                             <div class="reg-container">
-                                <label class="reg-lable" for="regno">Registration number:</label>
+                                <label id ="reg-label" class="reg-lable" for="regno">Registration number:</label>
                                 <br>
-                                <input id="regno" class="reg-input" type="text" name="regno" autofocus placeholder="Registration Number" required>
+                                <input id="regno" class="reg-input" type="text" name="regno" autofocus placeholder="Ex: PHSRC/PH/01 or PHSRC/MC/01 or PHSRC/GH/01" required>
                             </div>
                             <div class="status-container">
                                 <label class="status-lable" for="status">Status</label>
                                 <br>
-                                <input id="status" class="status-input" type="text" name="status" autofocus placeholder="Status" required>
+                                <select id="status" class="status-input" type="text" name="status" autofocus placeholder="Status" required>
+                                    <option value="" disabled selected hidden>Status</option>
+                                        <option value="1">Verified</option>
+                                        <option value="0">Pending</option>
+                                </select>
                             </div>
                             <div class="location-container">
                                 <label class="location-lable" for="location">Location:</label>
@@ -208,12 +206,12 @@ $metaTitle = "Admin Dashboard"
 
                             </div>
                             <div class="email-container">
-                                <label class="email-lable" for="email">Email</label>
+                                <label id="email-label" class="email-lable" for="email">Email</label>
                                 <br>
                                 <input id="email" class="email-input" type="text" name="email" autofocus placeholder="Email" required>
                             </div>
                             <div class="contact-container">
-                                <label class="contact-lable" for="contact">Contact No</label>
+                                <label id="contact-label" class="contact-lable" for="contact">Contact No</label>
                                 <br>
                                 <input id="contact" class="contact-input" type="text" name="contact" autofocus placeholder="Contact number" required>
                             </div>
@@ -222,50 +220,13 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                                 <input id="uname" class="uname-input" type="text" name="uname" autofocus placeholder="Username" required>
                             </div>
-                            <!-- <div class="uid-container">
-                                <label class="uid-lable" for="userID">UserID</label>
-                                <br>
-                                <input id="uid" class="uid-input" type="text" name="uid" autofocus placeholder="UserID">
-                            </div> -->
                             <div class="password-container">
-                                <label class="password-lable" for="password">Password</label>
+                                <label id="password-label" class="password-lable" for="password">Password</label>
                                 <br>
-                                <input id="password" class="password-input" type="text" name="password" autofocus placeholder="Password" required>
+                                <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
                             </div>
-                            <!-- <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
-                                <br>
-                                <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['rowCount']+1 ?>" disabled>
-                            </div>
-                            <div class="blood-group-container">
-                                <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
-                                <br>
-                                
-                                <div class="custom-select">
-                                    <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" required>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB+">AB+</option>
-                                    </select>
-                                </div>
-                                <script src="../../../public/js/custom-select.js"></script>
-                            </div>
-                            <div class="quantity-container">
-                                <label class="quantity-lable" for="quantity">Quantity:</label>
-                                <br>
-                                <input id="quantity" class="quantity-input" type="text" name="quantity" autofocus placeholder="Quantity" required>
-                            </div> -->
-                            <!-- <div class="expiry-constraints-container">
-                                <label class="expiry-constraints-lable" for="expiry_constraints">Expiry Constraints:</label>
-                                <br>
-                                <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required> -->
                             <div>
-                                <button class='brown-button' type='submit' name='add-hosmed'>Add Hospital/Medical Center</button>
+                                <button id="submit-btn" class='brown-button' type='submit' name='add-hosmed'>Add Hospital/Medical Center</button>
                                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
@@ -276,5 +237,8 @@ $metaTitle = "Admin Dashboard"
             </div>
         </div>
     </div>
+
+    <script src="../../../public/js/validation/uservalidation.js"></script>
+
 </body>
 </html>

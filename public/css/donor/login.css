@@ -1,0 +1,1288 @@
+    .body {
+        display: flex;
+    }
+
+    .container {
+        width: 20%;
+        background: #FFFFFF;
+        border: 1.5px solid #640E0B;
+        border-radius: 8px;
+    }
+
+    .img-container {
+        box-sizing: border-box;
+        border-radius: 8px;
+        position: flex;
+        /* top: 545px;
+        left: 50%; */
+        float: right;
+        border: 1.5px solid #640E0B;
+        border-radius: 8px;
+        margin-left: 10px;
+        width: 85%;
+        height: 100%;
+    }
+
+    .login-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        display: flex;
+    }
+
+    .signup-container {
+        box-sizing: border-box;
+        position: absolute;
+        left: 15%;
+        /* right: 219px; */
+        top: 224px;
+        bottom: 50px;
+        background: #FFFFFF;
+        border: 1px solid #640E0B;
+        border-radius: 8px;
+        height: 155%;
+        width: 70%;
+    }
+
+    .reg-table {
+        position: absolute;
+        top: 266px;
+
+    }
+
+    .reg-lable {
+
+        /* Bold/12px */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .reg-input {
+        font-family: 'Poppins';
+        background: #FCFDFE;
+        height: 40px;
+        width: 550px;
+        border: 3px solid #FBDAD9;
+        border-radius: 8px;
+    }
+
+    .reg-input-smol {
+        font-family: 'Poppins';
+        background: #FCFDFE;
+        height: 40px;
+        width: 350px;
+        border: 3px solid #FBDAD9;
+        border-radius: 8px;
+    }
+
+    .reg-question {
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        /* text-transform: uppercase; */
+        color: #640E0B;
+    }
+
+    fieldset {
+        border: none;
+    }
+
+
+
+    .login-logo-img {
+        position: relative;
+        width: 262px;
+        height: 82px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 11%;
+        margin: 0;
+    }
+
+    .logo-img {
+        position: absolute;
+        width: 262px;
+        height: 82px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 6%;
+        margin: 0;
+    }
+
+    .signup-logo-img {
+        position: absolute;
+        width: 262px;
+        height: 82px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 6%;
+        margin: 0;
+    }
+
+
+    .title {
+        position: absolute;
+        height: 24px;
+        left: 47px;
+        right: 27px;
+        top: 107px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 1900;
+        font-size: 62px;
+        line-height: 45px;
+        /* identical to box height */
+        text-align: center;
+        width: 100%;
+        letter-spacing: 0.4px;
+        color: #FFFFFF;
+    }
+
+    .login-title {
+        position: absolute;
+        height: 24px;
+        top: -18px;
+        right: -159px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 62px;
+        line-height: 45px;
+        text-align: center;
+        width: 100%;
+        letter-spacing: 0.4px;
+        color: #FFFFFF;
+    }
+
+    .sub-1 p {
+        position: relative;
+        height: 30px;
+        top: 21px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #252733;
+    }
+
+    .sub-2 p {
+        position: relative;
+        height: 20px;
+        /* left: 32px;
+        right: 32px;
+        top: 198px; */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+    }
+
+    .reg-sub-1 p {
+        position: absolute;
+        height: 30px;
+        left: 32px;
+        right: 32px;
+        top: 136px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #252733;
+    }
+
+    .reg-sub-2 p {
+        position: absolute;
+        height: 20px;
+        left: 32px;
+        right: 32px;
+        top: 188px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+    }
+
+    .login-form {
+        position: absolute;
+        height: 0px;
+        left: 32px;
+        right: 32px;
+        top: 264px;
+
+    }
+
+    .username-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .login-username-lable {
+        position: relative;
+        height: 16px;
+        /* left: 0px;
+        right: 0px;
+        top: 0px; */
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        height: 40px;
+        width: 20%;
+    }
+
+    .username-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 22px;
+        bottom: 0px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+    }
+
+    .login-username-input {
+        box-sizing: border-box;
+        position: relative;
+        /* left: 0px;
+        right: 0px;
+        top: 22px;
+        bottom: 0px; */
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 15%;
+    }
+
+    .password-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 80px;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .passwordcheck-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 600px;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .login-password-lable {
+        position: absolute;
+        height: 16px;
+        /* left: 0px;
+        right: 0px;
+        top: 80px; */
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .password-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 110px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+    }
+
+    .password-check-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 625px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+    }
+
+
+    .login-password-input {
+        box-sizing: border-box;
+        position: relative;
+        /* left: 0px;
+        right: 0px;
+        top: 100px;
+        bottom: -88px; */
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 15%;
+    }
+
+    .signup-button {
+        position: absolute;
+        height: 48px;
+        left: 15%;
+        /* right: 114px; */
+        top: 977px;
+        bottom: 0px;
+        background: #640E0B;
+        box-shadow: 0px 4px 12px rgb(55 81 255 / 24%);
+        border-radius: 8px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #FFFFFF;
+        width: 70%;
+    }
+
+    .login-button {
+        position: relative;
+        height: 48px;
+        /* left: 0px;
+        right: 0px; */
+        /* top: 180px; */
+        bottom: 0px;
+        margin: 0 1.5%;
+        display: block;
+        /* align-self: center; */
+        background: #640E0B;
+        width: 12%;
+        /* button / accent default */
+        box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+        border-radius: 8px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #FFFFFF;
+    }
+
+    .forget-password {
+        position: relative;
+        width: 85px;
+        height: 13px;
+        right: 0px;
+        /* top: 135px; */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 13px;
+        /* identical to box height */
+        text-align: right;
+        letter-spacing: 0.1px;
+        color: #640E0B;
+    }
+
+    .fname-error {
+        position: absolute;
+        right: 52%;
+        top: 49px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+    }
+
+    .lname-error {
+        position: absolute;
+        right: 0px;
+        top: 49px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .nic-error {
+        position: absolute;
+        right: 52%;
+        top: 138px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .btype-error {
+        position: absolute;
+        right: 0px;
+        top: 138px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .dob-error {
+        position: absolute;
+        right: 52%;
+        top: 212px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .gender-error {
+        position: absolute;
+        right: 0px;
+        top: 212px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .number-error {
+        position: absolute;
+        right: 711px;
+        top: 287px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .lane-error {
+        position: absolute;
+        right: 356px;
+        top: 287px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .city-error {
+        position: absolute;
+        right: 0px;
+        top: 287px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .district-error {
+        position: absolute;
+        right: 543px;
+        top: 346px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .province-error {
+        position: absolute;
+        right: 0px;
+        top: 346px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .email-error {
+        position: absolute;
+        right: 52%;
+        top: 420px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        width: 50%;
+        text-align: right;
+    }
+
+    .tel-error {
+        position: absolute;
+        right: 0px;
+        top: 420px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+
+    .password-error {
+        position: absolute;
+        right: 0px;
+        top: 576px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .passwordcheck-error {
+        position: absolute;
+        right: 0px;
+        top: 654px;
+        font-family: 'Mulish';
+        font-size: 12px;
+        color: #FF0000;
+        /* visibility: hidden; */
+
+    }
+
+    .not-reg {
+        position: relative;
+        width: 258px;
+        height: 20px;
+        /* top: 225px; */
+        /* left: calc(50% - 158px/2 - 28px); */
+        bottom: 40px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        width: 15%;
+    }
+
+    .signup-p p {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        top: 1032px;
+        /* left: calc(50% - 158px/2 - 28px); */
+        bottom: 40px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+    }
+
+    .donorsignup-form {
+        position: absolute;
+        height: 64px;
+        left: 32px;
+        right: 32px;
+        top: 266px;
+    }
+
+    .error-pwd {
+        position: absolute;
+        height: 19px;
+        left: 57px;
+        /* left: calc(50% - 158px/2 - 28px); */
+        top: -92px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #ff0800;
+    }
+
+    .name-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .fname-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0px;
+        top: 22px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 48%;
+    }
+
+    .fname-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .lname-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 52%;
+        right: 0px;
+        top: 22px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 48%;
+    }
+
+    .lname-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .nic-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 80px;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .nic-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 110px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        width: 48%;
+        height: 40px;
+    }
+
+    .nic-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .btype-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 80px;
+        left: 52%;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .btype-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        left: 52%;
+        top: 110px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        width: 48%;
+        height: 40px;
+
+    }
+
+    .btype-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .dob-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 164px;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .dob-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 186px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        width: 48%;
+        height: 40px;
+    }
+
+    .dob-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .gender-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 164px;
+        left: 52%;
+        /* Bold/12px */
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .gender-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        left: 52%;
+        top: 186px;
+        bottom: -88px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        width: 48%;
+        height: 40px;
+
+    }
+
+    .gender-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .address-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 236px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .number-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 262px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 32%;
+    }
+
+    .number-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .lane-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 34%;
+        right: 0px;
+        top: 262px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 32%;
+    }
+
+    .lane-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .city-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 68%;
+        right: 0px;
+        top: 262px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 32%;
+    }
+
+    .city-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .district-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 314px;
+        background: #FFFFFF;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        padding: 12px 20px;
+        width: 48%;
+    }
+
+
+    .district-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .province-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 52%;
+        right: 0px;
+        top: 314px;
+        background: #FFFFFF;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        padding: 12px 20px;
+        width: 48%;
+    }
+
+    .province-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .email-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 366px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .email-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0px;
+        top: 390px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 48%;
+    }
+
+    .email-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .tel-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 366px;
+        left: 52%;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 48%;
+    }
+
+    .tel-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0px;
+        top: 390px;
+        left: 52%;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 48%;
+    }
+
+    .tel-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .uname-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 448px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+        width: 100%;
+    }
+
+    .uname-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0px;
+        top: 473px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 100%;
+    }
+
+    .uname-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .password-lable {
+        position: absolute;
+        height: 16px;
+        left: 0px;
+        right: 0px;
+        top: 525px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #640E0B;
+    }
+
+    .password-input {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0px;
+        top: 548px;
+        bottom: -71px;
+        background: #FCFDFE;
+        border: 2px solid #FBDAD9;
+        border-radius: 8px;
+        height: 40px;
+        width: 100%;
+    }
+
+    .password-input::placeholder {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        color: #640E0B;
+        opacity: 0.4;
+    }
+
+    .reg-table {
+        position: absolute;
+        top: 688px;
+        font-family: 'Mulish';
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .reg-q-header {
+        text-align: center;
+        font-size: 12px;
+        color: #640E0B;
+    }
+
+
+
+    .reg-question {
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 15px;
+        letter-spacing: 0.3px;
+        /* text-transform: uppercase; */
+        color: #640E0B;
+    }
+
+    .options {
+        text-align: center;
+        font-size: 10px;
+        color: #640E0B;
+        font-weight: 700;
+    }
+
+    fieldset {
+        border: none;
+    }
+
+    .error-pwd {
+        position: absolute;
+        height: 20px;
+        left: calc(50% - 158px/2 - 28px);
+        top: -30px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        text-align: center;
+        letter-spacing: 0.3px;
+        color: #ff0800;
+    }

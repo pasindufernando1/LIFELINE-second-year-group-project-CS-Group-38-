@@ -146,14 +146,18 @@ $metaTitle = "Admin Dashboard"
                                 <input id="quantity" class="quantity-input" type="text" name="name" value="<?php echo $_SESSION['Name'] ?>" required>
                             </div>
                             <div class="reg-container">
-                                <label class="reg-lable" for="regno">Registration number:</label>
+                                <label id="reg-label" class="reg-lable" for="regno">Registration number:</label>
                                 <br>
                                 <input id="regno" class="reg-input" type="text" name="regno" value="<?php echo $_SESSION['Registration_no'] ?>" required>
                             </div>
                             <div class="status-container">
                                 <label class="status-lable" for="status">Status</label>
                                 <br>
-                                <input id="status" class="status-input" type="text" name="status" value="<?php echo $_SESSION['Status'] ?>" required>
+                                <select id="status" class="status-input" type="text" name="status" autofocus placeholder="Status" required>
+                                    <option value="<?php echo $_SESSION['Status'] ?>" hidden><?php if($_SESSION['Status']==1) {echo "Verified";} else {echo "Pending";}?></option>
+                                        <option value="1">Verified</option>
+                                        <option value="0">Pending</option>
+                                </select>
                             </div>
                             <div class="location-container">
                                 <label class="location-lable" for="location">Location:</label>
@@ -206,12 +210,12 @@ $metaTitle = "Admin Dashboard"
 
                             </div>
                             <div class="email-container">
-                                <label class="email-lable" for="email">Email</label>
+                                <label id="email-label" class="email-lable" for="email">Email</label>
                                 <br>
                                 <input id="email" class="email-input" type="text" name="email" value="<?php echo $_SESSION['Email'] ?>" required>
                             </div>
                             <div class="contact-container">
-                                <label class="contact-lable" for="contact">Contact No</label>
+                                <label id="contact-label" class="contact-lable" for="contact">Contact No</label>
                                 <br>
                                 <input id="contact" class="contact-input" type="text" name="contact" value="<?php echo $_SESSION['Contact_no'] ?>" required>
                             </div>
@@ -226,9 +230,9 @@ $metaTitle = "Admin Dashboard"
                                 <input id="uid" class="uid-input" type="text" name="uid" autofocus placeholder="UserID">
                             </div> -->
                             <div class="password-container">
-                                <label class="password-lable" for="password">Password</label>
+                                <label id="password-label" class="password-lable" for="password">Password</label>
                                 <br>
-                                <input id="password" class="password-input" type="text" name="password" autofocus placeholder="New Password" >
+                                <input id="password" class="password-input" type="password" name="password" autofocus placeholder="New Password" >
                             </div>
                             <!-- <div class="reserve-id-container">
                                 <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
@@ -263,7 +267,7 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required> -->
                             <div>
-                                <button class='brown-button-update' type='submit' name='update-hosmed'>Update Hospital/Medical Center</button>
+                                <button id="submit-btn" class='brown-button-update' type='submit' name='update-hosmed'>Update Hospital/Medical Center</button>
                                 <img class="addbutton" src="./../../public/img/admindashboard/updateuser.png" alt="edit-button">
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Updating</a>
                                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
@@ -278,6 +282,8 @@ $metaTitle = "Admin Dashboard"
         </div>
 
     </div>
+
+    <script src="../../../public/js/validation/uservalidation.js"></script>
 
 </body>
 </html>

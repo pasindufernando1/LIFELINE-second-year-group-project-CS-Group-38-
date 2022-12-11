@@ -214,8 +214,8 @@
 .error-pwd {
     position: absolute;
     height: 20px;
-    left: calc(50% - 158px/2 - 28px);
-    top: -30px;
+    top: -38px;
+    left: 323px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -224,6 +224,14 @@
     text-align: center;
     letter-spacing: 0.3px;
     color: #ff0800;
+}
+user agent stylesheet
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 /* Transition to input fields */

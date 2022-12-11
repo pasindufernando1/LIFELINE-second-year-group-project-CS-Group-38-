@@ -57,8 +57,8 @@ class OrganizationuserModel extends Model
         $UserID = $this->db->lastInsertId();
         array_unshift($inputs2, $UserID);
 
-        $columns2 = array('UserID','Registration_no','Name','Number','LaneName','City','District','Province','Status');
-        $param2 = array(':UserID',':Registration_no',':Name',':Number',':LaneName',':City',':District',':Province',':Status');
+        $columns2 = array('UserID','Registration_no','Name','Number','LaneName','City','District','Province');
+        $param2 = array(':UserID',':Registration_no',':Name',':Number',':LaneName',':City',':District',':Province');
         $result2 = $this->db->insert("organization_society", $columns2, $param2, $inputs2);
 
         //Updating the usercontactnumber table
@@ -77,6 +77,40 @@ class OrganizationuserModel extends Model
         }
     }
     
+    public function checkMail($email)
+    {
+        $res = ($this->db->select('userID', "user", "WHERE email = :email;", ':email', $email));
+        if(!empty($res)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
+    public function insertToken($email)
+    {
+        if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $user_ID = $this->db->select("UserID","user","WHERE email =:email",':email',$email);
+            $user_ID = $user_ID[0]['user_ID'];
+            return $user_ID;
+
+        
+        } 
+
+    }
+
+    public function updatePassword($email, $pwd)
+    {
+        $passw = password_hash($pwd, PASSWORD_DEFAULT);
+        $result = $this->db->update("user", "password", ":password", $passw, ':email', $email, "WHERE email = :email");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
 
     
 }

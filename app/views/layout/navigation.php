@@ -1,8 +1,4 @@
-<!-- <?php
-    define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-    require_once(__ROOT__.'/views/layout/header.php');
-    require_once(__ROOT__.'/views/layout/navigation.php');
-?> -->
+
 <html lang="en">
     <head>
         <!-- CSS Files -->
