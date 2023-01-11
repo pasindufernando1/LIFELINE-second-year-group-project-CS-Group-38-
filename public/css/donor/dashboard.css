@@ -2,6 +2,36 @@ body {
     background-color: #F8F8F8;
 }
 
+.container {
+    position: absolute;
+    box-sizing: border-box;
+    left: 296px;
+    /* background-color: bisque; */
+    width: 1585px;
+    top: 118px;
+    height: 650px;
+}
+
+.dash-p {
+    position: absolute;
+    width: 340px;
+    height: 57px;
+    left: 29px;
+    top: -27px;
+    /* font-family: 'Yeseva One'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 66px;
+    line-height: 55px;
+    color: #640E0B;
+}
+
+.dash-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
 .top-bar {
     position: sticky;
     box-sizing: border-box;
@@ -22,6 +52,7 @@ body {
     left: 314px;
     top: 195px;
 }
+
 
 .campaign-box {
     position: absolute;
@@ -64,10 +95,29 @@ body {
     margin: auto;
     display: block;
     width: 131px;
-    height: 33px;
+    height: 36px;
+    font-family: Poppins;
     background: #640E0B;
     border-radius: 4px;
     color: White;
+    border-color: #630e0b;
+    cursor: pointer;
+}
+
+.register-btn :hover {
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+.edit-reg-title {
+    font-family: Poppins;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+
 }
 
 .reg-table {
@@ -75,9 +125,10 @@ body {
     top: 266px;
 }
 
-.reg-lable {
-
-    /* Bold/12px */
+.reg-lable-emcont-no {
+    position: absolute;
+    top: 250px;
+    left: 60%;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -88,13 +139,146 @@ body {
     color: #640E0B;
 }
 
-.reg-input {
+.reg-lable-cont-no {
+
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #640E0B;
+}
+
+.regedit-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 203.66px;
+    top: 426px;
+    height: 52.49px;
+    left: 871px;
+    background: #e8e8e8;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+}
+
+.regcancel-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 203.66px;
+    top: 426px;
+    height: 52.49px;
+    left: 1250px;
+    background: #e8e8e8;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+}
+
+.contno {
+    top: 159px;
+    position: absolute;
     font-family: 'Poppins';
     background: #FCFDFE;
     height: 40px;
     width: 600px;
-    border: 3px solid #FBDAD9;
+    border: 2px solid #949494;
     border-radius: 8px;
+}
+
+.emcontno {
+    top: 159px;
+    position: absolute;
+    font-family: 'Poppins';
+    background: #FCFDFE;
+    height: 40px;
+    width: 600px;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.edit-contno {
+    position: absolute;
+    top: 284px;
+    left: 100px;
+    font-family: 'Poppins';
+    background: #FCFDFE;
+    height: 40px;
+    width: 505px;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+
+.edit-emcontno {
+    position: absolute;
+    top: 285px;
+    left: 935px;
+    font-family: 'Poppins';
+    background: #FCFDFE;
+    height: 40px;
+    width: 505px;
+    border: 2px solid #949494;
+    border-radius: 8px;
+
+}
+
+
+.contno-error {
+    position: absolute;
+    right: 57.1%;
+    top: 192px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #FF0000;
+    width: 50%;
+    text-align: right;
+}
+
+.emcontno-error {
+    position: absolute;
+    right: 11.5%;
+    top: 192px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #FF0000;
+    width: 50%;
+    text-align: right;
+}
+
+.qtable-reg {
+    margin-left: auto;
+    margin-right: auto;
+    top: 238px;
+    position: absolute;
+    left: 5%;
+    width: 95%;
 }
 
 .reg-question {
@@ -105,7 +289,7 @@ body {
     font-size: 15px;
     line-height: 15px;
     letter-spacing: 0.3px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #640E0B;
 }
 
@@ -122,16 +306,25 @@ fieldset {
 }
 
 .register2-btn {
-    margin: auto;
-    display: block;
-    width: 331px;
-    height: 43px;
-    font-size: large;
-    font-family: 'Poppins';
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+
+    position: absolute;
+    width: 227px;
+    height: 52px;
+    left: 555px;
+    top: 686px;
+
     background: #640E0B;
-    border-radius: 4px;
-    border-color: #640E0B;
-    color: White;
+    border-radius: 10.8716px;
+}
+
+.register2-btn :hover {
+    cursor: pointer;
 }
 
 .campaign-title {
@@ -169,18 +362,48 @@ fieldset {
     top: 10px;
 }
 
+.campaign-head {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    top: 20px;
+    color: #630e0b;
+    left: 30px;
+}
+
+.campaign-details {
+    position: absolute;
+    top: 148px;
+    left: 20%;
+    width: 60%;
+    font-size: 19px;
+    font-weight: 500;
+    outline: 1px solid #bf1b16;
+    border-radius: 1%;
+    outline-offset: 46px;
+
+}
+
 .reg-btn {
+    position: absolute;
     justify-content: center;
     gap: 9.06px;
-    width: 334px;
+    width: 55%;
     height: 52px;
-    left: 514px;
-    top: 790px;
+    left: 22.5%;
+    top: 603px;
     font-family: 'Poppins';
     font-size: 20px;
     color: #FFF;
     background: #640E0B;
     border-radius: 10.8716px;
+}
+
+.reg-btn:hover {
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .reg-edit-btn-txt {
@@ -319,6 +542,17 @@ fieldset {
     cursor: pointer;
 }
 
+.page-navs {
+    position: absolute;
+    display: flex;
+    width: 272.49px;
+    height: 350.74px;
+    left: 0px;
+    top: 30px;
+    border-right: 1px;
+    border-color: #000000;
+}
+
 .view-campaign-side-bar {
     position: absolute;
     width: 277.49px;
@@ -417,7 +651,7 @@ fieldset {
     position: absolute;
     width: 6px;
     height: 40px;
-    left: -16px;
+    left: 0px;
     top: 10px;
     background: #BF1B16;
     box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
@@ -685,6 +919,32 @@ fieldset {
     margin-top: 405px;
 }
 
+.campaigns-selected {
+    position: absolute;
+    left: 5px;
+    top: 323px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.campaigns-active {
+
+    left: 11px;
+    position: absolute;
+    width: 59px;
+}
+
+.users-selected img {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 0px;
+    margin-left: 17px;
+    margin-top: 15px;
+}
+
 .campaigns-nav a {
     position: absolute;
     width: 122px;
@@ -700,6 +960,53 @@ fieldset {
     color: #0C0C0D;
     text-decoration: none;
     margin-top: 407px;
+}
+
+.campagins-act a {
+    position: absolute;
+    width: 111px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.campaigns-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 11px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgb(135 145 233 / 30%);
+    border-radius: 0px 8px 8px 0px;
+}
+
+
+
+.campaigns-act a {
+    position: absolute;
+    width: 114px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
 }
 
 .badges {
@@ -877,12 +1184,12 @@ fieldset {
     text-align: center;
 }
 
-.view-campaign-box {
+.reg-edit-box {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
     width: 1565px;
-    height: 1285px;
+    height: 782px;
     left: 316px;
     top: 0;
     font-family: 'Poppins';
@@ -892,9 +1199,103 @@ fieldset {
     text-align: center;
 }
 
-.div-box {
+.campaign-reg-box {
     box-sizing: border-box;
     width: 50%;
+    position: absolute;
+    width: 1565px;
+    height: 325px;
+    left: 316px;
+    top: -14px;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+
+}
+
+.campaign-view-box {
+    box-sizing: border-box;
+    width: 50%;
+    position: absolute;
+    width: 1565px;
+    height: 708px;
+    left: 316px;
+    /* bottom: 12px; */
+    top: 322px;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+
+.header2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 20px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.view-register-container {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    width: 96.5%;
+    height: 235px;
+    left: 28px;
+    top: 65px;
+    font-family: 'Poppins';
+    background: #f8f8f8;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.view-campaign-container {
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    width: 96.5%;
+    height: 610px;
+    left: 28px;
+    top: 65px;
+    font-family: 'Poppins';
+    background: #f8f8f8;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.view-campaign-box {
+    box-sizing: border-box;
+    width: 50%;
+    position: absolute;
+    width: 1565px;
+    height: 740px;
+    left: 316px;
+    top: 12px;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    /* text-indent: 165px; */
+}
+
+.div-box {
+    box-sizing: border-box;
     position: absolute;
     display: flex;
     width: 1565px;
@@ -902,7 +1303,6 @@ fieldset {
     left: 316px;
     top: 0;
     font-family: 'Poppins';
-    background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
     text-align: center;
@@ -917,8 +1317,34 @@ fieldset {
     border: 1px solid #ECEEF7;
     border-radius: 7px;
     box-shadow: 2px;
-    height: 45%;
+    height: 50%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
+}
+
+.left-head {
+    text-indent: 60px;
+    text-align: left;
+    position: flex;
+    height: 20%;
+
+}
+
+.left-q {
+    font-weight: bold;
+    float: left;
+    width: 40%;
+    height: 80%;
+    text-align: left;
+    text-indent: 63px;
+}
+
+.right-a {
+    position: flex;
+    float: left;
+    width: 60%;
+    height: 80%;
+    text-align: left;
+    /* background-color: antiquewhite; */
 }
 
 .right-box {
@@ -928,10 +1354,130 @@ fieldset {
     border: 1px solid #ECEEF7;
     border-radius: 7px;
     box-shadow: 2px;
-    height: 45%;
+    height: 50%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
 
+.r-left-q {
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    height: 80%;
+    text-align: left;
+    text-indent: 63px;
+}
+
+.r-right-a {
+    position: flex;
+    float: left;
+    width: 40%;
+    height: 80%;
+    text-align: left;
+    /* background-color: antiquewhite; */
+}
+
+
+.view-register-card {
+    float: left;
+    width: 30%;
+    display: flex;
+    background-color: white;
+    border: 1px solid #ECEEF7;
+    border-radius: 7px;
+    height: 85%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
+    margin-left: 36px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-evenly;
+}
+
+.view-campaign-card {
+    float: left;
+    width: 18%;
+    display: flex;
+    background-color: white;
+    border: 1px solid #ECEEF7;
+    border-radius: 7px;
+    height: 85%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
+    margin-left: 78px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    align-content: baseline;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.campaign-card-img {
+    width: 100%;
+    height: 50%;
+    /* filter: drop-shadow(0px 10px 3px black);
+    box-shadow: inset 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%); */
+    border-radius: 8px 8px 0 0;
+}
+
+
+.campaign-card-bottom {
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 7px;
+    height: 50%;
+    margin-inline-start: 8px;
+}
+
+h3 {
+    margin-right: 1rem;
+    margin-bottom: 0px;
+}
+
+.campaign-card-info {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    /* margin-inline-start: 15px; */
+    margin-inline-end: 0px;
+    /* text-indent: 2em */
+    padding-left: 20px;
+}
+
+.campaign-card-left-box {
+    display: flex;
+    float: left;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.campaign-card-right-box {
+    display: flex;
+    float: right;
+    width: 50%;
+    /* border: 1px solid #ECEEF7; */
+    /* border-radius: 7px; */
+    height: 100%;
+    /* box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%); */
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.campaign-img {
+    position: absolute;
+    top: 133px;
+    width: 386px;
+    /* visibility: hidden; */
+    left: 896px;
+    border-radius: 0 47px 48px 0;
+}
 
 .add-user-title {
     position: absolute;
@@ -1226,9 +1772,10 @@ a {
     align-items: center;
     position: absolute;
     width: 203.66px;
+    top: 426px;
     height: 52.49px;
-    left: 911px;
-    background: #F7F7F7;
+    left: 871px;
+    background: #e8e8e8;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1236,10 +1783,19 @@ a {
     font-weight: 700;
     font-size: 12.6835px;
     line-height: 19px;
-    /* identical to box height */
     text-align: center;
     letter-spacing: 0.01em;
     color: #640E0B;
+    cursor: pointer;
+}
+
+.outline-regedit-button:hover {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.outline-regdelete-button:hover {
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -1249,10 +1805,11 @@ a {
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 1194px;
+    left: 1241px;
+    top: 426px;
     width: 203.66px;
     height: 52.49px;
-    background: #F7F7F7;
+    background: #e8e8e8;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';

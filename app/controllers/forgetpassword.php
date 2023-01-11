@@ -44,10 +44,10 @@ class ForgetPassword extends Controller
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 587;
             $mail->SMTPAuth = true;
-            $mail->Username = 'shinthujeni@gmail.com';
-            $mail->Password = 'avejkffjglzhpioe';
+            $mail->Username = 'lifeline.managementservices@gmail.com';
+            $mail->Password = 'kelpqmxgangljbqj';
             //From email address and name
-            $mail->From = "shinthujeni@gmail.com";
+            $mail->From = "lifeline.managementservices@gmail.com";
             $mail->FromName = "Life Line";
 
             //To address and name

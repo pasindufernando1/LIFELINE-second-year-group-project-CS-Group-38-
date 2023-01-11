@@ -12,13 +12,13 @@ class Viewregistration extends Controller
     function index()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "systemuser") {
+            if ($_SESSION['type'] == "System User") {
                 $this->view->render('systemuser/reservation');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 $this->view->render('layout/reservation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Donor") {
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns();
                 $this->view->render('donor/getcampaign');
                 exit;
@@ -34,13 +34,13 @@ class Viewregistration extends Controller
 
     function getregistration(){
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "systemuser") {
+            if ($_SESSION['type'] == "System User") {
                 $this->view->render('systemuser/reservation');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 $this->view->render('layout/reservation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Donor") {
                 $_SESSION['selected_campid'] = $_GET['camp'];
                 $regid = $this->model->getregid($_SESSION['selected_campid'],$_SESSION['$user_ID']);
                 $_SESSION['selected_campid'] = $_GET['camp'];
@@ -58,7 +58,7 @@ class Viewregistration extends Controller
     }
 
     function editregistration(){
-        if ($_SESSION['type'] == "donor") {
+        if ($_SESSION['type'] == "Donor") {
             if (!isset($_POST['edit-reg'])) {
                 header("Location: /getcampaign/index");
                 exit;
@@ -101,7 +101,7 @@ class Viewregistration extends Controller
 
     function view_campaign(){
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
 
                 $_SESSION['selected_campid'] = $_GET['camp'];
             
@@ -138,14 +138,15 @@ class Viewregistration extends Controller
     function reg_to_campaign()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
+                $this->model->iftimeokay($_SESSION['email']);
                //$campaign_info = $this->model->get_campaign_info();
                 $this->view->render('donor/regtocampaign');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Donor") {
                 $this->view->render('layout/reservation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Admin") {
                 $this->view->render('systemuser/reservation');
                 exit;
             } else {
@@ -160,7 +161,7 @@ class Viewregistration extends Controller
      function register_to_campaign()
     {
         
-        if ($_SESSION['type'] == "donor") {
+        if ($_SESSION['type'] == "Donor") {
             if (!isset($_POST['reg-to-campaign'])) {
                 header("Location: /getcampaign/index");
                 exit;
@@ -205,10 +206,10 @@ class Viewregistration extends Controller
      function regtocampaignsuccessful()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
                 $this->view->render('donor/regtocampaign_success');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 $this->view->render('layout/reservation');
                 exit;
             }
@@ -224,7 +225,7 @@ class Viewregistration extends Controller
     function regtocampaignunsuccessful()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
                 $this->view->render('donor/regocampaign_unsuccessful');
                 exit;
             }
@@ -236,7 +237,7 @@ class Viewregistration extends Controller
 
     function get_registration(){
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
                 $campid = $_SESSION['selected_campid'];
                 $email = $_SESSION['email'];
                 $user_ID = $this->model->get_user_id($email);
@@ -252,7 +253,7 @@ class Viewregistration extends Controller
 
     function view_campaign_reg(){
         if(isset($_SESSION['login'])){
-            if ($_SESSION['type'] == "donor"){
+            if ($_SESSION['type'] == "Donor"){
                 $this->view->render('donor/viewregistration');
                 exit;
             }

@@ -18,8 +18,11 @@ class Donorsignup extends Controller
             header("Location: /donor/login");
             exit;
         }
-        if($_POST['g1']== "on" ||$_POST['g2']== "on"||$_POST['g3']== "on"){
-            header("Location: /donor/regunseccessful");
+        if(!isset($_POST['g1'])|| !isset($_POST['g2']) || !isset($_POST['g3'])||!isset($_POST['g4'])||!isset($_POST['g5'])){
+             header("Location: /donorsignup/regunseccessful");
+        }
+        if($_POST['g1']== "on" || $_POST['g2']== "on" || $_POST['g3']== "on" || $_POST['g4']== "on"|| $_POST['g5']== "on"){
+            header("Location: /donorsignup/regunseccessful");
         }
         else{
             $email = $_POST['email'];
@@ -29,7 +32,7 @@ class Donorsignup extends Controller
             else{
                 $password = $_POST['password'];
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $type = 'donor';
+                $type = 'Donor';
                 $username = $_POST['uname'];
                 $user_input = array($email,$hashed_password,$username,$type);
 

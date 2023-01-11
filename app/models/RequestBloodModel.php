@@ -37,5 +37,16 @@ class RequestBloodModel extends Model
         $data = $this->db->select("*", "bloodbank",null);
         return $data;
     }
+
+    public function getAllRequests($HospitalID)
+    {
+        $data = $this->db->select("*", "hospital_blood_requests", "WHERE HospitalID = :HospitalID", ":HospitalID", $HospitalID);
+        // for($data as $value){
+        //     // $data["BloodBankID"];
+        //     print_r($data[][1]);
+        //     die();
+        // }
+        return $data;
+    }
     
 }  

@@ -680,6 +680,20 @@ body {
     border-radius: 6px;
 }
 
+.adminbox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1425px;
+    height: 1123.6px;
+    left: 316px;
+    top: 0;
+}
+
+.adminbox img{
+    width: 100%;
+    height: 100%;
+}
+
 .add-user-title {
     position: absolute;
     width: 559.66px;
@@ -850,12 +864,68 @@ a {
     top: 320px;
 }
 
+.nic-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 201px;
+}
+
+.dob-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 273px;
+}
+
+.btype-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 353px;
+}
+
 .quantity-lable {
     position: absolute;
     height: 16px;
     left: 0px;
     right: 0px;
     top: -200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.nic-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.dob-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -903,7 +973,33 @@ a {
     width: 50%;
 }
 
+.regorg-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -100px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+
+
 .reg-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.regorg-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -923,7 +1019,42 @@ a {
     top: 320px;
 }
 
+.dob-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 320px;
+}
+
+
+
+
+.bloodtype-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 391px;
+}
+
 .status-lable {
+    position: absolute;
+    height: 16px;
+    left: 52%;
+    right: 0px;
+    bottom: 170px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bloodtype-lable {
     position: absolute;
     height: 16px;
     left: 52%;
@@ -952,7 +1083,20 @@ a {
     width: 48%;
 }
 
-.status-input::placeholder {
+.bloodtype-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 52%;
+    right: 0px;
+    top: -100px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 48%;
+}
+
+.bloodtype-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -972,6 +1116,15 @@ a {
     right: 114px;
     top: 320px;
 }
+
+.donorlocation-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 386px;
+}
+
 
 .location-lable {
     position: absolute;
@@ -1125,7 +1278,6 @@ a {
     left: 0px;
     right: 0px;
     top: -180px;
-    bottom: px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -1144,6 +1296,55 @@ a {
     opacity: 0.4;
 }
 
+.nic-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 18px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.nic-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.dob-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 18px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 48%;
+}
+
+.dob-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
 .email-container {
     position: absolute;
     height: 64px;
@@ -1151,6 +1352,32 @@ a {
     right: 114px;
     top: 407px;
 }
+
+.email-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 412px;
+}
+
+.donoremail-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 476px;
+}
+
+.sysemail-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 423px;
+}
+
+
 
 .email-lable {
     position: absolute;
@@ -1192,13 +1419,36 @@ a {
     opacity: 0.4;
 }
 
-
 .contact-container {
     position: absolute;
     height: 64px;
     left: 65px;
     right: 114px;
     top: 484px;
+}
+
+.contact-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 451px;
+}
+
+.donorcontact-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 506px;
+}
+
+.syscontact-viewcontainer {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 452px;
 }
 
 .contact-lable {
@@ -1241,7 +1491,6 @@ a {
     opacity: 0.4;
 }
 
-
 .uname-container {
     position: absolute;
     height: 64px;
@@ -1249,6 +1498,49 @@ a {
     right: 114px;
     top: 559px;
 }
+
+.donoruname-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 559px;
+}
+
+
+.uname-viewcontainer{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 497px;
+}
+
+.donoruname-viewcontainer{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 542px;
+}
+
+.donorgender-viewcontainer{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 542px;
+}
+
+.uid-viewcontainer{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 497px;
+}
+
+
 
 .uname-lable {
     position: absolute;
@@ -1965,9 +2257,19 @@ td {
 }
 
 .user-btn{
-    width: 300px;
+    width: 325px;
     height: 200px;
 }
+
+/* Hover effects on user button */
+.user-btn:hover{
+    background-color: #640E0B;
+    color: #FCFEFE;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
 
 .usericon{
     margin-left: -54px
@@ -2029,6 +2331,54 @@ td {
     color: #000000;
 }
 
+.dobview-lable{
+    position: absolute;
+    height: 16px;
+    left: 240px;
+    right: 0px;
+    top: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.dobview-lable{
+    position: absolute;
+    height: 16px;
+    left: 240px;
+    right: 0px;
+    top: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.btypeview-lable{
+    position: absolute;
+    height: 16px;
+    left: 240px;
+    right: 0px;
+    top: 9px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
 .locationview-lable{
     position: absolute;
     height: 16px;
@@ -2041,7 +2391,6 @@ td {
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2050,14 +2399,13 @@ td {
     height: 16px;
     left: 240px;
     right: 0px;
-    top: 96px;
+    top: 7px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 1000;
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2066,7 +2414,7 @@ td {
     height: 16px;
     left: 240px;
     right: 0px;
-    top: 132px;
+    top: 10px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 1000;
@@ -2082,7 +2430,40 @@ td {
     height: 16px;
     left: 240px;
     right: 0px;
-    top: 172px;
+    top: 6px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.genderview-lable{
+    position: absolute;
+    height: 16px;
+    left: 240px;
+    right: 0px;
+    top: 34px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+
+.uidview-lable{
+    position: absolute;
+    height: 16px;
+    left: 240px;
+    right: 0px;
+    top: 49px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 1000;
@@ -2097,7 +2478,7 @@ td {
     margin-left: 248px;
     margin-top: -18px;
     font-weight: 400;
-    font-size: large
+    font-size: large;
 }
 
 .brown-button-view{
@@ -2129,6 +2510,8 @@ td {
 .brown-button-view:hover{
     font-size: 13.6835px;    
 }
+
+
 
 /* Style the diabled option */
 

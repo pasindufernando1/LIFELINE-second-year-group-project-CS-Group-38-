@@ -22,7 +22,7 @@
                 <p>Log In to Hospitals/Medical Centers</p>
             </div>
             
-            <center>
+            
             <form class="login-form" action="/hospitaluser/dashboard" method="post" id="user-login" name="login-form">
             <?php if (isset($_SESSION['error'])) {  ?>
                 <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
@@ -36,7 +36,7 @@
                 <label class="password-lable" for="password">Password:</label>
                 <br>
                 <input class="password-input" id="password"  type="password" name="password" autofocus placeholder="Enter Password" required>
-                <p class="forget-password">Forgot password?</p>
+                <a href="/hospitaluser/forgetPassword" class="forget-password">Forgot password?</a>
                 <br>
                 
                 
@@ -48,10 +48,10 @@
                 <button class='login-button' type='submit' name='login'>Login</button>
             
                 
-            </form></center>
+            </form>
             
             <div class="signup-p">
-                <p>Don’t have an account? Sign up</p>
+                <p>Don’t have an account? <a href="/hospitals/signup/">Sign up</p>
 
             </div>
 

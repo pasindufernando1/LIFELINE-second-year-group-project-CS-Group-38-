@@ -43,6 +43,28 @@ class DonoruserModel extends Model
         } 
     }
 
+
+        public function checkMail($email)
+    {
+        $res = ($this->db->select('userID', "user", "WHERE email = :email;", ':email', $email));
+        if(!empty($res)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function updatePassword($email, $pwd)
+    {
+        $passw = password_hash($pwd, PASSWORD_DEFAULT);
+        $result = $this->db->update("user", "password", ":password", $passw, ':email', $email, "WHERE email = :email");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
     public function get_campaign_info($campaignid)
     {
         if ($this->db->select('count', "donation_campaign", "WHERE campaignid = :campaignid;", ':campaignid', $campaignid) > 0) {

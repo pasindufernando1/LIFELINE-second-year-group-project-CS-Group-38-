@@ -28,4 +28,18 @@ class Organization extends Controller
             // header("Location: /organizationuser/signuppage/");
             $this->view->render('signup/organizationsignup');        
     }
+
+    function organizationsignupsuccessful()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Organization/Society") {
+                $this->view->render('hospitals/add_request_successful');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/organizationlogin');
+        }
+    }
+
 }

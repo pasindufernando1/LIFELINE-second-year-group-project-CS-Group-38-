@@ -16,15 +16,15 @@ class Systemuser extends Controller
     function login()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "systemuser") {
+            if ($_SESSION['type'] == "System User") {
                 header("Location: /systemuser/dashboard");
                 $this->view->render('systemuser/layout/header');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 header("Location: /user/dashboard");
                 $this->view->render('layout/navigation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Donor") {
                 header("Location: /user/dashboard");
                 $this->view->render('systemuser/dashboard');
                 exit;
@@ -49,13 +49,13 @@ class Systemuser extends Controller
         
         //if already logged in redirect according to user types
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "systemuser") {
+            if ($_SESSION['type'] == "System User") {
                 $this->view->render('systemuser/dashboard');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 $this->view->render('layout/navigation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Donor") {
                 $this->view->render('systemuser/dashboard');
                 exit;
             } else {
@@ -80,11 +80,12 @@ class Systemuser extends Controller
         
         if ($this->model->authenticate($uname, $pwd)) {
 
+            $_SESSION['useremail'] = $_POST['username'];
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);
-            $this->view->render('systemuser/layout/header');
+            $this->view->render('systemuser/dashboard');
 
             
         }
@@ -100,6 +101,6 @@ class Systemuser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /systemuser/login");
+        header("Location: /");
     }
 }

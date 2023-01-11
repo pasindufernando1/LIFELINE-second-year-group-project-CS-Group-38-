@@ -30,6 +30,7 @@ class ForgetPasswordModel extends Model
         } 
 
     }
+    
     public function insertToken($email)
     {
         if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {

@@ -15,12 +15,21 @@
     line-height: 20px;
     /* identical to box height, or 143% */
     text-align: center;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px solid;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
     padding-top: 25px
 }
+
+.btn-1:hover, .btn-2:hover, .btn-3:hover, .btn-4:hover, .btn-5:hover {
+    background: #efeaea;
+    transition: 0.3s;
+    color: #640E0B;
+    font-size: 13.6835px;
+}
+
+
 
 .btn-2 {
     position: absolute;
@@ -39,7 +48,7 @@
     line-height: 20px;
     /* identical to box height, or 143% */
     text-align: center;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px solid;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
@@ -63,7 +72,7 @@
     line-height: 20px;
     /* identical to box height, or 143% */
     text-align: center;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px solid;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
@@ -87,7 +96,7 @@
     line-height: 20px;
     /* identical to box height, or 143% */
     text-align: center;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px solid;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
@@ -111,7 +120,7 @@
     line-height: 20px;
     /* identical to box height, or 143% */
     text-align: center;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px solid;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
@@ -133,4 +142,10 @@
     text-align: center;
     letter-spacing: 0.3px;
     color: #252733;
+}
+
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5 {
+    width: 50%;
+    left: 25%;
+    font-size: 20px;
 }

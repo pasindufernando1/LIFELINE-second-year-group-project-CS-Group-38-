@@ -39,5 +39,9 @@ $metaTitle = "System User Dashboard"
 
     </div>
 
+    <div class="adminbox">
+        <img src="./../../public/img/dashboard/system_dashboard.png" alt="admin dashboard">
+    </div>
+
 </body>
 </html>

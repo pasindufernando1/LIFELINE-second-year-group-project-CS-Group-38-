@@ -96,7 +96,7 @@ $metaTitle = "Hospitals Dashboard"
                     
                         <p class="msg">Successfully Requested!</p>
                     
-                        <a href="/requestBlood" class="brown-button1">Back to request Blood</a>
+                        <a href="/requestBlood/viewDetails/" class="brown-button1">Back to request Blood</a>
                         <!-- <button class='brown-button1' a href="/viewBloodbanks" type='submit' name='Back'>Back to Request Blood</button> -->
                     
                 

@@ -29,4 +29,23 @@ class Hospitals extends Controller
         }
         
     }
+
+    function signup(){
+        // header("Location: /organizationuser/signuppage/");
+        $this->view->render('signup/hospitalsignup');        
+    }
+
+    function hospitalsignupsuccessful()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Hospital/Medical_Center") {
+                $this->view->render('hospitals/add_request_successful');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/hospitalslogin');
+        }
+    }
+
 }

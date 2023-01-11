@@ -43,7 +43,7 @@ $metaTitle = "Donor Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/donordashboard/pasindudp.jpg" alt="profile-pic">
+                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -66,10 +66,11 @@ $metaTitle = "Donor Dashboard"
             </div>
 
             <!-- Side bar -->
-            <div class="side-bar">
+<div class="side-bar">
                 <div class="side-nav">
-                    <div class="dashboard menu-item">
-                        <img src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
+                    <div class="dashboard-non menu-item">
+                        <img class ="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
+                        <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
                     </div>
                     <div class="reservation menu-item">
@@ -102,11 +103,10 @@ $metaTitle = "Donor Dashboard"
                         <p class="reports-nav "><a href="#">Feedback</a></p>
 
                     </div>
-                    <div class="campaigns menu-item">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/donordashboard/active/campaigns.png" alt="campaigns">
-                        <img class="reservation-active " src="./../../public/img/donordashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
+                    <div class="campaigns-selected">
+                        <div class="campaigns-marker"></div>
+                        <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png" alt="campaigns">
+                        <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
 
                     </div>
                     <div class="line"></div>

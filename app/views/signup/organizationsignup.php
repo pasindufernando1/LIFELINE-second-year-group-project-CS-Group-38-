@@ -23,14 +23,14 @@
             <div class="sub-2">
                 <p>Please complete this form</p>
             </div>
-            <form class="orgsignup-form" action="/organizationuser/processSignup" method="post" id="user-login" name="orgsignup-form">
+            <form class="orgsignup-form" action="/organizationuser/processSignup/" method="post" id="addform" name="orgsignup-form">
                 <label class="username-lable" for="name">ORGANIZATION / SOCIETY NAME</label>
                 <br>
                 <input id="username" class="username-input" type="text" name="name" autofocus placeholder="Organization / Society Name" required>
                 <br>
-                <label class="reg-lable" for="regno">REGISTRATION NUMBER</label>
+                <label id="regnum-label" class="reg-lable" for="regno">REGISTRATION NUMBER</label>
                 <br>
-                <input id="reg" class="reg-input" type="text" name="regno" autofocus placeholder="Registration number" required>
+                <input id="regnum" class="reg-input" type="text" name="regno" autofocus placeholder="Registration number" required>
                 <br>
                 <label class="address-lable" for="address">POSTAL ADDRESS</label>
                 <br>
@@ -82,31 +82,37 @@
                                         <option value="Western">Western</option>
                 </select>
                 <br>
-                <label class="email-lable" for="email">EMAIL</label>
+                <label id="email-label" class="email-lable" for="email">EMAIL</label>
                 <br>
                 <input id="email" class="email-input" type="email" name="email" autofocus placeholder="Email" required>
                 <br>
-                <label class="tel-lable" for="tel">Telephone</label>
+                <label id="contact-label" class="tel-lable" for="tel">Telephone</label>
                 <br>
-                <input id="tel" class="tel-input" type="text" name="tel" autofocus placeholder="Telephone number" required>
+                <input id="contact" class="tel-input" type="text" name="tel" autofocus placeholder="Telephone number" required>
                 <br>
                 <label class="uname-lable" for="uname">USERNAME</label>
                 <br>
                 <input id="uname" class="uname-input" type="text" name="uname" autofocus placeholder="Username" required>
                 <br>
-                <label class="password-lable" for="password">PASSWORD</label>
+                <label id="password-label" class="password-lable" for="password">PASSWORD</label>
                 <br>
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
                 <br>
+                <label id="confirmPassword-label" class="confirmPassword-lable" for="confirmPassword">CONFIRM PASSWORD</label>
+                <br>
+                <input id="confirmPassword" class="confirmPassword-input" type="password" name="confirmPassword" autofocus placeholder="Confirm Password" required>
+                <br>
+                <button id="submit-btn" class='login-button' type='submit' name='signup'>SUBMIT</button>
+                <div class="signup-p">
+                    <p>Already have an account? <a href="/organization/login/">Login</a></p>
 
-                <button class='login-button' type='submit' name='signup'>SUBMIT</button>
-                
+                </div>
                 
                 
             </form>
 
             
         </div>
-          
+        <script src="../../../public/js/validation/uservalidation.js"></script> 
     </body>
 </html>

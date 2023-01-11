@@ -12,7 +12,7 @@ class Donor extends Controller
     function login()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "donor") {
+            if ($_SESSION['type'] == "Donor") {
                 header("Location: /donoruser/dashboard");
                 $this->view->render('donor/dashboard');
                 exit;
