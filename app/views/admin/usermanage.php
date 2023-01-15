@@ -1,5 +1,4 @@
 <?php 
-
 $metaTitle = "Admin UserManage" 
 ?>
 

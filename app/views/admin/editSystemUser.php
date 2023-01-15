@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Edit System User" 
 ?>
 
 <!DOCTYPE html>
@@ -137,11 +137,11 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <?php echo '<form action="/usermanage/editSystemUser/'.$_SESSION['user_id']. '" method="post" enctype="multipart/form-data">'?>
+                        <?php echo '<form action="/usermanage/editSystemUser/'.$_SESSION['user_id']. '" method="post" enctype="multipart/form-data" id="addform">'?>
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="bloodbankid">Blood Bank ID</label>
                                 <select class="quantity-input" type="text" name="bloodbankid" id="bloodbankid" placeholder="Blood Bank ID" required>
-                                <option value="<?php echo $_SESSION['BloodBankID'] ?>"><?php echo $_SESSION['BloodBankID'] ?></option>
+                                <option value="<?php echo $_SESSION['BloodBankID'] ?>" hidden><?php echo $_SESSION['BloodBankID'] ?></option>
                                         <?php foreach ($_SESSION['bloodbanks'] as $bloodbank) : ?>
                                             <option value="<?php echo $bloodbank[0]; ?>"><?php echo $bloodbank[0]." : ".$bloodbank[1]; ?></option>
                                         <?php endforeach; ?>

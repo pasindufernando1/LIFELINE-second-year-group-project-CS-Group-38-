@@ -89,8 +89,8 @@ class UserManageModel extends Model
         $UserID = $this->db->lastInsertId();
         array_unshift($inputs2, $UserID);
 
-        $columns2 = array('UserID','Fullname','NIC','DOB','BloodType','Number','LaneName','City','District','Province','DonorCard_Img');
-        $param2 = array(':UserID',':Fullname',':NIC',':DOB',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img');
+        $columns2 = array('UserID','Fullname','NIC','Gender','DOB','BloodType','Number','LaneName','City','District','Province','DonorCard_Img');
+        $param2 = array(':UserID',':Fullname',':NIC',':Gender',':DOB',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img');
         $result2 = $this->db->insert("donor", $columns2, $param2, $inputs2);
 
         //Updating the usercontactnumber table
@@ -301,8 +301,8 @@ class UserManageModel extends Model
         // $UserID = $this->db->lastInsertId();
         // array_unshift($inputs2, $UserID);
 
-        $columns2 = array('Fullname', 'NIC','DOB','BloodType', 'Number', 'LaneName', 'City', 'District', 'Province','DonorCard_Img');
-        $param2 = array(':Fullname', ':NIC',':DOB',':BloodType', ':Number', ':LaneName', ':City', ':District', ':Province',':DonorCard_Img');
+        $columns2 = array('Fullname','NIC','Gender','DOB','BloodType', 'Number', 'LaneName', 'City', 'District', 'Province','DonorCard_Img');
+        $param2 = array(':Fullname', ':NIC',':Gender',':DOB',':BloodType', ':Number', ':LaneName', ':City', ':District', ':Province',':DonorCard_Img');
         $result2 = $this->db->update("donor", $columns2, $param2, $inputs2,':user_id',$user_id,"WHERE UserID = :user_id");
 
         //Updating the usercontactnumber table
@@ -364,16 +364,14 @@ class UserManageModel extends Model
         //Set foreign key checks to 0
         $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result2 = $this->db->delete("hospital_medicalcenter", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
+        // $result2 = $this->db->delete("hospital_medicalcenter", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
+        // $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
         $this->db->query("SET FOREIGN_KEY_CHECKS=1");
-        if ($result1 == "Success" && $result2 == "Success" && $result3 == "Success") {
+        if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            print_r($result2);
-            print_r($result3);
         }
     }
 
@@ -382,16 +380,14 @@ class UserManageModel extends Model
         //Set foreign key checks to 0
         $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result2 = $this->db->delete("organization_society", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
+        // $result2 = $this->db->delete("organization_society", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
+        // $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
         $this->db->query("SET FOREIGN_KEY_CHECKS=1");
-        if ($result1 == "Success" && $result2 == "Success" && $result3 == "Success") {
+        if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            print_r($result2);
-            print_r($result3);
         }
     }
 
@@ -400,35 +396,27 @@ class UserManageModel extends Model
         //Set foreign key checks to 0
         $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result2 = $this->db->delete("system_user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
         $this->db->query("SET FOREIGN_KEY_CHECKS=1");
-        if ($result1 == "Success" && $result2 == "Success" && $result3 == "Success") {
+        if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            print_r($result2);
-            print_r($result3);
             
         }
     }
 
-    function deleteDonorrDetails($user_id)
+    function deleteDonorDetails($user_id)
     {
         //Set foreign key checks to 0
         $this->db->query("SET FOREIGN_KEY_CHECKS=0");
         $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result2 = $this->db->delete("donor", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
         $this->db->query("SET FOREIGN_KEY_CHECKS=1");
-        if ($result1 == "Success" && $result2 == "Success" && $result3 == "Success") {
+        if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            print_r($result2);
-            print_r($result3);
             
         }
     }

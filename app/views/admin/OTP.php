@@ -1,5 +1,5 @@
 <?php
-    $metaTitle = "AdminLogin" ;
+    $metaTitle = "OTP" ;
     define('__ROOT__', dirname(dirname(dirname(__FILE__))));
     require_once(__ROOT__.'/views/layout/header.php');
     require_once(__ROOT__.'/views/layout/navigation.php');    
@@ -29,9 +29,9 @@
                 <br>
                 <input id="username" class="username-input" type="text" name="OTP" autofocus placeholder="Enter the verification code sent to your email" required>
                 <br>
-                <?php if (isset($_SESSION['error'])) {  ?>
-                <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
-                <?php $_SESSION['error'] = '';
+                <?php if (isset($_SESSION['pw_error'])) {  ?>
+                <p class="error-pwd"><?php echo ($_SESSION['pw_error']); ?></p>
+                <?php $_SESSION['pw_error'] = '';
                 } ?>
                 
                 <button class='login-button' type='submit' name='Submit'>Submit</button>

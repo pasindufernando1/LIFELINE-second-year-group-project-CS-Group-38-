@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['error'] = '';
+// $_SESSION['error'] = '';
 
 class Systemuser extends Controller
 {
@@ -80,11 +80,12 @@ class Systemuser extends Controller
         
         if ($this->model->authenticate($uname, $pwd)) {
 
+            $_SESSION['useremail'] = $_POST['username'];
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);
-            $this->view->render('systemuser/layout/header');
+            $this->view->render('systemuser/dashboard');
 
             
         }
@@ -100,6 +101,6 @@ class Systemuser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /systemuser/login");
+        header("Location: /");
     }
 }

@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Edit org/soc" 
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +138,7 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <?php echo '<form action="/usermanage/editOrganizationSociety/'.$_SESSION['user_id']. '" method="post" enctype="multipart/form-data">'?>
+                        <?php echo '<form action="/usermanage/editOrganizationSociety/'.$_SESSION['user_id']. '" method="post" enctype="multipart/form-data" id="addform">'?>
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Name:</label>
                                 <br>
@@ -158,7 +158,7 @@ $metaTitle = "Admin Dashboard"
                                 
                                 <select id="district" class="district-input custom-select" type="text" name="district" autofocus placeholder="District"required>
                                         <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['District'] ?>"><?php echo $_SESSION['District'] ?></option>
+                                        <option value="<?php echo $_SESSION['District'] ?>" hidden><?php echo $_SESSION['District'] ?></option>
                                         <option value="Ampara">Ampara</option>
                                         <option value="Anuradhapura">Anuradhapura</option>
                                         <option value="Badulla">Badulla</option>
@@ -189,7 +189,7 @@ $metaTitle = "Admin Dashboard"
                                 <script src="../../../public/js/custom-select.js"></script>
                                 <select id="province" class="province-input custom-select" type="text" name="province" autofocus placeholder="Province" required>
                                         <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['Province'] ?>"><?php echo $_SESSION['Province'] ?></option>
+                                        <option value="<?php echo $_SESSION['Province'] ?>" hidden><?php echo $_SESSION['Province'] ?></option>
                                         <option value="Central">Central</option>
                                         <option value="Eastern">Eastern</option>
                                         <option value="North Central">North Central</option>

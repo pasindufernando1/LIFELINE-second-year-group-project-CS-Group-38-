@@ -35,6 +35,20 @@
         border: 1.81193px solid #ECEEF7;
         border-radius: 6px;
     }
+
+    .adminbox {
+        box-sizing: border-box;
+        position: absolute;
+        width: 1427px;
+        height: 1118.92px;
+        left: 316px;
+        top: 102px;
+    }
+    
+    .adminbox img{
+        width: 100%;
+        height: 100%;
+    } 
     
     .add-reservation-title {
         position: absolute;

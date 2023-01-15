@@ -210,6 +210,10 @@ fieldset {
     color: White;
 }
 
+.register2-btn :hover {
+    cursor: pointer;
+}
+
 .campaign-title {
     position: absolute;
     width: 567.52px;
@@ -245,18 +249,48 @@ fieldset {
     top: 10px;
 }
 
+.campaign-head {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    top: 20px;
+    color: #630e0b;
+    left: 30px;
+}
+
+.campaign-details {
+    position: absolute;
+    top: 148px;
+    left: 20%;
+    width: 60%;
+    font-size: 19px;
+    font-weight: 500;
+    outline: 1px solid #bf1b16;
+    border-radius: 1%;
+    outline-offset: 46px;
+
+}
+
 .reg-btn {
+    position: absolute;
     justify-content: center;
     gap: 9.06px;
-    width: 334px;
+    width: 55%;
     height: 52px;
-    left: 514px;
-    top: 790px;
+    left: 22.5%;
+    top: 603px;
     font-family: 'Poppins';
     font-size: 20px;
     color: #FFF;
     background: #640E0B;
     border-radius: 10.8716px;
+}
+
+.reg-btn:hover {
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .reg-edit-btn-txt {
@@ -1124,12 +1158,12 @@ fieldset {
     width: 1565px;
     height: 740px;
     left: 316px;
-    top: 0;
+    top: 12px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
-    text-align: center;
+    /* text-indent: 165px; */
 }
 
 .div-box {
@@ -1171,6 +1205,7 @@ fieldset {
     height: 45%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
+
 
 
 .view-register-card {
@@ -1247,11 +1282,10 @@ h3 {
     display: flex;
     float: left;
     width: 50%;
-    /* border: 1px solid #ECEEF7; */
-    /* border-radius: 7px; */
     height: 100%;
-    /* box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%); */
     flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
 }
 
 .campaign-card-right-box {
@@ -1267,8 +1301,14 @@ h3 {
     justify-content: space-evenly;
 }
 
-
-
+.campaign-img {
+    position: absolute;
+    top: 133px;
+    width: 386px;
+    /* visibility: hidden; */
+    left: 896px;
+    border-radius: 0 47px 48px 0;
+}
 
 .add-user-title {
     position: absolute;

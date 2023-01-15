@@ -59,7 +59,7 @@ class OrganizationUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /organization/login");
+        header("Location: /");
     }
 
     function processSignup(){
@@ -93,7 +93,7 @@ class OrganizationUser extends Controller
 
 
             if ($this->model->signupOrganization($inputs1, $inputs2, $inputs3)) {
-                header("Location: /usermanage/add_hosmed_successful");
+                header("Location: /organization/login");
             }
             
         

@@ -13,7 +13,8 @@ class Reservation extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                $_SESSION['packets'] = $this->model->getAllPackets();
+                $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $_SESSION['packets'] = $this->model->getAllPackets($blood_bank_id);
                 $this->view->render('systemuser/reservation');
                 exit;
             } else if ($_SESSION['type'] == "Admin") {
@@ -62,7 +63,8 @@ class Reservation extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                $_SESSION['bloodtypes'] = $this->model->getAllTypes();
+                $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $_SESSION['bloodtypes'] = $this->model->getAllTypes($blood_bank_id);
                 $this->view->render('systemuser/reservation_type');
                 exit;
             } else if ($_SESSION['type'] == "Admin") {
@@ -119,13 +121,14 @@ class Reservation extends Controller
                 header("Location: /reservation/add");
                 exit;
             }
+            $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
             
             $blood_group = $_POST['blood_group'];
             $type_id = $this->model->getTypeIDFromName($blood_group);
             $quantity = $_POST['quantity'];
             $status = 1;
 
-            $inputs = array($quantity, $type_id,  $status);
+            $inputs = array($quantity, $type_id,  $status, $blood_bank_id);
 
             if ($this->model->addReserve($inputs)){
                 header("Location: /reservation/add_reservation_successful");
@@ -167,6 +170,7 @@ class Reservation extends Controller
             
             $blood_group = $_POST['blood_group'];
             $type_id = $this->model->getTypeIDFromName($blood_group);
+            
             $quantity = $_POST['quantity'];
             $status = 1;
 
@@ -189,12 +193,13 @@ class Reservation extends Controller
                 header("Location: /reservation/add_type");
                 exit;
             }
-            
+            $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
+
             $blood_group = $_POST['blood_group'];
             $storing_constraints = $_POST['Storing_Constraints'];
             $expiry_constraints = $_POST['expiry_constraints'];
 
-            $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
+            $inputs = array($blood_group, $storing_constraints, $expiry_constraints, $blood_bank_id);
 
             if ($this->model->addReserveTypes($inputs)){
                 header("Location: /reservation/add_reservation_successful");

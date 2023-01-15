@@ -123,7 +123,7 @@
 }
 
 .role-type {
-    width: 10vw;
+    width: 15vw;
     height: 3vh;
     font-family: 'Poppins';
     font-style: normal;
@@ -140,7 +140,6 @@
     background: #EBEBEB;
     cursor: pointer;
     flex-shrink: 0;
-    margin-left: 10.2vh;
     margin-top: 2.5vh;
 }
 

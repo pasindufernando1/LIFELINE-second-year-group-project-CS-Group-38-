@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Add Donor" 
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data">
+                        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data" id="addform">
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Full name</label>
                                 <br>
@@ -148,6 +148,16 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                                 <input id="nic" class="nic-input" type="text" name="nic" autofocus placeholder="NIC no" required>
                             </div>
+                            <div class="gender-container">
+                                <label id="gender-label" class="gender-lable" for="gender">Gender</label>
+                                <br>
+                                <select id="gender" class="gender-input" type="text" name="gender" autofocus placeholder="Gender" required>
+                                <option value="" disabled selected hidden>Select Gender</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </div>
+
                             <div class="dob-container">
                                 <label id="dob-label" class="dob-lable" for="dob">DOB</label>
                                 <br>
@@ -172,7 +182,7 @@ $metaTitle = "Admin Dashboard"
                             <div class="location-container">
                                 <label class="location-lable" for="location">Location:</label>
                                 <br>
-                                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required>
+                                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Starting line" required>
                                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required>
                                 <input id="city" class="city-input" type="text" name="city" autofocus placeholder="City" required>
                                 

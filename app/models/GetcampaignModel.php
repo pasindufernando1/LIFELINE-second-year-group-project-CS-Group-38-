@@ -20,9 +20,9 @@ class GetcampaignModel extends Model
     }
 
     
-    public function getAllCampaigns()
+    public function getAllCampaigns($today)
     {
-        $data = $this->db->select("*", "donation_campaign",null);
+        $data = $this->db->select("*", "donation_campaign", "WHERE Date > :Date", ":Date", $today);
         return $data;
     }
 

@@ -11,6 +11,7 @@
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?> 
     <div class="side-bar">
                 <div class="side-nav">
+                    <div class="selected"></div>
                     <div class="dashboard menu-item">
                         <div class="marker"></div>
                         <img class="red-dash" src="./../../public/img/dashboard/active/dashboard.png" alt="dashboard">
@@ -57,11 +58,12 @@
                     </div>
                     <div class="line"></div>
                     <div class="profile menu-item">
-                        <img src="./../../public/img/dashboard/non-active/profile.png" alt="profile">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
+                        <img class="blk-profile" src="./../../public/img/dashboard/non-active/profile.png" alt="profile">
+                        <img class="reservation-non-active red-profile" src="./../../public/img/dashboard/active/profile.png" alt="profile">
+                        <p class="profile-nav "><a href="/profile">Profile</a></p>
 
                     </div>
+                    
 
                 </div>
 

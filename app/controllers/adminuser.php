@@ -59,10 +59,10 @@ class AdminUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /admin/login");
+        header("Location: /");
     }
 
-    function forgetPassword(){
+    function forgetPassword(){        
         $this->view->render('admin/forgetpassword');
     }
 
@@ -91,7 +91,7 @@ class AdminUser extends Controller
             $mail->Port = 587;
             $mail->SMTPAuth = true;
             $mail->Username = 'lifeline.managementservices@gmail.com';
-            $mail->Password = 'pdrnjjddsyfhwywh';
+            $mail->Password = 'kelpqmxgangljbqj';
             //From email address and name
             $mail->From = "lifeline.managementservices@gmail.com";
             $mail->FromName = "Life Line";
@@ -119,7 +119,7 @@ class AdminUser extends Controller
             }
         }
         else {
-            $_SESSION['error'] = 'Email is not registered';
+            $_SESSION['pw_error'] = 'Email is not registered';
             header('Location: /adminuser/forgetpassword');
         }
     }
@@ -140,7 +140,7 @@ class AdminUser extends Controller
 
         }
         else {
-            $_SESSION['error'] = 'Verification failed try again';
+            $_SESSION['pw_error'] = 'Verification failed try again';
             header('Location: /adminuser/OTP');
         }
 
@@ -160,12 +160,11 @@ class AdminUser extends Controller
             };
         }
         else{
-            $_SESSION['error'] = 'Passwords dont match';
+            $_SESSION['pw_error'] = 'Passwords do not match';
             header('Location: /adminuser/new_password');
         }
         
         
     }
-
     
 }

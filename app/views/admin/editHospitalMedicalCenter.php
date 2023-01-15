@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Edit Hos/Med" 
 ?>
 
 <!DOCTYPE html>
@@ -139,7 +139,7 @@ $metaTitle = "Admin Dashboard"
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
                         
-                        <?php echo '<form action="/usermanage/editHospitalMedCenter/'.$_SESSION['user_id']. '" method="post">' ?>
+                        <?php echo '<form action="/usermanage/editHospitalMedCenter/'.$_SESSION['user_id']. '" method="post" id="addform">' ?>
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Name:</label>
                                 <br>
@@ -165,9 +165,9 @@ $metaTitle = "Admin Dashboard"
                                 <input id="number" class="number-input" type="text" name="number" value="<?php echo $_SESSION['Number'] ?>" required>
                                 <input id="lane" class="lane-input" type="text" name="lane" value="<?php echo $_SESSION['LaneName'] ?>" required>
                                 <input id="city" class="city-input" type="text" name="city" value="<?php echo $_SESSION['City'] ?>" required>
-                                <select id="district" class="district-input custom-select" type="text" required>
+                                <select id="district" class="district-input custom-select" name="district" type="text" required>
                                         <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['District'] ?>"><?php echo $_SESSION['District'] ?></option>
+                                        <option value="<?php echo $_SESSION['District'] ?>" hidden><?php echo $_SESSION['District'] ?></option>
                                         <option value="Ampara">Ampara</option>
                                         <option value="Anuradhapura">Anuradhapura</option>
                                         <option value="Badulla">Badulla</option>
@@ -196,7 +196,7 @@ $metaTitle = "Admin Dashboard"
                                 </select>
                                 <select id="province" class="province-input custom-select" type="text" name="province" required>
                                         <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['Province'] ?>"><?php echo $_SESSION['Province'] ?></option>
+                                        <option value="<?php echo $_SESSION['Province'] ?>" hidden><?php echo $_SESSION['Province'] ?></option>
                                         <option value="Central">Central</option>
                                         <option value="Eastern">Eastern</option>
                                         <option value="North Central">North Central</option>

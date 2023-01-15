@@ -118,7 +118,7 @@ $metaTitle = "Donor Campaigns"
 
                     </div>
                     <div class="box">
-                        <form action="/getcampaign/register_to_campaign" method="post" id="user-login">
+                        <form action="/getcampaign/register_to_campaign" method="post" id="donor-form">
                         <table width="1420px" style="margin-left: auto;margin-right: auto;"  >
                         <col style="width:50%">
                         <col style="width:50%">

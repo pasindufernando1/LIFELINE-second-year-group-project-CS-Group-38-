@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin UserManage" 
+$metaTitle = "Add User Type Select" 
 ?>
 
 <!DOCTYPE html>

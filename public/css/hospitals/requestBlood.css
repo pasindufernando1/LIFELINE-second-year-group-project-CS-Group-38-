@@ -72,8 +72,8 @@ body {
     position: absolute;
     width: 45px;
     height: 45px;
-    left: 1284px;
-    top: 25px;
+    left: 1438px;
+    top: 20px;
     background: rgba(235, 235, 235, 0.4);
     border-radius: 15px;
 }
@@ -91,8 +91,8 @@ body {
     position: absolute;
     width: 60px;
     height: 60px;
-    left: 1369px;
-    top: 25px;
+    left: 1524px;
+    top: 10px;
     border-radius: 10px;
 }
 
@@ -100,14 +100,13 @@ body {
     position: absolute;
     width: 42px;
     height: 27px;
-    left: 1434px;
+    left: 1600px;
     top: 5px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 9px;
+    font-size: 18px;
     line-height: 10px;
-    /* identical to box height */
     letter-spacing: 0.01em;
     color: #000000;
 }
@@ -116,7 +115,7 @@ body {
     position: absolute;
     width: 69px;
     height: 51px;
-    left: 1434px;
+    left: 1600px;
     top: 40px;
     font-family: 'Poppins';
     font-style: normal;
@@ -131,22 +130,24 @@ body {
     position: absolute;
     width: 40.55px;
     height: 40.55px;
-    left: 1572px;
+    left: 1762px;
     top: 37px;
     background: #EBEBEB;
     cursor: pointer;
 }
 
+
 .side-bar {
     position: absolute;
     width: 277.49px;
-    height: 683px;
+    height: 825px;
     left: -5px;
     top: 102px;
     background: #FFFFFF;
     border-right: 1px;
     border-color: #000000;
 }
+
 
 .side-nav {
     position: absolute;
@@ -157,33 +158,59 @@ body {
     border-right: 1px;
     border-color: #000000;
 }
+
+.bloodbank-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1594px;
+    height: 778px;
+    left: 300px;
+    top: 130px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.success-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1596px;
+    height: 778px;
+    left: 300px;
+    top: -9px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
 .msg {
     position: absolute;
-    width: 460.68px;
+    width: 100%;
     height: 33.24px;
-    left: 415px;
+    /* left: 415px; */
     top: 300px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
     line-height: 36px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     text-align: center;
     color: #D3DAE0;
     mix-blend-mode: darken;
 }
-.success-msg{
-    box-sizing: border-box;
 
+.success-msg {
+    box-sizing: border-box;
     position: absolute;
-    width: 158.31px;
-    height: 158.31px;
-    left: 450px;
+    width: 10%;
+    /* height: 158.31px; */
+    left: 45%;
     top: 150px;
 
 }
+
 .brown-button1 {
     display: flex;
     flex-direction: row;
@@ -193,8 +220,9 @@ body {
     gap: 9.06px;
     position: absolute;
     width: 200px;
+    width: 13%;
     height: 50px;
-    left: 430px;
+    left: 43.4%;
     top: 400px;
     background: #640E0B;
     border-radius: 10.8716px;
@@ -209,21 +237,25 @@ body {
     cursor: pointer;
     border: 1px #949494 solid;
 }
+
 a:link {
     color: white;
-  }
+}
+
 a {
     text-decoration: none;
     color: white;
-}  
-.dropDown{
+}
+
+.dropDown {
     position: absolute;
     width: 20px;
     height: 20px;
     right: 16px;
     top: calc(50% - 20px/2 + 11px);
 }
-.view-bloodBank-title{
+
+.view-bloodBank-title {
     position: absolute;
     width: 559.66px;
     height: 46.32px;
@@ -237,6 +269,7 @@ a {
     letter-spacing: 0.01em;
     color: #000000;
 }
+
 .pag-box {
     float: right;
     display: flex;
@@ -244,31 +277,7 @@ a {
     margin-right: 1px;
 }
 
- .req-btn{
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 9.05963px;
-    gap: 9.06px;
-    position: absolute;
-    width: 70px;
-    height: 15px;
-    left: 917px;
-    
-    background: #640E0B;
-    border-radius: 10.8716px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #FFFFFF;
-    cursor: pointer;
-    border: 1px #949494 solid; */
-    margin: auto;
+.req-btn {
     display: block;
     width: 131px;
     height: 33px;
@@ -276,9 +285,10 @@ a {
     border-radius: 4px;
     color: White;
     text-decoration: none;
-    
 
-}  
+
+}
+
 .dashboard {
     position: absolute;
     width: 170.74px;
@@ -313,7 +323,7 @@ a {
     margin-top: 407px;
 }
 
- .dashboard-active a {
+.dashboard-active a {
     position: absolute;
     width: 111px;
     height: 28px;
@@ -328,9 +338,9 @@ a {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-} 
+}
 
- .dashboard-non-active a {
+.dashboard-non-active a {
     position: absolute;
     width: 111px;
     height: 28px;
@@ -345,13 +355,14 @@ a {
     color: #0C0C0D;
     text-decoration: none;
     margin-top: 15px;
-} 
+}
+
 .marker {
     position: absolute;
     width: 6px;
     height: 40px;
     left: 0px;
-    top: 15px;
+    top: 10px;
     background: #BF1B16;
     box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
     border-radius: 0px 8px 8px 0px;
@@ -396,36 +407,6 @@ a {
     margin-top: 15px;
 }
 
-/* .dash {
-    margin-top: -34px;
-    margin-left: -2px;
-} */
-
-/* .requestBlood-non-active a {
-    position: absolute;
-    width: 111px;
-    height: 28px;
-    left: 70.74px;
-    top: 2px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 15px;
-} */
-
-/* .line {
-    position: absolute;
-    width: 271.98px;
-    height: 0px;
-    left: 0.51px;
-    top: 456.5px;
-    border: 1.01829px solid #E0E0E0;
-} */
 
 .profile {
     position: absolute;
@@ -493,7 +474,7 @@ a {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 1449px;
+    left: 1759px;
     top: 85px;
     border-radius: 10px;
 }
@@ -522,26 +503,27 @@ a {
 .box {
     box-sizing: border-box;
     position: absolute;
-    width: 1327px;
-    height: 600px;
+    width: 1586px;
+    height: 778px;
     left: 300px;
-    top: 150px;
+    top: 129px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
 }
 
-.box1{
+.box1 {
     box-sizing: border-box;
     position: absolute;
-    width: 1333px;
-    height: 600px;
+    width: 1597px;
+    height: 777px;
     left: 300px;
     top: 20px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
 }
+
 .add-reservation-title {
     position: absolute;
     width: 559.66px;
@@ -674,104 +656,7 @@ a {
     text-decoration: none;
 }
 
-/* .quantity-container {
-    position: absolute;
-    height: 64px;
-    left: 65px;
-    right: 114px;
-    top: 320px;
-}
 
-.quantity-lable {
-    position: absolute;
-    height: 16px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-    color: #000000;
-}
-
-.quantity-input {
-    box-sizing: border-box;
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 22px;
-    bottom: 0px;
-    background: #FFFFFF;
-    border: 2px solid #949494;
-    border-radius: 8px;
-    padding: 12px 20px;
-}
-
-.quantity-input::placeholder {
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    /* identical to box height, or 143% 
-    letter-spacing: 0.3px;
-    color: #000000;
-    opacity: 0.4;
-} */
-
-/* .expiry-constraints-container {
-    position: absolute;
-    height: 64px;
-    left: 65px;
-    right: 114px;
-    top: 420px;
-}
-
-.expiry-constraints-lable {
-    position: absolute;
-    height: 16px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-    color: #000000;
-}
-
-.expiry-constraints-input {
-    box-sizing: border-box;
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 22px;
-    bottom: 0px;
-    background: #FFFFFF;
-    border: 2px solid #949494;
-    border-radius: 8px;
-    padding: 12px 20px;
-}
-
-.expiry-constraints-input::placeholder {
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    /* identical to box height, or 143% 
-    letter-spacing: 0.3px;
-    color: #000000;
-    opacity: 0.4;
-}
- */
 .brown-button {
     display: flex;
     flex-direction: row;
@@ -782,8 +667,8 @@ a {
     position: absolute;
     width: 200px;
     height: 50px;
-    left: 740px;
-    top: 400px;
+    left: 714px;
+    top: 443px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -809,9 +694,9 @@ a {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 47px;
-    left: 950px;
-    top: 399px;
+    height: 51px;
+    left: 940px;
+    top: 444px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -899,11 +784,15 @@ a {
 }
 
 .success-msg-img {
+    box-sizing: border-box;
     position: absolute;
-    width: 158.31px;
-    height: 158.31px;
-    left: 678.97px;
-    top: 171px;
+    /* width: 158.31px; */
+    width: 10%;
+    /* height: 158.31px; */
+    left: 45%;
+    /* left: 450px; */
+    /* top: 150px; */
+    top: 17%;
 }
 
 .back-to-reserve {
@@ -1069,15 +958,15 @@ th {
     letter-spacing: 0.01em;
     color: #949494;
     text-align: left;
-    
+
 }
 
 
 .bloodBanks-table {
     position: absolute;
     top: 110px;
-    left:72px;
-    
+    left: 147px;
+
 }
 
 .bloodBanks-line {
@@ -1085,7 +974,7 @@ th {
     width: 90%;
     height: 0px;
     top: 143.25px;
-    left: 53px;
+    left: 72px;
     border: 0.818053px solid #EFEFEF;
 }
 
@@ -1105,16 +994,15 @@ th {
 
 } */
 
-.bloodGroup-container{
+.bloodGroup-container {
     position: relative;
-    width: 968px;
+    width: 960px;
     height: 64px;
-    left:72px;
-    top:20px;
-
+    left: 183px;
+    top: 93px;
 }
 
-.bloodGroup-input{
+.bloodGroup-input {
     box-sizing: border-box;
     position: absolute;
     left: 0px;
@@ -1126,73 +1014,25 @@ th {
     border-radius: 8px;
 }
 
-.bloodGroup-label{
+.add-user-title {
     position: absolute;
-    height: 16px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-
-    color: #000000;
-}
-.bloodComp-container{
-    position: relative;
-    width: 968px;
-    height: 64px;
-    left:72px;
-    top:40px;
-
-}
-
-.bloodComponent-label{
-    position: absolute;
-    height: 16px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-
-    color: #000000;
-}
-
-.bloodComponent-input{
-    box-sizing: border-box;
-
-    position: absolute;
-    left: 0px;
-    right: 0px;
+    width: 559.66px;
+    height: 46.32px;
+    left: 98px;
     top: 22px;
-    bottom: 0px;
 
-    background: #FFFFFF;
-    border: 2px solid #949494;
-    border-radius: 8px;
-}
-.quant-container{
-    position: relative;
-    width: 968px;
-    height: 64px;
-    top:60px;
-    left:72px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
 
 }
 
-.quantity-label{
+.bloodGroup-label {
     position: absolute;
     height: 16px;
     left: 0px;
@@ -1210,7 +1050,33 @@ th {
     color: #000000;
 }
 
-.quantity-input{
+.bloodComp-container {
+    position: relative;
+    width: 960px;
+    height: 64px;
+    left: 184px;
+    top: 118px;
+}
+
+.bloodComponent-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+
+.bloodComponent-input {
     box-sizing: border-box;
 
     position: absolute;
@@ -1224,13 +1090,15 @@ th {
     border-radius: 8px;
 }
 
-.bloodbank-container{
+.quant-container {
     position: relative;
-    width: 968px;
+    width: 960px;
     height: 64px;
+    top: 141px;
+    left: 185px;
 }
 
-.bloodbank-label{
+.quantity-label {
     position: absolute;
     height: 16px;
     left: 0px;
@@ -1248,7 +1116,45 @@ th {
     color: #000000;
 }
 
-.bloodbank-input{
+.quantity-input {
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.bloodbank-container {
+    position: relative;
+    width: 968px;
+    height: 64px;
+}
+
+.bloodbank-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+
+.bloodbank-input {
     box-sizing: border-box;
 
     position: absolute;
@@ -1331,4 +1237,81 @@ td {
 .pag-div-10 a {
     background-color: #640E0B;
     color: #FFFFFF;
+}
+
+
+.reqb-button {
+    left: 281px;
+    top: 387px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    border-top-left-radius: 10.8716px;
+    border-top-right-radius: 10.8716px;
+    border-bottom-right-radius: 10.8716px;
+    border-bottom-left-radius: 10.8716px;
+    width: 327px;
+    height: 138px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    position: absolute;
+}
+
+.reqbstatus-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 345px;
+    height: 136px;
+    left: 943px;
+    top: 388px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    width: 338px;
+    height: 138px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.reqb-head {
+    position: absolute;
+    width: 20%;
+    height: 46.32px;
+    left: 40%;
+    top: 105px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+    color: #000000;
+
+
+}
+
+.cancel{
+    color: #640E0B;
 }

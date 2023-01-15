@@ -1,5 +1,4 @@
 <?php 
-
 $metaTitle = "Admin Dashboard" 
 ?>
 
@@ -131,13 +130,12 @@ $metaTitle = "Admin Dashboard"
 
                     </div>
 
+                    <div class="adminbox">
+                        <img src="./../../public/img/admindashboard/admindashboard.png" alt="admin dashboard">
+                    </div>
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
 
 </body>

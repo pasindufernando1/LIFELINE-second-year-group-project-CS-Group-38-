@@ -26,7 +26,7 @@
             <div class="reg-sub-2">
                 <p>Enter your username and password below</p>
             </div>
-            <form class="donorsignup-form" action="/donorsignup/send_signup" method="post" id="donor-signup" name="donorsignup-form">
+            <form class="donorsignup-form" action="/donorsignup/send_signup" method="post" id="donor-form" name="donorsignup-form">
                 <label class="name-lable" for="name">NAME</label>
                 <br>
                 <input id="fname" class="fname-input" type="text" name="fname" autofocus placeholder="First Name" required >
@@ -72,7 +72,7 @@
                 <br>
                 <label class="address-lable" for="address">ADDRESS</label>
                 <br>
-                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required >
+                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="First Line" required >
                 <p class="number-error" id="number-error" ></p>
                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required >
                 <p class="lane-error" id="lane-error" ></p>

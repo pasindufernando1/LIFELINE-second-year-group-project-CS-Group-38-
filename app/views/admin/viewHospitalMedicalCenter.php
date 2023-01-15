@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "View Hospital Medical Center" 
 ?>
 
 <!DOCTYPE html>

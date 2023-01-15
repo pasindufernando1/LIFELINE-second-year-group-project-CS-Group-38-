@@ -171,49 +171,10 @@ $metaTitle = "View Donor"
                                 <label class="unameview-lable" for="uname">Username: <div class="content"><?php echo $_SESSION['Username'] ?></div></label>
                                 <br>
                             </div>
-                           
-                            <!-- <div class="uid-container">
-                                <label class="uid-lable" for="userID">UserID</label>
+                            <div class="donorgender-viewcontainer">
+                                <label class="genderview-lable" for="uname">Gender: <div class="content"><?php echo $_SESSION['Gender'] ?></div></label>
                                 <br>
-                                <input id="uid" class="uid-input" type="text" name="uid" autofocus placeholder="UserID">
-                            </div> -->
-                            <!-- <div class="password-container">
-                                <label class="password-lable" for="password">Password</label>
-                                <br>
-                                <input id="password" class="password-input" type="text" name="password" autofocus placeholder="New Password" >
-                            </div> -->
-                            <!-- <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
-                                <br>
-                                <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['rowCount']+1 ?>" disabled>
                             </div>
-                            <div class="blood-group-container">
-                                <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
-                                <br>
-                                
-                                <div class="custom-select">
-                                    <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" required>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB+">AB+</option>
-                                    </select>
-                                </div>
-                                <script src="../../../public/js/custom-select.js"></script>
-                            </div>
-                            <div class="quantity-container">
-                                <label class="quantity-lable" for="quantity">Quantity:</label>
-                                <br>
-                                <input id="quantity" class="quantity-input" type="text" name="quantity" autofocus placeholder="Quantity" required>
-                            </div> -->
-                            <!-- <div class="expiry-constraints-container">
-                                <label class="expiry-constraints-lable" for="expiry_constraints">Expiry Constraints:</label>
-                                <br>
-                                <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required> -->
                             <div>
                                 <a href="/usermanage/type?page=1"><button class='brown-button-view' type='submit' name='update-hosmed' >Back to users</button></a>
                             </div>

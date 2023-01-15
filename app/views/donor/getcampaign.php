@@ -122,17 +122,28 @@ $metaTitle = "Donor Dashboard"
                             <?php 
                                //$number_of_results = $_SESSION['rowCount'];
                                 $number_of_results = count($_SESSION['registrations']);
+
                                 $result = $_SESSION['registrations'];
-                            $countt = 0;
+                                 $countt = 0;
                                 if (count($_SESSION['registrations']) > 0) {
                                 
-                                for ($x = 0; $x < count($_SESSION['registrations']); $x++) {
+                                for ($x = 0; $x < $number_of_results; $x++) {
+                                     $stime = substr($_SESSION['registrations'][$x][0][5], 0, 2);
+                                    // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
+                                    $stimeval=intval($stime);
+                                    if($stimeval > 12){
+                                     $st = 24 - $stime;
+                                     $_SESSION['registrations'][$x][0][5] =  strval($st). ' PM';
+                                    }
+                                    else{
+                                    $_SESSION['registrations'][$x][0][5] = strval($stimeval) . ' AM';
+                                    }
                                             echo '<div class="view-register-card">
                                             <div class="campaign-card-left-box">
                                             <h3>'.$_SESSION['registrations'][$x][0][1].'</h3>
-                                            <p>City :'. $_SESSION['registrations'][$x][0][0].'<br>
-                                            Location:'. $_SESSION['registrations'][$x][0][2].'<br>
-                                            At:'. $_SESSION['registrations'][$x][0][4].'</p>
+                                            <p>Starting At : '. ($_SESSION['registrations'][$x][0][5]).'<br>
+                                            Place : '. $_SESSION['registrations'][$x][0][2].'<br>
+                                            At : '. $_SESSION['registrations'][$x][0][4].'</p>
                                             </div>
                                             <div class="campaign-card-right-box">
                                             <a href="/getcampaign/view_campaign?camp='.$_SESSION['registrations'][$x][0][0].'"> <button class="register-btn" name="view_camp_info" > View </button> </a>
@@ -157,12 +168,22 @@ $metaTitle = "Donor Dashboard"
                                 if ($_SESSION['rowCount'] > 0) {
                            
                                     foreach($result as $row) {
+                                    $stime = substr($row["Starting_time"], 0, 2);
+                                    // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
+                                    $stimeval=intval($stime);
+                                    if($stimeval > 12){
+                                     $st = 24 - $stime;
+                                     $row["Starting_time"] =  strval($st). ' PM';
+                                    }
+                                    else{
+                                    $row["Starting_time"] = strval($stimeval) . ' AM';
+                                    }
                                         echo '<div class="view-campaign-card">
                                             <img src = "./../../public/img/donordashboard/donation_campaign.jpg" class="campaign-card-img" alt="campaigns">
                                             <div class="campaign-card-bottom"
                                             <p class="campaign-card-info">
                                             <h3>'.$row["Name"].'</h3>
-                                            City :'. $row["CampaignID"].'<br>
+                                            Starting At :'. $row["Starting_time"].'<br>
                                             Location:'. $row["Location"].'<br>
                                             At:'. $row["Date"].'<br><br>
                                             <a href="/getcampaign/view_campaign?camp='.$row["CampaignID"].'" name="view_camp_info"> View more... </a></p>

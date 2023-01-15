@@ -77,7 +77,7 @@ $metaTitle = "Hospitals Dashboard"
                     <div class="requestBlood menu-items">
                         <div class="marker"></div>
                         <img src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-active"><a href="#">Request Blood</a></p>
+                        <p class="requestBlood-active"><a href="/requestBlood/viewReqBlood">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
                         <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
@@ -93,11 +93,7 @@ $metaTitle = "Hospitals Dashboard"
                         <tr>
                             <th>Blood Bank ID</th>
                             <th>Name</th>
-                            
                             <th>Address</th>
-                            <!-- <th>Lane Name</th>
-                            <th>City</th>
-                            <th>District</th> -->
                             <th>Province</th>
                             <th>Action</th>
                         </tr>

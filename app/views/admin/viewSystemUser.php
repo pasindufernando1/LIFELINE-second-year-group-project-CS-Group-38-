@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "View Donor" 
+$metaTitle = "View System User" 
 ?>
 
 <!DOCTYPE html>
@@ -156,7 +156,7 @@ $metaTitle = "View Donor"
                             </div>
 
                             <div class="donorlocation-container">
-                                <label class="locationview-lable" for="location">Email    : <div class="content"><?php echo $_SESSION['Email'] ?> Province.<br></div></label>
+                                <label class="locationview-lable" for="location">Email    : <div class="content"><?php echo $_SESSION['Email'] ?><br></div></label>
                                 <br>
                             </div>
                             <div class="sysemail-viewcontainer">

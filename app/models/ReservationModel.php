@@ -12,8 +12,8 @@ class ReservationModel extends Model
     public function addReserve($inputs)
         
     {
-        $columns = array('quantity', 'TypeID', 'Status');
-        $param = array(':quantity', ':TypeID', ':Status');
+        $columns = array('quantity', 'TypeID', 'Status' , 'blood_bank_ID');
+        $param = array(':quantity', ':TypeID', ':Status' ,':blood_bank_ID');
         $result = $this->db->insert("bloodpacket", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
@@ -30,15 +30,15 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
-    public function getAllTypes()
+    public function getAllTypes($blood_bank_id)
     {
-        $data = $this->db->select("*", "bloodcategory",null);
+        $data = $this->db->select("*", "bloodcategory" , " WHERE blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
         return $data;
     }
 
-    public function getAllPackets()
+    public function getAllPackets($blood_bank_id)
     {
-        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID");
+        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
         return $packets;
     }
 
@@ -65,8 +65,8 @@ class ReservationModel extends Model
     public function addReserveTypes($inputs)
         
     {
-        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint');
-        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint');
+        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint' , 'blood_bank_ID');
+        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint', ':blood_bank_ID');
         $result = $this->db->insert("bloodcategory", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
@@ -91,5 +91,16 @@ class ReservationModel extends Model
         if ($result == "Success") {
             return true;
         } else print_r($result);
+    }
+
+    public function getBloodBankid($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $bloodbankid = $this->db->select("BloodBankID","system_user","INNER JOIN user on user.userID = system_user.userID WHERE user.email =:email",':email',$email);
+            $blood_bank_id = $bloodbankid[0]['BloodBankID'];
+            return $blood_bank_id;
+        
+        } 
+
     }
 }

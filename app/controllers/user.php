@@ -49,6 +49,7 @@ class User extends Controller
         if ($this->model->authenticate($uname, $pwd)) {
 
             //set session variables
+            
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);

@@ -13,9 +13,10 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Donor") {
-               $_SESSION['user_ID'] = $this->model->get_user_id($_SESSION['email']);
-                $_SESSION['registrations'] = $this->model->campregistraions($_SESSION['user_ID']);
-                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns();
+                $_SESSION['today'] = date("Y-m-d H:i:s");
+                $_SESSION['user_ID'] = $this->model->get_user_id($_SESSION['email']);
+                $_SESSION['registrations'] = $this->model->campregistraions($_SESSION['user_ID'],$_SESSION['today']);
+                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today']);
                 $this->view->render('donor/getcampaign');
                 exit;
             } 

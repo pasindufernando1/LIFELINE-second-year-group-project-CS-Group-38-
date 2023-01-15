@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Hospital Medical Center added successfully"; 
+$metaTitle = "Organization Society deleted successfully"; 
 ?>
 
 <!DOCTYPE html>

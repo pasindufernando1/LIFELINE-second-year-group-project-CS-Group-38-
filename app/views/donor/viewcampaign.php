@@ -127,14 +127,15 @@ $metaTitle = "Donor Dashboard"
                     <?php 
                         if($_SESSION['if_registered']==0){
                             echo '<div class="view-campaign-box">
-                            <h1>Donation Campaign : '.($_SESSION['campaign_array'][1]).'</h1>
-                            <p>Organized By : '.($_SESSION['org_name']).'</p><br>
-                            <p>Date : '.($_SESSION['campaign_array'][4]).'</p><br>
-                            <p>Starting Time : '.($_SESSION['campaign_array'][5]).'</p><br>
-                            <p>Ending Time : '.($_SESSION['campaign_array'][6]).'</p><br>
-                            <p>Location : '.($_SESSION['campaign_array'][2]).'</p><br>
-                            <p>Number of Beds : '.($_SESSION['campaign_array'][3]).'</p><br>
+                            <p class="campaign-head">'.($_SESSION['campaign_array'][1]).'</p><br>
+                            <p class = "campaign-details">Organized By : '.($_SESSION['org_name']).'<br><br>
+                                Date : '.($_SESSION['campaign_array'][4]).'<br><br>
+                                Starting Time : '.($_SESSION['campaign_array'][5]).'<br><br>
+                                Ending Time : '.($_SESSION['campaign_array'][6]).'<br><br>
+                                Location : '.($_SESSION['campaign_array'][2]).'<br><br>
+                                Number of Beds : '.($_SESSION['campaign_array'][3]).'</p><br>
                             <a href="/getcampaign/reg_to_campaign?camp=' . $_SESSION['selected_campid'] . '"><button class="reg-btn">Register</button>
+                            <img src = "./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
                             </div>';
                         }
                         else if($_SESSION['if_registered']==1){

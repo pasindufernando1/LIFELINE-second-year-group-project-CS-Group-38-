@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Edit Donor" 
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                            <?php echo '<form action="/usermanage/editDonor/'.$_SESSION['user_id']. '" method="post">' ?>                            <div class="quantity-container">
+                            <?php echo '<form action="/usermanage/editDonor/'.$_SESSION['user_id']. '" method="post" id="addform">' ?>                            <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Full name</label>
                                 <br>
                                 <input id="quantity" class="quantity-input" type="text" name="name" value="<?php echo $_SESSION['Name'] ?>" required>
@@ -146,6 +146,15 @@ $metaTitle = "Admin Dashboard"
                                 <label id="nic-label" class="nic-lable" for="nic">NIC no</label>
                                 <br>
                                 <input id="nic" class="nic-input" type="text" name="nic" value="<?php echo $_SESSION['NIC'] ?>" required>
+                            </div>
+                            <div class="gender-container">
+                                <label id="gender-label" class="gender-lable" for="gender">Gender</label>
+                                <br>
+                                <select id="gender" class="gender-input" type="text" name="gender" autofocus placeholder="Gender" required>
+                                    <option value="<?php echo $_SESSION['Gender'] ?>" hidden><?php echo $_SESSION['Gender'] ?></option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
                             </div>
                             <div class="dob-container">
                                 <label id="dob-label" class="dob-lable" for="dob">DOB</label>
@@ -157,7 +166,7 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                                 <select id="bloodtype" class="bloodtype-input" type="text" name="bloodtype" " required>
                                     <!-- Placeholder -->
-                                    <option value="<?php echo $_SESSION['Bloodtype'] ?>"><?php echo $_SESSION['Bloodtype'] ?></option>
+                                    <option value="<?php echo $_SESSION['Bloodtype'] ?>" hidden><?php echo $_SESSION['Bloodtype'] ?></option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
                                     <option value="B+">B+</option>
@@ -176,8 +185,8 @@ $metaTitle = "Admin Dashboard"
                                 <input id="city" class="city-input" type="text" name="city" value="<?php echo $_SESSION['City'] ?>" required>
                                 
                                 <select id="district" class="district-input custom-select" type="text" name="district" autofocus placeholder="District"required>
-                                        <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['District'] ?>"><?php echo $_SESSION['District'] ?></option>
+                                        <!-- Show placeholder --> 
+                                        <option value="<?php echo $_SESSION['District'] ?>" hidden><?php echo $_SESSION['District'] ?></option>
                                         <option value="Ampara">Ampara</option>
                                         <option value="Anuradhapura">Anuradhapura</option>
                                         <option value="Badulla">Badulla</option>
@@ -208,7 +217,7 @@ $metaTitle = "Admin Dashboard"
                                 <script src="../../../public/js/custom-select.js"></script>
                                 <select id="province" class="province-input custom-select" type="text" name="province" autofocus placeholder="Province" required>
                                         <!-- Show placeholder -->
-                                        <option value="<?php echo $_SESSION['Province'] ?>"><?php echo $_SESSION['Province'] ?></option>
+                                        <option value="<?php echo $_SESSION['Province'] ?>" hidden><?php echo $_SESSION['Province'] ?></option>
                                         <option value="Central">Central</option>
                                         <option value="Eastern">Eastern</option>
                                         <option value="North Central">North Central</option>

@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Add System User" 
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ $metaTitle = "Admin Dashboard"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <form action="/usermanage/addSystemuser" method="post" enctype="multipart/form-data">
+                        <form action="/usermanage/addSystemuser" method="post" enctype="multipart/form-data" id="addform">
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="bloodbankid">Blood Bank ID</label>
                                 <select class="quantity-input" type="text" name="bloodbankid" id="bloodbankid" placeholder="Blood Bank ID" required>

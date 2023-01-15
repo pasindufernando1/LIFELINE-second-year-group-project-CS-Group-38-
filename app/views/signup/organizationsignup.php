@@ -23,7 +23,7 @@
             <div class="sub-2">
                 <p>Please complete this form</p>
             </div>
-            <form class="orgsignup-form" action="/organizationuser/processSignup/" method="post" id="user-login" name="orgsignup-form">
+            <form class="orgsignup-form" action="/organizationuser/processSignup/" method="post" id="addform" name="orgsignup-form">
                 <label class="username-lable" for="name">ORGANIZATION / SOCIETY NAME</label>
                 <br>
                 <input id="username" class="username-input" type="text" name="name" autofocus placeholder="Organization / Society Name" required>
@@ -34,7 +34,7 @@
                 <br>
                 <label class="address-lable" for="address">POSTAL ADDRESS</label>
                 <br>
-                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required>
+                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="First line" required>
                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required>
                 <input id="city" class="city-input" type="text" name="city" autofocus placeholder="City" required>
                 <!-- <input id="district" class="district-input" type="text" name="district" autofocus placeholder="District" required> -->
@@ -98,7 +98,10 @@
                 <br>
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
                 <br>
-
+                <label id="confirmPassword-label" class="confirmPassword-lable" for="confirmPassword">CONFIRM PASSWORD</label>
+                <br>
+                <input id="confirmPassword" class="confirmPassword-input" type="password" name="confirmPassword" autofocus placeholder="Confirm Password" required>
+                <br>
                 <button id="submit-btn" class='login-button' type='submit' name='signup'>SUBMIT</button>
                 <div class="signup-p">
                     <p>Already have an account? <a href="/organization/login/">Login</a></p>

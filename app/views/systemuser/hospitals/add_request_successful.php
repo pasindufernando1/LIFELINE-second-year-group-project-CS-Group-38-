@@ -71,8 +71,8 @@ $metaTitle = "Hospitals Dashboard"
                 <div class="side-nav">
                     
                     <div class="dashboard menu-item">       
-                        <img class="" src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
-                        <img class="reservation-non-active dash" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
+                        <img class="dashboard-active" src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
+                        <img class="dashboard-non-active" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-nav"><a href="/hospitaluser/dashboard">Dashboard</a></p>
                     </div>
                     <div class="requestBlood menu-items">
@@ -81,10 +81,10 @@ $metaTitle = "Hospitals Dashboard"
                         <p class="requestBlood-active"><a href="#">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
-                        <img class="" src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
+                        <img class="profile-active" src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
                         <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
                         <p class="profile-nav "><a href="#">Profile</a></p>
-                    </div>    
+                    </div>  
                 </div>
             </div>
             <div class="box">

@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Add Hospital/Medical Center" 
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,7 @@ $metaTitle = "Admin Dashboard"
 
                     <div class="box">
                         <p class="add-user-title">Add Hospital/Medical Center</p>
-                        <form action="/usermanage/addHospitalMedCenter" method="post" enctype="multipart/form-data">
+                        <form action="/usermanage/addHospitalMedCenter" method="post" enctype="multipart/form-data" id="addform">
                             <div class="quantity-container">
                                 <label id= "hospital_name-label" class="quantity-lable" for="name">Name:</label>
                                 <br>
@@ -155,7 +155,7 @@ $metaTitle = "Admin Dashboard"
                             <div class="location-container">
                                 <label class="location-lable" for="location">Location:</label>
                                 <br>
-                                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required>
+                                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Starting line" required>
                                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required>
                                 <input id="city" class="city-input" type="text" name="city" autofocus placeholder="City" required>
                                 

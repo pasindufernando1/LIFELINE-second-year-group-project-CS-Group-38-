@@ -41,7 +41,7 @@
             <div class="more">
                 <img class="3-dot" onclick="dropDown()" src="../../../public/img/dashboard/3-dot.png" alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
+                    <a href="/profile">Profile</a>
                     <a href="/systemuser/logout">Log Out</a>
                 </div>
             </div>

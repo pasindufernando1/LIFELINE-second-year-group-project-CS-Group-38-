@@ -84,6 +84,35 @@ class requestBlood extends Controller
         }
     }
 
+    function viewReqBlood()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Hospital/Medical_Center") {
+                $_SESSION['bloodBanks'] = $this->model->getAllBloodBanks();
+                $this->view->render('hospitals/reqblood');
+                exit;
+            
+            }
+        }
+        else{
+            $this->view->render('authentication/login');    
+        }    
+    }
+
+    function viewRequests(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Hospital/Medical_Center") {
+                $_SESSION['bloodBanks'] = $this->model->getAllRequests( $_SESSION['User_ID']);
+                $this->view->render('hospitals/viewrequests');
+                exit;
+            
+            }
+        }
+        else{
+            $this->view->render('authentication/login');    
+        } 
+    }
+
     function viewDetails()
     {
         if (isset($_SESSION['login'])) {

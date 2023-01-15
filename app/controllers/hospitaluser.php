@@ -65,7 +65,7 @@ class HospitalUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /hospitals/login");
+        header("Location: /");
     }
 
     function processSignup(){
@@ -99,7 +99,7 @@ class HospitalUser extends Controller
 
 
         if ($this->model->signupHospital($inputs1, $inputs2, $inputs3)) {
-            header("Location: /hospitals/hospitalsignupsuccessful");
+            header("Location: /hospitals/login");
         }
     } 
      

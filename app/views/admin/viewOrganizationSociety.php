@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "View Organization Society" 
 ?>
 
 <!DOCTYPE html>
