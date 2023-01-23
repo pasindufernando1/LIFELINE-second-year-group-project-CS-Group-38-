@@ -87,7 +87,7 @@ $metaTitle = "Admin UserManage"
                     <div class="inventory menu-item">
                         <img src="./../../public/img/admindashboard/non-active/inventory.png" alt="inventory">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/inventory.png" alt="inventory">
-                        <p class="inventory-nav "><a href="#">Inventory</a></p>
+                        <p class="inventory-nav "><a href="/inventory/type?page=1">Inventory</a></p>
 
                     </div>
                     <div class="donors menu-item">

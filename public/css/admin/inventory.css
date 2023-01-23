@@ -674,7 +674,7 @@ body {
     width: 1540px;
     height: 810px;
     left: 316px;
-    top: 0;
+    top: 102px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -1983,8 +1983,8 @@ a {
 
 .userbutton-user {
     position: absolute;
-    top: 49px;
-    left: 1036px;
+    top: 44px;
+    left: 1056px;
 }
 
 
@@ -2062,18 +2062,51 @@ a {
     text-align: center;
 }
 
-.view-btn {
-    width: 77px;
+.pending-btn {
+    width: 236px;
     height: 35px;
-    background: #e0e0e0;
+    background: #FBDAD9;
+    border-radius: 4px;
+    margin: 0px -43px 0px -30px;
+    text-align: center;
+    cursor: pointer;
+    color: #BF1B16;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+}
+
+.validated-btn {
+    width: 236px;
+    height: 35px;
+    background: #AFAFAF;
     border-radius: 4px;
     margin: 0px -43px 0px -30px;
     text-align: center;
     cursor: pointer;
     color: #5C5C5C;
     font-family: 'Poppins';
-    font-weight: bold;
-    border: none
+    font-weight: bolder;
+    border: none;
+}
+
+
+.verify-btn {
+    width: 236px;
+    height: 35px;
+    background: #AFAFAF;
+    border-radius: 4px;
+    margin: 0px -43px 0px -30px;
+    text-align: center;
+    cursor: pointer;
+    color: #212121;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+}
+
+.tick{
+    margin-left: 10px;
 }
 
 .delete-btn {
@@ -2093,7 +2126,7 @@ th {
     line-height: 22px;
     letter-spacing: 0.01em;
     color: #949494;
-    padding: 142px 54px 10px 61px;
+    padding: 137px 54px 10px 61px
 }
 
 .blood-types-table {

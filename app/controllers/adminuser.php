@@ -163,8 +163,10 @@ class AdminUser extends Controller
             $_SESSION['pw_error'] = 'Passwords do not match';
             header('Location: /adminuser/new_password');
         }
-        
-        
+         
     }
+
+    
     
 }
+
