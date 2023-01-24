@@ -57,13 +57,15 @@ class Inventory extends Controller
     }
 
     //Verify acceptance
-    function verify_acceptance()
+    function verify_acceptance($DonationID)
     {
-        print_r($row["DonationID"]);die();
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/verify_acceptance)');
-                exit;
+                if($this->model->verifyAcceptance($DonationID) && $this->model->sendThankEmail($DonationID)){
+                    $this->view->render('admin/verify_Invacceptance');
+                    exit;
+                }
+                
             }
         }
         else{

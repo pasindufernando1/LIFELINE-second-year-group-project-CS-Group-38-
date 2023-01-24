@@ -2090,16 +2090,15 @@ a {
     border: none;
 }
 
-
 .verify-btn {
     width: 236px;
     height: 35px;
-    background: #AFAFAF;
+    background: #AFAFAF ;
     border-radius: 4px;
     margin: 0px -43px 0px -30px;
     text-align: center;
     cursor: pointer;
-    color: #212121;
+    color: #212121 ;
     font-family: 'Poppins';
     font-weight: bolder;
     border: none;

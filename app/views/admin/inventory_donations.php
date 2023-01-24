@@ -87,7 +87,8 @@ $metaTitle = "Inventory Donations"
                                          }else{
                                             echo "<td><button class='validated-btn' >". $row["Date"] .'</button></td>';
                                         }
-                                        echo '<td><button class="verify-btn" href="/inventory/verify_acceptance>"'. "Verify Acceptance". '<img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png">'.'</button></td>
+                                        echo '<td><a class href="/inventory/verify_acceptance/'.$row["DonationID"].' <button class = "verify-btn">
+                                        Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
                                             </tr> </div>';
                             }
                         } 
