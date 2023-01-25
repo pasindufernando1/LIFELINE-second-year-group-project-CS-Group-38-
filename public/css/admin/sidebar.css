@@ -199,6 +199,18 @@
     background: #F8F8F8;
 }
 
+.reports-selected{
+    position: absolute;
+    left: 5px;
+    top: 321px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+
+
 .users-selected img {
     position: absolute;
     width: 29px;
@@ -209,6 +221,15 @@
 }
 
 .inventory-selected img{
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 0px;
+    margin-left: 17px;
+    margin-top: 15px;
+}
+
+.reports-selected img{
     position: absolute;
     width: 29px;
     height: 29px;
@@ -385,6 +406,23 @@
     color: #0C0C0D;
     text-decoration: none;
     margin-top: 342px;
+}
+
+.reports-act a{
+    position: absolute;
+    width: 114px;
+    height: 28px;
+    left: 70.74px;
+    top: 3px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
 }
 
 .campaigns {

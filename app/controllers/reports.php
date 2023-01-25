@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class Inventory extends Controller
+class Reports extends Controller
 {
 
     function __construct()
@@ -13,7 +13,7 @@ class Inventory extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/inventory');
+                $this->view->render('admin/reports');
                 exit;
             }
         }    
@@ -22,57 +22,53 @@ class Inventory extends Controller
         }
     }
 
-    //Get the inventory types
+    // Get the report details
     function type()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['inventory'] = $this->model->getAllInventoryDetails();
-                // print_r($_SESSION['inventory']);die();
-                $this->view->render('admin/inventory');
+                $_SESSION['reports'] = $this->model->getAllReportDetails();
+                // print_r($_SESSION['reports']);die();
+                $this->view->render('admin/reports');
                 exit;
             }
         }
         else{
             $this->view->render('authentication/adminlogin');
             
-        }    
+        }
     }
 
-    //Get the inventory donations
-    function donations()
+    // Give generate analytics page
+    function gen_analytics()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['inventory_donations'] = $this->model->getAllInventoryDonations();
-                //print_r($_SESSION['inventory']);die();
-                $this->view->render('admin/inventory_donations');
+                $this->view->render('admin/gen_analytics');
                 exit;
             }
         }
         else{
             $this->view->render('authentication/adminlogin');
             
-        }    
+        }
     }
 
-    //Verify acceptance
-    function verify_acceptance($DonationID)
+    function donationsVsmonths()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                if($this->model->verifyAcceptance($DonationID) && $this->model->sendThankEmail($DonationID)){
-                    $this->view->render('admin/verify_Invacceptance');
-                    exit;
-                }
-                
+                $this->view->render('admin/donationsVsmonths');
+                exit;
             }
         }
         else{
             $this->view->render('authentication/adminlogin');
             
-        }    
+        }
     }
+
+    
     
 
 
