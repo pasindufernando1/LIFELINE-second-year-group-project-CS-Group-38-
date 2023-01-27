@@ -39,11 +39,10 @@
                         <p class="donors-nav menu-item"><a href="/donors/type?page=1">Donors</a></p>
 
                     </div>
-                    <div class="reports-selected">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/admindashboard/active/reports.png" alt="reports">
+                    <div class="reports menu-item">
+                        <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
-                        <p class="reports-act "><a href="/reports/type?page=1">Reports</a></p>
+                        <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
 
                     </div>
                     <div class="campaigns menu-item">
@@ -65,10 +64,11 @@
 
                     </div>
                     <div class="line"></div>
-                    <div class="profile menu-item">
-                        <img src="./../../public/img/admindashboard/non-active/profile.png" alt="profile">
+                    <div class="profile-selected">
+                        <div class="marker"></div>
+                        <img src="./../../public/img/admindashboard/active/profile.png" alt="profile">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="/adprofile/">Profile</a></p>
+                        <p class="profile-act "><a href="/adprofile/">Profile</a></p>
 
                     </div>
                 </div>

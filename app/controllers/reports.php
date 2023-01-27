@@ -68,6 +68,24 @@ class Reports extends Controller
         }
     }
 
+    function usageVsmonths()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['year'])) {
+                    header("Location: /reports/donationsVsmonths");
+                    exit;
+                }
+                $this->view->render('admin/usageVsmonths');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
     
     
 

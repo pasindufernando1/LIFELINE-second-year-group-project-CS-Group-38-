@@ -22,9 +22,11 @@
                         <p class="reservation-nav menu-item"><a href="/reserves/type?page=1">Reserves</a></p>
 
                     </div>
-                    <div class="users menu-item">
+                    <div class="users-selected">
+                        <div class="marker"></div>
+                        <img src="./../../public/img/admindashboard/active/cards.png" alt="inventory">
                         <img class="users-non-active" src="./../../public/img/admindashboard/non-active/cards.png" alt="users">
-                        <p class="users-nav menu-item "><a href="/usermanage/type?page=1">Users</a></p>
+                        <p class="users-act"><a href="/usermanage/type?page=1">Users</a></p>
 
                     </div>
                     <div class="inventory menu-item">
@@ -39,11 +41,10 @@
                         <p class="donors-nav menu-item"><a href="/donors/type?page=1">Donors</a></p>
 
                     </div>
-                    <div class="reports-selected">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/admindashboard/active/reports.png" alt="reports">
+                    <div class="reports menu-item">
+                        <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
-                        <p class="reports-act "><a href="/reports/type?page=1">Reports</a></p>
+                        <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
 
                     </div>
                     <div class="campaigns menu-item">

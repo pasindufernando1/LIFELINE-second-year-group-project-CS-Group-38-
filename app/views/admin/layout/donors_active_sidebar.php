@@ -31,19 +31,18 @@
                         <img src="./../../public/img/admindashboard/non-active/inventory.png" alt="inventory">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/inventory.png" alt="inventory">
                         <p class="inventory-nav menu-item "><a href="/inventory/type?page=1">Inventory</a></p>
-
                     </div>
-                    <div class="donors menu-item">
-                        <img src="./../../public/img/admindashboard/non-active/donors.png" alt="donors">
+                    <div class="donors-selected">
+                        <div class="marker"></div>  
+                        <img src="./../../public/img/admindashboard/active/donors.png" alt="donors">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/donors.png" alt="donors">
-                        <p class="donors-nav menu-item"><a href="/donors/type?page=1">Donors</a></p>
+                        <p class="donors-act"><a href="/donors/type?page=1">Donors</a></p>
 
                     </div>
-                    <div class="reports-selected">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/admindashboard/active/reports.png" alt="reports">
+                    <div class="reports menu-item">
+                        <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
-                        <p class="reports-act "><a href="/reports/type?page=1">Reports</a></p>
+                        <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
 
                     </div>
                     <div class="campaigns menu-item">

@@ -517,11 +517,12 @@ body {
 
 .badges img {
     position: absolute;
-    width: 40px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
     left: -4px;
     top: 0px;
-    margin-top: 465px;
+    margin-top: 466px;
+    margin-left: 6px;
 }
 
 .badges-nav a {
@@ -674,7 +675,7 @@ body {
     width: 1540px;
     height: 810px;
     left: 316px;
-    top: 0;
+    top: 101px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;

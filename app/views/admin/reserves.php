@@ -34,25 +34,22 @@ $metaTitle = "Inventory"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/reserves_active_sidebar.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="add-user-title">Inventory</p>
-        
-        <a href="/inventory/donations?page=1" class="brown-button types-user">Inventory donations</a>
-        <img class="userbutton-user" src="./../../public/img/admindashboard/briefcase.png" alt="add-button">
+    <p class="add-user-title">Blood Reserves</p>
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
         <tr>
-            <th>Inventory ID</th>
-            <th>Inventory Type</th>
-            <th>Name</th>
             <th>Blood Bank</th>
+            <th>Blood Group</th>
             <th>Quantity</th>
+            <th>District</th>
+            <th>Province</th>
         </tr>
         <hr class="blood-types-line">
         
@@ -71,18 +68,17 @@ $metaTitle = "Inventory"
 
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page;  
-        $result = $_SESSION['inventory'];
+        $result = $_SESSION['reserves'];
 
         //display the link of the pages in URL  
         if ($_SESSION['rowCount'] > 0) {
             
-            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                echo '<div class="table-content-types"> <tr>
-                        <td>' . $row["InventoryID"]. "</td>
-                        <td>" . $row["Inventory_Category"] . "</td>
-                        <td>" . $row["Inventory_Name"] . "</td>
-                        <td>" . $row["BloodBank_Name"] . "</td>
-                        <td>" . $row["Quantity"] . '</td>
+            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {                echo '<div class="table-content-types"> <tr>
+                        <td>' . $row["BloodBank_Details"]["BloodBank_Name"]. "</td>
+                        <td>" . $row["Type_Name"] . "</td>
+                        <td>" . $row["Quantity"] . "</td>
+                        <td>" . $row["BloodBank_Details"]["District"] . "</td>
+                        <td>" . $row["BloodBank_Details"]["Province"] . '</td>
                     </tr> </div>';
                 
             }
@@ -111,8 +107,8 @@ $metaTitle = "Inventory"
             echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
         }
             
-        echo '</div>' ;?>
-        
+        echo '</div>' ;?>       
+                        
     </div>
 
 </body>

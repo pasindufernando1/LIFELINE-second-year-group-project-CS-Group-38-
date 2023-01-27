@@ -672,7 +672,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 810px;
+    height: max-content;
     left: 316px;
     top: 102px;
     background: #ffffff;
@@ -1924,7 +1924,7 @@ a {
 .adduser-pic {
     position: absolute;
     top: 47px;
-    left: 1110px;
+    left: 1100px;
 }
 
 .types-reservation {
@@ -2537,6 +2537,61 @@ td {
 
 .brown-button-view:hover{
     font-size: 13.6835px;    
+}
+
+.badge_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    width: 504.66px;
+    height: 343.49px;
+    background: #FCFEFE;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #000000;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    margin: 120px 0px 0px 482px;
+    
+}
+
+.badge_img {
+    width: 184px;
+    height: 201px;
+    margin: 0px 154px 0px 191px;
+}
+
+.badgeID, .badgeName, .donationcons {
+    /* instead of using position absolute, use margin to control the spacing */
+    margin-top: 10px; /* add some margin between the text elements */
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 19px;
+    text-align: left;
+    letter-spacing: 0.01em;
+    color: #000000;
+    cursor: pointer;
+}
+
+.badgeName{
+    margin: 33px 0px 0px -89px;
+}
+
+.donationcons{
+    margin: 0px 0px 0px 0px;
+}
+.break{
+    height: 380.49px;
 }
 
 

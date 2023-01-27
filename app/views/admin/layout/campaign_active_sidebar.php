@@ -31,7 +31,6 @@
                         <img src="./../../public/img/admindashboard/non-active/inventory.png" alt="inventory">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/inventory.png" alt="inventory">
                         <p class="inventory-nav menu-item "><a href="/inventory/type?page=1">Inventory</a></p>
-
                     </div>
                     <div class="donors menu-item">
                         <img src="./../../public/img/admindashboard/non-active/donors.png" alt="donors">
@@ -39,36 +38,35 @@
                         <p class="donors-nav menu-item"><a href="/donors/type?page=1">Donors</a></p>
 
                     </div>
-                    <div class="reports-selected">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/admindashboard/active/reports.png" alt="reports">
+                    <div class="reports menu-item">
+                        <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
-                        <p class="reports-act "><a href="/reports/type?page=1">Reports</a></p>
+                        <p class="reports-nav menu-item"><a href="/reports/type?page=1">Reports</a></p>
 
                     </div>
-                    <div class="campaigns menu-item">
-                        <img src="./../../public/img/admindashboard/non-active/campaigns.png" alt="campaigns">
+                    <div class="campaigns-selected">
+                        <img src="./../../public/img/admindashboard/active/campaigns.png" alt="campaigns">
                         <img class="reservation-non-active " src="./../../public/img/admindashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav "><a href="/adcampaigns/type?page=1">Campaigns</a></p>
+                        <p class="campaigns-act"><a href="/adcampaigns/type?page=1">Campaigns</a></p>
 
                     </div>
                      <div class="badges menu-item">
                         <img src="./../../public/img/admindashboard/non-active/badge.png" alt="badges">
                         <img class="reservation-non-active " src="./../../public/img/admindashboard/active/badge.png" alt="campaigns">
-                        <p class="badges-nav "><a href="/adbadges/type?page=1">Badges</a></p>
+                        <p class="badges-nav menu-item"><a href="/adbadges/type?page=1">Badges</a></p>
 
                     </div>
                     <div class="advertisements menu-item">
                         <img src="./../../public/img/admindashboard/non-active/ad.png" alt="advertisements">
                         <img class="reservation-non-active " src="./../../public/img/admindashboard/active/ad.png" alt="campaigns">
-                        <p class="advertisements-nav "><a href="/adadvertisements/type?page=1">Advertisements</a></p>
+                        <p class="advertisements-nav menu-item"><a href="/adadvertisements/type?page=1">Advertisements</a></p>
 
                     </div>
                     <div class="line"></div>
                     <div class="profile menu-item">
                         <img src="./../../public/img/admindashboard/non-active/profile.png" alt="profile">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="/adprofile/">Profile</a></p>
+                        <p class="profile-nav menu-item"><a href="/adprofile/">Profile</a></p>
 
                     </div>
                 </div>

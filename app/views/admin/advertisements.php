@@ -15,7 +15,7 @@ $metaTitle = "Inventory"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/inventory.css" rel="stylesheet">
+    <link href="../../../public/css/admin/advertisements.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -34,25 +34,22 @@ $metaTitle = "Inventory"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/ad_active_sidebar.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="add-user-title">Inventory</p>
-        
-        <a href="/inventory/donations?page=1" class="brown-button types-user">Inventory donations</a>
-        <img class="userbutton-user" src="./../../public/img/admindashboard/briefcase.png" alt="add-button">
+        <p class="add-user-title">Advertisements</p>
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
         <tr>
-            <th>Inventory ID</th>
-            <th>Inventory Type</th>
+            <th>Campaign ID</th>
             <th>Name</th>
-            <th>Blood Bank</th>
-            <th>Quantity</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Action</th>
         </tr>
         <hr class="blood-types-line">
         
@@ -71,18 +68,18 @@ $metaTitle = "Inventory"
 
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page;  
-        $result = $_SESSION['inventory'];
+        $result = $_SESSION['advertisements'];
 
         //display the link of the pages in URL  
         if ($_SESSION['rowCount'] > 0) {
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>
-                        <td>' . $row["InventoryID"]. "</td>
-                        <td>" . $row["Inventory_Category"] . "</td>
-                        <td>" . $row["Inventory_Name"] . "</td>
-                        <td>" . $row["BloodBank_Name"] . "</td>
-                        <td>" . $row["Quantity"] . '</td>
+                        <td>' . $row["CampaignID"]. "</td>
+                        <td>" . $row["Name"] . "</td>
+                        <td>" . $row["Location"] . "</td>
+                        <td>" . $row["Date"] . '</td>
+                        <td><div class="delete-btn-div"> <a href="/adcampaigns/delete_campaign/'.$row["CampaignID"].'"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
                     </tr> </div>';
                 
             }
@@ -111,8 +108,8 @@ $metaTitle = "Inventory"
             echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
         }
             
-        echo '</div>' ;?>
-        
+        echo '</div>' ;?>                              
+    
     </div>
 
 </body>

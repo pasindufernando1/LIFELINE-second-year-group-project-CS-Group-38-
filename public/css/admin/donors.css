@@ -2091,18 +2091,17 @@ a {
 }
 
 .verify-btn {
-    width: 254px;
-    height: 35px;
     background: #AFAFAF;
     border-radius: 4px;
-    margin: 0px -43px 0px -30px;
+    margin: 0px -32px 0px -30px;
     text-align: center;
     cursor: pointer;
     color: #212121;
     font-family: 'Poppins';
     font-weight: bolder;
     border: none;
-    padding: 8px 23px 8px 36px;
+    width: 124px;
+    height: 34px;
 }
 
 .tick{
@@ -2126,7 +2125,7 @@ th {
     line-height: 22px;
     letter-spacing: 0.01em;
     color: #949494;
-    padding: 137px 54px 10px 61px
+    padding: 126px 54px 10px 61px;
 }
 
 .blood-types-table {

@@ -16,10 +16,11 @@
                         <img class="reservation-non-active dash " src="../../../public/img/dashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-non-active menu-item"><a href="/adminuser/dashboard">Dashboard</a></p>
                     </div>
-                    <div class="reservation menu-item">
-                        <img class="reservation-active" src="./../../public/img/admindashboard/non-active/reservation.png" alt="reservation">
+                    <div class="reservation-selected">
+                        <div class="marker"></div>
+                        <img class="reservation-active" src="./../../public/img/admindashboard/active/reservation.png" alt="reservation">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reservation.png" alt="reservation">
-                        <p class="reservation-nav menu-item"><a href="/reserves/type?page=1">Reserves</a></p>
+                        <p class="reservation-act"><a href="/reserves/type?page=1">Reserves</a></p>
 
                     </div>
                     <div class="users menu-item">
@@ -39,11 +40,10 @@
                         <p class="donors-nav menu-item"><a href="/donors/type?page=1">Donors</a></p>
 
                     </div>
-                    <div class="reports-selected">
-                        <div class="marker"></div>
-                        <img src="./../../public/img/admindashboard/active/reports.png" alt="reports">
+                    <div class="reports menu-item">
+                        <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
-                        <p class="reports-act "><a href="/reports/type?page=1">Reports</a></p>
+                        <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
 
                     </div>
                     <div class="campaigns menu-item">
