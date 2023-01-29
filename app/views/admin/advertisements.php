@@ -30,7 +30,6 @@ $metaTitle = "Inventory"
 
 </head>
 <body>
-    
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
@@ -39,6 +38,8 @@ $metaTitle = "Inventory"
     <!-- main content -->
     <div class="box">
         <p class="add-user-title">Advertisements</p>
+            <a href="/adadvertisements/add_advertisement" class="brown-button addnew-user">Add New Advertisement</a>
+    
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">

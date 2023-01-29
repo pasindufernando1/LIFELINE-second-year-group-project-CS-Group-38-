@@ -15,7 +15,7 @@ $metaTitle = "Inventory"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/report.css" rel="stylesheet">
+    <link href="../../../public/css/admin/advertisements.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -30,19 +30,19 @@ $metaTitle = "Inventory"
 
 </head>
 <body>
-    
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/ad_active_sidebar.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="entity-select-title">Choose analytics category</p>
-                        <!-- Add four buttons -->
-        <a href="/reports/productiveDonationAreas"><button class="button-type1 user-btn">Productive Donation Areas</button></a>
-        <a href="/reports/usageVSexpiry"><button class="button-type2 user-btn" >Blood Usage vs Expiry</button></a>
-        <a href="/reports/donationsVsmonths"><button class="button-type3 user-btn" >Donations respect to months</button></a>             
+        <p class="entity-select-title">Advertisement Category</p>
+
+        <a href="/adadvertisements/cash_donation"><button class="button-sys-add user-btn"><img class="usericon"  src="./../../public/img/admindashboard/cash.png" alt="systemuser"><p>Cash Donations<p></button></a>
+        <a href="/adadvertisements/inv_donation"><button class="button-hos-add user-btn" ><img class="usericon" src="./../../public/img/admindashboard/invdon.png" alt="hospital/medical center">Inventory Donations</button></a>
+
+    
     </div>
 
 </body>

@@ -39,6 +39,36 @@ class Adbadges extends Controller
         }    
     }
 
+    // Give add badge page
+    function add_badge()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/add_badge');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function add_badge_done()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                // $this->model->addBadge();
+                $this->view->render('admin/add_badge_success');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
     
     
 

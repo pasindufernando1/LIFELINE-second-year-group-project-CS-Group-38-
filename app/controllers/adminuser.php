@@ -38,8 +38,11 @@ class AdminUser extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
-        if ($this->model->authenticate($uname, $pwd)) {
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
 
+        if ($this->model->authenticate($uname, $pwd)) {
+            $_SESSION['useremail'] = $_POST['username'];
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);

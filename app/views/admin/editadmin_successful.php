@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Profile" 
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,10 @@ $metaTitle = "Inventory"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/report.css" rel="stylesheet">
+    <link href="../../../public/css/admin/profile.css" rel="stylesheet">
+    <link href="../../../public/css/extra/custom-select.css" rel="stylesheet">
+
+
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -34,15 +37,16 @@ $metaTitle = "Inventory"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/profile_active_sidebar.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="entity-select-title">Choose analytics category</p>
-                        <!-- Add four buttons -->
-        <a href="/reports/productiveDonationAreas"><button class="button-type1 user-btn">Productive Donation Areas</button></a>
-        <a href="/reports/usageVSexpiry"><button class="button-type2 user-btn" >Blood Usage vs Expiry</button></a>
-        <a href="/reports/donationsVsmonths"><button class="button-type3 user-btn" >Donations respect to months</button></a>             
+        <div class="message-container">
+            <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
+            <p class="success-msg-txt">Successfully updated the Admin Details. Your changes will be fully applied once you login again</p>
+            <a href="/adprofile/" class="brown-button back-to-reserve">Back to Profile</a>
+            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
+        </div>
     </div>
 
 </body>

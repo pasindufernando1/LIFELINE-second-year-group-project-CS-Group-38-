@@ -39,7 +39,7 @@ $metaTitle = "Inventory"
     <!-- main content -->
     <div class="box">
         <p class="add-user-title">Available Badges</p>
-            <a href="/reservation/add" class="brown-button addnew-user">Add New</a>
+            <a href="/adbadges/add_badge" class="brown-button addnew-user">Add New Badge</a>
             <img class="adduser-pic" src="./../../public/img/admindashboard/badge.png" alt="add-button">
         
         <!-- A for loop to read the data from the $_SESSION['badges'] variable -->

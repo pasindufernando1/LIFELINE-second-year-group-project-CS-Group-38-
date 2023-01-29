@@ -39,6 +39,19 @@ class Donors extends Controller
         }    
     }
 
+    function addDonoruser()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/addnewDonor');
+                exit;
+            }
+        }    
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
+
     
     
 

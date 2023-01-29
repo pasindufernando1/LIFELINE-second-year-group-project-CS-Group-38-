@@ -54,11 +54,55 @@ class Reports extends Controller
         }
     }
 
+    // Give generate report page
+    function gen_report()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/gen_report');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+
     function donationsVsmonths()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $this->view->render('admin/donationsVsmonths');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function usageVSexpiry()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/usageVSexpiry');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function productiveDonationAreas()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/productiveDonationAreas');
                 exit;
             }
         }
@@ -85,6 +129,171 @@ class Reports extends Controller
             
         }
     }
+
+    function UsageVsExpiryreport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['province'])) {
+                    header("Location: /reports/usageVSexpiry");
+                    exit;
+                }
+                $this->view->render('admin/UsageVsExpiryreport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function productiveDonationAreasReport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['category'])) {
+                    header("Location: /reports/productiveDonationAreas");
+                    exit;
+                }
+                $this->view->render('admin/productiveDonationAreasReport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function bloodAvailReport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/bloodAvailabilityReport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function bloodAvailReport_Gen()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['gen_report'])) {
+                    header("Location: /reports/bloodAvailReport");
+                    exit;
+                }
+                $this->view->render('admin/bloodAvailReport_Gen');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function inventoryReport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/inventoryReport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function inventoryReport_Gen()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['gen_report'])) {
+                    header("Location: /reports/inventoryReport");
+                    exit;
+                }
+                $this->view->render('admin/inventoryReport_Gen');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function donorReport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/donorReport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function donorReport_Gen()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['gen_report'])) {
+                    header("Location: /reports/donorReport");
+                    exit;
+                }
+                $this->view->render('admin/donorReport_Gen');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function campaignReport()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/campaignReport');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin'); 
+        }
+    }
+
+    function campaignReport_Gen()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if (!isset($_POST['gen_report'])) {
+                    header("Location: /reports/campaignReport");
+                    exit;
+                }
+                $this->view->render('admin/campaignReport_Gen');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+
 
     
     

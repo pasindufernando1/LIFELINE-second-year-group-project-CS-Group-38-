@@ -38,27 +38,15 @@ $metaTitle = "Inventory"
             
     <!-- main content -->
     <div class="box">
-    <p class="add-user-title">Choose year</p>
-        <form action="/reports/UsageVsMonths" method="post" enctype="multipart/form-data" id="addform">
+    <p class="add-user-title">Donor Details</p>
+        <form action="/reports/donorReport_Gen" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label class="quantity-lable" for="bloodbankid">Select year</label>
-                <select class="quantity-input" type="text" name="year" id="year" placeholder="Blood Bank ID" required>
-                    <!-- Give options upto current year  and have a placeholder as Select year-->
-                    <!-- Assuming the system has data since 2020 -->
-                    <?php
-                        $currentYear = date("Y");
-                        echo '<option value="" disabled selected hidden>Select the year </option>';
-                        for($i = 2020; $i <= $currentYear; $i++){
-                            // Have a placeholder named select year
-
-                            echo "<option value='$i'>$i</option>";
-                        }
-                    ?>
-                </select>
+                <label id= "hospital_name-label" class="quantity-lable" for="category">Donor ID : </label>
                 <br>
+                <input class="quantity-input" type="text" name="donorID" id="category" placeholder="Donor ID" required>
+                <div>
+                <button id="submit-btn" class='brown-button-rep generate-analytics' type='submit' name='gen_report'>Generate report</button>                            
             </div>
-            <div>
-                <button id="submit-btn" class='brown-button generate-analytics' type='submit' name='gen_analytics'>Generate analytics</button>                            </div>
         </form>       
     </div>
 

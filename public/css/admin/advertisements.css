@@ -938,14 +938,11 @@ a {
 
 .reg-container {
     position: absolute;
-    height: 64px;
-    left: 65px;
-    right: 114px;
-    top: 320px;
+    top: -120px;
+    width: 100%;
 }
 
 .reg-lable {
-    position: absolute;
     height: 16px;
     left: 0px;
     right: 0px;
@@ -965,12 +962,11 @@ a {
     position: absolute;
     left: 0px;
     right: 0px;
-    top: -100px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 50%;
+    width: 100%;
 }
 
 .regorg-input {
@@ -1014,9 +1010,10 @@ a {
 .status-container {
     position: absolute;
     height: 64px;
-    left: 65px;
+    left: 2px;
     right: 114px;
-    top: 320px;
+    top: -35px;
+    width: 100%;
 }
 
 .dob-container {
@@ -1039,7 +1036,6 @@ a {
 }
 
 .status-lable {
-    position: absolute;
     height: 16px;
     left: 52%;
     right: 0px;
@@ -1072,7 +1068,7 @@ a {
 
 .status-input {
     box-sizing: border-box;
-    position: absolute;
+    /* position: absolute; */
     left: 52%;
     right: 0px;
     top: -100px;
@@ -1080,7 +1076,7 @@ a {
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 48%;
+    width: 100%;
 }
 
 .bloodtype-input {
@@ -1738,10 +1734,10 @@ a {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    width: 282.66px;
+    width: 229.66px;
     height: 52.49px;
-    left: 917px;
-    top: 717px;
+    left: 372px;
+    top: 276px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1794,8 +1790,8 @@ a {
     position: absolute;
     width: 203.66px;
     height: 52.49px;
-    left: 1217px;
-    top: 716px;
+    left: 710px;
+    top: 273px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1807,7 +1803,7 @@ a {
     text-align: center;
     letter-spacing: 0.01em;
     color: #640E0B;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .outline-button:hover {
@@ -1824,8 +1820,8 @@ a {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    left: 1150px;
-    top: 722px;
+    left: 537px;
+    top: 283px;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1848,8 +1844,8 @@ a {
     position: absolute;
     width: 20px;
     height: 20px;
-    left: 1370px;
-    top: 721px;
+    left: 864px;
+    top: 281px;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1858,14 +1854,14 @@ a {
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B
+    color: #640E0B;
 }
 
 .success-msg-txt {
     position: absolute;
     width: 460.68px;
     height: 33.24px;
-    left: 528px;
+    left: 603px;
     top: 375px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1875,7 +1871,7 @@ a {
     display: flex;
     align-items: center;
     text-align: center;
-    color: #640E0B
+    color: #640E0B;
 }
 
 .success-msg-img {
@@ -1890,7 +1886,7 @@ a {
     position: absolute;
     width: 227.96px;
     height: 40.16px;
-    left: 640px;
+    left: 628px;
     top: 513px;
     background: #640E0B;
     border-radius: 10.87px;
@@ -2209,7 +2205,7 @@ td {
     position: absolute;
     width: 239px;
     height: 125px;
-    left: 381px;
+    left: 547px;
     top: 180px;
     background: #640E0B;
     border-radius: 10.8716px;
@@ -2230,8 +2226,8 @@ td {
     position: absolute;
     width: 239px;
     height: 125px;
-    left: 837px;
-    top: 180px;
+    left: 548px;
+    top: 381px;
     background: #640E0B;
     border-radius: 10.8716px;
     color: #FCFEFE;
@@ -2284,8 +2280,8 @@ td {
 }
 
 .user-btn{
-    width: 325px;
-    height: 200px;
+    width: 389px;
+    height: 174px;
 }
 
 /* Hover effects on user button */
@@ -2538,6 +2534,57 @@ td {
     font-size: 13.6835px;    
 }
 
+.icons{
+    border: 2px solid #949494;
+    border-radius: 0.8vw;
+    border-color: #949494;
+    padding: 106px;
+    position: absolute;
+    /* top: -2px; */
+    left: 573px;
+}
+
+.image-lable{
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    /* right: 0px; */
+    top: -38px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: normal;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.camera-icon {
+    position: absolute;
+    cursor: pointer;
+    width: 95px;
+    height: auto;
+    /* margin-top: -5px; */
+    top: 40px;
+    left: 61px;
+}
+
+
+.browsepic {
+    position: absolute;
+    cursor: pointer;
+    width: 133px;
+    /* height: auto; */
+    /* margin-top: -5px; */
+    top: 140px;
+    left: 43px;
+}
 
 
 /* Style the diabled option */

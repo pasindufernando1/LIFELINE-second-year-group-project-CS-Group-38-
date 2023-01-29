@@ -1,6 +1,5 @@
 <?php 
-
-$metaTitle = "Add Hospital/Medical Center" 
+$metaTitle = "Add Donor" 
 ?>
 
 <!DOCTYPE html>
@@ -16,45 +15,70 @@ $metaTitle = "Add Hospital/Medical Center"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/dashboard.css" rel="stylesheet">
-
+    <link href="../../../public/css/admin/donors.css" rel="stylesheet">
+    <link href="../../../public/css/admin/add.css" rel="stylesheet">
+    
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="../../../public/css/admin/sidebar.css" rel="stylesheet">
+     <!-- <link href="../../../public/css/admin/dashboard.css" rel="stylesheet"> -->
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-   
+    
 
     
 
 </head>
 <body>
-    
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
-
-    <div class="box">
-        <p class="add-user-title">Add Hospital/Medical Center</p>
-        <form action="/usermanage/addHospitalMedCenter" method="post" enctype="multipart/form-data" id="addform">
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/donors_active_sidebar.php'); ?>
+    
+    <!-- main content -->
+    <div class="box-new">
+        <p class="add-user-title">Add Donor</p>
+        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label id= "hospital_name-label" class="quantity-lable" for="name">Name:</label>
+                <label class="quantity-lable" for="name">Full name</label>
                 <br>
-                <input id="hospital_name" class="quantity-input" type="text" name="name" autofocus placeholder="Hospital/Medical Center Name" required>
+                <input id="quantity" class="quantity-input" type="text" name="name" autofocus placeholder="Full name" required>
             </div>
-            <div class="reg-container">
-                <label id ="reg-label" class="reg-lable" for="regno">Registration number:</label>
+            <div class="nic-container">
+                <label id="nic-label" class="nic-lable" for="nic">NIC no</label>
                 <br>
-                <input id="regno" class="reg-input" type="text" name="regno" autofocus placeholder="Ex: PHSRC/PH/01 or PHSRC/MC/01 or PHSRC/GH/01" required>
+                <input id="nic" class="nic-input" type="text" name="nic" autofocus placeholder="NIC no" required>
             </div>
-            <div class="status-container">
-                <label class="status-lable" for="status">Status</label>
+            <div class="gender-container">
+                <label id="gender-label" class="gender-lable" for="gender">Gender</label>
                 <br>
-                <select id="status" class="status-input" type="text" name="status" autofocus placeholder="Status" required>
-                    <option value="" disabled selected hidden>Status</option>
-                        <option value="1">Verified</option>
-                        <option value="0">Pending</option>
+                <select id="gender" class="gender-input" type="text" name="gender" autofocus placeholder="Gender" required>
+                <option value="" disabled selected hidden>Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+
+            <div class="dob-container">
+                <label id="dob-label" class="dob-lable" for="dob">DOB</label>
+                <br>
+                <input id="dob" class="dob-input" type="date" name="dob" autofocus placeholder="Date of birth" required>
+            </div>
+            <div class="bloodtype-container">
+                <label class="bloodtype-lable" for="bloodtype">Blood Type</label>
+                <br>
+                <select id="bloodtype" class="bloodtype-input" type="text" name="bloodtype" autofocus placeholder="Blood Type" required>
+                    <!-- Placeholder -->
+                    <option value="" disabled selected hidden>Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
                 </select>
             </div>
             <div class="location-container">
@@ -131,15 +155,13 @@ $metaTitle = "Add Hospital/Medical Center"
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Password" required>
             </div>
             <div>
-                <button id="submit-btn" class='brown-button' type='submit' name='add-hosmed'>Add Hospital/Medical Center</button>
+                <button id="submit-btn" class='brown-button' type='submit' name='add-donor'>Add Donor</button>
                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Adding</a>
+                <a class='outline-button' type='reset' name='cancel-adding' href="/donors/type?page=1">Cancel Adding</a>
                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
             </div>
         </form>
     </div>
-
-    <script src="../../../public/js/validation/uservalidation.js"></script>
-
+<script src="../../../public/js/validation/uservalidation.js"></script>
 </body>
 </html>

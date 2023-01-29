@@ -668,15 +668,13 @@ body {
     display: block;
 }
 
-
-
 .box {
     box-sizing: border-box;
     position: absolute;
-    width: 1540px;
-    height: 810px;
-    left: 316px;
-    top: 102px;
+    width: 80%;
+    height: 88vh;
+    left: 317px;
+    top: 101px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -891,7 +889,6 @@ a {
 }
 
 .quantity-lable {
-    position: absolute;
     height: 16px;
     left: 0px;
     right: 0px;
@@ -940,11 +937,14 @@ a {
 
 .reg-container {
     position: absolute;
-    top: -120px;
-    width: 100%;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 320px;
 }
 
 .reg-lable {
+    position: absolute;
     height: 16px;
     left: 0px;
     right: 0px;
@@ -1013,10 +1013,9 @@ a {
 .status-container {
     position: absolute;
     height: 64px;
-    left: 2px;
+    left: 65px;
     right: 114px;
-    top: -35px;
-    width: 100%;
+    top: 320px;
 }
 
 .dob-container {
@@ -1039,6 +1038,7 @@ a {
 }
 
 .status-lable {
+    position: absolute;
     height: 16px;
     left: 52%;
     right: 0px;
@@ -1071,7 +1071,7 @@ a {
 
 .status-input {
     box-sizing: border-box;
-    /* position: absolute; */
+    position: absolute;
     left: 52%;
     right: 0px;
     top: -100px;
@@ -1079,7 +1079,7 @@ a {
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 100%;
+    width: 48%;
 }
 
 .bloodtype-input {
@@ -1256,19 +1256,6 @@ a {
     width: 48%;
 }
 
-.provinces-input {
-    box-sizing: border-box;
-    left: 52%;
-    right: 0px;
-    top: 30px;
-    background: #FFFFFF;
-    border: 2px solid #949494;
-    border-radius: 8px;
-    padding: 12px 20px;
-    width: 100%;
-}
-
-
 .province-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
@@ -1286,7 +1273,6 @@ a {
 
 .quantity-input {
     box-sizing: border-box;
-    position: absolute;
     left: 0px;
     right: 0px;
     top: -180px;
@@ -1294,6 +1280,7 @@ a {
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
+    width: 100%;
 }
 
 .quantity-input::placeholder {
@@ -1767,36 +1754,6 @@ a {
     cursor: pointer;
     border: 1px #949494 solid;
 }
-
-.brown-button-rep {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 38.05963px;
-    /* gap: 11.06px; */
-    position: absolute;
-    width: 298.66px;
-    height: 52.49px;
-    left: 917px;
-    top: 717px;
-    background: #640E0B;
-    border-radius: 10.8716px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
-    line-height: 19px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #FCFEFE;
-    cursor: pointer;
-    border: 1px #949494 solid;
-}
-
-
-
-
 
 .generate-analytics{
     left: 40%;
@@ -2615,3 +2572,171 @@ canvas{
 
 
 
+
+
+.reservation img {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 0px;
+    margin-left: 17px;
+    margin-top: 15px;
+}
+
+.profile a {
+    position: absolute;
+    width: 14.4vw;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.dashboard {
+    box-sizing: border-box;
+    position: absolute;
+    width: 14vw !important;
+    height: 62px;
+    left: 5px;
+    background: #ffffff !important;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.dashboard-active a {
+    color: #000000 !important;
+    font-weight: unset !important;
+}
+
+.menu-item:hover .red-dash {
+    display: block !important;
+}
+
+.menu-item:hover .blk-dash {
+    display: none !important;
+}
+
+.red-dash {
+    display: none !important;
+}
+
+.blk-dash {
+    display: block !important;
+}
+
+.dashboard-active a:hover {
+    font-weight: 700 !important;
+    font-size: 18.9713px !important;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+}
+
+.marker {
+    top: 475px !important;
+    z-index: 999;
+}
+
+.blk-profile {
+    display: none;
+}
+
+.red-profile {
+    display: block !important;
+}
+
+.selected {
+    box-sizing: border-box;
+    position: absolute;
+    width: 14.4vw !important;
+    height: 62px;
+    background: #F8F8F8;
+    top: 463px;
+}
+
+.user-details {
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    margin-top: 100px;
+    margin-left: 80px;
+    vertical-align: middle;
+}
+
+.image-1 img {
+    width: 88px;
+    height: 92px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 0.8vw;
+}
+
+.u-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.r-type {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    margin-top: -10px;
+    color: #A4A4A4;
+}
+
+.reserve-id-container {
+    top: 230px;
+}
+
+.blood-group-container {
+    top: 330px;
+}
+
+.quantity-container {
+    top: 430px
+}
+
+.expiry-constraints-container {
+    top: 530px;
+}
+
+.expired-stock-btn {
+    left: 1158px !important;
+    top: 102px !important;
+}
+
+.expired-stocks-img {
+    top: 115px !important;
+    left: 1321px !important;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload img {
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    margin-top: -35px;
+    margin-left: 55px;
+}

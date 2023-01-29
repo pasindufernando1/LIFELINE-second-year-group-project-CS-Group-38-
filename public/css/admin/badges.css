@@ -680,6 +680,19 @@ body {
     border-radius: 6px;
 }
 
+.box-white{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 810px;
+    left: 316px;
+    top: 102px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+
 .adminbox {
     box-sizing: border-box;
     position: absolute;
@@ -938,14 +951,11 @@ a {
 
 .reg-container {
     position: absolute;
-    height: 64px;
-    left: 65px;
-    right: 114px;
-    top: 320px;
+    top: -120px;
+    width: 100%;
 }
 
 .reg-lable {
-    position: absolute;
     height: 16px;
     left: 0px;
     right: 0px;
@@ -965,12 +975,11 @@ a {
     position: absolute;
     left: 0px;
     right: 0px;
-    top: -100px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 50%;
+    width: 100%;
 }
 
 .regorg-input {
@@ -1014,9 +1023,10 @@ a {
 .status-container {
     position: absolute;
     height: 64px;
-    left: 65px;
+    left: 2px;
     right: 114px;
-    top: 320px;
+    top: -35px;
+    width: 100%;
 }
 
 .dob-container {
@@ -1039,7 +1049,6 @@ a {
 }
 
 .status-lable {
-    position: absolute;
     height: 16px;
     left: 52%;
     right: 0px;
@@ -1072,7 +1081,7 @@ a {
 
 .status-input {
     box-sizing: border-box;
-    position: absolute;
+    /* position: absolute; */
     left: 52%;
     right: 0px;
     top: -100px;
@@ -1080,7 +1089,7 @@ a {
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 48%;
+    width: 100%;
 }
 
 .bloodtype-input {
@@ -1156,6 +1165,18 @@ a {
 }
 
 .number-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.status-input::placeholder{
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -1257,7 +1278,19 @@ a {
     width: 48%;
 }
 
-.province-input::placeholder {
+.provinces-input {
+    box-sizing: border-box;
+    left: 52%;
+    right: 0px;
+    top: 30px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.province-input::placeholder , .provinces-input::placeholder{
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -1738,10 +1771,10 @@ a {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    width: 282.66px;
+    width: 229.66px;
     height: 52.49px;
-    left: 917px;
-    top: 717px;
+    left: 372px;
+    top: 126px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1786,6 +1819,32 @@ a {
     font-size: 13.6835px;
 }
 
+.brown-button-rep {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 38.05963px;
+    /* gap: 11.06px; */
+    position: absolute;
+    width: 298.66px;
+    height: 52.49px;
+    left: 917px;
+    top: 717px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+}
+
 .outline-button {
     display: flex;
     flex-direction: row;
@@ -1794,8 +1853,8 @@ a {
     position: absolute;
     width: 203.66px;
     height: 52.49px;
-    left: 1217px;
-    top: 716px;
+    left: 710px;
+    top: 125px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1807,7 +1866,7 @@ a {
     text-align: center;
     letter-spacing: 0.01em;
     color: #640E0B;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .outline-button:hover {
@@ -1824,8 +1883,8 @@ a {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    left: 1150px;
-    top: 722px;
+    left: 537px;
+    top: 134px;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1848,8 +1907,8 @@ a {
     position: absolute;
     width: 20px;
     height: 20px;
-    left: 1370px;
-    top: 721px;
+    left: 864px;
+    top: 131px;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1858,7 +1917,7 @@ a {
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B
+    color: #640E0B;
 }
 
 .success-msg-txt {
@@ -1910,15 +1969,15 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.05963px;
+    padding: 3.05963px;
     gap: 9.06px;
     position: absolute;
     width: 203.66px;
     height: 37.49px;
-    left: 939px;
-    top: 32px;
+    left: 936px;
+    top: 40px;
     background: #640E0B;
-    border-radius: 10.8716px
+    border-radius: 10.8716px;
 }
 
 .adduser-pic {
@@ -2593,6 +2652,60 @@ td {
 .break{
     height: 380.49px;
 }
+
+
+
+.icons{
+    border: 2px solid #949494;
+    border-radius: 0.8vw;
+    border-color: #949494;
+    padding: 106px;
+    position: absolute;
+    top: 68px;
+}
+
+.image-lable{
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    /* right: 0px; */
+    top: 42px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: normal;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.camera-icon {
+    position: absolute;
+    cursor: pointer;
+    width: 95px;
+    height: auto;
+    /* margin-top: -5px; */
+    top: 40px;
+    left: 61px;
+}
+
+
+.browsepic {
+    position: absolute;
+    cursor: pointer;
+    width: 133px;
+    /* height: auto; */
+    /* margin-top: -5px; */
+    top: 140px;
+    left: 43px;
+}
+
 
 
 

@@ -40,7 +40,7 @@ $metaTitle = "Inventory"
     <div class="box">
         <p class="add-user-title">Donors</p>
                         
-        <a href="/usermanage/adduser" class="brown-button types-user">Add New</a>
+        <a href="/donors/addDonoruser" class="brown-button types-user">Add New</a>
         <img class="userbutton-user" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
