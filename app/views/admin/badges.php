@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Badges" 
 ?>
 
 <!DOCTYPE html>

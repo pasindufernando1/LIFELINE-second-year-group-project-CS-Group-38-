@@ -670,16 +670,24 @@ body {
 
 
 
-.box {
+.box, .box-productive, .box-camp {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 810px;
+    height: 1000px;
     left: 316px;
     top: 102px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+.box-productive{
+    height: 1282px;
+}
+
+.box-camp{
+    height: 1282px;
 }
 
 .adminbox {
@@ -1768,6 +1776,8 @@ a {
     border: 1px #949494 solid;
 }
 
+
+
 .brown-button-rep {
     display: flex;
     flex-direction: row;
@@ -2598,20 +2608,246 @@ td {
 }
 
 
-
-canvas{
-    width: 50%;
-    height: 50%;
+.barchart{
     position: absolute;
-    left: 0px;
-    top: 0px;
-    
+    top: 180px;
+    margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.data{
+    position: absolute;
+    top: 180px;
+    margin: 191px 0px 69px 966px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 537px;
+    height: max-content;
+
+}
+
+.data-box1, .data-box2{
+    position: absolute;
+    top: 180px;
+    margin: 191px 0px 69px 966px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 537px;
+    height: 180px;
+}
+
+.data-box2{
+    top: 404px;
+}
+
+.icon img{
+    position: absolute;
+    width: 293px;
+    height: 81px;
+}
+
+.reportID{
+    position: absolute;
+    left: 122px;
+    top: 121px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.reportID-content{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.6835px;
+    margin: -47px 0px 0px 289px;
+}
+
+.reportTitle{
+    position: absolute;
+    left: 122px;
+    top: 167px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.reportTitle-content{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.6835px;
+    margin: -44px 0px 0px 289px;
+}
+
+.year{
+    position: absolute;
+    left: 122px;
+    top: 213px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.year-content{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.6835px;
+    margin: -45px 0px 0px 289px;
+}
+
+.date{
+    position: absolute;
+    left: 122px;
+    top: 259px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.date-generated{
+    position: absolute;
+    left: 122px;
+    top: 259px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    margin-top: 42px;
 }
 
 
+.date-content{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26.6835px;
+    margin: -43px 0px 0px 289px;
+}
 
+.genrep1{
+    top: 170px;
+    left: 945px;
+}
 
-/* Style the diabled option */
+.addbutton_rep1{
+    top: 175px;
+    left: 1169px;
+}
 
+.outline-button_rep1{
+    top: 169px;
+    left: 1258px;
+}
 
+.cancelbutton_rep1{
+    top: 911px;
+    left: 887px;
+}
+
+.data th{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    padding: 9px 4px 10px 58px;
+}
+
+.data-blood-types-line{
+    position: absolute;
+    width: 90%;
+    height: 0px;
+    top: 40.25px;
+    left: 27px;
+    border: 0.818053px solid #EFEFEF;
+}
+
+.data td{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+    padding-top: 27px;
+    padding-left: 72px;
+}
+
+.chart2{
+    position: absolute;
+    top: 444px;
+}
+
+.db-title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 27.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+
+}
+
+.db-data{
+    font-family: 'Poppins';
+    font-weight: bolder;
+    font-size: 27.4954px;
+    line-height: 22px;
+    color: #BF1B16;
+    text-align: center;
+    text-transform: uppercase;
+    /* Make much bolder */
+
+}
+
+.campaigns-avail{
+    position: absolute;
+    top: 386px;
+    left: 35px;
+    border: 3px #BCBCBC solid;
+    border-radius: 10px;
+    width: 95%;
+    height: max-content;
+}
+
+.campaigns-avail p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    line-height: 22px;
+    color: #000000;
+    padding-left: 50px;
+}
+
+.campaigns-avail th{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    padding: 11px 54px 10px 61px;
+}
+
+.data-blood-types-line-new{
+    position: absolute;
+    width: 97%;
+    height: 0px;
+    top: 122.25px;
+    left: 27px;
+    border: 0.818053px solid #EFEFEF;
+}
 

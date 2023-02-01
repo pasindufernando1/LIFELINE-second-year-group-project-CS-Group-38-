@@ -39,7 +39,7 @@ $metaTitle = "Inventory"
     <!-- main content -->
     <div class="box">
     <p class="add-user-title">Inventory Availability</p>
-        <form action="/reports/inventoryReport_Gen" method="post" enctype="multipart/form-data" id="addform">
+        <form action="/reports/inventoryReport_Gen?page=1" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Inventory Category : </label>
                 <br>

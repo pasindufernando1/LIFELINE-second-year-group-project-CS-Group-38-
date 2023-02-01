@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Donations Vs Months" 
 ?>
 
 <!DOCTYPE html>

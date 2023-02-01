@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Blood Availability Report" 
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $metaTitle = "Inventory"
     <!-- main content -->
     <div class="box">
     <p class="add-user-title">Blood Availability</p>
-        <form action="/reports/bloodAvailReport_Gen" method="post" enctype="multipart/form-data" id="addform">
+        <form action="/reports/bloodAvailReport_Gen?page=1" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Blood Category : </label>
                 <br>

@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Add cash donation" 
 ?>
 
 <!DOCTYPE html>

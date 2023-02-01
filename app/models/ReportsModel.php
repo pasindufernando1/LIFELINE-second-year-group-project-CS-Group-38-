@@ -9,22 +9,41 @@ class ReportsModel extends Model
 
     public function getAllReportDetails()
     {
-        // $data = $this->db->select("*", "bank_inventory_categories","Null");
-        // // Take the blood bank name for each blood bank id and add it to the array
-        // foreach ($data as $key => $value) {
-        //     $data[$key]['BloodBank_Name'] = $this->getBankName($value['BloodBankID']);
-        // }
-        // //Take the inventory type name and category for each inventory type id and add it to the array
-        // foreach ($data as $key => $value) {
-        //     $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
-        //     $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
-        // }
-        // // print_r($data);die();
-        // return $data;
-
         $data = $this->db->select("*", "report","Null");
         return $data;
+    }
 
+    public function getAllBloodAvailReports()
+    {
+        // Randomly generate 10 quantities for 10 blood banks
+        $data = $this->db->select("*", "bloodbank","Null");
+        foreach ($data as $key => $value) {
+            $data[$key]['Quantity'] = rand(0, 100);
+        }
+        return $data;
+    }
+
+    public function getAllInvAvailReports()
+    {
+        // Randomly generate 10 quantities for 10 blood banks
+        $data = $this->db->select("*", "bloodbank","Null");
+        foreach ($data as $key => $value) {
+            $data[$key]['Quantity'] = rand(0, 100);
+        }
+        return $data;
+    }
+
+    public function getAllCampaignDetails()
+    {
+        // Generate a random array containing 10 campaign dates, locations, available beds, and organizers
+        $data = array();
+        for ($i=0; $i < 10; $i++) { 
+            $data[$i]['Date'] = date('Y-m-d', strtotime('+' . rand(0, 100) . ' days'));
+            $data[$i]['Location'] = 'Location ' . rand(0, 100);
+            $data[$i]['AvailableBeds'] = rand(0, 100);
+            $data[$i]['Organizer'] = 'Organizer ' . rand(0, 100);
+        }
+        return $data;
     }
 
     

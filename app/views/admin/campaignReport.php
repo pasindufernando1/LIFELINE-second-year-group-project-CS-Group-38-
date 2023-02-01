@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Campaign Report" 
 ?>
 
 <!DOCTYPE html>

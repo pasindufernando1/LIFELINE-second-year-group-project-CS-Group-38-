@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Blood Availability Report" 
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +24,7 @@ $metaTitle = "Inventory"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>    
 
     
 
@@ -38,81 +37,77 @@ $metaTitle = "Inventory"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box">
-        <!-- Create a barchart -->
-        <div class="barchart">
-            <canvas id="usage-months" width="100" height="100">
-                <script>
-                    var ctx = document.getElementById('usage-months').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            datasets: [{
-                                label: 'Blood Usage',
-                                data: [12, 19, 3, 5, 2, 3, 1, 2, 3, 4, 5, 6],
-                                backgroundColor: [
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16'
-                                ],   
-                                //Barwidth
-                                barpercentage: 0.25,         
-                            }]
-                        },
-                        options: {
-                            // title: {
-                            //     display: true,
-                            //     text: 'Blood Usage',
-                            //     // Align the chart title to the top left
-                            //     position: 'top',
-                            //     fontSize: 30,
-                            //     fontColor: '#000000',
-                            //     fontFamily: 'Poppins',
-                            //     fontStyle: 'bold',
-                            // },
-                            scales: {
-                                yAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }],
-                                xAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true,
-                                        fontColor: '#000000',
-                                        fontFamily: 'Poppins',
-                                        fontsize: 400,
-                                        maxRotation: 90,
-                                        minRotation: 0,
-                                    },
-                                    // Make the 
-
-                                }]
-
-                            }
-                        }
-                    });
-                </script>
-
-            </canvas>
+    <div class="box-productive">
+        <!-- Icon image to the top left corner -->
+        <div class="icon">
+            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
-    </div>
+        <div class="reportID">
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <br>
+        </div>
+        <div class="reportTitle">
+            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Productive Donation Areas</div></label>
+            <br>
+        </div>
+        <div class="year">
+            <label class="year-lable" for="category">Blood Category<div class="year-content"> : A+</div></label>
+            <br>
+        </div>
+        <div class="date">
+            <label class="date-lable" for="date">Date Generated<div class="date-content"> : 2020-10-10</div></label>
+            <br>
+        </div>
+
+        <div class="chart1">
+            <!-- Create a barchart -->
+            <div class="barchart">
+                <canvas id="total-donations" width="900" height="400">
+                </canvas>
+            </div>
+            <div class="data-box1">
+                <p class="db-title">Highest Contribution</p>
+                <p class="db-data">Polonnaruwa</p>
+                <p class="db-title">3900 Pints</p>
+                
+            </div>
+            <div class="data-box2">
+                <p class="db-title">Least Contribution</p>
+                <p class="db-data">Matale</p>
+                <p class="db-title">1100 Pints</p>
+            </div>
+        </div>
+
+        <div class="chart2">
+            <!-- Create a barchart -->
+            <div class="barchart">
+                <canvas id="registered-donors" width="900" height="400">
+                </canvas>
+            </div>
+            <div class="data-box1">
+                <p class="db-title">Highest Donors</p>
+                <p class="db-data">Polonnaruwa</p>
+                <p class="db-title">800</p>
+            </div>
+            <div class="data-box2">
+                <p class="db-title">Least Donors</p>
+                <p class="db-data">Jaffna</p>
+                <p class="db-title">220</p>
+            </div>
+        </div>
+        
+
+
+
+        <div>
+            <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
+            <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
+            <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+        </div>
+
+    <!-- Include the chart.js files -->
+    <script src="../../../public/js/charts/productivedonations-totalDonation.js"></script>
+    <script src="../../../public/js/charts/productivedonations-totalDonors.js"></script>
 
 </body>
 </html>

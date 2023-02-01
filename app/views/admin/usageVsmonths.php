@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Blood Availability Report" 
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +24,7 @@ $metaTitle = "Inventory"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>    
 
     
 
@@ -39,80 +38,38 @@ $metaTitle = "Inventory"
             
     <!-- main content -->
     <div class="box">
+        <!-- Icon image to the top left corner -->
+        <div class="icon">
+            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
+        </div>
+        <div class="reportID">
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <br>
+        </div>
+        <div class="reportTitle">
+            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Blood Usage Respect to Months</div></label>
+            <br>
+        </div>
+        <div class="year">
+            <label class="year-lable" for="year">Year<div class="year-content"> : 2020</div></label>
+            <br>
+        </div>
+        <div class="date">
+            <label class="date-lable" for="date">Date Generated<div class="date-content"> : 2020-10-10</div></label>
+            <br>
+        </div>
         <!-- Create a barchart -->
         <div class="barchart">
-            <canvas id="usage-months" width="100" height="100">
-                <script>
-                    var ctx = document.getElementById('usage-months').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            datasets: [{
-                                label: 'Blood Usage',
-                                data: [12, 19, 3, 5, 2, 3, 1, 2, 3, 4, 5, 6],
-                                backgroundColor: [
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16'
-                                ],   
-                                //Barwidth
-                                barpercentage: 0.25,         
-                            }]
-                        },
-                        options: {
-                            // title: {
-                            //     display: true,
-                            //     text: 'Blood Usage',
-                            //     // Align the chart title to the top left
-                            //     position: 'top',
-                            //     fontSize: 30,
-                            //     fontColor: '#000000',
-                            //     fontFamily: 'Poppins',
-                            //     fontStyle: 'bold',
-                            // },
-                            scales: {
-                                yAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }],
-                                xAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true,
-                                        fontColor: '#000000',
-                                        fontFamily: 'Poppins',
-                                        fontsize: 400,
-                                        maxRotation: 90,
-                                        minRotation: 0,
-                                    },
-                                    // Make the 
-
-                                }]
-
-                            }
-                        }
-                    });
-                </script>
-
+            <canvas id="usage-months" width="1450" height="483.33">
             </canvas>
         </div>
+        <div>
+            <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
+            <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
+            <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a>        </div>
     </div>
+    <!-- Include the chart.js file -->
+    <script src="../../../public/js/charts/usageVSmonths.js"></script>
 
 </body>
 </html>

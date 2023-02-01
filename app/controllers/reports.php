@@ -188,6 +188,7 @@ class Reports extends Controller
                     header("Location: /reports/bloodAvailReport");
                     exit;
                 }
+                $_SESSION['blood_avail'] = $this->model->getAllBloodAvailReports();
                 $this->view->render('admin/bloodAvailReport_Gen');
                 exit;
             }
@@ -220,6 +221,7 @@ class Reports extends Controller
                     header("Location: /reports/inventoryReport");
                     exit;
                 }
+                $_SESSION['inventory_avail'] = $this->model->getAllInvAvailReports();
                 $this->view->render('admin/inventoryReport_Gen');
                 exit;
             }
@@ -283,6 +285,7 @@ class Reports extends Controller
                     header("Location: /reports/campaignReport");
                     exit;
                 }
+                $_SESSION['campaign_avail'] = $this->model->getAllCampaignDetails();
                 $this->view->render('admin/campaignReport_Gen');
                 exit;
             }
