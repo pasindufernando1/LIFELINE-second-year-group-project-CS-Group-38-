@@ -53,5 +53,15 @@ class UserModel extends Model
 
     }
 
+    public function getuserimg($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $type = $this->db->select("userpic","user","WHERE email =:email",':email',$email);
+            $user_pic = $type[0]['userpic'];
+            return $user_pic;
+        
+        } 
+    }
+
     
 }

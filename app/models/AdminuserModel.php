@@ -33,6 +33,15 @@ class AdminuserModel extends Model
 
     }
 
+    public function getuserimg($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $type = $this->db->select("userpic","user","WHERE email =:email",':email',$email);
+            $user_pic = $type[0]['userpic'];
+            return $user_pic;
+        } 
+    }
+
     public function gettype($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -41,6 +50,51 @@ class AdminuserModel extends Model
             return $type_of_user;
         
         } 
+    }
+
+    public function checkMail($email)
+    {
+        $res = ($this->db->select('userID', "user", "WHERE email = :email;", ':email', $email));
+        if(!empty($res)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function updatePassword($email, $pwd)
+    {
+        $passw = password_hash($pwd, PASSWORD_DEFAULT);
+        $result = $this->db->update("user", "password", ":password", $passw, ':email', $email, "WHERE email = :email");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
+    public function getUserId($email)
+    {
+        if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $user_ID = $this->db->select("UserID","user","WHERE email =:email",':email',$email);
+            $user_ID = $user_ID[0]['user_ID'];
+            return $user_ID;
+
+        
+        } 
+
+    }
+    
+    public function insertToken($email)
+    {
+        if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $user_ID = $this->db->select("UserID","user","WHERE email =:email",':email',$email);
+            $user_ID = $user_ID[0]['user_ID'];
+            return $user_ID;
+
+        
+        } 
+
     }
     
 

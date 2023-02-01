@@ -12,15 +12,15 @@ class Login extends Controller
     function index()
     {
         if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "systemuser") {
+            if ($_SESSION['type'] == "System User") {
                 header("Location: /user/dashboard");
                 $this->view->render('systemuser/dashboard');
                 exit;
-            } else if ($_SESSION['type'] == "admin") {
+            } else if ($_SESSION['type'] == "Admin") {
                 header("Location: /user/dashboard");
                 $this->view->render('layout/navigation');
                 exit;
-            } else if ($_SESSION['type'] == "donor") {
+            } else if ($_SESSION['type'] == "Donor") {
                 header("Location: /user/dashboard");
                 $this->view->render('systemuser/dashboard');
                 exit;

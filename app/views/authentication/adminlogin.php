@@ -32,7 +32,7 @@
                 <label class="password-lable" for="password">Password:</label>
                 <br>
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="Enter Password" required>
-                <a href="/adminuser/forgetPassword/"><button class="forget-password" name="forget-password">Forgot password?</p></a>
+                <a href="/adminuser/forgetPassword/" class="forget-password" >Forgot password?</a>
                 <br>
                 <?php if (isset($_SESSION['error'])) {  ?>
                 <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
