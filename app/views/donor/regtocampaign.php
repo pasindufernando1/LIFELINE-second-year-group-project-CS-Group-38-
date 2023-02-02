@@ -81,21 +81,21 @@ $metaTitle = 'Donor Campaigns'; ?>
                             alt="reservation">
                         <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
                             alt="reservation">
-                        <p class="reservation-nav menu-item"><a href="#">History</a></p>
+                        <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
 
                     </div>
                     <div class="users menu-item">
                         <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
                         <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
                             alt="donor-cards">
-                        <p class="users-nav "><a href="/usermanage">Donor Card</a></p>
+                        <p class="users-nav "><a href="/card">Donor Card</a></p>
 
                     </div>
                     <div class="inventory menu-item">
                         <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
                         <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
                             alt="inventory">
-                        <p class="inventory-nav "><a href="#">Contact Us</a></p>
+                        <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
 
                     </div>
                     <div class="badges menu-item">
@@ -109,7 +109,7 @@ $metaTitle = 'Donor Campaigns'; ?>
                         <img src="./../../public/img/donordashboard/non-active/reports.png" alt="reports">
                         <img class="reservation-non-active" src="./../../public/img/donordashboard/active/reports.png"
                             alt="reports">
-                        <p class="reports-nav "><a href="#">Feedback</a></p>
+                        <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
                     </div>
                     <div class="campaigns-selected">
@@ -124,7 +124,7 @@ $metaTitle = 'Donor Campaigns'; ?>
                         <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
                         <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
                             alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
+                        <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
                     </div>
                     <div class="box">
@@ -141,10 +141,9 @@ $metaTitle = 'Donor Campaigns'; ?>
                                     <td style="text-align: left;">
                                         <label class="reg-lable " for="contno">Contact Number: </label>
                                         <br />
-                                        <input class="contno" id="contno" type="text" name="contno" autofocus
-                                            value="<?php echo $_SESSION[
-                                                'contno'
-                                            ][0]; ?>" required>
+                                        <input class="contno" id="contno" type="text" name="contno" autofocus value="<?php echo $_SESSION[
+                                            'contno'
+                                        ][0]; ?>" required>
                                         <p class="contno-error" id="contno-error"></p>
                                     </td>
                                     <td style="text-align: left;">
@@ -279,7 +278,7 @@ $metaTitle = 'Donor Campaigns'; ?>
                                 </tr>
                             </table>
 
-                           
+
 
                         </form>
                         <script src="../../../public/js/validation/donoruservalidation.js"></script>

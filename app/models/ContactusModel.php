@@ -2,7 +2,7 @@
 
 use LDAP\Result;
 
-class GetcampaignModel extends Model
+class ContactusModel extends Model
 {
     function __construct()
     {

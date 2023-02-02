@@ -1,7 +1,6 @@
 <?php
-$_SESSION['selected_campid'] = $_GET['camp'];
-$metaTitle = 'Donor Dashboard';
-?>
+
+$metaTitle = 'Donor Dashboard'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,7 @@ $metaTitle = 'Donor Dashboard';
 
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yeseva+One&display=swap" rel="stylesheet">
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
@@ -68,7 +68,6 @@ $metaTitle = 'Donor Dashboard';
             </div>
         </div>
     </div>
-
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -114,11 +113,11 @@ $metaTitle = 'Donor Dashboard';
                 <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
-            <div class="campaigns-selected">
-                <div class="campaigns-marker"></div>
-                <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png"
+            <div class="campaigns menu-item">
+                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
+                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
                     alt="campaigns">
-                <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
+                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
 
             </div>
             <div class="line"></div>
@@ -128,147 +127,62 @@ $metaTitle = 'Donor Dashboard';
                     alt="profile">
                 <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
+            </div>
+        </div>
+    </div>
 
-            </div>
-        </div>
-    </div>
-    <?php
-// If the current user is registered to the campaign
-?>
-    <?php if ($_SESSION['if_registered'] == 0) {
-        echo '<div class="view-campaign-box">
-        <p class="campaign-head">' .
-            $_SESSION['campaign_array'][1] .
-            '</p><br>
-        <p class="campaign-details">Organized By : ' .
-            $_SESSION['org_name'] .
-            '<br><br>
-            Date : ' .
-            $_SESSION['campaign_array'][4] .
-            '<br><br>
-            Starting Time : ' .
-            $_SESSION['campaign_array'][5] .
-            '<br><br>
-            Ending Time : ' .
-            $_SESSION['campaign_array'][6] .
-            '<br><br>
-            Location : ' .
-            $_SESSION['campaign_array'][2] .
-            '<br><br>
-            Number of Beds : ' .
-            $_SESSION['campaign_array'][3] .
-            '</p><br>
-        <a href="/getcampaign/reg_to_campaign?camp=' .
-            $_SESSION['selected_campid'] .
-            '"><button class="to-reg-btn">Register</button>
-            <img src="./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
-    </div>';
-    }
-    // If the current user is registered to the campaign
-    elseif ($_SESSION['if_registered'] == 1) {
-        echo '<div class="view-camp-div-box">
-        <div class="left-box">
-            <div class="left-head">
-                <h1>' .
-            $_SESSION['campaign_array'][1] .
-            '</h1>
-            </div>
-            <div class="left-q">
-                <p>Organized By
-                    <br>
-                <p>Date
-                    <br>
-                <p>Starting Time
-                    <br>
-                <p>Ending Time
-                    <br>
-                <p>Location
-                    <br>
-                <p>Number of Beds</p>
-            </div>
-            <div class="right-a">
-                <p> : ' .
-            $_SESSION['org_name'] .
-            '<br>
-                <p> : ' .
-            $_SESSION['campaign_array'][4] .
-            '<br>
-                <p> : ' .
-            $_SESSION['campaign_array'][5] .
-            '<br>
-                <p> : ' .
-            $_SESSION['campaign_array'][6] .
-            '<br>
-                <p> : ' .
-            $_SESSION['campaign_array'][2] .
-            '<br>
-                <p> : ' .
-            $_SESSION['campaign_array'][3] .
-            '</p>
-            </div>
-        </div>
-        <div class="right-box">
-            <div class="left-head">
-                <h1>Registration Details</h1>
-            </div>
-            <div class="r-left-q">
-                <p>Emergency Contact Number </br>
-                <p>Contact Number </p>
-            </div>
-            <div class="r-right-a">
-                <p> : ' .
-            $_SESSION['reg_info'][0] .
-            ' </br>
-                <p>: ' .
-            $_SESSION['reg_info'][1] .
-            '</p>
-            </div>
+    <div class="contact-container">
+        <p>Find Blood Bank Contact Information</p>
+        <form id="bb_search">
+            <select class="bloodbank-input" type="text" name="bloodbank" autofocus placeholder=" " required>
+                <option value="" disabled selected hidden>Choose a Blood Bank</option>
+                <option value="Akkaraipattu">Akkaraipattu</option>
+                <option value="Ampara">Ampara</option>
+                <option value="Dehiatthakandiya">Dehiatthakandiya</option>
+                <option value="Kalmunai AM(S)">Kalmunai AM(S)</option>
+                <option value="Kalmunai Base(N)">Kalmunai Base(N)</option>
+                <option value="Mahaoya">Mahaoya</option>
+                <option value="Sammanthurai">Sammanthurai</option>
+                <option value="Medirigiriya">Medirigiriya</option>
+                <option value="Padaviya">Padaviya</option>
+                <option value="Polonnannva">Polonnannva</option>
+                <option value="Badulla">Badulla</option>
+                <option value="Thambuttegama">Thambuttegama</option>
+                <option value="Bibila">Bibila</option>
+                <option value="Diyatalawa">Diyatalawa</option>
+                <option value="Monaragala">Monaragala</option>
+                <option value="Welimada">Welimada</option>
+                <option value="Wellawaya">Wellawaya</option>
+                <option value="Batticaloa">Batticaloa</option>
+                <option value="Valachchenai">Valachchenai</option>
+                <option value="Avissawella">Avissawella</option>
+                <option value="CIM">CIM</option>
+                <option value="Homagama">Homagama</option>
+                <option value="Karawenella">Karawenella</option>
+                <option value="CNTH">CNTH</option>
+                <option value="Gampaha">Gampaha</option>
+                <option value="Kalpitiya">Kalpitiya</option>
+                <option value="Marawila">Marawila</option>
+                <option value="Negambo">Negambo</option>
+                <option value="Puttalam">Puttalam</option>
+                <option value="Wathupitiwala">Wathupitiwala</option>
+                <option value="Welisara">Welisara</option>
+                <option value="Jaffna">Jaffna</option>
+                <option value="Mollaitivu">Mollaitivu</option>
+                <option value="Karapitiya">Karapitiya</option>
+                <option value="Point Pedro">Point Pedro</option>
+                <option value="Thellippallai">Thellippallai</option>
+                <option value="Horana">Horana</option>
+                <option value="Kalpitiya">Kalpitiya</option>
+                <option value="Kalutara">Kalutara</option>
+                <option value="Kethumathie">Kethumathie</option>
+                <option value="Panadura">Panadura</option>
+            </select>
             <br>
-            <a class="outline-regedit-button" href="updatereg">Update
-                <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
-            <a class="outline-regdelete-button" href="deletereg">Delete
-                <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
-        </div>';
-        // echo '<div class="div-box">
-        // <div class="left-box">
-        // <h1>' .
-        // $_SESSION['campaign_array'][1] .
-        // '</h1>
-        // <p>Organized By : ' .
-        // $_SESSION['org_name'] .
-        // '</p>
-        // <p>Date : ' .
-        // $_SESSION['campaign_array'][4] .
-        // '</p>
-        // <p>Starting Time : ' .
-        // $_SESSION['campaign_array'][5] .
-        // '</p>
-        // <p>Ending Time : ' .
-        // $_SESSION['campaign_array'][6] .
-        // '</p>
-        // <p>Location : ' .
-        // $_SESSION['campaign_array'][2] .
-        // '</p>
-        // <p>Number of Beds : ' .
-        // $_SESSION['campaign_array'][3] .
-        // '</p>
-        // </div>
-        // <div class="right-box">
-        // <h1>Registration Details</h1>
-        // <p>Emergency Contact Number : ' .
-        // $_SESSION['reg_info'][0] .
-        // '</p>
-        // <p>Contact Number : ' .
-        // $_SESSION['reg_info'][1] .
-        // '</p>
-        // <br>
-        // <a class="outline-regedit-button" href="getcampaign/updatereg/">Update
-        // <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
-        // <a class="outline-regdelete-button" href="#">Delete
-        // <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
-        // </div>';
-    } ?>
-    </div>
+            <!-- <button type="submit">Search</button> -->
+            <a href="/contactus/getcontact">Search</a>
+        </form>
+        <script src="./../../public/js/contactus.js"></script>
     </div>
 </body>
 

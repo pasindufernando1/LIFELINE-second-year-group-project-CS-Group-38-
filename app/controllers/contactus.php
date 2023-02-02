@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class Getcampaign extends Controller
+class Contactus extends Controller
 {
     function __construct()
     {
@@ -12,20 +12,7 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                //get the current date
-                $_SESSION['today'] = date('Y-m-d H:i:s');
-
-                //get the donor's registrations to the future campaigns
-                $_SESSION['registrations'] = $this->model->campregistraions(
-                    $_SESSION['user_ID'],
-                    $_SESSION['today']
-                );
-
-                //get the upcoming campaigns
-                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
-                    $_SESSION['today']
-                );
-                $this->view->render('donor/getcampaign');
+                $this->view->render('donor/contact_us');
                 exit();
             }
         } else {
@@ -33,61 +20,11 @@ class Getcampaign extends Controller
         }
     }
 
-    function view_campaign()
+    function getcontact()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                //get the campaign id to retrieve data from the database
-                $_SESSION['selected_campid'] = $_GET['camp'];
-                $campid = $_GET['camp'];
-
-                //get the campaign information
-                $camp_info = $this->model->get_campaign_info($campid);
-                $_SESSION['campaign_array'] = $camp_info;
-
-                //get organizer from another table
-                $_SESSION['org_name'] = $this->model->get_org_name(
-                    $_SESSION['campaign_array'][9]
-                );
-                //set the times to AM PM format
-                $stime = substr($_SESSION['campaign_array'][5], 0, 2);
-                $etime = substr($_SESSION['campaign_array'][6], 0, 2);
-                $stimeval = intval($stime);
-                $etimeval = intval($etime);
-
-                if ($etimeval > 12) {
-                    $et = $etime - 12;
-                    $_SESSION['campaign_array'][6] = strval($et) . ' PM';
-                } else {
-                    $_SESSION['campaign_array'][6] = strval($etimeval) . ' AM';
-                }
-
-                if ($stimeval > 12) {
-                    $st = 24 - $stime;
-                    $_SESSION['campaign_array'][5] = strval($st) . ' PM';
-                } else {
-                    $_SESSION['campaign_array'][5] = strval($stimeval) . ' AM';
-                }
-
-                //Check if the donor is already registered to the campaign
-                $campaign_ID = $_SESSION['selected_campid'];
-                $count = $this->model->ifregistered(
-                    $_SESSION['user_ID'],
-                    $campaign_ID
-                );
-                if ($count > 0) {
-                    //get the campaign registration information
-                    $_SESSION['reg_info'] = $this->model->get_campreg_info(
-                        $_SESSION['user_ID']
-                    );
-                    $_SESSION['if_registered'] = 1;
-                    $this->view->render('donor/viewcampaign');
-                    exit();
-                } else {
-                    $_SESSION['if_registered'] = 0;
-                    $this->view->render('donor/viewcampaign');
-                    exit();
-                }
+                $this->view->render('donor/contact_info');
             }
         } else {
             $this->view->render('authentication/donorlogin');

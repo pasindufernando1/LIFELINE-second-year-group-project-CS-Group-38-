@@ -2,44 +2,33 @@
 
 use LDAP\Result;
 
-class GetcampaignModel extends Model
+class DonorprofileModel extends Model
 {
     function __construct()
     {
         parent::__construct();
     }
 
-    public function campregistraions($userid)
+    public function getdonorinfo($userid)
     {
         $data = $this->db->select(
-            'CampaignID',
-            'register_to_campaign',
+            '*',
+            'donor',
             'WHERE DonorID = :DonorID',
             ':DonorID',
             $userid
         );
-        $registered_campaign_data = [];
-        for ($x = 0; $x < count($data); $x++) {
-            $campaign_data = $this->db->select(
-                '*',
-                'donation_campaign',
-                'WHERE CampaignID =:CampaignID',
-                ':CampaignID',
-                $data[$x][0]
-            );
-            array_push($registered_campaign_data, $campaign_data);
-        }
-        return $registered_campaign_data;
+        return $data;
     }
 
-    public function getAllCampaigns($today)
+    public function getdonorcontact($userid)
     {
         $data = $this->db->select(
             '*',
-            'donation_campaign',
-            'WHERE Date > :Date AND Status = 1',
-            ':Date',
-            $today
+            'usercontactnumber',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
         );
         return $data;
     }

@@ -1,9 +1,11 @@
 <?php
-//$_SESSION['çamp'] = $_GET['camp'];
-// $_SESSION['contno'] = $_SESSION['contno'][0];
-// print_r($_SESSION['contno']);
+// $eh = empty($_SESSION['camp_donations'][0][1]);
+// print_r($eh);
+// // print_r($_SESSION['camp_donations'][1][1]);
+
 // die();
-$metaTitle = 'Donor Campaigns'; ?>
+
+$metaTitle = 'Donor Dashboard'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,24 +51,24 @@ $metaTitle = 'Donor Campaigns'; ?>
             <div class="image">
                 <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
             </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
+        </div>
+        <div class="user-name">
+            <p><?php echo $_SESSION['username']; ?></p>
+        </div>
+        <div class="role">
+            <div class="role-type">
+                <p><?php echo $_SESSION['type']; ?> <br>
             </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
+            <div class="role-sub">
 
             </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
+
+        </div>
+        <div class="more">
+            <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
+            <div id="more-drop-down" class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="/donoruser/logout">Log Out</a>
             </div>
         </div>
     </div>
@@ -116,11 +118,11 @@ $metaTitle = 'Donor Campaigns'; ?>
                 <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
-            <div class="campaigns-selected">
-                <div class="campaigns-marker"></div>
-                <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png"
+            <div class="campaigns menu-item">
+                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
+                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
                     alt="campaigns">
-                <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
+                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
 
             </div>
             <div class="line"></div>
@@ -133,36 +135,52 @@ $metaTitle = 'Donor Campaigns'; ?>
             </div>
         </div>
     </div>
-    <div class="reg-edit-box">
-        <form action="/getcampaign/editreg" method="post" id="donor-form">
+    <div class="feedback-box">
+        <h2 class="header2">Your Feedbacks</h2>
+        <div class="view-campaign-container">
+            <?php
+            $result = $_SESSION['all_feedback'];
 
-            <p class="edit-reg-title">Edit Campaign Registration</p>
-            <label class="reg-lable-cont-no " for="contno">Contact Number: </label>
-            <br />
-            <input class="edit-contno" id="contno" type="text" name="contno" autofocus value="<?php echo $_SESSION[
-                'reg_info'
-            ][1]; ?> " required>
-            <p class="contno-error" id="contno-error"></p>
-
-            <label class="reg-lable-emcont-no " for="emcontno">Emergency Contact Number: </label>
-            <br />
-            <input class="edit-emcontno" id="emcontno" type="text" name="emcontno" autofocus value="<?php echo $_SESSION[
-                'reg_info'
-            ][0]; ?>" placeholder="Emergency Contact Number" required>
-            <p class="emcontno-error" id="emcontno-error"></p>
-            <button class="regedit-button" type="submit" name="reg-edit">Save Changes
-                <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></button>
-            <a class="regcancel-button" href="cancel_edit">Cancel Editing
-                <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
-        </form>
-        <script src="../../../public/js/validation/donoruservalidation.js"></script>
-
+            if ($_SESSION['rowCount'] > 0) {
+                foreach ($result as $row) {
+                    echo '<div class="view-camp-feedback">
+                                            <h2>Campaign : ' .
+                        $row['CampaignID'] .
+                        '</h2><p>
+                                            Rating :
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            Feedback :
+                                            </p>
+                                            <a href="editrating?camp=' .
+                        $row['CampaignID'] .
+                        '"> <button>Edit</button> </a>
+                                            <a href="#"> <button id = "feedback-btn">Delete</button> </a>
+                                            <div class="feedback-stars">
+                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
+                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
+                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
+                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
+                                                <img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">
+                                            </div>
+                                            <div class="feedback-d">
+                                                good and helpful organizers and nurses. Did not have to wait in line
+                                            </div>
+                                            </div>';
+                }
+            } else {
+                echo 'You Have Not Yet Provided feedBack';
+            }
+            ?>
+            <script src="../../../public/js/getcampname.js"></script>
+        </div>
 
     </div>
 
-
-
-
+    </div>
+    </div>
 </body>
 
 </html>

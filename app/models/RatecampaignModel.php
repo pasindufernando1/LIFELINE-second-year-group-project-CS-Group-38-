@@ -2,44 +2,50 @@
 
 use LDAP\Result;
 
-class GetcampaignModel extends Model
+class RatecampaignModel extends Model
 {
     function __construct()
     {
         parent::__construct();
     }
 
-    public function campregistraions($userid)
+    public function getcampname($campid)
     {
         $data = $this->db->select(
-            'CampaignID',
-            'register_to_campaign',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        );
-        $registered_campaign_data = [];
-        for ($x = 0; $x < count($data); $x++) {
-            $campaign_data = $this->db->select(
-                '*',
-                'donation_campaign',
-                'WHERE CampaignID =:CampaignID',
-                ':CampaignID',
-                $data[$x][0]
-            );
-            array_push($registered_campaign_data, $campaign_data);
-        }
-        return $registered_campaign_data;
+            'Name',
+            'donation_campaign',
+            'WHERE CampaignID = :CampaignID',
+            ':CampaignID',
+            $campid
+        )[0]['Name'];
+        // print_r($data);
+        // die();
+        return $data;
+    }
+    public function getcamprating($campid, $donorid)
+    {
+        $params = [':DonorID', ':CampaignID'];
+        $columns = [$user_ID, $campid];
+        $data = $this->db->select(
+            'Feedback,Rating',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID && CampaignID = :CampaignID',
+            $params,
+            $columns
+        )[0];
+        // print_r($data);
+        // die();
+        return $data;
     }
 
-    public function getAllCampaigns($today)
+    public function AllFeedback($donorid)
     {
         $data = $this->db->select(
-            '*',
-            'donation_campaign',
-            'WHERE Date > :Date AND Status = 1',
-            ':Date',
-            $today
+            'CampaignID,Feedback,Rating',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorid
         );
         return $data;
     }
