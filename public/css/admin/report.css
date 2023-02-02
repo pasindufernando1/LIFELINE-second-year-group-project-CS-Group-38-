@@ -670,7 +670,7 @@ body {
 
 
 
-.box, .box-productive, .box-camp {
+.box, .box-productive, .box-camp, .box-donor {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
@@ -680,6 +680,10 @@ body {
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+.box-donor{
+    height: 1400px;
 }
 
 .box-productive{
@@ -2616,6 +2620,38 @@ td {
     border-radius: 10px;
 }
 
+.piechart{
+    position: absolute;
+    margin: 365px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.badgepic{
+    position: absolute;
+    margin: 365px 0px 69px 774px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 450px;
+    height: 450px;
+}
+
+.donorcard{
+    margin: 842px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 984px;
+    height: 450px;
+}
+
+.donations{
+    margin: 842px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 984px;
+    height: 450px;
+}
+
 .data{
     position: absolute;
     top: 180px;
@@ -2711,6 +2747,28 @@ td {
     font-size: 31.6835px;
 }
 
+.date-1, .donorID, .donorNIC{
+    position: absolute;
+    left: 940px;
+    top: 121px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.donorID{
+    left: 940px;
+    top: 167px;
+}
+
+.donorNIC{
+    left: 940px;
+    top: 213px;
+}
+
+
+
 .date-generated{
     position: absolute;
     left: 122px;
@@ -2723,7 +2781,7 @@ td {
 }
 
 
-.date-content{
+.date-content, .donorId-content, .donorNIC-content{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2731,8 +2789,15 @@ td {
     margin: -43px 0px 0px 289px;
 }
 
+
+
 .genrep1{
     top: 170px;
+    left: 945px;
+}
+
+.genrep2{
+    top: 7px;
     left: 945px;
 }
 
@@ -2741,8 +2806,18 @@ td {
     left: 1169px;
 }
 
+.addbutton_rep2{
+    top: 15px;
+    left: 1169px;
+}
+
 .outline-button_rep1{
     top: 169px;
+    left: 1258px;
+}
+
+.outline-button_rep2{
+    top: 7px;
     left: 1258px;
 }
 

@@ -8,7 +8,7 @@ $metaTitle = "Donor Report"
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viwport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $metaTitle; ?></title>
 
     <!-- Favicons -->
@@ -38,81 +38,59 @@ $metaTitle = "Donor Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box">
+    <div class="box-donor">
+        <!-- Icon image to the top left corner -->
+        <div class="icon">
+            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
+        </div>
+        <div class=nnepo"
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <br>
+        </div>
+        <div class="reportTitle">
+            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Donor Detailed Information</div></label>
+            <br>
+        </div>
+        <div class="year">
+            <label class="year-lable" for="date">Date Generated<div class="year-content"> : 2020-01-20</div></label>
+            <br>
+        </div>
+        <div class="date-1">
+            <label class="date-lable" for="donorName">Donor name<div class="date-content"> : Pasindu Fernando</div></label>
+            <br>
+        </div>
+        <div class="donorID">
+            <label class="donor-lable" for="donorid">Donor ID<div class="donorId-content"> : 2</div></label>
+            <br>
+        </div>
+        <div class="donorNIC">
+            <label class="donorNIC-lable" for="donorNIC">Donor NIC<div class="donorNIC-content"> : 200089786756</div></label>
+            <br>
+        </div>
         <!-- Create a barchart -->
-        <div class="barchart">
-            <canvas id="usage-months" width="100" height="100">
-                <script>
-                    var ctx = document.getElementById('usage-months').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            datasets: [{
-                                label: 'Blood Usage',
-                                data: [12, 19, 3, 5, 2, 3, 1, 2, 3, 4, 5, 6],
-                                backgroundColor: [
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16'
-                                ],   
-                                //Barwidth
-                                barpercentage: 0.25,         
-                            }]
-                        },
-                        options: {
-                            // title: {
-                            //     display: true,
-                            //     text: 'Blood Usage',
-                            //     // Align the chart title to the top left
-                            //     position: 'top',
-                            //     fontSize: 30,
-                            //     fontColor: '#000000',
-                            //     fontFamily: 'Poppins',
-                            //     fontStyle: 'bold',
-                            // },
-                            scales: {
-                                yAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }],
-                                xAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true,
-                                        fontColor: '#000000',
-                                        fontFamily: 'Poppins',
-                                        fontsize: 400,
-                                        maxRotation: 90,
-                                        minRotation: 0,
-                                    },
-                                    // Make the 
-
-                                }]
-
-                            }
-                        }
-                    });
-                </script>
-
+        <div class="piechart">
+            <canvas id="donor-rep-chart" width="450" height="450">
             </canvas>
         </div>
+        <div class="badgepic">
+
+        </div>
+        <div class="donorcard">
+            
+        </div>
+        <div class="donations">
+
+        </div>
+        
+
+        <div>
+            <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
+            <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
+            <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+        </div>
     </div>
+    <!-- Include the chart.js file -->
+    <script src="../../../public/js/charts/inventoryAvailability.js"></script>
 
 </body>
 </html>
