@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class Donorprofile extends Controller
+class Badges extends Controller
 {
     function __construct()
     {
@@ -12,13 +12,13 @@ class Donorprofile extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                $_SESSION['donor_info'] = $this->model->getdonorinfo(
-                    $_SESSION['user_ID']
-                );
-                $_SESSION['donor_contact'] = $this->model->getdonorcontact(
-                    $_SESSION['user_ID']
-                );
-                $this->view->render('donor/profile');
+                // $_SESSION['donor_info'] = $this->model->getdonorinfo(
+                //     $_SESSION['user_ID']
+                // );
+                // $_SESSION['donor_contact'] = $this->model->getdonorcontact(
+                //     $_SESSION['user_ID']
+                // );
+                $this->view->render('donor/badges_view');
                 exit();
             }
         } else {

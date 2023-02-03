@@ -1,4 +1,6 @@
 <?php
+// print_r($_SESSION['donor_contact']);
+// die();
 
 $metaTitle = 'Donor Dashboard'; ?>
 
@@ -131,21 +133,22 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
     </div>
 
-    <div class="contact-container">
-        <p>Ampara Blood Bank</p>
-        <div class="contact-card">
-            <img src="../../../public/img/donordashboard/hospital.png" alt="profile-pic">
+    <div class="badges-container">
+        <div class="latest">
+            <h2>Your Newest Badge</h2>
+            <img src="../../../public/img/donordashboard/SilverMedal.png">
+        </div>
+        <div class="your">
+            <h2>Your Badges</h2>
             <div>
-                <p>
-                    <b>Phone : </b> 0321254367<br>
-                    <b>Mobile : </b> 0321254367<br>
-                    <b>Fax : </b> 0321254367<br>
-                    <b>Email : </b> info@ampara<br>
-                    <b>Address</b> : Ampara Blood Bank,Dharmapala Mawatha, Ampara 32000
-                </p>
+                <img src="../../../public/img/donordashboard/SilverMedal.png">
+                <img src="../../../public/img/donordashboard/BronzeMedal.png">
             </div>
         </div>
-        <a id="btb" href="/contactus">Back to Blood Banks</a>
+        <div class="yet">
+            <h2>Yet to Earn</h2>
+            <img src="../../../public/img/donordashboard/GoldMedal.png">
+        </div>
     </div>
 </body>
 

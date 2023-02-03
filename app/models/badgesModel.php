@@ -2,7 +2,7 @@
 
 use LDAP\Result;
 
-class DonorprofileModel extends Model
+class BadgesModel extends Model
 {
     function __construct()
     {

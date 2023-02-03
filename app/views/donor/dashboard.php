@@ -102,7 +102,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
                 <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
                     alt="campaigns">
-                <p class="badges-nav "><a href="#">Badges</a></p>
+                <p class="badges-nav "><a href="/badges">Badges</a></p>
 
             </div>
             <div class="reports menu-item">

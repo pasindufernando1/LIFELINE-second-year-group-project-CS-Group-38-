@@ -1,4 +1,6 @@
 <?php
+// print_r($_SESSION['donor_contact']);
+// die();
 
 $metaTitle = 'Donor Dashboard'; ?>
 
@@ -103,7 +105,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
                 <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
                     alt="campaigns">
-                <p class="badges-nav "><a href="#">Badges</a></p>
+                <p class="badges-nav "><a href="/badges">Badges</a></p>
 
             </div>
             <div class="reports menu-item">
@@ -131,22 +133,73 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
     </div>
 
-    <div class="card-container">
+    <div class="profile-container">
+        <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>
+        <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"><br>
         <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
-        <button id="download_card" href="/contactus">Download</button>
-
-        <div class="donor-card">
-            <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
-            <img src="../../../public/img/donordashboard/sneha.jpg" alt="profile-pic">
-            <div>
-                <h2>Donor</h2><br>
-                <h2 id="card_style">Card</h2>
+        <a href="/donorprofile/editprofile">Edit Profile<img
+                src="../../../public/img/donordashboard/edit_btn_img.png"></a>
+        <div class="main">
+            <div class="left">
                 <p>
-                    <b>Name : </b> Miss. Sneha Dissanayake<br>
-                    <b>Age : </b> 22<br>
-                    <b>Address : </b> Matara<br>
-                    <b>NIC : </b> 200077802930<br>
-                </p>
+                    Full Name
+                    <br>
+                    <br>
+                    NIC Number
+                    <br>
+                    <br>
+                    Date of Birth
+                    <br>
+                    <br>
+                    Telephone Number
+                    <br>
+                    <br>
+                    Email
+                    <br>
+                    <br>
+                    Address
+                </P>
+            </div>
+            <div class="right">
+                <p>
+                    <?php echo '<p>
+                    : ' .
+                        $_SESSION['donor_info']['Fullname'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                        $_SESSION['donor_info']['NIC'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                        $_SESSION['donor_info']['DOB'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                        $_SESSION['donor_contact']['ContactNumber'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                        $_SESSION['email'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                        $_SESSION['donor_info']['Number'] .
+                        ', ' .
+                        $_SESSION['donor_info']['LaneName'] .
+                        ', ' .
+                        $_SESSION['donor_info']['City'] .
+                        ', ' .
+                        $_SESSION['donor_info']['District'] .
+                        ', ' .
+                        $_SESSION['donor_info']['Province'] .
+                        '</p>'; ?>
+                </P>
             </div>
         </div>
     </div>
