@@ -10,7 +10,7 @@ body {
     flex-direction: row;
     position: relative;
     width: 100%;
-    height: 84px;
+    height: 8.4vh;
 }
 
 .logo img {
@@ -163,6 +163,8 @@ body {
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
+    width: 30%;
+    
 }
 
 .sub-location {

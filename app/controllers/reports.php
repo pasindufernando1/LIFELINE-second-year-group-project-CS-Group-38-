@@ -138,13 +138,13 @@ class Reports extends Controller
                     header("Location: /reports/usageVSexpiry");
                     exit;
                 }
+                $_SESSION['usageVSexpiry'] = $this->model->getAllusageVSexpiry($_POST['province']);
                 $this->view->render('admin/UsageVsExpiryreport');
                 exit;
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
-            
+            $this->view->render('authentication/adminlogin');  
         }
     }
 
@@ -254,6 +254,7 @@ class Reports extends Controller
                     header("Location: /reports/donorReport");
                     exit;
                 }
+                $_SESSION['donor_report'] = $this->model->getAllDonorDetails();
                 $this->view->render('admin/donorReport_Gen');
                 exit;
             }

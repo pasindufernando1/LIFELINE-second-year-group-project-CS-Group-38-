@@ -648,7 +648,7 @@ body {
 }
 
 .dropdown-content a {
-    font-family: 'Poppins';
+    font-fammily: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 18.9713px;
@@ -670,7 +670,7 @@ body {
 
 
 
-.box, .box-productive, .box-camp {
+.box, .box-productive, .box-camp, .box-donor {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
@@ -680,6 +680,10 @@ body {
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+.box-donor{
+    height: max-content;
 }
 
 .box-productive{
@@ -2616,6 +2620,45 @@ td {
     border-radius: 10px;
 }
 
+.piechart-expiry{
+    position: absolute;
+    margin: 365px 0px 69px 538px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.piechart{
+    position: absolute;
+    margin: 365px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.badgepic{
+    position: absolute;
+    margin: 365px 0px 69px 774px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 450px;
+    height: 450px;
+}
+
+.donorcard{
+    margin: 842px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 984px;
+    height: 450px;
+}
+
+.donations{
+    margin: -45px 0px 69px 242px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    width: 984px;
+    height: max-content;
+}
+
 .data{
     position: absolute;
     top: 180px;
@@ -2711,6 +2754,28 @@ td {
     font-size: 31.6835px;
 }
 
+.date-1, .donorID, .donorNIC{
+    position: absolute;
+    left: 940px;
+    top: 121px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+}
+
+.donorID{
+    left: 940px;
+    top: 167px;
+}
+
+.donorNIC{
+    left: 940px;
+    top: 213px;
+}
+
+
+
 .date-generated{
     position: absolute;
     left: 122px;
@@ -2723,7 +2788,7 @@ td {
 }
 
 
-.date-content{
+.date-content, .donorId-content, .donorNIC-content{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -2731,8 +2796,15 @@ td {
     margin: -43px 0px 0px 289px;
 }
 
+
+
 .genrep1{
     top: 170px;
+    left: 945px;
+}
+
+.genrep2{
+    top: 7px;
     left: 945px;
 }
 
@@ -2741,8 +2813,18 @@ td {
     left: 1169px;
 }
 
+.addbutton_rep2{
+    top: 15px;
+    left: 1169px;
+}
+
 .outline-button_rep1{
     top: 169px;
+    left: 1258px;
+}
+
+.outline-button_rep2{
+    top: 7px;
     left: 1258px;
 }
 
@@ -2851,3 +2933,93 @@ td {
     border: 0.818053px solid #EFEFEF;
 }
 
+.badgepic p, .donorcard p, .donations p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    line-height: 22px;
+    color: #000000;
+    padding-left: 109px;
+}
+
+.badgepic img{
+    position: absolute;
+    top: 82px;
+    left: 115px;
+    width: 246px;
+    height: 327.18px;
+}
+
+.donorcard img{
+    margin-left: 96px;
+}
+
+.donations th{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    padding: 1px 54px 10px 115px;
+}
+
+.donations td{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+    padding-top: 34px;
+    padding-left: 59px;
+}
+
+.data-blood-types-lines{
+    position: absolute;
+    width: 59%;
+    padding-top: -14px;
+    height: 0px;
+    top: 1433px;
+    left: 294px;
+    border: 0.818053px solid #EFEFEF;
+
+}
+
+.piechart-districts{
+    position: absolute;
+    top: 882px;
+    left: 35px;
+    border: 3px #BCBCBC solid;
+    border-radius: 10px;
+    width: 95%;
+    height: 1000px;
+    display: flex;
+}
+
+.piechart-districts p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    line-height: 22px;
+    color: #000000;
+    padding-left: 41%;
+}
+
+
+.piechart-districts{
+    display: flex;
+}
+
+.piechart-district1{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}

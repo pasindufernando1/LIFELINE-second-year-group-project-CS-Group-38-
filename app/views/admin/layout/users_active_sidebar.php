@@ -14,7 +14,7 @@
                     <div class="dashboard-non menu-item">       
                         <img class="" src="./../../public/img/dashboard/non-active/dashboard.png" alt="dashboard">
                         <img class="reservation-non-active dash " src="../../../public/img/dashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-non-active menu-item"><a href="/adminuser/dashboard">Dashboard</a></p>
+                        <p class="dashboard-non-active menu-item"><a href="/adminuser/dashboard?page=1">Dashboard</a></p>
                     </div>
                     <div class="reservation menu-item">
                         <img class="reservation-active" src="./../../public/img/admindashboard/non-active/reservation.png" alt="reservation">
@@ -25,7 +25,7 @@
                     <div class="users-selected">
                         <div class="marker"></div>
                         <img src="./../../public/img/admindashboard/active/cards.png" alt="inventory">
-                        <img class="users-non-active" src="./../../public/img/admindashboard/non-active/cards.png" alt="users">
+                        <img class="reservation-non-active" src="./../../public/img/admindashboard/non-active/cards.png" alt="users">
                         <p class="users-act"><a href="/usermanage/type?page=1">Users</a></p>
 
                     </div>
