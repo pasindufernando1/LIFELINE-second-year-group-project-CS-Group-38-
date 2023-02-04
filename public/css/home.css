@@ -11,7 +11,11 @@
     position: absolute;
     width: 60%;
     height: 30%;
+<<<<<<< Updated upstream
     left: 150px;
+=======
+    left: 10.417vw;
+>>>>>>> Stashed changes
     top: 25vw;
 }
 
@@ -40,6 +44,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+<<<<<<< Updated upstream
     padding: 16px 41px;
     gap: 10px;
     position: absolute;
@@ -52,6 +57,21 @@
 
 .t-boxes {
     width: 990px;
+=======
+    padding: 1.111vw 2.847vw;
+    gap: 0.694vw;
+    position: absolute;
+    width: 9.306vw;
+    height: 3.125vw;
+    background: #FBDAD9;
+    border-radius: 3.472vw;
+    border: #FBDAD9;
+    font-size: 1vw;
+}
+
+.t-boxes {
+    width: 68.750vw;
+>>>>>>> Stashed changes
     height: 18vw;
 }
 
@@ -331,4 +351,73 @@
     /* identical to box height */
     text-align: center;
     color: #640E0B;
+<<<<<<< Updated upstream
+=======
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: auto;
+}
+
+.contact-details img {
+    width: 3.472vw;
+    height: 3.472vw;
+    align-content: center;
+    margin: 1.111vw 0 0 0;
+}
+
+.contact-details h3 {
+    font-family: 'work sans';
+    color: #640E0B;
+    font-size: 1.250vw;
+    font-weight: bold;
+    margin-bottom: 1.111vw;
+}
+
+.contact-details p {
+    font-family: 'work sans';
+    color: #640E0B;
+    font-size: 1.111vw;
+    margin-bottom: 1.111vw;
+}
+
+.phone {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+}
+
+.locations {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #640E0B;
+}
+
+.locations h3,
+.locations p {
+    color: #F5AEAC;
+}
+
+.email {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+}
+
+.clock {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+>>>>>>> Stashed changes
 }
