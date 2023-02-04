@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Blood Usage Vs Expiry Report" 
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $metaTitle = "Inventory"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 
     
@@ -39,80 +39,55 @@ $metaTitle = "Inventory"
             
     <!-- main content -->
     <div class="box">
+        <!-- Icon image to the top left corner -->
+        <div class="icon">
+            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
+        </div>
+        <div class="reportID">
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <br>
+        </div>
+        <div class="reportTitle">
+            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Usage vs Expiry Analysis</div></label>
+            <br>
+        </div>
+        <div class="year">
+            <label class="year-lable" for="province">Province<div class="year-content"> : Western</div></label>
+            <br>
+        </div>
+        <div class="date">
+            <label class="date-lable" for="date">Date Generated<div class="date-content"> : 2020-10-10</div></label>
+            <br>
+        </div>
         <!-- Create a barchart -->
-        <div class="barchart">
-            <canvas id="usage-months" width="100" height="100">
-                <script>
-                    var ctx = document.getElementById('usage-months').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            datasets: [{
-                                label: 'Blood Usage',
-                                data: [12, 19, 3, 5, 2, 3, 1, 2, 3, 4, 5, 6],
-                                backgroundColor: [
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16',
-                                    '#BF1B16'
-                                ],   
-                                //Barwidth
-                                barpercentage: 0.25,         
-                            }]
-                        },
-                        options: {
-                            // title: {
-                            //     display: true,
-                            //     text: 'Blood Usage',
-                            //     // Align the chart title to the top left
-                            //     position: 'top',
-                            //     fontSize: 30,
-                            //     fontColor: '#000000',
-                            //     fontFamily: 'Poppins',
-                            //     fontStyle: 'bold',
-                            // },
-                            scales: {
-                                yAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }],
-                                xAxes: [{
-                                    gridLines: {
-                                    display: false
-                                    },
-                                    ticks: {
-                                        beginAtZero: true,
-                                        fontColor: '#000000',
-                                        fontFamily: 'Poppins',
-                                        fontsize: 400,
-                                        maxRotation: 90,
-                                        minRotation: 0,
-                                    },
-                                    // Make the 
-
-                                }]
-
-                            }
-                        }
-                    });
-                </script>
-
+        <div class="piechart-expiry">
+            <canvas id="expiry-piechart" width="450" height="450">
             </canvas>
         </div>
+        <!-- Div to display the piecharts of the districts relevent to the province -->
+        <div class="piechart-districts">
+            <!--Create three divs for 3 pie charts  -->
+            <div class="piechart-district1">
+                
+            </div>
+            <div class="piechart-district2">
+
+            </div>
+            <div class="piechart-district3">
+                
+            </div>
+        </div>
+        
+        
+
+        <div>
+            <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
+            <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
+            <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+        </div>
     </div>
+    <!-- Include the chart.js file -->
+    <script src="../../../public/js/charts/expiry-piechart.js"></script>
 
 </body>
 </html>

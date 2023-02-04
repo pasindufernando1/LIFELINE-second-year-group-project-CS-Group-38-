@@ -648,7 +648,7 @@ body {
 }
 
 .dropdown-content a {
-    font-family: 'Poppins';
+    font-fammily: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 18.9713px;
@@ -683,7 +683,7 @@ body {
 }
 
 .box-donor{
-    height: 1400px;
+    height: max-content;
 }
 
 .box-productive{
@@ -2620,6 +2620,13 @@ td {
     border-radius: 10px;
 }
 
+.piechart-expiry{
+    position: absolute;
+    margin: 365px 0px 69px 538px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
 .piechart{
     position: absolute;
     margin: 365px 0px 69px 242px;
@@ -2645,11 +2652,11 @@ td {
 }
 
 .donations{
-    margin: 842px 0px 69px 242px;
+    margin: -45px 0px 69px 242px;
     border: 1px #BCBCBC solid;
     border-radius: 10px;
     width: 984px;
-    height: 450px;
+    height: max-content;
 }
 
 .data{
@@ -2926,3 +2933,93 @@ td {
     border: 0.818053px solid #EFEFEF;
 }
 
+.badgepic p, .donorcard p, .donations p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    line-height: 22px;
+    color: #000000;
+    padding-left: 109px;
+}
+
+.badgepic img{
+    position: absolute;
+    top: 82px;
+    left: 115px;
+    width: 246px;
+    height: 327.18px;
+}
+
+.donorcard img{
+    margin-left: 96px;
+}
+
+.donations th{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    padding: 1px 54px 10px 115px;
+}
+
+.donations td{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+    padding-top: 34px;
+    padding-left: 59px;
+}
+
+.data-blood-types-lines{
+    position: absolute;
+    width: 59%;
+    padding-top: -14px;
+    height: 0px;
+    top: 1433px;
+    left: 294px;
+    border: 0.818053px solid #EFEFEF;
+
+}
+
+.piechart-districts{
+    position: absolute;
+    top: 882px;
+    left: 35px;
+    border: 3px #BCBCBC solid;
+    border-radius: 10px;
+    width: 95%;
+    height: 1000px;
+    display: flex;
+}
+
+.piechart-districts p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31.6835px;
+    line-height: 22px;
+    color: #000000;
+    padding-left: 41%;
+}
+
+
+.piechart-districts{
+    display: flex;
+}
+
+.piechart-district1{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}

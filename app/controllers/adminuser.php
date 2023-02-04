@@ -25,6 +25,7 @@ class AdminUser extends Controller
         //if already logged in redirect to the admin dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['hospitals'] = $this->model->getHospitals();
                 $this->view->render('admin/dashboard');
                 exit;
             }
@@ -46,9 +47,8 @@ class AdminUser extends Controller
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['hospitals'] = $this->model->getHospitals();
             $this->view->render('admin/dashboard');
-
-            
         }
          else {
             $_SESSION['error'] = 'Incorrect Username or Password';

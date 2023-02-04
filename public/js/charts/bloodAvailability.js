@@ -15,6 +15,7 @@ var myChart = new Chart(ctx, {
                 '#BF1B16',
                 '#BF1B16'
             ],  
+            
         }]
     },
     options: {
