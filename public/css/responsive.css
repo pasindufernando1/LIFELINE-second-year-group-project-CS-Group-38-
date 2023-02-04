@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 84px;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 75px;
+}
+
+.header-block {
+    text-align: center;
+}
+
+.emergency, .open-hours, .location {
+    text-align: center;
+}
+
+.icon-emergency img, .open-hours img, .location img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.head-emergency, .head-open-hours, .head-location {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #080101;
+}
+
+.sub-emergency, .sub-open-hours, .sub-location {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #EB5550;
+}
+
+.sub-emergency a {
+    color: #EB5550;
+    text-decoration: none;
+}
+
+.sub-emergency a:hover {
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .header {
+        height: 60px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .header-block {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .emergency, .open-hours, .location {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .icon-emergency img, .open-hours img, .location img {
+        margin: 0 auto 10px;
+    }
+
+    .head-emergency, .head-open-hours, .head-location {
+        text-align: center;
+    }
+
+    .sub-emergency, .sub-open-hours, .sub-location {
+        text-align: center;
+    }
+}
