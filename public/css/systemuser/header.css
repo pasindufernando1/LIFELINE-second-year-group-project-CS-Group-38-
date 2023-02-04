@@ -96,8 +96,11 @@
     margin-top: 1.2vh;
     margin-left: 1.2vh;
     width: 7vh;
+    height: 7vh;
     flex: none;
     flex-shrink: 0;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .user {

@@ -1,0 +1,201 @@
+#bg {
+    background-image: url('../../img/background/hospital1\ logo.jpg');
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    filter: blur(5px);
+  }
+
+.logo-img {
+    position: absolute;
+    width: 262px;
+    height: 82px;
+    left: 690px;
+    top: 26px;
+}
+
+.title p {
+    position: absolute;
+    height: 24px;
+    left: 27px;
+    right: 27px;
+    top: 107px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #18055a;
+    opacity: 0.7;
+}
+
+.sub-1 p {
+    position: absolute;
+    height: 30px;
+    left: 32px;
+    right: 32px;
+    top: 156px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #252733;
+}
+
+
+
+.login-form {
+    position: absolute;
+    height: 64px;
+    left: 660px;
+    right: 32px;
+    top: 266px;
+    width: 350px;
+}
+
+
+.error-pwd{
+    position: absolute;
+    top: -45px;
+    left: 66px;
+    text-align: center;
+    color: red;
+}
+
+.username-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    /* Bold/12px */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #640E0B;
+}
+
+.username-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FCFDFE;
+    border: 2px solid #FBDAD9;
+    border-radius: 8px;
+}
+
+.password-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 80px;
+    /* Bold/12px */
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #640E0B;
+}
+
+.password-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 110px;
+    bottom: -88px;
+    background: #FCFDFE;
+    border: 2px solid #FBDAD9;
+    border-radius: 8px;
+}
+
+.login-button {
+    
+    cursor: pointer;
+    position: absolute;
+    /* display: inline-block; */
+    /* margin: 0 auto; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    padding: 0.9rem 2.5rem;
+    left: 113px;
+    text-align: center;
+    background-color: #230666;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+    font-size: 17px;
+}
+
+.forget-password {
+    position: absolute;
+    width: 85px;
+    height: 13px;
+    right: 32px;
+    top: 74px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 13px;
+    /* identical to box height */
+    text-align: right;
+    letter-spacing: 0.1px;
+    color: #640E0B;
+}
+
+.signup-p p {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 510px;
+    /* left: calc(50% - 158px/2 - 28px); */
+    bottom: 40px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #640E0B;
+}
+
+.errorDisplay {
+    position: absolute;
+    height: 20px;
+    left: 350px;
+    right: 320px;
+    top: -30px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #ff0800;
+}

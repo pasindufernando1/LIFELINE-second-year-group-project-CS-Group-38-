@@ -80,3 +80,8 @@
 .blk-res {
     display: none!important;
 }
+
+.marker {
+    top: 70px !important;
+    z-index: 999;
+}

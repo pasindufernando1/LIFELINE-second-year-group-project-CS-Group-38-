@@ -31,7 +31,7 @@
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/dashboard/test-profile.png" alt="profile-pic">
+                <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
             </div>
             <div class="user">
                 <p class="user-name"><?php echo ($_SESSION['username']); ?></p>
@@ -41,7 +41,7 @@
             <div class="more">
                 <img class="3-dot" onclick="dropDown()" src="../../../public/img/dashboard/3-dot.png" alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
+                    <a href="/profile">Profile</a>
                     <a href="/systemuser/logout">Log Out</a>
                 </div>
             </div>

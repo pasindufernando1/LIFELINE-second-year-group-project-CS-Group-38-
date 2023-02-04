@@ -12,17 +12,14 @@ class ReservationModel extends Model
     public function addReserve($inputs)
         
     {
-        $columns = array('quantity', 'TypeID', 'Status');
-        $param = array(':quantity', ':TypeID', ':Status');
+        $columns = array('quantity', 'TypeID', 'Status' , 'blood_bank_ID');
+        $param = array(':quantity', ':TypeID', ':Status' ,':blood_bank_ID');
         $result = $this->db->insert("bloodpacket", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
         } else print_r($result);
     }
 
-<<<<<<< Updated upstream
-    public function getCountReservationId()
-=======
     function editReserve($reserve_id, $inputs)
     {
         $_SESSION['reserve_id'] = $reserve_id;
@@ -33,29 +30,25 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
-    public function getAllTypes()
+    public function getAllTypes($blood_bank_id)
     {
-        $data = $this->db->select("*", "bloodcategory",null);
+        $data = $this->db->select("*", "bloodcategory" , " WHERE blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
         return $data;
     }
 
-    public function getAllPackets()
+    public function getAllPackets($blood_bank_id)
     {
-        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID");
+        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
         return $packets;
     }
 
     public function getMaxPacketID()
->>>>>>> Stashed changes
     {
         $MaxPacketID = $this->db->select("MAX(PacketID)", "bloodpacket",null);
         return ($MaxPacketID[0]['MAX(PacketID)']);
         
     }
 
-<<<<<<< Updated upstream
-    public function getCountTypeID()
-=======
     public function getTypeIDFromName($bloodtype)
     {
         $TypeIDFromName = $this->db->select("TypeID","bloodcategory","WHERE  Name = :bloodtype",':bloodtype',$bloodtype);
@@ -63,29 +56,22 @@ class ReservationModel extends Model
     }
 
     public function getMaxTypeID()
->>>>>>> Stashed changes
     {
-        $countTypeID = $this->db->select("*", "bloodcategory",null);
+        $MaxTypeID = $this->db->select("MAX(TypeID)", "bloodcategory",null);
+        return ($MaxTypeID[0]['MAX(TypeID)']);
         
     }
 
     public function addReserveTypes($inputs)
         
     {
-<<<<<<< Updated upstream
-        $columns = array('Name', 'Expiry_constraint', 'Storing_temperature');
-        $param = array(':Name', ':Expiry_constraint', ':eStoring_temperature');
-=======
-        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint');
-        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint');
->>>>>>> Stashed changes
+        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint' , 'blood_bank_ID');
+        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint', ':blood_bank_ID');
         $result = $this->db->insert("bloodcategory", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
         } else print_r($result);
     }
-<<<<<<< Updated upstream
-=======
 
     function deleteReserveTypes($type_id)
     {
@@ -106,5 +92,15 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
->>>>>>> Stashed changes
+
+    public function getBloodBankid($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $bloodbankid = $this->db->select("BloodBankID","system_user","INNER JOIN user on user.userID = system_user.userID WHERE user.email =:email",':email',$email);
+            $blood_bank_id = $bloodbankid[0]['BloodBankID'];
+            return $blood_bank_id;
+        
+        } 
+
+    }
 }

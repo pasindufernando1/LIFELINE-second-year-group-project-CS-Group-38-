@@ -41,17 +41,15 @@ $metaTitle = "System User Reservations"
                         <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
                         <img class="addbutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
 
-                        <a href="/reservation/type" class="brown-button types-reservation">Types</a>
+                        <a href="/reservation/type?page=1" class="brown-button types-reservation">Types</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
 
-                        <a href="#" class="brown-button expired-stock-btn">Expired Stocks</a>
+                        <a href="/reservation/expired_stocks?page=1" class="brown-button expired-stock-btn">Expired Stocks</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/expired-stocks.png" alt="expired-stocks">
 
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
 
-<<<<<<< Updated upstream
-=======
                         <table class="blood-types-table" style="width:90%">
                         <tr>
                             <th>Reservation ID</th>
@@ -119,7 +117,6 @@ $metaTitle = "System User Reservations"
                         
                         </table>
 
->>>>>>> Stashed changes
                 </div>
 
             </div>

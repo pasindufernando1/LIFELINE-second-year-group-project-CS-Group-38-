@@ -21,6 +21,12 @@ class ForgetPassword extends Controller
 
     function reset()
     {
+            
+
+        if (!isset($_POST['Reset'])) {
+            header("Location: /forgetpassword");
+            exit;
+        }
         if($this ->model->checkmail($_POST['username'])){
 
             $_SESSION['email_reset'] = $_POST['username'];
@@ -38,8 +44,8 @@ class ForgetPassword extends Controller
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 587;
             $mail->SMTPAuth = true;
-            $mail->Username = 'shinthujeni@gmail.com';
-            $mail->Password = 'avejkffjglzhpioe';
+            $mail->Username = 'lifeline.managementservices@gmail.com';
+            $mail->Password = 'kelpqmxgangljbqj';
             //From email address and name
             $mail->From = "shinthujeni@gmail.com";
             $mail->FromName = "Life Line";
@@ -78,6 +84,11 @@ class ForgetPassword extends Controller
     }
 
     function update_password(){
+        if (!isset($_POST['Submit'])) {
+            header("Location: /forgetpassword");
+            exit;
+        }
+
 
         if($_POST['OTP'] == $_SESSION['token']){
             header('Location: /forgetpassword/new_password');
@@ -96,7 +107,12 @@ class ForgetPassword extends Controller
 
     function password_set() {
         if ($_POST['new_pwd'] == $_POST['con_pwd']) {
-            $this -> model -> updatePassword($_SESSION['email_reset']);
+            if( $this -> model -> updatePassword($_SESSION['email_reset'],$_POST['new_pwd']) ){
+                header('Location: /systemuser/logout');
+            }
+            else{
+                print_r('false');die();
+            };
         }
         else{
             $_SESSION['error'] = 'Passwords dont match';

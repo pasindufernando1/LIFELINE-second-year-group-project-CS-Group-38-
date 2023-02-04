@@ -30,6 +30,7 @@ class ForgetPasswordModel extends Model
         } 
 
     }
+    
     public function insertToken($email)
     {
         if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -44,10 +45,8 @@ class ForgetPasswordModel extends Model
 
     public function updatePassword($email, $pwd)
     {
-
-        $columns = array('Name', 'Storing_temperature', 'Expiry_constraint');
-        $param = array(':Name', ':Storing_temperature', ':Expiry_constraint');
-        $result = $this->db->update("user", $password, $param, $inputs, ':type_id', $type_id, "WHERE TypeID = :type_id;");
+        $passw = password_hash($pwd, PASSWORD_DEFAULT);
+        $result = $this->db->update("user", "password", ":password", $passw, ':email', $email, "WHERE email = :email");
         if ($result == "Success") {
             return true;
         } else print_r($result);
