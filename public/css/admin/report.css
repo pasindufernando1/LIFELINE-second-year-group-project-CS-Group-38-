@@ -670,7 +670,7 @@ body {
 
 
 
-.box, .box-productive, .box-camp, .box-donor {
+.box, .box-productive, .box-camp, .box-donor , .box-expiry{
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
@@ -693,6 +693,12 @@ body {
 .box-camp{
     height: 1282px;
 }
+
+.box-expiry{
+    height: 2000px;
+}
+
+
 
 .adminbox {
     box-sizing: border-box;
@@ -2989,37 +2995,22 @@ td {
 
 }
 
-.piechart-districts{
+.piechart-districts {
     position: absolute;
     top: 882px;
     left: 35px;
     border: 3px #BCBCBC solid;
     border-radius: 10px;
     width: 95%;
-    height: 1000px;
+    height: max-content;
     display: flex;
-}
-
-.piechart-districts p{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 31.6835px;
-    line-height: 22px;
-    color: #000000;
-    padding-left: 41%;
-}
-
-
-.piechart-districts{
-    display: flex;
-}
-
-.piechart-district1{
     flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    width: 50%;
-    height: 100%;
-}
+    justify-content: center;
+    align-items: center;
+    }
+    
+.piechart-districts-content {
+    width: 30%;
+    margin: 20px;
+    }
+
