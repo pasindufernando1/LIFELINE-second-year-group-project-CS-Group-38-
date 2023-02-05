@@ -36,38 +36,32 @@ $metaTitle = "Reservations Added Successfully";
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/profile_active_sidebar.php'); ?>
-
     <!-- main content -->
     <div class="box">
         <form action="/adprofile/update" method="POST" enctype="multipart/form-data">
             <div class="user-details">
                 <div class="image-1">
-                    <img id="user_pic" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
+                    <img id="user_pic" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
                     <div class="image-upload">
                         <label for="file-input">
-                            <img class="camera-icon" src="../../../public/img/admindashboard/camera.png" />
+                        <img class="camera-icon" src="../../../public/img/admindashboard/camera.png" />
                         </label>
-
-                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
-                        <script>
-                            function readURL(input) {
-                                let user_pic = document.getElementById("user_pic")
-                                
-                                if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-
-                                    reader.onload = function(e) {
-                                        $('#user_pic').attr('src', e.target.result);
-                                    };
-
-                                    reader.readAsDataURL(input.files[0]);
-                                    console.log(user_pic.length)
-                                    
-                                }
-                            }
-                        </script>
+                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);">
                     </div>
                 </div>
+
+                <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("user_pic").src = e.target.result;
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                </script>
+
                 <div class="user">
                     <p class="u-name"><?php echo ($_SESSION['username']); ?></p>
                     <p class="r-type"><?php echo ($_SESSION['type']); ?> <br></p>

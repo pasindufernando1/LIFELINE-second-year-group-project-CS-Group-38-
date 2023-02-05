@@ -42,6 +42,11 @@ class AdminUser extends Controller
         $user_pic = $this->model->getuserimg($uname);
         $_SESSION['user_pic'] = $user_pic;
 
+        $password = $this->model->getpassword($uname);
+        $_SESSION['Password'] = $password;
+
+
+
         if ($this->model->authenticate($uname, $pwd)) {
             $_SESSION['useremail'] = $_POST['username'];
             //set session variables

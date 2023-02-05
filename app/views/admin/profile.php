@@ -38,12 +38,13 @@ $metaTitle = "Profile"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/profile_active_sidebar.php'); ?>
+    
             
     <!-- main content -->
     <div class="box">
         <div class="user-details">
                 <div class="image-1">
-                    <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
+                    <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
                 </div>
                 <div class="user">
                     <p class="u-name"><?php echo ($_SESSION['username']); ?></p>
