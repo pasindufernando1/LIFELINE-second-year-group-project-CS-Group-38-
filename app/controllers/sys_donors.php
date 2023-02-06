@@ -23,12 +23,11 @@ class Sys_donors extends Controller
     }
 
     
-
-    function category()
+    function add_donor()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/reports/reports_category');
+                $this->view->render('systemuser/donors/donor_add');
                 exit;
             }
         }
@@ -37,11 +36,11 @@ class Sys_donors extends Controller
         }
     }
 
-    function blood_availability()
+    function donation()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/reports/reports_blood');
+                $this->view->render('systemuser/donors/donation');
                 exit;
             }
         }
@@ -50,11 +49,11 @@ class Sys_donors extends Controller
         }
     }
 
-    function blood_inventory()
+    function add_donation()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/reports/reports_inventory');
+                $this->view->render('systemuser/donors/donation_add');
                 exit;
             }
         }
@@ -63,30 +62,8 @@ class Sys_donors extends Controller
         }
     }
 
-    function donors()
-    {
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/reports/reports_donors');
-                exit;
-            }
-        }
-        else{
-            $this->view->render('authentication/login');
-        }
-    }
+    
 
-    function campaign()
-    {
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/reports/reports_campaign');
-                exit;
-            }
-        }
-        else{
-            $this->view->render('authentication/login');
-        }
-    }
+    
 
 }

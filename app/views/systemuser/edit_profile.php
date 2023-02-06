@@ -43,35 +43,30 @@ $metaTitle = "Reservations Added Successfully";
         <form action="/profile/update" method="POST" enctype="multipart/form-data">
             <div class="user-details">
                 <div class="image-1">
-                    <img id="user_pic" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
+                    <img id="user_pic" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
                     <div class="image-upload">
                         <label for="file-input">
-                            <img class="camera-icon" src="../../../public/img/dashboard/camera.png" />
+                        <img class="camera-icon" src="../../../public/img/dashboard/camera.png" />
                         </label>
-
-                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
-                        <script>
-                            function readURL(input) {
-                                let user_pic = document.getElementById("user_pic")
-                                
-                                if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-
-                                    reader.onload = function(e) {
-                                        $('#user_pic').attr('src', e.target.result);
-                                    };
-
-                                    reader.readAsDataURL(input.files[0]);
-                                    console.log(user_pic.length)
-                                    
-                                }
-                            }
-                        </script>
+                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);">
                     </div>
                 </div>
+
+                <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("user_pic").src = e.target.result;
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                </script>
+
                 <div class="user">
                     <p class="u-name"><?php echo ($_SESSION['username']); ?></p>
-                    <p class="r-type"><?php echo ($_SESSION['type']); ?> <br> <?php echo ($_SESSION['bloodbankname']); ?></p>
+                    <p class="r-type"><?php echo ($_SESSION['type']); ?> <br></p>
                 </div>
             </div>
 
@@ -79,28 +74,28 @@ $metaTitle = "Reservations Added Successfully";
                 <div class="reserve-id-container">
                     <label class="reserve-id-lable" for="Name">Name:</label>
                     <br>
-                    <input id="Name" class="reserve-id-input" type="text" name="Name" autofocus placeholder="<?php echo $_SESSION['username'] ?>">
+                    <input id="Name" class="reserve-id-input" type="text" name="Name" value="<?php echo $_SESSION['username'] ?>">
                 </div>
                 <div class="blood-group-container">
-                    <label class="blood-group-lable" for="Role">Role:</label>
+                    <label id="email-label" class="blood-group-lable" for="Email">Email:</label>
                     <br>
-                    <input id="Role" class="blood-group-input" type="text" name="Role" autofocus placeholder="<?php echo ($_SESSION['type']); ?>">
+                    <input id="email" class="blood-group-input" type="text" name="email" value="<?php echo ($_SESSION['useremail']); ?>">
 
                 </div>
                 <div class="quantity-container">
-                    <label class="quantity-lable" for="email">E-Mail:</label>
+                    <label id="password-label" class="quantity-lable" for="email">Password:</label>
                     <br>
-                    <input id="email" class="quantity-input" type="text" name="email" autofocus placeholder="<?php echo ($_SESSION['useremail']); ?>">
+                    <input id="password" class="quantity-input" type="password" name="password" autofocus placeholder="New Password" required>
                 </div>
                 <div class="expiry-constraints-container">
-                    <label class="expiry-constraints-lable" for="contact">Contact No:</label>
+                    <label id="contact-label" class="expiry-constraints-lable" for="contact">Contact No:</label>
                     <br>
-                    <input id="contact" class="expiry-constraints-input" type="text" name="contact" autofocus placeholder="<?php echo ($_SESSION['user_contact']); ?>">
+                    <input id="contact" class="expiry-constraints-input" type="text" name="contact" value="<?php echo ($_SESSION['user_contact']); ?>">
 
                 </div>
-                <button class='brown-button' type='submit' name='update-reservation'>Update Profile</button>
+                <button class='brown-button' type='submit' name='update-profile'>Update Profile</button>
                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/profile">Cancel Adding</a>
+                <a class='outline-button' type='reset' name='cancel-adding' href="/adprofile">Cancel Updating</a>
                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
         </form>
 

@@ -73,6 +73,16 @@ class ReservationModel extends Model
         } else print_r($result);
     }
 
+    function deleteReserve($type_id)
+    {
+        $result = $this->db->delete("bloodpacket", "WHERE  PacketID = :type_id ;", ':type_id', $type_id);
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    
+    }
+
+
     function deleteReserveTypes($type_id)
     {
         $result = $this->db->delete("bloodcategory", "WHERE  TypeID = :type_id ;", ':type_id', $type_id);

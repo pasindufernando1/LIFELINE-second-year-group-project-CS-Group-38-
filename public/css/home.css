@@ -11,11 +11,7 @@
     position: absolute;
     width: 60%;
     height: 30%;
-<<<<<<< Updated upstream
-    left: 150px;
-=======
     left: 10.417vw;
->>>>>>> Stashed changes
     top: 25vw;
 }
 
@@ -44,20 +40,6 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-<<<<<<< Updated upstream
-    padding: 16px 41px;
-    gap: 10px;
-    position: absolute;
-    width: 134px;
-    height: 45px;
-    background: #FBDAD9;
-    border-radius: 50px;
-    border: #FBDAD9;
-}
-
-.t-boxes {
-    width: 990px;
-=======
     padding: 1.111vw 2.847vw;
     gap: 0.694vw;
     position: absolute;
@@ -71,7 +53,6 @@
 
 .t-boxes {
     width: 68.750vw;
->>>>>>> Stashed changes
     height: 18vw;
 }
 
@@ -351,8 +332,6 @@
     /* identical to box height */
     text-align: center;
     color: #640E0B;
-<<<<<<< Updated upstream
-=======
 }
 
 .contact-details {
@@ -419,5 +398,4 @@
     width: 23.488vw;
     height: 17.605vw;
     background-color: #F5AEAC;
->>>>>>> Stashed changes
 }

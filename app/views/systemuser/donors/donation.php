@@ -39,10 +39,10 @@ $metaTitle = "System User Reservations"
                         <p class="add-reservation-title">Donors</p>
                         
                         
-                        <a href="/sys_donors/add_donor" class="brown-button types-reservation">Add New</a>
+                        <a href="/sys_donors/add_donation" class="brown-button types-reservation">Add New</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
 
-                         <a href="/sys_donors/donation?page=1" class="brown-button donation-btn">Donation</a>
+                         <a href="/sys_donors?page=1" class="brown-button donation-btn">Back to Donors</a>
                         <img class="typebutton-reservation donation-img" src="./../../public/img/dashboard/donation.png" alt="add-button">
 
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
@@ -50,12 +50,11 @@ $metaTitle = "System User Reservations"
 
                         <table class="blood-types-table" style="width:90%">
                         <tr>
-                            <th>Donor ID</th>
-                            <th>Full Name</th>
-                            <th>NIC No</th>
-                            <th>Location</th>
-                            <th>Email</th>
-                            <th>Contact No</th>
+                            <th>Donor NIC</th>
+                            <th>Received Date</th>
+                            <th>Packet Quantity</th>
+                            <th>Complication</th>
+                            
                             <th>Action</th>
                         </tr>
                         <hr class="blood-types-line">
@@ -83,8 +82,6 @@ $metaTitle = "System User Reservations"
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
                                         <td>" . $row["Name"] . "</td>
                                         <td>" . $row["Quantity"] . "</td>
                                         <td>" . $row["Quantity"] . '</td>
