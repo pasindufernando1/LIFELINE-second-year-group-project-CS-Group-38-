@@ -24,9 +24,9 @@ function hov(num) {
 function norm(num) {
     for (let i = 1; i <= num; i++) {
         document.getElementById("star" + i).src = "./../../public/img/donordashboard/grey_star.png";
-        // document.getElementById("star" + i).addEventListener("mouseout", function(){
+        document.getElementById("star" + i).addEventListener("mouseout", function () {
 
-        // });
+        });
     }
 }
 

@@ -168,25 +168,26 @@ $metaTitle = 'Donor Feedback';
                         src="./../../public/img/donordashboard/grey_star.png" alt="star">
                 </label>
                 <input type="radio" name="rating" value="5" id="s5"> -->
-            <!-- <img class="rating_star" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
+            <img class="rating_star" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star1" onmouseover="hov(2)" onmouseout="norm(1)"
+            <img class="rating_star" id="star2" onmouseover="hov(2)" onmouseout="norm(2)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star1" onmouseover="hov(3)" onmouseout="norm(1)"
+            <img class="rating_star" id="star3" onmouseover="hov(3)" onmouseout="norm(3)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star1" onmouseover="hov(4)" onmouseout="norm(1)"
+            <img class="rating_star" id="star4" onmouseover="hov(4)" onmouseout="norm(4)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star1" onmouseover="hov(5)" onmouseout="norm(1)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label> -->
+            <img class="rating_star" id="star5" onmouseover="hov(5)" onmouseout="norm(5)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
 
         </div>
         <label class="p2">Describe Your Experience</label>
         <input type="text" class="feedback-input">
+        <br>
         <!-- </form> -->
+
+        <button><a href="feedback_success"> Rate</a> </button>
     </div>
-    <a href="feedback_success">
-        <button> Rate < /button></a>
-    </div>
+    >
 </body>
 
 </html>
