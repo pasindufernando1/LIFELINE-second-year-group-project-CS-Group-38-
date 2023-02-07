@@ -38,7 +38,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box">
+    <div class="box-expiry">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
@@ -66,16 +66,68 @@ $metaTitle = "Blood Usage Vs Expiry Report"
         </div>
         <!-- Div to display the piecharts of the districts relevent to the province -->
         <div class="piechart-districts">
-            <!--Create three divs for 3 pie charts  -->
-            <div class="piechart-district1">
-                
-            </div>
-            <div class="piechart-district2">
+            <?php 
+                // Count the number of elements in the array _SESSION['usageVSexpiry'
+                $count = count($_SESSION['usageVSexpiry']);
+                // Loop through the array and display the piecharts of the districts relevent to the province
+                for($i = 0; $i < $count; $i++){
+                    echo "<div class='piechart-districts-content'>";
+                    echo "<canvas id='expiry-piechart-districts".$i."' width='450' height='450'></canvas>";
+                    echo "</div>";
+                }
 
-            </div>
-            <div class="piechart-district3">
-                
-            </div>
+            ?>
+            <script>
+                function generatepichart(district){
+                    var ctx1 = document.getElementById('expiry-piechart-districts'+district).getContext('2d');
+                    console.log(ctx1);
+                    var chart = new Chart(ctx1, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Used', 'Expired'],
+                            datasets: [{
+                                data: [3, 2],
+                                backgroundColor: ['#BF1B16', '#F0817E']
+                            }]
+                        },
+                        options: {
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Total Donations : District '+district,
+                                font: {
+                                    weight: 'bold',
+                                    size: 25,
+                                    color: '#000000',
+                                    family: 'Poppins',
+                                },
+                            },
+                            subtitle: {
+                                display: true,
+                                text: 100 +' Donations in total',
+                                font: {
+                                    weight: 'bold',
+                                    size: 20,
+                                    color: '#949494',
+                                    family: 'Poppins',
+                                },
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: 100,
+                    }
+                    });
+
+                }
+                for(var i = 0; i < <?php echo $count; ?>; i++){
+                    generatepichart(i);
+                }
+            </script>
         </div>
         
         

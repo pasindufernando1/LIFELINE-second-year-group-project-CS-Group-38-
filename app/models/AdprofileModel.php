@@ -47,5 +47,23 @@ class AdprofileModel extends Model
 
     }
 
+    public function getUserName($userid)
+    {
+        if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {
+            $user_name = $this->db->select("Username","user","WHERE UserID =:UserID",':UserID',$userid);
+            $name_user = $user_name[0]['Username'];
+            return $name_user;
+        } 
+    } 
+
+    public function getuserimg($userid)
+    {
+        if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {
+            $type = $this->db->select("Userpic","user","WHERE UserID =:UserID",':UserID',$userid);
+            $user_pic = $type[0]['Userpic'];
+            return $user_pic;
+        } 
+    }
+
     
 }

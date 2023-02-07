@@ -38,6 +38,16 @@ class AdminuserModel extends Model
 
     }
 
+    public function getpassword($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $user_password = $this->db->select("Password","user","WHERE email =:email",':email',$email);
+            $password_user = $user_password[0]['Password'];
+            return $password_user;
+        
+        } 
+    }
+
     public function getuserimg($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {

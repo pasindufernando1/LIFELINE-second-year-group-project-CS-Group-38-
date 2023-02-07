@@ -16,7 +16,10 @@
         </div>
         <h1 class="visit-us-heading">Visit Us</h1>
         <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18978.35308578993!2d79.86704858442475!3d6.890095845054789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a103d225647%3A0xef1259856066f0bf!2sNational%20Blood%20Transfusion%20Service!5e0!3m2!1sen!2slk!4v1675505912760!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+        <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1imitUZHLJx3wJzshXtOP23JXcmjS0BQ&ehbc=2E312F" width="640" height="480"></iframe> -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18978.35308578993!2d79.86704858442475!3d6.890095845054789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a103d225647%3A0xef1259856066f0bf!2sNational%20Blood%20Transfusion%20Service!5e0!3m2!1sen!2slk!4v1675505912760!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
         <div class="get-in-touch-container">
         <p>Get in Touch</p>
         </div>

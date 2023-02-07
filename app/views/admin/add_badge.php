@@ -43,7 +43,7 @@ $metaTitle = "Add Badges"
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Badge ID : </label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="badgeid" autofocus placeholder="Badge ID" required>
+                <input id="quantity" class="quantity-input" type="text" name="badgeid" value="<?php echo $_SESSION['Badgeno']?>" required disabled>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="badgename">Badge Name:</label>
                 <br>
@@ -52,32 +52,26 @@ $metaTitle = "Add Badges"
             <div class="status-container">
                 <label class="status-lable" for="hosname">Donation Contraint</label>
                 <br>
-                <input id="status" class="status-input" type="text" name="hosname" autofocus placeholder="No. of donations required to achieve" required>  
+                <input id="status" class="status-input" type="text" name="constraint" autofocus placeholder="No. of donations required to achieve" required>  
             </div>
             <!-- Container to upload the badge image -->
             <div class="image-1">
                     <label id="image-label" class="image-lable" for="file-input">Badge Image</label>
                     <div class="image-upload">
                         <label for="file-input" class="icons">
-                            <img class="camera-icon" src="../../../public/img/admindashboard/camera.png" src/>
+                            <img class="camera-icon" id="camera-icon" src="../../../public/img/admindashboard/camera.png" src/>
                             <img id="browsepic" class="browsepic" src="../../../public/img/admindashboard/browseimg.png" />
                         </label>
 
-                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
+                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" required/>
                         <script>
                             function readURL(input) {
-                                let user_pic = document.getElementById("user_pic")
-                                
                                 if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-
-                                    reader.onload = function(e) {
-                                        $('#user_pic').attr('src', e.target.result);
-                                    };
-
-                                    reader.readAsDataURL(input.files[0]);
-                                    console.log(user_pic.length)
-                                    
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    document.getElementById("camera-icon").src = e.target.result;
+                                };
+                                reader.readAsDataURL(input.files[0]);
                                 }
                             }
                         </script>
