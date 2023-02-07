@@ -22,9 +22,12 @@ class OrganizationUser extends Controller
             header("Location: /authentication/organizationlogin");
         }
         
-        //if already logged in redirect to the admin dashboard
+        //if already logged in redirect to the organization dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Organization/Society") {
+                $camp_info = $this->model->view_campaign_info();
+                
+                $_SESSION['campaignsList'] = $camp_info;
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -43,6 +46,7 @@ class OrganizationUser extends Controller
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['User_ID'] = $this->model-> getUserID($uname);
             $this->view->render('organization/dashboard');
 
             
