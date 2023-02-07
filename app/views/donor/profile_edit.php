@@ -1,5 +1,5 @@
 <?php
-// print_r($_SESSION['donor_contact']);
+// print_r($_SESSION['donor_info']['DOB']);
 // die();
 
 $metaTitle = 'Donor Dashboard'; ?>
@@ -123,12 +123,10 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             </div>
             <div class="line"></div>
-            <div class="profile menu-item">
-                <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
-                    alt="profile">
-                <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
-
+            <div class="profile-s menu-item">
+                <div class="profile-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/profile.png" alt="profile">
+                <p class="reservation-act"><a href="/donorprofile">Profile</a></p>
             </div>
         </div>
     </div>
@@ -156,9 +154,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <label class="dob-lable" for="dob">DATE OF BIRTH</label>
 
-            <input id="dob" class="dob-input" type="date" name="dob" autofocus value="<?php echo $_SESSION[
-                'donor_info'
-            ]['DOB']; ?> " required>
+            <input id="dob" class="dob-input" type="date" name="dob" autofocus
+                value="<?php echo $_SESSION['donor_info']['DOB']; ?>" required>
             <p class="dob-error" id="dob-error"></p>
 
             <label class="address-lable" for="address">ADDRESS</label>
@@ -176,11 +173,13 @@ $metaTitle = 'Donor Dashboard'; ?>
                 ]['City']; ?> " " required>
                 <p class=" city-error" id="city-error"></p>
             </div>
-            <select id="district" class="district-input custom-select" type="text" name="district" autofocus value="<?php echo $_SESSION[
-                'donor_info'
-            ]['District']; ?> " required>
+            <select id="district" class="district-input custom-select" type="text" name="district" autofocus required>
                 <!-- Show placeholder -->
-                <!-- <option value="">District</option> -->
+                <option value="<?php echo $_SESSION['donor_info'][
+                    'District'
+                ]; ?>" hidden><?php echo $_SESSION['donor_info'][
+    'District'
+]; ?></option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -208,11 +207,13 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="Vavuniya">Vavuniya</option>
             </select>
             <p class="district-error" id="district-error"></p>
-            <select id="province" class="province-input custom-select" type="text" name="province" value="<?php echo $_SESSION[
-                'donor_info'
-            ]['Province']; ?> " required>
+            <select id="province" class="province-input custom-select" type="text" name="province" value="" required>
                 <!-- Show placeholder -->
-                <option value="">Province</option>
+                <option value="<?php echo $_SESSION['donor_info'][
+                    'Province'
+                ]; ?> " hidden><?php echo $_SESSION['donor_info'][
+     'Province'
+ ]; ?> </option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
                 <option value="North Central">North Central</option>
@@ -246,21 +247,21 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <label class="password-lable" for="password">PASSWORD</label>
 
-            <input id="password" class="password-input" type="password" name="password" autofocus value="<?php echo $_SESSION[
-                'donor_info'
-            ]['DOB']; ?> " required>
+            <input id="password" class="password-input" type="password" name="password" autofocus
+                placeholder="New Password">
             <p class="password-error" id="password-error"></p>
 
             <label class="passwordcheck-lable" for="password-check">RE-ENTER PASSWORD</label>
             <input id="passwordcheck" class="password-check-input" type="password" name="password-check" autofocus
-                value="<?php echo $_SESSION['donor_info']['DOB']; ?> " required>
+                placeholder="Confirm New Password">
             <p class="passwordcheck-error" id="passwordcheck-error"></p>
             <div class="buttons">
-                <button class="submit" type="submit">Save Changes</button>
-                <button class="cancel">Cancel Editing</button>
+                <button id="submit" class="submit" type="submit" name='update'>Save Changes</button>
+                <button href="/donorprofile" class="cancel">Cancel Editing</button>
             </div>
         </form>
     </div>
+    <script src="../../../public/js/validation/donorupdatevalidation.js"></script>
 </body>
 
 </html>

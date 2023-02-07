@@ -18,6 +18,20 @@ class DonationhistoryModel extends Model
             ':DonorID',
             $userid
         );
+        // print_r($data);
+        // die();
+
+        // $campaign_data = [];
+        // for ($x = 0; $x < count($data); $x++) {
+        //     $campaign_name = $this->db->select(
+        //         'Name',
+        //         'donation_campaign',
+        //         'WHERE CampaignID =:CampaignID',
+        //         ':CampaignID',
+        //         $data[$x][0]
+        //     );
+        //     array_push($campaign_data, $campaign_name);
+        // }
 
         // $result = [];
         // foreach ($data as $row) {

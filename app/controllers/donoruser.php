@@ -44,6 +44,12 @@ class DonorUser extends Controller
             //set session variables
             $_SESSION['login'] = 'loggedin';
             $_SESSION['username'] = $this->model->getUserName($uname);
+
+            $_SESSION['today'] = date('Y-m-d H:i:s');
+
+            $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
+                $_SESSION['today']
+            );
             $this->view->render('donor/dashboard');
         } else {
             $_SESSION['error'] = 'Incorrect Username or Password';

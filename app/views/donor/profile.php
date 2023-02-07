@@ -123,15 +123,15 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             </div>
             <div class="line"></div>
-            <div class="profile menu-item">
-                <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
-                    alt="profile">
-                <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
-
+            <div class="profile-s menu-item">
+                <div class="profile-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/profile.png" alt="profile">
+                <p class="reservation-act"><a href="/donorprofile">Profile</a></p>
             </div>
         </div>
     </div>
+
+
 
     <div class="profile-container">
         <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>

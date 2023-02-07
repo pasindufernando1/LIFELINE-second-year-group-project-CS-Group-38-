@@ -75,6 +75,12 @@ class Getcampaign extends Controller
                     $_SESSION['user_ID'],
                     $campaign_ID
                 );
+                $_SESSION['okayed'] = true;
+
+                // $_SESSION['okayed'] = $this->model->iftimeokay(
+                //     $_SESSION['user_ID'],
+                //     $_SESSION['selected_campid']
+                // );
                 if ($count > 0) {
                     //get the campaign registration information
                     $_SESSION['reg_info'] = $this->model->get_campreg_info(
@@ -88,6 +94,14 @@ class Getcampaign extends Controller
                     $this->view->render('donor/viewcampaign');
                     exit();
                 }
+
+                //Check if this Donor can REGISTER ro this Campaign considering
+                // past donation dates and other registrations
+                $_SESSION['okayed'] = true;
+                // $_SESSION['okayed'] = $this->model->iftimeokay(
+                //     $_SESSION['user_ID'],
+                //     $_SESSION['selected_campid']
+                // );
             }
         } else {
             $this->view->render('authentication/donorlogin');
@@ -102,29 +116,38 @@ class Getcampaign extends Controller
 
                 //Check whether the user have already donated blood within 8 weeks
                 //Or registered to donation campaign held within 8 weeks to the selected campaign
-                $okayed = $this->model->iftimeokay(
-                    $_SESSION['user_ID'],
-                    $_SESSION['selected_campid']
+                // $okayed = $this->model->iftimeokay(
+                //     $_SESSION['user_ID'],
+                //     $_SESSION['selected_campid']
+                // );
+                // print_r($okayed);
+                // die();
+                $_SESSION['contno'] = $this->model->getcontno(
+                    $_SESSION['user_ID']
                 );
-                print_r($okayed);
-                die();
-
-                if ($okayed == 1) {
-                    $_SESSION['contno'] = $this->model->getcontno(
-                        $_SESSION['user_ID']
-                    );
-                    if (isset($_SESSION['contno'])) {
-                        // print_r($_SESSION['user_ID']);
-                        // print_r($_SESSION['contno']);
-                        // die();
-                        $this->view->render('donor/regtocampaign');
-                    }
-                    exit();
-                } else {
-                    $this->view->render('donor/donation_history');
-                    print_r('cant');
-                    die();
+                if (isset($_SESSION['contno'])) {
+                    // print_r($_SESSION['user_ID']);
+                    // print_r($_SESSION['contno']);
+                    // die();
+                    $this->view->render('donor/regtocampaign');
                 }
+                exit();
+                // if ($okayed == 1) {
+                //     $_SESSION['contno'] = $this->model->getcontno(
+                //         $_SESSION['user_ID']
+                //     );
+                //     if (isset($_SESSION['contno'])) {
+                //         // print_r($_SESSION['user_ID']);
+                //         // print_r($_SESSION['contno']);
+                //         // die();
+                //         $this->view->render('donor/regtocampaign');
+                //     }
+                //     exit();
+                // } else {
+                //     $this->view->render('donor/regtocampaign');
+                //     // print_r('cant');
+                //     // die();
+                // }
             }
         } else {
             $this->view->render('authentication/login');
@@ -134,14 +157,9 @@ class Getcampaign extends Controller
     {
         if ($_SESSION['type'] == 'Donor') {
             if (!isset($_POST['reg-to-campaign'])) {
-                // print_r("awa");
-                // die();
                 header('Location: /getcampaign/index');
                 exit();
             }
-
-            //for($i=1;$i<12;$i++){
-            //$rdiobtn =strval($i);
 
             if (
                 $_POST['g1'] == 'on' ||
@@ -175,9 +193,6 @@ class Getcampaign extends Controller
                     $emcontno = $_POST['emcontno'];
                     $inputs = [$_SESSION['user_ID'], $campaign_ID, $emcontno];
 
-                    // print_r($user_ID);
-                    // die();
-
                     if (
                         $this->model->putregistraion(
                             $inputs,
@@ -185,8 +200,6 @@ class Getcampaign extends Controller
                             $_SESSION['user_ID']
                         )
                     ) {
-                        // print_r($inputs);
-                        // die();
                         header(
                             'Location: /getcampaign/regtocampaignsuccessful'
                         );
@@ -196,7 +209,6 @@ class Getcampaign extends Controller
                     }
                 }
             }
-            //}
         }
     }
 
@@ -329,6 +341,29 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $this->view->render('donor/viewregistration');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+
+    function view_timeslot()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                $this->view->render('donor/view_time_slots');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+    function reserve_timeslot()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                $this->view->render('donor/view_reserved_timeslot');
                 exit();
             }
         } else {

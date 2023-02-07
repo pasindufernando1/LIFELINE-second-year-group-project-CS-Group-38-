@@ -107,11 +107,10 @@ $metaTitle = 'Donor Feedback';
                 <p class="badges-nav "><a href="/badges">Badges</a></p>
 
             </div>
-            <div class="reports menu-item">
-                <img src="./../../public/img/donordashboard/non-active/reports.png" alt="reports">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/reports.png"
-                    alt="reports">
-                <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
+            <div class="feedback menu-item">
+                <div class="feedback-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/reports.png" alt="reports">
+                <p class="reservation-act"><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
             <div class="campaigns menu-item">

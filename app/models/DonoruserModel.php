@@ -130,26 +130,63 @@ class DonoruserModel extends Model
         }
     }
 
-    public function get_campaign_info($campaignid)
+    // public function get_campaign_info($campaignid)
+    // {
+    //     if (
+    //         $this->db->select(
+    //             'count',
+    //             'donation_campaign',
+    //             'WHERE campaignid = :campaignid;',
+    //             ':campaignid',
+    //             $campaignid
+    //         ) > 0
+    //     ) {
+    //         $data = $this->db->select(
+    //             '*',
+    //             'donation_campaign',
+    //             'WHERE campaignid =:campaignid',
+    //             ':campaignid',
+    //             $campaignid
+    //         );
+    //         $campaign_data = $data[0]['*'];
+    //         return $campaign_data;
+    //     }
+    // }
+    public function getAllCampaigns($today)
     {
-        if (
-            $this->db->select(
-                'count',
-                'donation_campaign',
-                'WHERE campaignid = :campaignid;',
-                ':campaignid',
-                $campaignid
-            ) > 0
-        ) {
-            $data = $this->db->select(
-                '*',
-                'donation_campaign',
-                'WHERE campaignid =:campaignid',
-                ':campaignid',
-                $campaignid
-            );
-            $campaign_data = $data[0]['*'];
-            return $campaign_data;
-        }
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
+            ':Date',
+            $today
+        );
+        return $data;
+    }
+
+    public function get_campaign_info($campid)
+    {
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE CampaignID =:CampaignID',
+            ':CampaignID',
+            $campid
+        );
+        $ret_data = $data[0];
+        return $ret_data;
+    }
+
+    public function get_org_name($org_id)
+    {
+        $org_name = $this->db->select(
+            'Name',
+            'organization_society',
+            'WHERE UserID=:UserID',
+            ':UserID',
+            $org_id
+        );
+        $ret_org_name = $org_name[0][0];
+        return $ret_org_name;
     }
 }

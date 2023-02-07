@@ -12,7 +12,167 @@ button:hover {
     left: 301px;
     width: 1585px;
     top: 133px;
-    height: 650px;
+    height: 520px;
+    background: white;
+    border: solid 2px #eceef7;
+    border-radius: 6px;
+}
+
+.bo7 {
+    box-sizing: border-box;
+    /* margin-left: 450px; */
+    z-index: 1;
+    position: absolute;
+    width: 533px;
+    height: 395px;
+    margin-top: 11%;
+    margin-left: 69%;
+    /* left: 1325px; */
+    /* top: 201px; */
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    font-family: 'Poppins';
+}
+
+#pie-chart {
+    margin-top: 52px;
+    margin-left: 105px;
+    height: 319px !important;
+    width: 319px !important;
+}
+
+.male {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 86px;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 294px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 60px rgb(0 0 0 / 5%);
+    border-radius: 10px;
+}
+
+.malepic {
+    width: 30px;
+}
+
+.female {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 86px;
+    height: 50px;
+    margin-left: 400px;
+    margin-top: 77px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 60px rgb(0 0 0 / 5%);
+    border-radius: 10px;
+}
+
+.femalepic {
+    width: 38px;
+}
+
+.tebar {
+    position: absolute;
+    width: 494px;
+    height: 34px;
+    left: 36px;
+    top: -5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.4024px;
+    line-height: 34px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+#dash-camp {
+    /* position: absolute; */
+    top: 685px;
+    left: 300px;
+    width: 1587px;
+}
+
+#dash-camp a {
+    color: #EB5550;
+}
+
+.campaign-view-box button {
+    margin-top: 9px;
+    margin-left: 1391px;
+    width: 181px;
+    height: 45px;
+    border-radius: 6px;
+    font-family: Poppins;
+    font-size: 15px;
+    color: white;
+    background-color: #640E0B;
+    border: none;
+}
+
+#dash-camp #see-more {
+    font-family: Poppins;
+    color: white;
+}
+
+.campaign-view-box .hed {
+    width: 100%;
+    height: 50px;
+    /* display: flex; */
+}
+
+.campaign-view-box .hed p {
+    font-size: 1.5em;
+    font-family: Poppins;
+    font-weight: bold;
+    width: 50%;
+    height: 16px;
+    margin-top: -40px;
+    margin-left: 28px;
+}
+
+
+.container2 {
+    position: absolute;
+    box-sizing: border-box;
+    left: 300px;
+    width: 1587px;
+    top: 1414px;
+    height: 831px;
+    border-radius: 6px;
+    background-color: white;
+    border: #ECEEF6 2px solid;
+    font-family: Poppins;
+}
+
+.container2 h2 {
+    color: #BF1B16;
+    font-family: Poppins;
+    margin-left: 28px;
+}
+
+.container2 div {
+    /* color: #BF1B16;
+    font-family: Poppins; */
+    margin-left: 20px;
+}
+
+.container2 div #note {
+    font-size: 14px;
+    width: 70%;
 }
 
 .dash-p {
@@ -26,18 +186,47 @@ button:hover {
     font-size: 66px;
     line-height: 55px;
     color: #640E0B;
+    font-family: 'Yeseva-One';
 }
 
 .dash-img {
-    width: 100%;
-    height: 100%;
+    width: 34%;
+    /* height: 100%; */
+    margin-top: 8%;
+    margin-left: 17%;
     border-radius: 8px;
 }
 
+.dash-img :hover {
+    cursor: pointer;
+}
+
+.r-arrow-img {
+    margin-top: 24%;
+    margin-left: 12%;
+    position: absolute;
+    top: -96px;
+    width: 40px;
+}
+
+.r-arrow-img :hover {
+    cursor: pointer;
+}
+
+.l-arrow-img {
+    margin-top: 24%;
+    margin-left: 2%;
+    position: absolute;
+    top: -96px;
+
+    width: 40px;
+}
+
 .top-bar {
+    z-index: 1;
     position: sticky;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 102px;
     left: 0px;
@@ -75,9 +264,7 @@ button:hover {
     background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
-
 }
-
 
 .camp-div-1 {
     width: 715px;
@@ -101,6 +288,7 @@ button:hover {
     background: #640E0B;
     border-radius: 4px;
     color: White;
+    font-family: Poppins;
 }
 
 .reg-table {
@@ -560,7 +748,7 @@ fieldset {
 }
 
 .side-bar {
-    position: absolute;
+    position: fixed;
     width: 277.49px;
     height: 922px;
     left: -5px;
@@ -583,6 +771,78 @@ fieldset {
 .dashboard {
     box-sizing: border-box;
     position: absolute;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.history {
+    box-sizing: border-box;
+    position: absolute;
+    top: 63px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.card {
+    box-sizing: border-box;
+    position: absolute;
+    top: 124px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.contactus {
+    box-sizing: border-box;
+    position: absolute;
+    top: 195px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.feedback {
+    box-sizing: border-box;
+    position: absolute;
+    top: 266px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.badge {
+    box-sizing: border-box;
+    position: absolute;
+    top: 385px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.profile-s {
+    box-sizing: border-box;
+    position: absolute;
+    top: 466px;
     width: 272.49px;
     height: 62px;
     left: 5px;
@@ -643,6 +903,81 @@ fieldset {
 }
 
 .dashboard-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 10px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+.history-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 9px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+#hist-s:hover {
+    cursor: pointer;
+}
+
+
+.donorcard-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 13px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+#card-s {
+    cursor: pointer;
+}
+
+.contactus-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 13px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+.badge-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 10px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+.feedback-marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 10px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+.profile-marker {
     position: absolute;
     width: 6px;
     height: 40px;
@@ -1598,6 +1933,28 @@ fieldset {
     background-color: white;
 }
 
+.badges-container .right {
+    float: left;
+    width: 40%;
+    /* background-color: coral; */
+}
+
+.badges-container .left {
+    float: right;
+    /* background-color: hotpink; */
+    width: 60%;
+}
+
+.badges-container .left img {
+    /* margin: auto; */
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+
+
+
 .badges-container h2 {
     font-family: Poppins;
     color: #640E0B;
@@ -1605,9 +1962,9 @@ fieldset {
     text-align: center;
 }
 
-.badges-container img {
+/* .badges-container .left img {
     width: 100px;
-}
+} */
 
 .badges-container .latest {
     height: 30%;
@@ -1710,7 +2067,22 @@ fieldset {
     width: 1565px;
     height: 1285px;
     left: 316px;
-    top: 0;
+    top: 145px;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.camp-success-box {
+    box-sizing: border-box;
+    width: 50%;
+    position: absolute;
+    width: 1565px;
+    height: 793px;
+    left: 316px;
+    top: 145px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -1749,7 +2121,7 @@ fieldset {
     width: 1565px;
     height: 325px;
     left: 316px;
-    top: -14px;
+    top: 114px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -1832,7 +2204,7 @@ fieldset {
     height: 708px;
     left: 316px;
     /* bottom: 12px; */
-    top: 322px;
+    top: 456px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -1841,13 +2213,10 @@ fieldset {
 
 
 .header2 {
-    display: block;
     font-size: 1.5em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 20px;
-    margin-inline-end: 0px;
     font-weight: bold;
+    margin-left: 20px;
+    width: 400px;
 }
 
 .history-container {
@@ -1906,6 +2275,10 @@ fieldset {
     flex-direction: row;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.vie-campaign-container a {
+    color: #EB5550
 }
 
 .campaign-head {
@@ -2649,7 +3022,7 @@ h3 {
 
 .campaign-card-left-box h3 {
     text-align: left;
-    text-indent: 20px;
+    margin-left: 10px;
 }
 
 .campaign-card-left-box p {
@@ -2668,8 +3041,121 @@ h3 {
     justify-content: space-evenly;
 }
 
+.timeslot-container {
+    padding: 30px;
+    position: absolute;
+    box-sizing: border-box;
+    left: 301px;
+    width: 1585px;
+    top: 133px;
+    height: 755px;
+    border: 2px solid #eceef7;
+    border-radius: 6px;
+    background-color: white;
+}
 
+.timeslot-container h2 {
+    font-family: Poppins;
+    font-weight: bold;
+}
 
+.timeslot-container table {
+    margin-left: 186px;
+    margin-top: 25px
+}
+
+.timeslot-container table tr {
+    text-align: left;
+}
+
+.timeslot-container table td {
+    text-align: left;
+}
+
+.timeslot-container button {
+    width: 100px;
+    height: 37px;
+    color: white;
+    background-color: #640E0B;
+    border-radius: 6px;
+    font-family: Poppins;
+    font-weight: normal;
+    border: none;
+
+}
+
+.timeslot-container a {
+    width: 100px;
+    height: 37px;
+    color: white;
+    background-color: #640E0B;
+    border-radius: 6px;
+    font-family: Poppins;
+    font-weight: normal;
+    border: none;
+
+}
+
+.timeslot-container #disable {
+    width: 100px;
+    height: 37px;
+    background-color: #afafaf;
+    color: #5C5C5C;
+    border-radius: 6px;
+    font-family: Poppins;
+    font-weight: bold;
+
+}
+
+.timeslot-card {
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 380px;
+    width: 710px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #a7a7a7;
+}
+
+.timeslot-card h3 {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: -16px;
+    width: 100%;
+    text-align: center;
+}
+
+.timeslot-card p {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: bold;
+    /* margin-top: -59px; */
+    width: 100%;
+    text-align: left;
+    margin-left: 55px;
+    line-height: 35px;
+}
+
+.timeslot-container #to_campaigns {
+    margin-left: 84.5%;
+    margin-top: 2%;
+    height: 50px;
+    width: 204px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: large;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+#to_campaigns a {
+    font-family: 'Poppins';
+    font-size: large;
+    color: white;
+}
 
 .add-user-title {
     position: absolute;

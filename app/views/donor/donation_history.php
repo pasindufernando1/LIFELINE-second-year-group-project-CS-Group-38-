@@ -1,8 +1,13 @@
 <?php
 // $eh = empty($_SESSION['camp_donations'][0][1]);
-// print_r($eh);
-// // print_r($_SESSION['camp_donations'][1][1]);
-
+// // print_r($eh);
+// $result = $_SESSION['camp_donations'];
+// $_SESSION['rowCount'] = sizeof($result);
+// // print_r(sizeof($_SESSION['bank_donations']));
+// print_r($_SESSION['rowCount']);
+// die();
+// $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
+// print_r(sizeof($_SESSION['camp_donations']));
 // die();
 
 $metaTitle = 'Donor Dashboard'; ?>
@@ -82,12 +87,10 @@ $metaTitle = 'Donor Dashboard'; ?>
                     alt="dashboard">
                 <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
             </div>
-            <div class="reservation menu-item">
-                <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
-                    alt="reservation">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
-                    alt="reservation">
-                <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
+            <div class="history menu-item">
+                <div class="history-marker"></div>
+                <img id="hist-s" src="./../../public/img/donordashboard/active/history.png" alt="reservation">
+                <p class="reservation-act menu-item"><a href="/donationhistory">History</a></p>
 
             </div>
             <div class="users menu-item">
@@ -141,6 +144,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <div class="view-campaign-container">
             <?php
             $result = $_SESSION['camp_donations'];
+            $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
             $count = 0;
 
             if ($_SESSION['rowCount'] > 0) {
@@ -200,7 +204,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <div class="view-bloodbank-container">
             <?php
             $result = $_SESSION['bank_donations'];
-
+            $_SESSION['rowCount'] = sizeof($_SESSION['bank_donations']);
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
                     echo '<div class="view-bankdon-card">
@@ -219,7 +223,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                                             </div>';
                 }
             } else {
-                echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
+                echo 'You Have Not Yet Donated Blood at a Blood Bank';
             }
             ?>
         </div>

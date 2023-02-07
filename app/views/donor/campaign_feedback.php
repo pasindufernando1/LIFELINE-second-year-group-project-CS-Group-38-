@@ -1,6 +1,9 @@
 <?php
 $_SESSION['selected_campid'] = $_GET['camp'];
 $metaTitle = 'Donor Feedback';
+
+// print_r($_SESSION['selected_campname']);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -108,11 +111,10 @@ $metaTitle = 'Donor Feedback';
                 <p class="badges-nav "><a href="/badges">Badges</a></p>
 
             </div>
-            <div class="reports menu-item">
-                <img src="./../../public/img/donordashboard/non-active/reports.png" alt="reports">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/reports.png"
-                    alt="reports">
-                <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
+            <div class="feedback menu-item">
+                <div class="feedback-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/reports.png" alt="reports">
+                <p class="reservation-act"><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
             <div class="campaigns menu-item">
@@ -138,10 +140,10 @@ $metaTitle = 'Donor Feedback';
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
         <!-- <div class="rate-box"> -->
-        <form action="/getcampaign/register_to_campaign" method="post" id="feedback-form">
-            <p class="p1">Rate Campaign</p>
-            <div class="stars do_rate" id="star_rating">
-                <input type="radio" name="rating" value="1" id="s1">
+        <!-- <form action="/getcampaign/register_to_campaign" method="post" id="feedback-form"> -->
+        <p class="p1">Rate Campaign</p>
+        <div class="stars do_rate" id="star_rating">
+            <!-- <input type="radio" name="rating" value="1" id="s1">
                 <label for="s1">
                     <img class="rating_star" id="star1" onclick="rate(1)" onmouseover="hov(1)" onmouseout="norm(1)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
@@ -163,14 +165,23 @@ $metaTitle = 'Donor Feedback';
                     <img class="rating_star" id="star5" onclick="rate(5)" onmouseover="hov(5)" onmouseout="norm(5)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star">
                 </label>
-                <input type="radio" name="rating" value="5" id="s5">
-
-            </div>
-            <label class="p2">Describe Your Experience</label>
-            <input type="text" class="feedback-input">
-            <script src="../../../public/js/star-ratings.js">
-            </script>
-        </form>
+                <input type="radio" name="rating" value="5" id="s5"> -->
+            <img class="rating_star" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+            <img class="rating_star" id="star1" onmouseover="hov(2)" onmouseout="norm(1)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+            <img class="rating_star" id="star1" onmouseover="hov(3)" onmouseout="norm(1)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+            <img class="rating_star" id="star1" onmouseover="hov(4)" onmouseout="norm(1)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+            <img class="rating_star" id="star1" onmouseover="hov(5)" onmouseout="norm(1)"
+                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+        </div>
+        <label class="p2">Describe Your Experience</label>
+        <input type="text" class="feedback-input">
+        <script src="../../../public/js/star-ratings.js">
+        </script>
+        <!-- </form> -->
     </div>
     <a href="feedback_success">
         <button> Rate < /button></a>

@@ -136,33 +136,62 @@ $metaTitle = 'Donor Dashboard';
 // If the current user is registered to the campaign
 ?>
     <?php if ($_SESSION['if_registered'] == 0) {
-        echo '<div class="view-campaign-box">
+        if ($_SESSION['okayed'] == true) {
+            echo '<div class="view-campaign-box">
         <p class="campaign-head">' .
-            $_SESSION['campaign_array'][1] .
-            '</p><br>
+                $_SESSION['campaign_array'][1] .
+                '</p><br>
         <p class="campaign-details">Organized By : ' .
-            $_SESSION['org_name'] .
-            '<br><br>
+                $_SESSION['org_name'] .
+                '<br><br>
             Date : ' .
-            $_SESSION['campaign_array'][4] .
-            '<br><br>
+                $_SESSION['campaign_array'][4] .
+                '<br><br>
             Starting Time : ' .
-            $_SESSION['campaign_array'][5] .
-            '<br><br>
+                $_SESSION['campaign_array'][5] .
+                '<br><br>
             Ending Time : ' .
-            $_SESSION['campaign_array'][6] .
-            '<br><br>
+                $_SESSION['campaign_array'][6] .
+                '<br><br>
             Location : ' .
-            $_SESSION['campaign_array'][2] .
-            '<br><br>
+                $_SESSION['campaign_array'][2] .
+                '<br><br>
             Number of Beds : ' .
-            $_SESSION['campaign_array'][3] .
-            '</p><br>
+                $_SESSION['campaign_array'][3] .
+                '</p><br>
         <a href="/getcampaign/reg_to_campaign?camp=' .
-            $_SESSION['selected_campid'] .
-            '"><button class="to-reg-btn">Register</button>
+                $_SESSION['selected_campid'] .
+                '"><button class="to-reg-btn">Register</button>
             <img src="./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
     </div>';
+        } else {
+            echo '<div class="view-campaign-box">
+        <p class="campaign-head">' .
+                $_SESSION['campaign_array'][1] .
+                '</p><br>
+        <p class="campaign-details">Organized By : ' .
+                $_SESSION['org_name'] .
+                '<br><br>
+            Date : ' .
+                $_SESSION['campaign_array'][4] .
+                '<br><br>
+            Starting Time : ' .
+                $_SESSION['campaign_array'][5] .
+                '<br><br>
+            Ending Time : ' .
+                $_SESSION['campaign_array'][6] .
+                '<br><br>
+            Location : ' .
+                $_SESSION['campaign_array'][2] .
+                '<br><br>
+            Number of Beds : ' .
+                $_SESSION['campaign_array'][3] .
+                '</p><br>
+        <p class="to-reg-btn">Cannot Register</p>
+            <img src="./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
+
+    </div>';
+        }
     }
     // If the current user is registered to the campaign
     elseif ($_SESSION['if_registered'] == 1) {

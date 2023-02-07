@@ -37,7 +37,7 @@ class GetcampaignModel extends Model
         $data = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1',
+            'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
             ':Date',
             $today
         );
@@ -70,56 +70,119 @@ class GetcampaignModel extends Model
         return $ret_org_name;
     }
 
-    public function iftimeokay($user_ID, $camp_ID)
-    {
-        $camp_date = $this->db->select(
-            'Date',
-            'donation_campaign',
-            'WHERE CampaignID =:CampaignID',
-            ':CampaignID',
-            $camp_ID
-        )[0]['Date'];
-        // $camp_date = $camp_date['Date'];
-        // print_r(gettype($camp_date));
-        $params = [':DonorID', ':Date'];
-        $columns = [$user_ID, $camp_date];
-        if (
-            $this->db->select(
-                'count',
-                'donor_bloodbank_bloodpacket',
-                'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-                $params,
-                $columns
-            ) > 0 ||
-            ($this->db->select(
-                'count',
-                //donation campaign inner join date
-                'donation_campaign',
-                'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-                $params,
-                $columns
-            ) > 0 ||
-                $this->db->select(
-                    'count',
-                    //donation campaign inner join date
-                    'donation_campaign',
-                    'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-                    $params,
-                    $columns
-                ) > 0)
-        ) {
-            return $this->db->select(
-                'count',
-                //donation campaign inner join date
-                'donation_campaign',
-                'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-                $params,
-                $columns
-            );
-        } else {
-            return 0;
-        }
-    }
+    // public function iftimeokay($user_ID, $camp_ID)
+    // {
+    //     //If donor havent registered for any campaign and have not donated blood yet
+    //     // print_r(
+    //     //     $this->db->select(
+    //     //         'count',
+    //     //         'regiser_to_campaigm',
+    //     //         'WHERE DonorID =:DonorID',
+    //     //         ':DonorID',
+    //     //         $user_ID
+    //     //     )
+    //     // );
+    //     // die();
+    //     if (
+    //         $this->db->select(
+    //             'count',
+    //             'register_to_campaign',
+    //             'WHERE DonorID =:DonorID',
+    //             ':DonorID',
+    //             $user_ID
+    //         ) == 0 &&
+    //         $this->db->select(
+    //             'count',
+    //             'donor_bloodbank_bloodpacket',
+    //             'WHERE DonorID =:DonorID',
+    //             ':DonorID',
+    //             $user_ID
+    //         ) == 0 &&
+    //         $this->db->select(
+    //             'count',
+    //             'donor_campaign_bloodpacket',
+    //             'WHERE DonorID =:DonorID',
+    //             ':DonorID',
+    //             $user_ID
+    //         )
+    //     ) {
+    //         return true;
+    //     } else {
+    //         $camp_date = $this->db->select(
+    //             'Date',
+    //             'donation_campaign',
+    //             'WHERE CampaignID =:CampaignID',
+    //             ':CampaignID',
+    //             $camp_ID
+    //         )[0]['Date'];
+    //         $params = [':DonorID', ':Date'];
+    //         $columns = [$user_ID, $camp_date];
+    //         if (
+    //             $this->db->select(
+    //                 'count',
+    //                 'donor_campaign_bloodpacket',
+    //                 'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
+    //                 $params,
+    //                 $columns
+    //             ) == 0 ||
+    //             $this->db->select(
+    //                 'count',
+    //                 'donor_campaign_bloodpacket',
+    //                 'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
+    //                 $params,
+    //                 $columns
+    //             ) == 0
+    //         ) {
+    //             if (
+    //                 $this->db->select(
+    //                     'count',
+    //                     'donor_bloodbank_bloodpacket',
+    //                     'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
+    //                     $params,
+    //                     $columns
+    //                 ) == 0 ||
+    //                 $this->db->select(
+    //                     'count',
+    //                     'donor_bloodbank_bloodpacket',
+    //                     'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
+    //                     $params,
+    //                     $columns
+    //                 ) == 0
+    //             ) {
+    //                 $registered_camps = $this->db->select(
+    //                     'CampaignID',
+    //                     'register_to_campaign',
+    //                     'WHERE DonorID =:DonorID',
+    //                     ':DonorID',
+    //                     $user_ID
+    //                 );
+    //                 // $register_dates=[];
+    //                 for ($x = 0; $x < sizeof($registered_camps); $x++) {
+    //                     $other_date = $this->db->select(
+    //                         'Date',
+    //                         'donation_campaign',
+    //                         'WHERE CampaignID =:CampaignID',
+    //                         ':CampaignID',
+    //                         $registered_camps[$x]
+    //                     );
+    //                     $other_date = date('Y-m-d', $other_date);
+    //                     if (
+    //                         date_diff($camp_date, $other_date) < 56 &&
+    //                         date_diff($camp_date, $other_date) > -56
+    //                     ) {
+    //                         return false;
+    //                     }
+    //                 }
+    //                 return true;
+    //             } else {
+    //                 return false;
+    //             }
+    //         } else {
+    //             return false;
+    //         }
+    //     }
+    //     // return false;
+    // }
 
     public function ifregistered($user_id, $campaign_id)
     {

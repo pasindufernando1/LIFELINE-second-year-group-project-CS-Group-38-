@@ -82,11 +82,10 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
 
             </div>
-            <div class="users menu-item">
-                <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
-                    alt="donor-cards">
-                <p class="users-nav "><a href="/card">Donor Card</a></p>
+            <div class="card menu-item">
+                <div class="donorcard-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/cards.png" alt="donor-cards">
+                <p class="reservation-act menu-item"><a href="/card">Donor Card</a></p>
 
             </div>
             <div class="inventory menu-item">

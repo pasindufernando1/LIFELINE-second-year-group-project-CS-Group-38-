@@ -101,11 +101,10 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
 
             </div>
-            <div class="badges menu-item">
-                <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
-                    alt="campaigns">
-                <p class="badges-nav "><a href="/badges">Badges</a></p>
+            <div class="badge menu-item">
+                <div class="badge-marker"></div>
+                <img id="card-s" src="./../../public/img/donordashboard/active/badge.png" alt="campaigns">
+                <p class="reservation-act"><a href="/badges">Badges</a></p>
 
             </div>
             <div class="reports menu-item">
@@ -134,20 +133,25 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div class="badges-container">
-        <div class="latest">
-            <h2>Your Newest Badge</h2>
-            <img src="../../../public/img/donordashboard/SilverMedal.png">
+        <div class="left">
+            <img src="../../../public/img/donordashboard/6262.jpg">
         </div>
-        <div class="your">
-            <h2>Your Badges</h2>
-            <div>
+        <div class="right">
+            <div class="latest">
+                <h2>Your Newest Badge</h2>
                 <img src="../../../public/img/donordashboard/SilverMedal.png">
-                <img src="../../../public/img/donordashboard/BronzeMedal.png">
             </div>
-        </div>
-        <div class="yet">
-            <h2>Yet to Earn</h2>
-            <img src="../../../public/img/donordashboard/GoldMedal.png">
+            <div class="your">
+                <h2>Your Badges</h2>
+                <div>
+                    <img src="../../../public/img/donordashboard/SilverMedal.png">
+                    <img src="../../../public/img/donordashboard/BronzeMedal.png">
+                </div>
+            </div>
+            <div class="yet">
+                <h2>Yet to Earn</h2>
+                <img src="../../../public/img/donordashboard/GoldMedal.png">
+            </div>
         </div>
     </div>
 </body>

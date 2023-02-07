@@ -212,7 +212,7 @@ password?.addEventListener("input", function () {
         password.style.borderolor = "red";
         passwordflag = false;
     } else {
-        signupformenable();
+        // signupformenable();
         password_error.innerHTML = "";
         password.style.borderColor = "#FBDAD9";
         passwordflag = true;
