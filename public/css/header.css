@@ -179,3 +179,8 @@ body {
     /* identical to box height */
     color: #EB5550;
 }
+
+.image img {
+    width: 7vh;
+    height: 7vh;
+}

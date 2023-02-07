@@ -11,6 +11,6 @@ class Index extends Controller
 
     function index()
     {
-        $this->view->render('authentication/hospitalslogin');
+        $this->view->render('index');
     }
 }

@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "View Hospital Medical Center" 
 ?>
 
 <!DOCTYPE html>
@@ -143,23 +143,32 @@ $metaTitle = "Admin Dashboard"
                                 <br>
                             </div>
                             <div class="status-container">
-                                <label class="statusview-lable" for="status">Status    : <div class="content"><?php echo $_SESSION['Status'] ?></div></label>
+                                <label class="statusview-lable" for="status">Status    : <div class="content">
+                                    <?php if($_SESSION['Status']==1)
+                                        {   echo "Verified";}
+                                        else{
+                                            echo "Not verified";
+                                        }        ?></div></label>
                                 <br>
                             </div>
                             <div class="location-container">
                                 <label class="locationview-lable" for="location">Location    : <div class="content"><?php echo $_SESSION['Number'] ?> , <?php echo $_SESSION['LaneName'] ?>,<br><?php echo $_SESSION['City'] ?>,<br><?php echo $_SESSION['District'] ?>,<br><?php echo $_SESSION['Province'] ?> Province.<br></div></label>
                                 <br>
                             </div>
-                            <div class="email-container">
+                            <div class="email-viewcontainer">
                                 <label class="emailview-lable" for="email">Email    : <div class="content"><?php echo $_SESSION['Email'] ?></div></label>
                                 <br>
                             </div>
-                            <div class="contact-container">
+                            <div class="contact-viewcontainer">
                                 <label class="contactview-lable" for="contact">Contact No    : <div class="content"><?php echo $_SESSION['Contact_no'] ?></div></label>
                                 <br>
                             </div>
-                            <div class="uname-container">
+                            <div class="uname-viewcontainer">
                                 <label class="unameview-lable" for="uname">Username: <div class="content"><?php echo $_SESSION['Username'] ?></div></label>
+                                <br>
+                            </div>
+                            <div class="uid-viewcontainer">
+                                <label class="uidview-lable" for="uid">UserID: <div class="content"><?php echo $_SESSION['user_id'] ?></div></label>
                                 <br>
                             </div>
                             <!-- <div class="uid-container">

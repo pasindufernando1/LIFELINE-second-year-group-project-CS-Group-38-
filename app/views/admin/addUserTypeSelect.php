@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "Admin UserManage" 
+$metaTitle = "Add User Type Select" 
 ?>
 
 <!DOCTYPE html>
@@ -135,7 +135,7 @@ $metaTitle = "Admin UserManage"
                         <a href="/usermanage/addSystemUser"><button class="button-sys-add user-btn"><img class="usericon"  src="./../../public/img/admindashboard/sysusericon.png" alt="systemuser"><p>System User<p></button></a>
                         <a href="/usermanage/addHospitalMedCenter"><button class="button-hos-add user-btn" ><img class="usericon" src="./../../public/img/admindashboard/hospitalicon.png" alt="hospital/medical center">Hospital/Medical Center</button></a>
                         <a href="/usermanage/addDonor"><button class="button-donor-add user-btn" ><img class="usericon" src="./../../public/img/admindashboard/donoricon.png" alt="donor">Donor</button></a>
-                        <a href="/usermanage/addOrgSoc"><button class="button-org-add user-btn" ><img class="usericon" src="./../../public/img/admindashboard/organizationicon.png" alt="organizaion/society">Organization/Society</button></a>
+                        <a href="/usermanage/addOrganizationSociety"><button class="button-org-add user-btn" ><img class="usericon" src="./../../public/img/admindashboard/organizationicon.png" alt="organizaion/society">Organization/Society</button></a>
                     </div>
 
                 </div>

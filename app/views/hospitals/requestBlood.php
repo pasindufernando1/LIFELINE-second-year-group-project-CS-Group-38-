@@ -69,33 +69,33 @@ $metaTitle = "Hospitals Dashboard"
             <div class="side-bar">
                 <div class="side-nav">
                     
-                    <div class="dashboard menu-item">       
-                        <img class="" src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
-                        <img class="dashboard-non-active" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-nav"><a href="/hospitaluser/dashboard">Dashboard</a></p>
+                <div class="dashboard menu-item">       
+                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard"> 
+                        <img class="reservation-non-active dash" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
+                        <p class="dashboard-non-active menu-item"><a href="/hospitaluser/dashboard">Dashboard</a></p>
                     </div>
-                    <div class="requestBlood menu-items">
+                    <div class="requestBlood-selected">
                         <div class="marker"></div>
-                        <img src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-active"><a href="#">Request Blood</a></p>
+                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
+                        <p class="requestBlood-act"><a href="#">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
-                        <img class="" src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
+                        <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
                         <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-                    </div>
+                        <p class="profile-nav "><a href="/requestBlood/viewProfile">Profile</a></p>
+                    </div>  
 
                     
                     <div class="box1">
                     <h2 class="add-user-title">Request Blood</h2>
-                    <form action="/requestBlood/addRequest/" method="post">
+                    <form action="/requestBlood/addRequest/" method="post" id="addform">
                     
                         <div class="bloodGroup-container">
                             <label class="bloodGroup-label" for="bloodGroup">Blood Group:</label>
                             <br>
                             <select class="bloodGroup-input" id="bloodGroup"  type="text" name="bloodGroup" autofocus placeholder="Enter BloodGroup" required>
                             <img class="dropDown" src="./../../public/img/hospitalsdashboard/dropDown.png" alt="dropDown">
-                            
+                                <option value="" disabled selected hidden>Blood Group</option>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+" >B+</option>
@@ -112,13 +112,14 @@ $metaTitle = "Hospitals Dashboard"
                             <br>
                             <select class="bloodComponent-input" id="bloodComponent"  type="text" name="bloodComponent" autofocus placeholder="Enter BloodComponent" required>
                             <img class="dropDown" src="./../../public/img/hospitalsdashboard/dropDown.png" alt="dropDown">
+                                <option value="" disabled selected hidden>Blood Component</option>
                                 <option value="Red Blood Cells">Red Blood Cells</option>
                                 <option value="Platelets">Platelets</option>
                                 <option value="Plasma" >Plasma</option>
                             <select>
                         </div>
                         <div class="quant-container">
-                            <label class="quantity-label" for="quantity">Quantity:</label>
+                            <label id="quantity-label" class="quantity-label" for="quantity">Quantity:</label>
                             <br>
                             <input class="quantity-input" id="quantity"  type="text" name="quantity" autofocus placeholder="Enter Quantity" required>
                         </div>
@@ -128,12 +129,13 @@ $metaTitle = "Hospitals Dashboard"
                             <input class="bloodbank-input" id="bloodbank"  type="text" name="bloodbank" autofocus placeholder="Enter BloodbankID" required>
                         </div> -->
                         <div>
-                            <button class='brown-button' type='submit' name='request'>Request</button>
+                            <button class='brown-button' type='submit' name='request' id="submit-btn">Request</button>
                             <!--img class="requestbutton" src="./../../public/img/hospitalsdashboard/requestbtn.png" alt="request-button"-->
-                            <a class='outline-button' type='reset' name='cancel-adding' href="/requestBlood">Cancel Adding</a>
-                            <img class="cancelbutton" src="./../../public/img/hospitalsdashboard/cancelbtn.png" alt="cancel-button">
+                            <button class='outline-button' type='reset' name='cancel-adding' ><a href="/requestBlood/viewReqBlood" class="cancel">Cancel Adding</a></button>
+                            <!-- <img class="cancelbutton" src="./../../public/img/hospitalsdashboard/cancelbtn.png" alt="cancel-button"> -->
                         </div>
                     </form>
+                   <script src="../../../public/js/validation/uservalidation.js"></script>
 
                     </div>
 

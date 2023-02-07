@@ -69,34 +69,31 @@ $metaTitle = "Hospitals Dashboard"
             <div class="side-bar">
                 <div class="side-nav">
                     
-                    <div class="dashboard menu-item">       
-                        <img class="dashboard-active" src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
-                        <img class="dashboard-non-active" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-nav"><a href="/hospitaluser/dashboard">Dashboard</a></p>
+                <div class="dashboard menu-item">       
+                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard"> 
+                        <img class="reservation-non-active dash" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
+                        <p class="dashboard-non-active menu-item"><a href="/hospitaluser/dashboard">Dashboard</a></p>
                     </div>
-                    <div class="requestBlood menu-items">
+                    <div class="requestBlood-selected">
                         <div class="marker"></div>
-                        <img src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-active"><a href="#">Request Blood</a></p>
+                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
+                        <p class="requestBlood-act"><a href="#">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
-                        <img class="profile-active" src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
+                        <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
                         <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-                    </div>    
+                        <p class="profile-nav "><a href="/requestBlood/viewProfile">Profile</a></p>
+                    </div>     
                 </div>
             </div>
             <div class="box">
                         <p class="view-bloodBank-title">View Blood Banks</p>
-                        <form action="requestBlood/viewDetails" method="post">
+                        <form action="/requestBlood/add_Request/" method="post">
                         <table class="bloodBanks-table" style="width:90%">
                         <tr>
                             <th>Blood Bank ID</th>
                             <th>Name</th>
-                            <th>Number</th>
-                            <th>Lane Name</th>
-                            <th>City</th>
-                            <th>District</th>
+                            <th>Address</th>
                             <th>Province</th>
                             <th>Action</th>
                         </tr>
@@ -125,15 +122,15 @@ $metaTitle = "Hospitals Dashboard"
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["BloodBankID"]. "</td>
                                         <td>" . $row["BloodBank_Name"] . "</td>
-                                        <td>" . $row["Number"] . "</td>
-                                        <td>" . $row["LaneName"] . "</td>
-                                        <td>" . $row["City"] . "</td>
-                                        <td>" . $row["District"] . "</td>
+                                        <td>" . $row["Number"] ," , ",$row["LaneName"]," , ",$row["City"]," , ",$row["District"] ."</td>
+                                        
+                                       
+                                        
                                         <td>" . $row["Province"] . '</td>
                                         <td> 
-                                        <div class="req-btn-div">
-                                        <button class="req-btn" type="button" name="request1"><a href="/requestBlood/add_Request?bloodbank='.$row["BloodBankID"].'">Request</a></button>                                
-                                        </div>
+                                        
+                                        <a href="/requestBlood/add_Request?bloodbank='.$row["BloodBankID"].'"><button class="req-btn" type="button" name="request">Request</a></button>                                
+                                        
                                         </td>
                                     </tr> </div>';
                                 

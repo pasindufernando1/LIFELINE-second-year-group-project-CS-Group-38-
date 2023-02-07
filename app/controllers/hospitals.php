@@ -11,10 +11,16 @@ class Hospitals extends Controller
 
     function login()
     {
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "Hospitals") {
+        
+        if (isset($_SESSION['login'])) {  
+            
+            if ($_SESSION['type'] == "Hospital/Medical_Center") { 
+             
+
+                
                 header("Location: /hospitaluser/dashboard");
-                $this->view->render('hospitals/dashboard');
+                
+    
                 exit;
             }
         }
@@ -23,4 +29,23 @@ class Hospitals extends Controller
         }
         
     }
+
+    function signup(){
+        // header("Location: /organizationuser/signuppage/");
+        $this->view->render('signup/hospitalsignup');        
+    }
+
+    function hospitalsignupsuccessful()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Hospital/Medical_Center") {
+                $this->view->render('hospitals/add_request_successful');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/hospitalslogin');
+        }
+    }
+
 }
