@@ -1,0 +1,130 @@
+.dashboard {
+    box-sizing: border-box;
+    position: absolute;
+    width: 14vw !important;
+    height: 62px;
+    left: 5px;
+    background: #ffffff !important;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.dashboard-active a {
+    color: #000000 !important;
+    font-weight: unset !important;
+}
+
+.red-dash {
+    display: none !important;
+}
+
+.blk-dash {
+    display: block !important;
+}
+
+.red-don {
+    display: block!important;
+}
+
+.blk-don {
+    display: none !important;
+}
+
+.dashboard-active a:hover {
+    font-weight: 700 !important;
+    font-size: 18.9713px !important;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+}
+
+.menu-item:hover .red-dash {
+    display: block !important;
+}
+
+.menu-item:hover .blk-dash {
+    display: none !important;
+}
+
+.marker {
+    top: 269px !important;
+    z-index: 999;
+}
+
+.donors-nav a {
+    position: absolute;
+    width: 14.4vw;
+    height: 28px;
+    left: 73.74000000000001px !important;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    margin-top: 19px !important;
+    color: #BF1B16 !important;
+    font-weight: 700 !important;
+}
+
+.donors img {
+    z-index: 1;
+}
+
+.donors-nav {
+    position: absolute;
+    width: 14.4vw;
+    height: 64.25px !important;
+    top: 243px !important;
+    left: 0px !important;
+    background: #F8F8F8 !important;
+    margin-bottom: 5px;
+    margin-left: -22px;
+}
+
+.donation-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 935px;
+    top: 32px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.donation-img {
+    position: absolute;
+    top: 49px;
+    left: 1101px;
+}
+
+.quantity-inputs {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -180px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.quantity-inputs::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
