@@ -1,0 +1,139 @@
+/* Footer */
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #640E0B;
+    color: #FCFEFE;
+    font-family: 'yeseva one';
+    margin-top: 0vw;
+}
+
+.footer-section {
+    width: 25%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.footer-container h4 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.company h4 {
+    font-family: 'Yeseva One';
+    font-size: 2.2em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #FBDAD9;
+    margin-left: -7vw;
+    margin-top: -2vh;
+}
+
+.links h4 {
+    font-family: 'Work Sans';
+    font-size: 1.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #FBDAD9;
+    margin-left: -7vw;
+    margin-top: 1vh;
+}
+
+.contact h4 {
+    font-family: 'Work Sans';
+    font-size: 1.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #FBDAD9;
+    margin-left: -18vw;
+    padding-top: 1vh;
+    margin-bottom: 0vh;
+}
+
+.findus h4 {
+    font-family: 'Work Sans';
+    font-size: 1.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #FBDAD9;
+    margin-left: -32vw;
+    margin-top: 0vh;
+    margin-bottom: 7vh;
+}
+
+.footer-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.footer-container ul li a {
+    color: #FCFEFE;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+    padding-left: -15vw;
+    padding-right: 9vw;
+}
+
+.footer-container p {
+    font-size: 0.9em;
+    margin-left: -17.3vw;
+    font-family: 'Work Sans';
+    line-height: 140%;
+    color: #FCFEFE;
+}
+
+.footer-container img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.company p {
+    font-size: 0.9em;
+    margin-left: 3.7vw;
+    font-family: 'Work Sans';
+    line-height: 140%;
+    color: #FCFEFE;
+}
+
+.social-media {
+    margin-left: -28vw;
+}
+
+footer hr {
+    width: 100%;
+    color: #FCFEFE;
+}
+
+.end p {
+    margin-left: -4.3vw;
+}
+
+.login-btn {
+    color: #F5AEAC;
+    margin: 4vh 90vh 3vh 36vh;
+    background-color: #640E0B;
+    cursor: pointer;
+    font-size: -2.5vw;
+    border: none;
+}
+
+@media (max-width:768px) {
+    .login-btn {
+        font-size: 3vw;
+    }
+}
