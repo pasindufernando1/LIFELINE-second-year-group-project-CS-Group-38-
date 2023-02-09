@@ -136,7 +136,6 @@ $metaTitle = 'Donor Feedback';
             </div>
         </div>
     </div>
-
     <div class="rate-campaign-box">
         <?php echo '<h2 class="header2">' .
             $_SESSION['selected_campname'] .
@@ -145,30 +144,7 @@ $metaTitle = 'Donor Feedback';
         <!-- <form action="/getcampaign/register_to_campaign" method="post" id="feedback-form"> -->
         <p class="p1">Rate Campaign</p>
         <div class="stars do_rate" id="star_rating">
-            <!-- <input type="radio" name="rating" value="1" id="s1">
-                <label for="s1">
-                    <img class="rating_star" id="star1" onclick="rate(1)" onmouseover="hov(1)" onmouseout="norm(1)"
-                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <label for="s2">
-                    <img class="rating_star" id="star2" onclick="rate(2)" onmouseover="hov(2)" onmouseout="norm(2)"
-                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <input type="radio" name="rating" value="2" id="s2">
-                <label for="s3">
-                    <img class="rating_star" id="star3" onclick="rate(3)" onmouseover="hov(3)" onmouseout="norm(3)"
-                        src="./../../public/img/donordashboard/grey_star.png" alt="star">
-                </label>
-                <input type="radio" name="rating" value="3" id="s3">
-                <label for="s4">
-                    <img class="rating_star" id="star4" onclick="rate(4)" onmouseover="hov(4)" onmouseout="norm(4)"
-                        src="./../../public/img/donordashboard/grey_star.png" alt="star">
-                </label>
-                <input type="radio" name="rating" value="4" id="s4">
-                <label for="s5">
-                    <img class="rating_star" id="star5" onclick="rate(5)" onmouseover="hov(5)" onmouseout="norm(5)"
-                        src="./../../public/img/donordashboard/grey_star.png" alt="star">
-                </label>
-                <input type="radio" name="rating" value="5" id="s5"> -->
-            <img class="rating_star" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
+            <img class="rating_star" onclick="rate(1)" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
             <img class="rating_star" id="star2" onmouseover="hov(2)" onmouseout="norm(2)"
                 src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>

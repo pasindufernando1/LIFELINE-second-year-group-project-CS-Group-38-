@@ -30,16 +30,43 @@ require_once __ROOT__ . '/app/views/layout/navigation.php';
             </div>
         </div>
         <div class="t-boxes">
-            <img class="aboutUs-img" src="../../../public/img/aboutUs.png" alt="">
+            <div class="about-us">
+                <img src=" ../../../public/img/hospital.png" alt="">
+                <!-- <p id="p1">Services Offered By Our System</p> -->
+                <p class="welcome-title">WELCOME TO LIFELINE</p>
+                <p class="name-title">Blood Banks and Donation Management System</p>
+                <ul>
+                    <li>Blood Donation</li>
+                    <li>Inventory Management</li>
+                    <li>Campaign Management</li>
+                    <li>Well Prepared User Portals</li>
+                </ul>
+                <p class="des">A Blood Bank And Donation Management System is a software application designed to
+                    automate
+                    and manage the processes involved in collecting, testing, storing, and distributing blood. This
+                    system
+                    helps streamline the donation process, maintain accurate blood inventory levels, and improve the
+                    overall
+                    efficiency of blood banks. It also helps track donor information and maintain a database of blood
+                    donors
+                    and their blood type, ensuring that the right blood type is available for transfusion to patients in
+                    need.</p>
+            </div>
+            <!-- <img class="aboutUs-img" src="../../../public/img/hospital.png" alt="">
             <p class="welcome-title">WELCOME TO LIFELINE</p>
-             <p class="name-title">Blood Banks and Donation Management System</p>
-             <ul class="services-list">
+            <p class="name-title">Blood Banks and Donation Management System</p>
+            <ul class="services-list">
                 <li>Blood Donation</li>
                 <li>Inventory Management</li>
                 <li>Campaign Management</li>
                 <li>Well Prepared User Portals</li>
-             </ul>
-              <p class="des">A Blood Bank And Donation Management System is a software application designed to automate and manage the processes involved in collecting, testing, storing, and distributing blood. This system helps streamline the donation process, maintain accurate blood inventory levels, and improve the overall efficiency of blood banks. It also helps track donor information and maintain a database of blood donors and their blood type, ensuring that the right blood type is available for transfusion to patients in need.</p>  
+            </ul>
+            <p class="des">A Blood Bank And Donation Management System is a software application designed to automate
+                and manage the processes involved in collecting, testing, storing, and distributing blood. This system
+                helps streamline the donation process, maintain accurate blood inventory levels, and improve the overall
+                efficiency of blood banks. It also helps track donor information and maintain a database of blood donors
+                and their blood type, ensuring that the right blood type is available for transfusion to patients in
+                need.</p> -->
         </div>
 
 

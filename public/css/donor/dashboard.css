@@ -2277,7 +2277,7 @@ fieldset {
     overflow-y: auto;
 }
 
-.vie-campaign-container a {
+.view-campaign-container a {
     color: #EB5550
 }
 
@@ -2390,7 +2390,7 @@ fieldset {
 .do_rate {
     margin-right: auto;
     margin-left: auto;
-    margin-top: -6.5%;
+    margin-top: -13.5%;
 }
 
 .stars img {
@@ -2500,6 +2500,10 @@ fieldset {
     background: #640E0B;
     border-color: #630e0b;
     border-radius: 10.8716px;
+}
+
+.rate-campaign-box button a {
+    color: white
 }
 
 .viewrating {

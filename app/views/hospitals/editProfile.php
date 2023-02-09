@@ -84,6 +84,7 @@ $metaTitle = "Hospitals Dashboard"
                     
                     
                     <div class="profile-selected">
+                    <div class="marker"></div>
                         <!-- <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile"> -->
                         <img class="profile-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
                         <p class="profile-act "><a href="#">Profile</a></p>
@@ -95,7 +96,9 @@ $metaTitle = "Hospitals Dashboard"
             </div>
 
             <?php 
-            echo '<div class="box">
+            echo '<div class="cont">
+            <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
+            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
                 <p class="usr-name">'.($_SESSION['Username']).'</p><br>
                 <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
                 <form action="/requestBlood/edit_profile/" method="post" id="addform"> 
@@ -125,6 +128,16 @@ $metaTitle = "Hospitals Dashboard"
                 <label id="em-label" class="em-label" for="em">Email Address:</label>
                 <br>
                 <input class="em-input" id="em"  type="text" name="em" autofocus placeholder="Email Address" required>
+                <br>
+
+                <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
+                <br>
+                <input class="currentPw-input" id="currentPw"  type="text" name="currentPw" autofocus placeholder="Current Password" required>
+                <br>
+
+                <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
+                <br>
+                <input class="newPw-input" id="newPw"  type="text" name="newPw" autofocus placeholder="New Password" required>
                 <br>
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>

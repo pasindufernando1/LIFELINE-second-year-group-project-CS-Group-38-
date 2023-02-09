@@ -84,6 +84,7 @@ $metaTitle = "Hospitals Dashboard"
                     
                     
                     <div class="profile-selected">
+                        <div class="marker"></div>
                         <!-- <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile"> -->
                         <img class="profile-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
                         <p class="profile-act "><a href="#">Profile</a></p>
@@ -93,40 +94,67 @@ $metaTitle = "Hospitals Dashboard"
                 </div>
 
             </div>
-            <?php 
-            echo '<div class="box">
-                <p class="usr-name">'.($_SESSION['Username']).'</p><br>
-                <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
+            
+            
+            <div class="box">
+            <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
+            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
+            <?php echo '<p class="usr-name">'.($_SESSION['Username']).'</p><br>
+                <p class="usr-type">'.($_SESSION['UserType']).'</p><br>'  ?>
+            <div class="main">
+                <div class="left">
+                <p>
+                    Hospital Name
+                    <br>
+                    <br>
+                    Telephone Number
+                    <br>
+                    <br>
+                    Address
+                    <br>
+                    <br>
+                    Email
+                    
+                </P>
+                </div>
+                <div class="right">
+                <p>
+                    <?php echo '<p>
+                    : ' .
+                    $_SESSION['Username'] .
+                        '
+                    <br>
+                    <br>
+                    : ' .
+                    $_SESSION['telno'] .
+                        '
+                    <br>
+                    <br>
+                    
+                    
+                    
+                    : ' .
+                        $_SESSION['Number'] .
+                        ', ' .
+                        $_SESSION['LaneName'] .
+                        ', ' .
+                        $_SESSION['City'] .
+                        ', ' .
+                        $_SESSION['District'] .
+                        ', ' .
+                        $_SESSION['Province'] .
+                        '
+                        <br>
+                        <br>
+                    : ' .
+                    $_SESSION['Email'] .
+                    '
+                    <br>
+                    <br>
+                        </p>'; ?>
+                </P>
+            </div>
+            <button class="edit-button" type="submit" name="request" id="submit-btn"><a href="/requestBlood/editProfile/" class="cancel">Edit Profile</button>
+            </div>   
 
-                <label id="hosName-label" class="hosName-label" for="hosName">Hospital Name:</label>
-                <br>
-                <input class="hosName-input" id="hosName"  type="text" name="hosName" autofocus placeholder="'.($_SESSION['Username']).'" required>
-                <br>
-
-                <label id="teleNo-label" class="teleNo-label" for="teleNo">Telephone Number:</label>
-                <br>
-                <input class="teleNo-input" id="teleNo"  type="text" name="teleNo" autofocus placeholder="'.$_SESSION['telno'].'" required>
-                <br>
-
-                <label id="loc-label" class="loc-label" for="loc">Location:</label>
-                <br>
-                <input class="num-input" id="num"  type="text" name="num" autofocus placeholder="'.$_SESSION['Number'].'" required>
-                <br>
-                <input class="laneNme-input" id="laneNme"  type="text" name="laneNme" autofocus placeholder="'.$_SESSION['LaneName'].'" required>
-                <br>
-                <input class="cit-input" id="cit"  type="text" name="cit" autofocus placeholder="'.$_SESSION['City'].'" required>
-                <br>
-                <input class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="'.$_SESSION['District'].'" required>
-                <br>
-                <input class="prov-input" id="prov"  type="text" name="prov" autofocus placeholder="'.$_SESSION['Province'].'" required>
-                <br>
-
-                <label id="em-label" class="em-label" for="em">Email Address:</label>
-                <br>
-                <input class="em-input" id="em"  type="text" name="em" autofocus placeholder="'.$_SESSION['Email'].'" required>
-                <br>
-
-                <button class="edit-button" type="submit" name="request" id="submit-btn"><a href="/requestBlood/editProfile/" class="cancel">Edit Profile</button>
-            </div>'
-
-            ?>
+            

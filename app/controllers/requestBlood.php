@@ -58,11 +58,12 @@ class requestBlood extends Controller
             $Blood_component = $_POST['bloodComponent'];
             $Quantity = $_POST['quantity'];
             $HospitalID = $_SESSION['User_ID'];
-            //$acceptedDate='NULL';
+            // Current date 
+            $Date_requested = date("Y-m-d");
             
            // $BloodBankID=$_POST['bloodbank'];
             $BloodBankID=$_SESSION['bloodbankid'];
-            $inputs = array($BloodBankID,$HospitalID,$Blood_group, $Blood_component, $Quantity,$acceptedDate);
+            $inputs = array($BloodBankID,$HospitalID,$Blood_group, $Blood_component, $Quantity,$Date_requested);
     
             if ($this->model->addBloodRequest($inputs)){
                 header("Location: /requestBlood/add_request_successful");

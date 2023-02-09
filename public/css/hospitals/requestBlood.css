@@ -288,6 +288,10 @@ body {
 
 }
 
+.req-btn a{
+    color:white;
+}
+
 .dashboard {
     box-sizing: border-box;
     position: absolute;
@@ -1346,8 +1350,8 @@ td {
     position: absolute;
 width: 318px;
 height: 48px;
-left: 466px;
-top: 132px;
+left: 334px;
+top: 55px;
 
 font-family: 'Poppins';
 font-style: normal;
@@ -1366,8 +1370,8 @@ color: #000000;
     position: absolute;
 width: 258px;
 height: 36px;
-left: 466px;
-top: 171px;
+left: 337px;
+top: 105px;
 
 font-family: 'Poppins';
 font-style: normal;
@@ -1387,7 +1391,7 @@ color: #A4A4A4;
     height: 16px;
     left: 200px;
     right: 0px;
-    top: 250px;
+    top: 200px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1405,8 +1409,8 @@ color: #A4A4A4;
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 279px;
-    bottom: 447px;
+    top: 224px;
+    bottom: 727px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -1417,7 +1421,7 @@ color: #A4A4A4;
 height: 16px;
 left: 199px;
     right: 0px;
-    top: 357px;
+    top: 290px;
 
 font-family: 'Poppins';
 font-style: normal;
@@ -1436,8 +1440,8 @@ color: #000000;
 position: absolute;
 left: 200px;
     right: 331px;
-    top: 387px;
-    bottom: 338px;
+    top: 315px;
+    bottom: 637px;
 background: #FFFFFF;
 border: 2px solid #949494;
 border-radius: 8px;
@@ -1446,9 +1450,9 @@ border-radius: 8px;
 .loc-label{
     position: absolute;
 height: 16px;
-left: 198px;
+left: 203px;
     right: 114px;
-    top: 472px;
+    top: 378px;
 
 font-family: 'Poppins';
 font-style: normal;
@@ -1468,7 +1472,7 @@ position: absolute;
 height: 51px;
 left: 203px;
 right: 1035px;
-    top: 500.22px;
+    top: 402.22px;
 background: #FFFFFF;
 border: 2px solid #949494;
 border-radius: 8px;
@@ -1483,7 +1487,7 @@ position: absolute;
 height: 51px;
     left: 577px;
     right: 680px;
-    top: 498px;
+    top: 402.22px;
 
 background: #FFFFFF;
 border: 2px solid #949494;
@@ -1497,7 +1501,7 @@ position: absolute;
 height: 50px;
     left: 927px;
     right: 328px;
-    top: 499px;
+    top: 402.22px;
 
 background: #FFFFFF;
 border: 2px solid #949494;
@@ -1511,7 +1515,7 @@ position: absolute;
 height: 51px;
 left: 204px;
 right: 909px;
-    top: 571px;
+    top: 468px;
 
 background: #FFFFFF;
 border: 2px solid #949494;
@@ -1525,7 +1529,7 @@ position: absolute;
 height: 52px;
     left: 747px;
     right: 322px;
-    top: 570px;
+    top: 468px;
 
 background: #FFFFFF;
 border: 2px solid #949494;
@@ -1535,9 +1539,9 @@ border-radius: 8px;
 .em-label{
     position: absolute;
 height: 16px;
-left: 197px;
+left: 208px;
     right: 0px;
-    top: 659px;
+    top: 541px;
 
 font-family: 'Poppins';
 font-style: normal;
@@ -1557,8 +1561,74 @@ color: #000000;
 position: absolute;
 left: 204px;
     right: 321px;
-    top: 687px;
-    bottom: 38px;
+    top: 568px;
+    bottom: 379px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.currentPw-label{
+    position: absolute;
+height: 16px;
+left: 208px;
+    right: 0px;
+    top: 640px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+
+}
+
+.currentPw-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 204px;
+    right: 321px;
+    top: 658px;
+    bottom: 290px;
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+
+.newPw-label{
+    position: absolute;
+height: 16px;
+left: 208px;
+    right: 0px;
+    top: 715px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+
+}
+
+.newPw-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 204px;
+    right: 321px;
+    top: 741px;
+    bottom: 205px;
 
 background: #FFFFFF;
 border: 2px solid #949494;
@@ -1599,7 +1669,7 @@ position: absolute;
 width: 165px;
 height: 52px;
 left: 934px;
-top: 770px;
+top: 855px;
 
 background: #640E0B;
 border-radius: 10.8716px;
@@ -1621,7 +1691,7 @@ position: absolute;
 width: 203.66px;
 height: 52.49px;
 left: 1124px;
-top: 770px;
+top: 855px;
 
 background: #F7F7F7;
 border: 1px solid #640E0B;
@@ -1712,4 +1782,75 @@ border-radius: 10.8716px;
 
 .update-button{
     color: white;
+}
+
+.hospital_img{
+    top: 72px;
+    position: absolute;
+    width: 100px;
+    left: 164px;
+
+}
+
+.change_img{
+    top: 133px;
+    position: absolute;
+    width: 28px;
+    left: 244px;
+
+}
+
+.profile-container a {
+    margin-left: 80.5%;
+    margin-top: 2%;
+    height: 50px;
+    width: 204px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box a img {
+    width: 30px;
+}
+
+.box .main {
+
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    font-family: 'Poppins';
+    line-height: 40px;
+    font-size: 17px;
+
+}
+
+.box .main .left {
+    font-weight: bold;
+}
+
+.box .main .right {
+    font-weight: normal;
+    margin-left: 50px;
+}
+
+.cont{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1586px;
+    height: 1000px;
+    left: 300px;
+    top: 129px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
 }

@@ -9,6 +9,8 @@
 // $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
 // print_r(sizeof($_SESSION['camp_donations']));
 // die();
+// print_r($_SESSION['camp_locations']);
+// die();
 
 $metaTitle = 'Donor Dashboard'; ?>
 
@@ -150,21 +152,27 @@ $metaTitle = 'Donor Dashboard'; ?>
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
                     if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
-                        // echo '1';
-                        // echo $_SESSION['camp_donations'][$count][2];
                         echo '<div class="view-campdon-card">
                                             <h3>' .
                             $row['Date'] .
                             '</h3>
-                                            <h2>Campaign : ' .
-                            $row['CampaignID'] .
+                                            <h2>' .
+                            $_SESSION['camp_names'][$count] .
                             '</h2><p>
-                                            Organized By : organization name<br>
-                                            At : location<br>
+                                            Organized By : ' .
+                            $_SESSION['org_names'][$count] .
+                            '<br>
+                                            At : ' .
+                            $_SESSION['camp_locations'][$count] .
+                            '<br>
                                             <br>
-                                            Amount You Donated :
+                                            Amount You Donated : ' .
+                            $_SESSION['camp_donation_amounts'][$count] .
+                            ' ml
                                             <br>
-                                            Total Donation at the Campaign:
+                                            Total Donation at the Campaign : ' .
+                            $_SESSION['total_donations_campaign'][$count] .
+                            ' ml
                                             </p>
                                              <a href="/ratecampaign/addrating?camp=' .
                             $row['CampaignID'] .
@@ -176,15 +184,23 @@ $metaTitle = 'Donor Dashboard'; ?>
                                         <h3>' .
                             $row['Date'] .
                             '</h3>
-                                        <h2>Campaign : ' .
-                            $row['CampaignID'] .
+                                        <h2>' .
+                            $_SESSION['camp_names'][$count] .
                             '</h2><p>
-                                        Organized By : organization name<br>
-                                        At : location<br>
+                                        Organized By : ' .
+                            $_SESSION['org_names'][$count] .
+                            '<br>
+                                        At : ' .
+                            $_SESSION['camp_locations'][$count] .
+                            '<br>
                                         <br>
-                                        Amount You Donated :
+                                        Amount You Donated : ' .
+                            $_SESSION['camp_donation_amounts'][$count] .
+                            ' ml
                                         <br>
-                                        Total Donation at the Campaign:
+                                        Total Donation at the Campaign : ' .
+                            $_SESSION['total_donations_campaign'][$count] .
+                            ' ml
                                         </p>
                                          <a href="/ratecampaign/viewrating?camp=' .
                             $row['CampaignID'] .
@@ -203,6 +219,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <p class="header32">At BloodBanks</p>
         <div class="view-bloodbank-container">
             <?php
+            $count = 0;
             $result = $_SESSION['bank_donations'];
             $_SESSION['rowCount'] = sizeof($_SESSION['bank_donations']);
             if ($_SESSION['rowCount'] > 0) {
@@ -211,16 +228,21 @@ $metaTitle = 'Donor Dashboard'; ?>
                                             <h3>' .
                         $row['Date'] .
                         '</h3>
-                                           <h2> Blood Bank : ' .
-                        $row['BloodBankID'] .
+                                           <h2>' .
+                        $_SESSION['bank_names'][$count] .
                         '</h2><p>
-                                            Amount You Donated :
+                                            Amount You Donated : ' .
+                        $_SESSION['bank_donation_amounts'][$count] .
+                        ' ml
                                             <br>
-                                            Total Donations that Day : 
+                                            Total Donations that Day : ' .
+                        $_SESSION['total_donations_bank'][$count] .
+                        ' ml
                                             </p>
                                             </p>
                                             
                                             </div>';
+                    $count++;
                 }
             } else {
                 echo 'You Have Not Yet Donated Blood at a Blood Bank';

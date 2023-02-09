@@ -131,20 +131,37 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div class="contact-container">
-        <p>Ampara Blood Bank</p>
+        <?php echo '<p>' .
+            $_SESSION['selected_bank_info']['BloodBank_Name'] .
+            '</p>
         <div class="contact-card">
             <img src="../../../public/img/donordashboard/hospital.png" alt="profile-pic">
             <div>
                 <p>
-                    <b>Phone : </b> 0321254367<br>
+                    <b>Phone : </b> ' .
+            $_SESSION['bloodbankcontact']['ContactNumber'] .
+            '<br>
                     <b>Mobile : </b> 0321254367<br>
                     <b>Fax : </b> 0321254367<br>
-                    <b>Email : </b> info@ampara<br>
-                    <b>Address</b> : Ampara Blood Bank,Dharmapala Mawatha, Ampara 32000
-                </p>
-            </div>
-        </div>
-        <a id="btb" href="/contactus">Back to Blood Banks</a>
+                    <b>Email : </b> ' .
+            $_SESSION['selected_bank_info']['Email'] .
+            ' <br>
+                    <b>Address</b> : ' .
+            $_SESSION['selected_bank_info']['Number'] .
+            ' , ' .
+            $_SESSION['selected_bank_info']['LaneName'] .
+            ' , ' .
+            $_SESSION['selected_bank_info']['City'] .
+            ' , ' .
+            $_SESSION['selected_bank_info']['District'] .
+            ' , ' .
+            $_SESSION['selected_bank_info']['Province'] .
+            '
+                </p>'; ?>
+    </div>
+    </div>
+    ?>
+    <a id="btb" href="/contactus">Back to Blood Banks</a>
     </div>
 </body>
 

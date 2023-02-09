@@ -1,8 +1,8 @@
 var form = document.getElementById("bb_search");
 
 // Attach an event listener to the form's submit event
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+// form.addEventListener("submit", function (event) {
+//     event.preventDefault();
     // var select = document.getElementById("mySelect");
     // var selectedValue = select.options[select.selectedIndex].value;
     // console.log(selectedValue);
@@ -10,7 +10,7 @@ form.addEventListener("submit", function (event) {
     // // Get information from database based on the selected value
     // getDataFromDB(selectedValue);
     // getcontactinfo()
-});
+// });
 
 // function emailValidation() {
 //     var xhttp = new XMLHttpRequest();

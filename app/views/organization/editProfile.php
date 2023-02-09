@@ -130,6 +130,8 @@ $metaTitle = "organizations Dashboard"
             </div>
             <?php 
             echo '<div class="box">
+            <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
+            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
                 <p class="usr-name">'.($_SESSION['Username']).'</p><br>
                 <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
                 <form action="/requestApproval/edit_profile/" method="post" id="addform"> 
@@ -159,6 +161,16 @@ $metaTitle = "organizations Dashboard"
                 <label id="em-label" class="em-label" for="em">Email Address:</label>
                 <br>
                 <input class="em-input" id="em"  type="text" name="em" autofocus placeholder="Email Address" required>
+                <br>
+
+                <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
+                <br>
+                <input class="currentPw-input" id="currentPw"  type="text" name="currentPw" autofocus placeholder="Current Password" required>
+                <br>
+
+                <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
+                <br>
+                <input class="newPw-input" id="newPw"  type="text" name="newPw" autofocus placeholder="New Password" required>
                 <br>
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>

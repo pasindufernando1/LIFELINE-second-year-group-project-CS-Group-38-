@@ -84,6 +84,7 @@ $metaTitle = "Hospitals Dashboard"
                     
                     
                     <div class="profile-selected">
+                    <div class="marker"></div>
                         <!-- <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile"> -->
                         <img class="profile-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
                         <p class="profile-act "><a href="#">Profile</a></p>

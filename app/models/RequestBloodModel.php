@@ -26,8 +26,8 @@ class RequestBloodModel extends Model
 
     public function addBloodRequest($inputs) 
     {
-        $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity','AcceptedDate');
-        $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity',':AcceptedDate');
+        $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity','Date_requested');
+        $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity',':Date_requested');
         $result = $this->db->insert("hospital_blood_requests", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;

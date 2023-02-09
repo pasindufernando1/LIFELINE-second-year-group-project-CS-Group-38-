@@ -1,6 +1,8 @@
 <?php
-
+// print_r($_SESSION['bloodbanknames']);
+// die();
 $metaTitle = 'Donor Dashboard'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +18,7 @@ $metaTitle = 'Donor Dashboard'; ?>
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
     <!-- CSS Files -->
+    <link href="../../../public/css/extra/custom-select.css" rel="stylesheet">
     <link href="../../../public/css/donor/dashboard.css" rel="stylesheet">
 
     <!-- Font Files -->
@@ -24,6 +27,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+    <script src="../../../public/js/contactus.js"></script>
+
 
 
 
@@ -132,54 +137,23 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div class="contact-container">
         <p>Find Blood Bank Contact Information</p>
-        <form id="bb_search">
+        <form id="bb_search" action="/contactus/send_bank" method="post">
             <select class="bloodbank-input" type="text" name="bloodbank" autofocus placeholder=" " required>
                 <option value="" disabled selected hidden>Choose a Blood Bank</option>
-                <option value="Akkaraipattu">Akkaraipattu</option>
-                <option value="Ampara">Ampara</option>
-                <option value="Dehiatthakandiya">Dehiatthakandiya</option>
-                <option value="Kalmunai AM(S)">Kalmunai AM(S)</option>
-                <option value="Kalmunai Base(N)">Kalmunai Base(N)</option>
-                <option value="Mahaoya">Mahaoya</option>
-                <option value="Sammanthurai">Sammanthurai</option>
-                <option value="Medirigiriya">Medirigiriya</option>
-                <option value="Padaviya">Padaviya</option>
-                <option value="Polonnannva">Polonnannva</option>
-                <option value="Badulla">Badulla</option>
-                <option value="Thambuttegama">Thambuttegama</option>
-                <option value="Bibila">Bibila</option>
-                <option value="Diyatalawa">Diyatalawa</option>
-                <option value="Monaragala">Monaragala</option>
-                <option value="Welimada">Welimada</option>
-                <option value="Wellawaya">Wellawaya</option>
-                <option value="Batticaloa">Batticaloa</option>
-                <option value="Valachchenai">Valachchenai</option>
-                <option value="Avissawella">Avissawella</option>
-                <option value="CIM">CIM</option>
-                <option value="Homagama">Homagama</option>
-                <option value="Karawenella">Karawenella</option>
-                <option value="CNTH">CNTH</option>
-                <option value="Gampaha">Gampaha</option>
-                <option value="Kalpitiya">Kalpitiya</option>
-                <option value="Marawila">Marawila</option>
-                <option value="Negambo">Negambo</option>
-                <option value="Puttalam">Puttalam</option>
-                <option value="Wathupitiwala">Wathupitiwala</option>
-                <option value="Welisara">Welisara</option>
-                <option value="Jaffna">Jaffna</option>
-                <option value="Mollaitivu">Mollaitivu</option>
-                <option value="Karapitiya">Karapitiya</option>
-                <option value="Point Pedro">Point Pedro</option>
-                <option value="Thellippallai">Thellippallai</option>
-                <option value="Horana">Horana</option>
-                <option value="Kalpitiya">Kalpitiya</option>
-                <option value="Kalutara">Kalutara</option>
-                <option value="Kethumathie">Kethumathie</option>
-                <option value="Panadura">Panadura</option>
+                <?php
+                $result = $_SESSION['bloodbanknames'];
+                foreach ($result as $row) {
+                    echo '<option value="' .
+                        $row['BloodBankID'] .
+                        '">' .
+                        $row['BloodBank_Name'] .
+                        '</option>';
+                }
+                ?>
             </select>
             <br>
             <!-- <button type="submit">Search</button> -->
-            <a href="/contactus/getcontact">Search</a>
+            <button type="submit">Search</button>
         </form>
         <script src="./../../public/js/contactus.js"></script>
     </div>

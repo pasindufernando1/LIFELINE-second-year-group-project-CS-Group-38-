@@ -85,7 +85,7 @@ $metaTitle = "Reservations Added Successfully";
                 <div class="quantity-container">
                     <label id="password-label" class="quantity-lable" for="email">Password:</label>
                     <br>
-                    <input id="password" class="quantity-input" type="password" name="password" autofocus placeholder="New Password" required>
+                    <input id="password" class="quantity-input" type="text" name="password" autofocus placeholder="New Password">
                 </div>
                 <div class="expiry-constraints-container">
                     <label id="contact-label" class="expiry-constraints-lable" for="contact">Contact No:</label>

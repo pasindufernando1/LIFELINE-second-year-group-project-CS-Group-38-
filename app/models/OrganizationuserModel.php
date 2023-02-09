@@ -121,10 +121,20 @@ class OrganizationuserModel extends Model
     }
 
 
+    // public function view_campaign_info()
+    // {
+        
+    //         $data = $this->db->select("Date,OrganizationUserID","donation_campaign","WHERE Status ='Accepted'");
+            
+    //         return $data;
+        
+        
+    // }
+
     public function view_campaign_info()
     {
         
-            $data = $this->db->select("Date,OrganizationUserID","donation_campaign","WHERE Status ='Accepted'");
+            $data = $this->db->select("Name,Date","donation_campaign","WHERE Status ='Accepted'");
             
             return $data;
         
