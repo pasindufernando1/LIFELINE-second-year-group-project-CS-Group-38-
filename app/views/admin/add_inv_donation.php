@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory Addition" 
+$metaTitle = "Inventory Donation" 
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $metaTitle = "Inventory Addition"
             
     <!-- main content -->
     <div class="box">
-        <p class="add-user-title">New cash donation advertisement</p>
+        <p class="add-user-title">New inventory donation advertisement</p>
         <form action="/adadvertisements/add_invad_done" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="description">Description : </label>

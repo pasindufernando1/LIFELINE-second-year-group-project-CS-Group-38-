@@ -45,6 +45,7 @@
 
                     </div>
                     <div class="campaigns-selected">
+                        <div class="marker"></div>  
                         <img src="./../../public/img/admindashboard/active/campaigns.png" alt="campaigns">
                         <img class="reservation-non-active " src="./../../public/img/admindashboard/active/campaigns.png" alt="campaigns">
                         <p class="campaigns-act"><a href="/adcampaigns/type?page=1">Campaigns</a></p>

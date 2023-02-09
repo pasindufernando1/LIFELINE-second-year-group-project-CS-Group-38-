@@ -18,7 +18,7 @@ class Adadvertisements extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -34,7 +34,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }
@@ -49,7 +49,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -63,7 +63,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -78,7 +78,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -91,7 +91,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -106,7 +106,7 @@ class Adadvertisements extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }

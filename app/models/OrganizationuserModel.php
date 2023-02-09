@@ -32,6 +32,15 @@ class OrganizationuserModel extends Model
         } 
 
     }
+    public function getUserID($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $ID = $this->db->select("userID","user","WHERE email =:email",':email',$email);
+            $orgID = $ID[0]['userID'];
+            return $orgID;
+        
+        } 
+    }
 
     public function gettype($email)
     {
@@ -111,6 +120,27 @@ class OrganizationuserModel extends Model
         } else print_r($result);
     }
 
+
+    // public function view_campaign_info()
+    // {
+        
+    //         $data = $this->db->select("Date,OrganizationUserID","donation_campaign","WHERE Status ='Accepted'");
+            
+    //         return $data;
+        
+        
+    // }
+
+    public function view_campaign_info()
+    {
+        
+            $data = $this->db->select("Name,Date","donation_campaign","WHERE Status ='Accepted'");
+            
+            return $data;
+        
+        
+    }
+    
 
     
 }

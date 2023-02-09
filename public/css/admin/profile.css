@@ -2640,10 +2640,6 @@ canvas{
     text-decoration: none;
 }
 
-.marker {
-    top: 475px !important;
-    z-index: 999;
-}
 
 .blk-profile {
     display: none;

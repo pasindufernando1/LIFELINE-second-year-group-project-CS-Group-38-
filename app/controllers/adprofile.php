@@ -19,7 +19,7 @@ class Adprofile extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -34,7 +34,7 @@ class Adprofile extends Controller
                 exit;
             }
             } else {
-                $this->view->render('authentication/adminlogin');
+                $this->view->render('authentication/login');
             }
     }
 
@@ -112,7 +112,13 @@ class Adprofile extends Controller
             $Name = $_POST['Name'];
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
-            $Password = ($_POST['password']);if(empty($Password)){$Password = $_SESSION['Password'];}
+            $$Password = $_POST['password'];
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
+            
             
 
             $inputs1 = array($Email, $Password, $Name,$filename);
@@ -139,7 +145,7 @@ class Adprofile extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 

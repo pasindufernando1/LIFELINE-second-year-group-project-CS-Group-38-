@@ -47,7 +47,7 @@ $metaTitle = "Badges"
             <!-- A container to hold the badge photo BadgeID and the Name -->
             <div class="badge_wrap ">
                 <!-- Image -->
-                <img class="badge_img" src="<?php echo $badge['BadgePic']; ?>" alt="badge">
+                <img class="badge_img" src="./../../public/img/admindashboard/badges/<?php echo $badge['BadgePic']; ?>" alt="badge">
                 <div class="badgeID">
                 <!-- Badge ID -->
                 <!-- Label for Badge ID -->

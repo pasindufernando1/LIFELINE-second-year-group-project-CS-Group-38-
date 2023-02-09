@@ -1,0 +1,153 @@
+.dashboard {
+    box-sizing: border-box;
+    position: absolute;
+    width: 14vw !important;
+    height: 62px;
+    left: 5px;
+    background: #ffffff !important;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.dashboard-active a {
+    color: #000000 !important;
+    font-weight: unset !important;
+}
+
+.red-dash {
+    display: none !important;
+}
+
+.blk-dash {
+    display: block !important;
+}
+
+.red-cmp {
+    display: block!important;
+}
+
+.blk-cmp {
+    display: none !important;
+}
+
+.dashboard-active a:hover {
+    font-weight: 700 !important;
+    font-size: 18.9713px !important;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+}
+
+.menu-item:hover .red-dash {
+    display: block !important;
+}
+
+.menu-item:hover .blk-dash {
+    display: none !important;
+}
+
+.marker {
+    top: 401px !important;
+    z-index: 999;
+}
+
+.types-reservation {
+    left: 914px !important;
+}
+
+.addnew-reservation {
+    left: 669px !important;
+}
+
+.typebutton-reservation {
+    position: absolute;
+    top: 49px;
+    left: 1092px;
+}
+
+.campaigns-nav {
+    position: absolute;
+    width: 14.4vw;
+    height: 64.25px !important;
+    top: 372px !important;
+    left: 0px !important;
+    background: #F8F8F8 !important;
+    margin-bottom: 5px;
+    margin-left: -22px;
+}
+
+.campaigns img {
+    z-index: 1;
+}
+
+.campaigns-nav a {
+    margin-top: 20px !important;
+    left: 71.74000000000001px !important;
+    color: #BF1B16 !important;
+    font-weight: 700 !important;
+}
+
+.delete-btn {
+    width: 35px;
+    height: 35px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0px 47px 0px -110px !important;
+}
+
+.dreq {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 1203px;
+    top: 32px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.dreq-icon {
+    position: absolute;
+    top: 47px;
+    left: 1382px !important;
+}
+
+.details {
+    position: absolute;
+    height: 16px;
+    left: 159px;
+    right: 776px;
+    top: 168px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bold-dts {
+    font-weight: 700;
+}
+
+.validates {
+    position: absolute;
+    width: 148px;
+    height: 23px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    color: #BF1B16;
+    vertical-align: middle;
+    padding-top: 0px;
+    margin-left: 42px;
+    font-weight: 700;
+}

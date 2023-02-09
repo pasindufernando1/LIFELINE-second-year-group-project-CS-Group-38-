@@ -27,33 +27,33 @@
 
                     </div>
                     <div class="donor-cards menu-item">
-                        <img src="./../../public/img/dashboard/non-active/cards.png" alt="donor-cards">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/cards.png" alt="donor-cards">
-                        <p class="cards-nav "><a href="#">Donor Cards</a></p>
+                        <img class="blk-card" src="./../../public/img/dashboard/non-active/cards.png" alt="donor-cards">
+                        <img class="reservation-non-active red-card" src="./../../public/img/dashboard/active/cards.png" alt="donor-cards">
+                        <p class="cards-nav "><a href="/donor_cards?page=1">Donor Cards</a></p>
 
                     </div>
                     <div class="inventory menu-item">
-                        <img src="./../../public/img/dashboard/non-active/inventory.png" alt="inventory">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/inventory.png" alt="inventory">
-                        <p class="inventory-nav "><a href="#">Inventory</a></p>
+                        <img class="blk-inv" src="./../../public/img/dashboard/non-active/inventory.png" alt="inventory">
+                        <img class="reservation-non-active red-inv" src="./../../public/img/dashboard/active/inventory.png" alt="inventory">
+                        <p class="inventory-nav "><a href="/sys_inventory?page=1">Inventory</a></p>
 
                     </div>
                     <div class="donors menu-item">
-                        <img src="./../../public/img/dashboard/non-active/donors.png" alt="donors">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/donors.png" alt="donors">
-                        <p class="donors-nav menu-item"><a href="#">Donors</a></p>
+                        <img class="blk-don" src="./../../public/img/dashboard/non-active/donors.png" alt="donors">
+                        <img class="reservation-non-active red-don" src="./../../public/img/dashboard/active/donors.png" alt="donors">
+                        <p class="donors-nav menu-item"><a href="/sys_donors?page=1">Donors</a></p>
 
                     </div>
                     <div class="reports menu-item">
-                        <img src="./../../public/img/dashboard/non-active/reports.png" alt="reports">
-                        <img class="reservation-non-active" src="./../../public/img/dashboard/active/reports.png" alt="reports">
-                        <p class="reports-nav "><a href="#">Reports</a></p>
+                        <img class="blk-rpt" src="./../../public/img/dashboard/non-active/reports.png" alt="reports">
+                        <img class="reservation-non-active red-rpt" src="./../../public/img/dashboard/active/reports.png" alt="reports">
+                        <p class="reports-nav "><a href="/sys_reports?page=1">Reports</a></p>
 
                     </div>
                     <div class="campaigns menu-item">
-                        <img src="./../../public/img/dashboard/non-active/campaigns.png" alt="campaigns">
-                        <img class="reservation-non-active " src="./../../public/img/dashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav "><a href="#">Campaigns</a></p>
+                        <img class="blk-cmp" src="./../../public/img/dashboard/non-active/campaigns.png" alt="campaigns">
+                        <img class="reservation-non-active red-cmp " src="./../../public/img/dashboard/active/campaigns.png" alt="campaigns">
+                        <p class="campaigns-nav "><a href="/sys_campaigns?page=1">Campaigns</a></p>
 
                     </div>
                     <div class="line"></div>
