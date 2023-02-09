@@ -19,7 +19,8 @@ class AdminUser extends Controller
         
         //redirect to login if not logged in or login button is not clicked
         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
-            header("Location: /authentication/adminlogin");
+            print_r("Test");die();
+            header("Location: /login");
         }
         
         //if already logged in redirect to the admin dashboard
@@ -34,6 +35,8 @@ class AdminUser extends Controller
         //get POST data from login page
         $uname = $_POST['username'];
         $pwd = $_POST['password'];
+
+
 
 
         $type = $this->model->gettype($uname);
@@ -57,7 +60,7 @@ class AdminUser extends Controller
         }
          else {
             $_SESSION['error'] = 'Incorrect Username or Password';
-            header("Location: /admin/login");
+            header("Location: /login");
         }
     }
 

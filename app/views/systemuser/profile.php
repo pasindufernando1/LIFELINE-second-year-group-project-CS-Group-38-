@@ -51,7 +51,7 @@ $metaTitle = "Reservations Added Successfully";
             </div>
         </div>
         <div class="profile-det">
-            <a href="#" class="brown-button expired-stock-btn">Edit Profile</a>
+            <a href="/profile/edit" class="brown-button expired-stock-btn">Edit Profile</a>
             <img class="expired-stocks-img" src="./../../public/img/dashboard/white-edit.png" alt="expired-stocks">
 
             <div class="reserve-id-container">

@@ -18,7 +18,7 @@ class Adbadges extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -34,7 +34,7 @@ class Adbadges extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }
@@ -50,7 +50,7 @@ class Adbadges extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -130,7 +130,7 @@ class Adbadges extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }

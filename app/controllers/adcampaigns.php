@@ -18,7 +18,7 @@ class Adcampaigns extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -34,7 +34,7 @@ class Adcampaigns extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }

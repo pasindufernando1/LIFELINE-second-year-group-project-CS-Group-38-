@@ -83,8 +83,8 @@
     position: absolute;
     width: 6px;
     height: 40px;
-    left: -12px;
-    top: 208px;
+    left: 0px;
+    top: 10px;
     background: #BF1B16;
     box-shadow: 0px 8px 12px rgb(135 145 233 / 30%);
     border-radius: 0px 8px 8px 0px;

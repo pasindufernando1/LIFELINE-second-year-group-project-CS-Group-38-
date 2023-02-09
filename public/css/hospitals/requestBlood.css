@@ -238,13 +238,12 @@ body {
     border: 1px #949494 solid;
 }
 
-a:link {
-    color: white;
+.reservation-non-active {
+    display: none;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.menu-item:hover .reservation-non-active {
+    display: block;
 }
 
 .dropDown {
@@ -289,38 +288,29 @@ a {
 
 }
 
+.req-btn a{
+    color:white;
+}
+
 .dashboard {
+    box-sizing: border-box;
     position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 80px;
-    top: 0px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: white;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
-.dashboard img {
+.dashboard-non {
+    box-sizing: border-box;
     position: absolute;
-    width: 30px;
-    height: 34px;
-    left: -55px;
-    top: -400px;
-    margin-top: 405px;
-}
-
-.dashboard-nav a {
-    position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 2.74px;
-    top: -400px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 407px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .dashboard-active a {
@@ -338,6 +328,11 @@ a {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
+}
+
+.dash {
+    margin-top: -34px;
+    margin-left: -2px;
 }
 
 .dashboard-non-active a {
@@ -368,7 +363,7 @@ a {
     border-radius: 0px 8px 8px 0px;
 }
 
-.requestBlood {
+/* .requestBlood {
     box-sizing: border-box;
     position: absolute;
     width: 272.49px;
@@ -406,14 +401,14 @@ a {
     text-decoration: none;
     margin-top: 15px;
 }
+ */
 
-
-.profile {
+ .profile {
     position: absolute;
-    width: 170.74px;
+    width: 2.74px;
     height: 28.25px;
     left: 22px;
-    top: -340px;
+    top: 20px;
 }
 
 .profile img {
@@ -422,8 +417,8 @@ a {
     right: 95.37%;
     top: 67.04%;
     bottom: 30.31%;
-    top: 0px;
-    margin-top: 480px;
+    top: -423px;
+    margin-top: 575px;
 }
 
 .profile-nav a {
@@ -431,7 +426,7 @@ a {
     width: 122px;
     height: 28px;
     left: 52.74px;
-    top: 0px;
+    top: -423px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -440,7 +435,42 @@ a {
     letter-spacing: 0.01em;
     color: #0C0C0D;
     text-decoration: none;
-    margin-top: 482px;
+    margin-top: 577px;
+}
+
+.profile-active{
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.profile-selected{
+    position: absolute;
+    left: 5px;
+    top: 141px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.profile-act a{
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+
 }
 
 .menu-item a:hover {
@@ -1314,4 +1344,513 @@ td {
 
 .cancel{
     color: #640E0B;
+}
+
+.usr-name{
+    position: absolute;
+width: 318px;
+height: 48px;
+left: 334px;
+top: 55px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height */
+
+letter-spacing: 0.01em;
+
+color: #000000;
+
+}
+
+.usr-type{
+    position: absolute;
+width: 258px;
+height: 36px;
+left: 337px;
+top: 105px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+letter-spacing: 0.01em;
+
+color: #A4A4A4;
+
+}
+
+.hosName-label{
+    position: absolute;
+    height: 16px;
+    left: 200px;
+    right: 0px;
+    top: 200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+
+    color: #000000;
+    
+}
+
+.hosName-input{
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 224px;
+    bottom: 727px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.teleNo-label{
+    position: absolute;
+height: 16px;
+left: 199px;
+    right: 0px;
+    top: 290px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+}
+
+.teleNo-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 200px;
+    right: 331px;
+    top: 315px;
+    bottom: 637px;
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.loc-label{
+    position: absolute;
+height: 16px;
+left: 203px;
+    right: 114px;
+    top: 378px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+}
+
+.num-input{
+    box-sizing: border-box;
+
+position: absolute;
+height: 51px;
+left: 203px;
+right: 1035px;
+    top: 402.22px;
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+transform: rotate(-0.23deg);
+
+}
+
+.laneNme-input{
+    box-sizing: border-box;
+
+position: absolute;
+height: 51px;
+    left: 577px;
+    right: 680px;
+    top: 402.22px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.cit-input{
+    box-sizing: border-box;
+
+position: absolute;
+height: 50px;
+    left: 927px;
+    right: 328px;
+    top: 402.22px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.dis-input{
+    box-sizing: border-box;
+
+position: absolute;
+height: 51px;
+left: 204px;
+right: 909px;
+    top: 468px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.prov-input{
+    box-sizing: border-box;
+
+position: absolute;
+height: 52px;
+    left: 747px;
+    right: 322px;
+    top: 468px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.em-label{
+    position: absolute;
+height: 16px;
+left: 208px;
+    right: 0px;
+    top: 541px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+
+}
+
+.em-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 204px;
+    right: 321px;
+    top: 568px;
+    bottom: 379px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.currentPw-label{
+    position: absolute;
+height: 16px;
+left: 208px;
+    right: 0px;
+    top: 640px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+
+}
+
+.currentPw-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 204px;
+    right: 321px;
+    top: 658px;
+    bottom: 290px;
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+
+.newPw-label{
+    position: absolute;
+height: 16px;
+left: 208px;
+    right: 0px;
+    top: 715px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 18px;
+letter-spacing: 0.3px;
+text-transform: capitalize;
+
+color: #000000;
+
+}
+
+.newPw-input{
+    box-sizing: border-box;
+
+position: absolute;
+left: 204px;
+    right: 321px;
+    top: 741px;
+    bottom: 205px;
+
+background: #FFFFFF;
+border: 2px solid #949494;
+border-radius: 8px;
+}
+
+.edit-button{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 9.05963px;
+gap: 9.06px;
+
+position: absolute;
+width: 203.66px;
+height: 52.49px;
+left: 1139px;
+top: 121px;
+
+background: #640E0B;
+border-radius: 10.8716px;
+}
+
+.edit-button a{
+    color:white;
+}
+
+.update-button{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 9.05963px;
+gap: 9.06px;
+
+position: absolute;
+width: 165px;
+height: 52px;
+left: 934px;
+top: 855px;
+
+background: #640E0B;
+border-radius: 10.8716px;
+}
+
+.cancl-button{
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 9.05963px;
+gap: 9.06px;
+
+position: absolute;
+width: 203.66px;
+height: 52.49px;
+left: 1124px;
+top: 855px;
+
+background: #F7F7F7;
+border: 1px solid #640E0B;
+border-radius: 10.8716px;
+
+}
+
+.update-button a{
+    color:white;
+}
+
+.requestBlood {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 22px;
+    top: -327px;
+}
+
+.requestBlood img {
+    position: absolute;
+    width: 33px;
+    height: 34px;
+    left: 0px;
+    top: 0px;
+    margin-top: 405px;
+}
+
+.requestBlood-nav a {
+    position: absolute;
+    width: 160px;
+    height: 28px;
+    left: 52.74px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 407px;
+}
+
+.requestBlood-active{
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.requestBlood-selected{
+    position: absolute;
+    left: 5px;
+    top: 69px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.requestBlood-act a{
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+
+}
+
+.reqb-button a{
+    color: white;
+}
+
+.reqbstatus-button a{
+    color: white;
+}
+
+.update-button{
+    color: white;
+}
+
+.hospital_img{
+    top: 72px;
+    position: absolute;
+    width: 100px;
+    left: 164px;
+
+}
+
+.change_img{
+    top: 133px;
+    position: absolute;
+    width: 28px;
+    left: 244px;
+
+}
+
+.profile-container a {
+    margin-left: 80.5%;
+    margin-top: 2%;
+    height: 50px;
+    width: 204px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box a img {
+    width: 30px;
+}
+
+.box .main {
+
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    font-family: 'Poppins';
+    line-height: 40px;
+    font-size: 17px;
+
+}
+
+.box .main .left {
+    font-weight: bold;
+}
+
+.box .main .right {
+    font-weight: normal;
+    margin-left: 50px;
+}
+
+.cont{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1586px;
+    height: 1000px;
+    left: 300px;
+    top: 129px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
 }

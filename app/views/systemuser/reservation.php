@@ -44,7 +44,7 @@ $metaTitle = "System User Reservations"
                         <a href="/reservation/type?page=1" class="brown-button types-reservation">Types</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
 
-                        <a href="#" class="brown-button expired-stock-btn">Expired Stocks</a>
+                        <a href="/reservation/expired_stocks?page=1" class="brown-button expired-stock-btn">Expired Stocks</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/expired-stocks.png" alt="expired-stocks">
 
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
@@ -85,7 +85,7 @@ $metaTitle = "System User Reservations"
                                         <td>' . $row["PacketID"]. "</td>
                                         <td>" . $row["Name"] . "</td>
                                         <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Expiry_constraint"] . " C" . '</td>
+                                        <td>" . $row["Expiry_constraint"] . '</td>
                                         <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
                                     </tr> </div>';
                                 

@@ -19,7 +19,7 @@ class Adprofile extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -34,7 +34,7 @@ class Adprofile extends Controller
                 exit;
             }
             } else {
-                $this->view->render('authentication/adminlogin');
+                $this->view->render('authentication/login');
             }
     }
 
@@ -145,7 +145,7 @@ class Adprofile extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
