@@ -25,6 +25,8 @@ $metaTitle = "Blood Availability Report"
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>    
+    
+
 
     
 
@@ -36,8 +38,9 @@ $metaTitle = "Blood Availability Report"
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
+    
     <!-- main content -->
-    <div class="box-productive">
+    <div class="box-productive" id="box-productive">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
@@ -98,12 +101,39 @@ $metaTitle = "Blood Availability Report"
         
 
 
+        
+        
+    
+        
+    </div>
+    <div>
+        <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
+        <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
+        <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer">
+    
+    </script>
+    <script>
+        document.querySelector('#submit-btn').addEventListener('click', function () {
+		    html2canvas(document.querySelector('#box-productive')).then((canvas) => {
+			let base64image = canvas.toDataURL('image/png');
+			// console.log(base64image);
+			let pdf = new jsPDF('p', 'mm', 'a4'); 
+			pdf.addImage(base64image, 'PNG', 0, 0, 210, 297);
+            // Generate a random number for the file name
+            var random = Math.floor(Math.random() * 1000000001);
+            var filename = 'productive-donations-id-'+ random + '.pdf'; 
+			pdf.save('productive-donations-id-' + random + '.pdf');
+            });
+        });
+    </script>
 
-        <div>
-            <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
-            <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
-            <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
-        </div>
 
     <!-- Include the chart.js files -->
     <script src="../../../public/js/charts/productivedonations-totalDonation.js"></script>

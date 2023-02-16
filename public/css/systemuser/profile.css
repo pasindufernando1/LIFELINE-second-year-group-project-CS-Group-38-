@@ -151,3 +151,16 @@
     top: 115px !important;
     left: 1321px !important;
 }
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload img {
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    margin-top: -35px;
+    margin-left: 55px;
+}

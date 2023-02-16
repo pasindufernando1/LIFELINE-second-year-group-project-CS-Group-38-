@@ -79,7 +79,7 @@ $metaTitle = "Campaigns"
                         <td>" . $row["Name"] . "</td>
                         <td>" . $row["Location"] . "</td>
                         <td>" . $row["Date"] . '</td>
-                        <td><div class="delete-btn-div"> <a href="/adcampaigns/delete_campaign/'.$row["CampaignID"].'"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td><div class="delete-btn-div"> <a href="#"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
                     </tr> </div>';
                 
             }

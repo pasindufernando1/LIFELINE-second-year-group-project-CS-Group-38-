@@ -9,7 +9,7 @@ class AdadvertisementsModel extends Model
 
     public function getAllAdvertisementsDetails()
     {
-        $data = $this->db->select("*", "donation_campaign","Null");
+        $data = $this->db->select("*", "advertisement","Null");
         return $data;
     }
 

@@ -85,7 +85,7 @@ $metaTitle = "Inventory"
                         <td>" . $row["Name"] . "</td>
                         <td>" . $row["Requesting_entity"] . "</td>
                         <td>" . $row["Date_Generated"] . '</td>
-                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reports/download_report/'.$row["ReportID"].'"> <img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/usermanage/delete_user/'.$row["ReportID"].'">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="#"> <img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
                     </tr> </div>';
                 
             }

@@ -39,20 +39,36 @@ $metaTitle = "Blood Availability Report"
     <!-- main content -->
     <div class="box">
     <p class="add-user-title">Blood Availability</p>
-        <form action="/reports/bloodAvailReport_Gen?page=1" method="post" enctype="multipart/form-data" id="addform">
+        <form action="/reports/bloodAvailReport_Gen" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Blood Category : </label>
                 <br>
                 <select class="quantity-input" type="text" name="category" id="category" placeholder="Blood Bank ID" required>
                 <option value="" disabled selected hidden>Select Blood Type</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
+                    <option value="A+ RBC">A+ RBC</option>
+                    <option value="AA+ Plasma">A+ Plasma</option>
+                    <option value="A+ Platelets">A+ Platelets</option>
+                    <option value="A- RBC">A- RBC</option>
+                    <option value="A- Plasma">A- Plasma</option>
+                    <option value="A- Platelets">A- Platelets</option>
+                    <option value="B+ RBC">B+ RBC</option>
+                    <option value="B+ Plasma">B+ Plasma</option>
+                    <option value="B+ Platelets">B+ Platelets</option>
+                    <option value="B- RBC">B- RBC</option>
+                    <option value="B- Plasma">B- Plasma</option>
+                    <option value="B- Platelets">B- Platelets</option>
+                    <option value="AB+ RBC">AB+ RBC</option>
+                    <option value="AB+ Plasma">AB+ Plasma</option>
+                    <option value="AB+ Platelets">AB+ Platelets</option>
+                    <option value="AB- RBC">AB- RBC</option>
+                    <option value="AB- Plasma">AB- Plasma</option>
+                    <option value="AB- Platelets">AB- Platelets</option>
+                    <option value="O+ RBC">O+ RBC</option>
+                    <option value="O+ Plasma">O+ Plasma</option>
+                    <option value="O+ Platelets">O+ Platelets</option>
+                    <option value="O- RBC">O- RBC</option>
+                    <option value="O- Plasma">O- Plasma</option>
+                    <option value="O- Platelets">O- Platelets</option>
                 </select>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="province">Province:</label>

@@ -318,7 +318,7 @@ body {
     margin-top: 145px;
 }
 
-.users-selected{
+.users-selected {
     position: absolute;
     left: 5px;
     top: 120px;
@@ -689,7 +689,7 @@ body {
     top: 0;
 }
 
-.adminbox img{
+.adminbox img {
     width: 100%;
     height: 100%;
 }
@@ -709,7 +709,7 @@ body {
     color: #000000;
 }
 
-.update-user-title{
+.update-user-title {
     position: absolute;
     width: 613.66px;
     height: 46.32px;
@@ -981,8 +981,6 @@ a {
     padding: 12px 20px;
 }
 
-
-
 .reg-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
@@ -1023,9 +1021,6 @@ a {
     right: 114px;
     top: 320px;
 }
-
-
-
 
 .bloodtype-container {
     position: absolute;
@@ -1104,7 +1099,6 @@ a {
     opacity: 0.4;
 }
 
-
 .location-container {
     position: absolute;
     height: 64px;
@@ -1120,7 +1114,6 @@ a {
     right: 114px;
     top: 386px;
 }
-
 
 .location-lable {
     position: absolute;
@@ -1162,8 +1155,6 @@ a {
     color: #000000;
     opacity: 0.4;
 }
-
-
 
 .lane-input {
     box-sizing: border-box;
@@ -1228,7 +1219,7 @@ a {
     width: 48%;
 }
 
-.district-input::placeholder  {
+.district-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -1264,9 +1255,6 @@ a {
     color: #000000;
     opacity: 0.4;
 }
-
-
-
 
 .quantity-input {
     box-sizing: border-box;
@@ -1372,8 +1360,6 @@ a {
     right: 114px;
     top: 423px;
 }
-
-
 
 .email-lable {
     position: absolute;
@@ -1503,8 +1489,7 @@ a {
     top: 559px;
 }
 
-
-.uname-viewcontainer{
+.uname-viewcontainer {
     position: absolute;
     height: 64px;
     left: 65px;
@@ -1512,7 +1497,7 @@ a {
     top: 497px;
 }
 
-.donoruname-viewcontainer{
+.donoruname-viewcontainer {
     position: absolute;
     height: 64px;
     left: 65px;
@@ -1520,7 +1505,7 @@ a {
     top: 542px;
 }
 
-.donorgender-viewcontainer{
+.donorgender-viewcontainer {
     position: absolute;
     height: 64px;
     left: 65px;
@@ -1528,15 +1513,13 @@ a {
     top: 542px;
 }
 
-.uid-viewcontainer{
+.uid-viewcontainer {
     position: absolute;
     height: 64px;
     left: 65px;
     right: 114px;
     top: 497px;
 }
-
-
 
 .uname-lable {
     position: absolute;
@@ -1577,7 +1560,6 @@ a {
     color: #000000;
     opacity: 0.4;
 }
-
 
 .uid-container {
     position: absolute;
@@ -1983,7 +1965,6 @@ a {
     left: 1056px;
 }
 
-
 .expired-stocks-img {
     position: absolute;
     top: 47px;
@@ -2032,7 +2013,7 @@ a {
     left: 1344px;
 }
 
-.user-filter-img{
+.user-filter-img {
     position: absolute;
     top: 51px;
     left: 1344px;
@@ -2101,7 +2082,7 @@ a {
     padding: 8px 23px 8px 36px;
 }
 
-.tick{
+.tick {
     margin-left: 10px;
 }
 
@@ -2121,7 +2102,7 @@ th {
     line-height: 22px;
     letter-spacing: 0.01em;
     color: #949494;
-    padding: 137px 54px 10px 61px
+    padding: 114px 54px 10px 61px
 }
 
 .blood-types-table {
@@ -2195,7 +2176,7 @@ td {
     color: #FFFFFF;
 }
 
-.button-sys-add{
+.button-sys-add {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2216,7 +2197,7 @@ td {
     padding-left: 67px;
 }
 
-.button-hos-add{
+.button-hos-add {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2237,7 +2218,7 @@ td {
     padding-left: 67px;
 }
 
-.button-org-add{
+.button-org-add {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2258,7 +2239,7 @@ td {
     padding-left: 67px;
 }
 
-.button-donor-add{
+.button-donor-add {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2279,26 +2260,26 @@ td {
     padding-left: 67px;
 }
 
-.user-btn{
+.user-btn {
     width: 389px;
     height: 174px;
 }
 
+
 /* Hover effects on user button */
-.user-btn:hover{
+
+.user-btn:hover {
     background-color: #640E0B;
     color: #FCFEFE;
     font-size: 22px;
     font-weight: 600;
 }
 
-
-
-.usericon{
+.usericon {
     margin-left: -54px
 }
 
-.hospital-viewicon img{
+.hospital-viewicon img {
     width: 150px;
     height: 150px;
     margin-left: 773px;
@@ -2319,10 +2300,9 @@ td {
     letter-spacing: 0.3px;
     text-transform: capitalize;
     color: #000000;
-    
 }
 
-.regview-lable{
+.regview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2338,7 +2318,7 @@ td {
     color: #000000;
 }
 
-.statusview-lable{
+.statusview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2354,7 +2334,7 @@ td {
     color: #000000;
 }
 
-.dobview-lable{
+.dobview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2370,7 +2350,7 @@ td {
     color: #000000;
 }
 
-.dobview-lable{
+.dobview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2386,7 +2366,7 @@ td {
     color: #000000;
 }
 
-.btypeview-lable{
+.btypeview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2402,7 +2382,7 @@ td {
     color: #000000;
 }
 
-.locationview-lable{
+.locationview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2417,7 +2397,7 @@ td {
     color: #000000;
 }
 
-.emailview-lable{
+.emailview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2432,7 +2412,7 @@ td {
     color: #000000;
 }
 
-.contactview-lable{
+.contactview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2448,7 +2428,7 @@ td {
     color: #000000;
 }
 
-.unameview-lable{
+.unameview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2464,7 +2444,7 @@ td {
     color: #000000;
 }
 
-.genderview-lable{
+.genderview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2480,8 +2460,7 @@ td {
     color: #000000;
 }
 
-
-.uidview-lable{
+.uidview-lable {
     position: absolute;
     height: 16px;
     left: 240px;
@@ -2497,14 +2476,14 @@ td {
     color: #000000;
 }
 
-.content{
+.content {
     margin-left: 248px;
     margin-top: -18px;
     font-weight: 400;
     font-size: large;
 }
 
-.brown-button-view{
+.brown-button-view {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2530,11 +2509,11 @@ td {
     border: 1px #949494 solid;
 }
 
-.brown-button-view:hover{
-    font-size: 13.6835px;    
+.brown-button-view:hover {
+    font-size: 13.6835px;
 }
 
-.icons{
+.icons {
     border: 2px solid #949494;
     border-radius: 0.8vw;
     border-color: #949494;
@@ -2544,7 +2523,7 @@ td {
     left: 573px;
 }
 
-.image-lable{
+.image-lable {
     position: absolute;
     height: 16px;
     left: 0px;
@@ -2575,7 +2554,6 @@ td {
     left: 61px;
 }
 
-
 .browsepic {
     position: absolute;
     cursor: pointer;
@@ -2588,6 +2566,3 @@ td {
 
 
 /* Style the diabled option */
-
-
-

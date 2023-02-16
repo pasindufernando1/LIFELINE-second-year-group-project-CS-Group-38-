@@ -119,8 +119,6 @@
     margin-top: 15px;
 }
 
-
-
 .reservation-nav a {
     position: absolute;
     width: 114px;
@@ -172,7 +170,7 @@
     margin-top: 145px;
 }
 
-.users-selected{
+.users-selected {
     position: absolute;
     left: 5px;
     top: 124px;
@@ -182,7 +180,7 @@
     background: #F8F8F8;
 }
 
-.inventory-selected{
+.inventory-selected {
     position: absolute;
     left: 5px;
     top: 188px;
@@ -192,7 +190,7 @@
     background: #F8F8F8;
 }
 
-.reports-selected{
+.reports-selected {
     position: absolute;
     left: 5px;
     top: 321px;
@@ -202,7 +200,7 @@
     background: #F8F8F8;
 }
 
-.donors-selected{
+.donors-selected {
     position: absolute;
     left: 5px;
     top: 255px;
@@ -212,9 +210,12 @@
     background: #F8F8F8;
 }
 
-
-
-.inventory-selected img , .reports-selected img, .donors-selected img, .users-selected img, .badges-selected img, .profile-selected img{
+.inventory-selected img,
+.reports-selected img,
+.donors-selected img,
+.users-selected img,
+.badges-selected img,
+.profile-selected img {
     position: absolute;
     width: 29px;
     height: 29px;
@@ -223,7 +224,7 @@
     margin-top: 15px;
 }
 
-.campaigns-selected img{
+.campaigns-selected img {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -232,7 +233,7 @@
     margin-top: 6px;
 }
 
-.advertisements-selected img{
+.advertisements-selected img {
     position: absolute;
     width: 38px;
     height: 44px;
@@ -241,13 +242,7 @@
     margin-top: 14px;
 }
 
-
-
-
-
-
-
-.donors-selected img{
+.donors-selected img {
     position: absolute;
     width: 29px;
     height: 29px;
@@ -273,7 +268,7 @@
     margin-top: 145px;
 }
 
-.inventory-nav a{
+.inventory-nav a {
     position: absolute;
     width: 122px;
     height: 28px;
@@ -307,7 +302,7 @@
     margin-top: 15px;
 }
 
-.inventory-act a{
+.inventory-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -375,7 +370,7 @@
     margin-top: 275px;
 }
 
-.donors-act a{
+.donors-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -443,7 +438,7 @@
     margin-top: 342px;
 }
 
-.reports-act a{
+.reports-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -460,7 +455,6 @@
     margin-top: 15px;
 }
 
-
 .campaigns {
     position: absolute;
     width: 170.74px;
@@ -469,7 +463,7 @@
     top: 0px;
 }
 
-.campaigns-selected{
+.campaigns-selected {
     position: absolute;
     left: 5px;
     top: 382px;
@@ -488,8 +482,6 @@
     margin-top: 405px;
 }
 
-
-
 .campaigns-nav a {
     position: absolute;
     width: 122px;
@@ -507,7 +499,7 @@
     margin-top: 407px;
 }
 
-.campaigns-act a{
+.campaigns-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -532,7 +524,7 @@
     top: 0px;
 }
 
-.badges-selected{
+.badges-selected {
     position: absolute;
     left: 5px;
     top: 444px;
@@ -569,7 +561,7 @@
     margin-top: 467px;
 }
 
-.badges-act a{
+.badges-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -594,7 +586,7 @@
     top: 0px;
 }
 
-.advertisements-selected{
+.advertisements-selected {
     position: absolute;
     left: 5px;
     top: 499px;
@@ -629,7 +621,7 @@
     margin-top: 522px;
 }
 
-.advertisements-act a{
+.advertisements-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -664,7 +656,7 @@
     top: 4px;
 }
 
-.profile-selected{
+.profile-selected {
     position: absolute;
     left: 5px;
     top: 577px;
@@ -701,7 +693,7 @@
     margin-top: 577px;
 }
 
-.profile-act a{
+.profile-act a {
     position: absolute;
     width: 114px;
     height: 28px;
@@ -733,4 +725,3 @@
 .menu-item:hover .reservation-non-active {
     display: block;
 }
-

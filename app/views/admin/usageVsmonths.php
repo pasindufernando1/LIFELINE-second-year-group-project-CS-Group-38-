@@ -37,7 +37,7 @@ $metaTitle = "Blood Availability Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box">
+    <div class="box" id="box">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
@@ -63,11 +63,35 @@ $metaTitle = "Blood Availability Report"
             <canvas id="usage-months" width="1450" height="483.33">
             </canvas>
         </div>
-        <div>
-            <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
-            <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
-            <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a>        </div>
+        
     </div>
+    <div>
+        <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
+        <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
+        <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a>        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer">
+    
+    </script>
+    <script>
+        document.querySelector('#submit-btn').addEventListener('click', function () {
+		    html2canvas(document.querySelector('#box')).then((canvas) => {
+			let base64image = canvas.toDataURL('image/png');
+			// console.log(base64image);
+			let pdf = new jsPDF('p', 'mm'); 
+			pdf.addImage(base64image, 'PNG', 0, 0, 210,200);
+            // Generate a random number for the file name
+            var random = Math.floor(Math.random() * 1000000001);
+            var filename = 'usageVSmonths-id-'+ random + '.pdf'; 
+			pdf.save('usageVSmonths-id-' + random + '.pdf');
+            });
+        });
+    </script>
     <!-- Include the chart.js file -->
     <script src="../../../public/js/charts/usageVSmonths.js"></script>
 

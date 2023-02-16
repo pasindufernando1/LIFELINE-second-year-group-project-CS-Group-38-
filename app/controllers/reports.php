@@ -188,8 +188,12 @@ class Reports extends Controller
                     header("Location: /reports/bloodAvailReport");
                     exit;
                 }
-                $_SESSION['blood_avail'] = $this->model->getAllBloodAvailReports();
+                $_SESSION['province'] = $_POST['province'];
+                $_SESSION['blood_group'] = $_POST['category'];
+                $_SESSION['report_id'] = $this->model->getReportId();
+                $_SESSION['blood_avail'] = $this->model->getAllBloodAvailReports($_SESSION['province'],$_SESSION['blood_group']);
                 $this->view->render('admin/bloodAvailReport_Gen');
+                
                 exit;
             }
         }
@@ -221,7 +225,10 @@ class Reports extends Controller
                     header("Location: /reports/inventoryReport");
                     exit;
                 }
-                $_SESSION['inventory_avail'] = $this->model->getAllInvAvailReports();
+                $_SESSION['province'] = $_POST['province'];
+                $_SESSION['inv_category'] = $_POST['category'];
+                $_SESSION['report_id'] = $this->model->getReportId();
+                $_SESSION['inventory_avail'] = $this->model->getAllInvAvailReports($_SESSION['province'],$_SESSION['inv_category']);
                 $this->view->render('admin/inventoryReport_Gen');
                 exit;
             }
@@ -254,6 +261,9 @@ class Reports extends Controller
                     header("Location: /reports/donorReport");
                     exit;
                 }
+                $_SESSION['donorid']= $_POST['donorID'];
+                $_SESSION['donordetails']= $this->model->getDonorDetails($_SESSION['donorid']);
+                $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['donor_report'] = $this->model->getAllDonorDetails();
                 $this->view->render('admin/donorReport_Gen');
                 exit;
@@ -286,7 +296,9 @@ class Reports extends Controller
                     header("Location: /reports/campaignReport");
                     exit;
                 }
-                $_SESSION['campaign_avail'] = $this->model->getAllCampaignDetails();
+                $_SESSION['date'] = $_POST['date'];
+                $_SESSION['province'] = $_POST['province'];
+                $_SESSION['campaign_avail'] = $this->model->getAllCampaignDetails($_SESSION['date'],$_SESSION['province']);
                 $this->view->render('admin/campaignReport_Gen');
                 exit;
             }

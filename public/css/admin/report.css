@@ -2804,34 +2804,34 @@ td {
 
 
 
-.genrep1{
+.genrep1 {
     top: 170px;
-    left: 945px;
+    left: 1195px;
 }
 
-.genrep2{
-    top: 7px;
-    left: 945px;
+.genrep2 {
+    top: 123px;
+    left: 1200px;
 }
 
 .addbutton_rep1{
     top: 175px;
-    left: 1169px;
+    left: 1415px;
 }
 
-.addbutton_rep2{
-    top: 15px;
-    left: 1169px;
+.addbutton_rep2 {
+    top: 130px;
+    left: 1414px;
 }
 
-.outline-button_rep1{
+.outline-button_rep1 {
     top: 169px;
-    left: 1258px;
+    left: 1520px;
 }
 
-.outline-button_rep2{
-    top: 7px;
-    left: 1258px;
+.outline-button_rep2 {
+    top: 121px;
+    left: 1527px;
 }
 
 .cancelbutton_rep1{
@@ -2854,7 +2854,7 @@ td {
     position: absolute;
     width: 90%;
     height: 0px;
-    top: 40.25px;
+    top: 56.25px;
     left: 27px;
     border: 0.818053px solid #EFEFEF;
 }

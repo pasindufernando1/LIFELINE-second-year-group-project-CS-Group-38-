@@ -323,4 +323,29 @@ class UserModel extends Model
         
         
     }
+
+    public function getAllTypes($blood_bank_id)
+    {
+        $data = $this->db->select("*", "bloodcategory" , " WHERE blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
+        return $data;
+    }
+
+    public function getAllPackets($blood_bank_id)
+    {
+        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
+        return $packets;
+    }
+
+    public function getBloodBankid($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $bloodbankid = $this->db->select("BloodBankID","system_user","INNER JOIN user on user.userID = system_user.userID WHERE user.email =:email",':email',$email);
+            $blood_bank_id = $bloodbankid[0]['BloodBankID'];
+            return $blood_bank_id;
+        
+        } 
+
+    }
+
+    
 }

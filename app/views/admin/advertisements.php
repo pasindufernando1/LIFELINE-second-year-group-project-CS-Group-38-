@@ -46,10 +46,9 @@ $metaTitle = "Advertisements"
 
         <table class="user-types-table" style="width:90%">
         <tr>
-            <th>Campaign ID</th>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Date</th>
+            <th>Advertisement ID</th>
+            <th>Description</th>
+            <th>Published Date</th>
             <th>Action</th>
         </tr>
         <hr class="blood-types-line">
@@ -76,11 +75,10 @@ $metaTitle = "Advertisements"
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>
-                        <td>' . $row["CampaignID"]. "</td>
-                        <td>" . $row["Name"] . "</td>
-                        <td>" . $row["Location"] . "</td>
-                        <td>" . $row["Date"] . '</td>
-                        <td><div class="delete-btn-div"> <a href="/adcampaigns/delete_campaign/'.$row["CampaignID"].'"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td>' . $row["AdvertisementID"]. "</td>
+                        <td>" . $row["Description"] . "</td>
+                        <td>" . $row["PublishedDate"] . '</td>
+                        <td><div class="delete-btn-div"> <a href="#"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
                     </tr> </div>';
                 
             }

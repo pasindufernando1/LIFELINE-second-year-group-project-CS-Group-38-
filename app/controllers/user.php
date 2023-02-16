@@ -50,13 +50,15 @@ class User extends Controller
                 //set session variables
                 $user_pic = $this->model->getuserimg($uname);
                 $_SESSION['user_pic'] = $user_pic;
-
+                $_SESSION['blood_bank_id'] = $this ->model -> getBloodBankid($_SESSION['useremail']);
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['username'] = $this->model->getUserName($uname);
                 $_SESSION['bloodbankname'] = $this->model->getBloodBankName(
                     $uname
                 );
+                $_SESSION['packets'] = $this->model->getAllPackets($_SESSION['blood_bank_id']);
                 $this->view->render('systemuser/dashboard');
+                $_SESSION['bloodtypes'] = $this->model->getAllTypes($_SESSION['blood_bank_id']);
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
                 header('Location: /login');
@@ -152,7 +154,8 @@ class User extends Controller
                 header('Location: /login');
             }
         } else {
-            header('Location: /HospitalUser/dashboard');
+            $_SESSION['error'] = 'Username Not Found';
+                header('Location: /login');
             exit();
         }
     }

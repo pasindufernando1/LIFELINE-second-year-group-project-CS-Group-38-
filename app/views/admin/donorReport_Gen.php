@@ -38,13 +38,13 @@ $metaTitle = "Donor Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box-donor">
+    <div class="box-donor" id="box-donor">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
         <div class="reportID">
-            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : <?php echo $_SESSION['report_id'][0]?></div></label>
             <br>
         </div>
         <div class="reportTitle">
@@ -52,19 +52,23 @@ $metaTitle = "Donor Report"
             <br>
         </div>
         <div class="year">
-            <label class="year-lable" for="date">Date Generated<div class="year-content"> : 2020-01-20</div></label>
+            <label class="year-lable" for="date">Date Generated<div class="year-content"> : <?php 
+                // Get the current date
+                $date = date('Y-m-d');
+                echo $date;
+            ?></div></label>
             <br>
         </div>
         <div class="date-1">
-            <label class="date-lable" for="donorName">Donor name<div class="date-content"> : Pasindu Fernando</div></label>
+            <label class="date-lable" for="donorName">Donor name<div class="date-content"> : <?php echo $_SESSION['donordetails'][0]['Fullname']?></div></label>
             <br>
         </div>
         <div class="donorID">
-            <label class="donor-lable" for="donorid">Donor ID<div class="donorId-content"> : 2</div></label>
+            <label class="donor-lable" for="donorid">Donor ID<div class="donorId-content"> : <?php echo $_SESSION['donorid']?></div></label>
             <br>
         </div>
         <div class="donorNIC">
-            <label class="donorNIC-lable" for="donorNIC">Donor NIC<div class="donorNIC-content"> : 200089786756</div></label>
+            <label class="donorNIC-lable" for="donorNIC">Donor NIC<div class="donorNIC-content"> : <?php echo $_SESSION['donordetails'][0]['NIC']?></div></label>
             <br>
         </div>
         <!-- Create a barchart -->
@@ -114,14 +118,34 @@ $metaTitle = "Donor Report"
             }
             echo "</table>"; ?>
         </div>
-        
-
-        <div>
-            <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
-            <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
-            <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
-        </div>
     </div>
+    <div>
+        <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
+        <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
+        <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer">
+    
+    </script>
+    <script>
+        document.querySelector('#submit-btn').addEventListener('click', function () {
+		    html2canvas(document.querySelector('#box-donor')).then((canvas) => {
+			let base64image = canvas.toDataURL('image/png');
+			// console.log(base64image);
+			let pdf = new jsPDF('p', 'mm'); 
+			pdf.addImage(base64image, 'PNG', 0, 0, 210,300);
+            // Generate a random number for the file name
+            var random = Math.floor(Math.random() * 1000000001);
+            var filename = 'donorReport-id-'+ random + '.pdf'; 
+			pdf.save('donorReport-id-' + random + '.pdf');
+            });
+        });
+    </script>
     <!-- Include the chart.js file -->
     <script src="../../../public/js/charts/donorDonations.js"></script>
 

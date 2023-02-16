@@ -1,3 +1,48 @@
+// chart1.js
+
+
+
+
+window.addEventListener("load", ()=>{
+    // create a new XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+
+    // specify the request type and URL
+    xhr.open('POST', 'http://localhost/reports/bloodAvailReport_Gen', true);
+
+
+    // specify the function to run when the request is complete
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // parse the JSON-encoded data
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+                // process the data
+                // ...
+            } else {
+                console.log('Error: ' + xhr.status);
+            }
+        }
+    };
+
+    // send the request
+    xhr.send();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Blood availability graph
 var ctx = document.getElementById('blood-availability').getContext('2d');
 console.log(ctx);

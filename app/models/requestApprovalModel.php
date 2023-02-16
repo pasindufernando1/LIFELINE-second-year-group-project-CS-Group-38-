@@ -58,7 +58,7 @@ class RequestApprovalModel extends Model
     public function getAcceptedCampaigns($User_ID)
     {
             
-            $data = $this->db->select("*","donation_campaign","WHERE OrganizationUserID =:OrganizationUserID AND Status='Accepted' " ,':OrganizationUserID',$User_ID);
+            $data = $this->db->select("*","donation_campaign","WHERE OrganizationUserID =:OrganizationUserID AND Status= 1 " ,':OrganizationUserID',$User_ID);
             return $data;
             
         

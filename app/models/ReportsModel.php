@@ -13,35 +13,70 @@ class ReportsModel extends Model
         return $data;
     }
 
-    public function getAllBloodAvailReports()
+    public function getReportId(){
+        $data = $this->db->select("max(ReportID) + 1", "report","Null");
+        return $data[0]['max(ReportID) + 1'];
+    }
+
+    public function getAllBloodAvailReports($province,$blood_group)
     {
-        // Randomly generate 10 quantities for 10 blood banks
-        $data = $this->db->select("*", "bloodbank","Null");
+        $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank","WHERE Province = :province",':province',$province);
+        // Get the TypeID of the blood group given in the parameter
+        $blood_group_typeID = $this->db->select("TypeID", "bloodcategory","WHERE Name = :blood_group",':blood_group',$blood_group)[0]['TypeID'];
+        // For each blood bank get the quantity of the blood group given in the parameter
         foreach ($data as $key => $value) {
-            $data[$key]['Quantity'] = rand(0, 100);
+            $bloodBankID = $data[$key]['BloodBankID'];
+            $param = array(':bloodBankID',':blood_group');
+            $paramValue = array($bloodBankID,$blood_group_typeID);
+            // If $data[$key]['Quantity'] is null, set it to 0
+            if($this->db->select("Quantity", "bank_blood_categories","WHERE BloodBankID = :bloodBankID AND TypeID = :blood_group",$param,$paramValue) == null){
+                $data[$key]['Quantity'] = 0;
+            }
+            else{
+                $data[$key]['Quantity'] = $this->db->select("Quantity", "bank_blood_categories","WHERE BloodBankID = :bloodBankID AND TypeID = :blood_group",$param,$paramValue)[0]['Quantity'];
+            }
         }
         return $data;
     }
 
-    public function getAllInvAvailReports()
+    public function getAllInvAvailReports($province,$inv_category)
     {
-        // Randomly generate 10 quantities for 10 blood banks
-        $data = $this->db->select("*", "bloodbank","Null");
+        $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank","WHERE Province = :province",':province',$province);
+        // Get the TypeID of the blood group given in the parameter
+        $inv_typeID = $this->db->select("InventoryID", "inventory","WHERE Name = :inv_name",':inv_name',$inv_category)[0]['InventoryID'];
+        // For each blood bank, get the quantity of the inventory category from the inventory type_id
         foreach ($data as $key => $value) {
-            $data[$key]['Quantity'] = rand(0, 100);
+            $bloodBankID = $data[$key]['BloodBankID'];
+            $param = array(':bloodBankID',':inv_typeID');
+            $paramValue = array($bloodBankID,$inv_typeID);
+            // If $data[$key]['Quantity'] is null, set it to 0
+            if($this->db->select("Quantity", "bank_inventory_categories","WHERE BloodBankID = :bloodBankID AND InventoryID = :inv_typeID",$param,$paramValue) == null){
+                $data[$key]['Quantity'] = 0;
+            }
+            else{
+                $data[$key]['Quantity'] = $this->db->select("Quantity", "bank_inventory_categories","WHERE BloodBankID = :bloodBankID AND InventoryID = :inv_typeID",$param,$paramValue)[0]['Quantity'];
+            }
         }
         return $data;
+        
     }
 
-    public function getAllCampaignDetails()
+    public function getAllCampaignDetails($date,$province)
     {
-        // Generate a random array containing 10 campaign dates, locations, available beds, and organizers
-        $data = array();
-        for ($i=0; $i < 10; $i++) { 
-            $data[$i]['Date'] = date('Y-m-d', strtotime('+' . rand(0, 100) . ' days'));
-            $data[$i]['Location'] = 'Location ' . rand(0, 100);
-            $data[$i]['AvailableBeds'] = rand(0, 100);
-            $data[$i]['Organizer'] = 'Organizer ' . rand(0, 100);
+        $data = $this->db->select("*", "donation_campaign","WHERE Date = :date",':date',$date);
+        // For each caampaign get the OrganiserID and get the Organizer from a different table
+        foreach ($data as $key => $value) {
+            $organiserID = $data[$key]['OrganizationUserID'];
+            $data[$key]['OrganizationUserID'] = $this->db->select("Name", "organization_society","WHERE UserID = :organiserID",':organiserID',$organiserID)[0]['Name'];
+        }
+        // For each caampaign get the BloodBankID and get the province from a different table
+        foreach ($data as $key => $value) {
+            $bloodBankID = $data[$key]['BloodBankID'];
+            $data[$key]['Province'] = $this->db->select("Province", "bloodbank","WHERE BloodBankID = :bloodBankID",':bloodBankID',$bloodBankID)[0]['Province'];
+            // If the province is not equal to the province given in the parameter, unset the array element
+            if($data[$key]['Province'] != $province){
+                unset($data[$key]);
+            }
         }
         return $data;
     }
@@ -58,6 +93,11 @@ class ReportsModel extends Model
         }
         return $data;
         
+    }
+
+    public function getDonorDetails($donorID){
+        $data = $this->db->select("Fullname,NIC", "donor","WHERE UserID = :donorID",':donorID',$donorID);
+        return $data;
     }
 
     public function getAllusageVSexpiry($Province){

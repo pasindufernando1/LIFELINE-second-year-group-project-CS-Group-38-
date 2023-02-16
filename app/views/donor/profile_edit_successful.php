@@ -65,6 +65,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                     <a href="/donoruser/logout">Log Out</a>
                 </div>
             </div>
+            </div>
+            </div>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -126,24 +128,17 @@ $metaTitle = 'Donor Dashboard'; ?>
                         <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
                     </div>
-                    <div class="box">
+                    </div>
+                    </div>
+                    <div class="camp-success-box">
                         <div class="message-container">
                             <img class="success-msg-img" src="./../../public/img/dashboard/success-msg-img.png"
                                 alt="success-msg-img">
                             <p class="success-msg-txt">Changes Saved Succefully!</p>
                             <a href="/donorprofile" class="brown-button back-to-reserve">Back to Profile</a>
-                            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/profile.png"
-                                alt="success-reserve-img">
+                            
                         </div>
                     </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
 
 </body>
 

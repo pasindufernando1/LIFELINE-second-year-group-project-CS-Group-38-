@@ -38,7 +38,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box-expiry">
+    <div class="box-expiry" id="box-expiry">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
@@ -132,12 +132,35 @@ $metaTitle = "Blood Usage Vs Expiry Report"
         
         
 
-        <div>
-            <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
-            <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
-            <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
-        </div>
+        
     </div>
+    <div>
+        <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
+        <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
+        <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer">
+    
+    </script>
+    <script>
+        document.querySelector('#submit-btn').addEventListener('click', function () {
+		    html2canvas(document.querySelector('#box-expiry')).then((canvas) => {
+			let base64image = canvas.toDataURL('image/png');
+			// console.log(base64image);
+			let pdf = new jsPDF('p', 'mm', 'a4'); 
+			pdf.addImage(base64image, 'PNG', 0, 0, 210, 297);
+            // Generate a random number for the file name
+            var random = Math.floor(Math.random() * 1000000001);
+            var filename = 'usageVSexpiry-id-'+ random + '.pdf'; 
+			pdf.save('usageVSexpiry-id-' + random + '.pdf');
+            });
+        });
+    </script>
     <!-- Include the chart.js file -->
     <script src="../../../public/js/charts/expiry-piechart.js"></script>
 

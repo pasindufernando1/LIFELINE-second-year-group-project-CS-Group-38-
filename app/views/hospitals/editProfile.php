@@ -120,9 +120,47 @@ $metaTitle = "Hospitals Dashboard"
                 <br>
                 <input class="cit-input" id="cit"  type="text" name="cit" autofocus placeholder="City" required>
                 <br>
-                <input class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="District" required>
+                <select class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="District" required>
+                <option value="" disabled selected hidden>District</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kegalle">Kegalle</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                </select>
                 <br>
-                <input class="prov-input" id="prov"  type="text" name="prov" autofocus placeholder="Province" required>
+                <select class="prov-input" id="prov"  type="text" name="prov" autofocus placeholder="Province" required>
+                <option value="" disabled selected hidden>Province</option>
+                    <option value="Central">Central</option>
+                    <option value="Eastern">Eastern</option>
+                    <option value="North Central">North Central</option>
+                    <option value="Northern">Northern</option>
+                    <option value="North Western">North Western</option>
+                    <option value="Sabaragamuwa">Sabaragamuwa</option>
+                    <option value="Southern">Southern</option>
+                    <option value="Uva">Uva</option>
+                    <option value="Western">Western</option>
+                </select>
                 <br>
 
                 <label id="em-label" class="em-label" for="em">Email Address:</label>
