@@ -47,11 +47,11 @@ $metaTitle = "Blood Availability Report"
             <br>
         </div>
         <div class="reportTitle">
-            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Inventory Availability</div></label>
+            <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Blood Usage Respect to Months</div></label>
             <br>
         </div>
         <div class="year">
-            <label class="year-lable" for="category">Category<div class="year-content"> : <?php echo $_SESSION['inv_category']?></div></label>
+            <label class="year-lable" for="year">Year<div class="year-content"> : <?php echo $_SESSION['year']?></div></label>
             <br>
         </div>
         <div class="date">
@@ -64,47 +64,15 @@ $metaTitle = "Blood Availability Report"
         </div>
         <!-- Create a barchart -->
         <div class="barchart">
-            <canvas id="inventory-availability" width="900" height="400">
+            <canvas id="usage-months" width="1450" height="483.33">
             </canvas>
         </div>
-        <!-- Conatiner to the right -->
-        <div class="data">
-
-            <table class="user-types-table" style="width:90%">
-            <tr>
-                <th>Blood Bank Name</th>
-                <th>Quantity available</th>
-                
-            </tr>
-            <hr class="data-blood-types-line">
-
-            <?php 
-            $no_rows = count($_SESSION['inventory_avail']);
-            $result = $_SESSION['inventory_avail'];
-
-            //display the link of the pages in URL  
-            if ($no_rows > 0) {
-                
-                foreach(array_slice($result,0,$no_rows) as $row) {
-                    echo '<div class="table-content-types"> <tr>
-                            <td>' . $row["BloodBank_Name"]. "</td>
-                            <td>" . $row["Quantity"] . '</td>
-                        </tr> </div>';
-                    
-                }
-            } 
-            else {
-                echo "0 results";
-            }
-            echo "</table>"; ?>
-              
-        </div>
+        
     </div>
-
     <div>
         <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
         <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
-        <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+        <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a>        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script
@@ -123,63 +91,58 @@ $metaTitle = "Blood Availability Report"
 			pdf.addImage(base64image, 'PNG', 0, 0, 210,200);
             // Generate a random number for the file name
             var random = Math.floor(Math.random() * 1000000001);
-            var filename = 'inventoryReport-id-'+ random + '.pdf'; 
-			pdf.save('inventoryReport-id-' + random + '.pdf');
+            var filename = 'usageVSmonths-id-'+ random + '.pdf'; 
+			pdf.save('usageVSmonths-id-' + random + '.pdf');
             });
         });
     </script>
-
-    <!-- Chart  -->
+    <!-- Chart -->
     <script>
         <?php 
-            $no_rows = count($_SESSION['inventory_avail']);
-            $result = $_SESSION['inventory_avail'];
+            $result = $_SESSION['bloodusage'];
+            
         ?>
-        // Inventory availability graph
-        var ctx = document.getElementById('inventory-availability').getContext('2d');
-        console.log(ctx);
-        var myChart = new Chart(ctx, {
+        // Usage respect to months graph
+        var ctx = document.getElementById('usage-months').getContext('2d');
+        var myChart1 = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: <?php 
-                    $labels = array();
-                    if ($no_rows > 0) {
-                        foreach(array_slice($result,0,$no_rows) as $row){
-                            array_push($labels, $row["BloodBank_Name"]);
-                        }
-                    } 
-                    else {
-                        echo "0 results";
-                    }
-                    echo json_encode($labels);
-                ?>,
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    label: 'Amount available',
-                    data: <?php 
-                            $data = array();
-                            if ($no_rows > 0) {
-                                foreach(array_slice($result,0,$no_rows) as $row){
-                                    array_push($data, $row["Quantity"]);
-                                }
-                            } 
-                            else {
-                                echo "0 results";
-                            }
-                            echo json_encode($data);
-                        ?>,
+                    label: 'Blood Usage',
+                    data:   [<?php echo json_encode($result['01'])?>,
+                                <?php echo json_encode($result['02'])?>,
+                                <?php echo json_encode($result['03'])?>,
+                                <?php echo json_encode($result['04'])?>,
+                                <?php echo json_encode($result['05'])?>,
+                                <?php echo json_encode($result['06'])?>,
+                                <?php echo json_encode($result['07'])?>,
+                                <?php echo json_encode($result['08'])?>,
+                                <?php echo json_encode($result['09'])?>,
+                                <?php echo json_encode($result['10'])?>,
+                                <?php echo json_encode($result['11'])?>,
+                                <?php echo json_encode($result['12'])?>]
+                            ,
                     backgroundColor: [
-                        <?php 
-                           for($count=0; $count < $no_rows; $count++){
-                                echo "'#BF1B16',";
-                            }
-                        ?>
-                    ],  
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16'
+                    ],   
                 }]
             },
             options: {
                 title: {
                     display: true,
-                    text: 'Inventory availability : <?php echo $_SESSION['province']; ?> Province',
+                    text: 'Blood Usage Analysis : <?php echo json_encode($_SESSION['year'])?>',
                     // Align the chart title to the right
                     fontSize: 18,
                     fontColor: '#000000',
@@ -202,7 +165,7 @@ $metaTitle = "Blood Availability Report"
                         // Display the y-axis label
                         scaleLabel: {
                             display: true,
-                            labelString: 'Count',
+                            labelString: 'No. of pints',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -220,10 +183,9 @@ $metaTitle = "Blood Availability Report"
                         }
                     }],
                     xAxes: [{
-                        categoryPercentage: 0.5,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Blood banks',
+                            labelString: 'Month of the year',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -245,7 +207,10 @@ $metaTitle = "Blood Availability Report"
                         maintainAspectRatio: false,
 
                     }]
+
                 }
+
+
             }
         });
     </script>

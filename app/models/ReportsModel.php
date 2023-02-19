@@ -57,6 +57,7 @@ class ReportsModel extends Model
                 $data[$key]['Quantity'] = $this->db->select("Quantity", "bank_inventory_categories","WHERE BloodBankID = :bloodBankID AND InventoryID = :inv_typeID",$param,$paramValue)[0]['Quantity'];
             }
         }
+        
         return $data;
         
     }
@@ -81,18 +82,54 @@ class ReportsModel extends Model
         return $data;
     }
 
-    public function getAllDonorDetails()
-    {
-        // Generate a random array containing 10 dates,locations,packetId and compilations
-        $data = array();
-        for ($i=0; $i < 10; $i++) { 
-            $data[$i]['Date'] = date('Y-m-d', strtotime('+' . rand(0, 100) . ' days'));
-            $data[$i]['Location'] = 'Location ' . rand(0, 100);
-            $data[$i]['PacketID'] = rand(0, 100);
-            $data[$i]['Compilations'] = 'Compilation ' . rand(0, 100);
-        }
+    public function getAllDonors(){
+        $data = $this->db->select("UserID,Fullname", "donor","Null");
         return $data;
-        
+    }
+
+    // Function to get all the donations of the donor
+    public function getAllDonations($donorID){
+        // Get all the donations from bank donations table union with the donations from the donation campaign table
+        $data = $this->db->select("Date,CampaignID,PacketID,Complication", "donor_campaign_bloodpacket","WHERE DonorID = :donorID",':donorID',$donorID);
+        // For each Campaign ID get the campaign name
+        foreach ($data as $key => $value) {
+            $campaignID = $data[$key]['CampaignID'];
+            $data[$key]['Location'] = $this->db->select("Name", "donation_campaign","WHERE CampaignID = :campaignID",':campaignID',$campaignID)[0]['Name'];
+        }
+        // Get all the donations from the blood bank donations table
+        $data2 = $this->db->select("Date,BloodBankID,PacketID,Complication", "donor_bloodbank_bloodpacket","WHERE DonorID = :donorID",':donorID',$donorID);
+        // For each Blood Bank ID get the blood bank name
+        foreach ($data2 as $key => $value) {
+            $bloodBankID = $data2[$key]['BloodBankID'];
+            $data2[$key]['Location'] = $this->db->select("BloodBank_Name", "bloodbank","WHERE BloodBankID = :bloodBankID",':bloodBankID',$bloodBankID)[0]['BloodBank_Name'];
+        }
+        // Merge the two arrays
+        $result = array_merge($data,$data2);
+        // If Complication ==Null set it to 'No complications observed'
+        foreach ($result as $key => $value) {
+            if($result[$key]['Complication'] == null){
+                $result[$key]['Complication'] = 'No complications observed';
+            }
+        }
+        $No_CampDonation = count($data);
+        $No_BankDonation = count($data2);
+        $result['No_CampDonation'] = $No_CampDonation;
+        $result['No_BankDonation'] = $No_BankDonation;
+        return $result;
+    }
+
+    // Function to get the donor current badge
+    public function getDonorBadge($donorID){
+        $data = $this->db->select("BadgeID", "donor_badges","WHERE DonorUserID = :donorID",':donorID',$donorID);
+        $badgeID = $data[0]['BadgeID'];
+        $data = $this->db->select("BadgePic", "badge","WHERE BadgeID = :badgeID",':badgeID',$badgeID);
+        return $data[0]['BadgePic'];
+    }
+
+    // Function to get the donor card link
+    public function getDonorCard($donorID){
+        $data = $this->db->select("DonorCard_Img", "Donor","WHERE UserID = :donorID",':donorID',$donorID);
+        return $data[0]['DonorCard_Img'];
     }
 
     public function getDonorDetails($donorID){
@@ -176,6 +213,68 @@ class ReportsModel extends Model
         return $districts;
 
         
+    }
+
+    // Function to get all the donations of a year
+    public function getUsageBlood($Year){
+
+        // An array to store the used quantity for the 12 months
+        $usedQuantity = array();
+
+        // Get all the donations from the blood bank donations table
+        $data = $this->db->select("PacketID,Date", "donor_bloodbank_bloodpacket","WHERE YEAR(Date) = :year",':year',$Year);
+        // For each packet ID check the status of the packet, if status is o then it is used
+        foreach ($data as $key => $value) {
+            $packetID = $data[$key]['PacketID'];
+            $status = $this->db->select("Status", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Status'];
+            if($status == 0){
+                // Get the quantity of the packet and add it to the array
+                $quantity = $this->db->select("Quantity", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Quantity'];
+                $data[$key]['Quantity'] = $quantity;
+            }
+        }
+        // For each packet get the month and add the quantity to the array
+        foreach ($data as $key => $value) {
+            $month = date("m", strtotime($data[$key]['Date']));
+            $quantity = $data[$key]['Quantity'];
+            if(isset($usedQuantity[$month])){
+                $usedQuantity[$month] += $quantity;
+            }
+            else{
+                $usedQuantity[$month] = $quantity;
+            }
+        }
+
+        
+        // Get all the donations from the campaign donations table
+        $data2 = $this->db->select("PacketID,Date", "donor_campaign_bloodpacket","WHERE YEAR(Date) = :year",':year',$Year);
+        // For each packet ID check the status of the packet, if status is o then it is used
+        foreach ($data2 as $key => $value) {
+            $packetID = $data2[$key]['PacketID'];
+            $status = $this->db->select("Status", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Status'];
+            if($status == 0){
+                // Get the quantity of the packet and add it to the array
+                $quantity = $this->db->select("Quantity", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Quantity'];
+                $data2[$key]['Quantity'] = $quantity;
+            }
+        }
+
+        // For each packet get the month and add the quantity to the array
+        foreach ($data2 as $key => $value) {
+            $month = date("m", strtotime($data2[$key]['Date']));
+            $quantity = $data2[$key]['Quantity'];
+            if(isset($usedQuantity[$month])){
+                $usedQuantity[$month] += $quantity;
+            }
+            else{
+                $usedQuantity[$month] = $quantity;
+            }
+        }
+        return $usedQuantity;
+
+
+
+
     }
     
 }

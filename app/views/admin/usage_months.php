@@ -39,7 +39,7 @@ $metaTitle = "Donations Vs Months"
     <!-- main content -->
     <div class="box">
     <p class="add-user-title">Choose year</p>
-        <form action="/reports/UsageVsMonths" method="post" enctype="multipart/form-data" id="addform">
+        <form action="/reports/UsageVsMonths_Report" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label class="quantity-lable" for="bloodbankid">Select year</label>
                 <select class="quantity-input" type="text" name="year" id="year" placeholder="Blood Bank ID" required>
@@ -48,9 +48,8 @@ $metaTitle = "Donations Vs Months"
                     <?php
                         $currentYear = date("Y");
                         echo '<option value="" disabled selected hidden>Select the year </option>';
-                        for($i = 2020; $i <= $currentYear; $i++){
+                        for($i = 2020; $i < $currentYear; $i++){
                             // Have a placeholder named select year
-
                             echo "<option value='$i'>$i</option>";
                         }
                     ?>

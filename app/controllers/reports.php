@@ -70,11 +70,11 @@ class Reports extends Controller
     }
 
 
-    function donationsVsmonths()
+    function usageVsmonths()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/donationsVsmonths');
+                $this->view->render('admin/usage_months');
                 exit;
             }
         }
@@ -112,15 +112,18 @@ class Reports extends Controller
         }
     }
 
-    function usageVsmonths()
+    function usageVsmonths_Report()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 if (!isset($_POST['year'])) {
-                    header("Location: /reports/donationsVsmonths");
+                    header("Location: /reports/usageVsmonths");
                     exit;
                 }
-                $this->view->render('admin/usageVsmonths');
+                $_SESSION['year'] = $_POST['year'];
+                $_SESSION['report_id'] = $this->model->getReportId();
+                $_SESSION['bloodusage'] = $this->model->getUsageBlood($_SESSION['year']);
+                $this->view->render('admin/usageVsmonths_report');
                 exit;
             }
         }
@@ -243,6 +246,7 @@ class Reports extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['Donors'] = $this->model->getAllDonors();
                 $this->view->render('admin/donorReport');
                 exit;
             }
@@ -264,7 +268,9 @@ class Reports extends Controller
                 $_SESSION['donorid']= $_POST['donorID'];
                 $_SESSION['donordetails']= $this->model->getDonorDetails($_SESSION['donorid']);
                 $_SESSION['report_id'] = $this->model->getReportId();
-                $_SESSION['donor_report'] = $this->model->getAllDonorDetails();
+                $_SESSION['donations'] = $this->model->getAllDonations($_SESSION['donorid']);
+                $_SESSION['badge'] = $this->model->getDonorBadge($_SESSION['donorid']);
+                $_SESSION['donor-card'] = $this->model->getDonorCard($_SESSION['donorid']);
                 $this->view->render('admin/donorReport_Gen');
                 exit;
             }

@@ -78,12 +78,12 @@ $metaTitle = "Donor Report"
         </div>
         <div class="badgepic">
             <p>Current Badge</p>
-            <img src="../../../public/img/admindashboard/badges/Silver_Medal.png" alt="badge">
+            <img src="./../../public/img/admindashboard/badges/<?php echo $_SESSION['badge']; ?>" alt="badge">
 
         </div>
         <div class="donorcard">
             <p>Donor Card View</p>
-            <img src="../../../public/img/admindashboard/donor-card/donor-card-tentative.png" alt="donorcard">
+            <img src="../../../public/img/admindashboard/donor-card/<?php echo $_SESSION['donor-card']; ?>" alt="donorcard">
         </div>
         <div class="donations">
             <p>Donation History</p>
@@ -92,13 +92,13 @@ $metaTitle = "Donor Report"
                 <th>Date</th>
                 <th>Location</th>
                 <th>PacketID</th>
-                <th>Compilation</th>  
+                <th>Compilication</th>  
             </tr>
             <hr class="data-blood-types-lines">
 
             <?php 
-            $no_rows = count($_SESSION['donor_report']);
-            $result = $_SESSION['donor_report'];
+            $no_rows = count($_SESSION['donations']) - 2;
+            $result = $_SESSION['donations'];
 
             //display the link of the pages in URL  
             if ($no_rows > 0) {
@@ -108,7 +108,7 @@ $metaTitle = "Donor Report"
                             <td>' . $row["Date"]. "</td>
                             <td>" . $row["Location"]. "</td>
                             <td>" . $row["PacketID"]. "</td>
-                            <td>" . $row["Compilations"] . '</td>
+                            <td>" . $row["Complication"] . '</td>
                         </tr> </div>';
                     
                 }
@@ -146,8 +146,55 @@ $metaTitle = "Donor Report"
             });
         });
     </script>
-    <!-- Include the chart.js file -->
-    <script src="../../../public/js/charts/donorDonations.js"></script>
+    <!-- Chart -->
+    <script>
+        <?php 
+            $result = $_SESSION['donations'];
+        ?>
+        var ctx = document.getElementById('donor-rep-chart').getContext('2d');
+        var x = 3;
+        var chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Blood Banks', 'Campaigns'],
+                datasets: [{
+                    data: [<?php echo json_encode($result['No_CampDonation']) ?>, <?php echo json_encode($result['No_BankDonation']) ?>],
+                    backgroundColor: ['#BF1B16', '#F0817E']
+                }]
+            },
+            options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Donation Location',
+                    font: {
+                        weight: 'bold',
+                        size: 25,
+                        color: '#000000',
+                        family: 'Poppins',
+                    },
+                },
+                subtitle: {
+                    display: true,
+                    text:  <?php echo json_encode(count($result) - 2) ?>+ ' Donations in total',
+                    font: {
+                        weight: 'bold',
+                        size: 20,
+                        color: '#949494',
+                        family: 'Poppins',
+                    },
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: 100,
+        }
+        });
+    </script>
 
 </body>
 </html>
