@@ -159,6 +159,10 @@ class Reports extends Controller
                     header("Location: /reports/productiveDonationAreas");
                     exit;
                 }
+                $_SESSION['category'] = $_POST['category'];
+                $_SESSION['report_id'] = $this->model->getReportId();
+                $_SESSION['donations'] = $this->model->getAllBloodDonations($_SESSION['category']);
+                // $_SESSION['donors'] = $this->model->getAllDonors($_SESSION['category']);
                 $this->view->render('admin/productiveDonationAreasReport');
                 exit;
             }

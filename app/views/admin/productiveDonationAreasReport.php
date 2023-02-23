@@ -46,7 +46,7 @@ $metaTitle = "Blood Availability Report"
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
         <div class="reportID">
-            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : <?php echo $_SESSION['report_id'][0]?></div></label>
             <br>
         </div>
         <div class="reportTitle">
@@ -54,11 +54,15 @@ $metaTitle = "Blood Availability Report"
             <br>
         </div>
         <div class="year">
-            <label class="year-lable" for="category">Blood Category<div class="year-content"> : A+</div></label>
+            <label class="year-lable" for="category">Blood Category<div class="year-content"> : <?php echo $_SESSION['category']?></div></label>
             <br>
         </div>
         <div class="date">
-            <label class="date-lable" for="date">Date Generated<div class="date-content"> : 2020-10-10</div></label>
+            <label class="date-lable" for="date">Date Generated<div class="date-content"> : <?php 
+                // Get the current date
+                $date = date('Y-m-d');
+                echo $date;
+            ?></div></label>
             <br>
         </div>
 
@@ -71,13 +75,13 @@ $metaTitle = "Blood Availability Report"
             <div class="data-box1">
                 <p class="db-title">Highest Contribution</p>
                 <p class="db-data">Polonnaruwa</p>
-                <p class="db-title">3900 Pints</p>
+                <p class="db-title">3900 donations</p>
                 
             </div>
             <div class="data-box2">
                 <p class="db-title">Least Contribution</p>
                 <p class="db-data">Matale</p>
-                <p class="db-title">1100 Pints</p>
+                <p class="db-title">1100 donations</p>
             </div>
         </div>
 
@@ -135,9 +139,240 @@ $metaTitle = "Blood Availability Report"
     </script>
 
 
-    <!-- Include the chart.js files -->
-    <script src="../../../public/js/charts/productivedonations-totalDonation.js"></script>
-    <script src="../../../public/js/charts/productivedonations-totalDonors.js"></script>
+    <!-- Charts -->
+    <script> 
+        // Total donations
+        var ctx = document.getElementById('total-donations').getContext('2d');
+        console.log(ctx);
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Colombo','Gampaha','Kalutara','Kandy','Rathnapura','Galle','Matara','Hambantota','Jaffna','Kilinochchi','Mannar','Mullaitivu','Vavuniya','Matale','Kurunegala','Puttalam','Anuradhapura','Polonnaruwa','Badulla','Monaragala','Trincomalee','Batticaloa','Ampara'],
+                datasets: [{
+                    label: 'Total donations',
+                    data: [2900, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 3900, 1000, 500, 1000, 2000, 1000],
+                    backgroundColor: [
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16'
+
+                    ],  
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Blood Donation Analysis(Total donations) : Category A+',
+                    // Align the chart title to the right
+                    fontSize: 18,
+                    fontColor: '#000000',
+                    fontFamily: 'Poppins',
+                    fontStyle: 'bold',
+                    // Display the chart horizontally on top left corner
+                    position: 'top',
+                },
+                legend: {
+                    labels: {
+                        fontColor: '#BCBCBC',
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontStyle: 'bold',
+                        position: 'right',
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        // Display the y-axis label
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'No. of donations',
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontStyle: 'bold',
+                        },
+                        gridLines: {
+                            display: true,
+                            color: '#E0E0E0',
+                            // Show grid lines dashed
+                            borderDash: [5, 5],
+
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        categoryPercentage: 0.5,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Districts',
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontStyle: 'bold',
+                        },
+                        gridLines: {
+                        display: false
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontsize: 400,
+                            maxRotation: 90,
+                            minRotation: 0,
+                        },
+                        // Make the chart responsive
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                    }]
+
+                }
+
+
+            }
+        });
+
+        // Total donors
+        var ctx = document.getElementById('registered-donors').getContext('2d');
+        console.log(ctx);
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Colombo','Gampaha','Kalutara','Kandy','Rathnapura','Galle','Matara','Hambantota','Jaffna','Kilinochchi','Mannar','Mullaitivu','Vavuniya','Matale','Kurunegala','Puttalam','Anuradhapura','Polonnaruwa','Badulla','Monaragala','Trincomalee','Batticaloa','Ampara'],
+                datasets: [{
+                    label: 'Total number of registered donors',
+                    data: [500,400,350,330,220,100,405,300,400,500,400,350,330,220,100,405,300,800,500,770,350,330,220,100,405],
+                    backgroundColor: [
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16',
+                        '#BF1B16'
+
+                    ],  
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Blood Donation Analysis(Registered donors) : Category A+',
+                    // Align the chart title to the right
+                    fontSize: 18,
+                    fontColor: '#000000',
+                    fontFamily: 'Poppins',
+                    fontStyle: 'bold',
+                    // Display the chart horizontally on top left corner
+                    position: 'top',
+                },
+                legend: {
+                    labels: {
+                        fontColor: '#BCBCBC',
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontStyle: 'bold',
+                        position: 'right',
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        // Display the y-axis label
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Amount donated (pints)',
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontStyle: 'bold',
+                        },
+                        gridLines: {
+                            display: true,
+                            color: '#E0E0E0',
+                            // Show grid lines dashed
+                            borderDash: [5, 5],
+
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        categoryPercentage: 0.5,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Districts',
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontStyle: 'bold',
+                        },
+                        gridLines: {
+                        display: false
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: '#BCBCBC',
+                            fontFamily: 'Poppins',
+                            fontsize: 400,
+                            maxRotation: 90,
+                            minRotation: 0,
+                        },
+                        // Make the chart responsive
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                    }]
+
+                }
+
+
+            }
+        });
+    </script>
 
 </body>
 </html>

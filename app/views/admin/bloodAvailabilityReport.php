@@ -44,31 +44,39 @@ $metaTitle = "Blood Availability Report"
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Blood Category : </label>
                 <br>
                 <select class="quantity-input" type="text" name="category" id="category" placeholder="Blood Bank ID" required>
-                <option value="" disabled selected hidden>Select Blood Type</option>
+                    <option value="" disabled selected hidden>Select Blood Type</option>
                     <option value="A+ RBC">A+ RBC</option>
-                    <option value="AA+ Plasma">A+ Plasma</option>
-                    <option value="A+ Platelets">A+ Platelets</option>
+                    <option value="A+ WBC">A+ WBC</option>
+                    <option value="A+ Plasma">A+ Plasma</option>
+                    <option value="A+ Platelet">A+ Platelets</option>
                     <option value="A- RBC">A- RBC</option>
+                    <option value="A- WBC">A- WBC</option>
                     <option value="A- Plasma">A- Plasma</option>
-                    <option value="A- Platelets">A- Platelets</option>
+                    <option value="A- Platelet">A- Platelets</option>
                     <option value="B+ RBC">B+ RBC</option>
+                    <option value="B+ WBC">B+ WBC</option>
                     <option value="B+ Plasma">B+ Plasma</option>
-                    <option value="B+ Platelets">B+ Platelets</option>
+                    <option value="B+ Platelet">B+ Platelets</option>
                     <option value="B- RBC">B- RBC</option>
+                    <option value="B- WBC">B- WBC</option>
                     <option value="B- Plasma">B- Plasma</option>
-                    <option value="B- Platelets">B- Platelets</option>
+                    <option value="B- Platelet">B- Platelets</option>
                     <option value="AB+ RBC">AB+ RBC</option>
+                    <option value="AB+ WBC">AB+ WBC</option>
                     <option value="AB+ Plasma">AB+ Plasma</option>
-                    <option value="AB+ Platelets">AB+ Platelets</option>
+                    <option value="AB+ Platelet">AB+ Platelets</option>
                     <option value="AB- RBC">AB- RBC</option>
+                    <option value="AB- WBC">AB- WBC</option>
                     <option value="AB- Plasma">AB- Plasma</option>
-                    <option value="AB- Platelets">AB- Platelets</option>
+                    <option value="AB- Platelet">AB- Platelets</option>
                     <option value="O+ RBC">O+ RBC</option>
+                    <option value="O+ WBC">O+ WBC</option>
                     <option value="O+ Plasma">O+ Plasma</option>
-                    <option value="O+ Platelets">O+ Platelets</option>
+                    <option value="O+ Platelet">O+ Platelets</option>
                     <option value="O- RBC">O- RBC</option>
+                    <option value="O- WBC">O- WBC</option>
                     <option value="O- Plasma">O- Plasma</option>
-                    <option value="O- Platelets">O- Platelets</option>
+                    <option value="O- Platelet">O- Platelets</option>
                 </select>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="province">Province:</label>

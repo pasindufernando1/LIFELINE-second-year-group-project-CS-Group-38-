@@ -347,5 +347,91 @@ class UserModel extends Model
 
     }
 
-    
+    // Admin Dashboard related functions
+    public function getDashboardStats()
+    {
+        // Total bank donations today
+        $Today_bankdonations = $this->db->select("count(*) as count","donor_bloodbank_bloodpacket","WHERE Date = CURDATE()");
+        $Today_bankdonations = $Today_bankdonations[0]['count'];
+
+        //Total camp donations today
+        $Today_campdonations = $this->db->select("count(*) as count","donor_campaign_bloodpacket","WHERE Date = CURDATE()");
+        $Today_campdonations = $Today_campdonations[0]['count'];
+
+        //Total donations today
+        $Today_donations = $Today_bankdonations + $Today_campdonations;
+
+        //Total Campaigns today
+        $Today_campaigns = $this->db->select("count(*) as count","donation_campaign","WHERE Date = CURDATE()");
+        $Today_campaigns = $Today_campaigns[0]['count'];
+
+        // Total Cash donations today
+        $Today_cash_donations = $this->db->select("sum(Amount) as sum","cash_donation","WHERE Date = CURDATE()");
+        $Today_cash_donations = $Today_cash_donations[0]['sum'];
+
+        // Total hospital approval requests
+        $Total_hospital_requests = $this->db->select("count(*) as count","hospital_medicalcenter","WHERE Status = 0");
+        $Total_hospital_requests = $Total_hospital_requests[0]['count'];
+        
+        //Merging all the data into an array
+        $data = array(
+            "Today_donations" => $Today_donations,
+            "Today_campaigns" => $Today_campaigns,
+            "Today_cash_donations" => $Today_cash_donations,
+            "Total_hospital_requests" => $Total_hospital_requests
+        );
+
+        //print_r($data);die();
+        return $data;
+    }
+
+    //Function to total blood donations of past 12 months including this month
+    public function getdonations()
+    {
+        // Create an array for the past 12 months including this month with keynames as year-month
+        $months = array();
+        for ($i = 0; $i < 12; $i++) {
+            $months[date('Y-m', strtotime("-$i months"))] = 0;
+        }
+        
+        $bank_donations = $this->db->select("count(*) as count, Date","donor_bloodbank_bloodpacket","GROUP BY MONTH(Date)");
+        // If the year and month of the donation is in the array, add the count to the array
+        foreach ($bank_donations as $donation) {
+            $year_month = date('Y-m', strtotime($donation['Date']));
+            if (array_key_exists($year_month, $months)) {
+                $months[$year_month] += $donation['count'];
+            }
+        }
+        
+        $camp_donations = $this->db->select("count(*) as count, Date","donor_campaign_bloodpacket","GROUP BY MONTH(Date)");
+        // If the year and month of the donation is in the array, add the count to the array
+        foreach ($camp_donations as $donation) {
+            $year_month = date('Y-m', strtotime($donation['Date']));
+            if (array_key_exists($year_month, $months)) {
+                $months[$year_month] += $donation['count'];
+            }
+        }
+        
+        //Rename the key of the array to month plus year 
+        $months = array_combine(array_map(function ($key) {
+            return date('F Y', strtotime($key));
+        }, array_keys($months)), array_values($months));
+
+        //Reverse the array to show the earliest month first
+        $months = array_reverse($months);
+        return $months;
+    }
+
+    //Function to get the donor composition(Male and Female)
+    public function getdonorcomposition(){
+        $donor_composition = $this->db->select("count(*) as count, Gender","donor","GROUP BY Gender");
+        //Format the array in the required format for the chart
+        $new_array = array();
+        foreach($donor_composition as $entry) {
+            $gender = $entry["Gender"];
+            $count = $entry["count"];
+            $new_array[$gender] = $count;
+        }        
+        return $new_array;
+    }    
 }

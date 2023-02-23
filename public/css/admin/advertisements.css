@@ -942,6 +942,15 @@ a {
     width: 100%;
 }
 
+.blood-container {
+    position: absolute;
+    top: -120px;
+    width: 100%;
+    left: 52%;
+}
+
+
+
 .reg-lable {
     height: 16px;
     left: 0px;
@@ -966,7 +975,7 @@ a {
     border: 2px solid #949494;
     border-radius: 8px;
     padding: 12px 20px;
-    width: 100%;
+    width: 48%;
 }
 
 .regorg-input {
@@ -1841,9 +1850,9 @@ a {
 
 .success-msg-txt {
     position: absolute;
-    width: 460.68px;
+    width: 536.68px;
     height: 33.24px;
-    left: 603px;
+    left: 496px;
     top: 375px;
     font-family: 'Poppins';
     font-style: normal;

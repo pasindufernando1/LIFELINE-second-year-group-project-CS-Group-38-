@@ -1,5 +1,6 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Admin Dashboard";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -97,25 +98,25 @@ $metaTitle = "Admin Dashboard"
             </div>
         </div>
     </div>
-
+    <!-- $_SESSION['dashboard_stats'] -->
     <div class="bo1">
     <p class="te1">Donations Today</p>
-    <p class="te2">8566</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations']?></p>
 </div>
 
 <div class="bo2">
     <p class="te1">Campaigns Today</p>
-    <p class="te2">22</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_campaigns']?></p>
 </div>
 
 <div class="bo3">
     <p class="te1">Cash Donations Today</p>
-    <p class="te2">Rs.535000</p>
+    <p class="te2">Rs.<?php echo $_SESSION['dashboard_stats']['Today_cash_donations']?></p>
 </div>
 
 <div class="bo4">
     <p class="te1">Approval Requests</p>
-    <p class="te2">17</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Total_hospital_requests']?></p>
     
 </div>
 
@@ -123,14 +124,29 @@ $metaTitle = "Admin Dashboard"
 <p class="tebar">Blood Donation Statistics</p>
 <canvas id="usage-months">
                 <script>
+                    <?php 
+                        $result = $_SESSION['blood_donations'];
+                    ?>
+                    
+                    
                     var ctx = document.getElementById('usage-months').getContext('2d');
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            labels: 
+                                <?php 
+                                    // Get the keys, and print them out.
+                                    $keys = array_keys($result);
+                                    echo json_encode($keys);
+                                ?>,
                             datasets: [{
-                                label: 'Donations Received',
-                                data: [12, 19, 10, 7, 2, 11, 17, 18, 12, 2, 3, 15],
+                                label: 'Number of donations received',
+                                data: 
+                                    <?php 
+                                        // Get the values, and print them out.
+                                        $values = array_values($result);
+                                        echo json_encode($values);
+                                    ?>,
                                 backgroundColor: [
                                     '#BF1B16',
                                     '#BF1B16',
@@ -195,7 +211,6 @@ $metaTitle = "Admin Dashboard"
                         }
                     });
                 </script>
-
             </canvas>
         </div>
 
@@ -225,11 +240,7 @@ $metaTitle = "Admin Dashboard"
                 //determine the sql LIMIT starting number for the results on the displaying page  
                 $page_first_result = ($page-1) * $results_per_page;  
                 $result = $_SESSION['hospitals'];
-                
-
-                //display the link of the pages in URL  
-                
-
+            
                 // print_r($result[0]);die();
                 if ($number_of_results > 0) {
                 
@@ -276,7 +287,7 @@ $metaTitle = "Admin Dashboard"
         </div>
 
         <div class="bo7">
-            <div class="male">
+            <!-- <div class="male">
                 <img class="malepic" src="./../../public/img/admindashboard/male.png" alt="male">
                 <p class="matex">35%</p>
             </div>
@@ -284,20 +295,39 @@ $metaTitle = "Admin Dashboard"
             <div class="female">
                 <img class="femalepic" src="./../../public/img/admindashboard/female.png" alt="female">
                 <p class="matex">65%</p>
-            </div>
+            </div> -->
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
+                <?php 
+                        $result = $_SESSION['donor_composition'];
+                ?>
                 new Chart(document.getElementById("pie-chart"), {
                     type: 'doughnut',
                     data: {
-                    datasets: [{
-                        label: "Donor Composition",
-                        backgroundColor: ["#BF1B16", "#BF1B16"],
-                        data: [65,35]
-                        
-                    }]
-                    } 
+                        labels: <?php echo json_encode(array_keys($result)); ?>,
+                        datasets: [{
+                            label: "Donor Composition",
+                            backgroundColor: ["#BF1B16", "#360806"],
+                            data: <?php echo json_encode(array_values($result)); ?>,
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            labels: {
+                                fontSize: 28,
+                                position: 'outside',
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Donor Composition'
+                        }
+                    }
                 });
             </script>
         </div>

@@ -45,10 +45,9 @@ $metaTitle = "Inventory Donations"
 
                         <table class="user-types-table" style="width:90%">
                         <tr>
-                            <th>Donation ID</th>
+                            <th>Inventory Donation ID</th>
                             <th>Inventory Item</th>
                             <th>Quantity</th>
-                            <th>Initialized date</th>
                             <th>Delivery Validation by System User</th>
                             <th>Actions</th>
 
@@ -78,18 +77,22 @@ $metaTitle = "Inventory Donations"
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> 
                                 <tr>
-                                        <td>' . $row["DonationID"]. "</td>
-                                        <td>" . $row["Inventory_Category"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Initialized_date"] . '</td>';
-                                        if($row["Date"] == "Pending"){
-                                            echo "<td><button class='pending-btn' >". $row["Date"] .'</button></td>';
-                                         }else{
-                                            echo "<td><button class='validated-btn' >". $row["Date"] .'</button></td>';
-                                        }
-                                        echo '<td><a class= "verify-btn" href="/inventory/verify_acceptance/'.$row["DonationID"].' <button class = "verify-btn">
-                                        Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
+                                        <td>' . $row["InventoryDonationID"]. "</td>
+                                        <td>" . $row["Inventory_category"] . "</td>
+                                        <td>" . $row["Quantity"] . "</td>";
+                                        
+                                        if($row["Accepted_date"] == NULL){
+                                            echo "<td><button class='pending-btn'>Pending</button></td>";
+                                            echo '<td><a class= "verify-btn" href="/inventory/verifyblock" <button class = "verify-btn">
+                                            Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
                                             </tr> </div>';
+                                         }else{
+                                            echo "<td><button class='validated-btn' >Validated</button></td>";
+                                            echo '<td><a class= "verify-btn" href="/inventory/verify_acceptance/'.$row["DonationID"].' <button class = "verify-btn">
+                                            Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
+                                            </tr> </div>';
+                                        }
+                                        
                             }
                         } 
                         else {

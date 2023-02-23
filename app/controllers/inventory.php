@@ -73,6 +73,21 @@ class Inventory extends Controller
             
         }    
     }
+
+    // Block pending verifications
+    function verifyblock()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/verifyblock');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }    
+    }
     
 
 

@@ -52,20 +52,8 @@ class InventoryModel extends Model
     public function getAllInventoryDonations()
     {
         
-        $data = $this->db->select("*", "donation","WHERE DonationType = :Inventory","Inventory","Inventory");
-        // Exclude the donations where the Admin_verify is set to be 1 in the inventory_donation table
-        foreach ($data as $key => $value) {
-            $data[$key]['Admin_verify'] = $this->getAdminVerify($value['DonationID']);
-            if($data[$key]['Admin_verify'] == 1){
-                unset($data[$key]);
-            }
-        }
-        // Get the inventory category,quantity and date for each donation id and add it to the array
-        foreach ($data as $key => $value) {
-            $data[$key]['Inventory_Category'] = $this->getInventoryCatName($value['DonationID']);
-            $data[$key]['Quantity'] = $this->getInventoryQuantity($value['DonationID']);
-            $data[$key]['Date'] = $this->getInventoryDate($value['DonationID']);
-        }
+        $data = $this->db->select("*", "inventory_donation","WHERE Admin_verify = :Admin_verify",":Admin_verify",0);
+
         // print_r($data);die();
         return $data;
     }

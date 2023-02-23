@@ -20,9 +20,17 @@ class ReportsModel extends Model
 
     public function getAllBloodAvailReports($province,$blood_group)
     {
+        //Split the blood group into two word and take the values into 2 variables
+        $blood_group = explode(" ", $blood_group);
+        
+        $blood_name = $blood_group[0];
+        $blood_type = $blood_group[1];
+
         $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank","WHERE Province = :province",':province',$province);
-        // Get the TypeID of the blood group given in the parameter
-        $blood_group_typeID = $this->db->select("TypeID", "bloodcategory","WHERE Name = :blood_group",':blood_group',$blood_group)[0]['TypeID'];
+        // Get the TypeID of the blood component given in the parameter
+        $param = array(':blood_name',':subtype');
+        $paramValue = array($blood_name,$blood_type);
+        $blood_group_typeID = $this->db->select("TypeID", "bloodcategory","WHERE Name = :blood_name AND Subtype = :subtype",$param,$paramValue)[0]['TypeID'];
         // For each blood bank get the quantity of the blood group given in the parameter
         foreach ($data as $key => $value) {
             $bloodBankID = $data[$key]['BloodBankID'];
@@ -36,6 +44,7 @@ class ReportsModel extends Model
                 $data[$key]['Quantity'] = $this->db->select("Quantity", "bank_blood_categories","WHERE BloodBankID = :bloodBankID AND TypeID = :blood_group",$param,$paramValue)[0]['Quantity'];
             }
         }
+        
         return $data;
     }
 
@@ -276,5 +285,30 @@ class ReportsModel extends Model
 
 
     }
+
+    // Function to get all donations of a category
+    public function getAllBloodDonations($category){
+        // All donations at the blood bank
+        $data = $this->db->select("*", "donor_bloodbank_bloodpacket",null);
+        // For each donorId check the blood type and if it matches keep it in the array, otherwise remove it
+        foreach ($data as $key => $value) {
+            $donorID = $data[$key]['DonorID'];
+            $bloodType = $this->db->select("BloodType", "donor","WHERE UserID = :donorID",':donorID',$donorID)[0]['BloodType'];
+            if($bloodType != $category){
+                unset($data[$key]);
+            }
+        }
+        
+        //For each donation get the relating blood bank district
+        foreach ($data as $key => $value) {
+            $bloodBankID = $data[$key]['BloodBankID'];
+            $district = $this->db->select("District", "bloodbank","WHERE BloodBankID = :bloodBankID",':bloodBankID',$bloodBankID)[0]['District'];
+            $data[$key]['District'] = $district;
+        }
+        
+        
+        
+    }
+
     
 }
