@@ -74,14 +74,33 @@ $metaTitle = "Blood Availability Report"
             </div>
             <div class="data-box1">
                 <p class="db-title">Highest Contribution</p>
-                <p class="db-data">Polonnaruwa</p>
-                <p class="db-title">3900 donations</p>
+                <p class="db-data"><?php 
+                    // Get the value of the array $_SESSION['donations'] with key = max_donations_district
+                    echo $_SESSION['donations']['max_donations_district'];
+
+                ?></p>
+                <p class="db-title">
+                    <?php 
+                        // Get the value of the array $_SESSION['donations'] with key = max_donations_value
+                        echo $_SESSION['donations']['max_donations_value'];
+                    ?> Donations
+                </p>
                 
             </div>
             <div class="data-box2">
                 <p class="db-title">Least Contribution</p>
-                <p class="db-data">Matale</p>
-                <p class="db-title">1100 donations</p>
+                <p class="db-data">
+                    <?php 
+                        // Get the value of the array $_SESSION['donations'] with key = min_donations_district
+                        echo $_SESSION['donations']['min_donations_district'];
+                    ?> 
+                </p>
+                <p class="db-title">
+                    <?php 
+                        // Get the value of the array $_SESSION['donations'] with key = min_donations_value
+                        echo $_SESSION['donations']['min_donations_value'];
+                    ?> Donations
+                </p>
             </div>
         </div>
 
@@ -93,13 +112,33 @@ $metaTitle = "Blood Availability Report"
             </div>
             <div class="data-box1">
                 <p class="db-title">Highest Donors</p>
-                <p class="db-data">Polonnaruwa</p>
-                <p class="db-title">800</p>
+                <p class="db-data">
+                    <?php 
+                        // Get the value of the array $_SESSION['donors'] with key = max_donors_district
+                        echo $_SESSION['donors']['max_donors_district'];
+                    ?>
+                </p>
+                <p class="db-title">
+                    <?php 
+                        // Get the value of the array $_SESSION['donors'] with key = max_donors_value
+                        echo $_SESSION['donors']['max_donors_value'];
+                    ?> Donors
+                </p>
             </div>
             <div class="data-box2">
                 <p class="db-title">Least Donors</p>
-                <p class="db-data">Jaffna</p>
-                <p class="db-title">220</p>
+                <p class="db-data">
+                    <?php 
+                        // Get the value of the array $_SESSION['donors'] with key = min_donors_district
+                        echo $_SESSION['donors']['min_donors_district'];
+                    ?>
+                </p>
+                <p class="db-title">
+                    <?php 
+                        // Get the value of the array $_SESSION['donors'] with key = min_donors_value
+                        echo $_SESSION['donors']['min_donors_value'];
+                    ?> Donors
+                </p>
             </div>
         </div>
         
@@ -141,16 +180,39 @@ $metaTitle = "Blood Availability Report"
 
     <!-- Charts -->
     <script> 
+        <?php 
+            $donations = $_SESSION['donations']; 
+        ?>
         // Total donations
         var ctx = document.getElementById('total-donations').getContext('2d');
         console.log(ctx);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Colombo','Gampaha','Kalutara','Kandy','Rathnapura','Galle','Matara','Hambantota','Jaffna','Kilinochchi','Mannar','Mullaitivu','Vavuniya','Matale','Kurunegala','Puttalam','Anuradhapura','Polonnaruwa','Badulla','Monaragala','Trincomalee','Batticaloa','Ampara'],
+                labels: 
+                    <?php 
+                        // Each key of the $donations array except last four keys is a district
+                        $districts = array_keys($donations);
+                        array_pop($districts);
+                        array_pop($districts);
+                        array_pop($districts);
+                        array_pop($districts);
+                        echo json_encode($districts);
+                    ?>
+                ,
                 datasets: [{
                     label: 'Total donations',
-                    data: [2900, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 2000, 1000, 500, 1000, 3900, 1000, 500, 1000, 2000, 1000],
+                    data: 
+                        <?php 
+                            // Each value of the $donations array except last four data is a data
+                            $data = array_values($donations);
+                            array_pop($data);
+                            array_pop($data);
+                            array_pop($data);
+                            array_pop($data);
+                            echo json_encode($data);
+                        ?>
+                    ,
                     backgroundColor: [
                         '#BF1B16',
                         '#BF1B16',
@@ -258,15 +320,38 @@ $metaTitle = "Blood Availability Report"
         });
 
         // Total donors
+        <?php 
+            $donors = $_SESSION['donors'];
+        ?>
         var ctx = document.getElementById('registered-donors').getContext('2d');
         console.log(ctx);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Colombo','Gampaha','Kalutara','Kandy','Rathnapura','Galle','Matara','Hambantota','Jaffna','Kilinochchi','Mannar','Mullaitivu','Vavuniya','Matale','Kurunegala','Puttalam','Anuradhapura','Polonnaruwa','Badulla','Monaragala','Trincomalee','Batticaloa','Ampara'],
+                labels:
+                    <?php 
+                        // Each key of the $donors array except last four keys is a district
+                        $districts = array_keys($donors);
+                        array_pop($districts);
+                        array_pop($districts);
+                        array_pop($districts);
+                        array_pop($districts);
+                        echo json_encode($districts);
+                    ?>
+                ,
                 datasets: [{
                     label: 'Total number of registered donors',
-                    data: [500,400,350,330,220,100,405,300,400,500,400,350,330,220,100,405,300,800,500,770,350,330,220,100,405],
+                    data: 
+                        <?php 
+                            // Each key of the $donors array except last four keys is a value
+                            $donor_count = array_values($donors);
+                            array_pop($donor_count);
+                            array_pop($donor_count);
+                            array_pop($donor_count);
+                            array_pop($donor_count);
+                            echo json_encode($donor_count);
+                        ?>
+                    ,
                     backgroundColor: [
                         '#BF1B16',
                         '#BF1B16',
@@ -323,7 +408,7 @@ $metaTitle = "Blood Availability Report"
                         // Display the y-axis label
                         scaleLabel: {
                             display: true,
-                            labelString: 'Amount donated (pints)',
+                            labelString: 'No. of donors',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,

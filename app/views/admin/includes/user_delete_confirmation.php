@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link href="../../../public/css/systemuser/inc/delete.css" rel="stylesheet">
+    <link href="../../../public/css/admin/popups/popups.css" rel="stylesheet">
     
 </head>
 <body>
@@ -12,12 +12,12 @@
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
-      <h1>Delete Blood Packet</h1>
-      <p>Are you sure you want to delete?</p>
+      <h1>User Account Deactivation</h1>
+      <p>Are you sure that you want to deactivate the account?</p>
     
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Yes</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">No</button>
       </div>
     </div>
   </form>

@@ -44,7 +44,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
         <div class="reportID">
-            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : 1</div></label>
+            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : <?php echo $_SESSION['report_id'][0]?></div></label>
             <br>
         </div>
         <div class="reportTitle">
@@ -52,11 +52,15 @@ $metaTitle = "Blood Usage Vs Expiry Report"
             <br>
         </div>
         <div class="year">
-            <label class="year-lable" for="province">Province<div class="year-content"> : Western</div></label>
+            <label class="year-lable" for="province">Province<div class="year-content"> : <?php echo $_SESSION['province']?></div></label>
             <br>
         </div>
         <div class="date">
-            <label class="date-lable" for="date">Date Generated<div class="date-content"> : 2020-10-10</div></label>
+            <label class="date-lable" for="date">Date Generated<div class="date-content"> : <?php 
+                // Get the current date
+                $date = date('Y-m-d');
+                echo $date;
+            ?></div></label>
             <br>
         </div>
         <!-- Create a barchart -->
@@ -64,30 +68,92 @@ $metaTitle = "Blood Usage Vs Expiry Report"
             <canvas id="expiry-piechart" width="450" height="450">
             </canvas>
         </div>
+        <!-- Expiry pie chart -->
+        <script>
+            <?php 
+                $province_data = $_SESSION['province_data'];
+                $total_donations = $_SESSION['province_data']['total_donations'];
+                $used_donations = $_SESSION['province_data']['used'];
+                $expired_donations = $_SESSION['province_data']['expired'];
+                $available_donations = $_SESSION['province_data']['available'];
+            ?>
+            var ctx = document.getElementById('expiry-piechart').getContext('2d');
+            var x = 1100;
+            var chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Used packets', 'Expired packets', 'Available packets'],
+                    datasets: [{
+                        data: 
+                        [<?php echo $used_donations?>,
+                        <?php echo $expired_donations?>,
+                        <?php echo $available_donations?>],
+                        backgroundColor: ['#BF1B16', '#F0817E', '#640E0B']
+                    }]
+                },
+                options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Total Donations : <?php echo $_SESSION['province']?> Province',
+                        font: {
+                            weight: 'bold',
+                            size: 25,
+                            color: '#000000',
+                            family: 'Poppins',
+                        },
+                    },
+                    subtitle: {
+                        display: true,
+                        text: <?php echo $total_donations?> + ' Donations - ' +<?php echo $total_donations*4?> + ' Packets in Total',
+                        font: {
+                            weight: 'bold',
+                            size: 20,
+                            color: '#949494',
+                            family: 'Poppins',
+                        },
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: 100,
+            }
+            });
+        </script>
         <!-- Div to display the piecharts of the districts relevent to the province -->
         <div class="piechart-districts">
             <?php 
                 // Count the number of elements in the array _SESSION['usageVSexpiry'
                 $count = count($_SESSION['usageVSexpiry']);
+                $district_results = $_SESSION['usageVSexpiry'];
+                //print_r($district_results);die;
                 // Loop through the array and display the piecharts of the districts relevent to the province
                 for($i = 0; $i < $count; $i++){
                     echo "<div class='piechart-districts-content'>";
-                    echo "<canvas id='expiry-piechart-districts".$i."' width='450' height='450'></canvas>";
+                    echo "<canvas id='expiry-piechart-districts-".$district_results[$i]['district']."' width='450' height='450'></canvas>";
                     echo "</div>";
                 }
 
             ?>
             <script>
-                function generatepichart(district){
-                    var ctx1 = document.getElementById('expiry-piechart-districts'+district).getContext('2d');
-                    console.log(ctx1);
+                <?php
+                    $details = json_encode($district_results);
+                ?>
+                var details = <?php echo $details?>;
+                function generatepiechart(district, used, expired, available,total_donations){
+                    console.log(x);
+                    var ctx1 = document.getElementById('expiry-piechart-districts-'+district).getContext('2d');
                     var chart = new Chart(ctx1, {
                         type: 'doughnut',
                         data: {
-                            labels: ['Used', 'Expired'],
+                            labels: ['Used Packets', 'Expired Packets', 'Available Packets'],
                             datasets: [{
-                                data: [3, 2],
-                                backgroundColor: ['#BF1B16', '#F0817E']
+                                data: [used, expired, available],
+                                backgroundColor: ['#BF1B16', '#F0817E', '#640E0B']
                             }]
                         },
                         options: {
@@ -98,7 +164,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
                             },
                             title: {
                                 display: true,
-                                text: 'Total Donations : District '+district,
+                                text: 'Total donations : ' + district + ' District',
                                 font: {
                                     weight: 'bold',
                                     size: 25,
@@ -108,7 +174,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
                             },
                             subtitle: {
                                 display: true,
-                                text: 100 +' Donations in total',
+                                text: total_donations + ' Donations - ' + total_donations*4 + ' Packets in Total',
                                 font: {
                                     weight: 'bold',
                                     size: 20,
@@ -125,7 +191,8 @@ $metaTitle = "Blood Usage Vs Expiry Report"
 
                 }
                 for(var i = 0; i < <?php echo $count; ?>; i++){
-                    generatepichart(i);
+                    generatepiechart(details[i]['district'], details[i]['used'], details[i]['expired'], details[i]['available'], details[i]['total_donations']);
+                    
                 }
             </script>
         </div>
@@ -161,8 +228,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
             });
         });
     </script>
-    <!-- Include the chart.js file -->
-    <script src="../../../public/js/charts/expiry-piechart.js"></script>
+    
 
 </body>
 </html>

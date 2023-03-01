@@ -670,7 +670,7 @@ body {
 
 
 
-.box, .box-productive, .box-camp, .box-donor , .box-expiry{
+.box, .box-productive, .box-camp, .box-donor , .box-expiry, .box-usage{
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
@@ -696,6 +696,10 @@ body {
 
 .box-expiry{
     height: 2000px;
+}
+
+.box-usage{
+    height: 1423px;
 }
 
 
@@ -2620,8 +2624,18 @@ td {
 
 .barchart{
     position: absolute;
-    top: 180px;
+    top: 700px;
     margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.smallchart{
+    position: absolute;
+    top: 280px;
+    width: 500px;
+    height: 500px;
+    margin: 61px 0px 0 512px;
     border: 1px #BCBCBC solid;
     border-radius: 10px;
 }

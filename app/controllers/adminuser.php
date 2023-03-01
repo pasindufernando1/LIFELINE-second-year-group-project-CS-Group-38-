@@ -177,7 +177,51 @@ class AdminUser extends Controller
          
     }
 
-    
-    
-}
+    // Function to view the hospital
+    function view_user($user_id){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_type'] = $this->model->getUserType($user_id);
+                if($_SESSION['user_type'] == "Hospital/Medical_Center"){
+                    $_SESSION['user_details'] = $this->model->getHosMedDetails($user_id);
+                    //Get the hosmed details to variables
+                    $_SESSION['Registration_no'] = $_SESSION['user_details'][0][1];
+                    $_SESSION['Name'] = $_SESSION['user_details'][0][2];
+                    $_SESSION['Number'] = $_SESSION['user_details'][0][3];
+                    $_SESSION['LaneName'] = $_SESSION['user_details'][0][4];
+                    $_SESSION['City'] = $_SESSION['user_details'][0][5];
+                    $_SESSION['District'] = $_SESSION['user_details'][0][6];
+                    $_SESSION['Province'] = $_SESSION['user_details'][0][7];
+                    $_SESSION['Status'] = $_SESSION['user_details'][0][8];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1][0];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1][1];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1][2];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2][0];
+                    $this->view->render('admin/viewHospitalMedicalCenter_Dashboard');
+                    exit;
+                } 
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
+        }
+    }
 
+    //Function to validate the hospital/medical center
+    function validate_user($user_id){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if($this->model->validate_user($user_id) && $this->model->validate_user_email($user_id)){
+                    $this->view->render('admin/validation_successful');
+                }
+            }
+            else{
+                $this->view->render('authentication/login');
+            }
+        }
+    }
+
+    
+
+}

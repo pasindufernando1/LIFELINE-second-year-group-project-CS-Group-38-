@@ -675,7 +675,7 @@ body {
     width: 1540px;
     height: 810px;
     left: 316px;
-    top: 101px;
+    top: 109px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -1852,7 +1852,7 @@ a {
 
 .success-msg-txt {
     position: absolute;
-    width: 460.68px;
+    width: 472.68px;
     height: 33.24px;
     left: 528px;
     top: 375px;
@@ -2062,7 +2062,8 @@ a {
     color: #5C5C5C;
     font-family: 'Poppins';
     font-weight: bold;
-    border: none
+    border: none;
+    padding-top: 8px;
 }
 
 .delete-btn {
@@ -2695,9 +2696,9 @@ td {
     color: #BF1B16;
     vertical-align: middle;
     padding-top: 0px;
-    margin-left: 224px;
+    margin-left: -38px;
     font-weight: 700;
-    margin-top: 36px;
+    margin-top: -12px;
 }
 
 .validate {
@@ -2710,9 +2711,9 @@ td {
     color: #5C5C5C;
     vertical-align: middle;
     padding-top: 0px;
-    margin-left: 41px;
+    margin-left: -38px;
     font-weight: 700;
-    margin-top: 36px;
+    margin-top: -12px;
     box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.05);
 }
 

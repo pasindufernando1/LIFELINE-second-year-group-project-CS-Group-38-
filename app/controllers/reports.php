@@ -84,34 +84,6 @@ class Reports extends Controller
         }
     }
 
-    function usageVSexpiry()
-    {
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/usageVSexpiry');
-                exit;
-            }
-        }
-        else{
-            $this->view->render('authentication/adminlogin');
-            
-        }
-    }
-
-    function productiveDonationAreas()
-    {
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "Admin") {
-                $this->view->render('admin/productiveDonationAreas');
-                exit;
-            }
-        }
-        else{
-            $this->view->render('authentication/adminlogin');
-            
-        }
-    }
-
     function usageVsmonths_Report()
     {
         if (isset($_SESSION['login'])) {
@@ -123,7 +95,22 @@ class Reports extends Controller
                 $_SESSION['year'] = $_POST['year'];
                 $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['bloodusage'] = $this->model->getUsageBlood($_SESSION['year']);
+                $_SESSION['requests'] = $this->model->getRequestStats($_SESSION['year']);
                 $this->view->render('admin/usageVsmonths_report');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function usageVSexpiry()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/usageVSexpiry');
                 exit;
             }
         }
@@ -141,13 +128,31 @@ class Reports extends Controller
                     header("Location: /reports/usageVSexpiry");
                     exit;
                 }
+                $_SESSION['report_id'] = $this->model->getReportId();
+                $_SESSION['province'] = $_POST['province'];
+                $_SESSION['province_data'] = $this->model->getProvinceData($_POST['province']);
                 $_SESSION['usageVSexpiry'] = $this->model->getAllusageVSexpiry($_POST['province']);
+                //print_r($_SESSION['usageVSexpiry']);die();
                 $this->view->render('admin/UsageVsExpiryreport');
                 exit;
             }
         }
         else{
             $this->view->render('authentication/adminlogin');  
+        }
+    }
+
+    function productiveDonationAreas()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/productiveDonationAreas');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
         }
     }
 
@@ -162,7 +167,9 @@ class Reports extends Controller
                 $_SESSION['category'] = $_POST['category'];
                 $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['donations'] = $this->model->getAllBloodDonations($_SESSION['category']);
-                // $_SESSION['donors'] = $this->model->getAllDonors($_SESSION['category']);
+                 
+                $_SESSION['donors'] = $this->model->getDonors($_SESSION['category']);
+                // 
                 $this->view->render('admin/productiveDonationAreasReport');
                 exit;
             }
@@ -172,6 +179,12 @@ class Reports extends Controller
             
         }
     }
+
+    
+
+    
+
+    
 
     function bloodAvailReport()
     {

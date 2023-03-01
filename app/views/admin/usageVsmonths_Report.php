@@ -24,7 +24,7 @@ $metaTitle = "Blood Availability Report"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>   
 
     
 
@@ -37,7 +37,7 @@ $metaTitle = "Blood Availability Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
             
     <!-- main content -->
-    <div class="box" id="box">
+    <div class="box-usage" id="box">
         <!-- Icon image to the top left corner -->
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
@@ -65,6 +65,11 @@ $metaTitle = "Blood Availability Report"
         <!-- Create a barchart -->
         <div class="barchart">
             <canvas id="usage-months" width="1450" height="483.33">
+            </canvas>
+        </div>
+
+        <div class="smallchart">
+            <canvas id='usagestats' width='500' height='500'>
             </canvas>
         </div>
         
@@ -96,33 +101,23 @@ $metaTitle = "Blood Availability Report"
             });
         });
     </script>
-    <!-- Chart -->
+    <!-- Bar chart -->
     <script>
         <?php 
-            $result = $_SESSION['bloodusage'];
+            $result = json_encode($_SESSION['bloodusage']);
+
             
         ?>
         // Usage respect to months graph
         var ctx = document.getElementById('usage-months').getContext('2d');
+        var details = <?php echo $result; ?>;
         var myChart1 = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    label: 'Blood Usage',
-                    data:   [<?php echo json_encode($result['01'])?>,
-                                <?php echo json_encode($result['02'])?>,
-                                <?php echo json_encode($result['03'])?>,
-                                <?php echo json_encode($result['04'])?>,
-                                <?php echo json_encode($result['05'])?>,
-                                <?php echo json_encode($result['06'])?>,
-                                <?php echo json_encode($result['07'])?>,
-                                <?php echo json_encode($result['08'])?>,
-                                <?php echo json_encode($result['09'])?>,
-                                <?php echo json_encode($result['10'])?>,
-                                <?php echo json_encode($result['11'])?>,
-                                <?php echo json_encode($result['12'])?>]
-                            ,
+                    label: 'Served requests',
+                    data: [details[1],details[2],details[3],details[4],details[5],details[6],details[7],details[8],details[9],details[10],details[11],details[12]],
                     backgroundColor: [
                         '#BF1B16',
                         '#BF1B16',
@@ -142,7 +137,7 @@ $metaTitle = "Blood Availability Report"
             options: {
                 title: {
                     display: true,
-                    text: 'Blood Usage Analysis : <?php echo json_encode($_SESSION['year'])?>',
+                    text: 'Blood Usage Analysis : <?php echo $_SESSION['year']?>',
                     // Align the chart title to the right
                     fontSize: 18,
                     fontColor: '#000000',
@@ -165,7 +160,7 @@ $metaTitle = "Blood Availability Report"
                         // Display the y-axis label
                         scaleLabel: {
                             display: true,
-                            labelString: 'No. of pints',
+                            labelString: 'No. of served requests',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -212,6 +207,50 @@ $metaTitle = "Blood Availability Report"
 
 
             }
+        });
+    </script>
+
+    <!-- Pie chart -->
+    <script>
+        <?php 
+            $result = json_encode($_SESSION['requests']);
+        ?>
+        var stats = <?php echo $result; ?>;
+        console.log(stats);
+        var ctx1 = document.getElementById('usagestats').getContext('2d');
+        var chart = new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Served requests', 'Declined requests', 'Not responded requests'],
+                datasets: [{
+                    data: [stats['accepted'], stats['declined'], stats['pending']],
+                    backgroundColor: ['#BF1B16', '#F0817E', '#640E0B']
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Blood Requests Serving Analysis : <?php echo $_SESSION['year']?>',
+                    fontSize: 18,
+                    fontColor: '#000000',
+                    fontFamily: 'Poppins',
+                    fontStyle: 'bold',
+                    position: 'top',
+                },
+                legend: {
+                    labels: {
+                        fontColor: '#BCBCBC',
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontStyle: 'bold',
+                        position: 'right',
+                    }
+                },
+                // Make the chart responsive
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: 100,
+        }
         });
     </script>
 

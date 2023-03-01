@@ -29,6 +29,7 @@ $metaTitle = "Users"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/user_delete_confirmation.php'); ?>
             
     <!-- main content -->
     <div class="box">
@@ -78,7 +79,11 @@ $metaTitle = "Users"
                         <td>" . $row["Email"] . "</td>
                         <td>" . $row["Username"] . '</td>
                         <td><a href = "/usermanage/view_user/'.$row["UserID"].'"><button class="view-btn" >View</button></a> </td>
-                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/usermanage/edit_user/'.$row["UserID"].'"> <img class="edit-btn" src="./../../public/img/admindashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/usermanage/delete_user/'.$row["UserID"].'">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/usermanage/edit_user/'.$row["UserID"].'"> <img class="edit-btn" src="./../../public/img/admindashboard/edit-btn.png" alt="edit-btn"> </a> </div> 
+                        <div class="delete-btn-div"> <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                        document.getElementById('."'del'".').action = '."'/usermanage/delete_user/".$row["UserID"]."'".'";
+                        ">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+
                     </tr> </div>';
                 
             }

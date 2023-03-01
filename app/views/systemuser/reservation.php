@@ -102,7 +102,8 @@ $metaTitle = "System User Reservations" ;
                                         
                                         
                                         
-                                         echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> 
+                                         echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> 
+                                         <div class="delete-btn-div"> 
                                          <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                                          document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";
                                          ">   

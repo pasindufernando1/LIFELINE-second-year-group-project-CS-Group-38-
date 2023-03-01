@@ -393,8 +393,7 @@ class UserModel extends Model
         for ($i = 0; $i < 12; $i++) {
             $months[date('Y-m', strtotime("-$i months"))] = 0;
         }
-        
-        $bank_donations = $this->db->select("count(*) as count, Date","donor_bloodbank_bloodpacket","GROUP BY MONTH(Date)");
+        $bank_donations = $this->db->select("count(*) as count, Date","donor_bloodbank_bloodpacket","GROUP BY MONTH(Date),YEAR(Date)");
         // If the year and month of the donation is in the array, add the count to the array
         foreach ($bank_donations as $donation) {
             $year_month = date('Y-m', strtotime($donation['Date']));
@@ -403,7 +402,8 @@ class UserModel extends Model
             }
         }
         
-        $camp_donations = $this->db->select("count(*) as count, Date","donor_campaign_bloodpacket","GROUP BY MONTH(Date)");
+        
+        $camp_donations = $this->db->select("count(*) as count, Date","donor_campaign_bloodpacket","GROUP BY MONTH(Date),YEAR(Date)");
         // If the year and month of the donation is in the array, add the count to the array
         foreach ($camp_donations as $donation) {
             $year_month = date('Y-m', strtotime($donation['Date']));

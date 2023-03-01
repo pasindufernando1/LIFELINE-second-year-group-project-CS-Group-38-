@@ -33,13 +33,16 @@ session_start();
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
 
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/validation_confirmation.php'); ?>
+
+
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
             <div class="dashboard menu-items">
                 <div class="marker"></div>
                 <img src="./../../public/img/admindashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="/adminuser/dashboard">Dashboard</a></p>
+                <p class="dashboard-active"><a href="/user/dashboard?page=1">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/admindashboard/non-active/reservation.png" alt="reservation">
@@ -69,7 +72,6 @@ session_start();
                 <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                 <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
                 <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
-
             </div>
             <div class="campaigns menu-item">
                 <img src="./../../public/img/admindashboard/non-active/campaigns.png" alt="campaigns">
@@ -101,7 +103,7 @@ session_start();
     <!-- $_SESSION['dashboard_stats'] -->
     <div class="bo1">
     <p class="te1">Donations Today</p>
-    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations']?></p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations'];?></p>
 </div>
 
 <div class="bo2">
@@ -111,7 +113,13 @@ session_start();
 
 <div class="bo3">
     <p class="te1">Cash Donations Today</p>
-    <p class="te2">Rs.<?php echo $_SESSION['dashboard_stats']['Today_cash_donations']?></p>
+    <p class="te2">Rs.<?php 
+    if($_SESSION['dashboard_stats']['Today_cash_donations'] != 0){
+        echo $_SESSION['dashboard_stats']['Today_cash_donations'];
+    }else{
+        echo "0";
+    }
+    ?></p>
 </div>
 
 <div class="bo4">
@@ -121,7 +129,9 @@ session_start();
 </div>
 
 <div class="bo5">
-<p class="tebar">Blood Donation Statistics</p>
+<p class="tebar">Recent Blood Donation Statistics</p>
+
+<!-- Barchart of donations -->
 <canvas id="usage-months">
                 <script>
                     <?php 
@@ -214,6 +224,7 @@ session_start();
             </canvas>
         </div>
 
+        <!-- Validations of hospitals -->
         <div class="bo6">
             <p class="tebar">Hospital and Medical Center Status</p>
                 <table class="blood-types-table" style="width:90%">
@@ -248,9 +259,11 @@ session_start();
                         echo '<div class="table-content-types"> <tr>
                                 <td>' . $row["UserID"]. "</td>
                                 <td>" . $row["Name"] . '</td>
-                                <td ' . '<span class="validate">View </span>' . '</td>
+                                <td ' . '<span><a class="validate" href="/adminuser/view_user/'.$row["UserID"].'">View</a></span>' . '</td>
                     
-                                <td ' . '<span class="validates">Validate </span>' . '</td>
+                                <td ' . '<span><a class="validates" onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                                document.getElementById('."'del'".').action = '."'/adminuser/validate_user/".$row["UserID"]."'".'";
+                                ">Validate</a></span>' . '</td>
                                 
                             </tr> </div>';
                         
@@ -285,7 +298,8 @@ session_start();
                 
                 </table>
         </div>
-
+        
+        <!-- Donor composition chart -->
         <div class="bo7">
             <!-- <div class="male">
                 <img class="malepic" src="./../../public/img/admindashboard/male.png" alt="male">

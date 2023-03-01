@@ -44,7 +44,7 @@ $metaTitle = "Blood Availability Report"
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Blood Category : </label>
                 <br>
                 <select class="quantity-input" type="text" name="category" id="category" placeholder="Blood Bank ID" required>
-                    <option value="" disabled selected hidden>Select Blood Type</option>
+                    <option value="" disabled selected hidden>Select Blood Category</option>
                     <option value="A+ RBC">A+ RBC</option>
                     <option value="A+ WBC">A+ WBC</option>
                     <option value="A+ Plasma">A+ Plasma</option>
@@ -94,12 +94,6 @@ $metaTitle = "Blood Availability Report"
                         <option value="Uva">Uva</option>
                         <option value="Western">Western</option>
                 </select>
-            </div>
-            <div class="status-container">
-                <label class="status-lable" for="hosname">Requesting Hospital/Medical Center Name</label>
-                <br>
-                <input id="status" class="status-input" type="text" name="hosname" autofocus placeholder="Requesting Hospital/Medical Center" required>
-                
             </div>
                 <div>
                 <button id="submit-btn" class='brown-button-rep generate-analytics' type='submit' name='gen_report'>Generate report</button>                            </div>
