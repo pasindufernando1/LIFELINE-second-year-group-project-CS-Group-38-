@@ -47,7 +47,7 @@
             <div class="footer-section end">
                 <p>&copy;All Rights Reserved by Group 38</p>
             </div>
-            <button class="login-btn">Login</button>
+            <a href="/login"><button class="login-btn">Login</button></a>
 
         </footer>
         </body>

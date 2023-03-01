@@ -16,8 +16,13 @@ class RequestBloodModel extends Model
     }
     public function addBloodRequest($inputs) 
     {
+<<<<<<< Updated upstream
         $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity');
         $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity');
+=======
+        $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity','Date_requested');
+        $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity',':Date_requested');
+>>>>>>> Stashed changes
         $result = $this->db->insert("hospital_blood_requests", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;

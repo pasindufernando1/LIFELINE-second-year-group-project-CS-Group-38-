@@ -1,10 +1,13 @@
-<?php 
+<?php
 
-$metaTitle = "Organizations Dashboard" 
+$metaTitle = 'Organizations Dashboard';
+// print_r(sizeof($_SESSION['campaignsList']));
+// die();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +18,7 @@ $metaTitle = "Organizations Dashboard"
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
-     <!-- CSS Files -->
+    <!-- CSS Files -->
     <link href="../../../public/css/organization/dashboard.css" rel="stylesheet">
 
     <!-- Font Files -->
@@ -24,9 +27,10 @@ $metaTitle = "Organizations Dashboard"
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
 
-    
+
 
 </head>
+
 <body>
     <!-- header -->
     <div class="top-bar">
@@ -46,11 +50,11 @@ $metaTitle = "Organizations Dashboard"
                 <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
             </div>
             <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
+                <p><?php echo $_SESSION['username']; ?></p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br> 
+                    <p><?php echo $_SESSION['type']; ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -58,7 +62,8 @@ $metaTitle = "Organizations Dashboard"
 
             </div>
             <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png" alt="3-dot">
+                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
+                    alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
                     <a href="#">Profile</a>
                     <a href="/organizationuser/logout">Log Out</a>
@@ -76,24 +81,44 @@ $metaTitle = "Organizations Dashboard"
 
                     <div class="campaigns menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns">
+<<<<<<< Updated upstream
                         <img class="campaigns-non-active" src="./../../public/img/orgdashboard/active/campaigns.png" alt="campaigns">
                         <p class="campaigns-nav"><a href="#">Campaigns</a></p>
+=======
+                        <img class="campaigns-non-active" src="./../../public/img/orgdashboard/active/campaigns.png"
+                            alt="campaigns">
+                        <p class="campaigns-nav"><a href="/requestApproval/chooseHere/">Campaigns</a></p>
+>>>>>>> Stashed changes
                     </div>
-                
+
                     <div class="schedule-time menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/schedule time.png" alt="schedule time">
+<<<<<<< Updated upstream
                         <img class="schedule-time-non-active" src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
                         <p class="schedule-time-nav "><a href="#">Schedule time</a></p>
+=======
+                        <img class="schedule-time-non-active"
+                            src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
+                        <p class="schedule-time-nav "><a href="/requestApproval/chooseHere_scheduleTime">Schedule
+                                time</a></p>
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="notifications menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/notifications.png" alt="notifications">
+<<<<<<< Updated upstream
                         <img class="notifications-non-active" src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
                         <p class="notifications-nav "><a href="#">Notifications</a></p>
+=======
+                        <img class="notifications-non-active"
+                            src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
+                        <p class="notifications-nav "><a href="/requestApproval/getAcceptedCamps">Notifications</a></p>
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="cash-donations menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/cash donations.png" alt="cash donations">
+<<<<<<< Updated upstream
                         <img class="cash-donations-non-active" src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
                         <p class="cash-donations-nav "><a href="#">Cash donations</a></p>
                     </div>
@@ -102,28 +127,159 @@ $metaTitle = "Organizations Dashboard"
                         <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations">
                         <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
                         <p class="inventory-donations-nav "><a href="#">Inventory donations</a></p>
+=======
+                        <img class="cash-donations-non-active"
+                            src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
+                        <p class="cash-donations-nav "><a href="/requestApproval/donateCash">Cash donations</a></p>
+                    </div>
+
+                    <div class="inventory-donations menu-item">
+                        <img src="./../../public/img/orgdashboard/non-active/inventory donations.png"
+                            alt="inventory donations">
+                        <img class="inventory-donations-non-active"
+                            src="./../../public/img/orgdashboard/active/inventory donations.png"
+                            alt="inventory donations">
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="instructions menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/instructions.png" alt="instructions">
+<<<<<<< Updated upstream
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
                         <p class="instructions-nav "><a href="#">Instructions</a></p>
+=======
+                        <img class="instructions-non-active"
+                            src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
+                        <p class="instructions-nav "><a href="/requestApproval/viewInstructions">Instructions</a></p>
+                    </div>
+
+                    <div class="feedback menu-item">
+                        <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
+                        <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
+                            alt="instructions">
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="profile menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/profile.png" alt="profile">
+<<<<<<< Updated upstream
                         <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png" alt="profile">
                         <p class="profile-nav "><a href="#">Profile</a></p>
+=======
+                        <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png"
+                            alt="profile">
+                        <p class="profile-nav "><a href="/requestApproval/viewProfile">Profile</a></p>
+>>>>>>> Stashed changes
                     </div>
 
                 </div>
 
             </div>
+<<<<<<< Updated upstream
 
 
+=======
+            <div class="box">
+
+                <img class="dashboard-img" src="./../../public/img/orgdashboard/dashboard_img.jpg" alt="req" width=100%>
+                <p class="welcome">Welcome to <br>
+                    <img class="welcome-image" src="./../../public/img/hospitalsdashboard/logo.jpg" alt="dashboard_img">
+                </p>
+
+            </div>
+
+            <div class="box1">
+                <p class="box1-title">Upcoming Blood Donation Campaigns<br>
+
+
+                    <?php
+                    //$results_per_page = 7;
+                    $_SESSION['rowCount'] = sizeof($_SESSION['campaignsList']);
+                    //$number_of_results = $_SESSION['rowCount'];
+                    //$number_of_page = ceil($number_of_results / $results_per_page);
+
+                    //determine which page number visitor is currently on
+                    if (!isset($_GET['page'])) {
+                        $page = 1;
+                    } else {
+                        $page = $_GET['page'];
+                    }
+                    //determine the sql LIMIT starting number for the results on the displaying page
+                    //$page_first_result = ($page-1) * $results_per_page;
+                    $result = $_SESSION['campaignsList'];
+                    $count = 0;
+                    if ($_SESSION['rowCount'] > 0) {
+                        foreach ($result as $row) {
+                            $count++;
+                            if ($count > 4) {
+                                break;
+                            }
+                            //display the link of the pages in URL
+
+                            echo '<div class="view-campaign-card">
+                                            
+                                            <div class="campaign-card"
+                                            <p class="campaign-card-info">
+                                            <h3 class="campaignName">' .
+                                $row['Name'] .
+                                '</h3>
+                                            <br>
+                                            
+                                            Date :' .
+                                $row['Date'] .
+                                '<br>
+                                            
+                                            </p>
+                                            </div>
+                                            </div>';
+                            // print_r($result[0]);die();
+                        }
+                    } else {
+                        echo '0 results';
+                    }
+
+/* echo '<div class="pag-box">';
+                        if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        }
+                  
+                        for($page = 1; $page<= $number_of_page; $page++) {  
+                            if ($page == $_GET['page']) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        if ($_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        }
+                          
+                        echo '</div>' ; */
+?>
+
+
+                </p>
+            </div>
+            <div class="box2">
+                <p class="box2-title">Advertisements<br>
+                    <a><img class="r-arrow-img" src="./../../public/img/orgdashboard/right-arrow.jpg"
+                            alt="dashboard"></a>
+                    <a href="/getcampaign/view_campaign?camp=4"><img class="dash-img"
+                            src="./../../public/img/orgdashboard/dash-ad.jpg" alt="dashboard"></a>
+                    <a><img class="l-arrow-img" src="./../../public/img/orgdashboard/left-arrow.jpg"
+                            alt="dashboard"></a>
+            </div>
+>>>>>>> Stashed changes
         </div>
 
     </div>
 
 </body>
+
 </html>

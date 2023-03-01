@@ -1,3 +1,4 @@
+
 <?php
 $metaTitle = "Reservations Added Successfully";
 
@@ -95,7 +96,7 @@ $metaTitle = "Reservations Added Successfully";
                 </div>
                 <button class='brown-button' type='submit' name='update-profile'>Update Profile</button>
                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/adprofile">Cancel Updating</a>
+                <a class='outline-button' type='reset' name='cancel-adding' href="/profile">Cancel Updating</a>
                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
         </form>
 

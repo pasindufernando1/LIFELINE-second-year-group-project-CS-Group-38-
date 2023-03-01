@@ -15,8 +15,14 @@
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+
+    <!-- loader -->
+    
 </head>
 <body>
+    
+    
+
     <div class="top-bar">
         <div class="logo">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">

@@ -533,6 +533,80 @@ body {
     text-decoration: none;
     margin-top: 15px;
 }
+<<<<<<< Updated upstream
+=======
+ */
+
+.requestBlood {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 22px;
+    top: -312px;
+}
+
+.requestBlood img {
+    position: absolute;
+    width: 33px;
+    height: 34px;
+    left: 0px;
+    top: 0px;
+    margin-top: 405px;
+}
+
+.requestBlood-nav a {
+    position: absolute;
+    width: 159px;
+    height: 28px;
+    left: 52.74px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 407px;
+}
+
+.requestBlood-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.requestBlood-selected {
+    position: absolute;
+    left: 5px;
+    top: 289px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.requestBlood-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+
+}
+
+>>>>>>> Stashed changes
 .profile {
     position: absolute;
     width: 170.74px;
@@ -568,6 +642,54 @@ body {
     margin-top: 577px;
 }
 
+<<<<<<< Updated upstream
+=======
+.profile-non-active {
+    display: none;
+}
+
+.menu-item:hover .profile-non-active {
+    display: block;
+}
+
+
+.profile-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.profile-selected {
+    position: absolute;
+    left: 5px;
+    top: 478px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.profile-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+
+}
+
+
+>>>>>>> Stashed changes
 .menu-item a:hover {
     font-weight: 700;
     font-size: 18.9713px;
@@ -622,7 +744,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 797px;
+    height: 500px;
     left: 316px;
     top: 0;
     background: #ffffff;
@@ -1230,4 +1352,118 @@ td {
 .pag-div-10 a {
     background-color: #640E0B;
     color: #FFFFFF;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.dashboard-img {
+    top: 0px;
+    width: 1539px;
+    position: absolute;
+    height: 500px;
+
+}
+
+.box1 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 1537px;
+    height: 368px;
+    left: 313px;
+    top: 648px;
+
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.dashSub-title {
+    margin-top: 20px;
+    margin-left: 20px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+
+}
+
+.nearby_bb {
+    margin-left: 37px;
+    width: 1452px;
+    height: 264px;
+    /* top: 648px; */
+    /* background: #580000; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.nearby_bb .bb {
+    float: left;
+    margin: 23px;
+    width: 412px;
+    height: 207px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 3px 7px rgb(0 0 0 / 25%);
+}
+
+.nearby_bb .bb .bbn {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    /* text-indent: 5px; */
+    margin-left: 5px;
+}
+
+.nearby_bb .bb .bbd {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Poppins';
+    /* text-indent: 5px; */
+    margin-left: 5px;
+}
+
+.nearby_bb .bb button {
+    margin-left: 262px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 125px;
+    height: 39px;
+    background: #640E0B;
+    color: white;
+    border-radius: 6px;
+    font-family: 'Poppins';
+}
+
+.nearby_bb .bb button a {
+    color: white
+}
+
+/* float: left;
+    width: 30%;
+    display: flex;
+    background-color: white;
+    border: 1px solid #ECEEF7;
+    border-radius: 7px;
+    height: 85%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
+    margin-left: 36px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-evenly; */
+>>>>>>> Stashed changes

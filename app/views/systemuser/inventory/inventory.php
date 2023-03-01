@@ -18,6 +18,7 @@ $metaTitle = "System User Reservations"
     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/inventory.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/inventory_view.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -44,22 +45,20 @@ $metaTitle = "System User Reservations"
                         <a href="/sys_inventory/request?page=1" class="brown-button types-reservation">Donation Requests</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/inv.png" alt="add-button">
 
-                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
-                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
+                        <!-- <a href="#" class="ash-button reservation-filter">Filter & Short</a>
+                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
                         <table class="blood-types-table" style="width:90%">
                         <tr>
-                            <th>Inventory ID</th>
-                            <th>Inventory Type</th>
-                            <th>Name</th>
-                            <th>Blood Bank</th>
+                            <th>Inventory Name</th>
+                            <th>Type</th>
                             <th>Quantity</th>
                             <th>Action</th>
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
                         $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_results = count($_SESSION['invtypes']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
                         //determine which page number visitor is currently on  
@@ -70,22 +69,40 @@ $metaTitle = "System User Reservations"
                         }  
                          //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['packets'];
+                        $result = $_SESSION['inv'];
+                        
 
                         //display the link of the pages in URL  
                           
 
                         // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Expiry_constraint"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                        <td>' . $row["Name"] . "</td>
+                                        <td>" .$row["Type"] . "</td>
+                                        <td>" . $row["Quantity"] . '</td>
+                                        <td> 
+                                        <div class="btns">
+                                        <form action="/sys_inventory/add_quantity/'.$row["InventoryID"].'" method="POST">
+                                        
+                                            <input min="0" title="Add Quantity" class="sub-input" type="number" id="quantity" name="quantity" placeholder="" required>
+                                            
+                                         <button type="submit" class="update-btn">+</button> 
+                                     
+                                    
+                                    </form>
+                                    <form action="/sys_inventory/substract_quantity/'.$row["InventoryID"].'" method="POST">
+                                        
+                                            <input min="0" title="Substract Quantity" class="sub-input" type="number" id="quantity" name="quantity" placeholder="" required>
+                                            
+                                         <button type="submit" class="remove-btn">-</button> 
+                                     
+                                    
+                                    </form>
+                                    </div>
+                                    </td>
                                     </tr> </div>';
                                 
                             }
@@ -118,12 +135,25 @@ $metaTitle = "System User Reservations"
 
                 </div>
 
+           <div class = "box-f">
+                <div class = "box-t">
+                    <p class="title-p">Inventory Item Types</p>
+                </div>
+                
+                <div class="box-cont" >   
+                    <?php
+                    $count = count($_SESSION['invtypes']);
+                    for ($i=0; $i < $count; $i++) { 
+                    echo '  
+                    <div class = "box-r">
+                        <p class="type-p">'.$_SESSION['invtypes'][$i]['Name'].'</p>
+                        <p class="count-p">'.$_SESSION['invtypes'][$i]['Type'].'</p>
+                    </div>';
+                }
+                ?>
+                    
+                        
             </div>
-
-
-        </div>
-
-    </div>
 
 </body>
 </html>

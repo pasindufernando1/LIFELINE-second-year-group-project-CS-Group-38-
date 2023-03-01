@@ -30,15 +30,15 @@ class ReservationModel extends Model
             return true;
         } else print_r($result);
     }
-    public function getAllTypes($blood_bank_id)
+    public function getAllTypes()
     {
-        $data = $this->db->select("*", "bloodcategory" , " WHERE blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
+        $data = $this->db->select("*", "bloodcategory" ,null);
         return $data;
     }
 
     public function getAllPackets($blood_bank_id)
     {
-        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id",':blood_bank_id',$blood_bank_id);
+        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.Quantity IS NOT NULL",':blood_bank_ID',$blood_bank_id);
         return $packets;
     }
 
@@ -111,6 +111,84 @@ class ReservationModel extends Model
             return $blood_bank_id;
         
         } 
+
+    }
+
+    public function getfullcount($blood_bank_id)
+    {
+        $count = $this->db->select("CONCAT(name, ' ', subtype) AS type,SUM(quantity) as totalquantity,COUNT(Subtype)","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id AND bloodpacket.Quantity IS NOT NULL  GROUP BY Subtype,name",':blood_bank_id',$blood_bank_id);
+        
+        return $count;
+        
+    }
+
+    public function getAllPacks($blood_bank_id)
+    {
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID ",':blood_bank_ID',$blood_bank_id);
+        return $pack;
+    }
+
+    public function  changeStatus($packetID)
+    {
+        $status = 2;
+        $columns = array('Status');
+        $param = array(':Status');
+        $inputs = array($status);
+        $result = $this->db->update("bloodpacket", $columns, $param, $inputs, ':packetID', $packetID, "WHERE packetID = :packetID;");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
+    public function getAllExpiredPacks($blood_bank_id)
+    {
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.status = 2",':blood_bank_ID',$blood_bank_id);
+        return $pack;
+    }
+
+    public function getAllExpiredPacksCount($blood_bank_id)
+    {
+        $pack = $this->db->select("CONCAT(name, ' ', subtype) AS type,SUM(quantity) as totalquantity","bloodcategory","LEFT OUTER JOIN bloodpacket on bloodpacket.TypeID = bloodcategory.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id AND Status = 2 GROUP BY Subtype,name",':blood_bank_id',$blood_bank_id);
+        return $pack;
+
+    }
+
+    public function getfiltertype($type,$blood_bank_id)
+    {
+        $params = array(':type',':blood_bank_ID');
+        $inputs = array($type,$blood_bank_id);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.status = 2 AND bloodcategory.Name = :type",$params,$inputs);
+        return $pack;
+    }
+
+    public function getfiltertypes($type,$blood_bank_id,$subtype)
+    {
+        $params = array(':type',':blood_bank_ID','subtype');
+        $inputs = array($type,$blood_bank_id,$subtype);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.status = 2 AND bloodcategory.Name = :type AND bloodcategory.subtype = :subtype",$params,$inputs);
+        return $pack;
+    }
+
+    public function getAllNullQuantity($blood_bank_id)
+    {
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN donor on donor.UserID = donor_bloodbank_bloodpacket.DonorID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND Quantity IS NULL GROUP BY bloodpacket.PacketID",':blood_bank_ID',$blood_bank_id);
+        return $pack;
+    }
+
+    public function updateQuantity($packID,$subtype,$quantity)
+    {
+        $columns = array('Quantity');
+        $params = array(':quantity');
+        $inputs = array($quantity);
+
+        $para = array(':packID', ':subgroup');
+        $inp = array($packID,$subtype);
+
+         $result = $this->db->update("bloodpacket", $columns, $params, $inputs,$para, $inp, "WHERE PacketID = :packID AND Sub_PacketID = :subgroup;");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+
 
     }
 }

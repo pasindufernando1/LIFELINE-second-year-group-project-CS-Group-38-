@@ -25,6 +25,12 @@ class OrganizationUser extends Controller
         //if already logged in redirect to the admin dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Organization/Society") {
+<<<<<<< Updated upstream
+=======
+                // $camp_info = $this->model->view_campaign_info();
+                
+                $_SESSION['campaignsList'] = $this->model->view_campaign_info();
+>>>>>>> Stashed changes
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -41,6 +47,8 @@ class OrganizationUser extends Controller
         if ($this->model->authenticate($uname, $pwd)) {
 
             //set session variables
+            $_SESSION['campaignsList'] = $this->model->view_campaign_info();
+
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $this->view->render('organization/dashboard');
@@ -55,7 +63,7 @@ class OrganizationUser extends Controller
 
     function logout()
     {
-        //destroy session variables
+        //destroy session v ariables
         session_unset();
         session_destroy();
         session_regenerate_id(true);

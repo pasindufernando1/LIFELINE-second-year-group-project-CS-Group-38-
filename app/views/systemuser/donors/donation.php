@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "System User Donations" 
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $metaTitle = "System User Reservations"
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>       
                     <div class="box">
-                        <p class="add-reservation-title">Donors</p>
+                        <p class="add-reservation-title">Donation</p>
                         
                         
                         <a href="/sys_donors/add_donation" class="brown-button types-reservation">Add New</a>
@@ -52,7 +52,7 @@ $metaTitle = "System User Reservations"
                         <tr>
                             <th>Donor NIC</th>
                             <th>Received Date</th>
-                            <th>Packet Quantity</th>
+                            
                             <th>Complication</th>
                             
                             <th>Action</th>
@@ -71,7 +71,7 @@ $metaTitle = "System User Reservations"
                         }  
                          //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['packets'];
+                        $result = $_SESSION['donations'];
 
                         //display the link of the pages in URL  
                           
@@ -81,11 +81,23 @@ $metaTitle = "System User Reservations"
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Quantity"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/sys_inventory/view/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                        <td>' . $row["NIC"]. "</td>
+                                        <td>" . $row["Date"] . "</td>
+                                        
+                                        <td>";
+                                        
+                                        if($row["Complication"] != "")
+                                        {
+                                            echo $row["Complication"] . '</td>';
+                                        }
+                                        else
+                                        {
+                                            echo "No Complications";
+                                        }
+                                        
+                                        
+                                         
+                                        echo '<td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/sys_inventory/view/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> </div> </div></td>
                                     </tr> </div>';
                                 
                             }

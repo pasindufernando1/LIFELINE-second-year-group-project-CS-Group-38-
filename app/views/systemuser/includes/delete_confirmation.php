@@ -10,10 +10,10 @@
 </html>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" id="del" action="<?php echo $_SESSION['action']; ?>" method="POST">
+  <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
-      <h1>Delete Blood Packet</h1>
+      <h1>Delete <?php echo $delete ?></h1>
       <p>Are you sure you want to delete?</p>
     
       <div class="clearfix">

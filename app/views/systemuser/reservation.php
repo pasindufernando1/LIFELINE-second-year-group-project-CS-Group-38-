@@ -24,7 +24,9 @@ $metaTitle = "System User Reservations" ;
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
     <!-- js Files -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
     <script src="../../../public/js/drop-down.js"></script>
+    <script src="../../../public/js/systemuser/reservation.js"></script>
     
 
     
@@ -36,18 +38,26 @@ $metaTitle = "System User Reservations" ;
 
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>   
+<<<<<<< Updated upstream
 
+=======
+    <?php $delete = "Blood Reserve"; ?>
+>>>>>>> Stashed changes
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/delete_confirmation.php'); ?>
     
 
 
+<<<<<<< Updated upstream
                     <div class="box">
+=======
+                    <div class="box" id="box">
+>>>>>>> Stashed changes
                         <p class="add-reservation-title">Blood Reserves</p>
                         
-                        <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
-                        <img class="addbutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
+                        <!-- <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
+                        <img class="addbutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button"> -->
 
-                        <a href="/reservation/type?page=1" class="brown-button types-reservation">Types</a>
+                        <a href="/reservation/type?page=1" class="brown-button types-reservation">Pending Quantity</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
 
                         <a href="/reservation/expired_stocks?page=1" class="brown-button expired-stock-btn">Expired Stocks</a>
@@ -58,7 +68,7 @@ $metaTitle = "System User Reservations" ;
 
                         <table class="blood-types-table" style="width:90%">
                         <tr>
-                            <th>Reservation ID</th>
+                            
                             <th>Blood Group</th>
                             <th>Quantity</th>
                             <th>Expiry Constraints</th>
@@ -90,6 +100,7 @@ $metaTitle = "System User Reservations" ;
                             
                                
                                 echo '<div class="table-content-types"> <tr>
+<<<<<<< Updated upstream
                                         <td>' . $row["PacketID"]. "</td>
                                         <td>" . $row["Name"] . "</td>
                                         <td>" . $row["Quantity"] . "</td>
@@ -102,6 +113,14 @@ $metaTitle = "System User Reservations" ;
                                         
                                         
                                         
+=======
+                                        <td>' . $row["Name"] . " " .$row['Subtype'] . "</td>
+                                        <td>" . $row["Quantity"] ." Packs" ."</td>
+                                        <td>" . $row["Expiry_constraint"] . " Days". '</td>
+                                        <td>';
+
+                                        
+>>>>>>> Stashed changes
                                          echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> 
                                          <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                                          document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";
@@ -149,13 +168,86 @@ $metaTitle = "System User Reservations" ;
                         
 
                 </div>
+            </div>
+            </div>
+            <div class="box-small" >
+                <p class="count-title">Blood Quantity Count</p>
+                <div class="count-box">
+                    <?php
+                    $result2 = $_SESSION['count'];
+                    $lable = array();
+                    $quandata = array();
+                        foreach($result2 as $item){
+                            array_push($lable,($item['type']));
+                            array_push($quandata,$item['totalquantity']);
+                        echo ' <p><span class="c-name">'.$item['type'].'</span> -<span class="c-quan"> '.$item['totalquantity']. " Packets".'</span></p>';                    }
+                    
+                    ?>
+                </div>
+            </div>
+             
+            <div class="box-pie" id="pie"  >
+           
+            <script type="text/javascript">
+
+                window.addEventListener('click', function(e){   
+                    if (document.getElementById('pie').contains(e.target)){
+                       document.getElementById("pie").style.width = "41%";
+                        document.getElementById("pie").style.height = " 90.1%";
+                        document.getElementById("pie").style.left = "30%";
+                        document.getElementById("pie").style.top = "96px";
+                        document.getElementById("pie").style.transition = "width 1s";
+                        document.getElementById("pie").style.transition = "height 1s";
+                        document.getElementByID("box").style.filter = "blur(8px)";
+                        
+                    } else{
+                        document.getElementById("pie").style.width = "19%";
+                    document.getElementById("pie").style.height = " 38.1%";
+                    document.getElementById("pie").style.left = "81%";
+                    document.getElementById("pie").style.top = "569px";
+                    document.getElementById("pie").style.transition = "width 1s";
+                    document.getElementById("pie").style.transition = "height 1s";
+                    }
+                    });
+
+                
+
+            
+            </script>
+<canvas id="myChart" style="width:100%;" ></canvas>
+
+<script>
+var xValues =  <?php echo json_encode($lable); ?>;
+var yValues = <?php echo json_encode($quandata); ?>;
+var barColors = [
+  "#640E0B",
+  "#F5AEAC", 
+  "#F0817E", 
+  "#EB5550", 
+  "#E62822", 
+  "#BF1B16", 
+  "#911511", 
+  "#FBDAD9"
+];
+
+new Chart(document.getElementById("myChart"), {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Blood Reserve"
+    }
+  }
+});
+</script>
 
             </div>
-
-
-        </div>
-
-    </div>
-
 </body>
 </html>

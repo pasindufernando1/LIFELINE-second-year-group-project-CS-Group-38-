@@ -63,7 +63,11 @@ $metaTitle = "System User Dashboard"
                 <script>
                     var ctx = document.getElementById('usage-months').getContext('2d');
                     var myChart = new Chart(ctx, {
+<<<<<<< Updated upstream
                         type: 'bar',
+=======
+                        type: 'line',
+>>>>>>> Stashed changes
                         data: {
                             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                             datasets: [{
@@ -151,7 +155,11 @@ $metaTitle = "System User Dashboard"
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
+<<<<<<< Updated upstream
                         $results_per_page = 7;
+=======
+                        $results_per_page = 3;
+>>>>>>> Stashed changes
                         $number_of_results = $_SESSION['rowCount'];
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
@@ -187,7 +195,30 @@ $metaTitle = "System User Dashboard"
                         }
                        
                   
+<<<<<<< Updated upstream
                        
+=======
+                       echo '<div class="pag-box">';
+                        if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        }
+                  
+                        for($page = 1; $page<= $number_of_page; $page++) {  
+                            if ($page == $_GET['page']) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        if ($_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        }
+                          
+>>>>>>> Stashed changes
                         
                           
                         echo '</div>' ;?>
@@ -197,6 +228,7 @@ $metaTitle = "System User Dashboard"
         </div>
 
         <div class="bo7">
+<<<<<<< Updated upstream
             <div class="male">
                 <img class="malepic" src="./../../public/img/dashboard/male.png" alt="male">
                 <p class="matex">35%</p>
@@ -208,10 +240,14 @@ $metaTitle = "System User Dashboard"
                 <p class="matex">65%</p>
 
             </div>
+=======
+            
+>>>>>>> Stashed changes
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
                 new Chart(document.getElementById("pie-chart"), {
+<<<<<<< Updated upstream
                     type: 'doughnut',
                     data: {
                     
@@ -222,6 +258,35 @@ $metaTitle = "System User Dashboard"
                         
                     }]
                     },
+=======
+                    type: 'bar',
+                     labels: ['Male', 'Female'],
+                            
+                    data: {
+                            labels: ['Male', 'Female'],
+                            datasets: [{
+                                label: 'Donation Received',
+                                data: [12, 19 ],
+                                backgroundColor: [
+                                    '#BF1B16',
+    
+                                    
+                                    '#BF1B16'
+                                ],   
+                                //Barwidth
+                                //backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+                                
+                                borderRadius: 8,
+                                borderSkipped: false,
+                                barpercentage: 1,
+                                 borderWidth: 2,
+                                
+                                borderSkipped: false,
+                                hoverOffset: 4
+                            }]
+                        },
+                    
+>>>>>>> Stashed changes
                     options: {
                     title: {
                         display: true,

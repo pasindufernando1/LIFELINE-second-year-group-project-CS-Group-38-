@@ -85,3 +85,163 @@
     top: 70px !important;
     z-index: 999;
 }
+
+.box {
+    width: 65% !important;
+}
+
+.addnew-reservation {
+    left: 289px !important;
+}
+
+.addbutton-reservation {
+    left: 467px !important;
+}
+
+.types-reservation {
+    left: 526px !important;
+}
+
+.typebutton-reservation {
+    left: 695px !important;
+}
+
+.expired-stock-btn {
+    left: 763px !important;
+}
+
+.expired-stocks-img {
+    left: 943px !important;
+}
+
+.reservation-filter {
+    left: 1000px !important;
+}
+
+.reservation-filter-img {
+    left: 1183px !important;
+}
+
+.box-small {
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+    width: 19%;
+    height: 49.6%;
+    position: absolute;
+    background: white;
+    left: 81%;
+    top: 95px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.count-title {
+    position: absolute;
+    width: 247.65999999999997px;
+    height: 46.32px;
+    left: 65px;
+    top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.count-box {
+    margin-top: 97px;
+    margin-left: 27px;
+}
+
+.c-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.c-quan {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #bf1b16;
+}
+
+.box-pie {
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+    width: 19%;
+    height: 38.1%;
+    position: absolute;
+    background: white;
+    left: 81%;
+    top: 569px;
+}
+
+.box-big {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80%;
+    height: 88vh;
+    left: 286px;
+    top: 96px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.sub-input
+{
+    height: 15px;
+    width: 60px;
+    text-align: center;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 4px;
+}
+
+.sub-input::placeholder 
+{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: #000000;
+}
+
+.update-btn
+{
+    position: absolute;
+    background: #640E0B;
+    border-radius: 6px;
+    width: 107px;
+    height: 25px;
+    margin-top: -15px;
+    margin-left: -53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    /* line-height: 19px; */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    padding-top: 5px;
+    padding-bottom: 25px;
+}
+
+
+

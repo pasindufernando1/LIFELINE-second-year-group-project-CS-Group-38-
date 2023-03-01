@@ -166,6 +166,10 @@ body {
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
+<<<<<<< Updated upstream
+=======
+    width: 30%;
+>>>>>>> Stashed changes
 }
 
 .sub-location {
