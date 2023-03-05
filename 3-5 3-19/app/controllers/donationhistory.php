@@ -19,9 +19,6 @@ class Donationhistory extends Controller
                 $no_of_bank_donations = $this->model->getNoOfBankDonations(
                     $_SESSION['user_ID']
                 );
-<<<<<<< Updated upstream
-                $this->view->render('donor/donation_history');
-=======
 
                 $_SESSION['no_of_camp_donations'] = json_encode($no_of_camp_donations);
                 $_SESSION['no_of_bank_donations'] = json_encode($no_of_bank_donations);
@@ -81,7 +78,6 @@ class Donationhistory extends Controller
                     $_SESSION['camp_donations']
                 );
                 $this->view->render('donor/donation_history_camp');
->>>>>>> Stashed changes
                 exit();
             }
         } else {
