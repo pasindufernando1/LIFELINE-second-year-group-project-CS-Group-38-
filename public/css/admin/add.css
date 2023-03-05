@@ -674,7 +674,19 @@ body {
     width: 1540px;
     height: 853px;
     left: 316px;
-    top: 0;
+    top: 100px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box-new {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 853px;
+    left: 316px;
+    top: 103px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;

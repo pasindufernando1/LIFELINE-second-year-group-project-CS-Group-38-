@@ -34,7 +34,7 @@
                 <br>
                 <label class="address-lable" for="address">POSTAL ADDRESS</label>
                 <br>
-                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="Number" required>
+                <input id="number" class="number-input" type="text" name="number" autofocus placeholder="First line" required>
                 <input id="lane" class="lane-input" type="text" name="lane" autofocus placeholder="Lane" required>
                 <input id="city" class="city-input" type="text" name="city" autofocus placeholder="City" required>
                 <!-- <input id="district" class="district-input" type="text" name="district" autofocus placeholder="District" required> -->

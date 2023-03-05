@@ -257,7 +257,7 @@ quantity?.addEventListener("input", function () {
         quantity_flag = false;
         // submit.disabled = true;
     } else {
-        quantityLabel.innerHTML = "Quantity";
+        quantityLabel.innerHTML = "Packet quantity:";
         quantityLabel.style.color = "#000000";
         quantity_flag = true;
         // submit.disabled = false;

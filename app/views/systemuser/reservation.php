@@ -50,7 +50,7 @@ $metaTitle = "System User Reservations" ;
                         <a href="/reservation/type?page=1" class="brown-button types-reservation">Types</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
 
-                        <a href="#" class="brown-button expired-stock-btn">Expired Stocks</a>
+                        <a href="/reservation/expired_stocks?page=1" class="brown-button expired-stock-btn">Expired Stocks</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/expired-stocks.png" alt="expired-stocks">
 
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>

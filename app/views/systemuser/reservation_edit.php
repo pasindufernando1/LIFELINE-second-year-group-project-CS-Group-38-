@@ -33,7 +33,7 @@ $metaTitle = "System User Reservations"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
 
-    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000<!-- Side bar -->
+    <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
             
                     

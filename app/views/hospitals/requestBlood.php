@@ -69,21 +69,21 @@ $metaTitle = "Hospitals Dashboard"
             <div class="side-bar">
                 <div class="side-nav">
                     
-                    <div class="dashboard menu-item">       
-                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
-                        <!-- <img class="dashboard-non-active" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard"> -->
-                        <p class="dashboard-nav"><a href="/hospitaluser/dashboard">Dashboard</a></p>
+                <div class="dashboard menu-item">       
+                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard"> 
+                        <img class="reservation-non-active dash" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
+                        <p class="dashboard-non-active menu-item"><a href="/hospitaluser/dashboard">Dashboard</a></p>
                     </div>
-                    <div class="requestBlood menu-items">
+                    <div class="requestBlood-selected">
                         <div class="marker"></div>
-                        <img src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-active"><a href="#">Request Blood</a></p>
+                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
+                        <p class="requestBlood-act"><a href="#">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
                         <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
                         <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-                    </div>
+                        <p class="profile-nav "><a href="/requestBlood/viewProfile">Profile</a></p>
+                    </div>  
 
                     
                     <div class="box1">
@@ -131,7 +131,7 @@ $metaTitle = "Hospitals Dashboard"
                         <div>
                             <button class='brown-button' type='submit' name='request' id="submit-btn">Request</button>
                             <!--img class="requestbutton" src="./../../public/img/hospitalsdashboard/requestbtn.png" alt="request-button"-->
-                            <button class='outline-button' type='reset' name='cancel-adding' >Cancel Adding</button>
+                            <button class='outline-button' type='reset' name='cancel-adding' ><a href="/requestBlood/viewReqBlood" class="cancel">Cancel Adding</a></button>
                             <!-- <img class="cancelbutton" src="./../../public/img/hospitalsdashboard/cancelbtn.png" alt="cancel-button"> -->
                         </div>
                     </form>

@@ -4,52 +4,45 @@ $_SESSION['error'] = '';
 
 class User extends Controller
 {
-<<<<<<< Updated upstream
-
-    function __construct()
-=======
     public function __construct()
->>>>>>> Stashed changes
     {
         parent::__construct();
     }
 
     public function dashboard()
     {
-        
         //redirect to login if not logged in or login button in not clicked
         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
-            header("Location: /authentication/login");
-        }
-        
-        //if already logged in redirect according to user types
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "System User") {
-                $this->view->render('systemuser/dashboard');
-                exit;
-            } else if ($_SESSION['type'] == "Admin") {
-                $this->view->render('layout/navigation');
-                exit;
-            } else if ($_SESSION['type'] == "Donor") {
-                $this->view->render('systemuser/dashboard');
-                exit;
-            } else {
-                $this->view->render('systemuser/dashboard');
-                exit;
-            }
+            header('Location: /authentication/login');
         }
 
+        //if already logged in redirect according to user types
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'System User') {
+                $this->view->render('systemuser/dashboard');
+                exit();
+            } elseif ($_SESSION['type'] == 'Admin') {
+                $this->view->render('admin/dashboard');
+                exit();
+            } elseif ($_SESSION['type'] == 'Donor') {
+                $this->view->render('donor/dashboard');
+                exit();
+            } elseif ($_SESSION['type'] == 'Hospital/Medical_Center') {
+                $this->view->render('hospitals/dashboard');
+                exit();
+            } elseif ($_SESSION['type'] == 'Organization/Society') {
+                $this->view->render('organization/dashboard');
+                exit();
+            }
+        }
 
         //get POST data from login page
         $uname = $_POST['username'];
         $pwd = $_POST['password'];
 
-
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
-<<<<<<< Updated upstream
-=======
         if ($_SESSION['type'] == 'System User') {
             if ($this->model->authenticate($uname, $pwd)) {
                 $_SESSION['useremail'] = $_POST['username'];
@@ -153,25 +146,24 @@ class User extends Controller
         } elseif ($_SESSION['type'] == 'Hospital/Medical_Center') {
             $type = $this->model->gettype($uname);
             $_SESSION['type'] = $type;
->>>>>>> Stashed changes
 
-        
-        if ($this->model->authenticate($uname, $pwd)) {
+            if ($this->model->authenticate($uname, $pwd)) {
+                //set session variables
+                $_SESSION['login'] = 'loggedin';
+                $_SESSION['username'] = $this->model->getUserName($uname);
+                $_SESSION['User_ID'] = $this->model->getUserID($uname);
+                $_SESSION['District'] = $this->model->getUserDistrict(
+                    $_SESSION['User_ID']
+                );
+                $_SESSION[
+                    'nearbyBloodbanks'
+                ] = $this->model->viewNearbyBloodbanks($_SESSION['District']);
+                $_SESSION[
+                    'bloodbank_contact'
+                ] = $this->model->viewBloodBankContact(
+                    $_SESSION['nearbyBloodbanks']
+                );
 
-<<<<<<< Updated upstream
-            //set session variables
-            
-            $_SESSION['login'] = "loggedin";
-            $_SESSION['username'] = $this->model->getUserName($uname);
-            $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);
-            $this->view->render('systemuser/dashboard');
-
-            
-        }
-         else {
-            $_SESSION['error'] = 'Incorrect Username or Password';
-            header("Location: /login");
-=======
                 $this->view->render('hospitals/dashboard');
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
@@ -197,7 +189,6 @@ class User extends Controller
             $_SESSION['error'] = 'Username Not Found';
             header('Location: /login');
             exit();
->>>>>>> Stashed changes
         }
     }
 
@@ -207,6 +198,6 @@ class User extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /");
+        header('Location: /');
     }
 }

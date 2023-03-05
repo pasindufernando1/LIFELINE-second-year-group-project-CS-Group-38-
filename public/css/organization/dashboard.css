@@ -72,7 +72,7 @@ body {
     position: absolute;
     width: 45px;
     height: 45px;
-    left: 1281px;
+    left: 1434px;
     top: 25px;
     background: rgba(235, 235, 235, 0.4);
     border-radius: 15px;
@@ -91,7 +91,7 @@ body {
     position: absolute;
     width: 60px;
     height: 60px;
-    left: 1369px;
+    left: 1517px;
     top: 25px;
     border-radius: 10px;
 }
@@ -100,14 +100,13 @@ body {
     position: absolute;
     width: 42px;
     height: 27px;
-    left: 1434px;
-    top: 5px;
+    left: 1606px;
+    top: 0px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 9px;
-    line-height: 10px;
-    /* identical to box height */
+    font-size: 21px;
+    line-height: 18px;
     letter-spacing: 0.01em;
     color: #000000;
 }
@@ -116,8 +115,8 @@ body {
     position: absolute;
     width: 69px;
     height: 51px;
-    left: 1434px;
-    top: 40px;
+    left: 1610px;
+    top: 53px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -131,7 +130,7 @@ body {
     position: absolute;
     width: 40.55px;
     height: 40.55px;
-    left: 1556px;
+    left: 1760px;
     top: 37px;
     background: #EBEBEB;
     cursor: pointer;
@@ -283,9 +282,9 @@ body {
 
 .campaigns img {
     position: absolute;
-    width: 51px;
+    width: 64px;
     height: 34px;
-    left: -8px;
+    left: -15px;
     top: 0px;
     margin-top: 405px;
 }
@@ -307,8 +306,6 @@ body {
     margin-top: 407px;
 }
 
-<<<<<<< Updated upstream
-=======
 .campaigns-active {
     left: 0px;
     position: absolute;
@@ -343,21 +340,20 @@ body {
     background: #F8F8F8;
 }
 
->>>>>>> Stashed changes
 .schedule-time {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: -283px;
+    top: -275px;
 }
 
 .schedule-time img {
     position: absolute;
-    width: 51px;
-    height: 34px;
-    left: -8px;
-    top: 0px;
+    width: 40px;
+    height: 40px;
+    left: -7px;
+    top: -2px;
     margin-top: 405px;
 }
 
@@ -378,8 +374,6 @@ body {
     margin-top: 407px;
 }
 
-<<<<<<< Updated upstream
-=======
 .schedule-time-act a {
     position: absolute;
     width: 145px;
@@ -414,21 +408,20 @@ body {
     top: 16px;
 }
 
->>>>>>> Stashed changes
 .notifications {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: -230px;
+    top: -218px;
 }
 
 .notifications img {
     position: absolute;
-    width: 51px;
-    height: 34px;
-    left: -8px;
-    top: 0px;
+    width: 40px;
+    height: 40px;
+    left: -5px;
+    top: -5px;
     margin-top: 405px;
 }
 
@@ -449,8 +442,6 @@ body {
     margin-top: 407px;
 }
 
-<<<<<<< Updated upstream
-=======
 .notifications-active {
     left: 18px;
     position: absolute;
@@ -485,20 +476,19 @@ body {
     margin-top: 15px;
 }
 
->>>>>>> Stashed changes
 .cash-donations {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: -180px;
+    top: 21px;
 }
 
 .cash-donations img {
     position: absolute;
-    width: 51px;
-    height: 34px;
-    left: -8px;
+    width: 40px;
+    height: 32px;
+    left: 0px;
     top: 0px;
     margin-top: 405px;
 }
@@ -519,8 +509,6 @@ body {
     text-decoration: none;
     margin-top: 407px;
 }
-<<<<<<< Updated upstream
-=======
 
 .cash-donations-active {
     left: 18px;
@@ -623,22 +611,21 @@ body {
     text-decoration: none;
     margin-top: 15px;
 }
->>>>>>> Stashed changes
 
 .inventory-donations {
     position: absolute;
     width: 250px;
     height: 28.25px;
     left: 22px;
-    top: -130px;
+    top: -163px;
 }
 
 .inventory-donations img {
     position: absolute;
-    width: 51px;
-    height: 34px;
-    left: -8px;
-    top: 0px;
+    width: 38px;
+    height: 38px;
+    left: -3px;
+    top: -7px;
     margin-top: 405px;
 }
 
@@ -659,8 +646,6 @@ body {
     margin-top: 407px;
 }
 
-<<<<<<< Updated upstream
-=======
 .inventory-donations-active {
     left: 18px;
     position: absolute;
@@ -695,20 +680,19 @@ body {
     margin-top: 15px;
 }
 
->>>>>>> Stashed changes
 .instructions {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: -80px;
+    top: -104px;
 }
 
 .instructions img {
     position: absolute;
-    width: 51px;
+    width: 33px;
     height: 34px;
-    left: -8px;
+    left: 0px;
     top: 0px;
     margin-top: 405px;
 }
@@ -730,9 +714,6 @@ body {
     margin-top: 407px;
 }
 
-<<<<<<< Updated upstream
-
-=======
 .instructions-active {
     left: 18px;
     position: absolute;
@@ -767,7 +748,6 @@ body {
     margin-top: 15px;
 }
 
->>>>>>> Stashed changes
 .menu-item a:hover {
     font-weight: 700;
     font-size: 18.9713px;
@@ -775,9 +755,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
 }
-<<<<<<< Updated upstream
-
-=======
 
 .reservation-non-active {
     display: none;
@@ -787,13 +764,12 @@ body {
     display: block;
 }
 
->>>>>>> Stashed changes
 .profile {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: 225px;
+    top: 341px;
 }
 
 .profile img {
@@ -823,8 +799,6 @@ body {
     margin-top: 577px;
 }
 
-<<<<<<< Updated upstream
-=======
 .profile-active {
     left: 18px;
     position: absolute;
@@ -859,7 +833,6 @@ body {
     margin-top: 15px;
 }
 
->>>>>>> Stashed changes
 .campaigns-non-active {
     display: none;
 }
@@ -876,6 +849,45 @@ body {
     display: block;
 }
 
+.schedule-time-non-active {
+    display: none;
+}
+
+.menu-item:hover .schedule-time-non-active {
+    display: block;
+}
+
+.notifications-non-active {
+    display: none;
+}
+
+.menu-item:hover .notifications-non-active {
+    display: block;
+}
+
+.cash-donations-non-active {
+    display: none;
+}
+
+.menu-item:hover .cash-donations-non-active {
+    display: block;
+}
+
+.inventory-donations-non-active {
+    display: none;
+}
+
+.menu-item:hover .inventory-donations-non-active {
+    display: block;
+}
+
+.instructions-non-active {
+    display: none;
+}
+
+.menu-item:hover .instructions-non-active {
+    display: block;
+}
 
 .menu-item a:hover {
     font-weight: 700;
@@ -892,7 +904,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 1440px;
+    left: 1748px;
     top: 85px;
     border-radius: 10px;
 }
@@ -922,14 +934,12 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 797px;
+    height: 500px;
     left: 316px;
-    top: 0;
+    top: 127px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
-<<<<<<< Updated upstream
-=======
 }
 
 .dashboard-img {
@@ -1116,5 +1126,4 @@ tr {
 
 .campaign-card-info {
     font-family: 'Poppins';
->>>>>>> Stashed changes
 }

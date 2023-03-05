@@ -19,12 +19,14 @@ class AdminUser extends Controller
         
         //redirect to login if not logged in or login button is not clicked
         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
-            header("Location: /authentication/adminlogin");
+            print_r("Test");die();
+            header("Location: /login");
         }
         
         //if already logged in redirect to the admin dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['hospitals'] = $this->model->getHospitals();
                 $this->view->render('admin/dashboard');
                 exit;
             }
@@ -35,21 +37,30 @@ class AdminUser extends Controller
         $pwd = $_POST['password'];
 
 
+
+
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
-        if ($this->model->authenticate($uname, $pwd)) {
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
 
+        $password = $this->model->getpassword($uname);
+        $_SESSION['Password'] = $password;
+
+
+
+        if ($this->model->authenticate($uname, $pwd)) {
+            $_SESSION['useremail'] = $_POST['username'];
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['hospitals'] = $this->model->getHospitals();
             $this->view->render('admin/dashboard');
-
-            
         }
          else {
             $_SESSION['error'] = 'Incorrect Username or Password';
-            header("Location: /admin/login");
+            header("Location: /login");
         }
     }
 
@@ -163,8 +174,10 @@ class AdminUser extends Controller
             $_SESSION['pw_error'] = 'Passwords do not match';
             header('Location: /adminuser/new_password');
         }
-        
-        
+         
     }
+
+    
     
 }
+

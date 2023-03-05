@@ -3,6 +3,7 @@ session_start();
 
 class Profile extends Controller
 {
+
     function __construct()
     {
         parent::__construct();
@@ -11,36 +12,25 @@ class Profile extends Controller
     function index()
     {
         if (isset($_SESSION['login'])) {
-<<<<<<< Updated upstream
-            if ($_SESSION['type'] == 'System User') {
-                $_SESSION['user_contact'] = $this->model->getUserContactNo(
-                    $_SESSION['useremail']
-                );
-=======
             if ($_SESSION['type'] == "System User") {
 
                 $_SESSION['user_contact'] = $this->model->getUserContactNo($_SESSION['useremail']);
->>>>>>> Stashed changes
                 $this->view->render('systemuser/profile');
-                exit();
-            } elseif ($_SESSION['type'] == 'Admin') {
-                header('Location: /user/dashboard');
+                exit;
+            } else if ($_SESSION['type'] == "Admin") {
+                header("Location: /user/dashboard");
                 $this->view->render('layout/navigation');
-                exit();
-            } elseif ($_SESSION['type'] == 'Donor') {
-                header('Location: /user/dashboard');
+                exit;
+            } else if ($_SESSION['type'] == "Donor") {
+                header("Location: /user/dashboard");
                 $this->view->render('systemuser/dashboard');
-                exit();
+                exit;
             } else {
-                header('Location: /user/dashboard');
+                header("Location: /user/dashboard");
                 $this->view->render('systemuser/dashboard');
-                exit();
+                exit;
             }
         } else {
-<<<<<<< Updated upstream
-            $this->view->render('authentication/login');
-        }
-=======
             $this->view->render('authentication/login');
         }
     }
@@ -163,6 +153,5 @@ class Profile extends Controller
             
              
         }    
->>>>>>> Stashed changes
     }
 }

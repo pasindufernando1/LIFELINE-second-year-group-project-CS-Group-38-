@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['error'] = '';
+// $_SESSION['error'] = '';
 
 class Systemuser extends Controller
 {
@@ -101,6 +101,6 @@ class Systemuser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /");
+        header("Location: /login ");
     }
 }

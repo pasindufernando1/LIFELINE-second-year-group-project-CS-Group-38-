@@ -235,13 +235,12 @@ body {
     border: 1px #949494 solid;
 }
 
-a:link {
-    color: white;
+.reservation-non-active {
+    display: none;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.menu-item:hover .reservation-non-active {
+    display: block;
 }
 
 .dropDown {
@@ -284,44 +283,30 @@ a {
     text-decoration: none;
 }
 
-<<<<<<< Updated upstream
-.dashboard {
-    position: absolute;
-    width: 170.74px;
-    height: 28.25px;
-    left: 80px;
-    top: 0px;
-=======
 .req-btn a {
     color: white;
     font-family: "Poppins";
->>>>>>> Stashed changes
 }
 
-.dashboard img {
+.dashboard {
+    box-sizing: border-box;
     position: absolute;
-    width: 30px;
-    height: 34px;
-    left: -55px;
-    top: -400px;
-    margin-top: 405px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    background: white;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
-.dashboard-nav a {
+.dashboard-non {
+    box-sizing: border-box;
     position: absolute;
-    width: 122px;
-    height: 28px;
-    left: 2.74px;
-    top: -400px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18.9713px;
-    line-height: 28px;
-    letter-spacing: 0.01em;
-    color: #0C0C0D;
-    text-decoration: none;
-    margin-top: 407px;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    padding-top: 15px;
+    padding-left: 15px;
 }
 
 .dashboard-active a {
@@ -339,6 +324,11 @@ a {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
+}
+
+.dash {
+    margin-top: -34px;
+    margin-left: -2px;
 }
 
 .dashboard-non-active a {
@@ -369,12 +359,8 @@ a {
     border-radius: 0px 8px 8px 0px;
 }
 
-<<<<<<< Updated upstream
-.requestBlood {
-=======
 
 /* .requestBlood {
->>>>>>> Stashed changes
     box-sizing: border-box;
     position: absolute;
     width: 272.49px;
@@ -412,17 +398,14 @@ a {
     text-decoration: none;
     margin-top: 15px;
 }
+ */
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 .profile {
     position: absolute;
-    width: 170.74px;
+    width: 2.74px;
     height: 28.25px;
     left: 22px;
-    top: -340px;
+    top: 20px;
 }
 
 .profile img {
@@ -431,8 +414,8 @@ a {
     right: 95.37%;
     top: 67.04%;
     bottom: 30.31%;
-    top: 0px;
-    margin-top: 480px;
+    top: -423px;
+    margin-top: 575px;
 }
 
 .profile-nav a {
@@ -440,7 +423,7 @@ a {
     width: 122px;
     height: 28px;
     left: 52.74px;
-    top: 0px;
+    top: -423px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -449,9 +432,6 @@ a {
     letter-spacing: 0.01em;
     color: #0C0C0D;
     text-decoration: none;
-<<<<<<< Updated upstream
-    margin-top: 482px;
-=======
     margin-top: 577px;
 }
 
@@ -487,7 +467,6 @@ a {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
->>>>>>> Stashed changes
 }
 
 .menu-item a:hover {
@@ -1265,16 +1244,16 @@ td {
 }
 
 .reqb-button {
-    left: 438px;
-    top: 444px;
+    left: 281px;
+    top: 387px;
     background: #640E0B;
     border-radius: 10.8716px;
     border-top-left-radius: 10.8716px;
     border-top-right-radius: 10.8716px;
     border-bottom-right-radius: 10.8716px;
     border-bottom-left-radius: 10.8716px;
-    width: 284px;
-    height: 110px;
+    width: 327px;
+    height: 138px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1290,31 +1269,21 @@ td {
 }
 
 .reqbstatus-button {
-    /* Frame 50 */
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 345px;
     height: 136px;
-    left: 929px;
-    top: 444px;
-
+    left: 943px;
+    top: 388px;
     background: #640E0B;
     border-radius: 10.8716px;
-
-
-    /* View Status of Requested Blood */
-
-    width: 284px;
-    height: 110px;
-
+    width: 338px;
+    height: 138px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1322,37 +1291,24 @@ td {
     line-height: 36px;
     text-align: center;
     letter-spacing: 0.01em;
-
     color: #FCFEFE;
-
-
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
 .reqb-head {
-    /* Choose Here */
-
     position: absolute;
-    width: 559.66px;
+    width: 20%;
     height: 46.32px;
-    left: 736px;
-    top: 222px;
-
+    left: 40%;
+    top: 105px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 41px;
     line-height: 48px;
     letter-spacing: 0.01em;
-<<<<<<< Updated upstream
-
-    color: #000000;
-
-
-=======
     color: #000000;
 }
 
@@ -1816,5 +1772,4 @@ td {
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
->>>>>>> Stashed changes
 }

@@ -139,6 +139,9 @@ $metaTitle = 'Donor Dashboard'; ?>
         <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
         <a href="/donorprofile/editprofile">Edit Profile<img
                 src="../../../public/img/donordashboard/edit_btn_img.png"></a>
+        <a id="email-edit" href="/donorprofile/c_password">Edit Email<img
+                src="../../../public/img/donordashboard/edit_btn_img.png"></a>
+
         <div class="main">
             <div class="left">
                 <p>

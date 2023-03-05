@@ -1852,25 +1852,25 @@ fieldset {
 }
 
 .profile-container h3 {
-
     font-family: Poppins;
-    top: 50px;
-    left: 304px;
-    position: absolute;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: bold;
-
+    line-height: 0px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin-left: 283px;
+    margin-top: -161px;
+    width: auto;
 }
 
 .profile-container a {
-    position: absolute;
-    top: 88px;
-    left: 1246px;
-    height: 53px;
-    width: 231px;
+    margin-left: 80.5%;
+    margin-top: 2%;
+    height: 50px;
+    width: 204px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: 19px;
+    font-size: 16px;
     color: white;
     border: none;
     border-radius: 10px;
@@ -1888,13 +1888,12 @@ fieldset {
 
 .profile-container .main {
 
-    position: absolute;
-    top: 304px;
-    left: 264px;
+    margin-top: 6%;
+    margin-left: 15%;
     display: flex;
     font-family: 'Poppins';
     line-height: 33px;
-    font-size: 22px;
+    font-size: 17px;
 
 }
 
@@ -2693,7 +2692,7 @@ fieldset {
     overflow-y: auto;
 }
 
-.vie-campaign-container a {
+.view-campaign-container a {
     color: #EB5550
 }
 
@@ -2806,7 +2805,7 @@ fieldset {
 .do_rate {
     margin-right: auto;
     margin-left: auto;
-    margin-top: -6.5%;
+    margin-top: -13.5%;
 }
 
 .stars img {
@@ -2918,6 +2917,10 @@ fieldset {
     background: #640E0B;
     border-color: #630e0b;
     border-radius: 10.8716px;
+}
+
+.rate-campaign-box button a {
+    color: white
 }
 
 .viewrating {

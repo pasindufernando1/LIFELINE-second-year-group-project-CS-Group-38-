@@ -234,7 +234,7 @@ body {
     left: 5px;
     top: 60px;
     box-sizing: border-box;
-    width: 272.49px;
+    width: 263.49px;
     height: 62px;
     background: white;
 }
@@ -517,11 +517,12 @@ body {
 
 .badges img {
     position: absolute;
-    width: 40px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
     left: -4px;
     top: 0px;
-    margin-top: 465px;
+    margin-top: 466px;
+    margin-left: 6px;
 }
 
 .badges-nav a {
@@ -576,7 +577,7 @@ body {
 
 .line {
     position: absolute;
-    width: 271.98px;
+    width: 266.98px;
     height: 0px;
     left: 0.51px;
     top: 456.5px;
@@ -674,25 +675,13 @@ body {
     width: 1540px;
     height: 810px;
     left: 316px;
-    top: 0;
+    top: 101px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
 }
 
-.adminbox {
-    box-sizing: border-box;
-    position: absolute;
-    width: 1425px;
-    height: 1123.6px;
-    left: 316px;
-    top: 0;
-}
 
-.adminbox img{
-    width: 100%;
-    height: 100%;
-}
 
 .add-user-title {
     position: absolute;
@@ -1681,11 +1670,6 @@ a {
     opacity: 0.4;
 }
 
-
-
-
-
-
 .expiry-constraints-container {
     position: absolute;
     height: 64px;
@@ -2511,9 +2495,275 @@ td {
     font-size: 13.6835px;    
 }
 
+.bo1 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 345px;
+    height: 164px;
+    left: 314px;
+    top: 107px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
 
+.bo2 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 345px;
+    height: 164px;
+    left: 707px;
+    top: 107px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
 
-/* Style the diabled option */
+.bo3 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 345px;
+    height: 164px;
+    left: 1100px;
+    top: 107px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
 
+.bo4 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 345px;
+    height: 164px;
+    left: 1493px;
+    top: 107px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
 
+.bo5 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1525px;
+    height: 552px;
+    left: 314px;
+    top: 311px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
 
+.te1 {
+    width: auto;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    color: #343434;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.te2 {
+    width: 73px;
+    height: 42px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #232323;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#usage-months {
+    height: 465px!important;
+    width: 1442px !important;
+    margin-top: 48px;
+    margin-left: 31px;
+}
+
+.tebar {
+    position: absolute;
+    width: 494px;
+    height: 34px;
+    left: 36px;
+    top: -5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.4024px;
+    line-height: 34px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.bo6 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 954px;
+    height: 385px;
+    left: 314px;
+    top: 901px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.bo7 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 512px;
+    height: 385px;
+    left: 1325px;
+    top: 901px;
+    background: #FFFFFF;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+#pie-chart {
+    margin-top: 52px;
+    margin-left: 105px;
+    height: 319px !important;
+    width: 319px !important;
+}
+
+.male {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 86px;
+    height: 50px;
+    margin-left: 89px;
+    margin-top: 80px;
+    background: #FFFFFF;
+    /* Shadow */
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.female {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    width: 86px;
+    height: 50px;
+    margin-left: 363px;
+    margin-top: 220px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 60px rgb(0 0 0 / 5%);
+    border-radius: 10px;
+}
+
+.side-bar {
+    display: flex;
+    position: absolute;
+    width: 14.4vw;
+    height: 142vh !important;
+    left: -5px;
+    top: 110px;
+    background: #FFFFFF;
+    border-right: 1px;
+    border-color: #000000;
+}
+
+.validates {
+    position: absolute;
+    width: 93px;
+    height: 23px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    color: #BF1B16;
+    vertical-align: middle;
+    padding-top: 0px;
+    margin-left: 224px;
+    font-weight: 700;
+    margin-top: 36px;
+}
+
+.validate {
+    position: absolute;
+    width: 93px;
+    height: 23px;
+    background: rgba(175, 175, 175, 0.2);
+    border-radius: 4px;
+    text-align: center;
+    color: #5C5C5C;
+    vertical-align: middle;
+    padding-top: 0px;
+    margin-left: 41px;
+    font-weight: 700;
+    margin-top: 36px;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.malepic {
+    width: 17px;
+}
+
+.matex {
+    width: 43px;
+    height: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.femalepic {
+    width: 24px;
+}
+
+.bo6 th{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    padding: 0px 54px 1px 61px;
+}
+
+.bo6 table{
+    top: 73px;
+}
+
+.pag-box-dash{
+    float: right;
+    display: flex;
+    margin-top: 321px;
+    margin-right: 65px;
+}
+
+.blood-types-line2{
+    position: absolute;
+    width: 90%;
+    height: 0px;
+    top: 103.25px;
+    left: 53px;
+    border: 0.818053px solid #EFEFEF;
+}

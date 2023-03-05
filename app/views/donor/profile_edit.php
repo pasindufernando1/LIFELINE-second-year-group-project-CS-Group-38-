@@ -133,11 +133,19 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div id="profile-edit-form" class="profile-container">
         <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>
-        <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"><br>
-        <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
-        <!-- <a href="/donorprofile/editprofile">Edit Profile<img
-                src="../../../public/img/donordashboard/edit_btn_img.png"></a> -->
-        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form">
+        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
+            enctype="multipart/form-data">
+            <label for="fileToUpload"> <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"></label>
+            <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
+            <input style="display:none;" type="file" name="fileToUpload" id="image" accept="image/*"
+                onchange="loadFile(event)">
+            <script>
+            var loadFile = function(event) {
+                var output = document.getElementById('donor_img');
+                output.src = URL.createObjectURL(event.target.files[0]);
+            };
+            </script>
+
             <label class="name-lable" for="name">NAME</label>
 
             <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION[
@@ -225,12 +233,6 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="Western">Western</option>
             </select>
             <p class="province-error" id="province-error"></p>
-            <label class="email-lable" for="email">EMAIL</label>
-
-            <input id="email" class="email-input" type="email" name="email" autofocus value="<?php echo $_SESSION[
-                'email'
-            ]; ?> " required>
-            <p class="email-error" id="email-error"></p>
             <label class="tel-lable" for="tel">Telephone</label>
 
             <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION[

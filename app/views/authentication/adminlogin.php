@@ -24,7 +24,7 @@
                 <p>Enter your username and password below</p>
             </div>
 
-            <form class="login-form" action="/adminuser/dashboard" method="post" id="user-login" name="login-form">
+            <form class="login-form" action="/adminuser/dashboard?page=1" method="post" id="user-login" name="login-form">
                 <label class="username-lable" for="username">User Name:</label>
                 <br>
                 <input id="username" class="username-input" type="text" name="username" autofocus placeholder="Enter Username" required>
