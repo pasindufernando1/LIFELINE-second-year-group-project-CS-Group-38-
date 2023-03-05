@@ -1,6 +1,10 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donor Dashboard';
+// print_r($_SESSION['camp_ads'][2][0][0]);
+// die();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,49 +141,64 @@ $metaTitle = 'Donor Dashboard'; ?>
         <p class="dash-p">
             Hello <?php echo $_SESSION['username']; ?>
         </p>
+        <button onclick="scrollToDiv()">Learn More About Donating</button>
+        <div class="dash-div">
+            <?php if ($_SESSION['no_of_donations'] == 0) {
+    echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
+} else {
+    echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span><br> Days Ago<br><br>';
+    if ($_SESSION['days_last_donation'] < 56) {
+        echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
+    } else {
+        echo 'You Can Donate Blood <span>Now</span></p>';
+    }
+
+}
+?>
+        </div>
+
+    </div>
+
+    <script>
+    function scrollToDiv() {
+        console.log("scrolling");
+        var div = document.getElementById("see-more-container");
+        var offset = 100;
+        var bodyRect = document.body.getBoundingClientRect().top;
+        var elementRect = div.getBoundingClientRect().top;
+        var elementPosition = elementRect - bodyRect;
+        var offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+    </script>
+
+    <div class="dash-ad">
         <a><img class="r-arrow-img" src="./../../public/img/donordashboard/right-arrow.jpg" alt="dashboard"></a>
         <a href="/getcampaign/view_campaign?camp=4"><img class="dash-img"
                 src="./../../public/img/donordashboard/dash-ad.jpg" alt="dashboard"></a>
         <a><img class="l-arrow-img" src="./../../public/img/donordashboard/left-arrow.jpg" alt="dashboard"></a>
-
     </div>
-    <div class="bo7">
-        <div class="male">
-            <img class="malepic" src="./../../public/img/donordashboard/male.png" alt="male">
-            <p class="matex">35%</p>
 
-        </div>
-
-        <div class="female">
-            <img class="femalepic" src="./../../public/img/donordashboard/female.png" alt="male">
-            <p class="matex">65%</p>
-
-        </div>
-        <p class="tebar">Donor Composition</p>
-        <canvas id="pie-chart" width="800" height="450"></canvas>
-        <script>
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'doughnut',
-            data: {
-
-                datasets: [{
-                    label: "Donor Composition",
-                    backgroundColor: ["#BF1B16", "#BF1B16"],
-                    data: [2478, 5267]
-
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050',
-                    hoverOffset: 4
-                }
-            },
-
-        });
-        </script>
+    <div class="dash-badge">
+        <p>Your Latest Badge</p>
+        <img src="./../../public/img/badges/<?php echo $_SESSION['newest_badge'][0][0]; ?>" alt="badge">
     </div>
+
+    <div class="dash-don">
+        <?php if ($_SESSION['total_donated_amount'] == 0) {
+    echo "<p>A SINGLE Donation of Yours can save <span>3 LIVES</span><br>
+            You Can Donate Your BLOOD at a Campaign OR a Blood Bank</p>";
+} else {
+    echo "<p><span>A SINGLE Donation of Yours can save 3 LIVES</span><br><br>
+            You have GIVEN<span> " . $_SESSION['total_donated_amount'] . " ml</span> of Your <span>BLOOD</span><br><br>
+            You Have DONATED Your BLOOD <br> <span>" . $_SESSION['no_of_donations'] . "</span> times So Far</p>";
+}?>
+    </div>
+
     <div id="dash-camp" class="campaign-view-box">
         <div class="hed">
             <button><a id="see-more" href="/getcampaign">See More</a></button>
@@ -187,58 +206,52 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
         <div class="view-campaign-container">
             <?php
-            $number_of_results = $_SESSION['rowCount'];
-            $result = $_SESSION['upcoming_campaigns'];
-            $count = 0;
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
-                    $count++;
-                    if ($count > 4) {
-                        break;
-                    }
-                    $stime = substr($row['Starting_time'], 0, 2);
-                    // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
-                    $stimeval = intval($stime);
-                    if ($stimeval > 12) {
-                        $st = 24 - $stime;
-                        $row['Starting_time'] = strval($st) . ' PM';
-                    } else {
-                        $row['Starting_time'] = strval($stimeval) . ' AM';
-                    }
-                    echo '<div class="view-campaign-card">
-                                            <img src = "./../../public/img/donordashboard/donation_campaign.jpg" class="campaign-card-img" alt="campaigns">
-                                            <div class="campaign-card-bottom"
-                                            <p class="campaign-card-info">
-                                            <h3>' .
-                        $row['Name'] .
-                        '</h3>
-                                            Starting At :' .
-                        $row['Starting_time'] .
-                        '<br>
-                                            Location:' .
-                        $row['Location'] .
-                        '<br>
-                                            At:' .
-                        $row['Date'] .
-                        '<br><br>
-                                            <a href="/getcampaign/view_campaign?camp=' .
-                        $row['CampaignID'] .
-                        '" name="view_camp_info"> View more... </a></p>
+$number_of_results = $_SESSION['rowCount'];
+$result = $_SESSION['upcoming_campaigns'];
+$count = 0;
+if ($_SESSION['rowCount'] > 0) {
+    foreach ($result as $row) {
+        if ($count == 4) {
+            break;
+        }
+        $stime = substr($row['Starting_time'], 0, 2);
+        // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
+        $stimeval = intval($stime);
+        if ($stimeval > 12) {
+            $st = 24 - $stime;
+            $row['Starting_time'] = strval($st) . ' PM';
+        } else {
+            $row['Starting_time'] = strval($stimeval) . ' AM';
+        }
+        echo '<div class="view-campaign-card">
+            <img src = "./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
+            <div class="campaign-card-bottom">
+            <h3>' . $row['Name'] . '</h3>
+            <p class="campaign-card-info">
+            <b>Starting At : </b>' . $row['Starting_time'] . '<br>
+            <b>Location : </b>' . $row['Location'] . '<br>
+            <b>At : </b>' . $row['Date'] . '<br><br>
+            <a href="/getcampaign/view_campaign?camp=' .
+            $row['CampaignID'] .
+            '" name="view_camp_info"> View more... </a></p>
                                             </div>
                                             </div>';
-                }
-            } else {
-                echo '0 results';
-            }
-            ?>
+        $count++;
+
+    }
+} else {
+    echo '0 results';
+}
+?>
         </div>
     </div>
-    <div class="container2">
+    <div id="see-more-container" class="container2">
         <h2>Things You need to know about Donating Blood in Sri Lanka</h2>
         <div>
             <h3>Who can donate blood?</h3>
             <p>
-                The person must fulfill several criteria to be accepted as a blood donor. These criteria are set forth
+                The person must fulfill several criteria to be accepted as a blood donor. These criteria are set
+                forth
                 to
                 ensure the safety of the donor as well as the quality of donated blood.</p>
 
@@ -246,7 +259,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             <ul>
                 <li>Age above 18 years and below 60 years.</li>
                 <li>If previously donated, at least 4 months should be elapsed since the date of previous donation.
-                <li>Hemoglobin level should be more than 12g/dL. (this blood test is done prior to each blood donation)
+                <li>Hemoglobin level should be more than 12g/dL. (this blood test is done prior to each blood
+                    donation)
                 </li>
                 <li>Free from any serious disease condition or pregnancy.</li>
                 <li>Should have a valid identity card or any other document to prove the identity.</li>

@@ -10,7 +10,7 @@
 // print_r(sizeof($_SESSION['camp_donations']));
 // die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donor Dashboard';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -138,15 +138,11 @@ $metaTitle = 'Donor Dashboard'; ?>
             </div>
         </div>
     </div>
-    <div class="history-campaign-box">
-        <h2 class="header2">Your Donations</h2>
-        <p class="header31">At Campaigns</p>
-        <div class="view-campaign-container">
-            <?php
-            $result = $_SESSION['camp_donations'];
-            $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-            $count = 0;
+    <div class="history-box">
+        <h1>Your Donations</h1>
+        <div class="content">
 
+<<<<<<< Updated upstream
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
                     if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
@@ -189,9 +185,45 @@ $metaTitle = 'Donor Dashboard'; ?>
                                          <a href="/ratecampaign/viewrating?camp=' .
                             $row['CampaignID'] .
                             '"> <button>View FeedBack</button> </a>
+=======
+            <div class="don-type">
+                <button><a href="donationhistory/atcampaigns">At Campaigns<a></button>
+            </div>
 
-                                        </div>';
+            <div class="pie-chart">
+                <canvas id="myPieChart"></canvas>
+            </div>
+>>>>>>> Stashed changes
+
+            <script>
+            // Get the canvas element
+            var ctx = document.getElementById('myPieChart').getContext('2d');
+
+            // Define the data for the chart
+            var data = {
+                labels: ['Blood Banks', 'Campaigns'],
+                datasets: [{
+                    data: [
+                        <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
+                    ],
+                    backgroundColor: [
+                        'rgba(245, 174, 172, 1)',
+                        'rgba(115, 29, 29, 1)'
+                    ]
+                }]
+            };
+
+            // Create the pie chart
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: {
+                    // Add a title to the chart
+                    title: {
+                        display: true,
+                        text: 'My Pie Chart'
                     }
+<<<<<<< Updated upstream
                     $count++;
                 }
             } else {
@@ -221,16 +253,17 @@ $metaTitle = 'Donor Dashboard'; ?>
                                             </p>
                                             
                                             </div>';
+=======
+>>>>>>> Stashed changes
                 }
-            } else {
-                echo 'You Have Not Yet Donated Blood at a Blood Bank';
-            }
-            ?>
+            });
+            </script>
+
+            <div class="don-type" id="bank">
+                <button><a href="donationhistory/atbloodbanks">At Blood Banks</a></button>
+            </div>
         </div>
 
-    </div>
-
-    </div>
     </div>
 </body>
 

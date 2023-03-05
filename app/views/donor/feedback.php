@@ -5,7 +5,7 @@
 
 // die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donor Dashboard';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -138,47 +138,44 @@ $metaTitle = 'Donor Dashboard'; ?>
         <h2 class="header2">Your Feedbacks</h2>
         <div class="view-campaign-container">
             <?php
-            $result = $_SESSION['all_feedback'];
+$result = $_SESSION['all_feedback'];
+$count = 0;
 
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
-                    echo '<div class="view-camp-feedback">
-                                            <h2>Campaign : ' .
-                        $row['CampaignID'] .
-                        '</h2><p>
-                                            Rating :
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <br>
-                                            Feedback :
-                                            </p>
-                                            <a href="editrating?camp=' .
-                        $row['CampaignID'] .
-                        '"> <button>Edit</button> </a>
-                                            <a href="#"> <button id = "feedback-btn">Delete</button> </a>
-                                            <div class="feedback-stars">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">
-                                            </div>
-                                            <div class="feedback-d">
-                                                good and helpful organizers and nurses. Did not have to wait in line
-                                            </div>
-                                            </div>';
-                }
-            } else {
-                echo 'You Have Not Yet Provided feedBack';
-            }
-            ?>
+if ($_SESSION['rowCount'] > 0) {
+    foreach ($result as $row) {
+        echo '<div class="view-camp-feedback">
+
+            <img src="../../../public/img/ads/' . $_SESSION['camp_ads'][$count] . '" alt="camp ad">
+            <div class="feed-info">
+            <h2>Campaign : ' . $_SESSION['camp_names'][$count] . '</h2>
+            <p>Rating :</p>
+            <div class="feedback-stars">';
+        for ($i = 0; $i < $_SESSION['all_feedback'][$count]['Rating']; $i++) {
+            echo '<img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">';
+        }
+        for ($i = 0; $i < 5 - $_SESSION['all_feedback'][$count]['Rating']; $i++) {
+            echo '<img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">';
+        }
+        echo '</div>
+
+            <br>
+            <br>
+            <p id="fbv">Feedback : ' . $_SESSION['all_feedback'][$count]['Feedback'] . ' </p>
+            </div>
+            <div class="feedback-d">
+            <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
+                <a href="#"> <button id = "feedback-btn">Delete</button></a>
+                </div>
+            </div>
+            ';
+        $count++;
+    }
+} else {
+    echo 'You Have Not Yet Provided feedBack';
+}
+?>
             <script src="../../../public/js/getcampname.js"></script>
         </div>
-
-    </div>
-
-    </div>
     </div>
 </body>
 

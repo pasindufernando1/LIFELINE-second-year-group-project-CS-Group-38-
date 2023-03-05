@@ -157,6 +157,7 @@ body {
     border-right: 1px;
     border-color: #000000;
 }
+
 .dashboard {
     box-sizing: border-box;
     position: absolute;
@@ -227,6 +228,7 @@ body {
     box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
     border-radius: 0px 8px 8px 0px;
 }
+
 
 /* .campaigns{
     position: absolute;
@@ -305,6 +307,43 @@ body {
     margin-top: 407px;
 }
 
+<<<<<<< Updated upstream
+=======
+.campaigns-active {
+    left: 0px;
+    position: absolute;
+    width: 68px;
+    top: 0px;
+}
+
+.campaigns-act a {
+    position: absolute;
+    width: 111px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.campaigns-selected {
+    position: absolute;
+    left: 5px;
+    top: 52px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+>>>>>>> Stashed changes
 .schedule-time {
     position: absolute;
     width: 170.74px;
@@ -313,7 +352,7 @@ body {
     top: -283px;
 }
 
-.schedule-time img{
+.schedule-time img {
     position: absolute;
     width: 51px;
     height: 34px;
@@ -339,6 +378,43 @@ body {
     margin-top: 407px;
 }
 
+<<<<<<< Updated upstream
+=======
+.schedule-time-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.schedule-time-selected {
+    position: absolute;
+    left: 5px;
+    top: 113px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.schedule-time-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+>>>>>>> Stashed changes
 .notifications {
     position: absolute;
     width: 170.74px;
@@ -373,6 +449,43 @@ body {
     margin-top: 407px;
 }
 
+<<<<<<< Updated upstream
+=======
+.notifications-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.notifications-selected {
+    position: absolute;
+    left: 5px;
+    top: 169px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.notifications-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+>>>>>>> Stashed changes
 .cash-donations {
     position: absolute;
     width: 170.74px;
@@ -406,6 +519,111 @@ body {
     text-decoration: none;
     margin-top: 407px;
 }
+<<<<<<< Updated upstream
+=======
+
+.cash-donations-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.cash-donations-selected {
+    position: absolute;
+    left: 5px;
+    top: 350px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.cash-donations-act a {
+    position: absolute;
+    width: 174px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.feedback {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 22px;
+    top: -44px;
+}
+
+.feedback img {
+    position: absolute;
+    width: 34px;
+    height: 32px;
+    left: 0px;
+    top: 0px;
+    margin-top: 405px;
+}
+
+.feedback-nav a {
+    position: absolute;
+    width: 122px;
+    height: 28px;
+    left: 52.74px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 407px;
+}
+
+.feedback-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.feedback-selected {
+    position: absolute;
+    left: 5px;
+    top: 169px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.feedback-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+>>>>>>> Stashed changes
 
 .inventory-donations {
     position: absolute;
@@ -441,6 +659,43 @@ body {
     margin-top: 407px;
 }
 
+<<<<<<< Updated upstream
+=======
+.inventory-donations-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.inventory-donations-selected {
+    position: absolute;
+    left: 5px;
+    top: 229px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.inventory-donations-act a {
+    position: absolute;
+    width: 223px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+>>>>>>> Stashed changes
 .instructions {
     position: absolute;
     width: 170.74px;
@@ -475,7 +730,44 @@ body {
     margin-top: 407px;
 }
 
+<<<<<<< Updated upstream
 
+=======
+.instructions-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.instructions-selected {
+    position: absolute;
+    left: 5px;
+    top: 289px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.instructions-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+>>>>>>> Stashed changes
 .menu-item a:hover {
     font-weight: 700;
     font-size: 18.9713px;
@@ -483,7 +775,19 @@ body {
     color: #BF1B16;
     text-decoration: none;
 }
+<<<<<<< Updated upstream
 
+=======
+
+.reservation-non-active {
+    display: none;
+}
+
+.menu-item:hover .reservation-non-active {
+    display: block;
+}
+
+>>>>>>> Stashed changes
 .profile {
     position: absolute;
     width: 170.74px;
@@ -519,6 +823,43 @@ body {
     margin-top: 577px;
 }
 
+<<<<<<< Updated upstream
+=======
+.profile-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.profile-selected {
+    position: absolute;
+    left: 5px;
+    top: 413px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.profile-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+>>>>>>> Stashed changes
 .campaigns-non-active {
     display: none;
 }
@@ -587,4 +928,193 @@ body {
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+<<<<<<< Updated upstream
+=======
+}
+
+.dashboard-img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1573px;
+    height: 500px;
+}
+
+.box1 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 840px;
+    height: 400px;
+    left: 315px;
+    top: 653px;
+    background: #e3d8db;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.welcome {
+    position: absolute;
+    top: -36px;
+    left: 78px;
+    font-size: 75px;
+    font-family: 'Poppins';
+    color: #bf1b16;
+}
+
+.welcome-image {
+    position: absolute;
+    top: 103px;
+    left: -44px;
+    width: 360px;
+}
+
+.box1-title {
+    position: absolute;
+    width: 406px;
+    height: 30px;
+    left: 273.44px;
+    top: 13px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.box1-table {
+    top: 164px;
+    position: absolute;
+}
+
+.box1-line {
+    top: 181px;
+    position: relative;
+    width: 70%;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #949494;
+}
+
+tr {
+    margin-bottom: 100px;
+}
+
+.box2 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 711px;
+    height: 399px;
+    left: 1178px;
+    top: 653px;
+    background: #e3d8db;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box2-title {
+    position: absolute;
+    width: 213.69px;
+    height: 75.2px;
+    left: 298.01px;
+    top: 16.84px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.circle-img {
+    position: absolute;
+    top: 100px;
+}
+
+.F_percentage-img {
+    position: absolute;
+    top: 100px;
+    left: -40px;
+}
+
+.M_percentage-img {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+}
+
+.dash-img {
+    width: 208%;
+    /* height: 100%; */
+    margin-top: 8%;
+    margin-left: -65%;
+    border-radius: 8px;
+    position: absolute;
+}
+
+.dash-img :hover {
+    cursor: pointer;
+}
+
+.r-arrow-img {
+    margin-top: 123%;
+    margin-left: -100%;
+    position: absolute;
+    top: -96px;
+    width: 40px;
+}
+
+.r-arrow-img :hover {
+    cursor: pointer;
+}
+
+.l-arrow-img {
+    margin-top: 123%;
+    margin-left: 154%;
+    position: absolute;
+    top: -96px;
+    width: 40px;
+}
+
+.campaignName {
+    font-family: 'Poppins';
+    color: #BF1B16;
+    text-align: center;
+}
+
+.campaign-card {
+    width: 232px;
+    border: 15px solid #a7172e;
+    padding: 32px;
+    margin: 82px 0px -30px 57px;
+    /* margin: 9px; */
+    border-style: inset;
+    /* margin-top: 80px; */
+    background-color: #FFFFFF;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.view-campaign-card {
+    display: inline-block;
+}
+
+.campaign-card-info {
+    font-family: 'Poppins';
+>>>>>>> Stashed changes
 }

@@ -142,9 +142,6 @@ $metaTitle = 'Donor Dashboard'; ?>
         <div class="main">
             <div class="left">
                 <p>
-                    Full Name
-                    <br>
-                    <br>
                     NIC Number
                     <br>
                     <br>
@@ -163,12 +160,7 @@ $metaTitle = 'Donor Dashboard'; ?>
             <div class="right">
                 <p>
                     <?php echo '<p>
-                    : ' .
-                        $_SESSION['donor_info']['Fullname'] .
-                        '
-                    <br>
-                    <br>
-                    : ' .
+                    : '.
                         $_SESSION['donor_info']['NIC'] .
                         '
                     <br>

@@ -16,7 +16,7 @@
                         <div class="marker"></div>
                         <img class="red-dash" src="./../../public/img/dashboard/active/dashboard.png" alt="dashboard">
                         <img class="reservation-non-active menu-item blk-dash"  src="../../../public/img/dashboard/non-active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-active menu-item"><a href="/systemuser/dashboard">Dashboard</a></p>
+                        <p class="dashboard-active menu-item"><a href="/systemuser/dashboard?page=1">Dashboard</a></p>
 
 
                     </div>
