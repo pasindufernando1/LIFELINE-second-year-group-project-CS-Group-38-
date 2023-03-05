@@ -142,95 +142,97 @@ $metaTitle = 'Donor Dashboard';?>
         <h1>Your Donations</h1>
         <div class="content">
 
-<<<<<<< Updated upstream
-            if ($_SESSION['rowCount'] > 0) {
+            <?php if ($_SESSION['rowCount']> 0) {
                 foreach ($result as $row) {
-                    if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
-                        // echo '1';
-                        // echo $_SESSION['camp_donations'][$count][2];
-                        echo '<div class="view-campdon-card">
-                                            <h3>' .
-                            $row['Date'] .
-                            '</h3>
-                                            <h2>Campaign : ' .
-                            $row['CampaignID'] .
-                            '</h2><p>
-                                            Organized By : organization name<br>
-                                            At : location<br>
-                                            <br>
-                                            Amount You Donated :
-                                            <br>
-                                            Total Donation at the Campaign:
-                                            </p>
-                                             <a href="/ratecampaign/addrating?camp=' .
+                if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
+                // echo '1';
+                // echo $_SESSION['camp_donations'][$count][2];
+                echo '<div class="view-campdon-card">
+                    <h3>' .
+                        $row['Date'] .
+                        '</h3>
+                    <h2>Campaign : ' .
+                        $row['CampaignID'] .
+                        '</h2>
+                    <p>
+                        Organized By : organization name<br>
+                        At : location<br>
+                        <br>
+                        Amount You Donated :
+                        <br>
+                        Total Donation at the Campaign:
+                    </p>
+                    <a href="/ratecampaign/addrating?camp=' .
                             $row['CampaignID'] .
                             '"> <button>FeedBack</button> </a>
 
-                                            </div>';
-                    } else {
-                        echo '<div class="view-campdon-card">
-                                        <h3>' .
-                            $row['Date'] .
-                            '</h3>
-                                        <h2>Campaign : ' .
-                            $row['CampaignID'] .
-                            '</h2><p>
-                                        Organized By : organization name<br>
-                                        At : location<br>
-                                        <br>
-                                        Amount You Donated :
-                                        <br>
-                                        Total Donation at the Campaign:
-                                        </p>
-                                         <a href="/ratecampaign/viewrating?camp=' .
+                </div>';
+                } else {
+                echo '<div class="view-campdon-card">
+                    <h3>' .
+                        $row['Date'] .
+                        '</h3>
+                    <h2>Campaign : ' .
+                        $row['CampaignID'] .
+                        '</h2>
+                    <p>
+                        Organized By : organization name<br>
+                        At : location<br>
+                        <br>
+                        Amount You Donated :
+                        <br>
+                        Total Donation at the Campaign:
+                    </p>
+                    <a href="/ratecampaign/viewrating?camp=' .
                             $row['CampaignID'] .
                             '"> <button>View FeedBack</button> </a>
-=======
-            <div class="don-type">
-                <button><a href="donationhistory/atcampaigns">At Campaigns<a></button>
-            </div>
 
-            <div class="pie-chart">
-                <canvas id="myPieChart"></canvas>
-            </div>
->>>>>>> Stashed changes
+                    <div class="don-type">
+                        <button><a href="donationhistory/atcampaigns">At Campaigns<a></button>
+                    </div>
 
-            <script>
-            // Get the canvas element
-            var ctx = document.getElementById('myPieChart').getContext('2d');
+                    <div class="pie-chart">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                </div>';
 
-            // Define the data for the chart
-            var data = {
-                labels: ['Blood Banks', 'Campaigns'],
-                datasets: [{
-                    data: [
-                        <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
-                    ],
-                    backgroundColor: [
-                        'rgba(245, 174, 172, 1)',
-                        'rgba(115, 29, 29, 1)'
-                    ]
-                }]
+                    <script>
+                    // Get the canvas element
+                    var ctx = document.getElementById('myPieChart').getContext('2d');
+
+                    // Define the data for the chart
+                    var data = {
+                        labels: ['Blood Banks', 'Campaigns'],
+                        datasets: [{
+                            data: [
+                                <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
+            ],
+            backgroundColor: [
+            'rgba(245, 174, 172, 1)',
+            'rgba(115, 29, 29, 1)'
+            ]
+            }]
             };
 
             // Create the pie chart
             var myPieChart = new Chart(ctx, {
-                type: 'pie',
-                data: data,
-                options: {
-                    // Add a title to the chart
-                    title: {
-                        display: true,
-                        text: 'My Pie Chart'
-                    }
-<<<<<<< Updated upstream
-                    $count++;
-                }
-            } else {
-                echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
+            type: 'pie',
+            data: data,
+            options: {
+            // Add a title to the chart
+            title: {
+            display: true,
+            text: 'My Pie Chart'
+            } // End of title
+            $count++;
             }
-            ?>
-            <script src="../../../public/js/getcampname.js"></script>
+            }
+            else {
+            echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
+            } ?
+            >
+            < script src="../../../public/js/getcampname.js">
+                </script>
         </div>
         <p class="header32">At BloodBanks</p>
         <div class="view-bloodbank-container">
@@ -253,8 +255,7 @@ $metaTitle = 'Donor Dashboard';?>
                                             </p>
                                             
                                             </div>';
-=======
->>>>>>> Stashed changes
+
                 }
             });
             </script>

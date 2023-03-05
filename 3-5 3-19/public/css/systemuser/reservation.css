@@ -1,0 +1,87 @@
+.reservation img {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 0px;
+    margin-left: 17px;
+    margin-top: 15px;
+}
+
+.reservation {
+    width: 14.4vw !important;
+    background: #F8F8F8!important;
+}
+
+.reservation a {
+    position: absolute;
+    width: 14.4vw;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.dashboard {
+    box-sizing: border-box;
+    position: absolute;
+    width: 14vw !important;
+    height: 62px;
+    left: 5px;
+    background: #ffffff !important;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.dashboard-active a {
+    color: #000000 !important;
+    font-weight: unset !important;
+}
+
+.red-dash {
+    display: none !important;
+}
+
+.blk-dash {
+    display: block !important;
+}
+
+.dashboard-active a:hover {
+    font-weight: 700 !important;
+    font-size: 18.9713px !important;
+    letter-spacing: 0.01em;
+    color: #BF1B16 !important;
+    text-decoration: none;
+}
+
+.reservation-non-active {
+    display: none;
+}
+
+.menu-item:hover .red-dash {
+    display: block !important;
+}
+
+.menu-item:hover .blk-dash {
+    display: none !important;
+}
+
+.red-res {
+    display: block!important;
+}
+
+.blk-res {
+    display: none!important;
+}
+
+.marker {
+    top: 70px !important;
+    z-index: 999;
+}

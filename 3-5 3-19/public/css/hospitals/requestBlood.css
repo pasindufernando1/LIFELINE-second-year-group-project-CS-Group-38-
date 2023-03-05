@@ -1,0 +1,1820 @@
+body {
+    background-color: #F8F8F8;
+}
+
+.top-bar {
+    position: sticky;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 102px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.logo img {
+    position: sticky;
+    width: 262px;
+    height: 82px;
+    left: 2px;
+    top: 10px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    position: absolute;
+    width: 119px;
+    height: 30px;
+    left: 314px;
+    top: 39px;
+}
+
+.search img {
+    width: 24px;
+    height: 24px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.search-box {
+    width: 250px;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #A7A7A7;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    border-width: 0px;
+}
+
+.notification {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7.5px;
+    gap: 25.5px;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    left: 1438px;
+    top: 20px;
+    background: rgba(235, 235, 235, 0.4);
+    border-radius: 15px;
+}
+
+.bell-icon {
+    width: 30px;
+    height: 30px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.image img {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 1524px;
+    top: 10px;
+    border-radius: 10px;
+}
+
+.user-name {
+    position: absolute;
+    width: 42px;
+    height: 27px;
+    left: 1600px;
+    top: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 10px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.role-type {
+    position: absolute;
+    width: 69px;
+    height: 51px;
+    left: 1600px;
+    top: 40px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    color: #A4A4A4;
+}
+
+.more img {
+    position: absolute;
+    width: 40.55px;
+    height: 40.55px;
+    left: 1762px;
+    top: 37px;
+    background: #EBEBEB;
+    cursor: pointer;
+}
+
+.side-bar {
+    position: absolute;
+    width: 277.49px;
+    height: 825px;
+    left: -5px;
+    top: 102px;
+    background: #FFFFFF;
+    border-right: 1px;
+    border-color: #000000;
+}
+
+.side-nav {
+    position: absolute;
+    width: 200px;
+    height: 573.74px;
+    left: 0px;
+    top: 30px;
+    border-right: 1px;
+    border-color: #000000;
+}
+
+.bloodbank-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1594px;
+    height: 778px;
+    left: 300px;
+    top: 130px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.success-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1596px;
+    height: 778px;
+    left: 300px;
+    top: -9px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.msg {
+    position: absolute;
+    width: 100%;
+    height: 33.24px;
+    /* left: 415px; */
+    top: 300px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 36px;
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    color: #D3DAE0;
+    mix-blend-mode: darken;
+}
+
+.success-msg {
+    box-sizing: border-box;
+    position: absolute;
+    width: 10%;
+    /* height: 158.31px; */
+    left: 45%;
+    top: 150px;
+}
+
+.brown-button1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 200px;
+    width: 13%;
+    height: 50px;
+    left: 43.4%;
+    top: 400px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+}
+
+a:link {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropDown {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 16px;
+    top: calc(50% - 20px/2 + 11px);
+}
+
+.view-bloodBank-title {
+    position: absolute;
+    width: 559.66px;
+    height: 46.32px;
+    left: 50px;
+    top: 12px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.pag-box {
+    float: right;
+    display: flex;
+    margin-top: 725px;
+    margin-right: 1px;
+}
+
+.req-btn {
+    display: block;
+    width: 131px;
+    height: 33px;
+    background: #640E0B;
+    border-radius: 4px;
+    color: White;
+    text-decoration: none;
+}
+
+<<<<<<< Updated upstream
+.dashboard {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 80px;
+    top: 0px;
+=======
+.req-btn a {
+    color: white;
+    font-family: "Poppins";
+>>>>>>> Stashed changes
+}
+
+.dashboard img {
+    position: absolute;
+    width: 30px;
+    height: 34px;
+    left: -55px;
+    top: -400px;
+    margin-top: 405px;
+}
+
+.dashboard-nav a {
+    position: absolute;
+    width: 122px;
+    height: 28px;
+    left: 2.74px;
+    top: -400px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 407px;
+}
+
+.dashboard-active a {
+    position: absolute;
+    width: 111px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.dashboard-non-active a {
+    position: absolute;
+    width: 111px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.marker {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    left: 0px;
+    top: 10px;
+    background: #BF1B16;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
+    border-radius: 0px 8px 8px 0px;
+}
+
+<<<<<<< Updated upstream
+.requestBlood {
+=======
+
+/* .requestBlood {
+>>>>>>> Stashed changes
+    box-sizing: border-box;
+    position: absolute;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    top: 60px;
+    background: #F8F8F8;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.requestBlood-non {
+    box-sizing: border-box;
+    position: absolute;
+    width: 272.49px;
+    height: 62px;
+    left: 5px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.requestBlood-active a {
+    position: absolute;
+    width: 170px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+.profile {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 22px;
+    top: -340px;
+}
+
+.profile img {
+    position: absolute;
+    left: 2.74%;
+    right: 95.37%;
+    top: 67.04%;
+    bottom: 30.31%;
+    top: 0px;
+    margin-top: 480px;
+}
+
+.profile-nav a {
+    position: absolute;
+    width: 122px;
+    height: 28px;
+    left: 52.74px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+<<<<<<< Updated upstream
+    margin-top: 482px;
+=======
+    margin-top: 577px;
+}
+
+.profile-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.profile-selected {
+    position: absolute;
+    left: 5px;
+    top: 141px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.profile-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+>>>>>>> Stashed changes
+}
+
+.menu-item a:hover {
+    font-weight: 700;
+    font-size: 18.9713px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+}
+
+.requestBlood-non-active {
+    display: none;
+}
+
+.menu-item:hover .requestBlood-non-active {
+    display: block;
+}
+
+.profile-non-active {
+    display: none;
+}
+
+.menu-item:hover .profile-non-active {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 1759px;
+    top: 85px;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: #BF1B16;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+.box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1586px;
+    height: 778px;
+    left: 300px;
+    top: 129px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box1 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1597px;
+    height: 777px;
+    left: 300px;
+    top: 20px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.add-reservation-title {
+    position: absolute;
+    width: 559.66px;
+    height: 46.32px;
+    left: 65px;
+    top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.reserve-id-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 120px;
+}
+
+.reserve-id-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.reserve-id-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.reserve-id-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+}
+
+.blood-group-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 220px;
+}
+
+.blood-group-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.blood-group-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.blood-group-input option {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+    margin: 40px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+}
+
+.blood-group-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+a {
+    text-decoration: none;
+}
+
+.brown-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 714px;
+    top: 443px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+}
+
+.brown-button:hover {
+    font-size: 13.6835px;
+}
+
+.outline-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 203.66px;
+    height: 51px;
+    left: 940px;
+    top: 444px;
+    background: #F7F7F7;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+}
+
+.outline-button:hover {
+    font-size: 13.6835px;
+}
+
+.addbutton {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    left: 1075px;
+    top: 157px;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+}
+
+.cancelbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1305px;
+    top: 157px;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+}
+
+.success-msg-txt {
+    position: absolute;
+    width: 460.68px;
+    height: 33.24px;
+    left: 528px;
+    top: 375px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #640E0B
+}
+
+.success-msg-img {
+    box-sizing: border-box;
+    position: absolute;
+    /* width: 158.31px; */
+    width: 10%;
+    /* height: 158.31px; */
+    left: 45%;
+    /* left: 450px; */
+    /* top: 150px; */
+    top: 17%;
+}
+
+.back-to-reserve {
+    position: absolute;
+    width: 227.96px;
+    height: 40.16px;
+    left: 640px;
+    top: 513px;
+    background: #640E0B;
+    border-radius: 10.87px;
+}
+
+.success-reserve-img {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 832px;
+    top: 524px;
+    border: 5px #640E0B solid;
+}
+
+.addnew-reservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 459px;
+    top: 32px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.addbutton-reservation {
+    position: absolute;
+    top: 49px;
+    left: 630px;
+}
+
+.types-reservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 699px;
+    top: 32px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.expired-stock-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 939px;
+    top: 32px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.typebutton-reservation {
+    position: absolute;
+    top: 49px;
+    left: 870px;
+}
+
+.expired-stocks-img {
+    position: absolute;
+    top: 47px;
+    left: 1110px;
+}
+
+.ash-button {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 1135.29px;
+    top: 183.06px;
+    background: #F7F7F7;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+}
+
+.ash-button:hover {
+    font-size: 13.6835px;
+}
+
+.reservation-filter {
+    position: absolute;
+    top: 33px;
+    left: 1180px;
+}
+
+.reservation-filter-img {
+    position: absolute;
+    top: 51px;
+    left: 1344px;
+}
+
+.action-btns {
+    display: flex;
+    margin: auto;
+    text-align: center;
+}
+
+.edit-btn {
+    width: 35px;
+    height: 35px;
+    background: rgba(175, 175, 175, 0.2);
+    border-radius: 4px;
+    margin: 0px 5px 0px -30px;
+    text-align: center;
+}
+
+.delete-btn {
+    width: 35px;
+    height: 35px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0px 0px 0px -110px;
+}
+
+th {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.4954px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: #949494;
+    text-align: left;
+}
+
+.bloodBanks-table {
+    position: absolute;
+    top: 110px;
+    left: 147px;
+}
+
+.bloodBanks-line {
+    position: absolute;
+    width: 90%;
+    height: 0px;
+    top: 143.25px;
+    left: 72px;
+    border: 0.818053px solid #EFEFEF;
+}
+
+
+/* .add-user-title{
+    position: absolute;
+    width: 559.66px;
+    height: 46.32px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+
+} */
+
+.bloodGroup-container {
+    position: relative;
+    width: 960px;
+    height: 64px;
+    left: 183px;
+    top: 93px;
+}
+
+.bloodGroup-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.add-user-title {
+    position: absolute;
+    width: 559.66px;
+    height: 46.32px;
+    left: 98px;
+    top: 22px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.2958px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.bloodGroup-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bloodComp-container {
+    position: relative;
+    width: 960px;
+    height: 64px;
+    left: 184px;
+    top: 118px;
+}
+
+.bloodComponent-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bloodComponent-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.quant-container {
+    position: relative;
+    width: 960px;
+    height: 64px;
+    top: 141px;
+    left: 185px;
+}
+
+.quantity-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.quantity-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.bloodbank-container {
+    position: relative;
+    width: 968px;
+    height: 64px;
+}
+
+.bloodbank-label {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bloodbank-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 22px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+
+/* .add-user-title{
+    position: absolute;
+width: 559.66px;
+height: 46.32px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 20.2958px;
+line-height: 30px;
+letter-spacing: 0.01em;
+
+color: #000000;
+} */
+
+td {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: left;
+    padding-top: 35px;
+}
+
+.pagination-number {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #640E0B;
+    border-radius: 4px;
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+    text-align: center;
+    color: #640E0B;
+    padding: 10px 12px 10px 12px;
+}
+
+.pagination-number:hover {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.pag-box {
+    float: right;
+    display: flex;
+    margin-top: 725px;
+    margin-right: 192px;
+}
+
+.pag-div {
+    margin-right: 2px;
+}
+
+.pag-div-1 a,
+.pag-div-2 a,
+.pag-div-3 a,
+.pag-div-4 a,
+.pag-div-5 a,
+.pag-div-6 a,
+.pag-div-7 a,
+.pag-div-8 a,
+.pag-div-9 a,
+.pag-div-10 a {
+    background-color: #640E0B;
+    color: #FFFFFF;
+}
+
+.reqb-button {
+    left: 438px;
+    top: 444px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    border-top-left-radius: 10.8716px;
+    border-top-right-radius: 10.8716px;
+    border-bottom-right-radius: 10.8716px;
+    border-bottom-left-radius: 10.8716px;
+    width: 284px;
+    height: 110px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    position: absolute;
+}
+
+.reqbstatus-button {
+    /* Frame 50 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+
+    position: absolute;
+    width: 345px;
+    height: 136px;
+    left: 929px;
+    top: 444px;
+
+    background: #640E0B;
+    border-radius: 10.8716px;
+
+
+    /* View Status of Requested Blood */
+
+    width: 284px;
+    height: 110px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #FCFEFE;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.reqb-head {
+    /* Choose Here */
+
+    position: absolute;
+    width: 559.66px;
+    height: 46.32px;
+    left: 736px;
+    top: 222px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+<<<<<<< Updated upstream
+
+    color: #000000;
+
+
+=======
+    color: #000000;
+}
+
+.cancel {
+    color: #640E0B;
+}
+
+.usr-name {
+    position: absolute;
+    width: 318px;
+    height: 48px;
+    left: 334px;
+    top: 55px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.usr-type {
+    position: absolute;
+    width: 258px;
+    height: 36px;
+    left: 337px;
+    top: 105px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+    letter-spacing: 0.01em;
+    color: #A4A4A4;
+}
+
+.hosName-label {
+    position: absolute;
+    height: 16px;
+    left: 200px;
+    right: 0px;
+    top: 200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.hosName-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    ;
+    top: 224px;
+    /* bottom: 727px; */
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    height: 56px;
+}
+
+.teleNo-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 290px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.teleNo-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 315px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.loc-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 114px;
+    top: 378px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.num-input {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    left: 198px;
+    right: 1035px;
+    top: 402.22px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    transform: rotate(-0.23deg);
+}
+
+.laneNme-input {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    left: 577px;
+    right: 680px;
+    top: 402.22px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.cit-input {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    left: 927px;
+    right: 335px;
+    top: 402.22px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.dis-input {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    left: 198px;
+    right: 909px;
+    top: 468px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.prov-input {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    left: 747px;
+    right: 335px;
+    top: 468px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.em-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 541px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.em-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 568px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.currentPw-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 640px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.currentPw-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 664px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.newPw-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 730px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.newPw-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 755px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.edit-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 52.49px;
+    left: 1139px;
+    top: 121px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.edit-button a {
+    color: white;
+    font-family: "Poppins";
+}
+
+.update-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 165px;
+    height: 52px;
+    left: 934px;
+    top: 855px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
+.cancl-button {
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 52.49px;
+    left: 1124px;
+    top: 855px;
+    background: #F7F7F7;
+    border: 1px solid #640E0B;
+    border-radius: 10.8716px;
+}
+
+.update-button a {
+    color: white;
+}
+
+.requestBlood {
+    position: absolute;
+    width: 170.74px;
+    height: 28.25px;
+    left: 22px;
+    top: -327px;
+}
+
+.requestBlood img {
+    position: absolute;
+    width: 33px;
+    height: 34px;
+    left: 0px;
+    top: 0px;
+    margin-top: 405px;
+}
+
+.requestBlood-nav a {
+    position: absolute;
+    width: 160px;
+    height: 28px;
+    left: 52.74px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+    margin-top: 407px;
+}
+
+.requestBlood-active {
+    left: 18px;
+    position: absolute;
+    width: 31px;
+    top: 16px;
+}
+
+.requestBlood-selected {
+    position: absolute;
+    left: 5px;
+    top: 69px;
+    box-sizing: border-box;
+    width: 272.49px;
+    height: 62px;
+    background: #F8F8F8;
+}
+
+.requestBlood-act a {
+    position: absolute;
+    width: 145px;
+    height: 28px;
+    left: 70.74px;
+    top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #BF1B16;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.reqb-button a {
+    color: white;
+}
+
+.reqbstatus-button a {
+    color: white;
+}
+
+.update-button {
+    color: white;
+}
+
+.hospital_img {
+    top: 72px;
+    position: absolute;
+    width: 100px;
+    left: 164px;
+}
+
+.change_img {
+    top: 133px;
+    position: absolute;
+    width: 28px;
+    left: 244px;
+}
+
+.profile-container a {
+    margin-left: 80.5%;
+    margin-top: 2%;
+    height: 50px;
+    width: 204px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box a img {
+    width: 30px;
+}
+
+.box .main {
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    font-family: 'Poppins';
+    line-height: 40px;
+    font-size: 17px;
+}
+
+.box .main .left {
+    font-weight: bold;
+}
+
+.box .main .right {
+    font-weight: normal;
+    margin-left: 50px;
+}
+
+.cont {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1586px;
+    height: 1000px;
+    left: 300px;
+    top: 129px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+>>>>>>> Stashed changes
+}
