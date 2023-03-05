@@ -34,7 +34,14 @@ $metaTitle = "Users"
     <!-- main content -->
     <div class="box">
         <p class="add-user-title">Users</p>
-        
+
+        <a href="/usermanage/bloodbanks?page=1" class="light-button">Blood Banks</a>
+        <img class="bloodbank-user" src="./../../public/img/admindashboard/bloodbank.png" alt="reservation-filter-img">
+
+        <a href="/usermanage/deactivated_users?page=1" class="pink-button">Deactivated Users</a>
+        <img class="deactivated-user" src="./../../public/img/admindashboard/deactivated_users.png" alt="reservation-filter-img">
+
+
         <a href="/usermanage/adduser" class="brown-button types-user">Add New</a>
         <img class="userbutton-user" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
         

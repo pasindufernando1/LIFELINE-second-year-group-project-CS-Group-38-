@@ -32,12 +32,12 @@ $metaTitle = "View Donor"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/donors_active_sidebar.php'); ?>
 
     <div class="box">
         <p class="update-user-title">Donor details</p>
             <div class="hospital-viewicon">
-                <img src="../../../public/img/user_pics/<?php echo $_SESSION['Userpic'] ?>" alt="donor" id="hospital-viewicon">
+                <img src="../../../public/img/admindashboard/blood-donor.png" alt="hospital" id="hospital-viewicon">
             </div>
             <div class="quantity-container">
                 <label class="nameview-lable" for="name">Name    : <div class="content"><?php echo $_SESSION['Name'] ?></div></label>
@@ -81,7 +81,7 @@ $metaTitle = "View Donor"
                 <br>
             </div>
             <div>
-                <a href="/usermanage/type?page=1"><button class='brown-button-view' type='submit' name='update-hosmed' >Back to users</button></a>
+                <a href="/donors/type?page=1"><button class='brown-button-view' type='submit' name='update-hosmed' >Back to donors</button></a>
             </div>
         
     </div>

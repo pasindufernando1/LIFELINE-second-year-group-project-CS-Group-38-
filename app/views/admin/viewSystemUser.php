@@ -36,7 +36,7 @@ $metaTitle = "View System User"
     <div class="box">
         <p class="update-user-title">SystemUser details</p>
             <div class="hospital-viewicon">
-                <img src="../../../public/img/admindashboard/systemuser.png" alt="hospital" id="hospital-viewicon">
+                <img src="../../../public/img/user_pics/<?php echo $_SESSION['Userpic'] ?>" alt="systemuser" id="hospital-viewicon">
             </div>
             <div class="quantity-container">
                 <label class="nameview-lable" for="name">Name    : <div class="content"><?php echo $_SESSION['Name'] ?></div></label>

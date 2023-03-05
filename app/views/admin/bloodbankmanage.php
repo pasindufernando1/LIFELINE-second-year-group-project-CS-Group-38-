@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Donors" 
+$metaTitle = "Blood Banks" 
 ?>
 
 <!DOCTYPE html>
@@ -15,52 +15,44 @@ $metaTitle = "Donors"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/donors.css" rel="stylesheet">
+    <link href="../../../public/css/admin/dashboard.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link href="../../../public/css/admin/sidebar.css" rel="stylesheet">
-     <!-- <link href="../../../public/css/admin/dashboard.css" rel="stylesheet"> -->
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    
-
-    
-
 </head>
 <body>
     
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/donors_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="add-user-title">Donors</p>
-                        
-        <a href="/donors/addDonoruser" class="brown-button types-user">Add New</a>
-        <img class="userbutton-user" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
+        <p class="add-user-title">Blood Banks</p>
+        
+        <a href="/usermanage/addbloodbank" class="brown-button types-user">Add New Blood Bank</a>
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
         <tr>
-            <th>Donor ID</th>
-            <th>Full Name</th>
-            <th>NIC No</th>
-            <th>DOB</th>
+            <th>Blood Bank ID</th>
+            <th>Name</th>
             <th>District</th>
-            <th>Gender</th>
-            <th>Blood Type</th>
-            <th>Action</th>
+            <th>Province</th>
+            <th>Email</th>
         </tr>
         <hr class="blood-types-line">
+        
+        
         <?php 
         $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
+        $number_of_results = count($_SESSION['bloodbanks']);
         $number_of_page = ceil($number_of_results / $results_per_page);
 
         //determine which page number visitor is currently on  
@@ -72,22 +64,18 @@ $metaTitle = "Donors"
 
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page;  
-        $result = $_SESSION['donors'];
+        $result = $_SESSION['bloodbanks'];
 
         //display the link of the pages in URL  
         if ($_SESSION['rowCount'] > 0) {
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>
-                        <td>' . $row["UserID"]. "</td>
-                        <td>" . $row["Fullname"] . "</td>
-                        <td>" . $row["NIC"] . "</td>
-                        <td>" . $row["DOB"] . "</td>
+                        <td>' . $row["BloodBankID"]. "</td>
+                        <td>" . $row["BloodBank_Name"] . "</td>
                         <td>" . $row["District"] . "</td>
-                        <td>" . $row["Gender"] . "</td>
-                        <td>" . $row["BloodType"] . '</td>
-                        <td><a class="verify-btn" href = "/donors/view_user/'.$row["UserID"].'"><button class="verify-btn" >View</button></a> </td>
-                    </tr> </div>';
+                        <td>" . $row["Province"] . '</td>
+                        <td>' . $row["Email"] . '</td>';
                 
             }
         } 
@@ -116,10 +104,8 @@ $metaTitle = "Donors"
         }
             
         echo '</div>' ;?>
-                        
-                        
-                           
-                        
+        
+        
     </div>
 
 </body>

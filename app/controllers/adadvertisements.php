@@ -74,8 +74,12 @@ class Adadvertisements extends Controller
             if ($_SESSION['type'] == "Admin") {
                 $target_dir = "C:/xampp/htdocs/public/img/advertisements/";
                 $filename = basename($_FILES["fileToUpload"]["name"]);
+                // Get only the filename without the extension
+                $filename = pathinfo($filename, PATHINFO_FILENAME);
                 // Renaming the filename with the $filename + current timestamp
                 $filename = $filename . time();
+                // Adding the extension back to the filename
+                $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
                 $target_file = $target_dir . $filename;
                 
                 $uploadOk = 1;
@@ -178,8 +182,12 @@ class Adadvertisements extends Controller
             if ($_SESSION['type'] == "Admin") {
                 $target_dir = "C:/xampp/htdocs/public/img/advertisements/";
                 $filename = basename($_FILES["fileToUpload"]["name"]);
+                // Get only the filename without the extension
+                $filename = pathinfo($filename, PATHINFO_FILENAME);
                 // Renaming the filename with the $filename + current timestamp
                 $filename = $filename . time();
+                // Adding the extension back to the filename
+                $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
                 $target_file = $target_dir . $filename;
                 
                 $uploadOk = 1;

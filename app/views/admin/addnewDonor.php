@@ -39,7 +39,7 @@ $metaTitle = "Add Donor"
     <!-- main content -->
     <div class="box-new">
         <p class="add-user-title">Add Donor</p>
-        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data" id="addform">
+        <form action="/donors/addDonor" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
                 <label class="quantity-lable" for="name">Full name</label>
                 <br>
@@ -65,7 +65,7 @@ $metaTitle = "Add Donor"
                 <br>
                 <input id="dob" class="dob-input" type="date" name="dob" autofocus placeholder="Date of birth" required>
             </div>
-            <div class="bloodtype-container">
+            <div class="bloodtypes-container">
                 <label class="bloodtype-lable" for="bloodtype">Blood Type</label>
                 <br>
                 <select id="bloodtype" class="bloodtype-input" type="text" name="bloodtype" autofocus placeholder="Blood Type" required>

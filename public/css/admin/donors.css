@@ -1030,12 +1030,13 @@ a {
 
 
 
-.bloodtype-container {
+.bloodtypes-container {
     position: absolute;
     height: 64px;
-    left: 65px;
+    left: 762px;
     right: 114px;
-    top: 391px;
+    top: 273px;
+    width: 1378px;
 }
 
 .status-lable {

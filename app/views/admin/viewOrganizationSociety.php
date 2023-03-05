@@ -37,7 +37,7 @@ $metaTitle = "View Organization Society"
     <div class="box">
         <p class="update-user-title">Organization/Society details</p>
             <div class="hospital-viewicon">
-                <img src="../../../public/img/admindashboard/orgsoc.png" alt="hospital" id="hospital-viewicon">
+                <img src="../../../public/img/user_pics/<?php echo $_SESSION['Userpic'] ?>" alt="organization_society" id="hospital-viewicon">
             </div>
             <div class="quantity-container">
                 <label class="nameview-lable" for="name">Name    : <div class="content"><?php echo $_SESSION['Name'] ?></div></label>

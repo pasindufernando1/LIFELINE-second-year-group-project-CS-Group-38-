@@ -63,7 +63,7 @@ $metaTitle = "Blood Availability Report"
             <br>
         </div>
         <!-- Create a barchart -->
-        <div class="barchart">
+        <div class="barchart-usage">
             <canvas id="usage-months" width="1450" height="483.33">
             </canvas>
         </div>

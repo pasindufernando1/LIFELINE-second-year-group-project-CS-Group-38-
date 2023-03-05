@@ -62,10 +62,15 @@ class Adbadges extends Controller
 
                 $target_dir = "C:/xampp/htdocs/public/img/admindashboard/badges/";
                 $filename = basename($_FILES["fileToUpload"]["name"]);
+                
+                // Get only the filename without the extension
+                $filename = pathinfo($filename, PATHINFO_FILENAME);
                 // Renaming the filename with the $filename + current timestamp
                 $filename = $filename . time();
-                $target_file = $target_dir . $filename;
+                // Adding the extension back to the filename
+                $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
                 
+                $target_file = $target_dir . $filename;
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 

@@ -148,9 +148,16 @@ class UserManageModel extends Model
     
     public function getAllUsers()
     {
-        $data = $this->db->select("*", "user", "WHERE UserType != 'Admin'");
+        $data = $this->db->select("*", "user", "WHERE Deactivation = 0");
         return $data;
     }
+
+    public function getDeactivatedUsers(){
+        $data = $this->db->select("*", "user", "WHERE Deactivation = 1");
+        return $data;
+    }
+
+    
 
 
     //Function to get the type of the user when user id is passed
@@ -165,7 +172,7 @@ class UserManageModel extends Model
     {
         $data1 = $this->db->select("*", "hospital_medicalcenter", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,Password", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data2 = $this->db->select("Email,Username,Password,Userpic", "user", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
         $data = array_merge($data1,$data2,$data3);
@@ -179,7 +186,7 @@ class UserManageModel extends Model
     {
         $data1 = $this->db->select("*", "organization_society", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,Password", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data2 = $this->db->select("Email,Username,Password,Userpic", "user", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
         $data = array_merge($data1,$data2,$data3);
@@ -194,7 +201,7 @@ class UserManageModel extends Model
     {
         $data1 = $this->db->select("*", "donor", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,Password", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data2 = $this->db->select("Email,Username,Password,Userpic", "user", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
         $data = array_merge($data1,$data2,$data3);
@@ -208,7 +215,7 @@ class UserManageModel extends Model
     {
         $data1 = $this->db->select("*", "system_user", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,Password", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data2 = $this->db->select("Email,Username,Password,Userpic", "user", "WHERE UserID = :user_id",':user_id',$user_id);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
         $data = array_merge($data1,$data2,$data3);
@@ -361,12 +368,8 @@ class UserManageModel extends Model
 
     function deleteHosMedDetails($user_id)
     {
-        //Set foreign key checks to 0
-        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
-        $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        // $result2 = $this->db->delete("hospital_medicalcenter", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        // $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
+        //Set the deactivation status of the user to 1 (Deactivated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "1", ":user_id", $user_id, "WHERE UserID = :user_id");
         if ($result1 == "Success") {
             return true;
         } else 
@@ -377,12 +380,8 @@ class UserManageModel extends Model
 
     function deleteOrgSocDetails($user_id)
     {
-        //Set foreign key checks to 0
-        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
-        $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        // $result2 = $this->db->delete("organization_society", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        // $result3 = $this->db->delete("usercontactnumber", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
+        //Set the deactivation status of the user to 1 (Deactivated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "1", ":user_id", $user_id, "WHERE UserID = :user_id");
         if ($result1 == "Success") {
             return true;
         } else 
@@ -393,31 +392,37 @@ class UserManageModel extends Model
 
     function deleteSysUserDetails($user_id)
     {
-        //Set foreign key checks to 0
-        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
-        $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
+        //Set the deactivation status of the user to 1 (Deactivated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "1", ":user_id", $user_id, "WHERE UserID = :user_id");
         if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            
         }
     }
 
     function deleteDonorDetails($user_id)
     {
-        //Set foreign key checks to 0
-        $this->db->query("SET FOREIGN_KEY_CHECKS=0");
-        $result1 = $this->db->delete("user", "WHERE  UserID = :user_id ;", ':user_id', $user_id);
-        $this->db->query("SET FOREIGN_KEY_CHECKS=1");
+        //Set the deactivation status of the user to 1 (Deactivated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "1", ":user_id", $user_id, "WHERE UserID = :user_id");
         if ($result1 == "Success") {
             return true;
         } else 
         {   
             print_r($result1);
-            
+        }
+    }
+
+    public function reactivateUser($user_id)
+    {
+        //Set the deactivation status of the user to 0 (Activated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "0", ":user_id", $user_id, "WHERE UserID = :user_id");
+        if ($result1 == "Success") {
+            return true;
+        } else 
+        {   
+            print_r($result1);
         }
     }
 
@@ -426,6 +431,44 @@ class UserManageModel extends Model
     {
         $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank",null);
         return $data;
+    }
+
+    public function getBloodBanks(){
+        // Get all blood bank details
+        $data = $this->db->select("BloodBankID,BloodBank_Name,District,Province,Email", "bloodbank",null);
+        // For each BloodBankID get the contact number
+        foreach ($data as $key => $value) {
+            $BloodBankID = $value['BloodBankID'];
+            $data[$key]['ContactNumber'] = $this->db->select("ContactNumber", "bloodbankcontactnumber", "WHERE BloodBankID = :BloodBankID",':BloodBankID',$BloodBankID);
+        }
+        return $data;
+    }
+
+    public function addBloodBank($inputs1, $inputs2){
+        
+        //Inserting the blood bank details to the bloodbank table
+        $columns1 = array('BloodBank_Name','Number','LaneName','City','District','Province','Email','BloodBank_pic');
+        $param1 = array(':BloodBank_Name',':Number',':LaneName',':City',':District',':Province',':Email',':BloodBank_pic');
+        $result1 = $this->db->insert("bloodbank", $columns1, $param1, $inputs1);
+
+        //Get the BloodBankID from the last inserted blood bank from the bloodbank table
+        $BloodBankID = $this->db->lastInsertId();
+
+        // Prepend the BloodBankID to the inputs2 array
+        array_unshift($inputs2, $BloodBankID);
+
+        //Inserting the blood bank contact numbers to the bloodbankcontactnumber table
+        $columns2 = array('BloodBankID','ContactNumber');
+        $param2 = array(':BloodBankID',':ContactNumber');
+        $result2 = $this->db->insert("bloodbankcontactnumber", $columns2, $param2, $inputs2,':BloodBankID',$BloodBankID);
+
+        if($result1=="Success" && $result2=="Success"){
+            return true;
+        }
+        else{
+            print_r($result1);
+            print_r($result2);
+        }
     }
 
 

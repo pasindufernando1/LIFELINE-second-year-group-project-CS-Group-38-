@@ -1745,6 +1745,62 @@ a {
     border: 1px #949494 solid;
 }
 
+.pink-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 609px;
+    top: 32px;
+    background: #F5AEAC;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #360806;
+    cursor: pointer;
+    border: 1px #640E0B solid;
+}
+
+.light-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 342px;
+    top: 32px;
+    background: #FBDAD9;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+    border: 1px #F5AEAC solid;
+}
+
+.pink-button:hover, .light-button:hover {
+        font-size: 13.6835px;
+}
+
 .brown-button-update {
     display: flex;
     flex-direction: row;
@@ -1976,6 +2032,22 @@ a {
     left: 1036px;
 }
 
+.bloodbank-user {
+    position: absolute;
+    top: 45px;
+    left: 513px;
+    width: 25px;
+    height: 25px;
+}
+
+.deactivated-user{
+    position: absolute;
+    top: 45px;
+    left: 787px;
+    width: 25px;
+    height: 25px;
+
+}
 
 .expired-stocks-img {
     position: absolute;
@@ -2073,6 +2145,21 @@ a {
     border-radius: 4px;
     text-align: center;
     margin: 0px 0px 0px -127px;
+}
+
+.reactivate-btn{
+    width: 150px;
+    height: 35px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 5px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 16px;
+    color: #640E0B;
+    border: none;
+
 }
 
 th {
@@ -2260,12 +2347,29 @@ td {
     margin-left: -54px
 }
 
-.hospital-viewicon img{
+/* .hospital-viewicon img{
     width: 150px;
     height: 150px;
     margin-left: 773px;
     margin-top: 68px;
-}
+} */
+
+.hospital-viewicon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #640E0B;
+    position: absolute;
+    top: 50px;
+    left: 791px;
+  }
+  
+  #hospital-viewicon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
 .nameview-lable {
     position: absolute;
@@ -2767,4 +2871,57 @@ td {
     top: 103.25px;
     left: 53px;
     border: 0.818053px solid #EFEFEF;
+}
+
+.image-lable{
+    position: absolute;
+    height: 16px;
+    left: 65px;
+    /* right: 0px; */
+    top: 490px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: normal;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.camera-icon {
+    position: absolute;
+    cursor: pointer;
+    width: 95px;
+    height: auto;
+    /* margin-top: -5px; */
+    top: 40px;
+    left: 61px;
+}
+
+
+.browsepic {
+    position: absolute;
+    cursor: pointer;
+    width: 133px;
+    /* height: auto; */
+    /* margin-top: -5px; */
+    top: 140px;
+    left: 43px;
+}
+
+
+.icons{
+    border: 2px solid #949494;
+    border-radius: 0.8vw;
+    border-color: #949494;
+    padding: 106px;
+    position: absolute;
+    top: 515px;
+    left: 85px;
 }

@@ -2623,11 +2623,25 @@ td {
 
 
 .barchart{
+    /* position: absolute;
+    top: 700px;
+    margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px; */
+    position: absolute;
+    top: 178px;
+    margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.barchart-usage{
     position: absolute;
     top: 700px;
     margin: 194px 0px 69px 35px;
     border: 1px #BCBCBC solid;
     border-radius: 10px;
+    
 }
 
 .smallchart{

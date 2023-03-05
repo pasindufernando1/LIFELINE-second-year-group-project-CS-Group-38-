@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Donors" 
+$metaTitle = "Users" 
 ?>
 
 <!DOCTYPE html>
@@ -15,49 +15,43 @@ $metaTitle = "Donors"
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
      <!-- CSS Files -->
-    <link href="../../../public/css/admin/donors.css" rel="stylesheet">
+    <link href="../../../public/css/admin/dashboard.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link href="../../../public/css/admin/sidebar.css" rel="stylesheet">
-     <!-- <link href="../../../public/css/admin/dashboard.css" rel="stylesheet"> -->
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    
-
-    
-
 </head>
 <body>
     
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/donors_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/user_reactivation_confirmation.php'); ?>
             
     <!-- main content -->
     <div class="box">
-        <p class="add-user-title">Donors</p>
-                        
-        <a href="/donors/addDonoruser" class="brown-button types-user">Add New</a>
-        <img class="userbutton-user" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
+        <p class="add-user-title"> Deactivated Users</p>
+
+        <a href="/usermanage/type?page=1" class="brown-button types-user">Active Users</a>
         
         <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
         <tr>
-            <th>Donor ID</th>
-            <th>Full Name</th>
-            <th>NIC No</th>
-            <th>DOB</th>
-            <th>District</th>
-            <th>Gender</th>
-            <th>Blood Type</th>
+            <th>User ID</th>
+            <th>User Type</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Profile</th>
             <th>Action</th>
         </tr>
         <hr class="blood-types-line">
+        
+        
         <?php 
         $results_per_page = 7;
         $number_of_results = $_SESSION['rowCount'];
@@ -72,7 +66,7 @@ $metaTitle = "Donors"
 
         //determine the sql LIMIT starting number for the results on the displaying page  
         $page_first_result = ($page-1) * $results_per_page;  
-        $result = $_SESSION['donors'];
+        $result = $_SESSION['users'];
 
         //display the link of the pages in URL  
         if ($_SESSION['rowCount'] > 0) {
@@ -80,13 +74,15 @@ $metaTitle = "Donors"
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>
                         <td>' . $row["UserID"]. "</td>
-                        <td>" . $row["Fullname"] . "</td>
-                        <td>" . $row["NIC"] . "</td>
-                        <td>" . $row["DOB"] . "</td>
-                        <td>" . $row["District"] . "</td>
-                        <td>" . $row["Gender"] . "</td>
-                        <td>" . $row["BloodType"] . '</td>
-                        <td><a class="verify-btn" href = "/donors/view_user/'.$row["UserID"].'"><button class="verify-btn" >View</button></a> </td>
+                        <td>" . $row["UserType"] . "</td>
+                        <td>" . $row["Email"] . "</td>
+                        <td>" . $row["Username"] . '</td>
+                        <td><a href = "/usermanage/view_user/'.$row["UserID"].'"><button class="view-btn" >View</button></a> </td>
+                        <td>
+                        <div class="delete-btn-div"> <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                        document.getElementById('."'del'".').action = '."'/usermanage/reactivate_user/".$row["UserID"]."'".'";
+                        ">   <button class="reactivate-btn">Reactivate </a> </div> </div></td>
+
                     </tr> </div>';
                 
             }
@@ -116,10 +112,8 @@ $metaTitle = "Donors"
         }
             
         echo '</div>' ;?>
-                        
-                        
-                           
-                        
+        
+        
     </div>
 
 </body>

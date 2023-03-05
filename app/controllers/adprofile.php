@@ -45,8 +45,12 @@ class Adprofile extends Controller
         // Checking whether a file is uploaded
         if ($_FILES["fileToUpload"]["error"] == UPLOAD_ERR_OK) {
             $filename = basename($_FILES["fileToUpload"]["name"]);
+            // Get only the filename without the extension
+            $filename = pathinfo($filename, PATHINFO_FILENAME);
             // Renaming the filename with the $filename + current timestamp
             $filename = $filename . time();
+            // Adding the extension back to the filename
+            $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
             $file_upload = true;
         } else {
             $filename = $_SESSION['user_pic'];

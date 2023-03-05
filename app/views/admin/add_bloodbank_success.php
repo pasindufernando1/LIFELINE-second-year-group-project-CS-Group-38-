@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User deleted successfully"; 
+$metaTitle = "BloodBank added successfully"; 
 ?>
 
 <!DOCTYPE html>
@@ -30,16 +30,19 @@ $metaTitle = "System User deleted successfully";
 </head>
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
+   <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
     <div class="box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Successfully deactivated the system user !</p>
-            <a href="/usermanage/type?page=1" class="brown-button back-to-reserve">Back to Users</a>
+            <p class="success-msg-txt">Successfully added the new Blood Bank !</p>
+            <a href="/usermanage/bloodbanks?page=1" class="brown-button back-to-reserve">Back to Blood Banks</a>
             <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
         </div>
     </div>
+
+                
+
 </body>
 </html>

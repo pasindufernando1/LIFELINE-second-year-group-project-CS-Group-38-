@@ -425,7 +425,7 @@ class ReportsModel extends Model
             else if($status == 2){
                 $result_array['declined']++;
             }
-            else{
+            else if($status == 0){
                 $result_array['pending']++;
             }
         }

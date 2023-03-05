@@ -22,7 +22,20 @@ class Usermanage extends Controller
         }
     }
 
-
+    function addbloodbank()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/addBloodBank');
+                exit;
+            }
+        }    
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
+    
+    
     function adduser()
     {
         if (isset($_SESSION['login'])) {
@@ -131,7 +144,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = 'default_hospital.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
@@ -166,7 +179,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = 'default_orgsoc.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
@@ -205,7 +218,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = 'default_donor.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
@@ -236,7 +249,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = 'default_user.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
@@ -323,6 +336,36 @@ class Usermanage extends Controller
         }
             
         
+    }
+
+    //Blood banks manage
+    function bloodbanks(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $_SESSION['bloodbanks'] = $this->model->getBloodBanks();
+                $this->view->render('admin/bloodbankmanage');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    // Deactivated users
+    function deactivated_users(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $_SESSION['users'] = $this->model->getDeactivatedUsers();
+                $this->view->render('admin/deactivated_usermanage');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
     }
 
     function edit_user($user_id)
@@ -429,6 +472,7 @@ class Usermanage extends Controller
                     $_SESSION['Username'] = $_SESSION['user_details'][1][1];
                     $_SESSION['Password'] = $_SESSION['user_details'][1][2];
                     $_SESSION['Contact_no'] = $_SESSION['user_details'][2][0];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
                     $this->view->render('admin/viewHospitalMedicalCenter');
                     exit;
                 }
@@ -446,6 +490,7 @@ class Usermanage extends Controller
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                     $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
                     $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
                     $this->view->render('admin/viewOrganizationSociety');
                     exit;
                 }
@@ -468,6 +513,7 @@ class Usermanage extends Controller
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                     $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
                     $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
                     $this->view->render('admin/viewDonor');
                     exit;
                 }
@@ -481,6 +527,7 @@ class Usermanage extends Controller
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                     $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
                     $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
                     $this->view->render('admin/viewSystemUser');
                     exit;
                 }
@@ -737,8 +784,118 @@ class Usermanage extends Controller
         
     }
 
+    function reactivate_user($user_id){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if($this->model->reactivateUser($user_id)){
+                    $this->view->render('admin/reactivate_successful');
+                    exit;
+                }
+            } 
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
 
+    function addbloodbank_done()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $target_dir = "C:/xampp/htdocs/public/img/bloodbanks/";
+                $file_upload = false;
+                //Checking if the file is uploaded
+                if ($_FILES["fileToUpload"]["error"] == UPLOAD_ERR_OK) {
+                    $filename = basename($_FILES["fileToUpload"]["name"]);
 
-    
+                    // Get only the filename without the extension
+                    $filename = pathinfo($filename, PATHINFO_FILENAME);
+                    // Renaming the filename with the $filename + current timestamp
+                    $filename = $filename . time();
+                    // Adding the extension back to the filename
+                    $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
+                    $file_upload = true;
+                } else {
+                    $filename = 'bloodbank.png';
+                }
+
+                $target_file = $target_dir . $filename;
+                
+                $uploadOk = 1;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+                
+                if($file_upload){
+                    // Check if image file is a actual image or fake image
+                    if (isset($_POST["submit"])) {
+                        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                        if ($check !== false) {
+                            echo "File is an image - " . $check["mime"] . ".";
+                            $uploadOk = 1;
+                        } else {
+                            echo "File is not an image.";
+                            $uploadOk = 0;
+                        }
+                    }
+
+                    // Check if file already exists
+                    if (file_exists($target_file)) {
+                        echo "Sorry, file already exists.";
+                        $uploadOk = 0;
+                    }
+
+                    // Check file size
+                    if ($_FILES["fileToUpload"]["size"] > 500000) {
+                        echo "Sorry, your file is too large.";
+                        $uploadOk = 0;
+                    }
+
+                    // Allow certain file formats
+                    if (
+                        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                        && $imageFileType != "gif"
+                    ) {
+                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                        $uploadOk = 0;
+                    }
+
+                    // Check if $uploadOk is set to 0 by an error
+                    if ($uploadOk == 0) {
+                        echo "Sorry, your file was not uploaded.";
+                        // if everything is ok, try to upload file
+                    } else {
+                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+                        } else {
+                            echo "Sorry, there was an error uploading your file.";
+                        }
+                    }
+                }
+
+                
+                $BankName = $_POST['bank-name'];
+                $Email = $_POST['email'];
+                $Number = $_POST['number'];
+                $LaneName = $_POST['lane'];
+                $City = $_POST['city'];
+                $District = $_POST['district'];
+                $Province = $_POST['province'];
+                $ContactNumber = $_POST['contact'];
+                $Bloodbank_pic = $filename;
+
+                $input1 =array($BankName,$Number, $LaneName, $City, $District, $Province, $Email, $Bloodbank_pic);
+                $input2 =array($ContactNumber);
+
+                if($this->model->addBloodBank($input1, $input2)){
+                    $this->view->render('admin/add_bloodbank_success');
+                    exit;
+                }   
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }    
 }
+
     

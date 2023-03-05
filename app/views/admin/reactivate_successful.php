@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User deleted successfully"; 
+$metaTitle = "Donor deleted successfully"; 
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +33,16 @@ $metaTitle = "System User deleted successfully";
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
+    
     <div class="box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Successfully deactivated the system user !</p>
-            <a href="/usermanage/type?page=1" class="brown-button back-to-reserve">Back to Users</a>
-            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
+            <p class="success-msg-txt">Successfully reactivated the user !</p>
+            <a href="/usermanage/deactivated_users?page=1" class="brown-button back-to-reserve">Back to Deactivated Users</a>
         </div>
     </div>
+
+                
+
 </body>
 </html>
