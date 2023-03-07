@@ -132,18 +132,26 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div id="profile-edit-form" class="profile-container">
-        <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>
         <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
             enctype="multipart/form-data">
-            <label for="fileToUpload"> <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"></label>
+
+            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>"><br>
+
+            <label for="fileToUpload"> <img id="change_img"
+                    src="../../../public/img/donordashboard/lil_cam.png"></label>
             <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
-            <input style="display:none;" type="file" name="fileToUpload" id="image" accept="image/*"
-                onchange="loadFile(event)">
+            <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
+
             <script>
-            var loadFile = function(event) {
-                var output = document.getElementById('donor_img');
-                output.src = URL.createObjectURL(event.target.files[0]);
-            };
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById("donor_img").src = e.target.result;
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
             </script>
 
             <label class="name-lable" for="name">NAME</label>

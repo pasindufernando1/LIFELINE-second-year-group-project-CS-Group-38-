@@ -1,1 +1,0 @@
-<?php echo 'Not suitable to be a donor'; ?>

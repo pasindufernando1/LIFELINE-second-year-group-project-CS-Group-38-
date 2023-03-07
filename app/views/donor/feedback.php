@@ -164,7 +164,7 @@ if ($_SESSION['rowCount'] > 0) {
             </div>
             <div class="feedback-d">
             <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
-                <a href="#"> <button id = "feedback-btn">Delete</button></a>
+                <a href="remove_rating?camp=' . $row['CampaignID'] . '""> <button id = "feedback-btn">Delete</button></a>
                 </div>
             </div>
             ';

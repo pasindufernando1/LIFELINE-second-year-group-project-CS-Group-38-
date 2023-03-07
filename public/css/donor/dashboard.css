@@ -1839,9 +1839,13 @@ fieldset {
 
 #donor_img {
     width: 199px;
-    margin-top: 4%;
-    margin-left: 4%;
+    height: 199px;
+    /* margin-top: 4%; */
+    /* margin-left: 4%; */
     border-radius: 50%;
+    position: absolute;
+    left: 63px;
+    top: 61px;
 }
 
 #change_img {
@@ -1913,7 +1917,7 @@ fieldset {
 
 .profile-container form {
     font-family: Poppins;
-    /* margin-top: 13%; */
+    margin-top: 17%;
     margin-left: 5%;
     width: 89%;
 }
@@ -1930,6 +1934,21 @@ fieldset {
     border: 2px solid #a7a7a7;
     border-radius: 6px;
     font-family: 'Poppins';
+    margin-bottom: 6px;
+    font-size: 17px;
+
+}
+
+.profile-container form p {
+    font-size: 15px;
+    color: red;
+    position: absolute;
+    margin-top: -10px;
+    width: 89.5%;
+    text-align: right;
+    /* margin-right: 10px; */
+    font-weight: bold;
+
 }
 
 .profile-container form .address-div {
@@ -1945,10 +1964,12 @@ fieldset {
 
 .profile-container form select {
     width: 100%;
-    height: 40px;
+    height: 48px;
     border: 2px solid #a7a7a7;
     border-radius: 6px;
     font-family: 'Poppins';
+    margin-bottom: 10px;
+    font-size: 17px;
 }
 
 .profile-container form .buttons {
@@ -1995,7 +2016,7 @@ fieldset {
     text-align: center;
     display: block;
     width: 100%;
-    margin-top: -80px;
+    margin-top: 201px;
 }
 
 #check-password-form input {
@@ -2841,6 +2862,42 @@ fieldset {
     align-items: center;
 }
 
+.view-stars {
+    box-sizing: border-box;
+    display: flex;
+    width: 38%;
+    height: 121px;
+    /* margin-right: auto; */
+    margin-left: 204px;
+    margin-top: -7%;
+    font-family: 'Poppins';
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.view-stars img {
+    width: 45px;
+}
+
+#exper {
+    top: 318px;
+    left: 147px;
+    position: absolute;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Poppins';
+    text-align: left;
+}
+
 .do_rate {
     margin-right: auto;
     margin-left: auto;
@@ -2862,36 +2919,42 @@ fieldset {
     cursor: pointer;
 }
 
-/* .stars input {
+.rate-camp {
+    font-size: 2.3em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#message {
+    box-sizing: border-box;
+    width: 38%;
+    height: 28%;
+    position: absolute;
+    font-family: Poppins;
+    font-size: 23px;
+    top: 400px;
+    left: 451px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Poppins';
+    text-align: left;
+    border: 2px solid #eceef7;
+    border-radius: 8px;
+    resize: none;
+}
+
+#star_rating {
+    position: absolute;
+    top: 297px;
+    left: 453px;
+}
+
+#star_rating input {
     display: none;
 }
-
-.stars label {
-    font-size: 40px;
-    color: #444;
-
-} */
-
-/* #star1:hover {
-    content: url(./../../public/img/donordashboard/yellow_star.png);
-}
-
-#star2:hover {
-    content: url(./../../public/img/donordashboard/yellow_star.png);
-}
-
-#star3:hover {
-    content: url(./../../public/img/donordashboard/yellow_star.png);
-}
-
-#star4:hover {
-    content: url(./../../public/img/donordashboard/yellow_star.png);
-}
-
-#star5:hover {
-    content: url(./../../public/img/donordashboard/yellow_star.png);
-} */
-
 
 .rate {
     box-sizing: border-box;
@@ -2946,7 +3009,7 @@ fieldset {
 
 .rate-campaign-box button {
     width: 282px;
-    margin-top: 76px;
+    margin-top: 334px;
     margin-right: -73%;
     height: 59px;
     top: 559px;

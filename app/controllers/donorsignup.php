@@ -1,5 +1,9 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP   ;
+require '../vendor/autoload.php';
 
 class Donorsignup extends Controller
 {
@@ -7,6 +11,96 @@ class Donorsignup extends Controller
     {
         parent::__construct();
     }
+
+    function index()
+    {
+        $this->view->render('signup');
+        exit;
+    }
+
+    function verify(){
+        $this->view->render('authentication/verify_email');
+        exit;
+    }
+
+    function get_otp(){
+        $_SESSION['email'] = $_POST['email'];
+
+        
+            $num_str = sprintf("%06d", mt_rand(1, 999999));
+            $_SESSION['token'] = $num_str;
+
+            //Create an instance; passing `true` enables exceptions
+            $mail = new PHPMailer(true); //Argument true in constructor enables exceptions
+
+            $mail->IsSMTP();  // telling the class to use SMTP
+            // $mail->SMTPDebug = 2;
+            $mail->Mailer = "smtp";
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->Username = 'lifeline.managementservices@gmail.com';
+            $mail->Password = 'kelpqmxgangljbqj';
+            //From email address and name
+            $mail->From = "lifeline.managementservices@gmail.com";
+            $mail->FromName = "Life Line";
+
+            //To address and name
+            $mail->addAddress($_POST['email']); //Recipient name is optional                                                                                         
+
+            //Address to which recipient will reply
+            $mail->addReplyTo("noreply@lifeline.com", "Life Line");
+
+
+            //Send HTML or Plain Text email
+            $mail->isHTML(true);
+
+            $mail->Subject = "Verify Your Email Address";
+            $mail->Body = "<p>Dear Donor,</p>
+            <p>Thank you for registering to Life Line. To verify your account, we need to verify your email address.
+            Use the following OTP to confirm:$num_str </p>
+            <p>enter the OTP on the confirmation page to complete the verification process.
+            If you didn't request this OTP, please ignore this email.</p>";
+            $mail->AltBody = "This is the plain text version of the email content";
+
+
+            try {
+                $mail->send();
+                header('Location: /donorsignup/OTP');
+                if(isset($_SESSION['e_error'])){
+                    unset($_SESSION['e_error']);
+                }
+            } catch (Exception $e) {
+                $_SESSION['e_error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+
+    }
+
+    function OTP(){
+        if(isset($_SESSION['otp_error'])){
+                unset($_SESSION['otp_error']);
+            }
+        $this->view->render('authentication/verify_email_otp');
+        exit;
+    }
+
+    function verify_otp(){
+        // if(!isset($_POST['otp']) ){
+        //     print_r
+        // }
+        if($_SESSION['token'] == $_POST['otp']){
+            if(isset($_SESSION['otp_error'])){
+                unset($_SESSION['otp_error']);
+            }
+            header('Location: /donorsignup/signup');
+        }
+        else{
+            $_SESSION['otp_error'] = "OTP is incorrect";
+            header('Location: /donorsignup/OTP');
+        }
+    }
+    
     
     function signup(){
         $this->view->render('authentication/donorsignup');
@@ -25,11 +119,8 @@ class Donorsignup extends Controller
             header("Location: /donorsignup/regunseccessful");
         }
         else{
-            $email = $_POST['email'];
-            if($this->model->ifinsystem($email)){
-                print_r('email in use');
-            }
-            else{
+            $email = $_SESSION['email'];
+            
                 $password = $_POST['password'];
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $type = 'Donor';
@@ -55,7 +146,7 @@ class Donorsignup extends Controller
                     }
                }
 
-            }
+            
         }
 
     }
@@ -65,5 +156,3 @@ class Donorsignup extends Controller
         exit;
     }
 }
-
-

@@ -1,9 +1,0 @@
-Fonts used in this design:
-
-Font: Staatliches
-Author: Brian LaRossa,Erica Carras
-Url: https://fonts.google.com/specimen/Staatliches
-
-Font: Poppins
-Author: Indian Type Foundry,Jonny Pinhorn
-Url: https://fonts.google.com/specimen/Poppins

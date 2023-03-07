@@ -68,7 +68,11 @@ class Ratecampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                $rating = $_POST['star-rating'];
+                // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                //     var_dump($_POST);
+                // }
+
+                $rating = $_POST['rating'];
                 $feedback = $_POST['fb'];
                 $inputs = [$feedback, $rating];
                 if (
@@ -121,6 +125,8 @@ class Ratecampaign extends Controller
                     $_SESSION['selected_campid'],
                     $_SESSION['user_ID']
                 );
+                // print_r($_SESSION['selected_camprating']);
+                // die();
                 $this->view->render('donor/campaign_feedback_edit');
                 exit();
             } else {
@@ -133,13 +139,12 @@ class Ratecampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                if (isset($_POST['star-rating']) && isset($_POST['message'])) {
-                    if (is_null($_POST['star-rating'])) {
-                        $rating = $_SESSION['selected_camprating']['Rating'];
-                    } else {
-                        $rating = $_POST['star-rating'];
-                    }
-                    $feedback = $_POST['message'];
+                if(!isset($_POST['rating'])){
+                    $rating = $_SESSION['selected_camprating']['Rating'];
+                }else{
+                    $rating = $_POST['rating'];
+                }
+                    $feedback = $_POST['fb'];
                     $inputs = [$feedback, $rating];
                     if (
                         $this->model->save_rating($inputs, $_SESSION['selected_campid'], $_SESSION['user_ID'])
@@ -150,10 +155,7 @@ class Ratecampaign extends Controller
                         $this->view->render('donor/campaign_feedback');
                         exit();
                     }
-                } else {
-                    print_r('mothrfckr');
-                    die();
-                }
+                
 
             } else {
                 $this->view->render('authentication/donorlogin');

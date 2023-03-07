@@ -29,7 +29,7 @@
             <div class="user-type-container">
                 <div class="user-type donor">
                     
-                    <a href="/donorsignup/signup">
+                    <a href="/donorsignup/verify">
                         <img src="../../../public/img/signup/donor-signup.png" alt="">
                         <button>Signup</button>
                     <p>Donor</p></a>

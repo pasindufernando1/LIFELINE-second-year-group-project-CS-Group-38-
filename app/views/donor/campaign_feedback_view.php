@@ -132,25 +132,29 @@ $metaTitle = 'Donor Feedback';
     </div>
 
     <div class="rate-campaign-box">
-        <?php echo '<h2 class="header2">' .
+        <?php echo '<h2 class="rate-camp">' .
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
         <div class="viewrating">
             <p class="p11">Your Rating</p>
-            <p class="p22">Your Experience : Nice staff. Well organized and efficient </p>
-            <div class="stars view">
-                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                <img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">
+            <p id="exper"class="p22">Your Experience :     <?php echo $_SESSION['selected_camprating']['Feedback']?></p>
+            <div class="view-stars">
+                <?php 
+                $rating = $_SESSION['selected_camprating']['Rating'];
+                for ($i = 0; $i < $rating; $i++) {
+                    echo '<img src="../../../public/img/donordashboard/yellow_star.png" alt="star">';
+                }
+                for ($i = 0; $i < 5 - $rating; $i++) {
+                    echo '<img src="../../../public/img/donordashboard/grey_star.png" alt="star">';
+                }
+                ?>
 
             </div>
             <div class="rate_btn_view">
                 <?php echo '<a href="editrating?camp=' .
                     $_SESSION['selected_campid'] .
                     '">Edit Rating</a>
-                <a href="deleterating">Delete Rating</a>'; ?>
+                <a href="remove_rating">Delete Rating</a>'; ?>
             </div>
 
         </div>

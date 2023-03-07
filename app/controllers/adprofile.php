@@ -149,11 +149,4 @@ class Adprofile extends Controller
         }
     }
 
-    
-    
-
-
-
-    
 }
-

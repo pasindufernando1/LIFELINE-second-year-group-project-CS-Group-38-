@@ -127,10 +127,6 @@ require_once __ROOT__ . '/views/layout/navigation.php';
             </select>
             <p class="province-error" id="province-error"></p>
             <br>
-            <label class="email-lable" for="email">EMAIL</label>
-            <br>
-            <input id="email" class="email-input" type="email" name="email" autofocus placeholder="Email" required>
-            <p class="email-error" id="email-error"></p>
             <label class="tel-lable" for="tel">Telephone</label>
             <br>
             <input id="tel" class="tel-input" type="text" name="tel" autofocus placeholder="Telephone number" required>

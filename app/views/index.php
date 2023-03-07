@@ -25,7 +25,7 @@
                 <p class="b2">
                     Be the reason for someone's heartbeat.
                 </p>
-                <button class="btn-ban"> Register</button>
+                <button class="btn-ban"><a href="donorsignup/"> Register</a></button>
             </div>
         </div>
         <div class="t-boxes">
