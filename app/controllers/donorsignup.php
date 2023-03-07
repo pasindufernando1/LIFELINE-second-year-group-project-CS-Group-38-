@@ -57,7 +57,7 @@ class Donorsignup extends Controller
 
             $mail->Subject = "Verify Your Email Address";
             $mail->Body = "<p>Dear Donor,</p>
-            <p>Thank you for registering to Life Line. To verify your account, we need to verify your email address.
+            <p>Thank you for registering to LifeLine. To verify your account, we need to verify your email address.
             Use the following OTP to confirm:$num_str </p>
             <p>enter the OTP on the confirmation page to complete the verification process.
             If you didn't request this OTP, please ignore this email.</p>";

@@ -126,27 +126,20 @@
         height: 82px;
         transform: translate(-50%, -50%);
         left: 50%;
-        top: 6%;
+        top: 4%;
         margin: 0;
     }
 
 
     .title {
-        position: absolute;
-        height: 24px;
-        left: 47px;
-        right: 27px;
-        top: 107px;
         font-family: 'Mulish';
-        font-style: normal;
         font-weight: 1900;
-        font-size: 62px;
-        line-height: 45px;
-        /* identical to box height */
+        font-size: 35px;
+        margin-top: 106px;
         text-align: center;
         width: 100%;
         letter-spacing: 0.4px;
-        color: #FFFFFF;
+        color: black;
     }
 
     .login-title {
@@ -201,7 +194,7 @@
         height: 30px;
         left: 32px;
         right: 32px;
-        top: 136px;
+        top: 148px;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 700;
@@ -217,13 +210,12 @@
         height: 20px;
         left: 32px;
         right: 32px;
-        top: 188px;
+        top: 198px;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
-        /* identical to box height, or 143% */
         text-align: center;
         letter-spacing: 0.3px;
         color: #640E0B;
@@ -661,7 +653,35 @@
         height: 64px;
         left: 32px;
         right: 32px;
-        top: 266px;
+        top: 502px;
+    }
+
+    .input-img {
+        margin-left: 42%;
+        /* margin-right: auto; */
+        margin-top: -236px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        /* padding-bottom: 50px; */
+        border: #FBDAD9 2px solid;
+        align-content: center;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+
+    .input-img:hover {
+        border: #640E0B 2px solid;
+        cursor: pointer;
+    }
+
+    #upload_img {
+        margin-left: 7%;
+        /* margin-right: auto; */
+        margin-top: -5px;
+        width: 127px;
     }
 
     .error-pwd {

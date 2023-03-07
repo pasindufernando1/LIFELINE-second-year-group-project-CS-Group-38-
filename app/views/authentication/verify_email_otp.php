@@ -28,13 +28,13 @@
         </div>
         <?php if(isset($_SESSION['otp_error'])){
             echo '<div class="sub-3">
-            <p class="otp-error">'.$_SESSION['otp_error'].'</p>';;
+            <p class="otp-error">'.$_SESSION['otp_error'].'</p>';
         } ?>
 
         <form action="/donorsignup/verify_otp" method="post" id="user-login" name="login-form">
             <label class="username-lable" for="otp">OTP:</label>
             <br>
-            <input id="otp" class="username-input" type="text" name="otp" autofocus placeholder="Enter Emmail"
+            <input id="otp" class="username-input" type="text" name="otp" autofocus placeholder="Enter OTP"
                 required>
             <button class='login-button' type='submit' name='login'>Submit</button>
 
