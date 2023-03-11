@@ -143,6 +143,38 @@ class UserManageModel extends Model
         }
     }
 
+    public function addAdmin($inputs1, $inputs2, $inputs3)
+    {
+        //Updating the user table
+        $columns1 = array('Email','Password','Username','Userpic','UserType');
+        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
+        $result1 = $this->db->insert("user", $columns1, $param1, $inputs1);
+
+        // Updating the admin table
+        //Get the UserID from the last inserted user from the user table
+        $UserID = $this->db->lastInsertId();
+        array_unshift($inputs2, $UserID);
+
+        $columns2 = array('UserID','Fullname');
+        $param2 = array(':UserID',':Fullname');
+        $result2 = $this->db->insert("admin", $columns2, $param2, $inputs2);
+
+        //Updating the usercontactnumber table
+        $columns3 = array('UserID', 'ContactNumber');
+        $param3 = array(':UserID', ':ContactNumber');
+        array_unshift($inputs3, $UserID);
+        $result3 = $this->db->insert("usercontactnumber", $columns3, $param3, $inputs3);
+
+        if($result1=="Success" && $result2=="Success" && $result3=="Success"){
+            return true;
+        }
+        else{
+            print_r($result1);
+            print_r($result2);
+            print_r($result3);
+        }
+
+    }
 
 
     
@@ -221,6 +253,20 @@ class UserManageModel extends Model
         $data = array_merge($data1,$data2,$data3);
         // Get the bloodbankname from bloodbank table
         $_SESSION['BloodBankName'] = $this->db->select("BloodBank_Name", "bloodbank", "WHERE BloodBankID = :bloodbankid",':bloodbankid',$data[0]['BloodBankID']);
+        //Return data as a single array
+        return $data;
+
+    }
+
+    //Function to get the details of the admin when user id is passed
+    public function getAdminDetails($user_id)
+    {
+        $data1 = $this->db->select("*", "admin", "WHERE UserID = :user_id",':user_id',$user_id);
+        //Select Email,Username,Password from user table
+        $data2 = $this->db->select("Email,Username,Password,Userpic", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        //Select ContactNumber from usercontactnumber table
+        $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data = array_merge($data1,$data2,$data3);
         //Return data as a single array
         return $data;
 
@@ -361,6 +407,36 @@ class UserManageModel extends Model
             print_r($result2);
             print_r($result3);
         }
+    }
+
+    public function editAdmin($user_id,$inputs1,$inputs2,$inputs3) 
+    {
+
+        //Updating the user table
+        $columns1 = array('Email','Password','Username','UserType');
+        $param1 = array(':Email',':Password',':Username',':UserType');
+        $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':user_id',$user_id,"WHERE UserID = :user_id");
+        
+        //Updating Admin table
+        $columns2 = array("Fullname");
+        $param2 = array(":Fullname");
+        $result2 = $this->db->update("admin", $columns2, $param2, $inputs2,':user_id',$user_id,"WHERE UserID = :user_id");
+
+        //Updating the usercontactnumber table
+        $columns3 = array('ContactNumber');
+        $param3 = array(':ContactNumber');
+        // array_unshift($inputs3, $UserID);
+        $result3 = $this->db->update("usercontactnumber", $columns3, $param3, $inputs3,':user_id',$user_id,"WHERE UserID = :user_id");
+
+        if($result1=="Success" && $result2=="Success" && $result3=="Success"){
+            return true;
+        }
+        else{
+            print_r($result1);
+            print_r($result2);
+            print_r($result3);
+        }
+
     }
 
 

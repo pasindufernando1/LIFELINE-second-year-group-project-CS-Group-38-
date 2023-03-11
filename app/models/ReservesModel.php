@@ -19,6 +19,7 @@ class ReservesModel extends Model
         // For each TypeID take the Type name and add it to the array
         foreach ($data as $key => $value) {
             $data[$key]['Type_Name'] = $this->getTypeName($value['TypeID']);
+            $data[$key]['Subtype'] = $this->getSubtypeName($value['TypeID']);
         }
         // Print the blood bank name
         // print_r($data[0]['BloodBank_Details']['BloodBank_Name']);die();
@@ -40,6 +41,13 @@ class ReservesModel extends Model
     {
         $data = $this->db->select("Name", "bloodcategory", "WHERE TypeID = :TypeID", "TypeID", $type_id);
         return $data[0]['Name'];
+    }
+
+    // Get the blood subtype name for a given blood type id
+    public function getSubtypeName($type_id)
+    {
+        $data = $this->db->select("Subtype", "bloodcategory", "WHERE TypeID = :TypeID", "TypeID", $type_id);
+        return $data[0]['Subtype'];
     }
 
     

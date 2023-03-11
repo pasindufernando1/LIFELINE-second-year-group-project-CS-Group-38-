@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Reserves" 
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +47,7 @@ $metaTitle = "Inventory"
         <tr>
             <th>Blood Bank</th>
             <th>Blood Group</th>
+            <th>Subtype</th>
             <th>Quantity</th>
             <th>District</th>
             <th>Province</th>
@@ -76,6 +77,7 @@ $metaTitle = "Inventory"
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {                echo '<div class="table-content-types"> <tr>
                         <td>' . $row["BloodBank_Details"]["BloodBank_Name"]. "</td>
                         <td>" . $row["Type_Name"] . "</td>
+                        <td>" . $row["Subtype"] . "</td>
                         <td>" . $row["Quantity"] . "</td>
                         <td>" . $row["BloodBank_Details"]["District"] . "</td>
                         <td>" . $row["BloodBank_Details"]["Province"] . '</td>

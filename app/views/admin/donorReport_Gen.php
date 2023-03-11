@@ -139,10 +139,9 @@ $metaTitle = "Donor Report"
 			// console.log(base64image);
 			let pdf = new jsPDF('p', 'mm'); 
 			pdf.addImage(base64image, 'PNG', 0, 0, 210,300);
-            // Generate a random number for the file name
-            var random = Math.floor(Math.random() * 1000000001);
-            var filename = 'donorReport-id-'+ random + '.pdf'; 
-			pdf.save('donorReport-id-' + random + '.pdf');
+            // Append the file name with timestamp without random number
+            var filename = 'donorreport-id-'+ Date.now() + '.pdf';
+			pdf.save(filename);
             });
         });
     </script>

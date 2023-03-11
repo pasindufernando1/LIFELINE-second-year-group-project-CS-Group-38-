@@ -103,6 +103,19 @@ class Usermanage extends Controller
         }
     }
 
+    function addAdminUser()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/addAdminUser');
+                exit;
+            }
+        }    
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
+
     
 
 
@@ -266,6 +279,34 @@ class Usermanage extends Controller
         }
     }
 
+    function addnewAdmin()
+    {
+        if ($_SESSION['type'] == "Admin") {
+            if (!isset($_POST['add-admin'])) {
+                header("Location: /usermanage/addAdminUser");
+                exit;
+            }
+
+            $Full_name = $_POST['fullname'];
+            $Email = $_POST['email'];
+            $ContactNumber = $_POST['contact'];
+            $Username = $_POST['uname'];
+            $Userpic = 'default_user.png';
+            $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+
+            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Admin');
+            $inputs2 = array($Full_name);
+            $inputs3 = array($ContactNumber);
+
+            if ($this->model->addAdmin($inputs1, $inputs2, $inputs3)) {
+                header("Location: /usermanage/add_admin_successful");
+            }
+        }
+    }
+
+    
+
 
     
 
@@ -313,6 +354,19 @@ class Usermanage extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $this->view->render('admin/add_systemuser_successful');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
+
+    function add_admin_successful()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/add_admin_successful');
                 exit;
             } 
         }
@@ -444,6 +498,16 @@ class Usermanage extends Controller
                     $this->view->render('admin/editSystemUser');
                     exit;
                 }
+                elseif($_SESSION['user_type'] == "Admin"){
+                    $_SESSION['user_details'] = $this->model->getAdminDetails($user_id);
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $this->view->render('admin/editAdmin');
+                    exit;
+                }
                 
             } 
         }
@@ -531,9 +595,17 @@ class Usermanage extends Controller
                     $this->view->render('admin/viewSystemUser');
                     exit;
                 }
-                // else{
-                //     //$_SESSION['user_details'] = $this->model->getDetails($user_id);
-                // }
+                elseif($_SESSION['user_type'] == "Admin"){
+                    $_SESSION['user_details'] = $this->model->getAdminDetails($user_id);
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewAdmin');
+                    exit;
+                }
                 
             } 
         }
@@ -594,6 +666,19 @@ class Usermanage extends Controller
         }
     }
 
+    function edit_admin_successful()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->view->render('admin/edit_admin_successful');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+        }
+    }
+
     function editHospitalMedCenter($user_id)
     {
 
@@ -615,8 +700,11 @@ class Usermanage extends Controller
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
             $Userpic = 'default-path';
-            $Password = password_hash($_POST['password'], PASSWORD_DEFAULT); if(empty($Password)){$Password = $_SESSION['Password'];}
-
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Hospital/Medical_Center');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province, $Status);
             $inputs3 = array($ContactNumber);
@@ -653,8 +741,11 @@ class Usermanage extends Controller
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
             $Userpic = 'default-path';
-            $Password = password_hash($_POST['password'], PASSWORD_DEFAULT); if(empty($Password)){$Password = $_SESSION['Password'];}
-
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Organization/Society');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province);
             $inputs3 = array($ContactNumber);
@@ -695,8 +786,11 @@ class Usermanage extends Controller
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
             $Userpic = 'default-path';
-            $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);if(empty($Password)){$Password = $_SESSION['Password'];}
-
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
             $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
             $inputs3 = array($ContactNumber);
@@ -729,8 +823,11 @@ class Usermanage extends Controller
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
             $Userpic = 'default-path';
-            $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);if(empty($Password)){$Password = $_SESSION['Password'];}
-
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
             
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'System User');
             $inputs2 = array($Full_name,$NIC,$BloodBankID);
@@ -738,6 +835,36 @@ class Usermanage extends Controller
 
             if ($this->model->editSystemUser($user_id,$inputs1, $inputs2, $inputs3)) {
                 header("Location: /usermanage/edit_systemuser_successful");
+            }
+             
+        }    
+    }
+
+    function editAdmin($user_id)
+    {
+
+        if ($_SESSION['type'] == "Admin") {
+            if (!isset($_POST['edit-admin'])) {
+                header("Location: /usermanage/type?page=1");
+                exit;
+            }
+
+            $Full_name = $_POST['fullname'];
+            $Email = $_POST['email'];
+            $ContactNumber = $_POST['contact'];
+            $Username = $_POST['uname'];
+            if(empty($Password)){
+                $Password = $_SESSION['Password'];
+            }else{
+                $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            }
+
+            $inputs1 = array($Email, $Password, $Username,'Admin');
+            $inputs2 = array($Full_name);
+            $inputs3 = array($ContactNumber);
+
+            if ($this->model->editAdmin($user_id,$inputs1, $inputs2, $inputs3)) {
+                header("Location: /usermanage/edit_admin_successful");
             }
              
         }    
@@ -897,5 +1024,6 @@ class Usermanage extends Controller
         }
     }    
 }
+
 
     

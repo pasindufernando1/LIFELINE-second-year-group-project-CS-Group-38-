@@ -27,8 +27,9 @@ class Adadvertisements extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['advertisements'] = $this->model->getAllAdvertisementsDetails();
-                // print_r($_SESSION['inventory']);die();
+                $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
+                $_SESSION['inventory_advertisements'] = $this->model->getAllInventoryAdvertisementsDetails();
+                //print_r(($_SESSION['cash_advertisements']));die();
                 $this->view->render('admin/advertisements');
                 exit;
             }
@@ -270,6 +271,21 @@ class Adadvertisements extends Controller
 
 
         
-    }    
+    }   
+    
+    // Function to archive an advertisement
+    public function archive_add($Ad_id){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $this->model->archive_ad($Ad_id);
+                $this->view->render('admin/ad_archive_success');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
+            
+        }
+    }
 }
 

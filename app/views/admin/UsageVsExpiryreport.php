@@ -221,10 +221,9 @@ $metaTitle = "Blood Usage Vs Expiry Report"
 			// console.log(base64image);
 			let pdf = new jsPDF('p', 'mm', 'a4'); 
 			pdf.addImage(base64image, 'PNG', 0, 0, 210, 297);
-            // Generate a random number for the file name
-            var random = Math.floor(Math.random() * 1000000001);
-            var filename = 'usageVSexpiry-id-'+ random + '.pdf'; 
-			pdf.save('usageVSexpiry-id-' + random + '.pdf');
+            // Append the file name with timestamp without random number
+            var filename = 'usagevsexpiryreport-id-'+ Date.now() + '.pdf';
+			pdf.save(filename);
             });
         });
     </script>

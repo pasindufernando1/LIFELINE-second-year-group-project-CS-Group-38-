@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 class Reports extends Controller
 {
 
@@ -208,13 +209,15 @@ class Reports extends Controller
                     header("Location: /reports/bloodAvailReport");
                     exit;
                 }
+                
                 $_SESSION['province'] = $_POST['province'];
                 $_SESSION['blood_group'] = $_POST['category'];
                 $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['blood_avail'] = $this->model->getAllBloodAvailReports($_SESSION['province'],$_SESSION['blood_group']);
+                // Report name should be 'Blood-Availability-Report' with current timestamp
+                $_SESSION['report_name'] = "Blood-Availability-Report-".date("Y-m-d-H-i-s");
                 $this->view->render('admin/bloodAvailReport_Gen');
-                
-                exit;
+                exit;             
             }
         }
         else{

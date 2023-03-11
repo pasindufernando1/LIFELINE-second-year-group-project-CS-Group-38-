@@ -125,10 +125,9 @@ $metaTitle = "Campaign Report"
 			// console.log(base64image);
 			let pdf = new jsPDF('p', 'mm'); 
 			pdf.addImage(base64image, 'PNG', 0, 0, 210,200);
-            // Generate a random number for the file name
-            var random = Math.floor(Math.random() * 1000000001);
-            var filename = 'campReport-id-'+ random + '.pdf'; 
-			pdf.save('campReport-id-' + random + '.pdf');
+            // Append the file name with timestamp without random number
+            var filename = 'campaignreport-id-'+ Date.now() + '.pdf';
+			pdf.save(filename);
             });
         });
     </script>

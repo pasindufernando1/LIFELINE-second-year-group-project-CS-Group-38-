@@ -7,10 +7,48 @@ class AdadvertisementsModel extends Model
         parent::__construct();
     }
 
-    public function getAllAdvertisementsDetails()
+    public function getAllCashAdvertisementsDetails()
     {
-        $data = $this->db->select("*", "advertisement","Null");
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0",':DonationType',"Cash");
+        //For each DonationID get teh sum of the amount donated from the cashdonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Amount)","cash_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Amount)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Amount)'];
+            }
+        }
         return $data;
+    }
+
+    public function getAllInventoryAdvertisementsDetails(){
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0",':DonationType',"Inventory");
+        //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Quantity)","inventory_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Quantity)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Quantity)'];
+            }
+        }
+        return $data;
+    }
+
+    public function archive_ad($id){
+
+        $result = $this->db->update("advertisement","Archive",":Archive",1,":AdvertisementID",$id,"WHERE AdvertisementID = :AdvertisementID");
+        if($result){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     // Function to get the blood bank id and blood bank name from table blood bank

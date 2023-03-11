@@ -581,6 +581,10 @@ class ReportsModel extends Model
 
     }
 
+    public function addBloodAvailReport(){
+        
+    }
+
     
 
     

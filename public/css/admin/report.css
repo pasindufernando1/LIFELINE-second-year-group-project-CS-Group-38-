@@ -2837,6 +2837,11 @@ td {
     left: 1195px;
 }
 
+.genrep1_new {
+    top: 170px;
+    left: 866px;
+}
+
 .genrep2 {
     top: 123px;
     left: 1200px;
@@ -2845,6 +2850,11 @@ td {
 .addbutton_rep1{
     top: 175px;
     left: 1415px;
+}
+
+.addbutton_rep1_new{
+    top: 175px;
+    left: 1085px;
 }
 
 .addbutton_rep2 {

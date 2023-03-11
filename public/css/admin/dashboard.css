@@ -673,7 +673,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 810px;
+    height: 881px;
     left: 316px;
     top: 109px;
     background: #ffffff;
@@ -2286,6 +2286,27 @@ td {
     padding-left: 67px;
 }
 
+.button-ad-add{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 239px;
+    height: 125px;
+    left: 596px;
+    top: 400px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    color: #FCFEFE;
+    font-family: 'Poppins';
+    font-size: larger;
+    font-weight: 600;
+    padding-left: 67px;
+}
+
 .button-org-add{
     display: flex;
     flex-direction: row;
@@ -2297,7 +2318,7 @@ td {
     width: 239px;
     height: 125px;
     left: 837px;
-    top: 520px;
+    top: 630px;
     background: #640E0B;
     border-radius: 10.8716px;
     color: #FCFEFE;
@@ -2318,7 +2339,7 @@ td {
     width: 239px;
     height: 125px;
     left: 381px;
-    top: 520px;
+    top: 630px;
     background: #640E0B;
     border-radius: 10.8716px;
     color: #FCFEFE;
@@ -2346,6 +2367,13 @@ td {
 .usericon{
     margin-left: -54px
 }
+
+.adminicon{
+    margin-left: -54px;
+    width: 40%;
+}
+
+
 
 /* .hospital-viewicon img{
     width: 150px;
@@ -2432,7 +2460,6 @@ td {
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2448,7 +2475,6 @@ td {
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2570,7 +2596,7 @@ td {
     font-size: large;
 }
 
-.brown-button-view{
+.brown-button-view, .brown-button-view-admin{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2594,6 +2620,10 @@ td {
     color: #FCFEFE;
     cursor: pointer;
     border: 1px #949494 solid;
+}
+
+.brown-button-view-admin{
+    top: 493px;
 }
 
 .brown-button-view:hover{
@@ -2925,3 +2955,4 @@ td {
     top: 515px;
     left: 85px;
 }
+
