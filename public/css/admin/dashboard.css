@@ -2956,3 +2956,47 @@ td {
     left: 85px;
 }
 
+.feedback-btn{
+    position: absolute;
+    width: 141px;
+    height: 45px;
+    left: 200px;
+    top: 108px;
+    background: #FFFFFF;
+    border: 1px solid #9a9a9a;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.feedback-btn:hover{
+    background: #EFEFEF;
+    color: #000000;
+    font-size: 16px;
+}
+
+.verify-btn {
+    width: 254px;
+    height: 35px;
+    background: #AFAFAF;
+    border-radius: 4px;
+    margin: 0px -43px 0px -30px;
+    text-align: center;
+    cursor: pointer;
+    color: #212121;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+    padding: 8px 23px 8px 36px;
+}
+
+.tick {
+    margin-left: 10px;
+}

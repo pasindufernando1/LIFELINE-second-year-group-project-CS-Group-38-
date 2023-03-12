@@ -39,6 +39,23 @@ class Adcampaigns extends Controller
         }    
     }
 
+    // Archive advertisement
+    function archive_add($id)
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                if($this->model->archive($id))
+                {
+                    $this->view->render('admin/campaign_archive_successful');
+                    exit;
+                }
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
+        }
+    }
+
     
     
 

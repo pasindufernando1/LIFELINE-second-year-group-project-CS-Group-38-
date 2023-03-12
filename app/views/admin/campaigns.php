@@ -35,6 +35,8 @@ $metaTitle = "Campaigns"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/campaign_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/campaign_archive_confirmation.php'); ?>
+
             
     <!-- main content -->
     <div class="box">
@@ -48,6 +50,7 @@ $metaTitle = "Campaigns"
             <th>Campaign ID</th>
             <th>Name</th>
             <th>Location</th>
+            <th>Responsible Blood Bank</th>
             <th>Date</th>
             <th>Action</th>
         </tr>
@@ -78,9 +81,13 @@ $metaTitle = "Campaigns"
                         <td>' . $row["CampaignID"]. "</td>
                         <td>" . $row["Name"] . "</td>
                         <td>" . $row["Location"] . "</td>
+                        <td>" . $row["BloodBank_Name"] . "</td>
                         <td>" . $row["Date"] . '</td>
-                        <td><div class="delete-btn-div"> <a href="#"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                    </tr> </div>';
+                        <td> ' . '<span><a class="validates" onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                                document.getElementById('."'del'".').action = '."'/adcampaigns/archive_add/".$row["CampaignID"]."'".'";
+                                ">Archive</a></span>' . '</td>
+                                
+                            </tr> </div>';
                 
             }
         } 

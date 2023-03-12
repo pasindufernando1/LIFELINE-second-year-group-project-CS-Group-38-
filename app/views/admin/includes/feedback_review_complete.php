@@ -12,8 +12,8 @@
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
-      <h1>Advertisement archive</h1>
-      <p>Are you sure that the purpose of the advertisement was fulfilled?</p>
+      <h1>Feedback review completion</h1>
+      <p>Are you sure you need to proceed?</p>
     
       <div class="clearfix">
         <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Yes</button>

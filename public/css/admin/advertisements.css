@@ -668,16 +668,20 @@ body {
     display: block;
 }
 
-.box {
+.box, .box-main {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 1500px;
+    height: 923px;
     left: 316px;
     top: 102px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+.box-main{
+    height: 1618px;
 }
 
 .adminbox {
@@ -2595,7 +2599,7 @@ td {
     width: 50%;
     position: absolute;
     width: 1448px;
-    height: 593px;
+    height: 697px;
     left: -2px;
     /* bottom: 12px; */
     top: 750px;

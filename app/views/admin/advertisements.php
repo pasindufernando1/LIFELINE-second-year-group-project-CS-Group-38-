@@ -38,7 +38,7 @@ $metaTitle = "Advertisements"
 
             
     <!-- main content -->
-    <div class="box">
+    <div class="box-main">
         <p class="add-user-title">Advertisements</p>
         <a href="/adadvertisements/add_advertisement" class="brown-button addnew-user">Add New Advertisement</a>
     

@@ -361,9 +361,9 @@ class UserModel extends Model
         //Total donations today
         $Today_donations = $Today_bankdonations + $Today_campdonations;
 
-        //Total Campaigns today
-        $Today_campaigns = $this->db->select("count(*) as count","donation_campaign","WHERE Date = CURDATE()");
-        $Today_campaigns = $Today_campaigns[0]['count'];
+        //Total unread feedbacks
+        $Unread_feedbacks = $this->db->select("count(*) as count","organization_feedback","WHERE Read_status = 0");
+        $Unread_feedbacks = $Unread_feedbacks[0]['count']; 
 
         // Total Cash donations today
         $Today_cash_donations = $this->db->select("sum(Amount) as sum","cash_donation","WHERE Date = CURDATE()");
@@ -376,7 +376,7 @@ class UserModel extends Model
         //Merging all the data into an array
         $data = array(
             "Today_donations" => $Today_donations,
-            "Today_campaigns" => $Today_campaigns,
+            "Unread_feedbacks" => $Unread_feedbacks,
             "Today_cash_donations" => $Today_cash_donations,
             "Total_hospital_requests" => $Total_hospital_requests
         );

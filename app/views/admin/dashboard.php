@@ -102,13 +102,15 @@ session_start();
     </div>
     <!-- $_SESSION['dashboard_stats'] -->
     <div class="bo1">
-    <p class="te1">Donations Today</p>
+    <p class="te1">Blood Donations Today</p>
     <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations'];?></p>
 </div>
 
 <div class="bo2">
-    <p class="te1">Campaigns Today</p>
-    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_campaigns']?></p>
+    <p class="te1">Unread Feedbacks</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Unread_feedbacks']?></p>
+    <!-- Button to take a look at the feedbacks -->
+    <a href="/feedbacks/type?page=1"><button class="feedback-btn">Review</button></a>
 </div>
 
 <div class="bo3">
