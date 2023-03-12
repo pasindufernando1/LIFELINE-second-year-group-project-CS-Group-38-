@@ -280,16 +280,17 @@ button:hover {
 
 
 .top-bar {
-    z-index: 1;
-    position: sticky;
+    display: flex;
     box-sizing: border-box;
-    position: fixed;
-    width: 100%;
-    height: 102px;
+    /* position: absolute; */
+    width: 100vw;
+    /* height: 100px; */
+    vertical-align: middle;
     left: 0px;
     top: 0px;
     background: #FFFFFF;
     border-bottom: 1px solid #E8E8E8;
+    flex-wrap: nowrap;
 }
 
 .campaigns {
@@ -740,6 +741,10 @@ fieldset {
     left: 1591px;
     top: 25px;
     border-radius: 10px;
+}
+
+.image:hover {
+    cursor: pointer;
 }
 
 .user-name {
@@ -1695,8 +1700,9 @@ fieldset {
 }
 
 #download_card {
-    margin-left: 84.5%;
-    margin-top: -2%;
+    margin-left: 86.5%;
+    position: absolute;
+    margin-top: -3%;
     height: 50px;
     width: 204px;
     background-color: #640e0b;
@@ -1720,16 +1726,14 @@ fieldset {
 }
 
 .card-container h2 {
+    position: absolute;
+    left: 310px;
     font-family: Poppins;
-    font-size: 31px;
+    font-size: 47px;
     font-weight: 900;
-    /* line-height: 0px; */
-    letter-spacing: 0.01em;
+    font-weight: bolder;
     text-align: right;
-    margin-left: 440px;
-    /* margin-top: 59px; */
     margin-top: -1%;
-    width: 85px;
 }
 
 .card-container button {
@@ -1754,30 +1758,29 @@ fieldset {
 }
 
 .donor-card {
-    margin-top: 4%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 380px;
-    width: 910px;
+    margin-top: 2%;
+    margin-left: 2%;
+    /* margin-right: auto; */
+    height: 447px;
+    width: 1001px;
     background-color: white;
     border-radius: 10px;
-    border: 2px solid #fbdad9;
+    border: 1px solid #e0e0e0;
 }
 
 #card_logo {
     width: 20%;
-    margin-left: 0.5%;
-    margin-top: 1.5%;
+    top: 96px;
+    left: 43px;
     border-radius: 10px;
 }
 
 .donor-card img {
-    width: 25%;
-    margin-left: -12.5%;
-    margin-top: 8.5%;
+    width: 17%;
+    position: absolute;
+    top: 201px;
+    left: 70px;
     border-radius: 10px;
-    position: relative;
-    float: left;
 }
 
 .donor-card div {
@@ -1790,19 +1793,127 @@ fieldset {
     text-align: left;
 }
 
+.donor-card div h2 span {
+    font-family: 'Poppins';
+    font-size: 39px;
+    /* text-align: left; */
+    color: #bf1b16;
+    font-weight: bold;
+}
+
+.red-font {
+    color: #bf1b16;
+}
 
 
 .donor-card p {
     font-family: 'Poppins';
-    font-size: 19px;
+    font-size: 23px;
     text-align: left;
     line-height: 51px;
     color: black;
     font-weight: normal;
-    margin-top: -1.7%;
+    margin-top: 8%;
+    margin-left: -12px;
 }
 
+.card-container .last-don {
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 155px;
+    width: 1001px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Poppins';
+    font-size: 23px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.last-don div {
+    width: 30%;
+    height: 100%;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.last-don div {
+    display: flex;
+    color: #bf1b16;
+    font-weight: bold;
+    border: 2px solid #bf1b16;
+    border-radius: 10px;
+    font-size: 19px;
+    height: 100px;
+    width: 418px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container .ybadge {
+    top: 90px;
+    left: 1059px;
+    position: absolute;
+    height: 333px;
+    width: 495px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Poppins';
+    /* margin-top: -55.3%; */
+    /* margin-left: 67%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-container .ybadge #badge {
+    width: 168px;
+}
+
+.card-container .ybadge #ybadgep {
+    font-family: Poppins;
+    font-size: 27px;
+    font-weight: bold;
+    line-height: 0px;
+}
+
+.card-container .ydonations {
+    left: 1059px;
+    top: 451px;
+    position: absolute;
+    height: 274px;
+    width: 495px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container .ydonations #ydonationsp {
+    font-family: Poppins;
+    font-size: 27px;
+    font-weight: bold;
+    line-height: 0px;
+}
+
+.card-container .ydonations div {
+    width: 80%;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.card-container .ydonations div p {
+    margin-left: 20px;
+    font-size: 20px;
+}
 
 #btb {
     display: flex;
@@ -1840,8 +1951,6 @@ fieldset {
 #donor_img {
     width: 199px;
     height: 199px;
-    /* margin-top: 4%; */
-    /* margin-left: 4%; */
     border-radius: 50%;
     position: absolute;
     left: 63px;
@@ -2057,10 +2166,6 @@ fieldset {
     text-align: center;
 }
 
-/* .badges-container .left img {
-    width: 100px;
-} */
-
 .badges-container .latest {
     height: 60%;
     width: 32%;
@@ -2139,14 +2244,12 @@ fieldset {
 .badges-container .your .content div {
     width: 183px;
     height: 219px;
-    /* border: 3px solid #eb5550; */
     border-radius: 6px;
     float: left;
     margin-top: 25px;
     margin-left: 35px;
     display: flex;
     border: 2px solid #fbdad9;
-    /* margin: auto; */
     align-items: center;
     justify-content: space-evenly;
 }
@@ -2178,7 +2281,6 @@ fieldset {
     margin-top: -10px;
     flex-direction: row;
     justify-content: space-evenly;
-    /* border: 2px solid #fbdad9; */
     border-radius: 6px;
     display: flex;
     overflow-x: hidden;
@@ -2188,14 +2290,12 @@ fieldset {
 .badges-container .yet .content div {
     width: 183px;
     height: 219px;
-    /* border: 3px solid #eb5550; */
     border-radius: 6px;
     float: left;
     margin-top: 19px;
     margin-left: 35px;
     display: flex;
     border: 2px solid #e0e0e0;
-    /* margin: auto; */
     align-items: center;
     justify-content: space-evenly;
 }
@@ -2211,8 +2311,6 @@ fieldset {
     position: fixed;
     top: 0%;
     left: 0%;
-    /* transform: translate(-50%, -50%); */
-    /* padding: 20px; */
     background-color: rgb(0 0 0 / 80%);
     border: 1px solid #000;
     z-index: 9999;
@@ -2308,17 +2406,11 @@ fieldset {
 .contact-card div {
     width: 59.5%;
     height: 100%;
-    /* margin-left: 2%; */
-    /* margin-right: 2%; */
-    /* border-radius: 0 6px 0 6px; */
     position: relative;
     float: right;
-    /* /background-color: aquamarine; */
     font-family: 'Poppins';
     font-size: 16px;
     text-align: left;
-    /* color: white; */
-    /* border: none; */
 }
 
 .contact-card p {
@@ -2418,13 +2510,11 @@ fieldset {
 
 .history-box h1 {
     font-family: 'Poppins';
-    /* font-size: 24px; */
     line-height: 36px;
     color: #000000;
     margin-top: 2%;
     text-align: center;
     font-size: 33px;
-    /* margin-left: 2%; */
 
 }
 
@@ -2466,8 +2556,6 @@ fieldset {
     margin-top: 380px;
     margin-left: 41px;
     border-radius: 6px;
-    /* margin-right: auto; */
-    /* border: none; */
     background: rgb(100 14 11 / 90%);
     font-family: 'Poppins';
     font-size: 22px;
@@ -2497,19 +2585,16 @@ fieldset {
 
 .history-campaign-box h2 {
     font-family: 'Poppins';
-    /* font-size: 24px; */
     line-height: 36px;
     color: #000000;
     margin-top: 2%;
     text-align: center;
     width: 100%;
     font-size: 33px;
-    /* margin-left: 2%; */
 }
 
 .history-campaign-box .content {
     box-sizing: border-box;
-    /* position: absolute; */
     display: flex;
     width: 96.5%;
     height: 644px;
@@ -2563,7 +2648,6 @@ fieldset {
     width: 55%;
     margin-left: 10px;
     margin-top: -31px;
-    /* background: navy; */
     height: 100%;
 }
 
@@ -3446,6 +3530,10 @@ fieldset {
     align-items: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
+}
+
+.marg {
+    margin-top: 15px;
 }
 
 .view-campaign-card h3 {

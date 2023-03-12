@@ -297,7 +297,7 @@
         height: 16px;
         left: 0px;
         right: 0px;
-        top: 80px;
+        top: 446px;
         /* Bold/12px */
         font-family: 'Mulish';
         font-style: normal;
@@ -314,7 +314,7 @@
         height: 16px;
         left: 0px;
         right: 0px;
-        top: 600px;
+        top: 522px;
         /* Bold/12px */
         font-family: 'Mulish';
         font-style: normal;
@@ -348,11 +348,13 @@
         position: absolute;
         left: 0px;
         right: 0px;
-        top: 110px;
+        top: 471px;
         bottom: -88px;
         background: #FCFDFE;
         border: 2px solid #FBDAD9;
         border-radius: 8px;
+        height: 40px;
+
     }
 
     .password-check-input {
@@ -360,7 +362,7 @@
         position: absolute;
         left: 0px;
         right: 0px;
-        top: 625px;
+        top: 548px;
         bottom: -88px;
         background: #FCFDFE;
         border: 2px solid #FBDAD9;
@@ -580,7 +582,7 @@
 
     .tel-error {
         position: absolute;
-        right: 0px;
+        right: 52%;
         top: 420px;
         font-family: 'Mulish';
         font-size: 12px;
@@ -593,7 +595,7 @@
     .password-error {
         position: absolute;
         right: 0px;
-        top: 576px;
+        top: 500px;
         font-family: 'Mulish';
         font-size: 12px;
         color: #FF0000;
@@ -604,7 +606,7 @@
     .passwordcheck-error {
         position: absolute;
         right: 0px;
-        top: 654px;
+        top: 576px;
         font-family: 'Mulish';
         font-size: 12px;
         color: #FF0000;
@@ -1132,7 +1134,7 @@
         left: 0px;
         right: 0px;
         top: 366px;
-        left: 52%;
+        left: 0%;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 700;
@@ -1150,7 +1152,7 @@
         left: 0;
         right: 0px;
         top: 390px;
-        left: 52%;
+        left: 0;
         bottom: -71px;
         background: #FCFDFE;
         border: 2px solid #FBDAD9;
@@ -1173,9 +1175,9 @@
     .uname-lable {
         position: absolute;
         height: 16px;
-        left: 0px;
+        left: 52%;
         right: 0px;
-        top: 448px;
+        top: 366px;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 700;
@@ -1190,15 +1192,15 @@
     .uname-input {
         box-sizing: border-box;
         position: absolute;
-        left: 0;
+        left: 52%;
         right: 0px;
-        top: 473px;
+        top: 390px;
         bottom: -71px;
         background: #FCFDFE;
         border: 2px solid #FBDAD9;
         border-radius: 8px;
         height: 40px;
-        width: 100%;
+        width: 48%;
     }
 
     .uname-input::placeholder {
@@ -1212,7 +1214,7 @@
         opacity: 0.4;
     }
 
-    .password-lable {
+    /* .password-lable {
         position: absolute;
         height: 16px;
         left: 0px;
@@ -1226,9 +1228,9 @@
         letter-spacing: 0.3px;
         text-transform: uppercase;
         color: #640E0B;
-    }
+    } */
 
-    .password-input {
+    /* .password-input {
         box-sizing: border-box;
         position: absolute;
         left: 0;
@@ -1240,7 +1242,7 @@
         border-radius: 8px;
         height: 40px;
         width: 100%;
-    }
+    } */
 
     .password-input::placeholder {
         font-family: 'Mulish';
@@ -1255,7 +1257,7 @@
 
     .reg-table {
         position: absolute;
-        top: 688px;
+        top: 616px;
         font-family: 'Mulish';
         margin-left: auto;
         margin-right: auto;

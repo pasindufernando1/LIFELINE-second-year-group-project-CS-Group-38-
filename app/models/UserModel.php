@@ -154,23 +154,33 @@ class UserModel extends Model
         return $data;
     }
 
-    public function getnewestbadge($donorID)
+    public function getnewestbadge($userid)
     {
-        $data = $this->db->select(
-            'BadgeID',
-            'donor_badges',
-            'WHERE DonorUserID = :DonorUserID',
-            ':DonorUserID',
-            $donorID
-        );
-        $badge_pic = $this->db->select(
+        $camp_donations = $this->db->select(
+            'COUNT(*)',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $userid
+        )[0][0];
+
+        $bank_donations = $this->db->select(
+            'COUNT(*)',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $userid
+        )[0][0];
+        $donations=$camp_donations + $bank_donations;
+
+        $newest_badge = $this->db->select(
             'BadgePic',
             'badge',
-            'WHERE BadgeID = :BadgeID',
-            ':BadgeID',
-            $data[0]['BadgeID']
-        );
-        return $badge_pic;
+            'WHERE Donation_Constraint <= :Donations ORDER BY Donation_Constraint DESC',
+            ':Donations',
+            $donations
+        )[0][0];
+        return $newest_badge;
     }
 
     public function getCampAds($camps)

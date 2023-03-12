@@ -51,8 +51,8 @@ class Donorprofile extends Controller
                     exit();
                 }
 
-                // Upload Image
-                $target_dir = "C:/xampp/htdocs/public/img/user_pics/";
+        // Upload Image
+        $target_dir = "C:/xampp/htdocs/public/img/user_pics/";
         $file_upload = false;
         // Checking whether a file is uploaded
         if ($_FILES["fileToUpload"]["error"] == UPLOAD_ERR_OK) {
@@ -108,8 +108,10 @@ class Donorprofile extends Controller
                 } else {
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                         echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+                        $_SESSION['user_pic'] = $filename;
                     } else {
                         echo "Sorry, there was an error uploading your file.";
+                        die();
                     }
                 }
 
@@ -121,15 +123,16 @@ class Donorprofile extends Controller
                 $password = trim($password);
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $username = $_POST['uname'];
+                $userpic = $filename;
 
                 if (strlen($password) > 0) {
-                    $user_input = [ $hashed_password, $username];
+                    $user_input = [ $hashed_password, $username,$userpic];
                     $u_wp = $this->model->updateuserp(
                         $user_input,
                         $_SESSION['user_ID']
                     );
                 } else {
-                    $user_input = [$username];
+                    $user_input = [$username,$userpic];
                     $u_p = $this->model->updateuser(
                         $user_input,
                         $_SESSION['user_ID']
@@ -170,6 +173,7 @@ class Donorprofile extends Controller
                         )
                     ) {
                         $_SESSION['username'] = $username;
+                        $_SESSION['user_pic'] = $filename;
                         $this->view->render('donor/profile_edit_successful');
                     }
                 }

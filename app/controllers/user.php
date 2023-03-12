@@ -25,6 +25,9 @@ class User extends Controller
                 $this->view->render('admin/dashboard');
                 exit();
             } elseif ($_SESSION['type'] == 'Donor') {
+                $_SESSION['newest_badge'] = $this->model->getnewestbadge(
+                    $_SESSION['user_ID']
+                );
                 $this->view->render('donor/dashboard');
                 exit();
             } elseif ($_SESSION['type'] == 'Hospital/Medical_Center') {

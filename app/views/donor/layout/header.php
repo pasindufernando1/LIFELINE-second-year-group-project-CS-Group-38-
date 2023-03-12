@@ -9,7 +9,7 @@
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
     <!-- CSS Files -->
-    <link href="../../../../public/css/admin/header.css" rel="stylesheet">
+    <link href="../../../../public/css/donor/header.css" rel="stylesheet">
 
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
+                <img src="../../../public/img/user_pics/<?php echo $_SESSION['user_pic'] ?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo $_SESSION['username']; ?></p>

@@ -42,7 +42,6 @@ const email_error = document.getElementById('email-error');
 const tel_error = document.getElementById('tel-error');
 const contno_error = document.getElementById('contno-error');
 const emcontno_error = document.getElementById('emcontno-error');
-const uname_error = document.getElementById('uname-error');
 const password_error = document.getElementById('password-error');
 const passwordcheck_error = document.getElementById('passwordcheck-error');
 //email verification 
@@ -159,12 +158,12 @@ dob?.addEventListener("input", function () {
 
 //Telephone number verification
 // It must either have 0711111111 or +94111111111  format
-(tel)?.addEventListener("input", function () {
+tel?.addEventListener("input", function () {
     var reg1 = /^[0-9]{10}$/;
     var reg2 = /^\+94([0-9]){9}$/;
     if (!reg1.test(tel.value) && !reg2.test(tel.value)) {
         tel_error.innerHTML = "Invalid Telephone Number";
-        tel.style.dorderColor = "red";
+        tel.style.borderColor = "red";
         telflag = false;
     } else {
         tel_error.innerHTML = "";
@@ -209,7 +208,7 @@ password?.addEventListener("input", function () {
     if (!reg.test(password.value)) {
 
         password_error.innerHTML = "Password must contain at least 8 characters, including uppercase letters, lowercase letters and numbers";
-        password.style.borderolor = "red";
+        password.style.borderColor = "red";
         passwordflag = false;
     } else {
         // signupformenable();
@@ -223,7 +222,7 @@ password?.addEventListener("input", function () {
 passwordcheck?.addEventListener("input", function () {
     if (password.value != passwordcheck.value) {
         passwordcheck_error.innerHTML = "Passwords Do not Match";
-        passwordcheck.style.borderolor = "red";
+        passwordcheck.style.borderColor = "red";
         passwordcheckflag = false;
     } else {
         passwordcheck_error.innerHTML = "";

@@ -35,8 +35,8 @@ class DonorprofileModel extends Model
 
     public function updateuserp($user_input, $userid)
     {
-        $columns = ['Password', 'Username'];
-        $param = [':Password', ':Username'];
+        $columns = ['Password', 'Username','UserPic'];
+        $param = [':Password', ':Username',':UserPic'];
         $result = $this->db->update(
             'user',
             $columns,
@@ -54,8 +54,8 @@ class DonorprofileModel extends Model
     }
     public function updateuser($user_input, $userid)
     {
-        $columns = ['Username'];
-        $param = [':Username'];
+        $columns = ['Username','UserPic'];
+        $param = [':Username',':UserPic'];
         $result = $this->db->update(
             'user',
             $columns,
