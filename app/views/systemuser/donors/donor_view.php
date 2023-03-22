@@ -103,7 +103,7 @@ $metaTitle = "System User Donors"
                              <a href="/sys_donors?page=1" class="brown-button donation-btn">Back to Donors</a>
                             <img class="typebutton-reservation donation-img" src="./../../public/img/dashboard/donation.png" alt="add-button">
 
-                            <a onclick='exportpdf()'  class="ash-button export" title="Export data as csv">
+                            <a onclick='exportpdf()'  class="ash-button export" title="Export data as pdf">
                                 <img id="sub" class="export-img" src="./../../public/img/dashboard/export-icon.png" alt="">
                                 
                                 </a>
@@ -232,9 +232,9 @@ $metaTitle = "System User Donors"
                            
                     </div>
                     </div>
-                    <div id="image_id">
+                    <!-- <div id="image_id">
 <img src="" alt="image" />
-</div>
+</div> -->
 
 </body>
 </html>

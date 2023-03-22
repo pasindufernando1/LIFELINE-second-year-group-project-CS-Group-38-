@@ -10,12 +10,12 @@ body {
     flex-direction: row;
     position: relative;
     width: 100%;
-    height: 5.833vw;
+    height: 8.4vh;
 }
 
 .logo img {
-    padding: 0.347vw 1.042vw 0.208vw;
-    height: 5.208vw;
+    padding: 5px 15px 3px;
+    height: 75px;
 }
 
 .header-block {
@@ -36,7 +36,6 @@ body {
 }
 
 .icon-emergency img {
-    width: 2.5vw;
     position: absolute;
     left: 40.7%;
     right: 46.35%;
@@ -53,8 +52,8 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
@@ -68,8 +67,8 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     color: #EB5550;
 }
@@ -94,7 +93,6 @@ body {
 }
 
 .open-hours img {
-    width: 2.5vw;
     position: absolute;
     left: 57.83%;
     right: 31.97%;
@@ -111,8 +109,8 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
@@ -127,8 +125,8 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     color: #EB5550;
 }
@@ -144,7 +142,6 @@ body {
 }
 
 .location img {
-    width: 2.5vw;
     position: absolute;
     left: 78.67%;
     right: 14.13%;
@@ -161,15 +158,12 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
-<<<<<<< Updated upstream
-=======
     width: 30%;
->>>>>>> Stashed changes
 }
 
 .sub-location {
@@ -181,8 +175,8 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
-    line-height: 1.319vw;
+    font-size: 16px;
+    line-height: 19px;
     /* identical to box height */
     color: #EB5550;
 }

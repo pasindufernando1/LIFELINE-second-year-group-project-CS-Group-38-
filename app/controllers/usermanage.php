@@ -157,7 +157,7 @@ class Usermanage extends Controller
             }
 
             $Name = $_POST['name'];
-            $Registration_no = $_POST['regnum'];
+            $Registration_no = $_POST['regno'];
             $Number = $_POST['number'];
             $LaneName = $_POST['lane'];
             $City = $_POST['city'];
@@ -193,6 +193,7 @@ class Usermanage extends Controller
 
             $Full_name = $_POST['name'];
             $NIC = $_POST['nic'];
+            $Gender = $_POST['gender'];
             $DOB = $_POST['dob'];
             $Blood_type = $_POST['bloodtype'];
             $Number = $_POST['number'];
@@ -210,7 +211,7 @@ class Usermanage extends Controller
             // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
 
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
-            $inputs2 = array($Full_name, $NIC,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
+            $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
             $inputs3 = array($ContactNumber);
 
 
@@ -369,6 +370,7 @@ class Usermanage extends Controller
                     $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
+                    $_SESSION['Gender'] = $_SESSION['user_details'][0]['Gender'];
                     $_SESSION['DOB'] = $_SESSION['user_details'][0]['DOB'];
                     $_SESSION['Bloodtype'] = $_SESSION['user_details'][0]['BloodType'];
                     $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
@@ -387,6 +389,7 @@ class Usermanage extends Controller
                     exit;
                 }
                 elseif($_SESSION['user_type'] == "System User"){
+                    $_SESSION['bloodbanks'] = $this->model->getBloodBankName();
                     $_SESSION['user_details'] = $this->model->getSystemUserDetails($user_id);
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
@@ -450,6 +453,7 @@ class Usermanage extends Controller
                     $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
+                    $_SESSION['Gender'] = $_SESSION['user_details'][0]['Gender'];
                     $_SESSION['DOB'] = $_SESSION['user_details'][0]['DOB'];
                     $_SESSION['Bloodtype'] = $_SESSION['user_details'][0]['BloodType'];
                     $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
@@ -592,7 +596,7 @@ class Usermanage extends Controller
             }
 
             $Name = $_POST['name']; //if(empty($Name)){$Name = $_SESSION['Name'];}
-            $Registration_no = $_POST['regnum']; //if(empty($Registration_no)){$Registration_no = $_SESSION['Registration_no'];}
+            $Registration_no = $_POST['regno']; //if(empty($Registration_no)){$Registration_no = $_SESSION['Registration_no'];}
             $Number = $_POST['number']; //if(empty($Number)){$Number = $_SESSION['Number'];}
             $LaneName = $_POST['lane']; //if(empty($LaneName)){$LaneName = $_SESSION['LaneName'];}
             $City = $_POST['city']; //if(empty($City)){$City = $_SESSION['City'];}
@@ -631,6 +635,7 @@ class Usermanage extends Controller
 
             $Full_name = $_POST['name'];
             $NIC = $_POST['nic'];
+            $Gender = $_POST['gender'];
             $DOB = $_POST['dob'];
             $Blood_type = $_POST['bloodtype'];
             $Number = $_POST['number'];
@@ -646,7 +651,7 @@ class Usermanage extends Controller
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);if(empty($Password)){$Password = $_SESSION['Password'];}
 
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
-            $inputs2 = array($Full_name, $NIC,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
+            $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
             $inputs3 = array($ContactNumber);
 
             if ($this->model->editDonor($user_id,$inputs1, $inputs2, $inputs3)) {
@@ -687,12 +692,7 @@ class Usermanage extends Controller
             if ($this->model->editSystemUser($user_id,$inputs1, $inputs2, $inputs3)) {
                 header("Location: /usermanage/edit_systemuser_successful");
             }
-            // $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
-
-            // if ($this->model->editReserveTypes($type_id,$inputs)){
-            //     header("Location: /reservation/add_reservation_successful");
-                
-            // }   
+             
         }    
     }
 
@@ -741,146 +741,4 @@ class Usermanage extends Controller
 
     
 }
-    // function type()
-    // {
-    //     if (isset($_SESSION['login'])) {
-    //         if ($_SESSION['type'] == "systemuser") {
-    //             $_SESSION['bloodtypes'] = $this->model->getAllTypes();
-    //             $this->view->render('systemuser/reservation_type');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "admin") {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "donor") {
-    //             $this->view->render('systemuser/reservation');
-    //             exit;
-    //         } else {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         }
-    //     }
-    //     else{
-    //         $this->view->render('authentication/login');
-            
-    //     }
-            
-        
-    // }
-
-    // function add_type()
-    // {
-    //     if (isset($_SESSION['login'])) {
-    //         if ($_SESSION['type'] == "systemuser") {
-    //             $maxtypeid = $this->model->getMaxTypeId();
-    //             $_SESSION['MaxTypeID'] = $maxtypeid;
-    //             $this->view->render('systemuser/reservation_add_type');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "admin") {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "donor") {
-    //             $this->view->render('systemuser/reservation');
-    //             exit;
-    //         } else {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         }
-    //     }
-    //     else{
-    //         $this->view->render('authentication/login');
-            
-    //     }
-            
-        
-    // }
-
-        
-    // function add_reserve()
-    // {
-    //     if ($_SESSION['type'] == "systemuser") {
-    //         if (!isset($_POST['add-reservation'])) {
-    //             header("Location: /reservation/add");
-    //             exit;
-    //         }
-            
-    //         $blood_group = $_POST['blood_group'];
-    //         $quantity = $_POST['quantity'];
-    //         $expiry_constraints = $_POST['expiry_constraints'];
-
-    //         $inputs = array($blood_group, $quantity, $expiry_constraints);
-
-    //         if ($this->model->addReserve($inputs)){
-    //             header("Location: /reservation/add_reservation_successful");
-                
-    //         }
-            
-    //     }
-    // }
-
-    // function add_reserve_type()
-    // {
-    //     if ($_SESSION['type'] == "systemuser") {
-    //         if (!isset($_POST['add-reservation-type'])) {
-    //             header("Location: /reservation/add_type");
-    //             exit;
-    //         }
-            
-    //         $blood_group = $_POST['blood_group'];
-    //         $storing_constraints = $_POST['Storing_Constraints'];
-    //         $expiry_constraints = $_POST['expiry_constraints'];
-
-    //         $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
-
-    //         if ($this->model->addReserveTypes($inputs)){
-    //             header("Location: /reservation/add_reservation_successful");
-                
-    //         }
-            
-    //     }
-    // }
-
-    // function add_reservation_successful()
-    // {
-    //     if (isset($_SESSION['login'])) {
-    //         if ($_SESSION['type'] == "systemuser") {
-    //             $this->view->render('systemuser/reservation_add_successful');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "admin") {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "donor") {
-    //             $this->view->render('systemuser/reservation');
-    //             exit;
-    //         } else {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         }
-    //     }
-    //     else{
-    //         $this->view->render('authentication/login');
-    //     }
-    // }
-
-    // function delete_types($type_id)
-    // {
-    //     if (isset($_SESSION['login'])) {
-    //         if ($_SESSION['type'] == "systemuser") {
-    //             $this->model->deleteReserveTypes($type_id);
-    //             header("Location: /reservation/type?page=1");
-    //             exit;
-    //         } else if ($_SESSION['type'] == "admin") {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         } else if ($_SESSION['type'] == "donor") {
-    //             $this->view->render('systemuser/reservation');
-    //             exit;
-    //         } else {
-    //             $this->view->render('layout/reservation');
-    //             exit;
-    //         }
-    //     }
-    //     else{
-    //         $this->view->render('authentication/login');
-    //     }
-        
-    // }
+    

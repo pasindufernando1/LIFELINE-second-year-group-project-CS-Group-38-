@@ -333,12 +333,6 @@ class Reservation extends Controller
 
     function expired_stocks()
     {
-<<<<<<< Updated upstream
-        if (isset($_SESSION['login'])) {
-            if ($_SESSION['type'] == "System User") {
-                $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-                $_SESSION['bloodtypes'] = $this->model->getAllTypes($blood_bank_id);
-=======
         
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
@@ -408,7 +402,6 @@ class Reservation extends Controller
 
                 
                 
->>>>>>> Stashed changes
                 $this->view->render('systemuser/reservation_expired');
                 exit;
             } 
@@ -420,8 +413,6 @@ class Reservation extends Controller
             
         
     }
-<<<<<<< Updated upstream
-=======
 
     function downloadcsv()
     {
@@ -469,5 +460,4 @@ class Reservation extends Controller
             
         }
     }
->>>>>>> Stashed changes
 }

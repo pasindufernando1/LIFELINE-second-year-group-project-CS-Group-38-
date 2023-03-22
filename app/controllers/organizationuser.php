@@ -22,15 +22,12 @@ class OrganizationUser extends Controller
             header("Location: /authentication/organizationlogin");
         }
         
-        //if already logged in redirect to the admin dashboard
+        //if already logged in redirect to the organization dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Organization/Society") {
-<<<<<<< Updated upstream
-=======
                 // $camp_info = $this->model->view_campaign_info();
                 
                 $_SESSION['campaignsList'] = $this->model->view_campaign_info();
->>>>>>> Stashed changes
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -51,6 +48,7 @@ class OrganizationUser extends Controller
 
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['User_ID'] = $this->model-> getUserID($uname);
             $this->view->render('organization/dashboard');
 
             
@@ -67,7 +65,7 @@ class OrganizationUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /organization/login");
+        header("Location: /");
     }
 
     function processSignup(){
@@ -101,7 +99,7 @@ class OrganizationUser extends Controller
 
 
             if ($this->model->signupOrganization($inputs1, $inputs2, $inputs3)) {
-                header("Location: /usermanage/add_hosmed_successful");
+                header("Location: /organization/login");
             }
             
         

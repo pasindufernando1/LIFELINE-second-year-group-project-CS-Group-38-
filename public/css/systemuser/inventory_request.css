@@ -1,0 +1,137 @@
+.box {
+    width: 60%;
+}
+
+.types-reservation {
+    left: 615px !important;
+}
+
+.typebutton-reservation {
+    position: absolute;
+    top: 47px;
+    left: 790px !important;
+}
+.reservation-filter {
+    position: absolute;
+    top: 33px;
+    left: 872px;
+}
+.reservation-filter-img {
+    position: absolute;
+    top: 51px;
+    left: 1054px;
+}
+
+.verify {
+    position: absolute;
+    background: #640E0B;
+    border-radius: 6px;
+    width: 107px;
+    height: 25px;
+    margin-top: -15px;
+    margin-left: -53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    /* line-height: 19px; */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    padding-top: 5px;
+    
+}
+
+.verified {
+    position: absolute;
+    background: #F7F7F7;
+    border-radius: 6px;
+    width: 107px;
+    height: 25px;
+    margin-top: -15px;
+    margin-left: -53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    /* line-height: 19px; */
+    text-align: center;
+    letter-spacing: 0.01em;
+    /* border: 1px #949494 solid; */
+    padding-top: 5px;
+    color: #640e0b;
+    
+}
+
+.box-2 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 22.5%;
+    height: 21vh;
+    left: 1454px;
+    top: 96px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box-3 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 22.5%;
+    height: 21vh;
+    left: 1454px;
+    top: 296px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box-4 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 22.5%;
+    height: 42.4vh;
+    left: 1454px;
+    top: 497px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.b-title {
+    width: auto;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 0.01em;
+    color: #343434;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.b-sub {
+    width: 73px;
+    height: 42px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 32px;
+    letter-spacing: 0.01em;
+    color: #bf1b16;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+
+.box-in {
+    height: 251px;
+    overflow: auto;
+}

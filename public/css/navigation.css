@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 5.833vw;
+    height: 84px;
     background: #FBDAD9;
     mix-blend-mode: normal;
 }
@@ -26,19 +26,19 @@
 }
 
 .navigation-items li a {
-    padding-right: 1.389vw;
+    padding-right: 20px;
     text-decoration: none;
 }
 
 .item-1 a {
     box-sizing: border-box;
     width: auto;
-    height: 1.944vw;
+    height: 28px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.667vw;
-    line-height: 1.944vw;
+    font-size: 24px;
+    line-height: 28px;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -48,12 +48,12 @@
 
 .item-2 a {
     width: auto;
-    height: 1.944vw;
+    height: 28px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.667vw;
-    line-height: 1.944vw;
+    font-size: 24px;
+    line-height: 28px;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -63,12 +63,12 @@
 
 .item-3 a {
     width: auto;
-    height: 1.944vw;
+    height: 28px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.667vw;
-    line-height: 1.944vw;
+    font-size: 24px;
+    line-height: 28px;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -78,12 +78,12 @@
 
 .item-4 a {
     width: auto;
-    height: 1.944vw;
+    height: 28px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.667vw;
-    line-height: 1.944vw;
+    font-size: 24px;
+    line-height: 28px;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -93,12 +93,12 @@
 
 .item-5 a {
     width: auto;
-    height: 1.944vw;
+    height: 28px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 1.667vw;
-    line-height: 1.944vw;
+    font-size: 24px;
+    line-height: 28px;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -107,15 +107,15 @@
 }
 
 .navigation-items {
-    padding-left: 17.361vw !important;
+    padding-left: 250px !important;
 }
 
 
 /* Right Block */
 
 .right-block {
-    width: 14.375vw;
-    height: 3.125vw;
+    width: 207px;
+    height: 45px;
     /* Inside auto layout */
     flex: none;
     order: 1;
@@ -124,8 +124,7 @@
 
 .icon-search img {
     position: absolute;
-    width: 1.4vw;
-    left: 72.64%;
+    left: 75.64%;
     right: 25.97%;
     top: 36.9%;
     bottom: 39.29%;
@@ -135,20 +134,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-indent: 1.250vw;
-    padding: 1.181vw 2.431vw;
-    gap: 0.694vw;
+    text-indent: 18px;
+    padding: 17px 35px;
+    gap: 10px;
     position: absolute;
     left: 77.22%;
     right: 12.99%;
     top: 22.62%;
     bottom: 23.81%;
     background: #FFFFFF;
-    border-radius: 3.472vw;
+    border-radius: 50px;
     border-width: 0;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.111vw;
+    font-size: 16px;
     color: #BF1B16;
 }

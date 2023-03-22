@@ -44,8 +44,35 @@ class Sys_inventory extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
+                $BloodBankID = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $_SESSION['invdonation'] = $this ->model-> getAllInvDonation($BloodBankID);
+                $_SESSION['count_ver']  = $this ->model-> getCountVer($BloodBankID);
+                $_SESSION['count_non_ver']  = $this ->model-> getCountVer2($BloodBankID);
+                // print_r($_SESSION['count_ver']);die();
+                $_SESSION['contri'] = $this ->model-> getAllContri($BloodBankID);
+                
+                
                 $this->view->render('systemuser/inventory/inventory_request');
                 exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
+        }
+    }
+
+
+    function verify($id)
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "System User") {
+                $BloodBankID = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $date = date('y-m-d');
+                $res = $this->model->verifyDonation($id,$date);
+                
+                if ($res) {
+                    header('Location:/sys_inventory/request?page=1');
+                }
             }
         }
         else{

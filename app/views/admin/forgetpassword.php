@@ -1,5 +1,5 @@
 <?php
-    $metaTitle = "AdminLogin" ;
+    $metaTitle = "Forget Password" ;
     define('__ROOT__', dirname(dirname(dirname(__FILE__))));
     require_once(__ROOT__.'/views/layout/header.php');
     require_once(__ROOT__.'/views/layout/navigation.php');    
@@ -31,9 +31,9 @@
                 <br>
                 <a href="/admin/login/" class="forget-password" >Login</a>
                 <br>
-                <?php if (isset($_SESSION['error'])) {  ?>
-                <p class="error-pwd"><?php echo $_SESSION['error']; ?></p>
-                <?php $_SESSION['error'] = '';
+                <?php if (isset($_SESSION['pw_error'])) {  ?>
+                <p class="error-pwd"><?php echo $_SESSION['pw_error']; ?></p>
+                <?php $_SESSION['pw_error'] = '';
                 } ?>
                 
                 <button class='login-button' type='submit' name='reset'>Reset</button>

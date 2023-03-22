@@ -75,7 +75,7 @@ $metaTitle = 'Hospitals Dashboard';
             <!-- Side bar -->
             <div class="side-bar">
                 <div class="side-nav">
-                    <div class="dashboard menu-items">
+                    <div class="dashboard menu-item">
                         <div class="marker"></div>
                         <img src="./../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-active"><a href="#">Dashboard</a></p>
@@ -83,40 +83,24 @@ $metaTitle = 'Hospitals Dashboard';
 
                     </div>
                     <div class="requestBlood menu-item">
-<<<<<<< Updated upstream
-                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/non-active/Request blood.png" alt="requestBlood">
-                        <img class="requestBlood-non-active" src="./../../public/img/hospitalsdashboard/active/Request blood.png" alt="requestBlood">
-                        <p class="requestBlood-nav"><a href="/requestBlood/viewDetails">Request Blood</a></p>
-=======
                         <img src="./../../public/img/hospitalsdashboard/non-active/Request blood.png"
                             alt="requestBlood">
                         <img class="requestBlood-non-active"
                             src="./../../public/img/hospitalsdashboard/active/Request blood.png" alt="requestBlood">
                         <p class="requestBlood-nav"><a href="/requestBlood/viewReqBlood">Request Blood</a></p>
->>>>>>> Stashed changes
 
                     </div>
 
                     <div class="profile menu-item">
-<<<<<<< Updated upstream
-                        <img class="profile-active" src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
-                        <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-
-=======
                         <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
                         <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png"
                             alt="profile">
                         <p class="profile-nav "><a href="/requestBlood/viewProfile">Profile</a></p>
->>>>>>> Stashed changes
                     </div>
 
                 </div>
 
             </div>
-<<<<<<< Updated upstream
-
-=======
             <div class="box">
                 <img class="dashboard-img" src="./../../public/img/hospitalsdashboard/dashboard_img.jpg"
                     alt="dashboard_img">
@@ -177,7 +161,6 @@ $metaTitle = 'Hospitals Dashboard';
 
                 </div>
             </div>
->>>>>>> Stashed changes
 
         </div>
 

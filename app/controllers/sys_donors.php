@@ -131,8 +131,6 @@ class Sys_donors extends Controller
         }
     }
 
-<<<<<<< Updated upstream
-=======
     function store_Donation()
     {
         if ($_SESSION['type'] == "System User") {
@@ -331,7 +329,6 @@ class Sys_donors extends Controller
         $res= $this->model->updateDonorCard($_SESSION['Donor_det'][0]['UserID'],$img);
         
     }
->>>>>>> Stashed changes
     
 
     

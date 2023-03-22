@@ -1,162 +1,3 @@
-/* body {
-    background-color: #F8F8F8;
-}
-
-.top-bar {
-    position: sticky;
-    box-sizing: border-box;
-    position: absolute;
-    width: 100%;
-    height: 102px;
-    left: 0px;
-    top: 0px;
-    background: #FFFFFF;
-    border-bottom: 1px solid #E8E8E8;
-}
-
- .logo img {
-    position: sticky;
-    width: 262px;
-    height: 82px;
-    left: 2px;
-    top: 10px;
-}
-
-.search {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 10px;
-    position: absolute;
-    width: 119px;
-    height: 30px;
-    left: 314px;
-    top: 39px;
-}
-
-.search img {
-    width: 24px;
-    height: 24px;
-    /* Inside auto layout 
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.search-box {
-    width: 500px;
-    height: 24px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    /* identical to box height 
-    letter-spacing: 0.01em;
-    color: #A7A7A7;
-    /* Inside auto layout 
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    border-width: 0px;
-}
-
-.notification {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 7.5px;
-    gap: 25.5px;
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    left: 1516px;
-    top: 25px;
-    background: rgba(235, 235, 235, 0.4);
-    border-radius: 15px;
-}
-
-.bell-icon {
-    width: 30px;
-    height: 30px;
-    /* Inside auto layout 
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.image img {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    left: 1591px;
-    top: 25px;
-    border-radius: 10px;
-}
-
-.user-name {
-    position: absolute;
-    width: 42px;
-    height: 27px;
-    left: 1675px;
-    top: 5px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 27px;
-    /* identical to box height 
-    letter-spacing: 0.01em;
-    color: #000000;
-}
-
-.role-type {
-    position: absolute;
-    width: 69px;
-    height: 51px;
-    left: 1675px;
-    top: 40px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    color: #A4A4A4;
-}
-
-.more img {
-    position: absolute;
-    width: 40.55px;
-    height: 40.55px;
-    left: 1770px;
-    top: 37px;
-    background: #EBEBEB;
-    cursor: pointer;
-}
-
-.side-bar {
-    position: absolute;
-    width: 277.49px;
-    height: 922px;
-    left: -5px;
-    top: 102px;
-    background: #FFFFFF;
-    border-right: 1px;
-    border-color: #000000;
-}
-
-.side-nav {
-    position: absolute;
-    width: 272.49px;
-    height: 573.74px;
-    left: 0px;
-    top: 30px;
-    border-right: 1px;
-    border-color: #000000;
-} */
 body {
     background-color: #F8F8F8;
 }
@@ -221,40 +62,6 @@ body {
     border-width: 0px;
 }
 
-/* .notification {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 7.5px;
-    gap: 25.5px;
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    left: 1350px;
-    top: 25px;
-    background: rgba(235, 235, 235, 0.4);
-    border-radius: 15px;
-}
-
-.bell-icon {
-    width: 30px;
-    height: 30px;
-    /* Inside auto layout 
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.image img {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    left: 1130px;
-    top: 25px;
-    border-radius: 10px;
-} */
-
 .notification {
     display: flex;
     flex-direction: row;
@@ -265,8 +72,8 @@ body {
     position: absolute;
     width: 45px;
     height: 45px;
-    left: 1284px;
-    top: 25px;
+    left: 1438px;
+    top: 20px;
     background: rgba(235, 235, 235, 0.4);
     border-radius: 15px;
 }
@@ -284,8 +91,8 @@ body {
     position: absolute;
     width: 60px;
     height: 60px;
-    left: 1369px;
-    top: 25px;
+    left: 1524px;
+    top: 10px;
     border-radius: 10px;
 }
 
@@ -293,14 +100,13 @@ body {
     position: absolute;
     width: 42px;
     height: 27px;
-    left: 1434px;
+    left: 1600px;
     top: 5px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 9px;
+    font-size: 18px;
     line-height: 10px;
-    /* identical to box height */
     letter-spacing: 0.01em;
     color: #000000;
 }
@@ -309,7 +115,7 @@ body {
     position: absolute;
     width: 69px;
     height: 51px;
-    left: 1434px;
+    left: 1600px;
     top: 40px;
     font-family: 'Poppins';
     font-style: normal;
@@ -324,57 +130,16 @@ body {
     position: absolute;
     width: 40.55px;
     height: 40.55px;
-    left: 1573px;
+    left: 1762px;
     top: 37px;
     background: #EBEBEB;
     cursor: pointer;
 }
-
-/* .user-name {
-    position: absolute;
-    width: 42px;
-    height: 27px;
-    left: 1439px;
-    top: 5px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 9px;
-    line-height: 10px;
-    /* identical to box height 
-    letter-spacing: 0.01em;
-    color: #000000;
-}
-
-.role-type {
-    position: absolute;
-    width: 69px;
-    height: 51px;
-    left: 1442px;
-    top: 40px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    color: #A4A4A4;
-}
-
-.more img {
-    position: absolute;
-    width: 40.55px;
-    height: 40.55px;
-    left: 1572px;
-    top: 37px;
-    background: #EBEBEB;
-    cursor: pointer;
-} */
 
 .side-bar {
     position: absolute;
     width: 277.49px;
-    height: 640px;
+    height: 821px;
     left: -5px;
     top: 102px;
     background: #FFFFFF;
@@ -391,6 +156,7 @@ body {
     border-right: 1px;
     border-color: #000000;
 }
+
 .dashboard {
     box-sizing: border-box;
     position: absolute;
@@ -462,7 +228,7 @@ body {
     border-radius: 0px 8px 8px 0px;
 }
 
-.requestBlood {
+/* .requestBlood {
     position: absolute;
     left: 5px;
     top: 60px;
@@ -533,8 +299,6 @@ body {
     text-decoration: none;
     margin-top: 15px;
 }
-<<<<<<< Updated upstream
-=======
  */
 
 .requestBlood {
@@ -606,22 +370,21 @@ body {
 
 }
 
->>>>>>> Stashed changes
 .profile {
     position: absolute;
     width: 170.74px;
     height: 28.25px;
     left: 22px;
-    top: 0px;
+    top: 18px;
 }
 
 .profile img {
     position: absolute;
-    left: -0.26%;
+    left: 2.74%;
     right: 95.37%;
     top: 67.04%;
     bottom: 30.31%;
-    top: -437px;
+    top: -423px;
     margin-top: 575px;
 }
 
@@ -630,7 +393,7 @@ body {
     width: 122px;
     height: 28px;
     left: 52.74px;
-    top: -437px;
+    top: -423px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -642,8 +405,6 @@ body {
     margin-top: 577px;
 }
 
-<<<<<<< Updated upstream
-=======
 .profile-non-active {
     display: none;
 }
@@ -689,7 +450,6 @@ body {
 }
 
 
->>>>>>> Stashed changes
 .menu-item a:hover {
     font-weight: 700;
     font-size: 18.9713px;
@@ -706,7 +466,6 @@ body {
     display: block;
 }
 
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -714,7 +473,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 1427px;
+    left: 1759px;
     top: 85px;
     border-radius: 10px;
 }
@@ -746,10 +505,28 @@ body {
     width: 1540px;
     height: 500px;
     left: 316px;
-    top: 0;
+    top: 126px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+
+
+.welcome {
+    position: absolute;
+    top: -17px;
+    left: 118px;
+    font-size: 75px;
+    font-family: 'Poppins';
+    color: #bf1b16;
+}
+
+.welcome-image {
+    position: absolute;
+    top: 103px;
+    left: -44px;
+    width: 360px;
 }
 
 .add-user-title {
@@ -1352,9 +1129,6 @@ td {
 .pag-div-10 a {
     background-color: #640E0B;
     color: #FFFFFF;
-<<<<<<< Updated upstream
-}
-=======
 }
 
 .dashboard-img {
@@ -1466,4 +1240,3 @@ td {
     flex-direction: column;
     align-content: stretch;
     justify-content: space-evenly; */
->>>>>>> Stashed changes

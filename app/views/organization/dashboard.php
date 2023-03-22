@@ -73,7 +73,7 @@ $metaTitle = 'Organizations Dashboard';
             <!-- Side bar -->
             <div class="side-bar">
                 <div class="side-nav">
-                    <div class="dashboard menu-items">
+                    <div class="dashboard menu-item">
                         <div class="marker"></div>
                         <img src="./../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-active"><a href="#">Dashboard</a></p>
@@ -81,53 +81,28 @@ $metaTitle = 'Organizations Dashboard';
 
                     <div class="campaigns menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns">
-<<<<<<< Updated upstream
-                        <img class="campaigns-non-active" src="./../../public/img/orgdashboard/active/campaigns.png" alt="campaigns">
-                        <p class="campaigns-nav"><a href="#">Campaigns</a></p>
-=======
                         <img class="campaigns-non-active" src="./../../public/img/orgdashboard/active/campaigns.png"
                             alt="campaigns">
                         <p class="campaigns-nav"><a href="/requestApproval/chooseHere/">Campaigns</a></p>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="schedule-time menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/schedule time.png" alt="schedule time">
-<<<<<<< Updated upstream
-                        <img class="schedule-time-non-active" src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
-                        <p class="schedule-time-nav "><a href="#">Schedule time</a></p>
-=======
                         <img class="schedule-time-non-active"
                             src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
                         <p class="schedule-time-nav "><a href="/requestApproval/chooseHere_scheduleTime">Schedule
                                 time</a></p>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="notifications menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/notifications.png" alt="notifications">
-<<<<<<< Updated upstream
-                        <img class="notifications-non-active" src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
-                        <p class="notifications-nav "><a href="#">Notifications</a></p>
-=======
                         <img class="notifications-non-active"
                             src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
                         <p class="notifications-nav "><a href="/requestApproval/getAcceptedCamps">Notifications</a></p>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="cash-donations menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/cash donations.png" alt="cash donations">
-<<<<<<< Updated upstream
-                        <img class="cash-donations-non-active" src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
-                        <p class="cash-donations-nav "><a href="#">Cash donations</a></p>
-                    </div>
-
-                    <div class="inventory-donations menu-item">
-                        <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations">
-                        <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="#">Inventory donations</a></p>
-=======
                         <img class="cash-donations-non-active"
                             src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
                         <p class="cash-donations-nav "><a href="/requestApproval/donateCash">Cash donations</a></p>
@@ -140,15 +115,10 @@ $metaTitle = 'Organizations Dashboard';
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
                         <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="instructions menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/instructions.png" alt="instructions">
-<<<<<<< Updated upstream
-                        <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
-                        <p class="instructions-nav "><a href="#">Instructions</a></p>
-=======
                         <img class="instructions-non-active"
                             src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
                         <p class="instructions-nav "><a href="/requestApproval/viewInstructions">Instructions</a></p>
@@ -159,28 +129,18 @@ $metaTitle = 'Organizations Dashboard';
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
                         <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="profile menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/profile.png" alt="profile">
-<<<<<<< Updated upstream
-                        <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="#">Profile</a></p>
-=======
                         <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png"
                             alt="profile">
                         <p class="profile-nav "><a href="/requestApproval/viewProfile">Profile</a></p>
->>>>>>> Stashed changes
                     </div>
 
                 </div>
 
             </div>
-<<<<<<< Updated upstream
-
-
-=======
             <div class="box">
 
                 <img class="dashboard-img" src="./../../public/img/orgdashboard/dashboard_img.jpg" alt="req" width=100%>
@@ -275,7 +235,6 @@ $metaTitle = 'Organizations Dashboard';
                     <a><img class="l-arrow-img" src="./../../public/img/orgdashboard/left-arrow.jpg"
                             alt="dashboard"></a>
             </div>
->>>>>>> Stashed changes
         </div>
 
     </div>

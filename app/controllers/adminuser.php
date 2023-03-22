@@ -26,6 +26,7 @@ class AdminUser extends Controller
         //if already logged in redirect to the admin dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['hospitals'] = $this->model->getHospitals();
                 $this->view->render('admin/dashboard');
                 exit;
             }
@@ -41,14 +42,21 @@ class AdminUser extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
-        if ($this->model->authenticate($uname, $pwd)) {
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
 
+        $password = $this->model->getpassword($uname);
+        $_SESSION['Password'] = $password;
+
+
+
+        if ($this->model->authenticate($uname, $pwd)) {
+            $_SESSION['useremail'] = $_POST['username'];
             //set session variables
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
+            $_SESSION['hospitals'] = $this->model->getHospitals();
             $this->view->render('admin/dashboard');
-
-            
         }
          else {
             $_SESSION['error'] = 'Incorrect Username or Password';
@@ -62,10 +70,10 @@ class AdminUser extends Controller
         session_unset();
         session_destroy();
         session_regenerate_id(true);
-        header("Location: /admin/login");
+        header("Location: /");
     }
 
-    function forgetPassword(){
+    function forgetPassword(){        
         $this->view->render('admin/forgetpassword');
     }
 
@@ -94,7 +102,7 @@ class AdminUser extends Controller
             $mail->Port = 587;
             $mail->SMTPAuth = true;
             $mail->Username = 'lifeline.managementservices@gmail.com';
-            $mail->Password = 'pdrnjjddsyfhwywh';
+            $mail->Password = 'kelpqmxgangljbqj';
             //From email address and name
             $mail->From = "lifeline.managementservices@gmail.com";
             $mail->FromName = "Life Line";
@@ -122,7 +130,7 @@ class AdminUser extends Controller
             }
         }
         else {
-            $_SESSION['error'] = 'Email is not registered';
+            $_SESSION['pw_error'] = 'Email is not registered';
             header('Location: /adminuser/forgetpassword');
         }
     }
@@ -143,7 +151,7 @@ class AdminUser extends Controller
 
         }
         else {
-            $_SESSION['error'] = 'Verification failed try again';
+            $_SESSION['pw_error'] = 'Verification failed try again';
             header('Location: /adminuser/OTP');
         }
 
@@ -163,12 +171,13 @@ class AdminUser extends Controller
             };
         }
         else{
-            $_SESSION['error'] = 'Passwords dont match';
+            $_SESSION['pw_error'] = 'Passwords do not match';
             header('Location: /adminuser/new_password');
         }
-        
-        
+         
     }
 
     
+    
 }
+

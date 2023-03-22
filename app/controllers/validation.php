@@ -27,7 +27,7 @@ class Validation extends Controller
         $result = $this->model->findByRegno($regno);
         if ($result) {
             echo "true";
-        } else {
+        } else { 
             echo "false";
         }
 

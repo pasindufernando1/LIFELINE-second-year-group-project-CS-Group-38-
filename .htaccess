@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^(.*)$ ./app/index.php?url=$1 [L,QSA]

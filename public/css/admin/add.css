@@ -674,7 +674,19 @@ body {
     width: 1540px;
     height: 853px;
     left: 316px;
-    top: 0;
+    top: 100px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
+
+.box-new {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 853px;
+    left: 316px;
+    top: 103px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -856,6 +868,16 @@ a {
     left: 65px;
     right: 114px;
     top: 201px;
+    width: 43%;
+}
+
+.gender-container {
+    position: absolute;
+    height: 64px;
+    left: 761px;
+    right: 114px;
+    top: 201px;
+    width: 43%;
 }
 
 .dob-container {
@@ -883,6 +905,22 @@ a {
 }
 
 .nic-lable {
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.gender-lable {
     position: absolute;
     height: 16px;
     left: 0px;
@@ -1300,6 +1338,30 @@ a {
 }
 
 .nic-input::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.gender-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 18px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+}
+
+.gender-input::placeholder {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;

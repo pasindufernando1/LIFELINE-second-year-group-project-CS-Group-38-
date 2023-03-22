@@ -1,5 +1,6 @@
     .body {
         display: flex;
+        font-family: Poppins;
     }
 
     .container {
@@ -668,7 +669,7 @@
         height: 19px;
         left: 57px;
         /* left: calc(50% - 158px/2 - 28px); */
-        top: -92px;
+        top: -52px;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 400;
@@ -1269,20 +1270,4 @@
 
     fieldset {
         border: none;
-    }
-
-    .error-pwd {
-        position: absolute;
-        height: 20px;
-        left: calc(50% - 158px/2 - 28px);
-        top: -30px;
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        /* identical to box height, or 143% */
-        text-align: center;
-        letter-spacing: 0.3px;
-        color: #ff0800;
     }

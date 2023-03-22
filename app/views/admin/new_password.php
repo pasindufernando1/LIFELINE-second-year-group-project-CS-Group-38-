@@ -1,5 +1,5 @@
 <?php
-    $metaTitle = "AdminLogin" ;
+    $metaTitle = "New Password" ;
     define('__ROOT__', dirname(dirname(dirname(__FILE__))));
     require_once(__ROOT__.'/views/layout/header.php');
     require_once(__ROOT__.'/views/layout/navigation.php');    
@@ -32,9 +32,9 @@
                 <label class="password-lable" for="password">Confirm Password:</label>
                 <br>
                 <input id="password" class="password-input" type="password" name="con_pwd" autofocus placeholder="Enter Password" required>
-                <?php if (isset($_SESSION['error'])) {  ?>
-                <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
-                <?php $_SESSION['error'] = '';
+                <?php if (isset($_SESSION['pw_error'])) {  ?>
+                <p class="error-pwd"><?php echo ($_SESSION['pw_error']); ?></p>
+                <?php $_SESSION['pw_error'] = '';
                 } ?>
                 
                 <button class='login-button' type='submit' name='Submit'>Submit</button>

@@ -1,0 +1,681 @@
+.banner {
+    width: 100%;
+    height: 35vw;
+}
+
+.banner-img {
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.tint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* margin-top: 0%; */
+}
+
+.ban-con {
+    position: absolute;
+    width: 60%;
+    height: 30%;
+    left: 75.417vw;
+    top: 4vw;
+    z-index: 1;
+}
+
+.b1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    /* font-weight: 700; */
+    font-size: 1vw;
+    line-height: 2vw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.b2 {
+    width: 40vw;
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4vw;
+    line-height: 4vw;
+    color: #ffffff;
+    margin-top: -2%;
+}
+
+.btn-ban {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1.111vw 2.847vw;
+    gap: 0.694vw;
+    position: absolute;
+    width: 9.306vw;
+    height: 3.125vw;
+    background: #FBDAD9;
+    border-radius: 3.472vw;
+    border: #FBDAD9;
+    font-size: 1vw;
+}
+
+.t-boxes {
+    width: 100%;
+    height: 70vw;
+    margin-top: -4vw;
+    /* background: aqua; */
+    display: flex;
+}
+
+/* .t-boxes p {
+    color: black;
+    margin-left: 1vw;
+    width: 20vw;
+}
+ */
+.box-1 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 4vw;
+    margin-left: 13vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-1 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-1 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+
+
+.box-2 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 4vw;
+    margin-left: 41vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-2 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-2 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+.box-3 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 4vw;
+    margin-left: 68vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-3 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-3 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+.box-4 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 44vw;
+    margin-left: 13vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-4 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-4 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+.box-5 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 44vw;
+    margin-left: 41vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-5 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-5 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+.box-6 {
+    position: absolute;
+    padding: 25px 20px;
+    gap: 1vw;
+    width: 18vw;
+    height: 35vw;
+    margin-top: 44vw;
+    margin-left: 68vw;
+    border: #dde0e0 1px solid;
+    border-radius: 0 0 6px 6px;
+}
+
+.box-6 div {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 100%;
+}
+
+
+.box-6 img {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+}
+
+.box-p {
+    width: 8vw;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 140%;
+    /* or 22px */
+    color: #FCFEFE;
+}
+
+.box-p2 {
+    width: 8vw;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 140%;
+    /* or 22px */
+    color: #640E0B;
+}
+
+.about {
+    width: 45.694vw;
+    margin: auto;
+    align-content: center;
+}
+
+.p1-a {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.250vw;
+    line-height: 1.458vw;
+    text-align: center;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #EB5550;
+}
+
+.p2-a {
+    width: 45.694vw;
+    height: 1.5830000000000002vw;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.111vw;
+    /* or 22px */
+    text-align: center;
+    /* Black */
+    color: #212124;
+}
+
+.p3-a {
+    width: 45.694vw;
+    height: 4.583vw;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.111vw;
+    /* or 22px */
+    text-align: center;
+    /* Black */
+    color: #212124;
+}
+
+.learn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 0.694vw;
+    width: 7.627vw;
+    height: 1.528vw;
+    margin: auto;
+}
+
+.learn a {
+    width: 6.181vw;
+    height: 1.528vw;
+    /* Body */
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.111vw;
+    line-height: 140%;
+    text-decoration: none;
+    /* or 22px */
+    color: #EB5550;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.learn img {
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.camp {
+    width: 100vw;
+    height: 45.139vw;
+    margin-top: 6vw;
+}
+
+.head {
+    margin: auto;
+    height: 10vw;
+}
+
+.ph1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.250vw;
+    line-height: 1.458vw;
+    text-align: center;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #EB5550;
+}
+
+.ph2 {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.222vw;
+    line-height: 1.569vw;
+    /* identical to box height */
+    text-align: center;
+    color: #640E0B;
+}
+
+.campbox {
+    margin-left: 13.69%;
+    height: 24vw;
+}
+
+.campbox1 {
+    margin-left: 8%;
+    width: 31vw;
+}
+
+.box-img {
+    width: 9vw;
+}
+
+.campbox1-d {
+    margin-left: 11vw;
+    margin-top: -7vw;
+}
+
+.box1-p1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.972vw;
+    line-height: 1.111vw;
+    color: #EB5550;
+}
+
+.box1-p2 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.250vw;
+    line-height: 1.111vw;
+    /* or 25px */
+    /* Black */
+    color: #212124;
+}
+
+.campbox2 {
+    margin-left: 50%;
+    width: 31vw;
+    width: 31vw;
+    margin-top: -8.38vw;
+}
+
+.campbox3 {
+    margin-left: 8%;
+    width: 31vw;
+    margin-top: 4vw;
+}
+
+.campbox4 {
+    margin-left: 50%;
+    width: 31vw;
+    width: 31vw;
+    margin-top: -8.38vw;
+}
+
+.getin {
+    width: 100vw;
+    height: 38.333vw;
+    margin: auto;
+}
+
+.getin-head {
+    width: 30vw;
+    margin: auto;
+}
+
+.gp1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.250vw;
+    line-height: 1.458vw;
+    text-align: center;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #EB5550;
+}
+
+.gp2 {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.222vw;
+    line-height: 1.269vw;
+    /* identical to box height */
+    text-align: center;
+    color: #640E0B;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: auto;
+}
+
+.contact-details img {
+    width: 3.472vw;
+    height: 3.472vw;
+    align-content: center;
+    margin: 1.111vw 0 0 0;
+}
+
+.contact-details h3 {
+    font-family: 'work sans';
+    color: #640E0B;
+    font-size: 1.250vw;
+    font-weight: bold;
+    margin-bottom: 1.111vw;
+}
+
+.contact-details p {
+    font-family: 'work sans';
+    color: #640E0B;
+    font-size: 1.111vw;
+    margin-bottom: 1.111vw;
+}
+
+.phone {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+}
+
+.locations {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #640E0B;
+}
+
+.locations h3,
+.locations p {
+    color: #F5AEAC;
+}
+
+.email {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+}
+
+.clock {
+    padding-left: 1.042vw;
+    padding-top: 1.042vw;
+    width: 23.488vw;
+    height: 17.605vw;
+    background-color: #F5AEAC;
+}
+
+.aboutUs-img{
+    position: relative;
+    width: 39%;
+    height: 70%;
+    left: 9%;
+    top: 16%;
+}
+
+.welcome-title{
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 12%;
+    top: 15%;
+    
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.250vw;
+    line-height: 1.458vw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #640E0B;
+}
+
+.name-title{
+    position: relative;
+    width: 124%;
+    height: 40%;
+    left: -16%;
+    top: 16%;
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 313%;
+    line-height: 100%;
+    color: #EB5550;
+} 
+.services-list{
+    top: 143%;
+    left: 50%;
+    position: absolute;
+    font-family: 'Work Sans';
+    font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 240%;
+}
+
+@media only screen and (max-width: 767px) {
+    .services-list{
+        font-size: 1.2vw;
+    }
+  
+}
+
+/* @media only screen and (max-width: 767px) {
+    li {
+      font-size: 1em;
+      line-height: 1.2em;
+      margin-bottom: 0.5em;
+    }
+  } */
+  
+  .des {
+    position: absolute;
+    left: 50%;
+    top: 165%;
+    width: 45%;
+    height: auto;
+    padding: 1em;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 1.4;
+}
+    @media only screen and (max-width: 767px) {
+        .des{
+            font-size: 1.2vw;
+        }
+      
+    }
+    
+        .bloodbank-img {
+            position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 13%;
+    top: 100%;
+        }
+.description{
+    position: absolute;
+    width: 70%;
+    height: 325px;
+    left: 12%;
+    top: 155%;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: #212124;
+}
+.services-list{
+    top: 175%;
+    left: 12%;
+    position: absolute;
+    font-family: 'Work Sans';
+    font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 180%;
+width: 70%;
+}
+
+
+      
+
+
+  
+
+  
+  
+  
+
+
+ 

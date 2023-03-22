@@ -21,6 +21,11 @@ class AdminuserModel extends Model
     
     }
 
+    public function getHospitals(){
+        $hospitals = $this->db->select(array("UserID","Name","District","Status"),"hospital_medicalcenter", "WHERE Status = :Status ;", ':Status', 0);
+        return $hospitals;
+    }
+
     public function getUserName($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -31,6 +36,25 @@ class AdminuserModel extends Model
         
         } 
 
+    }
+
+    public function getpassword($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $user_password = $this->db->select("Password","user","WHERE email =:email",':email',$email);
+            $password_user = $user_password[0]['Password'];
+            return $password_user;
+        
+        } 
+    }
+
+    public function getuserimg($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $type = $this->db->select("userpic","user","WHERE email =:email",':email',$email);
+            $user_pic = $type[0]['userpic'];
+            return $user_pic;
+        } 
     }
 
     public function gettype($email)

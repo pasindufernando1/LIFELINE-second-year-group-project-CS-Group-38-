@@ -85,15 +85,6 @@ $metaTitle = "Blood Type - Reservations"
                         if ($_SESSION['rowCount'] > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-<<<<<<< Updated upstream
-                                echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["TypeID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Storing_temperature"] . "</td>
-                                        <td>" . $row["Expiry_constraint"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_type_id/'.$row["TypeID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                                    </tr> </div>';
-=======
                                 echo '<div class="table-content-types"> <tr class="t-row">
                         
                                         <td class="t-det">' . $row["Date"] . '</td>
@@ -110,7 +101,6 @@ $metaTitle = "Blood Type - Reservations"
                                     </tr> </div>
                                     
                                     </form>';
->>>>>>> Stashed changes
                                 
                             }
                         } else {

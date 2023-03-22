@@ -63,11 +63,7 @@ $metaTitle = "System User Dashboard"
                 <script>
                     var ctx = document.getElementById('usage-months').getContext('2d');
                     var myChart = new Chart(ctx, {
-<<<<<<< Updated upstream
-                        type: 'bar',
-=======
                         type: 'line',
->>>>>>> Stashed changes
                         data: {
                             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                             datasets: [{
@@ -155,11 +151,7 @@ $metaTitle = "System User Dashboard"
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
-<<<<<<< Updated upstream
-                        $results_per_page = 7;
-=======
                         $results_per_page = 3;
->>>>>>> Stashed changes
                         $number_of_results = $_SESSION['rowCount'];
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
@@ -195,9 +187,6 @@ $metaTitle = "System User Dashboard"
                         }
                        
                   
-<<<<<<< Updated upstream
-                       
-=======
                        echo '<div class="pag-box">';
                         if ($_GET['page'] == 1) {
                                 echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
@@ -218,7 +207,6 @@ $metaTitle = "System User Dashboard"
                             echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
                         }
                           
->>>>>>> Stashed changes
                         
                           
                         echo '</div>' ;?>
@@ -228,37 +216,11 @@ $metaTitle = "System User Dashboard"
         </div>
 
         <div class="bo7">
-<<<<<<< Updated upstream
-            <div class="male">
-                <img class="malepic" src="./../../public/img/dashboard/male.png" alt="male">
-                <p class="matex">35%</p>
-
-            </div>
-
-            <div class="female">
-                <img class="femalepic" src="./../../public/img/dashboard/female.png" alt="male">
-                <p class="matex">65%</p>
-
-            </div>
-=======
             
->>>>>>> Stashed changes
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
                 new Chart(document.getElementById("pie-chart"), {
-<<<<<<< Updated upstream
-                    type: 'doughnut',
-                    data: {
-                    
-                    datasets: [{
-                        label: "Donor Composition",
-                        backgroundColor: ["#BF1B16", "#BF1B16"],
-                        data: [2478,5267]
-                        
-                    }]
-                    },
-=======
                     type: 'bar',
                      labels: ['Male', 'Female'],
                             
@@ -286,7 +248,6 @@ $metaTitle = "System User Dashboard"
                             }]
                         },
                     
->>>>>>> Stashed changes
                     options: {
                     title: {
                         display: true,

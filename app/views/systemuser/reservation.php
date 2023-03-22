@@ -38,20 +38,12 @@ $metaTitle = "System User Reservations" ;
 
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>   
-<<<<<<< Updated upstream
-
-=======
     <?php $delete = "Blood Reserve"; ?>
->>>>>>> Stashed changes
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/delete_confirmation.php'); ?>
     
 
 
-<<<<<<< Updated upstream
-                    <div class="box">
-=======
                     <div class="box" id="box">
->>>>>>> Stashed changes
                         <p class="add-reservation-title">Blood Reserves</p>
                         
                         <!-- <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
@@ -100,27 +92,12 @@ $metaTitle = "System User Reservations" ;
                             
                                
                                 echo '<div class="table-content-types"> <tr>
-<<<<<<< Updated upstream
-                                        <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Expiry_constraint"] . '</td>
-                                        <td>';
-
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-=======
                                         <td>' . $row["Name"] . " " .$row['Subtype'] . "</td>
                                         <td>" . $row["Quantity"] ." Packs" ."</td>
                                         <td>" . $row["Expiry_constraint"] . " Days". '</td>
                                         <td>';
 
                                         
->>>>>>> Stashed changes
                                          echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> 
                                          <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                                          document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";

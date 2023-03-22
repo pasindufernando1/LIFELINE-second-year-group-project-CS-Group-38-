@@ -47,7 +47,7 @@ class ForgetPassword extends Controller
             $mail->Username = 'lifeline.managementservices@gmail.com';
             $mail->Password = 'kelpqmxgangljbqj';
             //From email address and name
-            $mail->From = "shinthujeni@gmail.com";
+            $mail->From = "lifeline.managementservices@gmail.com";
             $mail->FromName = "Life Line";
 
             //To address and name

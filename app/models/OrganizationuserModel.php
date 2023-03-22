@@ -32,6 +32,15 @@ class OrganizationuserModel extends Model
         } 
 
     }
+    public function getUserID($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $ID = $this->db->select("userID","user","WHERE email =:email",':email',$email);
+            $orgID = $ID[0]['userID'];
+            return $orgID;
+        
+        } 
+    }
 
     public function gettype($email)
     {
@@ -112,8 +121,6 @@ class OrganizationuserModel extends Model
     }
 
 
-<<<<<<< Updated upstream
-=======
     // public function view_campaign_info()
     // {
         
@@ -135,6 +142,5 @@ class OrganizationuserModel extends Model
     }
     
 
->>>>>>> Stashed changes
     
 }
