@@ -381,40 +381,11 @@ $metaTitle = 'Donor Dashboard';
 
                 });
 
-                // Save the PDF with a random filename
-                var random = Math.floor(Math.random() * 1000000001);
-                var filename = 'DonorDetails' + random + '.pdf';
-                pdf.save(filename);
-
-
-
-                // Save the PDF with a random filename
-                var random = Math.floor(Math.random() * 1000000001);
-                var filename = 'DonorDetails' + random + '.pdf';
+                var filename = 'DonorCard.pdf ';
                 pdf.save(filename);
             });
 
         });
-    }
-
-    function exportpng() {
-        const front = document.getElementById("front");
-        html2canvas(front).then((canvas) => {
-            var imagedata = canvas.toDataURL('image/png');
-            var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
-
-            $.ajax({
-                url: '/sys_donors/card_upload',
-                data: {
-                    imgdata: imgdata
-                },
-                type: 'post',
-                success: function(response) {
-                    console.log(response);
-                }
-            });
-        });
-
     }
     </script>
 

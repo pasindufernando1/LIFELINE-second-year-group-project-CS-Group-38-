@@ -45,6 +45,12 @@ class Getcampaign extends Controller
                 $camp_info = $this->model->get_campaign_info($campid);
                 $_SESSION['campaign_array'] = $camp_info;
 
+                //get campaign advertisement
+                $_SESSION['campaign_ad'] = $this->model->get_campaign_ad(
+                    $_SESSION['campaign_array'][8]
+                );
+
+
                 //get organizer from another table
                 $_SESSION['org_name'] = $this->model->get_org_name(
                     $_SESSION['campaign_array'][9]
@@ -75,33 +81,82 @@ class Getcampaign extends Controller
                     $_SESSION['user_ID'],
                     $campaign_ID
                 );
-                $_SESSION['okayed'] = true;
 
-                // $_SESSION['okayed'] = $this->model->iftimeokay(
-                //     $_SESSION['user_ID'],
-                //     $_SESSION['selected_campid']
-                // );
                 if ($count > 0) {
                     //get the campaign registration information
                     $_SESSION['reg_info'] = $this->model->get_campreg_info(
                         $_SESSION['user_ID']
                     );
                     $_SESSION['if_registered'] = 1;
-                    $this->view->render('donor/viewcampaign');
-                    exit();
+                    
                 } else {
                     $_SESSION['if_registered'] = 0;
-                    $this->view->render('donor/viewcampaign');
-                    exit();
                 }
 
-                //Check if this Donor can REGISTER ro this Campaign considering
-                // past donation dates and other registrations
-                $_SESSION['okayed'] = true;
-                // $_SESSION['okayed'] = $this->model->iftimeokay(
-                //     $_SESSION['user_ID'],
-                //     $_SESSION['selected_campid']
-                // );
+                
+
+                //If the Donor CAN register to the campaign
+                $last_donation = $this->model->getLastDonation(
+                    $_SESSION['user_ID']
+                );
+                
+                $registered_camp_dates = $this->model->getCampDates(
+                    $_SESSION['user_ID']
+                );
+
+                $_SESSION['time_okay'] = true;
+                
+                //check for eachdate if the difference between that date and the date of this campaign is less than 2 months
+                //check if  $registered_camp_dates is not empty
+                if (empty($registered_camp_dates)) {
+                    $_SESSION['time_okay'] = true;
+                }else{
+                    $campdate = date_create($_SESSION['campaign_array'][4]);
+
+                foreach ($registered_camp_dates as $dates) {
+                    $date2 = date_create($dates);
+                    $diff = date_diff($date2, $campdate);
+                    $diff = $diff->days;
+                    if($diff < 0 ){
+                        $diff = $diff * -1;
+                        // $_SESSION['if_registered'] = 2;
+                    }
+
+                    if ($diff < 56) {
+                        $_SESSION['time_okay'] = false;
+                        // print_r('reg-camp-dates failed');
+                        // die();
+                    }
+                    else{
+                        $_SESSION['time_okay'] = true;
+                    }
+
+                }
+
+                }
+                
+                if ($last_donation != false) {
+                    $date1 = date_create($last_donation);
+                    // $date2 = date_create($_SESSION['today']);
+                    $date_diff = date_diff($campdate, $date1);
+                    $date_diff = $date_diff->days;
+
+                    if ($date_diff < 56) {
+                        $_SESSION['time_okay'] = false;
+                        
+                    }
+                    else{
+                        $_SESSION['time_okay'] = true;
+                    }
+                }else{
+                    $_SESSION['time_okay'] = true;
+                }
+
+                
+
+                $this->view->render('donor/viewcampaign');
+                exit();
+
             }
         } else {
             $this->view->render('authentication/donorlogin');
@@ -113,41 +168,13 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $_SESSION['today'] = date('Y-m-d H:i:s');
-
-                //Check whether the user have already donated blood within 8 weeks
-                //Or registered to donation campaign held within 8 weeks to the selected campaign
-                // $okayed = $this->model->iftimeokay(
-                //     $_SESSION['user_ID'],
-                //     $_SESSION['selected_campid']
-                // );
-                // print_r($okayed);
-                // die();
                 $_SESSION['contno'] = $this->model->getcontno(
                     $_SESSION['user_ID']
                 );
                 if (isset($_SESSION['contno'])) {
-                    // print_r($_SESSION['user_ID']);
-                    // print_r($_SESSION['contno']);
-                    // die();
                     $this->view->render('donor/regtocampaign');
                 }
                 exit();
-                // if ($okayed == 1) {
-                //     $_SESSION['contno'] = $this->model->getcontno(
-                //         $_SESSION['user_ID']
-                //     );
-                //     if (isset($_SESSION['contno'])) {
-                //         // print_r($_SESSION['user_ID']);
-                //         // print_r($_SESSION['contno']);
-                //         // die();
-                //         $this->view->render('donor/regtocampaign');
-                //     }
-                //     exit();
-                // } else {
-                //     $this->view->render('donor/regtocampaign');
-                //     // print_r('cant');
-                //     // die();
-                // }
             }
         } else {
             $this->view->render('authentication/login');

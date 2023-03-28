@@ -101,7 +101,7 @@ $metaTitle = 'Donor Dashboard';
 // If the current user is registered to the campaign
 ?>
     <?php if ($_SESSION['if_registered'] == 0) {
-        if ($_SESSION['okayed'] == true) {
+        if ($_SESSION['time_okay'] == true) {
             echo '<div class="view-campaign-box">
         <p class="campaign-head">' .
                 $_SESSION['campaign_array'][1] .
@@ -127,7 +127,7 @@ $metaTitle = 'Donor Dashboard';
         <a href="/getcampaign/reg_to_campaign?camp=' .
                 $_SESSION['selected_campid'] .
                 '"><button class="to-reg-btn">Register</button>
-            <img src="./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
+            <img src="./../../public/img/ads/'.$_SESSION['campaign_ad'].'" class="campaign-img" alt="campaigns">
     </div>';
         } else {
             echo '<div class="view-campaign-box">
@@ -153,7 +153,7 @@ $metaTitle = 'Donor Dashboard';
                 $_SESSION['campaign_array'][3] .
                 '</p><br>
         <p class="to-reg-btn">Cannot Register</p>
-            <img src="./../../public/img/donordashboard/camp_ad.jpg" class="campaign-img" alt="campaigns">
+            <img src="./../../public/img/ads/'.$_SESSION['campaign_ad'].'" class="campaign-img" alt="campaigns">
 
     </div>';
         }

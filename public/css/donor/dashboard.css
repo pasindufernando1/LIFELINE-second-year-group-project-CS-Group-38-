@@ -487,6 +487,7 @@ fieldset {
     position: absolute;
     top: 133px;
     width: 386px;
+    height: 386px;
     left: 896px;
     border-radius: 0 47px 48px 0;
 }
@@ -1964,6 +1965,12 @@ fieldset {
     top: 210px;
 }
 
+#change_img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
 .profile-container h3 {
 
     font-family: Poppins;
@@ -2197,6 +2204,12 @@ fieldset {
     height: 80%;
 }
 
+.badges-container .latest div img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 .badges-container .clickon {
     width: 32%;
     height: 33.5%;
@@ -2260,6 +2273,12 @@ fieldset {
     margin-top: 13px;
 }
 
+.badges-container .your .content div img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 .badges-container .yet {
     height: 43.5%;
     margin-left: 34.3%;
@@ -2306,6 +2325,13 @@ fieldset {
     margin-top: 13px;
     filter: grayscale(100%);
 }
+
+.badges-container .yet .content div img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
 
 #alertBox {
     position: fixed;
@@ -3284,8 +3310,7 @@ fieldset {
     font-weight: normal;
     color: black;
     text-align: left;
-    /* position: absolute; */
-    width: 143px;
+    width: 678px;
 }
 
 #fbv {
@@ -3532,6 +3557,8 @@ fieldset {
     flex-direction: row;
 }
 
+
+
 .marg {
     margin-top: 15px;
 }
@@ -3541,6 +3568,10 @@ fieldset {
     font-size: 26px;
     margin-top: 12px;
     margin-left: 12px;
+}
+
+.view-campaign-card a {
+    color: #EB5550
 }
 
 .campaign-card-img {

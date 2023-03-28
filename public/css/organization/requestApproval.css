@@ -2802,6 +2802,23 @@ a {
     position: absolute;
 }
 
+#donate-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 550px;
+    height: 52px;
+    left: 742px;
+    top: 520px;
+    color: white;
+    background: #640E0B;
+    border-radius: 10.8716px;
+}
+
 .donate-btn {
     display: flex;
     flex-direction: row;

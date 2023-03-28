@@ -70,6 +70,69 @@ class GetcampaignModel extends Model
         return $ret_org_name;
     }
 
+    public function get_campaign_ad($ad_id)
+    {
+        $ad = $this->db->select(
+            'Advertisement_pic',
+            'advertisement',
+            'WHERE AdvertisementID=:AdvertisementID',
+            ':AdvertisementID',
+            $ad_id
+        );
+        $ret_ad = $ad[0][0];
+        return $ret_ad;
+    }
+
+    public function getLastDonation($donorID)
+    {
+        $date1 = $this->db->select(
+            'Date',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
+        );
+        $date2 = $this->db->select(
+            'Date',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
+        );
+        if (empty($date1) && empty($date2)) {
+            return false;
+        } else if (empty($date1)) {
+            return $date2[0]['Date'];
+        } else if (empty($date2)) {
+            return $date1[0]['Date'];
+        } else {
+            if ($date1[0]['Date'] > $date2[0]['Date']) {
+                return $date1[0]['Date'];
+            } else {
+                return $date2[0]['Date'];
+            }
+        }
+    }
+
+    public function getCampDates($userid){
+        $data = $this->db->select(
+            'Date',
+            'donation_campaign',
+            'WHERE CampaignID IN (SELECT CampaignID FROM register_to_campaign WHERE DonorID = :DonorID)',
+            ':DonorID',
+            $userid
+        );
+        $dates = [];
+        for($x = 0; $x < count($data); $x++){
+            array_push($dates, $data[$x]['Date']);
+        }
+        return $dates;
+    }
+
+
+
+
+
     // public function iftimeokay($user_ID, $camp_ID)
     // {
     //     //If donor havent registered for any campaign and have not donated blood yet
