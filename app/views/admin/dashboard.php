@@ -1,6 +1,5 @@
 <?php 
 $metaTitle = "Admin Dashboard";
-session_start();
 ?>
 
 <!DOCTYPE html>

@@ -378,8 +378,35 @@ class Usermanage extends Controller
     function type()
     {
         if (isset($_SESSION['login'])) {
+            //To check whether a filter is applied
+            if(isset($_GET['filter'])){
+                $is_filtered = $_GET['filter'];
+            }
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['users'] = $this->model->getAllUsers();
+                if(!isset($_POST['filter']) && !$is_filtered){
+                    $_SESSION['is_filtered_user'] = false;
+                    $_SESSION['users'] = $this->model->getAllUsers();
+                    $this->view->render('admin/usermanage');
+                    exit;
+                }
+                if(isset($_POST['filter'])){
+                    if(isset($_POST['all_type'])){
+                        $_SESSION['is_filtered_user'] = true;
+                        $_SESSION['users'] = $this->model->getAllUsers();
+                        $this->view->render('admin/usermanage');
+                        exit;
+                    }
+                    $output = array();
+                    $_SESSION['is_filtered_user'] = true;
+                    for($i=0;$i<5;$i++){
+                        if(isset($_POST[$i])){
+                            $rows = $this->model->getFilteredUsers($_POST[$i]);
+                            $output = array_merge($output,$rows);
+                        }
+                        
+                    }
+                    $_SESSION['users'] = $output;
+                }
                 $this->view->render('admin/usermanage');
                 exit;
             }
@@ -395,8 +422,35 @@ class Usermanage extends Controller
     //Blood banks manage
     function bloodbanks(){
         if (isset($_SESSION['login'])) {
+            //To check whether a filter is applied
+            if(isset($_GET['filter'])){
+                $is_filtered = $_GET['filter'];
+            }
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['bloodbanks'] = $this->model->getBloodBanks();
+                if(!isset($_POST['filter']) && !$is_filtered){
+                    $_SESSION['is_filtered_bank'] = false;
+                    $_SESSION['bloodbanks'] = $this->model->getBloodBanks();
+                    $this->view->render('admin/bloodbankmanage');
+                    exit;
+                }
+                if(isset($_POST['filter'])){
+                    if(isset($_POST['all_type'])){
+                        $_SESSION['is_filtered_bank'] = true;
+                        $_SESSION['bloodbanks'] = $this->model->getBloodBanks();
+                        $this->view->render('admin/bloodbankmanage');
+                        exit;
+                    }
+                    $output = array();
+                    $_SESSION['is_filtered_bank'] = true;
+                    for($i=0;$i<9;$i++){
+                        if(isset($_POST[$i])){
+                            $rows = $this->model->getFilteredBanks($_POST[$i]);
+                            $output = array_merge($output,$rows);
+                        }
+                        
+                    }
+                    $_SESSION['bloodbanks'] = $output;
+                }
                 $this->view->render('admin/bloodbankmanage');
                 exit;
             }
@@ -405,20 +459,48 @@ class Usermanage extends Controller
             $this->view->render('authentication/adminlogin');
             
         }
+
+
     }
 
     // Deactivated users
     function deactivated_users(){
         if (isset($_SESSION['login'])) {
+            //To check whether a filter is applied
+            if(isset($_GET['filter'])){
+                $is_filtered = $_GET['filter'];
+            }
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['users'] = $this->model->getDeactivatedUsers();
+                if(!isset($_POST['filter']) && !$is_filtered){
+                    $_SESSION['is_filtered_user'] = false;
+                    $_SESSION['users'] = $this->model->getDeactivatedUsers();
+                    $this->view->render('admin/deactivated_usermanage');
+                    exit;
+                }
+                if(isset($_POST['filter'])){
+                    if(isset($_POST['all_type'])){
+                        $_SESSION['is_filtered_user'] = true;
+                        $_SESSION['users'] = $this->model->getDeactivatedUsers();
+                        $this->view->render('admin/deactivated_usermanage');
+                        exit;
+                    }
+                    $output = array();
+                    $_SESSION['is_filtered_user'] = true;
+                    for($i=0;$i<5;$i++){
+                        if(isset($_POST[$i])){
+                            $rows = $this->model->getFilteredDeactivatedUsers($_POST[$i]);
+                            $output = array_merge($output,$rows);
+                        }
+                        
+                    }
+                    $_SESSION['users'] = $output;
+                }
                 $this->view->render('admin/deactivated_usermanage');
                 exit;
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
-            
+            $this->view->render('authentication/adminlogin');  
         }
     }
 

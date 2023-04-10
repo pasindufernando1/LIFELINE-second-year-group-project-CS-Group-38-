@@ -1,4 +1,7 @@
 <?php
+
+use FontLib\Table\Type\post;
+
 session_start();
 
 
@@ -218,6 +221,21 @@ class Reports extends Controller
                 $_SESSION['report_name'] = "Blood-Availability-Report-".date("Y-m-d-H-i-s");
                 $this->view->render('admin/bloodAvailReport_Gen');
                 exit;             
+            }
+        }
+        else{
+            $this->view->render('authentication/adminlogin');
+            
+        }
+    }
+
+    function saveBloodAvailrep(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                // Save the pdf sent via ajax to the server
+                $pdf = $_POST['pdf'];
+                $pdf = base64_decode($pdf);
+                
             }
         }
         else{

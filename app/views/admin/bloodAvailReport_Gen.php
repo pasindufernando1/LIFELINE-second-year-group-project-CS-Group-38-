@@ -102,7 +102,7 @@ $metaTitle = "Blood Availability Report"
     <div>
         <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
         <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
-        <a href="#"><button id="send-database" class="brown-button genrep1_new" type='submit' name='send-database'>Send to database</button></a>
+        <a href="/reports/saveBloodAvailrep"><button id="send-database" class="brown-button genrep1_new" type='submit' name='send-database'>Send to database</button></a>
         <img class="addbutton addbutton_rep1_new" src="./../../public/img/admindashboard/database.png" alt="add-button">
         <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
 
@@ -117,14 +117,25 @@ $metaTitle = "Blood Availability Report"
     </script>
     
     <script>
-            document.querySelector('#send-database').addEventListener('click', function () {
+        document.querySelector('#send-database').addEventListener('click', function () {
             html2canvas(document.querySelector('#box')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');
                 let pdf = new jsPDF('p', 'mm', [210, 200], 'C:/xampp/htdocs/public/img/reports/');
                 pdf.addImage(base64image, 'PNG', 0, 0, 210, 200);
                 let fileName = 'bloodAvailreport-' + Date.now() + '.pdf';
-                pdf.save(fileName);
-            });
+                // Send the pdf to the reports controller as an ajax request
+                $.ajax({
+                    url: '/reports/saveBloodAvailrep',
+                    type: 'POST',
+                    data: {
+                        // Encode the pdf to base64
+                        pdf: pdf.output('datauristring'),
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+
         });
 
         document.querySelector('#submit-btn').addEventListener('click', function () {

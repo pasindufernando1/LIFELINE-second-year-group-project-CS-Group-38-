@@ -184,8 +184,18 @@ class UserManageModel extends Model
         return $data;
     }
 
+    public function getFilteredUsers($usertype){
+        $data = $this->db->select("*", "user", "WHERE UserType = :usertype AND Deactivation = 0",':usertype',$usertype);
+        return $data;
+    }
+
     public function getDeactivatedUsers(){
         $data = $this->db->select("*", "user", "WHERE Deactivation = 1");
+        return $data;
+    }
+
+    public function getFilteredDeactivatedUsers($usertype){
+        $data = $this->db->select("*", "user", "WHERE UserType = :usertype AND Deactivation = 1",':usertype',$usertype);
         return $data;
     }
 
@@ -512,6 +522,17 @@ class UserManageModel extends Model
     public function getBloodBanks(){
         // Get all blood bank details
         $data = $this->db->select("BloodBankID,BloodBank_Name,District,Province,Email", "bloodbank",null);
+        // For each BloodBankID get the contact number
+        foreach ($data as $key => $value) {
+            $BloodBankID = $value['BloodBankID'];
+            $data[$key]['ContactNumber'] = $this->db->select("ContactNumber", "bloodbankcontactnumber", "WHERE BloodBankID = :BloodBankID",':BloodBankID',$BloodBankID);
+        }
+        return $data;
+    }
+
+    public function getFilteredBanks($Province){
+        // Get all blood bank details
+        $data = $this->db->select("BloodBankID,BloodBank_Name,District,Province,Email", "bloodbank","WHERE Province = :Province",':Province',$Province);
         // For each BloodBankID get the contact number
         foreach ($data as $key => $value) {
             $BloodBankID = $value['BloodBankID'];
