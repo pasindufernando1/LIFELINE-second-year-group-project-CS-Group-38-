@@ -133,8 +133,68 @@ class RequestApprovalModel extends Model
         
         
     }
+
+    public function getcashads(){
+        $data = $this->db->select("*","donation","WHERE DonationType = 'cash'");
+        // print_r($data);die();
+        return $data;
+        
+
+    }
+
+    public function getcashadpics($cash_ads){
+        $ad_info=[];
+        foreach ($cash_ads as $cash_ad) {
+            $data = $this->db->select("*","advertisement","WHERE AdvertisementID =:cash_ads",':cash_ads',$cash_ad[4]);
+            array_push($ad_info,$data);
+        }
+        // print_r($ad_info);die();
+        return $ad_info;
+        // return $data;
+        
+    }
+
+    public function getcashbbs($adinfo){
+        $bb_info=[];
+        foreach ($adinfo as $ad) {
+            $data = $this->db->select("BloodBank_Name","bloodbank","WHERE BloodBankID =:adinfo",':adinfo',$ad[0][3]);
+            array_push($bb_info,$data);
+        }
+        // print_r($bb_info);die();
+        return $bb_info;
+        // return $data;
+    }
+
+    public function getreceivedcashamounts($cash_ads){
+        $amounts=[];
+        foreach ($cash_ads as $cash_ad) {
+            $count=$this->db->select("COUNT(Amount)","cash_donation","WHERE DonationID =:cash_ads",':cash_ads',$cash_ad[0]);
+            // print_r($count[0][0]);
+            if($count[0][0]>0){
+                // print_r('wft');
+                $data = $this->db->select("SUM(Amount)","cash_donation","WHERE DonationID =:cash_ads",':cash_ads',$cash_ad[0]);
+            }
+            else{
+                $data = '0';
+            }
+            array_push($amounts,$data);
+        }
+        // print_r($amounts);die();
+        return $amounts;
+        // return $data;
+    }
+
+    public function insertDonation($donationid,$donationamount)
+    {
+        $columns = array('DonationID','Amount');
+        $param = array(':DonationID',':Amount');
+        $inputs = array($donationid,$donationamount);
+        $result = $this->db->insert("cash_donation", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
     
     
 }
  
-

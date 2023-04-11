@@ -24,6 +24,10 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+    <iframe src="<?php echo $_SESSION['bb_info']['Location']?>" width="910" height="300"
+        style="border:0;position: absolute;z-index: 3;top: 563px;left: 638px;border: 1px solid;border-radius: 6px;"
+        allowfullscreen="" loading="lazy"></iframe>
+
 
 
 
@@ -96,19 +100,22 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div class="contact-container">
-        <p>Ampara Blood Bank</p>
+        <p><?php echo $_SESSION['bb_info']['BloodBank_Name']?></p>
         <div class="contact-card">
-            <img src="../../../public/img/donordashboard/hospital.png" alt="profile-pic">
+            <img src="../../../public/img/bloodbanks/<?php echo $_SESSION['bb_info']['BloodBank_pic']; ?>"
+                alt="profile-pic">
             <div>
                 <p>
-                    <b>Phone : </b> 0321254367<br>
-                    <b>Mobile : </b> 0321254367<br>
-                    <b>Fax : </b> 0321254367<br>
-                    <b>Email : </b> info@ampara<br>
-                    <b>Address</b> : Ampara Blood Bank,Dharmapala Mawatha, Ampara 32000
+                    <b>Phone : </b> <?php echo $_SESSION['bb_contact'][0]?><br>
+                    <b>Email : </b> <?php echo $_SESSION['bb_info']['Email']?><br>
+                    <b>Address</b> :
+                    <?php echo $_SESSION['bb_info']['Number'].', '.$_SESSION['bb_info']['LaneName'].', '.$_SESSION['bb_info']['City']?><br>
+                    <b>District : </b> <?php echo $_SESSION['bb_info']['District']?><br>
+                    <b>Province : </b> <?php echo $_SESSION['bb_info']['Province']?><br>
                 </p>
             </div>
         </div>
+        <p style="font-size: 21px;position: absolute;left: 333px;top: 369px;color: black;">Location</p>
         <a id="btb" href="/contactus">Back to Blood Banks</a>
     </div>
 </body>

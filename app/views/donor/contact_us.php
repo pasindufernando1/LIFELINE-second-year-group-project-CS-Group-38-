@@ -95,58 +95,66 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
     </div>
 
-    <div class="contact-container">
+    <div class="contact-container" style="height:1316px">
         <p>Find Blood Bank Contact Information</p>
-        <form id="bb_search">
-            <select class="bloodbank-input" type="text" name="bloodbank" autofocus placeholder=" " required>
-                <option value="" disabled selected hidden>Choose a Blood Bank</option>
-                <option value="Akkaraipattu">Akkaraipattu</option>
-                <option value="Ampara">Ampara</option>
-                <option value="Dehiatthakandiya">Dehiatthakandiya</option>
-                <option value="Kalmunai AM(S)">Kalmunai AM(S)</option>
-                <option value="Kalmunai Base(N)">Kalmunai Base(N)</option>
-                <option value="Mahaoya">Mahaoya</option>
-                <option value="Sammanthurai">Sammanthurai</option>
-                <option value="Medirigiriya">Medirigiriya</option>
-                <option value="Padaviya">Padaviya</option>
-                <option value="Polonnannva">Polonnannva</option>
-                <option value="Badulla">Badulla</option>
-                <option value="Thambuttegama">Thambuttegama</option>
-                <option value="Bibila">Bibila</option>
-                <option value="Diyatalawa">Diyatalawa</option>
-                <option value="Monaragala">Monaragala</option>
-                <option value="Welimada">Welimada</option>
-                <option value="Wellawaya">Wellawaya</option>
-                <option value="Batticaloa">Batticaloa</option>
-                <option value="Valachchenai">Valachchenai</option>
-                <option value="Avissawella">Avissawella</option>
-                <option value="CIM">CIM</option>
-                <option value="Homagama">Homagama</option>
-                <option value="Karawenella">Karawenella</option>
-                <option value="CNTH">CNTH</option>
-                <option value="Gampaha">Gampaha</option>
-                <option value="Kalpitiya">Kalpitiya</option>
-                <option value="Marawila">Marawila</option>
-                <option value="Negambo">Negambo</option>
-                <option value="Puttalam">Puttalam</option>
-                <option value="Wathupitiwala">Wathupitiwala</option>
-                <option value="Welisara">Welisara</option>
-                <option value="Jaffna">Jaffna</option>
-                <option value="Mollaitivu">Mollaitivu</option>
-                <option value="Karapitiya">Karapitiya</option>
-                <option value="Point Pedro">Point Pedro</option>
-                <option value="Thellippallai">Thellippallai</option>
-                <option value="Horana">Horana</option>
-                <option value="Kalpitiya">Kalpitiya</option>
-                <option value="Kalutara">Kalutara</option>
-                <option value="Kethumathie">Kethumathie</option>
-                <option value="Panadura">Panadura</option>
-            </select>
-            <br>
-            <!-- <button type="submit">Search</button> -->
-            <a href="/contactus/getcontact">Search</a>
+        <!-- <> -->
+        <p style="position: absolute;top: 145px;font-size: 20px;left: 446px;color: black;font-weight: normal;">Search
+            for a blood bank by name</p>
+        <form>
+            <div class="bb-list">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="myFunction()" onfocus="showDropdown()">
+                <div id="myDropdown" class="bb-content">
+                    <?php foreach($_SESSION['bbs'] as $bb)
+                    {
+                        echo '<a href="/contactus/getcontact?bbid='.$bb['BloodBankID'].'">'.$bb['BloodBank_Name'].'</a>';
+                    }
+                     ?>
+                </div>
+            </div>
+
         </form>
-        <script src="./../../public/js/contactus.js"></script>
+
+        <!-- <p style="font-size: 23px;color: black;position: absolute;top: 210px;left: 712px;">Blood Bank List</p>
+
+        <img class="bbs" src="./../../public/img/donordashboard/cluster_bb.png" alt="search"> -->
+
+        <script>
+        var dropdown = document.getElementById("myDropdown");
+        dropdown.style.display = "none";
+
+
+        function myFunction() {
+            var input, filter, div, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            a = div.getElementsByTagName("a");
+            if (filter) {
+                div.style.display = "block"; // Show the dropdown content
+            } else {
+                div.style.display = "none"; // Hide the dropdown content if no search query
+            }
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = ""; // Show the link if it matches the search query
+                } else {
+                    a[i].style.display = "none"; // Hide the link if it doesn't match the search query
+                }
+            }
+
+            if (input.value.length == 0) {
+                ul.style.display = "block";
+            }
+        }
+
+        function showDropdown() {
+            var dropdown = document.getElementById("myDropdown");
+            dropdown.style.display = "block";
+            //make display none when click outside the dropdown
+
+        }
+        </script>
     </div>
 </body>
 

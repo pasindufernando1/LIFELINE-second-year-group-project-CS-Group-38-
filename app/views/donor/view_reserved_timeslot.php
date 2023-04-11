@@ -94,19 +94,23 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div class="timeslot-container">
         <h2>Reserved Time Slot</h2>
-        <button id="download_card" href="/contactus">Download</button>
+        <button class="d-card">Download</button><br>
+        <button class="c-card"><a href="/getcampaign/change_timeslot">Change Time Slot</a></button><br>
+        <button id="cc" class="cancel-card"><a id="cca" href="/getcampaign/cancel_timeslot">Cancel</a></button>
 
         <div class="timeslot-card">
             <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
             <!-- <img src="../../../public/img/donordashboard/sneha.jpg" alt="profile-pic"> -->
             <div>
-                <h3>TIME SLOT 9.30 AM to 10.00 AM </h3><br>
+                <h3>TIME SLOT <?php echo $_SESSION['selected_stime']; ?> to
+                    <?php echo $_SESSION['selected_etime']; ?>
+                </h3><br>
                 <p>
-                    <b>CAMPAIGN : </b>DONATE BLOOD, SHARE LIFE<br>
-                    <b>ADDRESS : </b> MATARA<br>
-                    <b>DONOR NAME : </b> SNEHA DISSANYAKE<br>
-                    <b>CONTACT NUMBER : </b> 0702985632<br>
-                    <b>EMERGENCY CONTACT NUMBER : </b> 0717365386<br>
+                    <b>CAMPAIGN : </b><?php echo $_SESSION['camp_na'][0]; ?><br>
+                    <b>ADDRESS : </b> <?php echo $_SESSION['camp_na'][1]; ?><br>
+                    <b>DONOR NAME : </b> <?php echo $_SESSION['donor_name']; ?><br>
+                    <b>CONTACT NUMBER : </b> <?php echo $_SESSION['reg_info'][1] ?><br>
+                    <b>EMERGENCY CONTACT NUMBER : </b> <?php echo $_SESSION['reg_info'][0] ?><br>
                 </p>
             </div>
         </div>

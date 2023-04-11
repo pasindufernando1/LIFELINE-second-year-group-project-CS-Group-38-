@@ -1565,10 +1565,10 @@ fieldset {
 
 
 .contact-card {
-    margin-top: 4%;
+    margin-top: 1%;
     margin-left: auto;
     margin-right: auto;
-    height: 380px;
+    height: 290px;
     width: 910px;
     background-color: white;
     border-radius: 10px;
@@ -1623,6 +1623,91 @@ fieldset {
     background-color: white;
 }
 
+.bb_clus {
+    position: absolute;
+    width: 1087px;
+    left: 7px;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+}
+
+.bb-list {
+    position: absolute;
+    width: 1087px;
+    left: 7px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.bb-content {
+    position: absolute;
+    width: 441px;
+    height: 407px;
+    left: 792px;
+    top: -18px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background: #f8f8f8;
+    overflow: auto;
+    z-index: 1;
+}
+
+#myInput {
+    position: absolute;
+    width: 402px;
+    left: 792px;
+    top: -70px;
+    /* box-sizing: border-box; */
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-family: Poppins;
+    height: 38px;
+}
+
+
+.contact-container a {
+
+    margin-left: 2.5%;
+    text-indent: 12px;
+    display: flex;
+    height: 50px;
+    width: 405px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* hover */
+.contact-container a:hover {
+    background-color: #fbdad9;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+
+.bb-content a {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18.9713px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    color: #0C0C0D;
+    text-decoration: none;
+}
+
+.bbs {
+    position: absolute;
+    clip: rect(54px, 801px, 1075px, 0);
+    /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
+    width: 787px;
+    left: 434px;
+    top: 226px;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
 .contact-container p {
     font-family: 'Poppins';
     /* font-family: 'Work Sans'; */
@@ -1635,6 +1720,7 @@ fieldset {
     color: #640E0B;
 
 }
+
 
 .contact-container label {
     font-family: 'Poppins';
@@ -1918,9 +2004,9 @@ fieldset {
 
 #btb {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
+    margin-left: 1324px;
+    /* margin-right: 9%; */
+    margin-top: 20.4%;
     height: 50px;
     width: 238px;
     background-color: #640e0b;
@@ -2393,22 +2479,7 @@ fieldset {
 }
 
 
-.contact-container a {
-    margin-left: 2.5%;
-    display: flex;
-    height: 50px;
-    width: 204px;
-    background-color: #640e0b;
-    font-family: 'Poppins';
-    font-size: large;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.contact-card {
+/* .contact-card {
     margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
@@ -2417,7 +2488,7 @@ fieldset {
     background-color: white;
     border-radius: 10px;
     border: 2px solid #fbdad9;
-}
+} */
 
 .contact-card img {
     width: 35%;
@@ -3665,16 +3736,73 @@ h3 {
 }
 
 .timeslot-container button {
-    width: 100px;
-    height: 37px;
+    width: 215px;
+    height: 47px;
     color: white;
     background-color: #640E0B;
-    border-radius: 6px;
+    border: 1px solid black;
+    border-radius: 10px;
     font-family: Poppins;
     font-weight: normal;
-    border: none;
+    /* border: none; */
+    /* margin-top: 36px; */
+    /* margin-left: 1297px; */
+    font-size: 17px;
 
 }
+
+.d-card {
+    position: absolute;
+    left: 1298px;
+}
+
+.c-card {
+    position: absolute;
+    left: 834px;
+    top: 645px;
+
+}
+
+.cancel-card {
+    position: absolute;
+    left: 1074px;
+    top: 645px;
+}
+
+#cc {
+    background: #e0e0e0;
+    color: #630e0b;
+    border: 2px solid;
+}
+
+#cca {
+    color: #630e0b;
+    background: none;
+}
+
+.timeslot-container #to_campaigns {
+    position: absolute;
+    left: 1317px;
+    top: 645px;
+    height: 50px;
+    width: 204px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: large;
+    color: white;
+    /* border: none; */
+    border: solid 1px black;
+    width: 215px;
+    height: 47px;
+    border-radius: 10px;
+}
+
+#to_campaigns a {
+    font-family: 'Poppins';
+    font-size: large;
+    color: white;
+}
+
 
 .timeslot-container a {
     width: 100px;
@@ -3689,8 +3817,8 @@ h3 {
 }
 
 .timeslot-container #disable {
-    width: 100px;
-    height: 37px;
+    width: 215px;
+    height: 47px;
     background-color: #afafaf;
     color: #5C5C5C;
     border-radius: 6px;
@@ -3721,33 +3849,15 @@ h3 {
 
 .timeslot-card p {
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     /* margin-top: -59px; */
     width: 100%;
     text-align: left;
     margin-left: 55px;
-    line-height: 35px;
+    line-height: 48px;
 }
 
-.timeslot-container #to_campaigns {
-    margin-left: 84.5%;
-    margin-top: 2%;
-    height: 50px;
-    width: 204px;
-    background-color: #640e0b;
-    font-family: 'Poppins';
-    font-size: large;
-    color: white;
-    border: none;
-    border-radius: 10px;
-}
-
-#to_campaigns a {
-    font-family: 'Poppins';
-    font-size: large;
-    color: white;
-}
 
 .add-user-title {
     position: absolute;

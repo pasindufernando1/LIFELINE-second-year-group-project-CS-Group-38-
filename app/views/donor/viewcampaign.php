@@ -1,6 +1,9 @@
 <?php
 $_SESSION['selected_campid'] = $_GET['camp'];
 $metaTitle = 'Donor Dashboard';
+
+// print_r($_SESSION['time_okay']);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +104,7 @@ $metaTitle = 'Donor Dashboard';
 // If the current user is registered to the campaign
 ?>
     <?php if ($_SESSION['if_registered'] == 0) {
-        if ($_SESSION['time_okay'] == true) {
+        if ($_SESSION['time_okay'] == 1) {
             echo '<div class="view-campaign-box">
         <p class="campaign-head">' .
                 $_SESSION['campaign_array'][1] .
@@ -152,7 +155,8 @@ $metaTitle = 'Donor Dashboard';
             Number of Beds : ' .
                 $_SESSION['campaign_array'][3] .
                 '</p><br>
-        <p class="to-reg-btn">Cannot Register</p>
+        <p style="position: absolute;top: 571px;left: 610px;font-size: 25px;">Cannot Register to Campaign</p>
+        <p style="position: absolute;top: 621px;left: 555px;font-size: 20px;">You can ONLY donate BLOOD Once in TWO Months...</p>
             <img src="./../../public/img/ads/'.$_SESSION['campaign_ad'].'" class="campaign-img" alt="campaigns">
 
     </div>';
@@ -223,44 +227,6 @@ $metaTitle = 'Donor Dashboard';
             <a class="outline-regdelete-button" href="deletereg">Delete
                 <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
         </div>';
-        // echo '<div class="div-box">
-        // <div class="left-box">
-        // <h1>' .
-        // $_SESSION['campaign_array'][1] .
-        // '</h1>
-        // <p>Organized By : ' .
-        // $_SESSION['org_name'] .
-        // '</p>
-        // <p>Date : ' .
-        // $_SESSION['campaign_array'][4] .
-        // '</p>
-        // <p>Starting Time : ' .
-        // $_SESSION['campaign_array'][5] .
-        // '</p>
-        // <p>Ending Time : ' .
-        // $_SESSION['campaign_array'][6] .
-        // '</p>
-        // <p>Location : ' .
-        // $_SESSION['campaign_array'][2] .
-        // '</p>
-        // <p>Number of Beds : ' .
-        // $_SESSION['campaign_array'][3] .
-        // '</p>
-        // </div>
-        // <div class="right-box">
-        // <h1>Registration Details</h1>
-        // <p>Emergency Contact Number : ' .
-        // $_SESSION['reg_info'][0] .
-        // '</p>
-        // <p>Contact Number : ' .
-        // $_SESSION['reg_info'][1] .
-        // '</p>
-        // <br>
-        // <a class="outline-regedit-button" href="getcampaign/updatereg/">Update
-        // <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
-        // <a class="outline-regdelete-button" href="#">Delete
-        // <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
-        // </div>';
     } ?>
     </div>
     </div>

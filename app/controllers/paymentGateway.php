@@ -58,10 +58,13 @@ class PaymentGateway extends Controller
 	// print_r($data);
     // $stripe->paymentIntents->create($args);
     // print_r("No error.");
+    header('Location: /requestApproval/donatesuccess');
+    exit();
+    // $dbsuccess=$this->model->insertDonation($_SESSION['donationID'],$_SESSION['donating_amount']);
 
-    $this->view->render('organization/paymentDone');
+    // $this->view->render('organization/paymentDone');
 
-    unset($_SESSION['donating_amount']);
+    // unset($_SESSION['donating_amount']);
 
 
 

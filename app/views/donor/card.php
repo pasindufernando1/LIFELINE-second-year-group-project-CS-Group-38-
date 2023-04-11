@@ -381,7 +381,7 @@ $metaTitle = 'Donor Dashboard';
 
                 });
 
-                var filename = 'DonorCard.pdf ';
+                var filename = 'DonorCard.pdf';
                 pdf.save(filename);
             });
 

@@ -117,19 +117,24 @@ class Getcampaign extends Controller
                     $date2 = date_create($dates);
                     $diff = date_diff($date2, $campdate);
                     $diff = $diff->days;
+                    // print_r($diff);
+                    // print_r('haha');
                     if($diff < 0 ){
                         $diff = $diff * -1;
                         // $_SESSION['if_registered'] = 2;
                     }
 
                     if ($diff < 56) {
-                        $_SESSION['time_okay'] = false;
-                        // print_r('reg-camp-dates failed');
-                        // die();
+                        $_SESSION['time_okay'] = 0;
+                        // break;
+                        $this->view->render('donor/viewcampaign');
+                        exit();
+
                     }
                     else{
-                        $_SESSION['time_okay'] = true;
+                        $_SESSION['time_okay'] = 1;
                     }
+
 
                 }
 
@@ -142,14 +147,18 @@ class Getcampaign extends Controller
                     $date_diff = $date_diff->days;
 
                     if ($date_diff < 56) {
-                        $_SESSION['time_okay'] = false;
+                        $_SESSION['time_okay'] = 0;
+                        $this->view->render('donor/viewcampaign');
+                        exit();
+                        // print_r('last-donation failed');
                         
                     }
                     else{
-                        $_SESSION['time_okay'] = true;
+                        $_SESSION['time_okay'] = 1;
+                        
                     }
                 }else{
-                    $_SESSION['time_okay'] = true;
+                    $_SESSION['time_okay'] = 1;
                 }
 
                 
@@ -379,22 +388,132 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                $this->view->render('donor/view_time_slots');
-                exit();
+                $_SESSION['selected_campid']= $_GET['camp'];
+                // print_r($_SESSION['selected_campid']);
+                $_SESSION['camp_timeslots'] = $this->model->get_timeslots($_SESSION['selected_campid']);
+                $_SESSION['timeslot_period'] = $this->model->get_timeslot_period($_SESSION['camp_timeslots']);
+                $_SESSION['beds'] = $this->model->get_beds($_SESSION['selected_campid']);
+                $_SESSION['reserved_timeslots'] = $this->model->get_reserved_timeslots($_SESSION['selected_campid'],$_SESSION['camp_timeslots']);
+
+                $ifreserved=$this->model->timeslotreserved($_SESSION['selected_campid'],$_SESSION['user_ID']);
+                if($ifreserved==false){
+                    $this->view->render('donor/view_time_slots');
+                    exit();
+                }else{
+                    $_SESSION['selected_timeslot']=$ifreserved;
+                    $timeslot_period=$this->model->get_ts_period($_SESSION['selected_timeslot']);
+                    $_SESSION['selected_stime']=$timeslot_period[0];
+                    // print_r($_SESSION['selected_stime']);
+                    // die();
+                    
+                    $stime = substr($_SESSION['selected_stime'], 0, 2);
+                    $mins = substr($_SESSION['selected_stime'], 3, 2);
+                    
+                    $stimeval = intval($stime);
+                    if ($stimeval >= 12) {
+                        $st = 24 - $stime;
+                        //appent minutes next to the time
+                        if($mins==00){
+                            
+                        $_SESSION['selected_stime'] = strval($st) . ' PM';}
+                        else{
+                            $_SESSION['selected_stime'] = strval($st) .':'. $mins.' PM';
+                        }
+                    } else {
+                        if($mins==00)
+                        {$_SESSION['selected_stime'] = strval($stimeval) . ' AM';}
+                        else{
+                            $_SESSION['selected_stime'] = strval($stimeval) .':'. $mins.' AM';
+                        }
+                        
+                    }
+                    
+                    $_SESSION['selected_etime']=$timeslot_period[1];
+                    // print_r($_SESSION['selected_etime']);
+                    // die();
+
+                    $etime = substr($_SESSION['selected_etime'], 0, 2);
+                    $mins = substr($_SESSION['selected_etime'], 3, 2);
+
+                    $etimeval = intval($etime);
+                    if ($etimeval >= 12) {
+                        $et = 24 - $etime;
+                        //appent minutes next to the time
+                        if($mins==00){
+                            
+                        $_SESSION['selected_etime'] = strval($et) . ' PM';}
+                        else{
+                            $_SESSION['selected_etime'] = strval($et) .':'. $mins.' PM';
+                        }
+                    } else {
+                        if($mins==00)
+                        {$_SESSION['selected_etime'] = strval($etimeval) . ' AM';}
+                        else{
+                            $_SESSION['selected_etime'] = strval($etimeval) .':'. $mins.' AM';
+                        }
+                        
+                    }
+                    
+
+
+                    $_SESSION['camp_na']=$this->model->get_camp_na($_SESSION['selected_campid']);
+                    $_SESSION['donor_name']=$this->model->get_donor_name($_SESSION['user_ID']);
+                    $_SESSION['reg_info'] = $this->model->get_campreg_info($_SESSION['user_ID']);
+                    $this->view->render('donor/view_reserved_timeslot');
+                    exit();
+                }
+                
             }
         } else {
             $this->view->render('authentication/donorlogin');
         }
     }
+
     function reserve_timeslot()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
+                //get timeslot to session variable
+                $_SESSION['selected_timeslot'] = $_GET['slotid'];
+                $_SESSION['selected_stime'] = $_GET['stime'];
+                $_SESSION['selected_etime'] = $_GET['etime'];
+                
+                $_SESSION['camp_na']=$this->model->get_camp_na($_SESSION['selected_campid']);
+                $_SESSION['donor_name']=$this->model->get_donor_name($_SESSION['user_ID']);
+                $_SESSION['reg_info'] = $this->model->get_campreg_info($_SESSION['user_ID']);
+            
+                if($this->model->reserve_timeslot($_SESSION['selected_campid'],$_SESSION['selected_timeslot'],$_SESSION['user_ID'])){
                 $this->view->render('donor/view_reserved_timeslot');
                 exit();
+            }
             }
         } else {
             $this->view->render('authentication/donorlogin');
         }
     }
+
+    function change_timeslot(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                $this->view->render('donor/view_time_slots');
+            }
+            
+        } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+
+    function cancel_timeslot(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                if($this->model->cancel_reserved_timeslot($_SESSION['selected_campid'],$_SESSION['selected_timeslot'],$_SESSION['user_ID'])){
+                $this->view->render('donor/getcampaign');
+                exit();
+            }
+            
+        } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+}
 }

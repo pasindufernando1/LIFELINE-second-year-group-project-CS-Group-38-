@@ -138,7 +138,7 @@ $metaTitle = 'Donor Dashboard';
                                             <a href="/getcampaign/view_campaign?camp=' .
                         $_SESSION['registrations'][$x][0][0] .
                         '"> <button class="register-btn" name="view_camp_info" > View </button> </a>
-                                            <a href="getcampaign/view_timeslot"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
+                                            <a href="/getcampaign/view_timeslot?camp='.$_SESSION['registrations'][$x][0][0].'"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
                                             </div>
                                             </div>';
                 }

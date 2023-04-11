@@ -391,4 +391,167 @@ class GetcampaignModel extends Model
         $ret_reg_info = $reg_info[0];
         return $ret_reg_info;
     }
+
+    public function get_timeslots($campid){
+        $timeslots = $this->db->select(
+            'SlotID',
+            'campaign_timeslots',
+            'WHERE CampaignID =:CampaignID',
+            ':CampaignID',
+            $campid
+        );
+        // print_r($timeslots[0][0]);
+        // die();
+        return $timeslots;
+    }
+
+    public function get_timeslot_period($slotids){
+        $timeslot_periods=[];
+        foreach($slotids as $slotid){
+            $timeslot_period = $this->db->select(
+                'Start_time,End_time',
+                'timeslot',
+                'WHERE SlotID =:SlotID',
+                ':SlotID',
+                $slotid[0]
+            );
+            array_push($timeslot_periods,$timeslot_period[0]);
+        }
+        return $timeslot_periods;
+        // print_r($timeslot_periods);
+        // die();
+    }
+
+    public function get_beds($campid){
+        $beds = $this->db->select(
+            'BedQuantity ',
+            'donation_campaign',
+            'WHERE CampaignID =:CampaignID',
+            ':CampaignID',
+            $campid
+        );
+        return $beds[0][0];
+    }
+
+    public function get_reserved_timeslots($campid,$slotids){
+        $reserved_timeslots=[];
+        foreach($slotids as $slotid){
+            $reserved_timeslot = $this->db->select(
+                'count',
+                'register_to_campaign',
+                'WHERE CampaignID =:CampaignID AND SlotID =:SlotID',
+                [':CampaignID',':SlotID'],
+                [$campid,$slotid[0]]
+            );
+            // print_r($reserved_timeslot);
+            array_push($reserved_timeslots,$reserved_timeslot);
+
+        }
+        // print_r($reserved_timeslots);
+        // die();
+        return $reserved_timeslots;
+    
+    }
+
+    public function reserve_timeslot($campid,$slotid,$user_id){
+        $param = [':DonorID', ':CampaignID'];
+        $inputs = [$user_id, $campid];
+        //update register_to_campaign table
+
+        $result1 = $this->db->update(
+            'register_to_campaign',
+            'SlotID',
+            ':SlotID',
+            $slotid,
+            $param,
+            $inputs,
+            'WHERE DonorID = :DonorID AND CampaignID = :CampaignID'
+        );
+        //return
+        // print_r($result1);
+        // die();
+        if ($result1 == 'Success') {
+            return true;
+        } else {
+            print_r($result1);
+        }
+    }
+
+    public function get_camp_na($campid){
+        $camp_na = $this->db->select(
+            'Name,Location',
+            'donation_campaign',
+            'WHERE CampaignID =:CampaignID',
+            ':CampaignID',
+            $campid
+        );
+        return $camp_na[0];
+    }
+
+    public function get_donor_name($userid){
+        $name = $this->db->select(
+            'Fullname',
+            'donor',
+            'WHERE UserID =:UserID',
+            ':UserID',
+            $userid
+        );
+        return $name[0][0];
+
+    }
+
+    public function timeslotreserved($campid,$userid){
+        //check if slotID is NULL
+        $timeslot = $this->db->select(
+            'SlotID',
+            'register_to_campaign',
+            'WHERE CampaignID =:CampaignID AND DonorID =:DonorID',
+            [':CampaignID',':DonorID'],
+            [$campid,$userid]
+        );
+
+        // print_r($timeslot);
+        // die();
+        
+        if($timeslot[0][0] == NULL){
+            return false;
+        }else{
+            return $timeslot[0][0];
+        }
+    }
+
+    public function get_ts_period($slotid){
+        $timeslot_period = $this->db->select(
+            'Start_time,End_time',
+            'timeslot',
+            'WHERE SlotID =:SlotID',
+            ':SlotID',
+            $slotid
+        );
+        return $timeslot_period[0];
+    }
+
+    public function cancel_reserved_timeslot($campid,$timeslot,$user_id){
+        $param = [':DonorID', ':CampaignID'];
+        $inputs = [$user_id, $campid];
+        //update register_to_campaign table
+
+        $result1 = $this->db->update(
+            'register_to_campaign',
+            'SlotID',
+            ':SlotID',
+            NULL,
+            $param,
+            $inputs,
+            'WHERE DonorID = :DonorID AND CampaignID = :CampaignID'
+        );
+        //return
+        // print_r($result1);
+        // die();
+        if ($result1 == 'Success') {
+            return true;
+        } else {
+            print_r($result1);
+        }
+    }
 }

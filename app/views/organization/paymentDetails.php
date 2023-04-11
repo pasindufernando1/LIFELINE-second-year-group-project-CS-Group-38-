@@ -251,22 +251,11 @@ $amount = $_SESSION['donating_amount']/100;
                 <form action="/paymentGateway/submit" method="post" id="addform">
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<?php echo $_SESSION['public_key']?>"
-                        data-amount="<?php echo $_SESSION['donating_amount']?>" data-name="Programming with Vishal"
-                        data-description="Donate to Save Lives"
-                        data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-                        data-currency="lkr" data-email="<?php echo $_SESSION['email'] ?>">
+                        data-amount="<?php echo $_SESSION['donating_amount']?>" data-name="LifeLine"
+                        data-description="Donate to Save Lives" data-currency="lkr"
+                        data-image="../../../public/img/favicon2.jpg" data-email="<?php echo $_SESSION['email'] ?>">
                     </script>
                     <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req">
 
                 </form>
-
-                <!-- <form action="/paymentGateway/submit" method="post">
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="<?php echo $_SESSION['public_key']?>"
-                        data-amount="<?php echo $_SESSION['donating_amount']?>" data-name="Programming with Vishal"
-                        data-description="Programming with Vishal Desc"
-                        data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-                        data-currency="lkr" data-email="phpvishal@gmail.com">
-                    </script>
-                </form> -->
             </div>

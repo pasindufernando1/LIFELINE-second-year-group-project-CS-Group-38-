@@ -1,6 +1,5 @@
 <?php 
-// print_r($_SESSION['donationID']);
-//                 die();
+
 $metaTitle = "Organizations Dashboard" ;
 require '../vendor/payment_config.php';
 ?>
@@ -27,8 +26,84 @@ require '../vendor/payment_config.php';
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
 
+    <style>
+    .ad-holder {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* height: 511px; */
+        align-items: center;
+        margin: 0 4%;
+        margin-left: 2%;
+        margin-right: 1%;
+        background: #f7f7f7;
+        margin-top: 8%;
+        /* overflow-x: auto; */
+        border: #e8e8e8 solid 1px;
+        border-radius: 6px;
+    }
 
+    .ad-card {
+        width: 347px;
+        height: 630px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        float: left;
+        margin-left: 20px;
+        font-family: 'Poppins';
+    }
 
+    .ad-img {
+        width: 347px;
+        height: 341px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .ad-box {
+        box-sizing: border-box;
+        position: absolute;
+        width: 1540px;
+        /* height: 797px; */
+        left: 316px;
+        top: 127px;
+        background: #ffffff;
+        border: 1.81193px solid #ECEEF7;
+        border-radius: 6px;
+    }
+
+    .ad-card h2 {
+        font-size: 21px;
+        font-weight: 600;
+        color: #000000;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .ad-card p {
+        text-indent: 15px;
+    }
+
+    .ad-card a {
+        margin-top: 13%;
+        margin-right: auto;
+        margin-left: auto;
+        background: #640e0b;
+        border-radius: 6px;
+        color: white;
+        height: 38px;
+        display: flex;
+        width: 59%;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
 
 </head>
 
@@ -146,27 +221,27 @@ require '../vendor/payment_config.php';
                 </div>
 
             </div>
-            <div class="box">
+            <div class="ad-box">
                 <p class="donate-today">Donate Today</p>
-                <form action="/paymentGateway" method="post" id="addform">
-                    <img class="donation-img" src="./../../public/img/orgdashboard/donation.png" alt="req">
-                    <p class="para1">We are proudly non-profit, non-corporate and non-compromised. we rely on donations
-                        to carry out our mission. <b>Will you give today? </b></p>
-                    <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="donate-btn"
-                        data-key="<?php echo $public_key?>" data-amount="1000" data-name="Programming with Vishal"
-                        data-description="Programming with Vishal Desc"
-                        data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-                        data-currency="lkr" data-email="phpvishal@gmail.com"></script> -->
+                <div class="ad-holder">
+                    <?php 
+                    // print_r($_SESSION['cash_received_amounts'][1][0][0]);
+                    $count=0;
+                    foreach ($_SESSION['cash_ads'] as $ad) {
+                        // print_r($ad[0]);
+                        echo '<div class="ad-card"><img class="ad-img" src="./../../public/img/ads/'.$_SESSION['cash_adpics'][$count][0]['Advertisement_pic'].'" alt="advertisement">
+                        <h2>'.$_SESSION['cash_bbs'][$count][0][0].'</h2>
+                        <p>Amount Needed : LKR '.$_SESSION['cash_ads'][$count][3].'</p>
+                        <p>Amount Received : LKR '.$_SESSION['cash_received_amounts'][$count][0][0].'</p>
+                        <a href="/requestApproval/donationPage?donationID='.$_SESSION['cash_ads'][$count][0].'">Donate</a>
+                        </div>';
+                    $count++;
+                    }
+                    ?>
 
+                </div>
 
-                    <label id="amount-label" class="amount-label" for="amount">Amount(Rs.):</label>
-                    <br>
-                    <input class="amount-input" id="amount" type="text" name="amount" autofocus placeholder="Amount"
-                        required>
-                    <br>
-                    <img class="lock-img" src="./../../public/img/orgdashboard/lock.png" alt="req">
-                    <p class="secure">SECURE</p>
-                    <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req">
-                    <button class='donate-btn' type='submit' name='request' id="donate-btn">Donate</button>
-                </form>
-            </div>j
+            </div>
+</body>
+
+</html>
