@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "View Hospital Medical Center" 
+$metaTitle = "Unattended Feedbacks" 
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +31,8 @@ $metaTitle = "View Hospital Medical Center"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/feedback_review_complete.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/filters/feedbacks_filter.php'); ?>
+
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -102,7 +104,7 @@ $metaTitle = "View Hospital Medical Center"
     <div class="box">
         <p class="add-user-title">Unattended Feedbacks</p>
                         
-                        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
+                        <a href="#" class="ash-button reservation-filter"onclick="document.getElementById('idfil01').style.display='block'" >Filter & Short</a>
                         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
                         <table class="user-types-table" style="width:90%">
@@ -110,6 +112,7 @@ $metaTitle = "View Hospital Medical Center"
                             <th>Feedback ID</th>
                             <th>Sender</th>
                             <th>Feedback</th>
+                            <th>Feedback Date</th>
                             <th>Actions</th>
 
                         </tr>
@@ -133,14 +136,15 @@ $metaTitle = "View Hospital Medical Center"
                         $result = $_SESSION['feedbacks'];
 
                         //display the link of the pages in URL  
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> 
                                 <tr>
                                         <td>' . $row["FeedbackID"]. "</td>
                                         <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Feedback"] . "</td>";
+                                        <td>" . $row["Feedback"] . "</td>
+                                        <td>" . $row["Date"] . "</td>";
                                         echo '<td> ' . '<span><a class="verify-btn" onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                                         document.getElementById('."'del'".').action = '."'/feedbacks/markread/".$row["FeedbackID"]."'".'";
                                         ">Mark as read<img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></span>' . '</td>
@@ -151,7 +155,7 @@ $metaTitle = "View Hospital Medical Center"
                             }
                         } 
                         else {
-                            echo "0 results";
+                            //echo "0 results";
                         }
                         echo "</table>";
                         echo '<div class="pag-box">';

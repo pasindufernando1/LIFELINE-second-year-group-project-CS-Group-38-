@@ -26,11 +26,82 @@ class Donors extends Controller
     function type()
     {
         if (isset($_SESSION['login'])) {
+            //To check whether a filter is applied
+            if(isset($_GET['filter'])){
+                $is_filtered = $_GET['filter'];
+            }
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['donors'] = $this->model->getAllDonorDetails();
-                // print_r($_SESSION['inventory']);die();
-                $this->view->render('admin/donors');
-                exit;
+                if(!isset($_POST['filter']) && !$is_filtered){
+                    
+                    $_SESSION['is_filtered'] = false;
+                    $_SESSION['donors'] = $this->model->getAllDonorDetails();
+                    $this->view->render('admin/donors');
+                    exit;
+                }
+                if(isset($_POST['filter'])){
+                    if(isset($_POST['all_type'])){
+                        
+                        $_SESSION['is_filtered'] = true;
+                        $_SESSION['donors'] = $this->model->getAllDonorDetails();
+                        $this->view->render('admin/donors');
+                        exit;
+                    }
+                    $output = array();
+                    $_SESSION['is_filtered'] = true;
+                    if(!empty($_POST['nic'])){
+                        $nic = $_POST['nic'];
+                        $rows = $this->model->getFilteredDonorDetailsNIC($nic);
+                        $output = array_merge($output, $rows);
+                        $_SESSION['donors'] = $output;
+                        $this->view->render('admin/donors');
+                        exit;
+                    }
+
+                    $flag_category = 0;
+                    $district_flag = 0;
+                    //If a district is selected
+                    for($i=10;$i<35;$i++){
+                        if(isset($_POST[$i])){
+                            $district_flag = 1;
+                            for($j=0;$j<8;$j++){
+                                $flag_category = 1;
+                                if(isset($_POST[$j])){
+                                    $rows = $this->model->getFilteredDonorDetails_District_BloodCategory($_POST[$i], $_POST[$j]);
+                                    $output = array_merge($output, $rows);
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    //If a single blood category is not selected
+                    if($flag_category==0){
+                        for($i=10;$i<35;$i++){
+                            if(isset($_POST[$i])){
+                                $rows = $this->model->getFilteredDonorDetails_District($_POST[$i]);
+                                $output = array_merge($output, $rows);
+                            }
+                            
+                        }
+                        
+                    }
+
+                    //If no district is selected
+                    if($district_flag==0){
+                        for($i=0;$i<8;$i++){
+                            if(isset($_POST[$i])){
+                                $rows = $this->model->getFilteredDonorDetails_BloodCategory($_POST[$i]);
+                                $output = array_merge($output, $rows);
+                            }
+                        }
+                        
+                    }
+                    $_SESSION['donors'] = $output;
+                    $this->view->render('admin/donors');
+                    exit;
+                }
+                
+                
             }
         }
         else{
@@ -106,7 +177,7 @@ class Donors extends Controller
 
     function view_user($user_id){
         if (isset($_SESSION['login'])) {
-            
+                $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
                 $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                 $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];

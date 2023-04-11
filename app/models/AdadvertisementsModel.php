@@ -24,8 +24,128 @@ class AdadvertisementsModel extends Model
         return $data;
     }
 
+    // function to get the cash advertisements details for a particular month and year
+    public function getFilteredCashAdvertisements($month,$year)
+    {
+        $columns = array(":DonationType",":Month",":Year");
+        $values = array("Cash",$month,$year);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND MONTH(PublishedDate) = :Month AND YEAR(PublishedDate) = :Year",$columns,$values);
+        //For each DonationID get teh sum of the amount donated from the cashdonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Amount)","cash_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Amount)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Amount)'];
+            }
+        }
+        return $data;
+    }
+
+    // function to get the cash advertisements details for a particular month
+    public function getFilteredCashAdvertisementsMonth($month)
+    {
+        $columns = array(":DonationType",":Month");
+        $values = array("Cash",$month);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND MONTH(PublishedDate) = :Month",$columns,$values);
+        //For each DonationID get teh sum of the amount donated from the cashdonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Amount)","cash_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Amount)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Amount)'];
+            }
+        }
+        return $data;
+    }
+
+    // function to get the cash advertisements details for a particular year
+    public function getFilteredCashAdvertisementsYear($year)
+    {
+        $columns = array(":DonationType",":Year");
+        $values = array("Cash",$year);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND YEAR(PublishedDate) = :Year",$columns,$values);
+        //For each DonationID get teh sum of the amount donated from the cashdonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Amount)","cash_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Amount)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Amount)'];
+            }
+        }
+        return $data;
+    }
+
     public function getAllInventoryAdvertisementsDetails(){
         $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0",':DonationType',"Inventory");
+        //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Quantity)","inventory_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Quantity)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Quantity)'];
+            }
+        }
+        return $data;
+    }
+
+    // function to get the inventory advertisements details for a particular month and year
+    public function getFilteredInventoryAdvertisements($month,$year)
+    {
+        $columns = array(":DonationType",":Month",":Year");
+        $values = array("Inventory",$month,$year);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND MONTH(PublishedDate) = :Month AND YEAR(PublishedDate) = :Year",$columns,$values);
+        //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Quantity)","inventory_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Quantity)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Quantity)'];
+            }
+        }
+        return $data;
+    }
+
+    // function to get the inventory advertisements details for a particular month
+    public function getFilteredInventoryAdvertisementsMonth($month)
+    {
+        $columns = array(":DonationType",":Month");
+        $values = array("Inventory",$month);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND MONTH(PublishedDate) = :Month",$columns,$values);
+        //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
+        // If the sum is null then append 0 to the array
+        foreach($data as $key => $value){
+            $sum = $this->db->select("SUM(Quantity)","inventory_donation","WHERE DonationID = :DonationID",":DonationID",$value['DonationID']);
+            if($sum[0]['SUM(Quantity)'] == null){
+                $data[$key]['CurrentSum'] = 0;
+            }
+            else{
+                $data[$key]['CurrentSum'] = $sum[0]['SUM(Quantity)'];
+            }
+        }
+        return $data;
+    }
+
+    // function to get the inventory advertisements details for a particular year
+    public function getFilteredInventoryAdvertisementsYear($year)
+    {
+        $columns = array(":DonationType",":Year");
+        $values = array("Inventory",$year);
+        $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0 AND YEAR(PublishedDate) = :Year",$columns,$values);
         //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
         // If the sum is null then append 0 to the array
         foreach($data as $key => $value){

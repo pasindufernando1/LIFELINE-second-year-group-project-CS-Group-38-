@@ -150,12 +150,20 @@ input{
     border-color: #640e0b;
     border-width: 1px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 input[type="date"]{
-    width: 100px;
-    height: 27px;
+    width: 167px;
+    height: 33px;
     margin-left: 20px;
+    padding-left: 37px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid black;
 }
 
 .export {
@@ -172,7 +180,7 @@ input[type="date"]{
     left: 817px !important;
 }
 .reservation-filter {
-    left: 1161px !important;
+    left: 1180px !important;
 }
 .reservation-filter-img {
     left: 1055px !important;
@@ -192,4 +200,55 @@ input[type="date"]{
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
+}
+
+select {
+    width: 500px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.input-text{
+    width: 300px;
+    height: 27px;
+    margin-left: 23px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.date{
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px
+}
+
+.year{
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px
 }

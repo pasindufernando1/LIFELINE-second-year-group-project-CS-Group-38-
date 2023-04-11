@@ -13,6 +13,42 @@ class DonorsModel extends Model
         $data = $this->db->select("*", "donor","Null");
         return $data;
     }
+    
+    //Get the donors based on the NIC
+    public function getFilteredDonorDetailsNIC($nic)
+    {
+        $columns = array(":NIC");
+        $values = array($nic);
+        $data = $this->db->select("*", "donor", "WHERE NIC = :NIC",$columns, $values);
+        return $data;
+    }
+
+    // Get the donors based on the blood type
+    public function getFilteredDonorDetails_BloodCategory($bloodtype)
+    {
+        $columns = array(":BloodType");
+        $values = array($bloodtype);
+        $data = $this->db->select("*", "donor", "WHERE BloodType = :BloodType",$columns, $values);
+        return $data;
+    }
+
+    //Get the donor details based on  the district
+    public function getFilteredDonorDetails_District($district)
+    {
+        $columns = array(":District");
+        $values = array($district);
+        $data = $this->db->select("*", "donor", "WHERE District = :District",$columns, $values);
+        return $data;
+    }
+
+    public function getFilteredDonorDetails_District_BloodCategory($district,$bloodtype)
+    {
+        $columns = array(":District",":BloodType");
+        $values = array($district,$bloodtype);
+        $data = $this->db->select("*", "donor", "WHERE District = :District AND BloodType = :BloodType",$columns, $values);
+        return $data;
+    }
+
 
     public function addDonor($inputs1,$inputs2,$inputs3) 
     {

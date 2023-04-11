@@ -35,6 +35,7 @@ $metaTitle = "Advertisements"
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/ad_active_sidebar.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/add_archive_confirmation.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/filters/advertisements_filter.php'); ?>
 
             
     <!-- main content -->
@@ -43,16 +44,16 @@ $metaTitle = "Advertisements"
         <a href="/adadvertisements/add_advertisement" class="brown-button addnew-user">Add New Advertisement</a>
     
         
-        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
+        <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('idfil01').style.display='block'">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
         <div class="campaign-view-box">
         <h2 class="header2">Cash Donation Advertisements</h2>
         <div class="view-campaign-container">
             <?php
-            $number_of_results = count($_SESSION['cash_advertisements']);
-            $result = $_SESSION['cash_advertisements'];
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
+            $number_of_results1 = count($_SESSION['cash_advertisements']);
+            $result1 = $_SESSION['cash_advertisements'];
+            if ($number_of_results1 > 0) {
+                foreach ($result1 as $row) {
                     //print_r($result);die();
                     echo '<div class="view-campaign-card">
                                             <img src = "./../../public/img/advertisements/'.$row['Advertisement_pic']."".'"class="campaign-card-img" alt="campaigns">
@@ -77,7 +78,7 @@ $metaTitle = "Advertisements"
                                             </div>';
                 }
             } else {
-                echo '0 results';
+                //echo '0 results';
             }
             ?>
         </div>
@@ -85,10 +86,10 @@ $metaTitle = "Advertisements"
         <h2 class="header2">Inventory Donation Advertisements</h2>
         <div class="view-campaign-container">
             <?php
-            $number_of_results = count($_SESSION['inventory_advertisements']);
-            $result = $_SESSION['inventory_advertisements'];
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
+            $number_of_results2 = count($_SESSION['inventory_advertisements']);
+            $result2 = $_SESSION['inventory_advertisements'];
+            if ($number_of_results2 > 0) {
+                foreach ($result2 as $row) {
                     //print_r($result);die();
                     echo '<div class="view-campaign-card">
                                             <img src = "./../../public/img/advertisements/'.$row['Advertisement_pic']."".'"class="campaign-card-img" alt="campaigns">
@@ -113,7 +114,7 @@ $metaTitle = "Advertisements"
                         </div>';
                 }
             } else {
-                echo '0 results';
+                //echo '0 results';
             }
             ?>
         </div>

@@ -40,8 +40,6 @@ $metaTitle = "Inventory Donations"
     <div class="box">
                         <p class="add-user-title">Donation Requests</p>
                         
-                        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
-                        <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
                         <table class="user-types-table" style="width:90%">
                         <tr>

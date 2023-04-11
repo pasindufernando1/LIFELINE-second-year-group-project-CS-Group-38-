@@ -26,13 +26,50 @@ class Adadvertisements extends Controller
     function type()
     {
         if (isset($_SESSION['login'])) {
+            //print_r($_POST);die();
             if ($_SESSION['type'] == "Admin") {
-                $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
-                $_SESSION['inventory_advertisements'] = $this->model->getAllInventoryAdvertisementsDetails();
-                //print_r(($_SESSION['cash_advertisements']));die();
+                if(!isset($_POST['filter']))
+                {
+                    $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
+                    $_SESSION['inventory_advertisements'] = $this->model->getAllInventoryAdvertisementsDetails();
+                    $this->view->render('admin/advertisements');
+                    exit;
+                }
+                if(isset($_POST['all_type'])){
+                    $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
+                    $_SESSION['inventory_advertisements'] = $this->model->getAllInventoryAdvertisementsDetails();
+                    $this->view->render('admin/advertisements');
+                    exit;
+                }
+                $output_cash = array();
+                $output_inventory = array();
+                // If both month and year is selected
+                if(!empty($_POST['month']) && !empty($_POST['year'])){
+                    $rows_cash = $this->model->getFilteredCashAdvertisements($_POST['month'],$_POST['year']);
+                    $rows_inventory = $this->model->getFilteredInventoryAdvertisements($_POST['month'],$_POST['year']);
+                    $output_cash = array_merge($output_cash,$rows_cash);
+                    $output_inventory = array_merge($output_inventory,$rows_inventory);
+                }
+                // If only a month is selected
+                if(!empty($_POST['month']) && empty($_POST['year'])){
+                    $rows_cash = $this->model->getFilteredCashAdvertisementsMonth($_POST['month']);
+                    $rows_inventory = $this->model->getFilteredInventoryAdvertisementsMonth($_POST['month']);
+                    $output_cash = array_merge($output_cash,$rows_cash);
+                    $output_inventory = array_merge($output_inventory,$rows_inventory);
+                }
+                // If only a year is selected
+                if(!empty($_POST['year']) && empty($_POST['month'])){
+                    $rows_cash = $this->model->getFilteredCashAdvertisementsYear($_POST['year']);
+                    $rows_inventory = $this->model->getFilteredInventoryAdvertisementsYear($_POST['year']);
+                    $output_cash = array_merge($output_cash,$rows_cash);
+                    $output_inventory = array_merge($output_inventory,$rows_inventory);
+                }
+                $_SESSION['cash_advertisements'] = $output_cash;
+                $_SESSION['inventory_advertisements'] = $output_inventory;
                 $this->view->render('admin/advertisements');
                 exit;
             }
+
         }
         else{
             $this->view->render('authentication/login');
