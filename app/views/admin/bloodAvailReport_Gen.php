@@ -35,6 +35,7 @@ $metaTitle = "Blood Availability Report"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
+
             
     <!-- main content -->
     <div class="box" id="box">
@@ -42,10 +43,10 @@ $metaTitle = "Blood Availability Report"
         <div class="icon">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
-        <div class="reportID">
+        <!-- <div class="reportID">
             <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : <?php echo $_SESSION['report_id'][0]?></div></label>
             <br>
-        </div>
+        </div> -->
         <div class="reportTitle">
             <label class="reportTitle-lable" for="reportTitle">Report Title<div class="reportTitle-content"> : Blood Availability</div></label>
             <br>
@@ -102,12 +103,12 @@ $metaTitle = "Blood Availability Report"
     <div>
         <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
         <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
-        <a href="/reports/saveBloodAvailrep"><button id="send-database" class="brown-button genrep1_new" type='submit' name='send-database'>Send to database</button></a>
+        <button id="send-database" class="brown-button genrep1_new" type='submit' name='send-database'>Send to database</button>
         <img class="addbutton addbutton_rep1_new" src="./../../public/img/admindashboard/database.png" alt="add-button">
         <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
 			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
 			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
@@ -117,26 +118,36 @@ $metaTitle = "Blood Availability Report"
     </script>
     
     <script>
-        document.querySelector('#send-database').addEventListener('click', function () {
-            html2canvas(document.querySelector('#box')).then((canvas) => {
-                let base64image = canvas.toDataURL('image/png');
-                let pdf = new jsPDF('p', 'mm', [210, 200], 'C:/xampp/htdocs/public/img/reports/');
-                pdf.addImage(base64image, 'PNG', 0, 0, 210, 200);
-                let fileName = 'bloodAvailreport-' + Date.now() + '.pdf';
-                // Send the pdf to the reports controller as an ajax request
+        var doc = new jsPDF();
+        $('#send-database').click(function() {
+            var htmlContent = $('#box').html();
+
+            html2canvas(document.querySelector('#box')).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                doc.addImage(imgData, 'PNG', 0, 0, 210,200);
+                var pdfBlob = doc.output('blob');
+
+                var formData = new FormData();
+                formData.append('pdf', pdfBlob);
+
                 $.ajax({
-                    url: '/reports/saveBloodAvailrep',
-                    type: 'POST',
-                    data: {
-                        // Encode the pdf to base64
-                        pdf: pdf.output('datauristring'),
+                    url: 'http://localhost/reports/saveBloodAvailreport',
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        // Change the header to the new page
+                        window.location.href = "http://localhost/reports/updatedatabase_done";
                     },
-                    success: function (data) {
+                    error: function(data) {
                         console.log(data);
                     }
                 });
-
+            });
         });
+
+
 
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box')).then((canvas) => {

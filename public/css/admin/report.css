@@ -674,7 +674,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 1000px;
+    height: 1000px;;
     left: 316px;
     top: 102px;
     background: #ffffff;
@@ -2149,18 +2149,28 @@ a {
 }
 
 .edit-btn-div {
-    margin: auto;
+    width: 160px;
+    height: 35px;
+    background: rgba(175, 175, 175, 0.2);
+    border-radius: 4px;
+    margin: 0px -34px 0px 35px;
     text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    /* Ignore the blue color duue to text and make the color black */
+    color: #000000;
+    cursor: pointer;
+    
 }
 
 
 .edit-btn {
-    width: 35px;
-    height: 35px;
-    background: rgba(175, 175, 175, 0.2);
-    border-radius: 4px;
-    margin: 0px 5px 0px -30px;
-    text-align: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    margin-top: 7px;
 }
 
 
@@ -2848,12 +2858,12 @@ td {
 }
 
 .addbutton_rep1{
-    top: 175px;
+    top: 177px;
     left: 1415px;
 }
 
 .addbutton_rep1_new{
-    top: 175px;
+    top: 177px;
     left: 1085px;
 }
 

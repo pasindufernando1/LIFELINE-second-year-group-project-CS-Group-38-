@@ -240,7 +240,7 @@ select {
     border-radius: 5px
 }
 
-.year{
+.year, .years{
     width: 100px;
     height: 35px;
     margin-left: 20px;

@@ -434,4 +434,13 @@ class UserModel extends Model
         }        
         return $new_array;
     }    
+
+
+
+    // Admin related
+    public function getAdminuserID($uname){
+        $userID = $this->db->select("UserID","user","WHERE email =:email",':email',$uname);
+        $userID = $userID[0]['UserID'];
+        return $userID;
+    }
 }

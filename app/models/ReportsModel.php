@@ -10,8 +10,262 @@ class ReportsModel extends Model
     public function getAllReportDetails()
     {
         $data = $this->db->select("*", "report","Null");
+        // If there is an AdminID in the report, get the name of the admin
+        foreach ($data as $key => $value) {
+            if($data[$key]['AdminUserID'] != null){
+                $adminID = $data[$key]['AdminUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+            }
+        }
+        // If there is a SystemUserID in the report, get the name of the user
+        foreach ($data as $key => $value) {
+            if($data[$key]['SystemUserID'] != null){
+                $userID = $data[$key]['SystemUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+            }
+        }
+        // Get all the unique entityNames in $data and put them into an array
+        $entityNames = array();
+        foreach ($data as $key => $value) {
+            if(!in_array($data[$key]['EntityName'], $entityNames)){
+                array_push($entityNames, $data[$key]['EntityName']);
+            }
+        }
+        $_SESSION['entityNames'] = $entityNames;
         return $data;
     }
+
+    // Function to get the report details for a specific requestor name, month and year
+    public function getFilteredReportDetailsDate_requestor($month,$year,$requestor)
+    {
+        $userID = null;
+        $flag = null;
+        // Get the UserID of the requestor from admin or system_user table
+        $userID = $this->db->select("UserID", "admin","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+        $flag = "Admin";
+        // If the requestor is not an admin
+        if($userID == null){
+            $userID = $this->db->select("UserID", "system_user","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+            $flag = "SystemUser";
+        }
+        
+        // If the requestor is an admin
+        if($flag == "Admin"){
+            // Get the report details for the given month, year and admin
+            $columns = array(":Month",":Year",":UserID");
+            $values = array($month,$year,$userID);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND AdminUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['AdminUserID'] != null){
+                    $adminID = $data[$key]['AdminUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+        // If the requestor is a system user
+        else{
+            // Get the report details for the given month, year and system user
+            $columns = array(":Month",":Year",":UserID");
+            $values = array($month,$year,$userID);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND SystemUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['SystemUserID'] != null){
+                    $userID = $data[$key]['SystemUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+
+    }
+
+    // Function to get the report details for a specific requestor name and month
+    public function getFilteredReportDetailsMonth_requestor($month,$requestor)
+    {
+        $userID = null;
+        $flag = null;
+        // Get the UserID of the requestor from admin or system_user table
+        $userID = $this->db->select("UserID", "admin","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+        $flag = "Admin";
+        // If the requestor is not an admin
+        if($userID == null){
+            $userID = $this->db->select("UserID", "system_user","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+            $flag = "SystemUser";
+        }
+        
+        // If the requestor is an admin
+        if($flag == "Admin"){
+            // Get the report details for the given month and admin
+            $columns = array(":Month",":UserID");
+            $values = array($month,$userID);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND AdminUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['AdminUserID'] != null){
+                    $adminID = $data[$key]['AdminUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+        // If the requestor is a system user
+        else{
+            // Get the report details for the given month and system user
+            $columns = array(":Month",":UserID");
+            $values = array($month,$userID);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND SystemUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['SystemUserID'] != null){
+                    $userID = $data[$key]['SystemUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+    }
+
+    // Function to get the report details for a specific requestor name and year
+    public function getFilteredReportDetailsYear_requestor($year,$requestor)
+    {
+        $userID = null;
+        $flag = null;
+        // Get the UserID of the requestor from admin or system_user table
+        $userID = $this->db->select("UserID", "admin","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+        $flag = "Admin";
+        // If the requestor is not an admin
+        if($userID == null){
+            $userID = $this->db->select("UserID", "system_user","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+            $flag = "SystemUser";
+        }
+        
+        // If the requestor is an admin
+        if($flag == "Admin"){
+            // Get the report details for the given year and admin
+            $columns = array(":Year",":UserID");
+            $values = array($year,$userID);
+            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND AdminUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['AdminUserID'] != null){
+                    $adminID = $data[$key]['AdminUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+        // If the requestor is a system user
+        else{
+            // Get the report details for the given year and system user
+            $columns = array(":Year",":UserID");
+            $values = array($year,$userID);
+            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND SystemUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['SystemUserID'] != null){
+                    $userID = $data[$key]['SystemUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+    }
+
+    // Function to get the report details for a specific requestor name only
+    public function getFilteredReportDetails_requestor($requestor)
+    {
+        $userID = null;
+        $flag = null;
+        // Get the UserID of the requestor from admin or system_user table
+        $userID = $this->db->select("UserID", "admin","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+        $flag = "Admin";
+        // If the requestor is not an admin
+        if($userID == null){
+            $userID = $this->db->select("UserID", "system_user","WHERE Fullname = :requestor",':requestor',$requestor)[0]['UserID'];
+            $flag = "SystemUser";
+        }
+        
+        // If the requestor is an admin
+        if($flag == "Admin"){
+            // Get the report details for the given admin
+            $columns = array(":UserID");
+            $values = array($userID);
+            $data = $this->db->select("*", "report","WHERE AdminUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['AdminUserID'] != null){
+                    $adminID = $data[$key]['AdminUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+        // If the requestor is a system user
+        else{
+            // Get the report details for the given system user
+            $columns = array(":UserID");
+            $values = array($userID);
+            $data = $this->db->select("*", "report","WHERE SystemUserID = :UserID",$columns,$values);
+            foreach ($data as $key => $value) {
+                if($data[$key]['SystemUserID'] != null){
+                    $userID = $data[$key]['SystemUserID'];
+                    $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+                }
+            }
+            return $data;
+        }
+
+    }
+
+    // Function to get the report details for a specific month and year
+    public function getFilteredReportDetailsDate($month,$year)
+    {
+        $columns = array(":Month",":Year");
+        $values = array($month,$year);
+        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year",$columns,$values);
+        foreach ($data as $key => $value) {
+            if($data[$key]['AdminUserID'] != null){
+                $adminID = $data[$key]['AdminUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+            }
+            else{
+                $userID = $data[$key]['SystemUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+            }
+        }
+        return $data;
+    }
+
+    // Function to get the report details for a specific month
+    public function getFilteredReportDetailsMonth($month)
+    {
+        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month",':Month',$month);
+        foreach ($data as $key => $value) {
+            if($data[$key]['AdminUserID'] != null){
+                $adminID = $data[$key]['AdminUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+            }
+            else{
+                $userID = $data[$key]['SystemUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+            }
+        }
+        return $data;
+    }
+
+    // Function to get the report details for a specific year
+    public function getFilteredReportDetailsYear($year)
+    {
+        $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year",':Year',$year);
+        foreach ($data as $key => $value) {
+            if($data[$key]['AdminUserID'] != null){
+                $adminID = $data[$key]['AdminUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "admin","WHERE UserID = :adminID",':adminID',$adminID)[0]['Fullname'];
+            }
+            else{
+                $userID = $data[$key]['SystemUserID'];
+                $data[$key]['EntityName'] = $this->db->select("Fullname", "system_user","WHERE UserID = :userID",':userID',$userID)[0]['Fullname'];
+            }
+        }
+        return $data;
+    }
+
 
     public function getReportId(){
         $data = $this->db->select("max(ReportID) + 1", "report","Null");
@@ -581,8 +835,118 @@ class ReportsModel extends Model
 
     }
 
-    public function addBloodAvailReport(){
-        
+    public function saveBloodAvailreport($filename,$userid){
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Blood availability report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    // Function to save inventory availability report
+    public function saveInventoryAvailreport($filename,$userid){
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Inventory availability report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    //Function to save the donor report
+    public function saveDonorreport($filename,$userid)
+    {
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Donor report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    //Function to save tha campaign reports
+    public function saveCampaignreport($filename,$userid)
+    {
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Campaign report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+    
+    //Functionto save the productive donations areas report
+    public function saveProductiveDonationreport($filename,$userid)
+    {
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Productive donations areas report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    //Function to save the usagevs expiry report
+    public function saveUsagevsExpiryreport($filename,$userid)
+    {
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Usage vs Expiry report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    //Function to save usage vs months report
+    public function saveUsagevsMonthsreport($filename,$userid)
+    {
+        $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
+        $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
+        $values = array("Usage vs Months report",date("Y-m-d"),"Admin",$filename,$userid);
+        $result = $this->db->insert("report",$columns,$params,$values);
+        if($result=="Success"){
+            return true;
+        }
+        else{
+            print_r($result);
+        }
+    }
+
+    public function getUserId($email)
+    {
+        $data = $this->db->select("UserID", "user", "WHERE Email=:email", ":email", $email);
+        return $data[0]['UserID'];
+    }
+
+    // Function to get the filelink when the report id is given
+    public function getReportLink($id){
+        $data = $this->db->select("FileLink", "report", "WHERE ReportID=:id", ":id", $id);
+        return $data[0]['FileLink'];
     }
 
     

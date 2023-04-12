@@ -44,7 +44,7 @@ $metaTitle = "Donor Report"
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="icon">
         </div>
         <div class="reportID">
-            <label class="reprtId-lable" for="reportID">Report ID<div class="reportID-content"> : <?php echo $_SESSION['report_id'][0]?></div></label>
+            <label class="reprtId-lable" for="reportID">Donor name<div class="reportID-content"> : <?php echo $_SESSION['donordetails'][0]['Fullname']?></div></label>
             <br>
         </div>
         <div class="reportTitle">
@@ -59,10 +59,10 @@ $metaTitle = "Donor Report"
             ?></div></label>
             <br>
         </div>
-        <div class="date-1">
+        <!-- <div class="date-1">
             <label class="date-lable" for="donorName">Donor name<div class="date-content"> : <?php echo $_SESSION['donordetails'][0]['Fullname']?></div></label>
             <br>
-        </div>
+        </div> -->
         <div class="donorID">
             <label class="donor-lable" for="donorid">Donor ID<div class="donorId-content"> : <?php echo $_SESSION['donorid']?></div></label>
             <br>
@@ -120,11 +120,14 @@ $metaTitle = "Donor Report"
         </div>
     </div>
     <div>
-        <button id="submit-btn" class='brown-button genrep2' type='submit' name='add-badge'>Download Copy</button>
-        <img class="addbutton addbutton_rep2" src="./../../public/img/admindashboard/down.png" alt="add-button">
-        <a class='outline-button outline-button_rep2' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
+    <button id="submit-btn" class='brown-button genrep1' type='submit' name='add-badge'>Download Copy</button>
+        <img class="addbutton addbutton_rep1" src="./../../public/img/admindashboard/down.png" alt="add-button">
+        <button id="send-database" class="brown-button genrep1_new" type='submit' name='send-database'>Send to database</button>
+        <img class="addbutton addbutton_rep1_new" src="./../../public/img/admindashboard/database.png" alt="add-button">
+        <a class='outline-button outline-button_rep1' type='reset' name='cancel-adding' href="/reports/type?page=1">Back to reports</a></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
 			src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
 			integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
@@ -133,15 +136,44 @@ $metaTitle = "Donor Report"
     
     </script>
     <script>
+        var doc = new jsPDF();
+        $('#send-database').click(function() {
+            var htmlContent = $('#box-donor').html();
+
+            html2canvas(document.querySelector('#box-donor')).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                doc.addImage(imgData, 'PNG', 0, 0, 210,300);
+                var pdfBlob = doc.output('blob');
+
+                var formData = new FormData();
+                formData.append('pdf', pdfBlob);
+
+                $.ajax({
+                    url: 'http://localhost/reports/saveDonorreport',
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        // Change the header to the new page
+                        window.location.href = "http://localhost/reports/updatedatabase_done";
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            });
+        });
+
+
+
         document.querySelector('#submit-btn').addEventListener('click', function () {
-		    html2canvas(document.querySelector('#box-donor')).then((canvas) => {
-			let base64image = canvas.toDataURL('image/png');
-			// console.log(base64image);
-			let pdf = new jsPDF('p', 'mm'); 
-			pdf.addImage(base64image, 'PNG', 0, 0, 210,300);
-            // Append the file name with timestamp without random number
-            var filename = 'donorreport-id-'+ Date.now() + '.pdf';
-			pdf.save(filename);
+                html2canvas(document.querySelector('#box-donor')).then((canvas) => {
+                let base64image = canvas.toDataURL('image/png');
+                let pdf = new jsPDF('p', 'mm'); 
+                pdf.addImage(base64image, 'PNG', 0, 0, 210,300);
+                var filename = 'Donorreport-id-'+ Date.now() + '.pdf';
+                pdf.save(filename);
             });
         });
     </script>

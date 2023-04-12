@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Reports" 
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +35,8 @@ $metaTitle = "Inventory"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/report_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/filters/reports_filter.php'); ?>
+
             
     <!-- main content -->
     <div class="box">
@@ -46,13 +48,14 @@ $metaTitle = "Inventory"
         <a href="/reports/gen_report" class="brown-button types-user">Make New Report</a>
         <img class="userbutton-user" src="./../../public/img/admindashboard/briefcase.png" alt="add-button">
         
-        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
+        <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
         <tr>
             <th>Report ID</th>
             <th>Name</th>
+            <th>Requestor</th>
             <th>Requested by</th>
             <th>Date taken</th>
             <th>Action</th>
@@ -61,8 +64,9 @@ $metaTitle = "Inventory"
         
         
         <?php 
+        $status = $_SESSION['is_filtered']? 'true' : 'false';
         $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
+        $number_of_results = count($_SESSION['reports']);
         $number_of_page = ceil($number_of_results / $results_per_page);
 
         //determine which page number visitor is currently on  
@@ -77,41 +81,42 @@ $metaTitle = "Inventory"
         $result = $_SESSION['reports'];
 
         //display the link of the pages in URL  
-        if ($_SESSION['rowCount'] > 0) {
+        if ($number_of_results > 0) {
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>
                         <td>' . $row["ReportID"]. "</td>
                         <td>" . $row["Name"] . "</td>
+                        <td>" . $row["EntityName"] . "</td>
                         <td>" . $row["Requesting_entity"] . "</td>
                         <td>" . $row["Date_Generated"] . '</td>
-                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="#"> <img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reports/download_copy/'.$row["ReportID"].'" download>Download copy<img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a></div></td>
                     </tr> </div>';
                 
             }
         } 
         else {
-            echo "0 results";
+            //echo "0 results";
         }
         echo "</table>";
         echo '<div class="pag-box">';
         if ($_GET['page'] == 1) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
         }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page-1 . '">&laquo;</a> </div>';   
         }
-    
+
         for($page = 1; $page<= $number_of_page; $page++) {  
             if ($page == $_GET['page']) {
-                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
             }else{
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
             }
         }
         if ($_GET['page'] == $number_of_page) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
         }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
         }
             
         echo '</div>' ;?>

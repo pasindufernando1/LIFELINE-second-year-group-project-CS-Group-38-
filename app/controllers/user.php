@@ -47,6 +47,7 @@ class User extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
+
         if ($_SESSION['type'] == 'System User') {
             if ($this->model->authenticate($uname, $pwd)) {
                 $_SESSION['useremail'] = $_POST['username'];
@@ -76,6 +77,7 @@ class User extends Controller
 
             $password = $this->model->getpassword($uname);
             $_SESSION['Password'] = $password;
+
 
             // Get pending hospital requests details
             $_SESSION['hospitals'] = $this->model->getHospitals();
