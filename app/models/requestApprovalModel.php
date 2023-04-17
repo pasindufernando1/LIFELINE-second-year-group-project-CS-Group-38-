@@ -6,12 +6,62 @@ class RequestApprovalModel extends Model
     {
         parent::__construct();
     }
+
     public function getAllBloodBanks()
     {
         $data = $this->db->select("*", "bloodbank", null);
+        print_r($data);
+        die();
+        return $data;
+    }
+    public function getadvertisementIDs()
+    {
+        $donationType = "Inventory";
+        $data = $this->db->select("AdvertisementID", "donation", "WHERE DonationType = :DonationType;", ':DonationType', $donationType);
+        //print_r($data);die();
         return $data;
     }
 
+    public function getDonationID($AdvertisementID)
+    {
+        //$donationType="Inventory";
+        $data = $this->db->select("DonationID", "donation", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $AdvertisementID);
+        //print_r($data);die();
+        return $data;
+    }
+
+
+    //function to get all details from the advertisement table using the advertisement ID
+    public function getAdvertisements($adid)
+    {
+        $data = $this->db->select("*", "advertisement", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $adid);
+        //print_r($data);
+        return $data;
+    }
+
+    public function getInventoryCatToAd($adid)
+    {
+        $data = $this->db->select("InventoryCategory", "donation", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $adid);
+        //print_r($data);die();
+        //$data=$data[0]['InventoryCategory'];
+        //print_r($inventoryCat);die();
+        return $data;
+    }
+
+    public function getInventoryCat($AdvertisementID)
+    {
+        $data = $this->db->select("InventoryCategory", "donation", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $AdvertisementID);
+        $inventoryCat = $data[0]['InventoryCategory'];
+        //print_r($inventoryCat);die();
+        return $inventoryCat;
+    }
+    public function getBloodbankNames($bloodbankIds)
+    {
+        $data = $this->db->select("BloodBank_Name", "bloodbank", "WHERE BloodBankID = :BloodBankID;", ':BloodBankID', $bloodbankIds);
+        //print_r($data);
+        return $data;
+
+    }
     public function getUserID($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -22,11 +72,33 @@ class RequestApprovalModel extends Model
         }
     }
 
+    public function getuserimg($userid)
+    {
+        if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {
+            $type = $this->db->select("Userpic", "user", "WHERE UserID =:UserID", ':UserID', $userid);
+            $user_pic = $type[0]['Userpic'];
+            return $user_pic;
+        }
+    }
+
     public function addApprovalRequest($inputs)
     {
-        $columns = array('BloodBankID', 'Name', 'Number', 'Lane', 'City', 'District', 'Province', 'BedQuantity', 'Date', 'Starting_time', 'Ending_time', 'Number_of_donors', 'AdvertisementID', 'OrganizationUserID', 'Status');
-        $param = array(':BloodBankID', ':Name', ':Number', ':Lane', ':City', ':District', ':Province', ':BedQuantity', ':Date', ':Starting_time', ':Ending_time', ':Number_of_donors', ':AdvertisementID', ':OrganizationUserID', ':Status');
+        $columns = array('Name', 'Location', 'BedQuantity', 'Date', 'Starting_time', 'Ending_time', 'Number_of_donors', 'AdvertisementID', 'OrganizationUserID', 'Status', 'BloodBankID');
+        $param = array(':Name', ':Location', ':BedQuantity', ':Date', ':Starting_time', ':Ending_time', ':Number_of_donors', ':AdvertisementID', ':OrganizationUserID', ':Status', ':BloodBankID');
         $result = $this->db->insert("donation_campaign", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else
+            print_r($result);
+    }
+    public function addinventoryItem($inputs)
+    {
+        /* $columns1 = array('DonationID','Inventory_category');
+        $param1 = array(':AdvertisementID',':Total_amount');
+        $result1 = $this->db->update("donation", $columns1, $param1, $inputs1,':AdvertisementID',$AdvertisementID,"WHERE AdvertisementID = :AdvertisementID"); */
+        $columns = array('DonationID', 'Inventory_category', 'Quantity', 'Accepted_date', 'Admin_verify');
+        $param = array(':DonationID', ':Inventory_category', ':Quantity', ':Accepted_date', ':Admin_verify');
+        $result = $this->db->insert("inventory_donation", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
         } else
@@ -52,25 +124,70 @@ class RequestApprovalModel extends Model
 
     }
 
+
+    public function getScheduledTimeslots($campid)
+    {
+        $data = $this->db->select("*", "campaign_timeslots", "WHERE CampaignID =:campid", ':campid', $campid);
+        //print_r($data);die();
+        return $data;
+    }
+
+
     public function get_campaign_info($campid)
     {
         $data = $this->db->select("*", "donation_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campid);
         $ret_data = $data[0];
         return $ret_data;
     }
+
     public function getAcceptedCampaigns($User_ID)
     {
 
         $data = $this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Status= 1 ", ':OrganizationUserID', $User_ID);
-        return $data;
+        //filter the $data array to get only upcoming campaigns
+        //print_r($data);die();
+        /* $upcoming_campaigns = array();
+        foreach($data as $campaign){
+        if($campaign['Date'] >= $today){
+        array_push($upcoming_campaigns,$campaign);
+        }
+        } */
+        //print_r($upcoming_campaigns);die();
 
+        return $data;
 
     }
 
+    public function getUpcomingCampaigns($accepted_campaigns, $todaysDate)
+    {
+        $upcoming_campaigns = array();
+        //print_r($accepted_campaigns);die();
+        foreach ($accepted_campaigns as $campaign) {
+            if ($campaign['Date'] >= $todaysDate) {
+                array_push($upcoming_campaigns, $campaign);
+            }
+        }
+        //print_r($upcoming_campaigns);die();
+        return $upcoming_campaigns;
+
+    }
+
+    public function getPastCampaigns($accepted_campaigns, $todaysDate)
+    {
+        $past_campaigns = array();
+        foreach ($accepted_campaigns as $campaign) {
+            if ($campaign['Date'] < $todaysDate) {
+                array_push($past_campaigns, $campaign);
+            }
+        }
+        //print_r($past_campaigns);die();
+        return $past_campaigns;
+
+    }
     public function getfeedbackInfo($campid)
     {
 
-        $data = $this->db->select("DonorID,Feedback", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid", ':campid', $campid);
+        $data = $this->db->select("DonorID,Feedback,Date", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid", ':campid', $campid);
         return $data;
 
 
@@ -83,7 +200,7 @@ class RequestApprovalModel extends Model
         $data1 = $this->db->select("*", "organization_society", "WHERE UserID = :User_ID", ':User_ID', $User_ID);
 
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,UserType", "user", "WHERE UserID = :UserID", ':UserID', $User_ID);
+        $data2 = $this->db->select("Email,Username,UserType,Userpic,Password", "user", "WHERE UserID = :UserID", ':UserID', $User_ID);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :UserID", ':UserID', $User_ID);
         $data = array_merge($data1, $data2, $data3);
@@ -98,8 +215,8 @@ class RequestApprovalModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email', 'Username');
-        $param1 = array(':Email', ':Username');
+        $columns1 = array('Email', 'Password', 'Username', 'Userpic');
+        $param1 = array(':Email', ':Password', ':Username', ':Userpic');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1, ':User_ID', $User_ID, "WHERE UserID = :User_ID");
 
 

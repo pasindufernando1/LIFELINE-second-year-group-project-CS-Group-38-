@@ -1,6 +1,6 @@
 <?php 
-$metaTitle = "organizations Dashboard";
-$_SESSION['CampID']=intval($_GET['campaign']); 
+
+$metaTitle = "organizations Dashboard" 
 
 ?>
 
@@ -81,19 +81,20 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                         </p>
                     </div>
 
-                    <div class="campaigns-selected">
+                    <div class="campaigns menu-item">
                         <div class="marker"></div>
-                        <!-- <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns"> -->
-                        <img class="campaigns-active" src="./../../public/img/orgdashboard/active/campaigns.png"
+                        <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns">
+                        <img class="campaigns-non-active" src="./../../public/img/orgdashboard/active/campaigns.png"
                             alt="campaigns">
-                        <p class="campaigns-act"><a href="/requestApproval/chooseHere/">Campaigns</a></p>
+                        <p class="campaigns-nav"><a href="/requestApproval/chooseHere/">Campaigns</a></p>
                     </div>
 
-                    <div class="schedule-time menu-item">
-                        <img src="./../../public/img/orgdashboard/non-active/schedule time.png" alt="schedule time">
-                        <img class="schedule-time-non-active"
-                            src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
-                        <p class="schedule-time-nav "><a href="/requestApproval/chooseHere_scheduleTime">Schedule
+                    <div class="schedule-time-selected">
+                        <div class="marker"></div>
+                        <!-- <img src="./../../public/img/orgdashboard/non-active/schedule time.png" alt="schedule time"> -->
+                        <img class="schedule-time-active" src="./../../public/img/orgdashboard/active/schedule time.png"
+                            alt="schedule time">
+                        <p class="schedule-time-act "><a href="/requestApproval/chooseHere_scheduleTime">Schedule
                                 time</a></p>
                     </div>
 
@@ -142,56 +143,95 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                     </div>
                 </div>
             </div>
-            <?php 
-            echo '<div class="box">
+            <div class="box">
+                <p class="view-campaigns-title">View Campaigns</p>
+
+                <table class="campaigns-table" style="width:90%">
+                    <tr>
                         
-                            <p class="campaign-name">'.($_SESSION['campaign_array'][2]).'</p><br>
-                            
-                                <p class="num-donors">Number of Registered Donors: '.($_SESSION['campaign_array'][12]).'</p><br>
-                                <img class="nurse-img" src="./../../public/img/orgdashboard/nurse.png" alt="nurse" >
-                            
-                                <table class="timeslots-table" style="width:40%">
-                                <tr>
-                                
-                                <th>Starting Time</th>
-                                <th>Ending Time</th>
-                                <th>Action</th>
-                                </tr>
-                                
-                               
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        
+                        <th>Action</th>
+                    </tr>
+                    <hr class="campaigns-line">
+                    <?php 
+                        $results_per_page = 7;
+                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_page = ceil($number_of_results / $results_per_page);
 
-                            </div>';
-                            $results_per_page = 7;
-                            $number_of_results = $_SESSION['rowCount'];
-                            $number_of_page = ceil($number_of_results / $results_per_page);
-    
-                            //determine which page number visitor is currently on  
-                            if (!isset ($_GET['page']) ) {  
-                                $page = 1;  
-                            } else {  
-                                $page = $_GET['page'];  
-                            }  
-                            //determine the sql LIMIT starting number for the results on the displaying page  
-                            $page_first_result = ($page-1) * $results_per_page;  
-                            $result = $_SESSION['timeslots'];
+                        //determine which page number visitor is currently on  
+                        if (!isset ($_GET['page']) ) {  
+                            $page = 1;  
+                        } else {  
+                            $page = $_GET['page'];  
+                        }  
+                        //determine the sql LIMIT starting number for the results on the displaying page  
+                        $page_first_result = ($page-1) * $results_per_page;  
+                        $result = $_SESSION['upcoming_campaigns'];
 
+                        //display the link of the pages in URL  
+                          
 
-                            if ($_SESSION['rowCount'] > 0) {
-                                foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                                    echo '<div class="table-content-types"> <tr>
-                                            
-                                            <td>' . $row["Start_time"] . "</td>
-                                            
-                                            
-                                            <td>" . $row["End_time"] . '</td>
-                                            <td> 
-                                            <a href="/requestApproval/view_feedbacks?campaign='.$row["CampaignID"].'"><button class="req-btn" type="button" name="request" >More Details</a></button>                                
-                                  
-                                            </td>
-                                            </tr> </div>';                                        
-                                }
-                            } 
-                            else {
-                                echo "0 results";
+                        // print_r($result[0]);die();
+                        if ($_SESSION['rowCount'] > 0) {
+                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                echo '<div class="table-content-types"> <tr>
+                                        
+                                        <td>' . $row["Name"] . "</td>
+                                        <td>" . $row["Location"] ."</td>
+                                        <td>" . $row["Date"] . '</td>
+                                        
+                                        <td> 
+                                        
+                                        <a href="/requestApproval/view_viewTimeslots?campaign='.$row["CampaignID"].'"><button class="schedule-btn" type="button" name="request" >view</a></button>                                
+                                        
+                                        </td>
+                                        </tr> </div>';                                        
                             }
-            ?>
+                        } 
+                        else {
+                            echo "0 results";
+                        }
+                        echo '<div class="pag-box">';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                        }
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                        }
+                        
+                        echo '</div>'; ?>
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

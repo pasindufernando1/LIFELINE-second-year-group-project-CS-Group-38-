@@ -1717,8 +1717,9 @@ td {
 .change_img {
     top: 133px;
     position: absolute;
-    width: 28px;
+    width: 38px;
     left: 244px;
+    height: 43px;
 }
 
 .profile-container a {
@@ -1772,4 +1773,25 @@ td {
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
+}
+
+.user-details {
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    margin-top: 0px;
+    margin-left: 80px;
+    vertical-align: middle;
+}
+
+.image-1 img {
+    /* width: 88px;
+    height: 92px; */
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 0.8vw;
+}
+
+.image-upload>input {
+    display: none;
 }
