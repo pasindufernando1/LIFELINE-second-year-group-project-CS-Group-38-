@@ -64,7 +64,7 @@ class Feedbacks extends Controller
     function markread($feedbackid){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                if($this->model->markread($feedbackid)){
+                if($this->model->markread($feedbackid) && $this->model->sendemail($feedbackid)){
                     $this->view->render('admin/feedback_review_completed');
                     exit;
                 }

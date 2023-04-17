@@ -100,7 +100,7 @@ $metaTitle = "Validation Successful"
     <div class="box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Sucessfully completed the feedback review!</p>
+            <p class="success-msg-txt">Sucessfully completed the feedback review and feedback receivance emails sent!</p>
             <a href="/feedbacks/type?page=1" class="brown-button back-to-reserve">Back to Feedbacks</a>
             <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
         </div>

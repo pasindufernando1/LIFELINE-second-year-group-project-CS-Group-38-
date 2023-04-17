@@ -1,4 +1,8 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP   ;
+require '../vendor/autoload.php';
 
 class FeedbacksModel extends Model
 {
@@ -21,6 +25,43 @@ class FeedbacksModel extends Model
         else{
             return false;
         }
+    }
+
+    //Function to send email to the user
+    public function sendemail($feedbackid){
+        // Get the organization user id by the feedback id
+        $data = $this->db->select("OrganizationUserID", "organization_feedback", "WHERE FeedbackID = :FeedbackID",":FeedbackID",$feedbackid);
+        $organizationID = $data[0]['OrganizationUserID'];
+        // Get the email of the organization user
+        $data = $this->db->select("Email", "user", "WHERE UserID = :UserID",":UserID",$organizationID);
+        $email = $data[0]['Email'];
+
+        // Get the feedback message
+        // Send the a thanking email to the email obtained using smtp server phpmailer
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();                                     // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                              // Enable SMTP authentication
+        $mail->Username = 'lifeline.managementservices@gmail.com';
+        $mail->Password = 'kelpqmxgangljbqj';
+
+        $mail->From = 'lifeline.managementservices@gmail.com';
+        $mail->FromName = 'Life Line';
+        $mail->addAddress($email);                           // Add a recipient
+        $mail->addReplyTo("noreply@lifeline.com", "Life Line");
+        $mail->isHTML(true);                                 // Set email format to HTML
+        $mail->Subject = "Feedback received";
+        $mail->Body    = "<p>Thank you for your feedback bearing the feedback number : $feedbackid. </p><p>This email is to confirm that we have received your feedback and we will take that into consideration soon.</p>";
+        $mail->AltBody = "Thank you for your feedback bearing the feedback number : $feedbackid. </p><p>This email is to confirm that we have received your feedback and we sill take that into consideration soon.";
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message has been sent';
+            return true;
+        }        
+
+
     }
 
     // Get the feedbacks for a month and year
