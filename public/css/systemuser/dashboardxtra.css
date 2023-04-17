@@ -61,3 +61,10 @@
 .femalepic {
     width: 24px;
 }
+
+.pag-box {
+    float: right;
+    display: flex;
+    margin-top: 345px !important;
+    margin-right: 70px !important;
+}

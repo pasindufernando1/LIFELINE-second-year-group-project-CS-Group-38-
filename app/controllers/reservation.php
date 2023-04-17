@@ -253,6 +253,32 @@ class Reservation extends Controller
         }
         
     }
+
+    function delete($type_id)
+    {
+        
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "System User") {
+                
+                $this->model->deleteReserve($type_id);
+                header("Location: /reservation?page=1");
+                exit;
+            } else if ($_SESSION['type'] == "Admin") {
+                $this->view->render('layout/reservation');
+                exit;
+            } else if ($_SESSION['type'] == "Donor") {
+                $this->view->render('systemuser/reservation');
+                exit;
+            } else {
+                $this->view->render('layout/reservation');
+                exit;
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
+        }
+        
+    }
     function edit_type_id($type_id)
     {
         if (isset($_SESSION['login'])) {
@@ -297,6 +323,24 @@ class Reservation extends Controller
             }
             
         }
+        
+    }
+
+    function expired_stocks()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "System User") {
+                $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $_SESSION['bloodtypes'] = $this->model->getAllTypes($blood_bank_id);
+                $this->view->render('systemuser/reservation_expired');
+                exit;
+            } 
+        }
+        else{
+            $this->view->render('authentication/login');
+            
+        }
+            
         
     }
 }

@@ -1,5 +1,6 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "System User Reservations" ;
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,12 @@ $metaTitle = "System User Reservations"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
 
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>       
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>   
+
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/delete_confirmation.php'); ?>
+    
+
+
                     <div class="box">
                         <p class="add-reservation-title">Blood Reserves</p>
                         
@@ -81,18 +87,43 @@ $metaTitle = "System User Reservations"
                         if ($_SESSION['rowCount'] > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                            
+                               
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["PacketID"]. "</td>
                                         <td>" . $row["Name"] . "</td>
                                         <td>" . $row["Quantity"] . "</td>
                                         <td>" . $row["Expiry_constraint"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                                    </tr> </div>';
+                                        <td>';
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                         echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> 
+                                         <div class="delete-btn-div"> 
+                                         <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                                         document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";
+                                         ">   
+                                         
+                                         
+                                         
+                                         <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                    </tr> </div>'; ?>
+            
+                                    <?php
+
+                                    
+                                    
                                 
                             }
                         } else {
+                            
                             echo "0 results";
                         }
+                        
                         echo '<div class="pag-box">';
                         if ($_GET['page'] == 1) {
                                 echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
@@ -116,6 +147,7 @@ $metaTitle = "System User Reservations"
                         echo '</div>' ;?>
                         
                         </table>
+                        
 
                 </div>
 

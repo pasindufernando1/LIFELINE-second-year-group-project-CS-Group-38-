@@ -228,6 +228,7 @@ body {
     border-radius: 0px 8px 8px 0px;
 }
 
+
 /* .campaigns{
     position: absolute;
     width: 172px;
@@ -306,7 +307,6 @@ body {
 }
 
 .campaigns-active {
-
     left: 0px;
     position: absolute;
     width: 68px;
@@ -389,7 +389,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .schedule-time-selected {
@@ -403,7 +402,6 @@ body {
 }
 
 .schedule-time-active {
-
     left: 18px;
     position: absolute;
     width: 31px;
@@ -476,7 +474,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .cash-donations {
@@ -545,7 +542,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .feedback {
@@ -614,7 +610,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .inventory-donations {
@@ -683,7 +678,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .instructions {
@@ -752,7 +746,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .menu-item a:hover {
@@ -838,7 +831,6 @@ body {
     color: #BF1B16;
     text-decoration: none;
     margin-top: 15px;
-
 }
 
 .campaigns-non-active {
@@ -896,7 +888,6 @@ body {
 .menu-item:hover .instructions-non-active {
     display: block;
 }
-
 
 .feedback-non-active {
     display: none;
@@ -977,14 +968,12 @@ th {
     letter-spacing: 0.01em;
     color: #949494;
     text-align: left;
-
 }
 
 .bloodBanks-table {
     position: absolute;
     top: 110px;
     left: 147px;
-
 }
 
 td {
@@ -1008,13 +997,11 @@ td {
     text-decoration: none;
     font-size: medium;
     font-family: 'Poppins';
-
 }
 
 .req-btn a {
     color: white;
 }
-
 
 .view-bloodBank-title {
     position: absolute;
@@ -1022,27 +1009,21 @@ td {
     height: 46.32px;
     left: 70.89px;
     top: 29.69px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
-
 }
-
-
 
 .campName-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 90px;
-
+    top: 100px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1050,32 +1031,28 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .campName-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 110px;
+    left: 154px;
+    right: 285px;
+    top: 125px;
     bottom: 634px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
-
 
 .date-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 160px;
-
+    top: 183px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1083,32 +1060,28 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .date-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 180px;
+    left: 154px;
+    right: 285px;
+    top: 208px;
     bottom: 565px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .startTime-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 240px;
-
+    top: 274px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1116,32 +1089,28 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .startTime-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
-    right: 760px;
-    top: 266px;
+    left: 154px;
+    right: 869px;
+    top: 299px;
     bottom: 479px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
-
-
 
 .endTime-label {
     position: absolute;
     height: 16px;
-    left: 817px;
+    left: 684px;
     right: 0px;
-    top: 244px;
+    top: 274px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1149,32 +1118,28 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .endTime-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 796px;
-    right: 0px;
-    top: 268px;
+    left: 690px;
+    right: 285px;
+    top: 299px;
     bottom: 480px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .location-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 327px;
-
+    top: 362px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1182,45 +1147,43 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .number-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
+    left: 154px;
     right: 65px;
-    top: 353px;
+    top: 386px;
     bottom: 382px;
-    width: 401px;
+    width: 305px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
-
 .lane-input {
-    width: 431px;
     box-sizing: border-box;
     position: absolute;
-    left: 467px;
-    right: 0px;
-    top: 353px;
-    bottom: 382px;
+    left: 476px;
+    right: 704px;
+    top: 386px;
+    /* bottom: 352px; */
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 54px;
 }
 
 .city-input {
     position: absolute;
     height: 54px;
-    height: 58px;
-    left: 961px;
-    right: 111px;
-    top: 354px;
+    height: 56px;
+    left: 844px;
+    right: 285px;
+    top: 386px;
     bottom: 296px;
     box-sizing: border-box;
     background: #FFFFFF;
@@ -1229,39 +1192,37 @@ td {
 }
 
 .district-input {
-    width: 403px;
     box-sizing: border-box;
     position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 423px;
+    left: 154px;
+    right: 849px;
+    top: 454px;
     bottom: 306px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .province-input {
-    width: 436px;
     box-sizing: border-box;
     position: absolute;
-    left: 466px;
-    right: 0px;
-    top: 426px;
+    left: 709px;
+    right: 285px;
+    top: 453px;
     bottom: 309px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .beds-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 500px;
-
+    top: 523px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1269,46 +1230,42 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .beds-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
-    right: 0px;
-
-    top: 526px;
+    left: 154px;
+    right: 285px;
+    top: 551px;
     bottom: 206px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .donors-input {
     box-sizing: border-box;
-
     position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 688px;
+    left: 154px;
+    right: 285px;
+    top: 646px;
     bottom: 50px;
-    top: 618px;
     bottom: 117px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    height: 56px;
 }
 
 .donors-label {
     position: absolute;
     height: 16px;
-    left: 0px;
+    left: 154px;
     right: 0px;
-    top: 593px;
-
+    top: 619px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1316,7 +1273,6 @@ td {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
@@ -1330,8 +1286,8 @@ td {
     position: absolute;
     width: 200px;
     height: 50px;
-    left: 714px;
-    top: 760px;
+    left: 932px;
+    top: 722px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1358,8 +1314,8 @@ td {
     position: absolute;
     width: 203.66px;
     height: 51px;
-    left: 940px;
-    top: 760px;
+    left: 1139px;
+    top: 722px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1372,7 +1328,6 @@ td {
     letter-spacing: 0.01em;
     color: #640E0B;
     cursor: pointer;
-
 }
 
 .outline-button a {
@@ -1405,16 +1360,13 @@ a {
     height: 65px;
     left: 633px;
     top: 0px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
     letter-spacing: 0.01em;
-
     color: #000000;
-
 }
 
 .reqA-img {
@@ -1454,7 +1406,6 @@ a {
 }
 
 .viewCamp-img {
-
     height: 400px;
     width: 29%;
     margin-top: -405px;
@@ -1470,6 +1421,7 @@ a {
     margin-bottom: 20px;
     border-radius: 10.8716px;
 }
+
 
 /* .chooseMe{
   width: 98%;
@@ -1549,14 +1501,12 @@ a {
     height: 46.32px;
     left: 79.65px;
     top: 29.69px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
 }
 
@@ -1564,7 +1514,6 @@ a {
     position: absolute;
     top: 110px;
     left: 147px;
-
 }
 
 .campaigns-line {
@@ -1611,7 +1560,6 @@ a {
     /* height: 158.31px; */
     left: 45%;
     top: 150px;
-
 }
 
 .msg {
@@ -1639,7 +1587,6 @@ a {
     height: 59px;
     left: 156px;
     top: 63px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1649,7 +1596,6 @@ a {
     align-items: center;
     text-align: center;
     letter-spacing: 0.01em;
-
     color: #640E0B;
 }
 
@@ -1658,15 +1604,13 @@ a {
     width: 487px;
     height: 529px;
     left: 632px;
-    top: 200px;
-
+    top: 223px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
 }
 
@@ -1677,30 +1621,7 @@ a {
 
 .timeslots-table {
     margin-left: 685px;
-    margin-top: -451px;
-}
-
-.timeslots-donor-table {
-    margin-left: 231px;
-    margin-top: 208px;
-}
-
-.btslots {
-    margin-left: 1115px;
-    margin-top: 54px;
-    width: 331px;
-    height: 53px;
-    background: #640E0B;
-    border-radius: 4px;
-    color: White;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: 'Poppins';
-
-}
-
-.btslots a {
-    color: White;
+    margin-top: -424px;
 }
 
 .schedule-btn {
@@ -1759,9 +1680,6 @@ a {
     color: white;
 }
 
-
-
-
 .viewSchedule-img {
     width: 400px;
     margin-left: 251px;
@@ -1815,20 +1733,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .startingTime-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 699px;
     right: 338px;
     top: 211px;
     bottom: 528px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -1847,19 +1761,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .endingTime-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 703px;
     right: 334px;
     top: 350px;
     bottom: 390px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -1871,16 +1782,13 @@ a {
     height: 46.32px;
     left: 103px;
     top: 52px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 30.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
-
 }
 
 .scheduleTimeslot-img {
@@ -1940,7 +1848,6 @@ a {
     letter-spacing: 0.01em;
     color: #640E0B;
     cursor: pointer;
-
 }
 
 .outline-btn a {
@@ -2007,36 +1914,48 @@ a {
 
 .instructions-title {
     position: absolute;
-    width: 1167px;
+    width: 1125px;
     height: 46px;
     left: 133px;
-    top: 106px;
+    top: 73px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: bolder;
-    font-size: 41px;
+    font-weight: 700;
+    font-size: 40px;
     line-height: 36px;
     letter-spacing: 0.01em;
-    color: #e62822;
+    color: #bf1b16;
     /* background: white; */
     border-radius: 10.8716px;
     z-index: 1;
-
 }
 
 .ins-points {
     letter-spacing: inherit;
     font-weight: 600;
-    background: hsl(46deg 100% 99%);
+    /* background: hsl(46deg 100% 99%); */
+    font-family: poppins;
+    position: absolute;
+    width: 1123px;
+    height: 514px;
+    left: 76px;
+    top: 161px;
+    font-size: larger;
+    border-radius: 10.8716px;
+}
+
+.parag1 {
+    letter-spacing: inherit;
+    font-weight: 600;
+    /* background: hsl(46deg 100% 99%); */
     font-family: poppins;
     position: absolute;
     width: 1214px;
     height: 514px;
-    left: 151px;
-    top: 304px;
+    left: 9px;
+    top: 33px;
     font-size: larger;
     border-radius: 10.8716px;
-
 }
 
 .accom-img {
@@ -2165,16 +2084,13 @@ a {
     height: 65px;
     left: 464px;
     top: 0px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
     letter-spacing: 0.01em;
-
     color: #000000;
-
 }
 
 .bed-p a {
@@ -2308,14 +2224,12 @@ a {
     height: 46.32px;
     left: 158px;
     top: 70px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
     letter-spacing: 0.01em;
-
     color: #000000;
 }
 
@@ -2334,7 +2248,6 @@ a {
     left: 675px;
     right: 0px;
     top: 315px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2342,21 +2255,16 @@ a {
     line-height: 21px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
-
 }
 
 .quant-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 672px;
     right: 276px;
     top: 351px;
     bottom: 387px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2414,7 +2322,6 @@ a {
     letter-spacing: 0.01em;
     color: #640E0B;
     cursor: pointer;
-
 }
 
 .outline-button1 a {
@@ -2425,38 +2332,38 @@ a {
     position: absolute;
     width: 318px;
     height: 48px;
-    left: 321px;
+    left: 466px;
     top: 47px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
+    /* identical to box height */
     letter-spacing: 0.01em;
     color: #000000;
-
 }
 
 .usr-type {
     position: absolute;
     width: 258px;
     height: 36px;
-    left: 321px;
+    left: 466px;
     top: 94px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 36px;
+    /* identical to box height */
     letter-spacing: 0.01em;
     color: #A4A4A4;
-
 }
 
 .orgName-label {
     position: absolute;
     height: 16px;
-    left: 200px;
+    left: 198px;
     right: 0px;
     top: 202px;
     font-family: 'Poppins';
@@ -2466,9 +2373,7 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .orgName-input {
@@ -2477,7 +2382,7 @@ a {
     left: 198px;
     right: 335px;
     top: 225px;
-    bottom: 514px;
+    height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2486,10 +2391,9 @@ a {
 .teleNo-label {
     position: absolute;
     height: 16px;
-    left: 199px;
+    left: 198px;
     right: 0px;
     top: 298px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2497,18 +2401,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .teleNo-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 198px;
-    right: 328px;
+    right: 335px;
     top: 320px;
-    bottom: 420px;
+    height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2517,7 +2419,7 @@ a {
 .loc-label {
     position: absolute;
     height: 16px;
-    left: 202px;
+    left: 198px;
     right: 114px;
     top: 391px;
     font-family: 'Poppins';
@@ -2527,34 +2429,29 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .num-input {
     box-sizing: border-box;
-
     position: absolute;
-    height: 52px;
-    left: 200px;
+    height: 56px;
+    left: 198px;
     right: 993px;
     top: 412px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     transform: rotate(-0.23deg);
-
 }
 
 .laneNme-input {
     box-sizing: border-box;
-
     position: absolute;
-    height: 51px;
+    height: 56px;
     left: 577px;
     right: 636px;
     top: 412px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2562,13 +2459,11 @@ a {
 
 .cit-input {
     box-sizing: border-box;
-
     position: absolute;
-    height: 48px;
+    height: 56px;
     left: 927px;
-    right: 328px;
+    right: 335px;
     top: 412px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2576,13 +2471,11 @@ a {
 
 .dis-input {
     box-sizing: border-box;
-
     position: absolute;
-    height: 51px;
-    left: 200px;
+    height: 56px;
+    left: 198px;
     right: 813px;
     top: 476px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2590,13 +2483,11 @@ a {
 
 .prov-input {
     box-sizing: border-box;
-
     position: absolute;
-    height: 52px;
+    height: 56px;
     left: 747px;
-    right: 322px;
+    right: 335px;
     top: 476px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2605,7 +2496,7 @@ a {
 .em-label {
     position: absolute;
     height: 16px;
-    left: 203px;
+    left: 198px;
     right: 0px;
     top: 545px;
     font-family: 'Poppins';
@@ -2615,22 +2506,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
-
-
 
 .em-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 198px;
-    right: 315px;
+    right: 335px;
     top: 566px;
-    bottom: 175px;
-
+    height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2638,13 +2523,11 @@ a {
 
 .currentPw-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 198px;
-    right: 315px;
+    right: 335px;
     top: 657px;
-    bottom: 81px;
-
+    height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2653,7 +2536,7 @@ a {
 .currentPw-label {
     position: absolute;
     height: 16px;
-    left: 203px;
+    left: 198px;
     right: 0px;
     top: 635px;
     font-family: 'Poppins';
@@ -2663,20 +2546,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .newPw-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 198px;
-    right: 315px;
+    right: 335px;
     top: 751px;
-    bottom: -16px;
-
+    height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -2685,7 +2564,7 @@ a {
 .newPw-label {
     position: absolute;
     height: 16px;
-    left: 203px;
+    left: 198px;
     right: 0px;
     top: 730px;
     font-family: 'Poppins';
@@ -2695,9 +2574,7 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .edit-button {
@@ -2707,19 +2584,19 @@ a {
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 203.66px;
     height: 52.49px;
     left: 1139px;
     top: 121px;
-
     background: #640E0B;
     border-radius: 10.8716px;
 }
 
 .edit-button a {
     color: white;
+    font-family: "Poppins";
+    font-weight: 400;
 }
 
 .update-button {
@@ -2729,7 +2606,6 @@ a {
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 165px;
     height: 52px;
@@ -2742,16 +2618,13 @@ a {
 
 .cancl-button {
     box-sizing: border-box;
-
     /* Auto layout */
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 203.66px;
     height: 52.49px;
@@ -2761,7 +2634,10 @@ a {
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
+}
 
+.cancl-button a {
+    color: #640E0B;
 }
 
 .update-button a {
@@ -2770,8 +2646,8 @@ a {
 
 .instru-img {
     filter: blur(8px);
+    opacity: 59%;
 }
-
 
 .view-feedbacks-title {
     position: absolute;
@@ -2779,14 +2655,12 @@ a {
     height: 46.32px;
     left: 130.65px;
     top: 71.69px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
 }
 
@@ -2794,7 +2668,6 @@ a {
     position: absolute;
     top: 221px;
     left: 147px;
-
 }
 
 .feedbacks-line {
@@ -2813,19 +2686,19 @@ a {
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 275px;
     height: 55px;
     left: 1076px;
     top: 101px;
-
     background: #640E0B;
     border-radius: 10.8716px;
 }
 
 .back-btn a {
     color: white;
+    font-family: "Poppins";
+    font-weight: 500;
 }
 
 .donate-today {
@@ -2921,7 +2794,6 @@ a {
     letter-spacing: 0.3px;
     text-transform: capitalize;
     color: #000000;
-
 }
 
 .cardLogos-img {
@@ -2957,14 +2829,12 @@ a {
     height: 77px;
     left: 116px;
     top: 28px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
     letter-spacing: 0.01em;
-
     color: #000000;
 }
 
@@ -2974,7 +2844,6 @@ a {
     left: 102px;
     right: 0px;
     top: 168px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2982,20 +2851,16 @@ a {
     line-height: 21px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .cardNo-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 103px;
     right: 579px;
     top: 194px;
     bottom: 550px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -3007,7 +2872,6 @@ a {
     left: 102px;
     right: 0px;
     top: 271px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -3015,20 +2879,16 @@ a {
     line-height: 21px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
-
 }
 
 .cardHolder-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 100px;
     right: 571px;
     top: 303px;
     bottom: 439px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -3040,7 +2900,6 @@ a {
     left: 103px;
     right: 0px;
     top: 384px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -3048,42 +2907,34 @@ a {
     line-height: 21px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .expiryDate-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 100px;
     right: 563px;
     top: 414px;
     bottom: 327px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
 }
 
-
-
 .cvc-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 103px;
     right: 560px;
     top: 523px;
     bottom: 218px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
 }
 
 .cvc-label {
-
     position: absolute;
     height: 16px;
     left: 104px;
@@ -3122,7 +2973,9 @@ a {
     left: 100px;
 }
 
+
 /* Hide the browser's default checkbox */
+
 .tik input {
     position: absolute;
     opacity: 0;
@@ -3131,7 +2984,9 @@ a {
     width: 0;
 }
 
+
 /* Create a custom checkbox */
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -3141,29 +2996,39 @@ a {
     background-color: #eee;
 }
 
+
 /* On mouse-over, add a grey background color */
+
 .tik:hover input~.checkmark {
     background-color: #ccc;
 }
 
+
 /* When the checkbox is checked, add a blue background */
+
 .tik input:checked~.checkmark {
     background-color: #2196F3;
 }
 
+
 /* Create the checkmark/indicator (hidden when not checked) */
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
+
 /* Show the checkmark when checked */
+
 .tik input:checked~.checkmark:after {
     display: block;
 }
 
+
 /* Style the checkmark/indicator */
+
 .tik .checkmark:after {
     left: 9px;
     top: 5px;
@@ -3183,7 +3048,6 @@ a {
     align-items: center;
     padding: 9.05963px;
     gap: 9.06px;
-
     position: absolute;
     width: 517px;
     height: 52px;
@@ -3192,7 +3056,6 @@ a {
     color: white;
     background: #640E0B;
     border-radius: 10.8716px;
-
 }
 
 .feedback-title {
@@ -3207,9 +3070,7 @@ a {
     font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
-
     color: #000000;
-
 }
 
 .feedback-label {
@@ -3218,7 +3079,6 @@ a {
     left: 664px;
     right: 0px;
     top: 225px;
-
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -3226,19 +3086,16 @@ a {
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
-
     color: #000000;
 }
 
 .feedback-input {
     box-sizing: border-box;
-
     position: absolute;
     left: 603px;
     right: 252px;
     top: 256px;
     bottom: 227px;
-
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -3291,16 +3148,14 @@ a {
     top: 72px;
     position: absolute;
     width: 100px;
-    left: 128px;
-
+    left: 325px;
 }
 
 .change_img {
-    top: 135px;
+    top: 133px;
     position: absolute;
     width: 28px;
-    left: 209px;
-
+    left: 401px;
 }
 
 .profile-container a {
@@ -3327,14 +3182,12 @@ a {
 }
 
 .box .main {
-
     margin-top: 10%;
-    margin-left: 14%;
+    margin-left: 24%;
     display: flex;
     font-family: 'Poppins';
     line-height: 40px;
     font-size: 17px;
-
 }
 
 .box .main .left {
@@ -3371,7 +3224,38 @@ a {
 }
 
 .add-user-title {
+    margin-left: 152px;
+    margin-top: 49px;
     font-family: 'Poppins';
+}
+
+.cont2 {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1297px;
+    height: 753px;
+    left: 127px;
+    top: 274px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.Table-content {
+    top: 100px;
+}
+
+.profilebox {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 943px;
+    left: 316px;
+    top: 127px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
 }
 
 .view-btn {
@@ -3385,6 +3269,26 @@ a {
     cursor: pointer;
     width: 100px;
     height: 40px;
+}
 
+.timeslots-donor-table {
+    margin-left: 231px;
+    margin-top: 208px;
+}
 
+.btslots {
+    margin-left: 1115px;
+    margin-top: 54px;
+    width: 331px;
+    height: 53px;
+    background: #640E0B;
+    border-radius: 4px;
+    color: White;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Poppins';
+}
+
+.btslots a {
+    color: white;
 }

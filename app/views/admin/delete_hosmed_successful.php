@@ -36,7 +36,7 @@ $metaTitle = "Hospital Medical Center deleted successfully";
     <div class="box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Successfully deleted the Hospital/Medical center !</p>
+            <p class="success-msg-txt">Successfully deactivated the hospital/medical center !</p>
             <a href="/usermanage/type?page=1" class="brown-button back-to-reserve">Back to Users</a>
             <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
         </div>

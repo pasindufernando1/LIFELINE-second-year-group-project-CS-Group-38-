@@ -37,7 +37,7 @@ $metaTitle = "View Donor"
     <div class="box">
         <p class="update-user-title">Donor details</p>
             <div class="hospital-viewicon">
-                <img src="../../../public/img/admindashboard/blood-donor.png" alt="hospital" id="hospital-viewicon">
+                <img src="../../../public/img/user_pics/<?php echo $_SESSION['Userpic'] ?>" alt="donor" id="hospital-viewicon">
             </div>
             <div class="quantity-container">
                 <label class="nameview-lable" for="name">Name    : <div class="content"><?php echo $_SESSION['Name'] ?></div></label>

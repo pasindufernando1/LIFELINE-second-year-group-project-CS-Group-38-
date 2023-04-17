@@ -22,6 +22,10 @@ class User extends Controller
                 $this->view->render('systemuser/dashboard');
                 exit();
             } elseif ($_SESSION['type'] == 'Admin') {
+                $_SESSION['hospitals'] = $this->model->getHospitals();
+                $_SESSION['dashboard_stats'] = $this->model->getDashboardStats();
+                $_SESSION['blood_donations'] = $this->model->getdonations();
+                $_SESSION['donor_composition']  = $this->model->getdonorcomposition();
                 $this->view->render('admin/dashboard');
                 exit();
             } elseif ($_SESSION['type'] == 'Donor') {
@@ -43,6 +47,7 @@ class User extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
+
         if ($_SESSION['type'] == 'System User') {
             if ($this->model->authenticate($uname, $pwd)) {
                 $_SESSION['useremail'] = $_POST['username'];
@@ -50,13 +55,15 @@ class User extends Controller
                 //set session variables
                 $user_pic = $this->model->getuserimg($uname);
                 $_SESSION['user_pic'] = $user_pic;
-
+                $_SESSION['blood_bank_id'] = $this ->model -> getBloodBankid($_SESSION['useremail']);
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['username'] = $this->model->getUserName($uname);
                 $_SESSION['bloodbankname'] = $this->model->getBloodBankName(
                     $uname
                 );
+                $_SESSION['packets'] = $this->model->getAllPackets($_SESSION['blood_bank_id']);
                 $this->view->render('systemuser/dashboard');
+                $_SESSION['bloodtypes'] = $this->model->getAllTypes($_SESSION['blood_bank_id']);
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
                 header('Location: /login');
@@ -71,12 +78,19 @@ class User extends Controller
             $password = $this->model->getpassword($uname);
             $_SESSION['Password'] = $password;
 
+
+            // Get pending hospital requests details
+            $_SESSION['hospitals'] = $this->model->getHospitals();
+            // Get the dashboard stats
+            $_SESSION['dashboard_stats'] = $this->model->getDashboardStats();
+            $_SESSION['blood_donations'] = $this->model->getdonations();
+            $_SESSION['donor_composition']  = $this->model->getdonorcomposition();
+
             if ($this->model->authenticate($uname, $pwd)) {
                 $_SESSION['useremail'] = $_POST['username'];
                 //set session variables
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['username'] = $this->model->getUserName($uname);
-                $_SESSION['hospitals'] = $this->model->getHospitals();
                 $this->view->render('admin/dashboard');
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
@@ -152,7 +166,8 @@ class User extends Controller
                 header('Location: /login');
             }
         } else {
-            header('Location: /HospitalUser/dashboard');
+            $_SESSION['error'] = 'Username Not Found';
+            header('Location: /login');
             exit();
         }
     }

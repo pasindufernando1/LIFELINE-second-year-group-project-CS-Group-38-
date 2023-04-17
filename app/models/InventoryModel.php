@@ -1,5 +1,4 @@
 <?php
-session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP   ;
@@ -28,6 +27,108 @@ class InventoryModel extends Model
         return $data;
     }
 
+    //Get filtered inventory details
+    public function getFilteredInventoryDetails($inventoryname, $bloodbankname)
+    {   
+        // Get the blood bank id for a given blood bank name
+        $bank_id = $this->getBankID($bloodbankname);
+        
+        // Get the inventory ids for a given inventory name
+        $inventory_id = $this->getInventoryTypeID($inventoryname);
+
+        $columns = array(":InventoryID",":BloodBankID");
+        $values = array($inventory_id,$bank_id);
+
+        $data = $this->db->select("*", "bank_inventory_categories", "WHERE InventoryID = :InventoryID AND BloodBankID = :BloodBankID",$columns, $values);
+        foreach ($data as $key => $value) {
+            $data[$key]['BloodBank_Name'] = $this->getBankName($value['BloodBankID']);
+        }
+        //Take the inventory type name and category for each inventory type id and add it to the array
+        foreach ($data as $key => $value) {
+            $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
+            $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
+        }
+        // print_r($data);die();
+        return $data;
+    }
+
+    // Get the inventory details for a particular blood bank
+    public function getFilteredInventoryForBank($bloodbankname)
+    {
+        // Get the blood bank id for a given blood bank name
+        $bank_id = $this->getBankID($bloodbankname);
+        $data = $this->db->select("*", "bank_inventory_categories", "WHERE BloodBankID = :BloodBankID", "BloodBankID", $bank_id);
+        // Take the blood bank name for each blood bank id and add it to the array
+        foreach ($data as $key => $value) {
+            $data[$key]['BloodBank_Name'] = $this->getBankName($value['BloodBankID']);
+        }
+        //Take the inventory type name and category for each inventory type id and add it to the array
+        foreach ($data as $key => $value) {
+            $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
+            $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
+        }
+        // print_r($data);die();
+        return $data;
+    }
+
+    // Get all filtered inventory details for a given inventory name
+    public function getAllFilteredInventoryDetails($inventory_name)
+    {
+        // Get the inventory ids for a given inventory name
+        $inventory_id = $this->getInventoryTypeID($inventory_name);
+        $data = $this->db->select("*", "bank_inventory_categories", "WHERE InventoryID = :InventoryID", "InventoryID", $inventory_id);
+        // Take the blood bank name for each blood bank id and add it to the array
+        foreach ($data as $key => $value) {
+            $data[$key]['BloodBank_Name'] = $this->getBankName($value['BloodBankID']);
+        }
+        //Take the inventory type name and category for each inventory type id and add it to the array
+        foreach ($data as $key => $value) {
+            $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
+            $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
+        }
+        // print_r($data);die();
+        return $data;
+    }
+
+
+    // Get the inventory names of a given blood bank
+    public function getInventoryofBank($bloodbankname)
+    {
+        // Get the blood bank id for a given blood bank name
+        $bank_id = $this->getBankID($bloodbankname);
+        // Get the inventory ids for a given blood bank id
+
+    }
+
+    // Get the blooddbank id for a given blood bank name
+    public function getBankID($bank_name)
+    {
+        $data = $this->db->select("BloodBankID", "bloodbank", "WHERE BloodBank_Name = :BloodBank_Name", ":BloodBank_Name", $bank_name);
+        return $data[0]['BloodBankID'];
+    }
+
+    //Get the current inventory names
+    public function getAllInventoryName()
+    {
+        $data = $this->db->select("Name", "inventory","Null");
+        // Get only the inventory names
+        foreach ($data as $key => $value) {
+            $data[$key] = $value['Name'];
+        }
+        return $data;
+    }
+
+    //Get the current blood bank names
+    public function getAllBloodBankName()
+    {
+        $data = $this->db->select("BloodBank_Name", "bloodbank","Null");
+        // Get only the blood bank names
+        foreach ($data as $key => $value) {
+            $data[$key] = $value['BloodBank_Name'];
+        }
+        return $data;
+    }
+
     // Get the blood bank name for a given blood bank id
     public function getBankName($bank_id)
     {
@@ -42,6 +143,13 @@ class InventoryModel extends Model
         return $data[0]['Name'];
     }
 
+    // Get the inventory type id for a given inventory name
+    public function getInventoryTypeID($inventory_name)
+    {
+        $data = $this->db->select("InventoryID", "inventory", "WHERE Name = :Name", "Name", $inventory_name);
+        return $data[0]['InventoryID'];
+    }
+
     // Get the inventory category name for a given inventory type id
     public function getInventoryCategoryName($inventory_type_id)
     {
@@ -52,20 +160,8 @@ class InventoryModel extends Model
     public function getAllInventoryDonations()
     {
         
-        $data = $this->db->select("*", "donation","WHERE DonationType = :Inventory","Inventory","Inventory");
-        // Exclude the donations where the Admin_verify is set to be 1 in the inventory_donation table
-        foreach ($data as $key => $value) {
-            $data[$key]['Admin_verify'] = $this->getAdminVerify($value['DonationID']);
-            if($data[$key]['Admin_verify'] == 1){
-                unset($data[$key]);
-            }
-        }
-        // Get the inventory category,quantity and date for each donation id and add it to the array
-        foreach ($data as $key => $value) {
-            $data[$key]['Inventory_Category'] = $this->getInventoryCatName($value['DonationID']);
-            $data[$key]['Quantity'] = $this->getInventoryQuantity($value['DonationID']);
-            $data[$key]['Date'] = $this->getInventoryDate($value['DonationID']);
-        }
+        $data = $this->db->select("*", "inventory_donation","WHERE Admin_verify = :Admin_verify",":Admin_verify",0);
+
         // print_r($data);die();
         return $data;
     }

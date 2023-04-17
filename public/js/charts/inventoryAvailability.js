@@ -1,4 +1,4 @@
-// Blood availability graph
+// Inventory availability graph
 var ctx = document.getElementById('inventory-availability').getContext('2d');
 console.log(ctx);
 var myChart = new Chart(ctx, {

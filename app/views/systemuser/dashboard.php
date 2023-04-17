@@ -151,7 +151,7 @@ $metaTitle = "System User Dashboard"
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
-                        $results_per_page = 7;
+                        $results_per_page = 3;
                         $number_of_results = $_SESSION['rowCount'];
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
@@ -187,7 +187,26 @@ $metaTitle = "System User Dashboard"
                         }
                        
                   
-                       
+                       echo '<div class="pag-box">';
+                        if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        }
+                  
+                        for($page = 1; $page<= $number_of_page; $page++) {  
+                            if ($page == $_GET['page']) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        if ($_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        }else{
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        }
+                          
                         
                           
                         echo '</div>' ;?>

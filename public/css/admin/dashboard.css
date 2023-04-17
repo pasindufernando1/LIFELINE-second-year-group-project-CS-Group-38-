@@ -673,9 +673,9 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 810px;
+    height: 881px;
     left: 316px;
-    top: 101px;
+    top: 109px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -1745,6 +1745,62 @@ a {
     border: 1px #949494 solid;
 }
 
+.pink-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 609px;
+    top: 32px;
+    background: #F5AEAC;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #360806;
+    cursor: pointer;
+    border: 1px #640E0B solid;
+}
+
+.light-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 203.66px;
+    height: 37.49px;
+    left: 342px;
+    top: 32px;
+    background: #FBDAD9;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #640E0B;
+    cursor: pointer;
+    border: 1px #F5AEAC solid;
+}
+
+.pink-button:hover, .light-button:hover {
+        font-size: 13.6835px;
+}
+
 .brown-button-update {
     display: flex;
     flex-direction: row;
@@ -1852,7 +1908,7 @@ a {
 
 .success-msg-txt {
     position: absolute;
-    width: 460.68px;
+    width: 472.68px;
     height: 33.24px;
     left: 528px;
     top: 375px;
@@ -1976,6 +2032,22 @@ a {
     left: 1036px;
 }
 
+.bloodbank-user {
+    position: absolute;
+    top: 45px;
+    left: 513px;
+    width: 25px;
+    height: 25px;
+}
+
+.deactivated-user{
+    position: absolute;
+    top: 45px;
+    left: 787px;
+    width: 25px;
+    height: 25px;
+
+}
 
 .expired-stocks-img {
     position: absolute;
@@ -2028,7 +2100,7 @@ a {
 .user-filter-img{
     position: absolute;
     top: 51px;
-    left: 1344px;
+    left: 1350px;
 }
 
 .action-btns {
@@ -2062,7 +2134,8 @@ a {
     color: #5C5C5C;
     font-family: 'Poppins';
     font-weight: bold;
-    border: none
+    border: none;
+    padding-top: 8px;
 }
 
 .delete-btn {
@@ -2072,6 +2145,21 @@ a {
     border-radius: 4px;
     text-align: center;
     margin: 0px 0px 0px -127px;
+}
+
+.reactivate-btn{
+    width: 150px;
+    height: 35px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 5px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 16px;
+    color: #640E0B;
+    border: none;
+
 }
 
 th {
@@ -2198,6 +2286,27 @@ td {
     padding-left: 67px;
 }
 
+.button-ad-add{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 239px;
+    height: 125px;
+    left: 596px;
+    top: 400px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    color: #FCFEFE;
+    font-family: 'Poppins';
+    font-size: larger;
+    font-weight: 600;
+    padding-left: 67px;
+}
+
 .button-org-add{
     display: flex;
     flex-direction: row;
@@ -2209,7 +2318,7 @@ td {
     width: 239px;
     height: 125px;
     left: 837px;
-    top: 520px;
+    top: 630px;
     background: #640E0B;
     border-radius: 10.8716px;
     color: #FCFEFE;
@@ -2230,7 +2339,7 @@ td {
     width: 239px;
     height: 125px;
     left: 381px;
-    top: 520px;
+    top: 630px;
     background: #640E0B;
     border-radius: 10.8716px;
     color: #FCFEFE;
@@ -2259,12 +2368,36 @@ td {
     margin-left: -54px
 }
 
-.hospital-viewicon img{
+.adminicon{
+    margin-left: -54px;
+    width: 40%;
+}
+
+
+
+/* .hospital-viewicon img{
     width: 150px;
     height: 150px;
     margin-left: 773px;
     margin-top: 68px;
-}
+} */
+
+.hospital-viewicon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #640E0B;
+    position: absolute;
+    top: 50px;
+    left: 791px;
+  }
+  
+  #hospital-viewicon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
 .nameview-lable {
     position: absolute;
@@ -2327,7 +2460,6 @@ td {
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2343,7 +2475,6 @@ td {
     font-size: larger;
     line-height: 18px;
     letter-spacing: 0.3px;
-    text-transform: capitalize;
     color: #000000;
 }
 
@@ -2465,7 +2596,7 @@ td {
     font-size: large;
 }
 
-.brown-button-view{
+.brown-button-view, .brown-button-view-admin{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2489,6 +2620,10 @@ td {
     color: #FCFEFE;
     cursor: pointer;
     border: 1px #949494 solid;
+}
+
+.brown-button-view-admin{
+    top: 493px;
 }
 
 .brown-button-view:hover{
@@ -2695,9 +2830,9 @@ td {
     color: #BF1B16;
     vertical-align: middle;
     padding-top: 0px;
-    margin-left: 224px;
+    margin-left: -38px;
     font-weight: 700;
-    margin-top: 36px;
+    margin-top: -12px;
 }
 
 .validate {
@@ -2710,9 +2845,9 @@ td {
     color: #5C5C5C;
     vertical-align: middle;
     padding-top: 0px;
-    margin-left: 41px;
+    margin-left: -38px;
     font-weight: 700;
-    margin-top: 36px;
+    margin-top: -12px;
     box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.05);
 }
 
@@ -2766,4 +2901,102 @@ td {
     top: 103.25px;
     left: 53px;
     border: 0.818053px solid #EFEFEF;
+}
+
+.image-lable{
+    position: absolute;
+    height: 16px;
+    left: 65px;
+    /* right: 0px; */
+    top: 490px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: normal;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.camera-icon {
+    position: absolute;
+    cursor: pointer;
+    width: 95px;
+    height: auto;
+    /* margin-top: -5px; */
+    top: 40px;
+    left: 61px;
+}
+
+
+.browsepic {
+    position: absolute;
+    cursor: pointer;
+    width: 133px;
+    /* height: auto; */
+    /* margin-top: -5px; */
+    top: 140px;
+    left: 43px;
+}
+
+
+.icons{
+    border: 2px solid #949494;
+    border-radius: 0.8vw;
+    border-color: #949494;
+    padding: 106px;
+    position: absolute;
+    top: 515px;
+    left: 85px;
+}
+
+.feedback-btn{
+    position: absolute;
+    width: 141px;
+    height: 45px;
+    left: 200px;
+    top: 108px;
+    background: #FFFFFF;
+    border: 1px solid #9a9a9a;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.feedback-btn:hover{
+    background: #EFEFEF;
+    color: #000000;
+    font-size: 16px;
+}
+
+.verify-btn {
+    width: 254px;
+    height: 35px;
+    background: #AFAFAF;
+    border-radius: 4px;
+    margin: 0px -43px 0px -30px;
+    text-align: center;
+    cursor: pointer;
+    color: #212121;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+    padding: 8px 23px 8px 36px;
+}
+
+.tick {
+    margin-left: 10px;
 }
