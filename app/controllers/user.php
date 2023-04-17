@@ -25,7 +25,7 @@ class User extends Controller
                 $_SESSION['hospitals'] = $this->model->getHospitals();
                 $_SESSION['dashboard_stats'] = $this->model->getDashboardStats();
                 $_SESSION['blood_donations'] = $this->model->getdonations();
-                $_SESSION['donor_composition']  = $this->model->getdonorcomposition();
+                $_SESSION['donor_composition'] = $this->model->getdonorcomposition();
                 $this->view->render('admin/dashboard');
                 exit();
             } elseif ($_SESSION['type'] == 'Donor') {
@@ -55,7 +55,7 @@ class User extends Controller
                 //set session variables
                 $user_pic = $this->model->getuserimg($uname);
                 $_SESSION['user_pic'] = $user_pic;
-                $_SESSION['blood_bank_id'] = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                $_SESSION['blood_bank_id'] = $this->model->getBloodBankid($_SESSION['useremail']);
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['username'] = $this->model->getUserName($uname);
                 $_SESSION['bloodbankname'] = $this->model->getBloodBankName(
@@ -84,7 +84,7 @@ class User extends Controller
             // Get the dashboard stats
             $_SESSION['dashboard_stats'] = $this->model->getDashboardStats();
             $_SESSION['blood_donations'] = $this->model->getdonations();
-            $_SESSION['donor_composition']  = $this->model->getdonorcomposition();
+            $_SESSION['donor_composition'] = $this->model->getdonorcomposition();
 
             if ($this->model->authenticate($uname, $pwd)) {
                 $_SESSION['useremail'] = $_POST['username'];
@@ -108,13 +108,47 @@ class User extends Controller
             if ($this->model->authenticate($uname, $pwd)) {
                 //set session variables
                 $_SESSION['login'] = 'loggedin';
+                $_SESSION['user_pic'] = $this->model->getuserimg($uname);
                 $_SESSION['username'] = $this->model->getUserName($uname);
+                $_SESSION['userdistrict'] = $this->model->getdonordistrict($_SESSION['user_ID']);
 
                 $_SESSION['today'] = date('Y-m-d H:i:s');
 
-                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
-                    $_SESSION['today']
+                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today'], $_SESSION['userdistrict']);
+
+                $_SESSION['newest_badge'] = $this->model->getnewestbadge(
+                    $_SESSION['user_ID']
                 );
+
+                $_SESSION['camp_ads'] = $this->model->getCampAds(
+                    $_SESSION['upcoming_campaigns']
+                );
+
+                //Get the last donation date of the donor
+                $last_donation = $this->model->getLastDonation(
+                    $_SESSION['user_ID']
+                );
+
+                $_SESSION['days_last_donation'] = null;
+
+                if ($last_donation != false) {
+                    $date1 = date_create($last_donation);
+                    $date2 = date_create($_SESSION['today']);
+                    $_SESSION['days_last_donation'] = date_diff($date2, $date1);
+                    $_SESSION['days_last_donation'] = $_SESSION['days_last_donation']->days;
+                }
+
+                //Get the total donated amount of blood of the donor
+                $_SESSION['total_donated_amount'] = $this->model->getTotalDonatedAmount(
+                    $_SESSION['user_ID']
+                );
+                $no_of_camp_donations = $this->model->getNoOfCampDonations(
+                    $_SESSION['user_ID']
+                );
+                $no_of_bank_donations = $this->model->getNoOfBankDonations(
+                    $_SESSION['user_ID']
+                );
+                $_SESSION['no_of_donations'] = $no_of_camp_donations + $no_of_bank_donations;
                 $this->view->render('donor/dashboard');
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
@@ -139,10 +173,10 @@ class User extends Controller
                 $_SESSION[
                     'bloodbank_contact'
                 ] = $this->model->viewBloodBankContact(
-                    $_SESSION['nearbyBloodbanks']
-                );
+                        $_SESSION['nearbyBloodbanks']
+                    );
 
-                
+
 
                 $this->view->render('hospitals/dashboard');
             } else {

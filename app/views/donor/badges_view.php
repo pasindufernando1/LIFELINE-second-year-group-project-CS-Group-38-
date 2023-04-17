@@ -1,5 +1,5 @@
 <?php
-// print_r($_SESSION['donor_contact']);
+// print_r($_SESSION['badges'][1][0]);
 // die();
 
 $metaTitle = 'Donor Dashboard'; ?>
@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,43 +35,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -133,26 +100,77 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div class="badges-container">
-        <div class="left">
-            <img src="../../../public/img/donordashboard/6262.jpg">
-        </div>
-        <div class="right">
-            <div class="latest">
-                <h2>Your Newest Badge</h2>
-                <img src="../../../public/img/donordashboard/SilverMedal.png">
-            </div>
-            <div class="your">
-                <h2>Your Badges</h2>
-                <div>
-                    <img src="../../../public/img/donordashboard/SilverMedal.png">
-                    <img src="../../../public/img/donordashboard/BronzeMedal.png">
-                </div>
-            </div>
-            <div class="yet">
-                <h2>Yet to Earn</h2>
-                <img src="../../../public/img/donordashboard/GoldMedal.png">
+
+        <div class="latest">
+            <h2>Your Newest Badge</h2>
+            <div>
+                <img onclick="showalert('<?php echo $_SESSION['newest_badge']; ?>')"
+                    src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>">
             </div>
         </div>
+
+        <div class="clickon">
+            <p>Donate Blood To Earn More BADGES!!</p>
+            <p>Click On the BADGES to know More About Them</p>
+        </div>
+
+        <div class="your">
+            <h2>Your Badges</h2>
+            <div class="content">
+                <?php
+                foreach ($_SESSION['badges'] as $badge) {
+                    echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '"></div>';
+                }
+                ?>
+            </div>
+        </div>
+        <div class="yet">
+            <h2>Yet to Earn</h2>
+            <div class="content">
+                <?php
+                foreach ($_SESSION['yet_badges'] as $badge) {
+                    echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '"></div>';
+                }
+                ?>
+            </div>
+        </div>
+
+        <div id="alertBox" class="hidden">
+            <div>
+                <img id="alertBadge" src='' alt="badge">
+                <p>This Badge is Rewarded For Donating Blood <span class="alertMessage"></span> Times </p>
+                <img id="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+            </div>
+        </div>
+
+        <script>
+            var badge;
+
+            function showalert(badge) {
+                console.log(badge);
+                const alertBox = document.getElementById("alertBox");
+                const alertBadge = document.getElementById("alertBadge");
+                const alertMessage = document.querySelector(".alertMessage");
+
+                // message = badge.split(".")[0];
+                <?php foreach ($_SESSION['badge_info'] as $badge) {
+                    echo "if(badge == '$badge[0]'){
+                    message = '$badge[1]';
+                }";
+                } ?>
+
+                alertBadge.src = "../../../public/img/badges/" + badge;
+                alertMessage.innerText = message;
+                alertBox.classList.remove("hidden");
+
+            }
+
+            function hidealert() {
+                const alertBox = document.getElementById("alertBox");
+                alertBox.classList.add("hidden");
+            }
+        </script>
+
     </div>
 </body>
 
