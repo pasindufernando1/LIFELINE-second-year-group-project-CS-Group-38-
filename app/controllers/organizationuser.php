@@ -25,9 +25,10 @@ class OrganizationUser extends Controller
         //if already logged in redirect to the organization dashboard
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Organization/Society") {
-                $camp_info = $this->model->view_campaign_info();
+                // $camp_info = $this->model->view_campaign_info();
                 
-                $_SESSION['campaignsList'] = $camp_info;
+                $_SESSION['campaignsList'] = $this->model->view_campaign_info($_SESSION['User_ID']);
+                $_SESSION['PastCampaignsList'] = $this->model->view_past_campaign_info($_SESSION['User_ID']);
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -41,12 +42,18 @@ class OrganizationUser extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
+
         if ($this->model->authenticate($uname, $pwd)) {
 
             //set session variables
+            $_SESSION['campaignsList'] = $this->model->view_campaign_info();
+
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['User_ID'] = $this->model-> getUserID($uname);
+            
             $this->view->render('organization/dashboard');
 
             
@@ -59,7 +66,7 @@ class OrganizationUser extends Controller
 
     function logout()
     {
-        //destroy session variables
+        //destroy session v ariables
         session_unset();
         session_destroy();
         session_regenerate_id(true);
@@ -77,7 +84,6 @@ class OrganizationUser extends Controller
 
             $Name = $_POST['name'];
             $Registration_no = $_POST['regno'];
-            
             $Number = $_POST['number'];
             $LaneName = $_POST['lane'];
             $City = $_POST['city'];

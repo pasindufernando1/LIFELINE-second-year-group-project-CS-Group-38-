@@ -67,11 +67,25 @@
 
 .t-boxes {
     width: 100%;
-    height: 70vw;
+    height: 23vw;
     margin-top: -4vw;
     /* background: aqua; */
     display: flex;
 }
+
+.about-us {
+    position: absolute;
+    width: 75%;
+    height: 34vw;
+    margin-left: 12.5%;
+    margin-top: 6%;
+}
+
+.about-us img {
+    width: 25vw;
+    height: 30vw;
+}
+
 
 /* .t-boxes p {
     color: black;
@@ -551,7 +565,7 @@
     background-color: #F5AEAC;
 }
 
-.aboutUs-img{
+.aboutUs-img {
     position: relative;
     width: 39%;
     height: 70%;
@@ -559,52 +573,56 @@
     top: 16%;
 }
 
-.welcome-title{
-    position: relative;
-    width: 100%;
-    height: auto;
-    left: 12%;
-    top: 15%;
-    
+.welcome-title {
+    margin-left: 37%;
+    margin-top: -41.2%;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 1.250vw;
     line-height: 1.458vw;
     letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #640E0B;
+    color: #EB5550;
 }
 
-.name-title{
-    position: relative;
-    width: 124%;
-    height: 40%;
-    left: -16%;
-    top: 16%;
+.name-title {
+    font-size: 2.5vw;
+    color: #EB5550;
+    margin-left: 37%;
+    margin-top: -1%;
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 800;
-    font-size: 313%;
+    /* font-size: 313%; */
     line-height: 100%;
     color: #EB5550;
-} 
-.services-list{
+}
+
+.services-list {
     top: 143%;
     left: 50%;
     position: absolute;
     font-family: 'Work Sans';
     font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 240%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 240%;
+}
+
+.about-us ul {
+    font-family: "Poppins";
+    font-size: 1.1vw;
+    /* color: #EB5550; */
+    margin-left: 38%;
+    margin-top: -2%;
+    line-height: 2.5vw;
 }
 
 @media only screen and (max-width: 767px) {
-    .services-list{
+    .services-list {
         font-size: 1.2vw;
     }
-  
+
 }
 
 /* @media only screen and (max-width: 767px) {
@@ -614,12 +632,11 @@ line-height: 240%;
       margin-bottom: 0.5em;
     }
   } */
-  
-  .des {
-    position: absolute;
-    left: 50%;
-    top: 165%;
-    width: 45%;
+
+.des {
+    width: 60%;
+    margin-left: 35%;
+    margin-top: -28px;
     height: auto;
     padding: 1em;
     font-family: 'Work Sans';
@@ -627,18 +644,13 @@ line-height: 240%;
     font-weight: 400;
     font-size: 1.2vw;
     line-height: 1.4;
-};
-    @media only screen and (max-width: 767px) {
-        .des{
-            font-size: 1.2vw;
-        }
-      
+}
+
+;
+
+@media only screen and (max-width: 767px) {
+    .des {
+        font-size: 1.2vw;
     }
-  
 
-  
-  
-  
-
-
- 
+}

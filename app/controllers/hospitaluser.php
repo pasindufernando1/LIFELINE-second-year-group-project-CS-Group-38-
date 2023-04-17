@@ -39,6 +39,10 @@ class HospitalUser extends Controller
 
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
+
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
+        print_r($_SESSION['user_pic']);die();
         
 
         if ($this->model->authenticate($uname, $pwd)) {
@@ -47,7 +51,12 @@ class HospitalUser extends Controller
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['User_ID'] = $this->model-> getUserID($uname);
-            
+            $_SESSION['District']= $this->model-> getUserDistrict($_SESSION['User_ID']);
+            //print_r($_SESSION['District']);die();
+            $_SESSION['nearbyBloodbanks'] = $this->model->viewNearbyBloodbanks($_SESSION['District']);
+            // $_SESSION['nearbyBloodbanks'] = 1;
+
+            // print_r($_SESSION['nearbyBloodbanks']);die();
             $this->view->render('hospitals/dashboard');
            
             

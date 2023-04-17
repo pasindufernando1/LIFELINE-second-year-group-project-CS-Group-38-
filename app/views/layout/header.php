@@ -1,7 +1,6 @@
 <?php
     $siteName= "Life Line Blood Banks & Donation Management System";
     $version = '0,1';
-
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,6 @@
 
     <!-- CSS Files -->
     <link href="../../../public/css/header.css" rel="stylesheet">
-
 </head>
 <body>
     <div>
@@ -41,7 +39,7 @@
                         <p>Emergency</p> 
                     </div>
                     <div class="sub-emergency">
-                        <p><a href="tel:123-456-7890">123-456-7890</a></p> 
+                        <p><a href="tel:123-456-7890">+94112369931-4</a></p> 
                     </div>
 
                 </div>
@@ -66,10 +64,10 @@
                         <img src="..\..\..\public\img\header\icon-location.svg" alt="icon-location">
                     </div>
                     <div class="head-location">
-                        <p>Location</p> 
+                        <p>National Blood Transfusion Service</p> 
                     </div>
                     <div class="sub-location">
-                        <p>0123 Some Place</p> 
+                        <p>Colombo 00500, Sri Lanka</p> 
                     </div>
 
                 </div>

@@ -44,7 +44,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -117,7 +117,7 @@ $metaTitle = "organizations Dashboard"
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="feedback-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile-selected">
@@ -128,11 +128,36 @@ $metaTitle = "organizations Dashboard"
                     </div>    
                 </div>
             </div>
-            <?php 
-            echo '<div class="box">
-                <p class="usr-name">'.($_SESSION['Username']).'</p><br>
-                <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
-                <form action="/requestApproval/edit_profile/" method="post" id="addform"> 
+             
+            <div class="profilebox">
+            <form action="/requestApproval/edit_profile/" method="post" id="addform" enctype="multipart/form-data"> 
+            <!-- <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br> -->
+            <div class="profile-pic">
+                <div class="image-1">
+                    <img class="hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
+                    <div class="image-upload">
+                        <label for="file-input">
+                        <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png" />
+                        </label>
+                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);">
+                    </div>
+                </div>
+
+                <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("hospital_img").src = e.target.result;
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                </script> 
+                
+                 <p class="usr-name"><?php echo ($_SESSION['Username'])?></p><br>
+                <p class="usr-type"><?php echo($_SESSION['UserType'])?></p><br>
+            </div>    
                 <label id="orgName-label" class="orgName-label" for="campName">Organization Name:</label>
                 <br>
                 <input class="orgName-input" id="orgName"  type="text" name="orgName" autofocus placeholder="Organization Name" required>
@@ -151,9 +176,47 @@ $metaTitle = "organizations Dashboard"
                 <br>
                 <input class="cit-input" id="cit"  type="text" name="cit" autofocus placeholder="City" required>
                 <br>
-                <input class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="District" required>
+                <select class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="District" required>
+                <option value="" disabled selected hidden>District</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kegalle">Kegalle</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                </select>
                 <br>
-                <input class="prov-input" id="prov"  type="text" name="prov" autofocus placeholder="Province" required>
+                <select class="prov-input" id="prov"  type="text" name="prov" autofocus placeholder="Province" required>
+                <option value="" disabled selected hidden>Province</option>
+                    <option value="Central">Central</option>
+                    <option value="Eastern">Eastern</option>
+                    <option value="North Central">North Central</option>
+                    <option value="Northern">Northern</option>
+                    <option value="North Western">North Western</option>
+                    <option value="Sabaragamuwa">Sabaragamuwa</option>
+                    <option value="Southern">Southern</option>
+                    <option value="Uva">Uva</option>
+                    <option value="Western">Western</option>
+                </select>
                 <br>
 
                 <label id="em-label" class="em-label" for="em">Email Address:</label>
@@ -161,8 +224,25 @@ $metaTitle = "organizations Dashboard"
                 <input class="em-input" id="em"  type="text" name="em" autofocus placeholder="Email Address" required>
                 <br>
 
+                <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
+                <br>
+                <input class="currentPw-input" id="currentPw"  type="password" name="currentPw" autofocus placeholder="Current Password" required>
+                <br>
+
+                <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
+                <br>
+                <input class="newPw-input" id="newPw"  type="password" name="newPw" autofocus placeholder="New Password" required>
+                <br>
+
+                <label id="confirmPw-label" class="confirmPw-label" for="confirmPw">Confirm Password:</label>
+                <br>
+                <input class="confirmPw-input" id="confirmPw"  type="password" name="confirmPw" autofocus placeholder="Confirm Password" required>
+                <br>
+                
+
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>
                 <button class="cancl-button" type="reset" name="cancel-adding" ><a href="/requestApproval/viewProfile/" class="cancel">Cancel Adding</a></button>
                 </form>
-            </div>'
-            ?>
+                <script src="../../../public/js/validation/orgvalidation.js"></script>
+            </div>
+            

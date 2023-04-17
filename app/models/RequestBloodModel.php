@@ -15,10 +15,10 @@ class RequestBloodModel extends Model
         } 
     } */
 
-    public function getRequestID($email)
+    public function getRequestID($uname)
     {
-        if ($this->db->select('count', "hospital_blood_requests", "WHERE email = :email;", ':email', $email) > 0) {
-            $ID = $this->db->select("RequestID","hospital_blood_requests","WHERE email =:email",':email',$email);
+        if ($this->db->select('count', "hospital_blood_requests", "WHERE email = :email;", ':email', $uname) > 0) {
+            $ID = $this->db->select("RequestID","hospital_blood_requests","WHERE email =:email",':email',$uname);
             $RequestID = $ID[0]['RequestID'];
             return $RequestID;
         } 
@@ -26,17 +26,26 @@ class RequestBloodModel extends Model
 
     public function addBloodRequest($inputs) 
     {
-        $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity','AcceptedDate');
-        $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity',':AcceptedDate');
+        $columns = array('BloodBankID','HospitalID','Blood_group', 'Blood_component', 'Quantity','Date_accepted');
+        $param = array(':BloodBankID',':HospitalID',':Blood_group' ,':Blood_component', ':Quantity',':Date_accepted');
         $result = $this->db->insert("hospital_blood_requests", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
         } else print_r($result);
     }
     
-    public function getAllBloodBanks()
+    public function getAllBloodBanks($district)
     {
-        $data = $this->db->select("*", "bloodbank",null);
+        //print_r($province);die();
+        $data = $this->db->select("*", "bloodbank","WHERE District =:District", ':District', $district);
+        //print_r($data);die();
+        return $data;
+
+    }
+
+    public function getBloodBankName($BloodBankID)
+    {
+        $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank","WHERE BloodBankID =:BloodBankID", ':BloodBankID', $BloodBankID);
         return $data;
     }
 
@@ -48,6 +57,7 @@ class RequestBloodModel extends Model
         //     print_r($data[][1]);
         //     die();
         // }
+        //print_r($data);die();
         return $data;
     }
 
@@ -69,7 +79,7 @@ class RequestBloodModel extends Model
         $data1 = $this->db->select("*", "hospital_medicalcenter", "WHERE UserID = :User_ID",':User_ID',$User_ID);
         
         //Select Email,Username,Password from user table
-        $data2 = $this->db->select("Email,Username,UserType", "user", "WHERE UserID = :UserID",':UserID',$User_ID);
+        $data2 = $this->db->select("Email,Username,UserType,Password,Userpic", "user", "WHERE UserID = :UserID",':UserID',$User_ID);
         //Select ContactNumber from usercontactnumber table
         $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :UserID",':UserID',$User_ID);
         
@@ -85,8 +95,8 @@ class RequestBloodModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email','Username');
-        $param1 = array(':Email',':Username');
+        $columns1 = array('Email', 'Password','Username','UserPic');
+        $param1 = array(':Email',':Password',':Username',':UserPic');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':User_ID',$User_ID,"WHERE UserID = :User_ID");
         
 
@@ -114,6 +124,16 @@ class RequestBloodModel extends Model
             print_r($result2);
             print_r($result3);
         }
+    }
+
+    public function getuserimg($userid)
+    {
+        if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {
+            $type = $this->db->select("Userpic","user","WHERE UserID =:UserID",':UserID',$userid);
+            $user_pic = $type[0]['Userpic'];
+            //print_r($user_pic);die();
+            return $user_pic;
+        } 
     }
 
     

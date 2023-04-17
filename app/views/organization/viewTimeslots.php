@@ -6,6 +6,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
 
-     <!-- CSS Files -->
+    <!-- CSS Files -->
     <link href="../../../public/css/organization/requestApproval.css" rel="stylesheet">
 
     <!-- Font Files -->
@@ -25,9 +26,10 @@ $_SESSION['CampID']=intval($_GET['campaign']);
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
 
-    
+
 
 </head>
+
 <body>
     <!-- header -->
     <div class="top-bar">
@@ -44,14 +46,14 @@ $_SESSION['CampID']=intval($_GET['campaign']);
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br> 
+                    <p><?php echo ($_SESSION['type']); ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -59,7 +61,8 @@ $_SESSION['CampID']=intval($_GET['campaign']);
 
             </div>
             <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png" alt="3-dot">
+                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
+                    alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
                     <a href="#">Profile</a>
                     <a href="/organizationuser/logout">Log Out</a>
@@ -69,61 +72,74 @@ $_SESSION['CampID']=intval($_GET['campaign']);
             <!-- Side bar -->
             <div class="side-bar">
                 <div class="side-nav">
-                    
-                <div class="dashboard-non menu-item">
+
+                    <div class="dashboard-non menu-item">
                         <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
-                        <img class="reservation-non-active dash" src="./../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-non-active menu-item"><a href="/organizationuser/dashboard/">Dashboard</a></p>
+                        <img class="reservation-non-active dash"
+                            src="./../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
+                        <p class="dashboard-non-active menu-item"><a href="/organizationuser/dashboard/">Dashboard</a>
+                        </p>
                     </div>
 
                     <div class="campaigns-selected">
                         <div class="marker"></div>
                         <!-- <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns"> -->
-                        <img class="campaigns-active" src="./../../public/img/orgdashboard/active/campaigns.png" alt="campaigns"> 
-                        <p class="campaigns-act"><a href="#">Campaigns</a></p>
+                        <img class="campaigns-active" src="./../../public/img/orgdashboard/active/campaigns.png"
+                            alt="campaigns">
+                        <p class="campaigns-act"><a href="/requestApproval/chooseHere/">Campaigns</a></p>
                     </div>
-                
+
                     <div class="schedule-time menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/schedule time.png" alt="schedule time">
-                        <img class="schedule-time-non-active" src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
-                        <p class="schedule-time-nav "><a href="/requestApproval/chooseHere_scheduleTime">Schedule time</a></p>
+                        <img class="schedule-time-non-active"
+                            src="./../../public/img/orgdashboard/active/schedule time.png" alt="schedule time">
+                        <p class="schedule-time-nav "><a href="/requestApproval/chooseHere_scheduleTime">Schedule
+                                time</a></p>
                     </div>
 
                     <div class="notifications menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/notifications.png" alt="notifications">
-                        <img class="notifications-non-active" src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
+                        <img class="notifications-non-active"
+                            src="./../../public/img/orgdashboard/active/notifications.png" alt="notifications">
                         <p class="notifications-nav "><a href="/requestApproval/getAcceptedCamps">Notifications</a></p>
                     </div>
 
                     <div class="cash-donations menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/cash donations.png" alt="cash donations">
-                        <img class="cash-donations-non-active" src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
+                        <img class="cash-donations-non-active"
+                            src="./../../public/img/orgdashboard/active/cash donations.png" alt="cash donations">
                         <p class="cash-donations-nav "><a href="/requestApproval/donateCash">Cash donations</a></p>
                     </div>
 
                     <div class="inventory-donations menu-item">
-                        <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations">
-                        <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <img src="./../../public/img/orgdashboard/non-active/inventory donations.png"
+                            alt="inventory donations">
+                        <img class="inventory-donations-non-active"
+                            src="./../../public/img/orgdashboard/active/inventory donations.png"
+                            alt="inventory donations">
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/instructions.png" alt="instructions">
-                        <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
+                        <img class="instructions-non-active"
+                            src="./../../public/img/orgdashboard/active/instructions.png" alt="instructions">
                         <p class="instructions-nav "><a href="/requestApproval/viewInstructions">Instructions</a></p>
                     </div>
 
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
-                        <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
+                            alt="instructions">
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/profile.png" alt="profile">
-                        <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png" alt="profile">
+                        <img class="profile-non-active" src="./../../public/img/orgdashboard/active/profile.png"
+                            alt="profile">
                         <p class="profile-nav "><a href="/requestApproval/viewProfile">Profile</a></p>
-                    </div>      
+                    </div>
                 </div>
             </div>
             <?php 
@@ -136,7 +152,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                             
                                 <table class="timeslots-table" style="width:40%">
                                 <tr>
-                                <th>Timeslot ID</th>
+                                
                                 <th>Starting Time</th>
                                 <th>Ending Time</th>
                                 <th>Action</th>
@@ -163,19 +179,14 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                             if ($_SESSION['rowCount'] > 0) {
                                 foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                     echo '<div class="table-content-types"> <tr>
-                                            <td>' . $row["SlotID"]. "</td>
-                                            <td>" . $row["Start_time"] . "</td>
+                                            
+                                            <td>' . $row["Start_time"] . "</td>
                                             
                                             
                                             <td>" . $row["End_time"] . '</td>
-                                            
-                                            
                                             <td> 
-                                            
                                             <a href="/requestApproval/view_feedbacks?campaign='.$row["CampaignID"].'"><button class="req-btn" type="button" name="request" >More Details</a></button>                                
-                                            
-                                            
-                                            
+                                  
                                             </td>
                                             </tr> </div>';                                        
                                 }
