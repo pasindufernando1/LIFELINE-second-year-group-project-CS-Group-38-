@@ -142,14 +142,17 @@ class UserModel extends Model
 
     // Donor's Functions
 
-    public function getAllCampaigns($today)
+    public function getAllCampaigns($today, $district)
     {
+        // $columns=['']
+        $inputs = [':Date', ':District'];
+        $values = [$today, $district];
         $data = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
-            ':Date',
-            $today
+            'WHERE Date > :Date AND Status = 1 AND District = :District ORDER BY Date ASC',
+            $inputs,
+            $values
         );
         return $data;
     }
@@ -171,7 +174,7 @@ class UserModel extends Model
             ':DonorID',
             $userid
         )[0][0];
-        $donations=$camp_donations + $bank_donations;
+        $donations = $camp_donations + $bank_donations;
 
         $newest_badge = $this->db->select(
             'BadgePic',
@@ -293,6 +296,20 @@ class UserModel extends Model
             $donorID
         );
         return $data;
+    }
+
+    public function getdonordistrict($userid)
+    {
+        $data = $this->db->select(
+            'District',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        );
+
+        return $data[0]['District'];
+
     }
 
     // EO Donor's Functions

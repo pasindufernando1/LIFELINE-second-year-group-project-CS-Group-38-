@@ -25,6 +25,11 @@ class Getcampaign extends Controller
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
                     $_SESSION['today']
                 );
+
+                $_SESSION['camp_ads'] = $this->model->getCampAds(
+                    $_SESSION['upcoming_campaigns']
+                );
+                
                 $this->view->render('donor/getcampaign');
                 exit();
             }

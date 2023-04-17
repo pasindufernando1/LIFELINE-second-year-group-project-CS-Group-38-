@@ -101,12 +101,11 @@ class User extends Controller
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['user_pic'] = $this->model->getuserimg($uname);
                 $_SESSION['username'] = $this->model->getUserName($uname);
+                $_SESSION['userdistrict'] = $this->model->getdonordistrict($_SESSION['user_ID']);
 
                 $_SESSION['today'] = date('Y-m-d H:i:s');
 
-                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
-                    $_SESSION['today']
-                );
+                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today'], $_SESSION['userdistrict']);
 
                 $_SESSION['newest_badge'] = $this->model->getnewestbadge(
                     $_SESSION['user_ID']
@@ -116,7 +115,7 @@ class User extends Controller
                     $_SESSION['upcoming_campaigns']
                 );
 
-//Get the last donation date of the donor
+                //Get the last donation date of the donor
                 $last_donation = $this->model->getLastDonation(
                     $_SESSION['user_ID']
                 );
@@ -130,7 +129,7 @@ class User extends Controller
                     $_SESSION['days_last_donation'] = $_SESSION['days_last_donation']->days;
                 }
 
-//Get the total donated amount of blood of the donor
+                //Get the total donated amount of blood of the donor
                 $_SESSION['total_donated_amount'] = $this->model->getTotalDonatedAmount(
                     $_SESSION['user_ID']
                 );
@@ -165,8 +164,8 @@ class User extends Controller
                 $_SESSION[
                     'bloodbank_contact'
                 ] = $this->model->viewBloodBankContact(
-                    $_SESSION['nearbyBloodbanks']
-                );
+                        $_SESSION['nearbyBloodbanks']
+                    );
 
                 $this->view->render('hospitals/dashboard');
             } else {

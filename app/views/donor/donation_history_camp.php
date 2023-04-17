@@ -12,7 +12,7 @@
 // print_r($_SESSION['complication_camps']);
 // die();
 
-$metaTitle = 'Donor Dashboard';?>
+$metaTitle = 'Donor Dashboard'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,9 @@ $metaTitle = 'Donor Dashboard';?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -42,7 +44,7 @@ $metaTitle = 'Donor Dashboard';?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
 
     <!-- Side bar -->
@@ -110,14 +112,14 @@ $metaTitle = 'Donor Dashboard';?>
 
         <div class="content">
             <?php
-$result = $_SESSION['camp_donations'];
-$_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-$count = 0;
+            $result = $_SESSION['camp_donations'];
+            $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
+            $count = 0;
 
-if ($_SESSION['rowCount'] > 0) {
-    foreach ($result as $row) {
-        if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
-            echo '<div class="view-campdon-card">
+            if ($_SESSION['rowCount'] > 0) {
+                foreach ($result as $row) {
+                    if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
+                        echo '<div class="view-campdon-card">
                 <img src="../../../public/img/ads/' . $_SESSION['advetisements'][$count] . '" alt="campaign1">
                 <div class="info">
                 <h4>' . $_SESSION['camp_names'][$count] . '</h4>
@@ -132,8 +134,8 @@ if ($_SESSION['rowCount'] > 0) {
                 <a href="/ratecampaign/addrating?camp=' . $row['CampaignID'] . '"> <button>FeedBack</button> </a>
                 </div>
                 </div>';
-        } else {
-            echo '<div class="view-campdon-card">
+                    } else {
+                        echo '<div class="view-campdon-card">
                 <img src="../../../public/img/ads/' . $_SESSION['advetisements'][$count] . '" alt="campaign1">
                 <div class="info">
                 <h4>' . $_SESSION['camp_names'][$count] . '</h2>
@@ -149,28 +151,37 @@ if ($_SESSION['rowCount'] > 0) {
                 <a href="/ratecampaign/viewrating?camp=' . $row['CampaignID'] . '"> <button>View FeedBack</button> </a>
                 </div>
                 </div>';
-        }
-        $count++;
-    }
-} else {
-    echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
-}
-?>
+                    }
+                    $count++;
+                }
+            } else {
+                echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
+            }
+            ?>
         </div>
 
     </div>
     <div class="camp-summary">
         <h2>Summary of Your Donations</h2>
         <?php
-echo '<h3>Total Donation Campaigns Attended</h3><p>' . $_SESSION['camp_donation_number'] . '</p>
-    <h3>Your Total Donations </h3><p>' . $_SESSION['all_donations_camps'] . 'ml</p>
-    <h3>Complications You Had </h3>';
-$scount = 0;
-foreach ($_SESSION['complications'] as $complications) {
-    echo '<p>' . $complications . '<span> At </span>' . $_SESSION['complication_camps'][$scount] . '</p>';
-    $scount++;
-}
-?>
+        echo '<h3>Total Donation Campaigns Attended : ' . $_SESSION['camp_donation_number'] . '</h3>
+    <h3>Your Total Donations : ' . $_SESSION['all_donations_camps'] . 'ml</h3>
+    <h3 id="titt">Complications You Had </h3>';
+        $scount = 0;
+        //make a table for the complications and the camp they happened at
+        echo '<table id="sumt">
+            <tr>
+                <th>Complication</th>
+                <th>Camp</th>
+            </tr>';
+        foreach ($_SESSION['complications'] as $complications) {
+            echo '<tr>
+                <td>' . $complications . '</td>
+                <td>' . $_SESSION['complication_camps'][$scount] . '</td>
+            </tr>';
+            $scount++;
+        }
+        ?>
     </div>
 </body>
 

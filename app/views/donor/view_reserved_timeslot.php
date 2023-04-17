@@ -47,10 +47,11 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
 
             </div>
-            <div class="card menu-item">
-                <div class="donorcard-marker"></div>
-                <img id="card-s" src="./../../public/img/donordashboard/active/cards.png" alt="donor-cards">
-                <p class="reservation-act menu-item"><a href="/card">Donor Card</a></p>
+            <div class="users menu-item">
+                <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
+                    alt="donor-cards">
+                <p class="users-nav "><a href="/card">Donor Card</a></p>
 
             </div>
             <div class="inventory menu-item">
@@ -74,11 +75,11 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
-            <div class="campaigns menu-item">
-                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
+            <div class="campaigns-selected">
+                <div class="campaigns-marker"></div>
+                <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png"
                     alt="campaigns">
-                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
+                <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
 
             </div>
             <div class="line"></div>
@@ -89,12 +90,13 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
             </div>
+
         </div>
     </div>
 
     <div class="timeslot-container">
         <h2>Reserved Time Slot</h2>
-        <button class="d-card">Download</button><br>
+        <!-- <button class="d-card">Download</button><br> -->
         <button class="c-card"><a href="/getcampaign/change_timeslot">Change Time Slot</a></button><br>
         <button id="cc" class="cancel-card"><a id="cca" href="/getcampaign/cancel_timeslot">Cancel</a></button>
 

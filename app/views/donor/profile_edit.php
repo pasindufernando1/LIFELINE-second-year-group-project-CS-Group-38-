@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,7 +35,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -100,7 +102,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
             enctype="multipart/form-data">
 
-            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>"><br>
+            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>"><br>
 
             <label for="fileToUpload"> <img id="change_img"
                     src="../../../public/img/donordashboard/lil_cam.png"></label>
@@ -108,15 +110,15 @@ $metaTitle = 'Donor Dashboard'; ?>
             <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
 
             <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById("donor_img").src = e.target.result;
-                    };
-                    reader.readAsDataURL(input.files[0]);
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById("donor_img").src = e.target.result;
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
                 }
-            }
             </script>
 
             <label class="name-lable" for="name">NAME</label>
@@ -159,8 +161,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'District'
                 ]; ?>" hidden><?php echo $_SESSION['donor_info'][
-    'District'
-]; ?></option>
+                     'District'
+                 ]; ?></option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -193,8 +195,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'Province'
                 ]; ?> " hidden><?php echo $_SESSION['donor_info'][
-     'Province'
- ]; ?> </option>
+                      'Province'
+                  ]; ?> </option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
                 <option value="North Central">North Central</option>
