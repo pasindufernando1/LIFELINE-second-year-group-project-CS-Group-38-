@@ -47,7 +47,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -118,7 +118,7 @@ $metaTitle = "organizations Dashboard"
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -132,7 +132,7 @@ $metaTitle = "organizations Dashboard"
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -146,6 +146,7 @@ $metaTitle = "organizations Dashboard"
             <div class="box">
                 <h2 class="add-user-title"> Request for Approval of Donation Campaign</h2>
                 <form action="/requestApproval/addRequest/" method="post" id="addform">
+                
                     <label id="campName-label" class="campName-label" for="campName">Campaign Name:</label>
                     <br>
                     <input class="campName-input" id="campName" type="text" name="campName" autofocus
@@ -159,66 +160,16 @@ $metaTitle = "organizations Dashboard"
 
                     <label id="startTime-label" class="startTime-label" for="startTime">Starting Time:</label>
                     <br>
-                    <input class="startTime-input" id="startTime" type="time" name="startTime" autofocus
-                        placeholder="Starting Time" required>
+                    <input class="startTime-input" id="startTime" type="time" name="startTime" autofocus placeholder="Starting Time" required>
                     <br>
                     <label id="endTime-label" class="endTime-label" for="endTime">Ending Time:</label>
                     <br>
-                    <input class="endTime-input" id="endTime" type="time" name="endTime" autofocus
-                        placeholder="Ending Time" required>
+                    <input class="endTime-input" id="endTime" type="time" name="endTime" autofocus placeholder="Ending Time" required>
                     <br>
 
                     <label id="location-label" class="location-label" for="location">Location:</label>
                     <br>
-                    <input class="number-input" id="number" type="text" name="number" autofocus placeholder="Number"
-                        required>
-
-                    <input class="lane-input" id="lane" type="text" name="lane" autofocus placeholder="Lane" required>
-
-                    <input class="city-input" id="city" type="text" name="city" autofocus placeholder="City" required>
-
-                    <select id="district" class="district-input" type="text" name="district" autofocus
-                        placeholder="District" required>
-                        <option value="" disabled selected hidden>District</option>
-                        <option value="Ampara">Ampara</option>
-                        <option value="Anuradhapura">Anuradhapura</option>
-                        <option value="Badulla">Badulla</option>
-                        <option value="Batticaloa">Batticaloa</option>
-                        <option value="Colombo">Colombo</option>
-                        <option value="Galle">Galle</option>
-                        <option value="Gampaha">Gampaha</option>
-                        <option value="Hambantota">Hambantota</option>
-                        <option value="Jaffna">Jaffna</option>
-                        <option value="Kalutara">Kalutara</option>
-                        <option value="Kandy">Kandy</option>
-                        <option value="Kegalle">Kegalle</option>
-                        <option value="Kilinochchi">Kilinochchi</option>
-                        <option value="Kurunegala">Kurunegala</option>
-                        <option value="Mannar">Mannar</option>
-                        <option value="Matale">Matale</option>
-                        <option value="Matara">Matara</option>
-                        <option value="Monaragala">Monaragala</option>
-                        <option value="Mullaitivu">Mullaitivu</option>
-                        <option value="Nuwara Eliya">Nuwara Eliya</option>
-                        <option value="Polonnaruwa">Polonnaruwa</option>
-                        <option value="Puttalam">Puttalam</option>
-                        <option value="Ratnapura">Ratnapura</option>
-                        <option value="Trincomalee">Trincomalee</option>
-                        <option value="Vavuniya">Vavuniya</option>
-                    </select>
-                    <select id="province" class="province-input" type="text" name="province" autofocus
-                        placeholder="Province" required>
-                        <option value="" disabled selected hidden>Province</option>
-                        <option value="Central">Central</option>
-                        <option value="Eastern">Eastern</option>
-                        <option value="North Central">North Central</option>
-                        <option value="Northern">Northern</option>
-                        <option value="North Western">North Western</option>
-                        <option value="Sabaragamuwa">Sabaragamuwa</option>
-                        <option value="Southern">Southern</option>
-                        <option value="Uva">Uva</option>
-                        <option value="Western">Western</option>
-                    </select>
+                    <input class="location-input" id="location-input" type="text" name="location" autofocus placeholder="Location" required>
                     <br>
                     <label id="beds-label" class="beds-label" for="beds">Number of Beds:</label>
                     <br>
@@ -232,9 +183,9 @@ $metaTitle = "organizations Dashboard"
 
                     <button class='brown-button' type='submit' name='request' id="submit-btn">Request</button>
 
-                    <button class='outline-button' type='reset' name='cancel-adding'><a
-                            href="/requestApproval/viewDetails/" class="cancel">Cancel Adding</a></button>
+                    <button class='outline-button' type='reset' name='cancel-adding'><a href="/requestApproval/viewDetails/" class="cancel">Cancel Adding</a></button>
 
+                    <script src="../../../public/js/validation/orgvalidation.js"></script>            
                 </form>
             </div>
 

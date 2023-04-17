@@ -44,7 +44,7 @@ $metaTitle = 'organizations Dashboard'; ?>
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo $_SESSION['username']; ?></p>
@@ -129,7 +129,7 @@ $metaTitle = 'organizations Dashboard'; ?>
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -146,5 +146,5 @@ $metaTitle = 'organizations Dashboard'; ?>
 
                 <p class="msg">Successfully Requested!</p>
 
-                <a href="/requestApproval/add_InventoryRequest/" class="brown-button1">Back to Inventory Donations</a>
+                <a href="/requestApproval/viewAdvertisements/" class="brown-button1">Back to Inventory Donations</a>
             </div>

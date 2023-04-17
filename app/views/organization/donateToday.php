@@ -102,7 +102,7 @@ $metaTitle = "Organizations Dashboard"
                     <div class="inventory-donations menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations">
                         <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -114,7 +114,7 @@ $metaTitle = "Organizations Dashboard"
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="feedback-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">

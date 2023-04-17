@@ -122,6 +122,17 @@ class HospitaluserModel extends Model
         } else print_r($result);
     }
 
+    public function getuserimg($email)
+    {
+        if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
+            $type = $this->db->select("userpic","user","WHERE email =:email",':email',$email);
+            $user_pic = $type[0]['userpic'];
+            //print_r($user_pic);die();
+            return $user_pic;
+        
+        } 
+    }
+
 }
 
 

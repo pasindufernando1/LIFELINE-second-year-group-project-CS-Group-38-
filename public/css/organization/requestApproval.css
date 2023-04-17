@@ -563,7 +563,7 @@ body {
 
 .feedback-nav a {
     position: absolute;
-    width: 122px;
+    width: 170px;
     height: 28px;
     left: 52.74px;
     top: 0px;
@@ -597,7 +597,7 @@ body {
 
 .feedback-act a {
     position: absolute;
-    width: 145px;
+    width: 170px;
     height: 28px;
     left: 70.74px;
     top: 2px;
@@ -699,7 +699,7 @@ body {
 
 .instructions-nav a {
     position: absolute;
-    width: 122px;
+    width: 170px;
     height: 28px;
     left: 52.74px;
     top: 0px;
@@ -1003,6 +1003,10 @@ td {
     color: white;
 }
 
+.req-btn:disabled {
+    opacity: 0.5;
+    }
+
 .view-bloodBank-title {
     position: absolute;
     width: 562.81px;
@@ -1150,14 +1154,14 @@ td {
     color: #000000;
 }
 
-.number-input {
+.location-input {
     box-sizing: border-box;
     position: absolute;
     left: 154px;
-    right: 65px;
+    right: 285px;
     top: 386px;
     bottom: 382px;
-    width: 305px;
+    
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -1222,7 +1226,7 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 523px;
+    top: 451px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1238,7 +1242,7 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 551px;
+    top: 474px;
     bottom: 206px;
     background: #FFFFFF;
     border: 2px solid #949494;
@@ -1251,7 +1255,7 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 646px;
+    top: 563px;
     bottom: 50px;
     bottom: 117px;
     background: #FFFFFF;
@@ -1265,7 +1269,7 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 619px;
+    top: 538px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1287,7 +1291,7 @@ td {
     width: 200px;
     height: 50px;
     left: 932px;
-    top: 722px;
+    top: 674px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1315,7 +1319,7 @@ td {
     width: 203.66px;
     height: 51px;
     left: 1139px;
-    top: 722px;
+    top: 674px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1536,14 +1540,14 @@ a {
     width: 200px;
     width: 13%;
     height: 50px;
-    left: 47.4%;
+    left: 48.4%;
     top: 521px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12.6835px;
+    font-size: 20px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
@@ -1552,13 +1556,17 @@ a {
     border: 1px #949494 solid;
 }
 
+.brown-button1 a{
+    color: white;
+}
+
 .success-msg {
     box-sizing: border-box;
     position: absolute;
-    width: 18%;
-    height: 247.31px;
+    width: 15%;
+    height: 232.31px;
     /* height: 158.31px; */
-    left: 45%;
+    left: 47%;
     top: 150px;
 }
 
@@ -1583,28 +1591,28 @@ a {
 
 .campaign-name {
     position: absolute;
-    width: 560px;
+    width: 990px;
     height: 59px;
     left: 156px;
     top: 63px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 41.2958px;
+    font-weight: 600;
+    font-size: 32.2958px;
     line-height: 30px;
     display: flex;
     align-items: center;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B;
+    color: black;
 }
 
 .num-donors {
     position: absolute;
     width: 487px;
     height: 529px;
-    left: 632px;
-    top: 223px;
+    left: 595px;
+    top: 131px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -1620,19 +1628,21 @@ a {
 }
 
 .timeslots-table {
-    margin-left: 685px;
-    margin-top: -424px;
+    margin-left: 593px;
+    /* margin-top: -17px; */
+    top: 192px;
+    position: absolute;
 }
 
 .schedule-btn {
     display: block;
-    width: 131px;
+    width: 143px;
     height: 33px;
     background: #640E0B;
     border-radius: 4px;
     color: White;
     text-decoration: none;
-    font-size: small;
+    font-size: 17px;
     font-family: 'Poppins';
 }
 
@@ -2082,7 +2092,7 @@ a {
     position: absolute;
     width: 591px;
     height: 65px;
-    left: 464px;
+    left: 608px;
     top: 0px;
     font-family: 'Poppins';
     font-style: normal;
@@ -2577,6 +2587,33 @@ a {
     color: #000000;
 }
 
+.confirmPw-input {
+    box-sizing: border-box;
+    position: absolute;
+    left: 198px;
+    right: 335px;
+    top: 845px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+}
+
+.confirmPw-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 824px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
 .edit-button {
     display: flex;
     flex-direction: row;
@@ -2610,7 +2647,7 @@ a {
     width: 165px;
     height: 52px;
     left: 934px;
-    top: 860px;
+    top: 981px;
     color: white;
     background: #640E0B;
     border-radius: 10.8716px;
@@ -2629,7 +2666,7 @@ a {
     width: 203.66px;
     height: 52.49px;
     left: 1124px;
-    top: 860px;
+    top: 981px;
     color: #640E0B;
     background: #F7F7F7;
     border: 1px solid #640E0B;
@@ -3060,14 +3097,14 @@ a {
 
 .feedback-title {
     position: absolute;
-    width: 559.66px;
+    width: 700px;
     height: 46.32px;
     left: 179.65px;
     top: 52.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 20.2958px;
+    font-size: 34.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -3076,13 +3113,13 @@ a {
 .feedback-label {
     position: absolute;
     height: 16px;
-    left: 664px;
+    left: 607px;
     right: 0px;
     top: 225px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -3099,6 +3136,10 @@ a {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 15px;
+    letter-spacing: 1px;
+    font-family: 'Poppins';
 }
 
 .feedback-img {
@@ -3127,10 +3168,10 @@ a {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12.6835px;
+    font-size: 17px;
     line-height: 19px;
     text-align: center;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
     color: #FCFEFE;
     cursor: pointer;
     border: 1px #949494 solid;
@@ -3151,11 +3192,24 @@ a {
     left: 325px;
 }
 
-.change_img {
+/* .change_img {
     top: 133px;
     position: absolute;
     width: 28px;
     left: 401px;
+}
+ */
+.image-upload>input {
+    display: none;
+}
+
+.image-upload img {
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+        margin-top: 138px;
+    margin-left: 396px;
 }
 
 .profile-container a {
@@ -3250,7 +3304,7 @@ a {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 943px;
+    height: 1045px;
     left: 316px;
     top: 127px;
     background: #ffffff;
@@ -3292,3 +3346,286 @@ a {
 .btslots a {
     color: white;
 }
+
+
+.disabled {
+    opacity: 0.5;
+}
+
+.ad_wrap{
+    position: relative;
+    top: 100px;
+
+    float: left;
+    margin: 23px;
+    width: 412px;
+    height: 500px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 3px 7px rgb(0 0 0 / 25%);
+    padding: 20px;  
+}
+
+.ad_img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.bloodbankName{
+    font-size: 27px;
+    font-weight: 600;
+    top: 150px;
+    color: #640E0B;
+    font-family: 'Poppins';
+    text-align: center;
+    position: absolute;
+    width: 438px;
+}
+.Itemquantity{
+    position: absolute;
+    height: 16px;
+    left: 61px;
+    right: 0px;
+    top: 418px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.quantity{
+    box-sizing: border-box;
+    position: absolute;
+    left: 148px;
+    right: 596px;
+    top: 421px;
+    /* bottom: 791px; */
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    width: 50%;
+    height: 42px;
+}
+
+.inventoryType{
+    position: absolute;
+    height: 16px;
+    left: 95px;
+    right: 0px;
+    top: 179px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 29px;
+    line-height: 21px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #f32844;
+
+}
+
+.don-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    position: absolute;
+    width: 116px;
+    height: 50px;
+    left: 166px;
+    top: 445px;
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+}
+.don-btn a{
+    color: white;
+}
+.pagination-number {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #640E0B;
+    border-radius: 4px;
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+    text-align: center;
+    color: #640E0B;
+    padding: 10px 12px 10px 12px;
+}
+
+.pagination-number:hover {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.pag-box {
+    float: right;
+    display: flex;
+    margin-top: 725px;
+    margin-right: 192px;
+}
+
+.pag-div {
+    margin-right: 2px;
+}
+.page-box {
+    float: right;
+    display: flex;
+    margin-top: 0px;
+    margin-right: 192px;
+}
+
+
+.pag-div-1 a,
+.pag-div-2 a,
+.pag-div-3 a,
+.pag-div-4 a,
+.pag-div-5 a,
+.pag-div-6 a,
+.pag-div-7 a,
+.pag-div-8 a,
+.pag-div-9 a,
+.pag-div-10 a {
+    background-color: #640E0B;
+    color: #FFFFFF;
+}
+
+.confirmation-box {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -50%);
+    background-color: #d7d2d2;
+    padding: 20px;
+    /* border: 6px solid #661313; */
+    z-index: 9999;
+    width: 800px;
+    height: 200px;
+  }
+  
+  .confirmation-message {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .confirmation-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .confirmation-button {
+    font-size: 21px;
+    padding: 10px 20px;
+    margin: 57px 75px;
+    /* border: 1px solid #000000; */
+    border-radius: 5px;
+    width: 189px;
+    cursor: pointer;
+  }
+  
+  .confirmation-button.confirm {
+    background-color: #008000;
+    color: #ffffff;
+  }
+  
+  .confirmation-button.cancel {
+    background-color: #ff0000;
+    color: #ffffff;
+  }
+
+   /* Set the opacity of the body element to 0.5 when the confirmation box is displayed */
+.confirmation-box-displayed {
+    opacity: 0.5;
+  }
+  /* set the opacity of the page to 0.5 when the confirmation box is displayed */
+    .confirmation-box-displayed .page {
+        opacity: 0.5;
+    }
+
+    .pagee-box {
+        float: right;
+        display: flex;
+        margin-top: 482px;
+        margin-right: 192px;
+    }
+
+
+    .req-btn1 {
+        display: block;
+        width: 165px;
+        height: 33px;
+        background: #640E0B;
+        border-radius: 6px;
+        color: White;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: 'Poppins';
+    }
+
+    .req-btn1:hover {
+        background: #640E0B;
+        color: White;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: 'Poppins';
+    }
+
+    .req-btn1 a{
+        color: white;
+    }
+    
+    .action-btns{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 9.05963px;
+        gap: 9.06px;
+        position: absolute;
+        width: 116px;
+        height: 0px;
+        left: 1153px;
+        
+        
+        border-radius: 10.8716px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #FCFEFE;
+        cursor: pointer;
+        
+    }
+   
+
+
+  

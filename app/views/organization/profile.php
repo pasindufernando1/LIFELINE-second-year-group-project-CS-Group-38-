@@ -44,7 +44,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -105,7 +105,7 @@ $metaTitle = "organizations Dashboard"
                         
                         <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations"> 
                         <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -117,7 +117,7 @@ $metaTitle = "organizations Dashboard"
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile-selected">
@@ -131,7 +131,7 @@ $metaTitle = "organizations Dashboard"
              
             <div class="box">
             <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
-            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
+            <!-- <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br> -->
             <?php echo '<p class="usr-name">'.($_SESSION['Username']).'</p><br>
                 <p class="usr-type">'.($_SESSION['UserType']).'</p><br>'  ?>
             <div class="main">
