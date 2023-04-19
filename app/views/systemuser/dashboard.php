@@ -63,7 +63,7 @@ $metaTitle = "System User Dashboard"
                 <script>
                     var ctx = document.getElementById('usage-months').getContext('2d');
                     var myChart = new Chart(ctx, {
-                        type: 'bar',
+                        type: 'line',
                         data: {
                             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                             datasets: [{
@@ -216,31 +216,38 @@ $metaTitle = "System User Dashboard"
         </div>
 
         <div class="bo7">
-            <div class="male">
-                <img class="malepic" src="./../../public/img/dashboard/male.png" alt="male">
-                <p class="matex">35%</p>
-
-            </div>
-
-            <div class="female">
-                <img class="femalepic" src="./../../public/img/dashboard/female.png" alt="male">
-                <p class="matex">65%</p>
-
-            </div>
+            
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
                 new Chart(document.getElementById("pie-chart"), {
-                    type: 'doughnut',
+                    type: 'bar',
+                     labels: ['Male', 'Female'],
+                            
                     data: {
+                            labels: ['Male', 'Female'],
+                            datasets: [{
+                                label: 'Donation Received',
+                                data: [12, 19 ],
+                                backgroundColor: [
+                                    '#BF1B16',
+    
+                                    
+                                    '#BF1B16'
+                                ],   
+                                //Barwidth
+                                //backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+                                
+                                borderRadius: 8,
+                                borderSkipped: false,
+                                barpercentage: 1,
+                                 borderWidth: 2,
+                                
+                                borderSkipped: false,
+                                hoverOffset: 4
+                            }]
+                        },
                     
-                    datasets: [{
-                        label: "Donor Composition",
-                        backgroundColor: ["#BF1B16", "#BF1B16"],
-                        data: [2478,5267]
-                        
-                    }]
-                    },
                     options: {
                     title: {
                         display: true,

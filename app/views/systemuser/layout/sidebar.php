@@ -29,7 +29,7 @@
                     <div class="donor-cards menu-item">
                         <img class="blk-card" src="./../../public/img/dashboard/non-active/cards.png" alt="donor-cards">
                         <img class="reservation-non-active red-card" src="./../../public/img/dashboard/active/cards.png" alt="donor-cards">
-                        <p class="cards-nav "><a href="/donor_cards?page=1">Donor Cards</a></p>
+                        <p class="cards-nav "><a href="/blood_requests?page=1">Blood Requests</a></p>
 
                     </div>
                     <div class="inventory menu-item">
