@@ -43,7 +43,7 @@ $metaTitle = "Hospitals Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -98,7 +98,7 @@ $metaTitle = "Hospitals Dashboard"
             
             <div class="box">
             <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
-            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
+            <!-- <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br> -->
             <?php echo '<p class="usr-name">'.($_SESSION['Username']).'</p><br>
                 <p class="usr-type">'.($_SESSION['UserType']).'</p><br>'  ?>
             <div class="main">

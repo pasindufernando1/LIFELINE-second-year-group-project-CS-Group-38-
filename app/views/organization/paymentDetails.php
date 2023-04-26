@@ -1,12 +1,12 @@
-<?php 
+<?php
 
-$metaTitle = "Organizations Dashboard" ;
+$metaTitle = "Organizations Dashboard";
 // get type of $_SESSION['donating_amount']
 // print_r(gettype($_SESSION['donating_amount']));
 // print_r($_SESSION['donating_amount']/100);
 // die();
 
-$amount = $_SESSION['donating_amount']/100;
+$amount = $_SESSION['donating_amount'] / 100;
 
 ?>
 
@@ -18,7 +18,9 @@ $amount = $_SESSION['donating_amount']/100;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -26,72 +28,72 @@ $amount = $_SESSION['donating_amount']/100;
     <!-- CSS Files -->
     <link href="../../../public/css/organization/requestApproval.css" rel="stylesheet">
     <style>
-    .stripe-button-el {
-        position: absolute;
-        top: 499px;
-        left: 1000px;
-        width: 201px;
-    }
+        .stripe-button-el {
+            position: absolute;
+            top: 499px;
+            left: 1000px;
+            width: 201px;
+        }
 
-    .donation-amount-text {
-        font-family: Poppins;
-        font-size: 19px;
-        /* font-weight: bold; */
-        position: absolute;
-        top: 332px;
-        left: 743px;
-        width: 255px;
-        color: rgb(84 84 89 / 40%);
-    }
+        .donation-amount-text {
+            font-family: Poppins;
+            font-size: 19px;
+            /* font-weight: bold; */
+            position: absolute;
+            top: 332px;
+            left: 743px;
+            width: 255px;
+            color: rgb(84 84 89 / 40%);
+        }
 
-    .donation-amount-text-2 {
-        font-family: Poppins;
-        font-size: 35px;
-        font-weight: bold;
-        position: absolute;
-        top: 343px;
-        left: 742px;
-        width: 255px;
-    }
+        .donation-amount-text-2 {
+            font-family: Poppins;
+            font-size: 35px;
+            font-weight: bold;
+            position: absolute;
+            top: 343px;
+            left: 742px;
+            width: 255px;
+        }
 
-    .donation-t {
-        font-family: Poppins;
-        font-size: 17px;
-        /* font-weight: bold; */
-        position: absolute;
-        top: 322px;
-        left: 1000px;
-        width: 379px;
-        /* border-left: 5px solid black;
+        .donation-t {
+            font-family: Poppins;
+            font-size: 17px;
+            /* font-weight: bold; */
+            position: absolute;
+            top: 322px;
+            left: 1000px;
+            width: 379px;
+            /* border-left: 5px solid black;
         padding-left: 10px; */
 
-    }
+        }
 
-    .line {
-        position: absolute;
-        top: 256px;
-        left: 936px;
-        width: 87px;
-        height: 341px;
-    }
+        .line {
+            position: absolute;
+            top: 256px;
+            left: 936px;
+            width: 87px;
+            height: 341px;
+        }
 
-    .edit:hover {
-        cursor: pointer;
-        /* color: white; */
-    }
+        .edit:hover {
+            cursor: pointer;
+            /* color: white; */
+        }
 
-    .edit {
-        position: absolute;
-        top: 447px;
-        left: 743px;
-        width: 100px;
-        height: 28px;
-        background-color: #640e0b;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-family: 'Poppins';
-    }
+        .edit {
+            position: absolute;
+            top: 447px;
+            left: 743px;
+            width: 100px;
+            height: 28px;
+            background-color: #640e0b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Poppins';
+        }
     </style>
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -122,11 +124,14 @@ $amount = $_SESSION['donating_amount']/100;
                 <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
             </div>
             <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
+                <p>
+                    <?php echo ($_SESSION['username']); ?>
+                </p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
+                    <p>
+                        <?php echo ($_SESSION['type']); ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -202,7 +207,7 @@ $amount = $_SESSION['donating_amount']/100;
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -225,14 +230,16 @@ $amount = $_SESSION['donating_amount']/100;
 
                 <p class="donation-amount-text">Donation Amount</p>
                 <!-- display donation amount-->
-                <p class="donation-amount-text-2">LKR <?php echo $amount ?></p>
+                <p class="donation-amount-text-2">LKR
+                    <?php echo $amount ?>
+                </p>
                 <!-- button to edit the amount -->
                 <button class='edit' onclick="goBack()">Edit</button>
 
                 <script>
-                function goBack() {
-                    window.history.back();
-                }
+                    function goBack() {
+                        window.history.back();
+                    }
                 </script>
                 <!-- Thank the donor -->
 
@@ -250,11 +257,11 @@ $amount = $_SESSION['donating_amount']/100;
                 </p>
                 <form action="/paymentGateway/submit" method="post" id="addform">
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="<?php echo $_SESSION['public_key']?>"
-                        data-amount="<?php echo $_SESSION['donating_amount']?>" data-name="LifeLine"
+                        data-key="<?php echo $_SESSION['public_key'] ?>"
+                        data-amount="<?php echo $_SESSION['donating_amount'] ?>" data-name="LifeLine"
                         data-description="Donate to Save Lives" data-currency="lkr"
                         data-image="../../../public/img/favicon2.jpg" data-email="<?php echo $_SESSION['email'] ?>">
-                    </script>
+                        </script>
                     <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req">
 
                 </form>

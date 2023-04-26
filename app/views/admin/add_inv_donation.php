@@ -46,32 +46,36 @@ $metaTitle = "Inventory Donation"
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="total_amt">Inventory Category:</label>
                 <br>
-                <input id="reg" class="reg-input" type="text" name="total_amt" autofocus placeholder="Inventory Category" required>
+                <input id="reg" class="reg-input" type="text" name="inventory_category" autofocus placeholder="Inventory Category" required>
+            </div>
+            <div class="blood-container">
+                <label id ="reg-label" class="reg-lable" for="total_amt">Related Blood Bank:</label>
+                <br>
+                <select class="reg-input" type="text" name="bloodbankid" id="bloodbankid" placeholder="Blood Bank ID" required>
+                    <option value="" disabled selected hidden>Select BloodBank</option>
+                        <?php foreach ($_SESSION['bloodbanks'] as $bloodbank) : ?>
+                            <option value="<?php echo $bloodbank[0]; ?>"><?php echo $bloodbank[0]." : ".$bloodbank[1]; ?></option>
+                        <?php endforeach; ?>
+                </select>
             </div>
             <!-- Container to upload the badge image -->
             <div class="image-1">
                     <label id="image-label" class="image-lable" for="file-input">Advertisement Pic</label>
                     <div class="image-upload">
                         <label for="file-input" class="icons">
-                            <img class="camera-icon" src="../../../public/img/admindashboard/camera.png" src/>
+                            <img class="camera-icon" id="camera-icon" src="../../../public/img/admindashboard/camera.png" src/>
                             <img id="browsepic" class="browsepic" src="../../../public/img/admindashboard/browseimg.png" />
                         </label>
 
                         <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
                         <script>
                             function readURL(input) {
-                                let user_pic = document.getElementById("user_pic")
-                                
                                 if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
-
-                                    reader.onload = function(e) {
-                                        $('#user_pic').attr('src', e.target.result);
-                                    };
-
-                                    reader.readAsDataURL(input.files[0]);
-                                    console.log(user_pic.length)
-                                    
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    document.getElementById("camera-icon").src = e.target.result;
+                                };
+                                reader.readAsDataURL(input.files[0]);
                                 }
                             }
                         </script>

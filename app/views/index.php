@@ -1,10 +1,10 @@
 <?php
-    $metaTitle = "Login" ;
-    define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-    require_once(__ROOT__.'/app/views/layout/header.php');
-    require_once(__ROOT__.'/app/views/layout/navigation.php');
+$metaTitle = "Login";
+define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+require_once(__ROOT__ . '/app/views/layout/header.php');
+require_once(__ROOT__ . '/app/views/layout/navigation.php');
 
-    
+
 ?>
 <html lang="en">
 
@@ -107,46 +107,46 @@
                     <p class="gp1">Get in touch</p>
                     <p class="gp2">Contact</p>
 
+                </div>
+
+                <div class="contact-details">
+                    <div class="phone">
+
+                        <img src="../../../public/img/g1.png" alt="Phone icon">
+                        <h3>Phone</h3>
+                        <p>+94112369931-4</p>
+                    </div>
+                    <div class="locations">
+                        <img src="../../../public//img/g2.png" alt="Location icon">
+                        <h3>Location</h3>
+                        <p>Colombo 00500</p>
+                        <p>Sri Lanka</p>
+                    </div>
+                    <div class="email">
+                        <img src="../../../public/img/g3.png" alt="Email icon">
+                        <h3>Email</h3>
+                        <p>info@nbts.health.gov.lk</p>
+                    </div>
+                    <div class="clock">
+                        <img src="../../../public/img/g4.png" alt="Clock icon">
+                        <h3>Working Hours</h3>
+                        <p>Monday-Sunday: 9am-8pm</p>
+
                     </div>
 
-                    <div class="contact-details">
-                        <div class="phone">
-                            
-                            <img src="../../../public/img/g1.png" alt="Phone icon">
-                            <h3>Phone</h3>
-                            <p>+94112369931-4</p>
-                        </div>
-                        <div class="locations">
-                            <img src="../../../public//img/g2.png" alt="Location icon">
-                            <h3>Location</h3>
-                            <p>Colombo 00500</p>
-                            <p>Sri Lanka</p>
-                        </div>
-                        <div class="email">
-                            <img src="../../../public/img/g3.png" alt="Email icon">
-                            <h3>Email</h3>
-                            <p>info@nbts.health.gov.lk</p>
-                        </div>
-                        <div class="clock">
-                            <img src="../../../public/img/g4.png" alt="Clock icon">
-                            <h3>Working Hours</h3>
-                            <p>Monday-Sunday: 9am-8pm</p>
-
-                        </div>
-                    
                 </div>
 
             </div>
         </div>
     </div>
-<?php
-    
-        
-    require_once(__ROOT__.'/app/views/layout/footer.php');
- 
+    <?php
 
-    
-?>
+
+    require_once(__ROOT__ . '/app/views/layout/footer.php');
+
+
+
+    ?>
 </body>
 
 </html>

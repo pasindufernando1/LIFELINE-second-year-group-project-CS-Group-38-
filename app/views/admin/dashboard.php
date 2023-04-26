@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Admin Dashboard" 
+$metaTitle = "Admin Dashboard";
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +32,16 @@ $metaTitle = "Admin Dashboard"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
 
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/validation_confirmation.php'); ?>
+
+
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
             <div class="dashboard menu-items">
                 <div class="marker"></div>
                 <img src="./../../public/img/admindashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="/adminuser/dashboard">Dashboard</a></p>
+                <p class="dashboard-active"><a href="/user/dashboard?page=1">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/admindashboard/non-active/reservation.png" alt="reservation">
@@ -68,7 +71,6 @@ $metaTitle = "Admin Dashboard"
                 <img src="./../../public/img/admindashboard/non-active/reports.png" alt="reports">
                 <img class="reservation-non-active" src="./../../public/img/admindashboard/active/reports.png" alt="reports">
                 <p class="reports-nav "><a href="/reports/type?page=1">Reports</a></p>
-
             </div>
             <div class="campaigns menu-item">
                 <img src="./../../public/img/admindashboard/non-active/campaigns.png" alt="campaigns">
@@ -97,40 +99,65 @@ $metaTitle = "Admin Dashboard"
             </div>
         </div>
     </div>
-
+    <!-- $_SESSION['dashboard_stats'] -->
     <div class="bo1">
-    <p class="te1">Donations Today</p>
-    <p class="te2">8566</p>
+    <p class="te1">Blood Donations Today</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations'];?></p>
 </div>
 
 <div class="bo2">
-    <p class="te1">Campaigns Today</p>
-    <p class="te2">22</p>
+    <p class="te1">Unread Feedbacks</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Unread_feedbacks']?></p>
+    <!-- Button to take a look at the feedbacks -->
+    <a href="/feedbacks/type?page=1"><button class="feedback-btn">Review</button></a>
 </div>
 
 <div class="bo3">
     <p class="te1">Cash Donations Today</p>
-    <p class="te2">Rs.535000</p>
+    <p class="te2">Rs.<?php 
+    if($_SESSION['dashboard_stats']['Today_cash_donations'] != 0){
+        echo $_SESSION['dashboard_stats']['Today_cash_donations'];
+    }else{
+        echo "0";
+    }
+    ?></p>
 </div>
 
 <div class="bo4">
     <p class="te1">Approval Requests</p>
-    <p class="te2">17</p>
+    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Total_hospital_requests']?></p>
     
 </div>
 
 <div class="bo5">
-<p class="tebar">Blood Donation Statistics</p>
+<p class="tebar">Recent Blood Donation Statistics</p>
+
+<!-- Barchart of donations -->
 <canvas id="usage-months">
                 <script>
+                    <?php 
+                        $result = $_SESSION['blood_donations'];
+                    ?>
+                    
+                    
                     var ctx = document.getElementById('usage-months').getContext('2d');
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            labels: 
+                                <?php 
+                                    // Get the keys, and print them out.
+                                    $keys = array_keys($result);
+                                    echo json_encode($keys);
+                                ?>,
                             datasets: [{
-                                label: 'Donations Received',
-                                data: [12, 19, 10, 7, 2, 11, 17, 18, 12, 2, 3, 15],
+                                label: 'Number of donations received',
+                                data: 
+                                    <?php 
+                                        // Get the values, and print them out.
+                                        $values = array_values($result);
+                                        echo json_encode($values);
+                                    ?>,
                                 backgroundColor: [
                                     '#BF1B16',
                                     '#BF1B16',
@@ -195,10 +222,10 @@ $metaTitle = "Admin Dashboard"
                         }
                     });
                 </script>
-
             </canvas>
         </div>
 
+        <!-- Validations of hospitals -->
         <div class="bo6">
             <p class="tebar">Hospital and Medical Center Status</p>
                 <table class="blood-types-table" style="width:90%">
@@ -225,11 +252,7 @@ $metaTitle = "Admin Dashboard"
                 //determine the sql LIMIT starting number for the results on the displaying page  
                 $page_first_result = ($page-1) * $results_per_page;  
                 $result = $_SESSION['hospitals'];
-                
-
-                //display the link of the pages in URL  
-                
-
+            
                 // print_r($result[0]);die();
                 if ($number_of_results > 0) {
                 
@@ -237,9 +260,11 @@ $metaTitle = "Admin Dashboard"
                         echo '<div class="table-content-types"> <tr>
                                 <td>' . $row["UserID"]. "</td>
                                 <td>" . $row["Name"] . '</td>
-                                <td ' . '<span class="validate">View </span>' . '</td>
+                                <td ' . '<span><a class="validate" href="/adminuser/view_user/'.$row["UserID"].'">View</a></span>' . '</td>
                     
-                                <td ' . '<span class="validates">Validate </span>' . '</td>
+                                <td ' . '<span><a class="validates" onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                                document.getElementById('."'del'".').action = '."'/adminuser/validate_user/".$row["UserID"]."'".'";
+                                ">Validate</a></span>' . '</td>
                                 
                             </tr> </div>';
                         
@@ -274,9 +299,10 @@ $metaTitle = "Admin Dashboard"
                 
                 </table>
         </div>
-
+        
+        <!-- Donor composition chart -->
         <div class="bo7">
-            <div class="male">
+            <!-- <div class="male">
                 <img class="malepic" src="./../../public/img/admindashboard/male.png" alt="male">
                 <p class="matex">35%</p>
             </div>
@@ -284,20 +310,39 @@ $metaTitle = "Admin Dashboard"
             <div class="female">
                 <img class="femalepic" src="./../../public/img/admindashboard/female.png" alt="female">
                 <p class="matex">65%</p>
-            </div>
+            </div> -->
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
+                <?php 
+                        $result = $_SESSION['donor_composition'];
+                ?>
                 new Chart(document.getElementById("pie-chart"), {
                     type: 'doughnut',
                     data: {
-                    datasets: [{
-                        label: "Donor Composition",
-                        backgroundColor: ["#BF1B16", "#BF1B16"],
-                        data: [65,35]
-                        
-                    }]
-                    } 
+                        labels: <?php echo json_encode(array_keys($result)); ?>,
+                        datasets: [{
+                            label: "Donor Composition",
+                            backgroundColor: ["#BF1B16", "#360806"],
+                            data: <?php echo json_encode(array_values($result)); ?>,
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            labels: {
+                                fontSize: 28,
+                                position: 'outside',
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Donor Composition'
+                        }
+                    }
                 });
             </script>
         </div>

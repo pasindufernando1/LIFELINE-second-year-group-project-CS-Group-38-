@@ -14,7 +14,7 @@
                     <div class="dashboard-non menu-item">       
                         <img class="" src="./../../public/img/dashboard/non-active/dashboard.png" alt="dashboard">
                         <img class="reservation-non-active dash " src="../../../public/img/dashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-non-active menu-item"><a href="/adminuser/dashboard?page=1">Dashboard</a></p>
+                        <p class="dashboard-non-active menu-item"><a href="/user/dashboard?page=1">Dashboard</a></p>
                     </div>
                     <div class="reservation-selected">
                         <div class="marker"></div>

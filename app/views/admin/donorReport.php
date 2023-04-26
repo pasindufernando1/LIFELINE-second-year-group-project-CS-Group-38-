@@ -43,7 +43,13 @@ $metaTitle = "Donor Report"
             <div class="quantity-container">
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Donor ID : </label>
                 <br>
-                <input class="quantity-input" type="text" name="donorID" id="category" placeholder="Donor ID" required>
+                <select class="quantity-input" type="text" name="donorID" id="donorID" placeholder="Donor ID" required>
+                    <option value="" disabled selected hidden>Select Donor</option>
+                        <?php foreach ($_SESSION['Donors'] as $donor) : ?>
+                            <option value="<?php echo $donor[0]; ?>"><?php echo $donor[0]." : ".$donor[1]; ?></option>
+                        <?php endforeach; ?>
+                </select>
+                <!-- <input class="quantity-input" type="text" name="donorID" id="category" placeholder="Donor ID" required> -->
                 <div>
                 <button id="submit-btn" class='brown-button-rep generate-analytics' type='submit' name='gen_report'>Generate report</button>                            
             </div>

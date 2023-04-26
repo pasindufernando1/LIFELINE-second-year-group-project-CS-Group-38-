@@ -20,5 +20,3 @@ function change_stars(num) {
 
 }
 
-
-

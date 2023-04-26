@@ -37,7 +37,7 @@ class GetcampaignModel extends Model
         $data = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
+            'WHERE Date > :Date AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
             ':Date',
             $today
         );
@@ -114,7 +114,8 @@ class GetcampaignModel extends Model
         }
     }
 
-    public function getCampDates($userid){
+    public function getCampDates($userid)
+    {
         $data = $this->db->select(
             'Date',
             'donation_campaign',
@@ -123,129 +124,28 @@ class GetcampaignModel extends Model
             $userid
         );
         $dates = [];
-        for($x = 0; $x < count($data); $x++){
+        for ($x = 0; $x < count($data); $x++) {
             array_push($dates, $data[$x]['Date']);
         }
         return $dates;
     }
 
+    public function getCampAds($camps)
+    {
+        $camp_ads = [];
+        foreach ($camps as $camp) {
+            $data = $this->db->select(
+                'Advertisement_Pic',
+                'advertisement',
+                'WHERE AdvertisementID = :AdvertisementID',
+                ':AdvertisementID',
+                $camp['AdvertisementID']
+            );
+            array_push($camp_ads, $data);
+        }
+        return $camp_ads;
 
-
-
-
-    // public function iftimeokay($user_ID, $camp_ID)
-    // {
-    //     //If donor havent registered for any campaign and have not donated blood yet
-    //     // print_r(
-    //     //     $this->db->select(
-    //     //         'count',
-    //     //         'regiser_to_campaigm',
-    //     //         'WHERE DonorID =:DonorID',
-    //     //         ':DonorID',
-    //     //         $user_ID
-    //     //     )
-    //     // );
-    //     // die();
-    //     if (
-    //         $this->db->select(
-    //             'count',
-    //             'register_to_campaign',
-    //             'WHERE DonorID =:DonorID',
-    //             ':DonorID',
-    //             $user_ID
-    //         ) == 0 &&
-    //         $this->db->select(
-    //             'count',
-    //             'donor_bloodbank_bloodpacket',
-    //             'WHERE DonorID =:DonorID',
-    //             ':DonorID',
-    //             $user_ID
-    //         ) == 0 &&
-    //         $this->db->select(
-    //             'count',
-    //             'donor_campaign_bloodpacket',
-    //             'WHERE DonorID =:DonorID',
-    //             ':DonorID',
-    //             $user_ID
-    //         )
-    //     ) {
-    //         return true;
-    //     } else {
-    //         $camp_date = $this->db->select(
-    //             'Date',
-    //             'donation_campaign',
-    //             'WHERE CampaignID =:CampaignID',
-    //             ':CampaignID',
-    //             $camp_ID
-    //         )[0]['Date'];
-    //         $params = [':DonorID', ':Date'];
-    //         $columns = [$user_ID, $camp_date];
-    //         if (
-    //             $this->db->select(
-    //                 'count',
-    //                 'donor_campaign_bloodpacket',
-    //                 'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-    //                 $params,
-    //                 $columns
-    //             ) == 0 ||
-    //             $this->db->select(
-    //                 'count',
-    //                 'donor_campaign_bloodpacket',
-    //                 'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-    //                 $params,
-    //                 $columns
-    //             ) == 0
-    //         ) {
-    //             if (
-    //                 $this->db->select(
-    //                     'count',
-    //                     'donor_bloodbank_bloodpacket',
-    //                     'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-    //                     $params,
-    //                     $columns
-    //                 ) == 0 ||
-    //                 $this->db->select(
-    //                     'count',
-    //                     'donor_bloodbank_bloodpacket',
-    //                     'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-    //                     $params,
-    //                     $columns
-    //                 ) == 0
-    //             ) {
-    //                 $registered_camps = $this->db->select(
-    //                     'CampaignID',
-    //                     'register_to_campaign',
-    //                     'WHERE DonorID =:DonorID',
-    //                     ':DonorID',
-    //                     $user_ID
-    //                 );
-    //                 // $register_dates=[];
-    //                 for ($x = 0; $x < sizeof($registered_camps); $x++) {
-    //                     $other_date = $this->db->select(
-    //                         'Date',
-    //                         'donation_campaign',
-    //                         'WHERE CampaignID =:CampaignID',
-    //                         ':CampaignID',
-    //                         $registered_camps[$x]
-    //                     );
-    //                     $other_date = date('Y-m-d', $other_date);
-    //                     if (
-    //                         date_diff($camp_date, $other_date) < 56 &&
-    //                         date_diff($camp_date, $other_date) > -56
-    //                     ) {
-    //                         return false;
-    //                     }
-    //                 }
-    //                 return true;
-    //             } else {
-    //                 return false;
-    //             }
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-    //     // return false;
-    // }
+    }
 
     public function ifregistered($user_id, $campaign_id)
     {
@@ -392,7 +292,8 @@ class GetcampaignModel extends Model
         return $ret_reg_info;
     }
 
-    public function get_timeslots($campid){
+    public function get_timeslots($campid)
+    {
         $timeslots = $this->db->select(
             'SlotID',
             'campaign_timeslots',
@@ -405,9 +306,10 @@ class GetcampaignModel extends Model
         return $timeslots;
     }
 
-    public function get_timeslot_period($slotids){
-        $timeslot_periods=[];
-        foreach($slotids as $slotid){
+    public function get_timeslot_period($slotids)
+    {
+        $timeslot_periods = [];
+        foreach ($slotids as $slotid) {
             $timeslot_period = $this->db->select(
                 'Start_time,End_time',
                 'timeslot',
@@ -415,14 +317,15 @@ class GetcampaignModel extends Model
                 ':SlotID',
                 $slotid[0]
             );
-            array_push($timeslot_periods,$timeslot_period[0]);
+            array_push($timeslot_periods, $timeslot_period[0]);
         }
         return $timeslot_periods;
         // print_r($timeslot_periods);
         // die();
     }
 
-    public function get_beds($campid){
+    public function get_beds($campid)
+    {
         $beds = $this->db->select(
             'BedQuantity ',
             'donation_campaign',
@@ -433,27 +336,29 @@ class GetcampaignModel extends Model
         return $beds[0][0];
     }
 
-    public function get_reserved_timeslots($campid,$slotids){
-        $reserved_timeslots=[];
-        foreach($slotids as $slotid){
+    public function get_reserved_timeslots($campid, $slotids)
+    {
+        $reserved_timeslots = [];
+        foreach ($slotids as $slotid) {
             $reserved_timeslot = $this->db->select(
                 'count',
                 'register_to_campaign',
                 'WHERE CampaignID =:CampaignID AND SlotID =:SlotID',
-                [':CampaignID',':SlotID'],
-                [$campid,$slotid[0]]
+                [':CampaignID', ':SlotID'],
+                [$campid, $slotid[0]]
             );
             // print_r($reserved_timeslot);
-            array_push($reserved_timeslots,$reserved_timeslot);
+            array_push($reserved_timeslots, $reserved_timeslot);
 
         }
         // print_r($reserved_timeslots);
         // die();
         return $reserved_timeslots;
-    
+
     }
 
-    public function reserve_timeslot($campid,$slotid,$user_id){
+    public function reserve_timeslot($campid, $slotid, $user_id)
+    {
         $param = [':DonorID', ':CampaignID'];
         $inputs = [$user_id, $campid];
         //update register_to_campaign table
@@ -477,7 +382,8 @@ class GetcampaignModel extends Model
         }
     }
 
-    public function get_camp_na($campid){
+    public function get_camp_na($campid)
+    {
         $camp_na = $this->db->select(
             'Name,Location',
             'donation_campaign',
@@ -488,7 +394,8 @@ class GetcampaignModel extends Model
         return $camp_na[0];
     }
 
-    public function get_donor_name($userid){
+    public function get_donor_name($userid)
+    {
         $name = $this->db->select(
             'Fullname',
             'donor',
@@ -500,27 +407,29 @@ class GetcampaignModel extends Model
 
     }
 
-    public function timeslotreserved($campid,$userid){
+    public function timeslotreserved($campid, $userid)
+    {
         //check if slotID is NULL
         $timeslot = $this->db->select(
             'SlotID',
             'register_to_campaign',
             'WHERE CampaignID =:CampaignID AND DonorID =:DonorID',
-            [':CampaignID',':DonorID'],
-            [$campid,$userid]
+            [':CampaignID', ':DonorID'],
+            [$campid, $userid]
         );
 
         // print_r($timeslot);
         // die();
-        
-        if($timeslot[0][0] == NULL){
+
+        if ($timeslot[0][0] == NULL) {
             return false;
-        }else{
+        } else {
             return $timeslot[0][0];
         }
     }
 
-    public function get_ts_period($slotid){
+    public function get_ts_period($slotid)
+    {
         $timeslot_period = $this->db->select(
             'Start_time,End_time',
             'timeslot',
@@ -531,7 +440,8 @@ class GetcampaignModel extends Model
         return $timeslot_period[0];
     }
 
-    public function cancel_reserved_timeslot($campid,$timeslot,$user_id){
+    public function cancel_reserved_timeslot($campid, $timeslot, $user_id)
+    {
         $param = [':DonorID', ':CampaignID'];
         $inputs = [$user_id, $campid];
         //update register_to_campaign table
@@ -554,4 +464,42 @@ class GetcampaignModel extends Model
             print_r($result1);
         }
     }
+
+    public function Campaignsofmonth($today, $month)
+    {
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE Date > :Date AND MONTH(Date) = :Month AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
+            [':Date', ':Month'],
+            [$today, $month]
+        );
+        return $data;
+    }
+
+    public function Campaignsofdistrict($today, $district)
+    {
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE Date > :Date AND Status = 1 AND Archive = 0 AND District = :District ORDER BY Date ASC',
+            [':Date', ':District'],
+            [$today, $district]
+        );
+        return $data;
+    }
+
+    public function Campaignsofmonthdistict($today, $month, $district)
+    {
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE Date > :Date AND MONTH(Date) = :Month AND Status = 1 AND Archive = 0 AND District = :District ORDER BY Date ASC',
+            [':Date', ':Month', ':District'],
+            [$today, $month, $district]
+        );
+        return $data;
+    }
+
+
 }

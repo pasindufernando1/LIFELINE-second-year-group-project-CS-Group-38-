@@ -1,4 +1,9 @@
 <?php
+session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP   ;
+require '../vendor/autoload.php';
 
 
 class AdminuserModel extends Model
@@ -111,7 +116,72 @@ class AdminuserModel extends Model
         } 
 
     }
+
+    //Function to get the type of the user when user id is passed
+    public function getUserType($user_id)
+    {     
+        $data = $this->db->select("UserType", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        return $data[0]['UserType'];
+    }
     
+    //Function to get the details of the hospital/medical center when user id is passed
+    public function getHosMedDetails($user_id)
+    {
+        $data1 = $this->db->select("*", "hospital_medicalcenter", "WHERE UserID = :user_id",':user_id',$user_id);
+        //Select Email,Username,Password from user table
+        $data2 = $this->db->select("Email,Username,Password", "user", "WHERE UserID = :user_id",':user_id',$user_id);
+        //Select ContactNumber from usercontactnumber table
+        $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :user_id",':user_id',$user_id);
+        $data = array_merge($data1,$data2,$data3);
+        //Return data as a single array
+        return $data;
+
+    }
+
+    // Function to validate the user when the user id is passed
+    public function validate_user($user_id)
+    {
+        $result = $this->db->update("hospital_medicalcenter", "Status", ":status", 1, ':user_id', $user_id, "WHERE UserID = :user_id");
+        if($result == "Success")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //Function to send the email to the hospital/medical center
+    public function validate_user_email($user_id)
+    {
+        // Get the email id based on the Hospital/Medical Center user id
+        $data = $this->db->select("Email", "user", "WHERE UserID = :UserID", "UserID", $user_id);
+        $Email = $data[0]['Email'];
+        // Send the validation acceptance email
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();                                     // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                              // Enable SMTP authentication
+        $mail->Username = 'lifeline.managementservices@gmail.com';
+        $mail->Password = 'kelpqmxgangljbqj';
+
+        $mail->From = 'lifeline.managementservices@gmail.com';
+        $mail->FromName = 'Life Line';
+        $mail->addAddress($Email);                           // Add a recipient
+        $mail->addReplyTo("noreply@lifeline.com", "Life Line");
+        $mail->isHTML(true);                                 // Set email format to HTML
+        $mail->Subject = "Registration acceptance verification";
+        $mail->Body    = "<p>This email is to confirm that your registration has been approved for 'LIFELINE' blood banks and donation management system. <br>Now you can use login to the system and stay in connect with us.</p>";
+        $mail->AltBody = "This email is to confirm that your registration has been approved for 'LIFELINE' blood banks and donation management system. <br>Now you can use login to the system and stay in connect with us.";
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message has been sent';
+            return true;
+        }
+    }
 
     
 }

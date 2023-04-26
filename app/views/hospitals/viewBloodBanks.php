@@ -43,7 +43,7 @@ $metaTitle = "Hospitals Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -116,8 +116,9 @@ $metaTitle = "Hospitals Dashboard"
                         //display the link of the pages in URL  
                           
 
-                        // print_r($result[0]);die();
+                         //print_r($result);die();
                         if ($_SESSION['rowCount'] > 0) {
+                            //print_r($result);die();
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["BloodBankID"]. "</td>
@@ -139,27 +140,34 @@ $metaTitle = "Hospitals Dashboard"
                         else {
                             echo "0 results";
                         }
-                        /* echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
-                        }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-                            }else{
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
-                            }
-                        }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-                        }
-                          
-                        echo '</div>' ; */?>
+                        echo '<div class="pag-box">';
+if (!isset($_GET['page']) || $_GET['page'] == 1) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+}
+
+for($page = 1; $page <= $number_of_page; $page++) {  
+    if (!isset($_GET['page'])) {
+        $current_page = 1;
+    } else {
+        $current_page = $_GET['page'];
+    }
+    if ($page == $current_page) {
+        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+    } else {
+        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+    }
+}
+
+if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+}
+
+echo '</div>';
+ ?>
                         
                         </table>
                     </form>

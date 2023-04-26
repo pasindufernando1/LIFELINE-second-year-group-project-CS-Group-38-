@@ -29,15 +29,24 @@ $metaTitle = "Users"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/users_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/user_delete_confirmation.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/filters/user_filter.php'); ?>
             
     <!-- main content -->
     <div class="box">
         <p class="add-user-title">Users</p>
-        
+
+        <a href="/usermanage/bloodbanks?page=1" class="light-button">Blood Banks</a>
+        <img class="bloodbank-user" src="./../../public/img/admindashboard/bloodbank.png" alt="reservation-filter-img">
+
+        <a href="/usermanage/deactivated_users?page=1" class="pink-button">Deactivated Users</a>
+        <img class="deactivated-user" src="./../../public/img/admindashboard/deactivated_users.png" alt="reservation-filter-img">
+
+
         <a href="/usermanage/adduser" class="brown-button types-user">Add New</a>
         <img class="userbutton-user" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
         
-        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
+        <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('idfilter01').style.display='block'">Filter by User Type</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
         <table class="user-types-table" style="width:90%">
@@ -53,8 +62,9 @@ $metaTitle = "Users"
         
         
         <?php 
+        $status = $_SESSION['is_filtered_user']? 'true' : 'false';
         $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
+        $number_of_results = count($_SESSION['users']);
         $number_of_page = ceil($number_of_results / $results_per_page);
 
         //determine which page number visitor is currently on  
@@ -78,33 +88,37 @@ $metaTitle = "Users"
                         <td>" . $row["Email"] . "</td>
                         <td>" . $row["Username"] . '</td>
                         <td><a href = "/usermanage/view_user/'.$row["UserID"].'"><button class="view-btn" >View</button></a> </td>
-                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/usermanage/edit_user/'.$row["UserID"].'"> <img class="edit-btn" src="./../../public/img/admindashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/usermanage/delete_user/'.$row["UserID"].'">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/usermanage/edit_user/'.$row["UserID"].'"> <img class="edit-btn" src="./../../public/img/admindashboard/edit-btn.png" alt="edit-btn"> </a> </div> 
+                        <div class="delete-btn-div"> <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                        document.getElementById('."'del'".').action = '."'/usermanage/delete_user/".$row["UserID"]."'".'";
+                        ">   <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+
                     </tr> </div>';
                 
             }
         } 
         else {
-            echo "0 results";
+            // echo "0 results";
         }
         echo "</table>";
         echo '<div class="pag-box">';
         if ($_GET['page'] == 1) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
         }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page-1 . '">&laquo;</a> </div>';   
         }
-    
+
         for($page = 1; $page<= $number_of_page; $page++) {  
             if ($page == $_GET['page']) {
-                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
             }else{
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
             }
         }
         if ($_GET['page'] == $number_of_page) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
         }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
         }
             
         echo '</div>' ;?>

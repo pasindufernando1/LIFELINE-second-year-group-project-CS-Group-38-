@@ -9,6 +9,7 @@ require_once __ROOT__ . '/views/layout/navigation.php';
 <head>
     <!-- CSS Files -->
     <link href="../../../public/css/donor/login.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
@@ -24,37 +25,10 @@ require_once __ROOT__ . '/views/layout/navigation.php';
             <p>Donor Sign-Up</p>
         </div>
         <div class="reg-sub-2">
-            <p>Enter your information below</p>
+            <p>Enter your username and password below</p>
         </div>
         <form class="donorsignup-form" action="/donorsignup/send_signup" method="post" id="donor-form"
-            name="donorsignup-form" enctype="multipart/form-data">
-
-            <div class="input-img" onmouseover="imgreplace()" onmouseout="back()">
-                <label for="fileToUpload"> <img id="upload_img"
-                        src="../../../public/img/user_pics/add_profile_pic.png"></label>
-                <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
-            </div>
-
-            <script>
-            function imgreplace() {
-                document.getElementById("upload_img").src = "../../../public/img/user_pics/add_profile_pic_1.png";
-            }
-
-            function back() {
-                document.getElementById("upload_img").src = "../../../public/img/user_pics/add_profile_pic.png";
-            }
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById("donor_img").src = e.target.result;
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            </script>
-
+            name="donorsignup-form">
             <label class="name-lable" for="name">NAME</label>
             <br>
             <input id="fname" class="fname-input" type="text" name="fname" autofocus placeholder="First Name" required>
@@ -153,6 +127,10 @@ require_once __ROOT__ . '/views/layout/navigation.php';
             </select>
             <p class="province-error" id="province-error"></p>
             <br>
+            <label class="email-lable" for="email">EMAIL</label>
+            <br>
+            <input id="email" class="email-input" type="email" name="email" autofocus placeholder="Email" required>
+            <p class="email-error" id="email-error"></p>
             <label class="tel-lable" for="tel">Telephone</label>
             <br>
             <input id="tel" class="tel-input" type="text" name="tel" autofocus placeholder="Telephone number" required>

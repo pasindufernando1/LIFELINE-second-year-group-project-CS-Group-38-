@@ -12,7 +12,7 @@
 // print_r($_SESSION['camp_locations']);
 // die();
 
-$metaTitle = 'Donor Dashboard';?>
+$metaTitle = 'Donor Dashboard'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,9 @@ $metaTitle = 'Donor Dashboard';?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -42,7 +44,7 @@ $metaTitle = 'Donor Dashboard';?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
 
     <!-- Side bar -->
@@ -114,40 +116,51 @@ $metaTitle = 'Donor Dashboard';?>
             </div>
 
             <div class="pie-chart">
-                <canvas id="myPieChart"></canvas>
+                <p class="title">Your Blood Donations</p>
+                <p>
+                    <?php echo 'Total Donations : ' . $_SESSION['no_of_bank_donations'] + $_SESSION['no_of_camp_donations']; ?>
+                </p>
+                <canvas id="myDoughnutChart"></canvas>
             </div>
-
             <script>
-            // Get the canvas element
-            var ctx = document.getElementById('myPieChart').getContext('2d');
+                // Get the canvas element
+                var ctx = document.getElementById('myDoughnutChart').getContext('2d');
 
-            // Define the data for the chart
-            var data = {
-                labels: ['Blood Banks', 'Campaigns'],
-                datasets: [{
-                    data: [
-                        <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
-                    ],
-                    backgroundColor: [
-                        'rgba(245, 174, 172, 1)',
-                        'rgba(115, 29, 29, 1)'
-                    ]
-                }]
-            };
+                // Define the data for the chart
+                var data = {
+                    labels: ['Blood Banks', 'Campaigns'],
+                    datasets: [{
+                        data: [
+                            <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
+                        ],
+                        backgroundColor: [
+                            'rgba(245, 174, 172, 1)',
+                            'rgba(115, 29, 29, 1)'
+                        ]
+                    }]
+                };
 
-            // Create the pie chart
-            var myPieChart = new Chart(ctx, {
-                type: 'pie',
-                data: data,
-                options: {
-                    // Add a title to the chart
-                    title: {
-                        display: true,
-                        text: 'My Pie Chart'
+                var options = {
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#333',
+                            fontSize: 19
+                        }
                     }
-                }
-            });
+                };
+
+                // Create the doughnut chart
+                var myDoughnutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: options
+                });
             </script>
+
+
+
 
             <div class="don-type" id="bank">
                 <button><a href="donationhistory/atbloodbanks">At Blood Banks</a></button>

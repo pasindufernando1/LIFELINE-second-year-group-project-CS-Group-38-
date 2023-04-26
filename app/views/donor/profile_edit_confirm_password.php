@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,7 +35,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -98,9 +100,9 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div id="check-password-form" class="profile-container">
         <h2>Confirm Your Password To Change Email</h2>
-        <?php if (isset($_SESSION['p_error'])) { 
+        <?php if (isset($_SESSION['p_error'])) {
             echo "<p class='pass_error'>" . $_SESSION['p_error'] . "</p>";
-        }?>
+        } ?>
         <form action="/donorprofile/confirm_password" method="post" name="confirmpassword-form">
 
             <label class="password-lable" for="password">PASSWORD</label>

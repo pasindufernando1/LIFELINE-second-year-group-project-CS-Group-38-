@@ -2538,9 +2538,19 @@ td {
     font-size: 13.6835px;    
 }
 
-
-
-/* Style the diabled option */
-
+.validates {
+    position: absolute;
+    width: 93px;
+    height: 23px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    color: #BF1B16;
+    vertical-align: middle;
+    padding-top: 0px;
+    margin-left: -38px;
+    font-weight: 700;
+    margin-top: -12px;
+}
 
 

@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,7 +35,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -100,7 +102,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
             enctype="multipart/form-data">
 
-            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>"><br>
+            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>"><br>
 
             <label for="fileToUpload"> <img id="change_img"
                     src="../../../public/img/donordashboard/lil_cam.png"></label>
@@ -123,14 +125,14 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION[
                 'donor_info'
-            ]['Fullname']; ?> " required>
+            ]['Fullname']; ?>" required>
             <p class="name-error" id="name-error"></p>
 
             <label class="nic-lable" for="nic">NIC NUMBER</label>
 
             <input id="nic" class="nic-input" type="text" name="nicno" autofocus value="<?php echo $_SESSION[
                 'donor_info'
-            ]['NIC']; ?> " required>
+            ]['NIC']; ?>" required>
             <p class="nic-error" id="nic-error"></p>
 
             <label class="dob-lable" for="dob">DATE OF BIRTH</label>
@@ -143,15 +145,15 @@ $metaTitle = 'Donor Dashboard'; ?>
             <div class="address-div">
                 <input id=" number" class="number-input" type="text" name="number" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['Number']; ?> " required>
+                ]['Number']; ?>" required>
                 <p class="number-error" id="number-error"></p>
                 <input id="lane" class="lane-input" type="text" name="lane" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['LaneName']; ?> " required>
+                ]['LaneName']; ?>" required>
                 <p class="lane-error" id="lane-error"></p>
                 <input id="city" class="city-input" type="text" name="city" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['City']; ?> " " required>
+                ]['City']; ?>" required>
                 <p class=" city-error" id="city-error"></p>
             </div>
             <select id="district" class="district-input custom-select" type="text" name="district" autofocus required>
@@ -159,8 +161,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'District'
                 ]; ?>" hidden><?php echo $_SESSION['donor_info'][
-    'District'
-]; ?></option>
+                     'District'
+                 ]; ?></option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -193,8 +195,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'Province'
                 ]; ?> " hidden><?php echo $_SESSION['donor_info'][
-     'Province'
- ]; ?> </option>
+                      'Province'
+                  ]; ?> </option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
                 <option value="North Central">North Central</option>
@@ -210,14 +212,14 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION[
                 'donor_contact'
-            ]['ContactNumber']; ?> " required>
+            ]['ContactNumber'];?>" required>
             <p class="tel-error" id="tel-error"></p>
 
             <label class="uname-lable" for="uname">USERNAME</label>
 
             <input id="uname" class="uname-input" type="text" name="uname" autofocus value="<?php echo $_SESSION[
                 'username'
-            ]; ?> " required>
+            ]; ?>" required>
             <p class="uname-error" id="uname-error"></p>
 
             <label class="password-lable" for="password">PASSWORD</label>

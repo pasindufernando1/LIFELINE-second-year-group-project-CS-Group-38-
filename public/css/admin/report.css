@@ -670,11 +670,11 @@ body {
 
 
 
-.box, .box-productive, .box-camp, .box-donor , .box-expiry{
+.box, .box-productive, .box-camp, .box-donor , .box-expiry, .box-usage{
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 1000px;
+    height: 1000px;;
     left: 316px;
     top: 102px;
     background: #ffffff;
@@ -696,6 +696,10 @@ body {
 
 .box-expiry{
     height: 2000px;
+}
+
+.box-usage{
+    height: 1423px;
 }
 
 
@@ -2145,18 +2149,28 @@ a {
 }
 
 .edit-btn-div {
-    margin: auto;
+    width: 160px;
+    height: 35px;
+    background: rgba(175, 175, 175, 0.2);
+    border-radius: 4px;
+    margin: 0px -34px 0px 35px;
     text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    /* Ignore the blue color duue to text and make the color black */
+    color: #000000;
+    cursor: pointer;
+    
 }
 
 
 .edit-btn {
-    width: 35px;
-    height: 35px;
-    background: rgba(175, 175, 175, 0.2);
-    border-radius: 4px;
-    margin: 0px 5px 0px -30px;
-    text-align: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    margin-top: 7px;
 }
 
 
@@ -2619,9 +2633,33 @@ td {
 
 
 .barchart{
-    position: absolute;
-    top: 180px;
+    /* position: absolute;
+    top: 700px;
     margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px; */
+    position: absolute;
+    top: 178px;
+    margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+}
+
+.barchart-usage{
+    position: absolute;
+    top: 700px;
+    margin: 194px 0px 69px 35px;
+    border: 1px #BCBCBC solid;
+    border-radius: 10px;
+    
+}
+
+.smallchart{
+    position: absolute;
+    top: 280px;
+    width: 500px;
+    height: 500px;
+    margin: 61px 0px 0 512px;
     border: 1px #BCBCBC solid;
     border-radius: 10px;
 }
@@ -2804,34 +2842,44 @@ td {
 
 
 
-.genrep1{
+.genrep1 {
     top: 170px;
-    left: 945px;
+    left: 1195px;
 }
 
-.genrep2{
-    top: 7px;
-    left: 945px;
+.genrep1_new {
+    top: 170px;
+    left: 866px;
+}
+
+.genrep2 {
+    top: 123px;
+    left: 1200px;
 }
 
 .addbutton_rep1{
-    top: 175px;
-    left: 1169px;
+    top: 177px;
+    left: 1415px;
 }
 
-.addbutton_rep2{
-    top: 15px;
-    left: 1169px;
+.addbutton_rep1_new{
+    top: 177px;
+    left: 1085px;
 }
 
-.outline-button_rep1{
+.addbutton_rep2 {
+    top: 130px;
+    left: 1414px;
+}
+
+.outline-button_rep1 {
     top: 169px;
-    left: 1258px;
+    left: 1520px;
 }
 
-.outline-button_rep2{
-    top: 7px;
-    left: 1258px;
+.outline-button_rep2 {
+    top: 121px;
+    left: 1527px;
 }
 
 .cancelbutton_rep1{
@@ -2854,7 +2902,7 @@ td {
     position: absolute;
     width: 90%;
     height: 0px;
-    top: 40.25px;
+    top: 56.25px;
     left: 27px;
     border: 0.818053px solid #EFEFEF;
 }

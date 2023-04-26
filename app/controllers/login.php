@@ -13,22 +13,24 @@ class Login extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
-                header("Location: /user/dashboard");
+                header("Location: /systemuser/dashboard");
                 $this->view->render('systemuser/dashboard');
                 exit;
             } else if ($_SESSION['type'] == "Admin") {
-                header("Location: /user/dashboard");
-                $this->view->render('layout/navigation');
+                header("Location: /user/dashboard?page=1");
+                //$this->view->render('admin/dashboard');
                 exit;
             } else if ($_SESSION['type'] == "Donor") {
-                header("Location: /user/dashboard");
-                $this->view->render('systemuser/dashboard');
+                header("Location: /donoruser/dashboard");
+                $this->view->render('donor/dashboard');
                 exit;
-            } else {
-                header("Location: /user/dashboard");
-                $this->view->render('systemuser/dashboard');
+            } else if ($_SESSION['type'] == "Hospital/Medical_Center") {
+                header("Location: /hospitaluser/dashboard");
+                $this->view->render('hospitals/dashboard');
                 exit;
-            }
+            
+            } 
+            
         }
         else{
             $this->view->render('authentication/login');

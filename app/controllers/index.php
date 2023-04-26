@@ -13,4 +13,24 @@ class Index extends Controller
     {
         $this->view->render('index');
     }
+
+    function about_us()
+    {
+        $this->view->render('aboutUs');
+    }
+    function services()
+    {
+        $this->view->render('bloodbank');
+    }
+
+    function campaigns()
+    {
+        $this->view->render('campaigns');
+    }
+
+    function contact_us()
+    {
+        $this->view->render('contact');
+    }
+
 }

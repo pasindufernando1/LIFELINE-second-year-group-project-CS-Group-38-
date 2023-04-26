@@ -13,7 +13,9 @@ $metaTitle = 'Donor Dashboard';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,7 +35,7 @@ $metaTitle = 'Donor Dashboard';
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -98,6 +100,10 @@ $metaTitle = 'Donor Dashboard';
 
         </div>
     </div>
+
+    <!-- filter -->
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/filter/camp_filter.php'); ?>
+
     <div class="campaign-reg-box">
         <h2 class="header2">Registered Campaigns</h2>
         <div class="view-register-container">
@@ -127,18 +133,18 @@ $metaTitle = 'Donor Dashboard';
                                             <p>Starting At :' .
                         $_SESSION['registrations'][$x][0][5] .
                         '<br>
-                                            Location:' .
-                        $_SESSION['registrations'][$x][0][2] .
-                        '<br>
-                                            At:' .
+                                            On:' .
                         $_SESSION['registrations'][$x][0][4] .
-                        '</p>
+                        '<br>
+                        Location:' .
+                        $_SESSION['registrations'][$x][0][2] .
+                        '<br></p>
                                             </div>
                                             <div class="campaign-card-right-box">
                                             <a href="/getcampaign/view_campaign?camp=' .
                         $_SESSION['registrations'][$x][0][0] .
                         '"> <button class="register-btn" name="view_camp_info" > View </button> </a>
-                                            <a href="/getcampaign/view_timeslot?camp='.$_SESSION['registrations'][$x][0][0].'"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
+                                            <a href="/getcampaign/view_timeslot?camp=' . $_SESSION['registrations'][$x][0][0] . '"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
                                             </div>
                                             </div>';
                 }
@@ -151,6 +157,8 @@ $metaTitle = 'Donor Dashboard';
     </div>
     <div class="campaign-view-box">
         <h2 class="header2">Upcoming Campaigns</h2>
+        <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<img
+                src="./../../public/img/donordashboard/filter-icon.png"></button>
         <div class="view-campaign-container">
             <?php
             $number_of_results = $_SESSION['rowCount'];
@@ -162,26 +170,26 @@ $metaTitle = 'Donor Dashboard';
                     $stime = substr($row['Starting_time'], 0, 2);
                     // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
                     $stimeval = intval($stime);
-        if ($stimeval > 12) {
-            $st = 24 - $stime;
-            $row['Starting_time'] = strval($st) . ' PM';
-        } else {
-            $row['Starting_time'] = strval($stimeval) . ' AM';
-        }
-        echo '<div class="view-campaign-card" style="margin-top: 5px; margin-bottom: 5px;">
+                    if ($stimeval > 12) {
+                        $st = 24 - $stime;
+                        $row['Starting_time'] = strval($st) . ' PM';
+                    } else {
+                        $row['Starting_time'] = strval($stimeval) . ' AM';
+                    }
+                    echo '<div class="view-campaign-card" style="margin-top: 5px; margin-bottom: 5px;">
             <img src = "./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
             <div class="campaign-card-bottom">
             <h3>' . $row['Name'] . '</h3>
             <p class="campaign-card-info">
             <b>Starting At : </b>' . $row['Starting_time'] . '<br>
-            <b>Location : </b>' . $row['Location'] . '<br>
-            <b>At : </b>' . $row['Date'] . '<br><br>
+            <b>On : </b>' . $row['Date'] . '<br>
+            <b>Location : </b>' . $row['Location'] . '<br><br>
             <a href="/getcampaign/view_campaign?camp=' .
-            $row['CampaignID'] .
-            '" name="view_camp_info"> View more... </a></p>
+                        $row['CampaignID'] .
+                        '" name="view_camp_info"> View more... </a></p>
                                             </div>
                                             </div>';
-$count++;
+                    $count++;
 
                 }
             } else {

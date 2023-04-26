@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,7 +35,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -116,8 +118,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             <h2>Your Badges</h2>
             <div class="content">
                 <?php
-                foreach($_SESSION['badges'] as $badge){
-                    echo '<div><img onclick="showalert(\''.$badge[0].'\')" src="../../../public/img/badges/'.$badge[0].'"></div>';
+                foreach ($_SESSION['badges'] as $badge) {
+                    echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '"></div>';
                 }
                 ?>
             </div>
@@ -126,8 +128,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             <h2>Yet to Earn</h2>
             <div class="content">
                 <?php
-                foreach($_SESSION['yet_badges'] as $badge){
-                    echo '<div><img onclick="showalert(\''.$badge[0].'\')" src="../../../public/img/badges/'.$badge[0].'"></div>';
+                foreach ($_SESSION['yet_badges'] as $badge) {
+                    echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '"></div>';
                 }
                 ?>
             </div>
@@ -142,31 +144,31 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
 
         <script>
-        var badge;
+            var badge;
 
-        function showalert(badge) {
-            console.log(badge);
-            const alertBox = document.getElementById("alertBox");
-            const alertBadge = document.getElementById("alertBadge");
-            const alertMessage = document.querySelector(".alertMessage");
+            function showalert(badge) {
+                console.log(badge);
+                const alertBox = document.getElementById("alertBox");
+                const alertBadge = document.getElementById("alertBadge");
+                const alertMessage = document.querySelector(".alertMessage");
 
-            // message = badge.split(".")[0];
-            <?php foreach($_SESSION['badge_info'] as $badge){
-                echo "if(badge == '$badge[0]'){
+                // message = badge.split(".")[0];
+                <?php foreach ($_SESSION['badge_info'] as $badge) {
+                    echo "if(badge == '$badge[0]'){
                     message = '$badge[1]';
                 }";
-             }?>
+                } ?>
 
-            alertBadge.src = "../../../public/img/badges/" + badge;
-            alertMessage.innerText = message;
-            alertBox.classList.remove("hidden");
+                alertBadge.src = "../../../public/img/badges/" + badge;
+                alertMessage.innerText = message;
+                alertBox.classList.remove("hidden");
 
-        }
+            }
 
-        function hidealert() {
-            const alertBox = document.getElementById("alertBox");
-            alertBox.classList.add("hidden");
-        }
+            function hidealert() {
+                const alertBox = document.getElementById("alertBox");
+                alertBox.classList.add("hidden");
+            }
         </script>
 
     </div>

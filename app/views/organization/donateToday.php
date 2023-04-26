@@ -1,7 +1,7 @@
-<?php 
+<?php
 // print_r($_SESSION['donationID']);
 //                 die();
-$metaTitle = "Organizations Dashboard" ;
+$metaTitle = "Organizations Dashboard";
 require '../vendor/payment_config.php';
 ?>
 
@@ -13,7 +13,9 @@ require '../vendor/payment_config.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -51,11 +53,14 @@ require '../vendor/payment_config.php';
                 <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
             </div>
             <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
+                <p>
+                    <?php echo ($_SESSION['username']); ?>
+                </p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
+                    <p>
+                        <?php echo ($_SESSION['type']); ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -119,7 +124,8 @@ require '../vendor/payment_config.php';
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a>
+                        </p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -133,7 +139,7 @@ require '../vendor/payment_config.php';
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="feedback-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -153,7 +159,7 @@ require '../vendor/payment_config.php';
                     <p class="para1">We are proudly non-profit, non-corporate and non-compromised. we rely on donations
                         to carry out our mission. <b>Will you give today? </b></p>
                     <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="donate-btn"
-                        data-key="<?php echo $public_key?>" data-amount="1000" data-name="Programming with Vishal"
+                        data-key="<?php echo $public_key ?>" data-amount="1000" data-name="Programming with Vishal"
                         data-description="Programming with Vishal Desc"
                         data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
                         data-currency="lkr" data-email="phpvishal@gmail.com"></script> -->

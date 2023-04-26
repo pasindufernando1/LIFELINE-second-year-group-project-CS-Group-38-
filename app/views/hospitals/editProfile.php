@@ -43,7 +43,7 @@ $metaTitle = "Hospitals Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -95,17 +95,42 @@ $metaTitle = "Hospitals Dashboard"
 
             </div>
 
-            <?php 
-            echo '<div class="cont">
-            <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
-            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
-                <p class="usr-name">'.($_SESSION['Username']).'</p><br>
-                <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
-                <form action="/requestBlood/edit_profile/" method="post" id="addform"> 
-                <label id="hosName-label" class="hosName-label" for="campName">Hospital Name:</label>
-                <br>
-                <input class="hosName-input" id="hosName"  type="text" name="hosName" autofocus placeholder="Hospital Name" required>
-                <br>
+            
+            <div class="cont">
+                <form action="/requestBlood/edit_profile" method="POST" id="addform" enctype="multipart/form-data">
+                    <div class="user-details">
+                        <div class="image-1">
+                            
+                            <img class="hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
+                            <div class="image-upload">
+                                <label for="file-input">
+                                <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png">
+                                </label>
+                                <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);">
+                            </div>
+                        </div>
+                        <script>
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                document.getElementById("hospital_img").src = e.target.result;
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                        </script>
+                        <div class="user">
+                            <p class="usr-name"><?php echo ($_SESSION['username']); ?></p><br>
+                            <p class="usr-type"><?php echo ($_SESSION['UserType']); ?></p><br>
+                        </div>
+                    </div>
+                    
+                    
+                    <label id="hosName-label" class="hosName-label" for="campName">Hospital Name:</label>
+                    <br>
+                    <input class="hosName-input" id="hosName"  type="text" name="hosName" autofocus placeholder="Hospital Name" required>
+                    <br>
 
                 <label id="teleNo-label" class="teleNo-label" for="teleNo">Telephone Number:</label>
                 <br>
@@ -170,16 +195,16 @@ $metaTitle = "Hospitals Dashboard"
 
                 <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
                 <br>
-                <input class="currentPw-input" id="currentPw"  type="text" name="currentPw" autofocus placeholder="Current Password" required>
+                <input class="currentPw-input" id="currentPw"  type="password" name="currentPw" autofocus placeholder="Current Password" required>
                 <br>
 
                 <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
                 <br>
-                <input class="newPw-input" id="newPw"  type="text" name="newPw" autofocus placeholder="New Password" required>
+                <input class="newPw-input" id="newPw"  type="password" name="newPw" autofocus placeholder="New Password" required>
                 <br>
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>
                 <button class="cancl-button" type="reset" name="cancel-adding" ><a href="/requestApproval/viewProfile/" class="cancel">Cancel Adding</a></button>
                 </form>
-            </div>'
-            ?>
+            </div>
+            

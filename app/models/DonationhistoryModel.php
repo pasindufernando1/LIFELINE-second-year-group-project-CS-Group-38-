@@ -175,6 +175,9 @@ class DonationhistoryModel extends Model
     public function getComplications($camps)
     {
         $complications = [];
+        if ($this->db->select('count', 'donor_campaign_bloodpacket', 'WHERE DonorID = :DonorID AND Complication IS NOT NULL', ':DonorID', $_SESSION['user_ID']) == 0) {
+            return NULL;
+        }
         foreach ($camps as $camp) {
             $complication = $this->db->select(
                 'Complication',
@@ -182,15 +185,24 @@ class DonationhistoryModel extends Model
                 'WHERE CampaignID = :CampaignID AND DonorID = :DonorID AND Complication IS NOT NULL',
                 [':CampaignID', ':DonorID'],
                 [$camp[0], $_SESSION['user_ID']]
-            );
+            )[0];
+
+
             array_push($complications, $complication[0][0]);
         }
+        // array_push($complications, $complication[0][0]);
+        // die();
         return $complications;
     }
 
     public function getComplicationCamps($camps)
     {
         $campids = [];
+
+        if ($this->db->select('count', 'donor_campaign_bloodpacket', 'WHERE DonorID = :DonorID AND Complication IS NOT NULL', ':DonorID', $_SESSION['user_ID']) == 0) {
+            return NULL;
+        }
+
         foreach ($camps as $camp) {
             $campid = $this->db->select(
                 'CampaignID',
@@ -204,16 +216,22 @@ class DonationhistoryModel extends Model
         // print_r($campids);
         // die();
         $camp_names = [];
-        foreach ($campids as $campid) {
-            $camp_name = $this->db->select(
-                'Name',
-                'donation_campaign',
-                'WHERE CampaignID = :CampaignID',
-                ':CampaignID',
-                $campid
-            );
-            array_push($camp_names, $camp_name[0][0]);
+
+        if ($campids != NULL) {
+            foreach ($campids as $campid) {
+                $camp_name = $this->db->select(
+                    'Name',
+                    'donation_campaign',
+                    'WHERE CampaignID = :CampaignID',
+                    ':CampaignID',
+                    $campid
+                );
+                array_push($camp_names, $camp_name[0][0]);
+            }
         }
+        // } else {
+        //     array_push($camp_names, 'No Complications');
+        // }
         return $camp_names;
 
     }

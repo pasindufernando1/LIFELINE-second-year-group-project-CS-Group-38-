@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; 
+$metaTitle = 'Donor Dashboard';
 
 // print_r( $_SESSION['camp_donation_details'][0]['Name']);
 // die();
@@ -15,7 +15,9 @@ $metaTitle = 'Donor Dashboard';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -45,7 +47,7 @@ $metaTitle = 'Donor Dashboard';
         integrity="sha512-JtgP5ehwmnI6UfiOV6U2WzX1l6D1ut4UHZ4ZiPw89TXEhxxr1rdCz88IKhzbm/JdX9T34ZsweLhMNSs2YwD1Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
     <script src="assets/js/jspdf-autotable-custom.js"></script>
 
@@ -54,7 +56,7 @@ $metaTitle = 'Donor Dashboard';
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -124,18 +126,22 @@ $metaTitle = 'Donor Dashboard';
 
         <div class="donor-card" id="donor_card">
             <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
-            <img src="../../../public/img/user_pics/sneha.jpg" alt="profile-pic">
+            <img style="height:300px;" src="../../../public/img/user_pics/<?php echo $_SESSION['user_pic'] ?>"
+                alt="profile-pic">
             <div>
                 <h2>Donor <span>Card</span></h2><br>
                 <p>
                     <b>
-                        <span class="red-font">Name : </span> <?php echo $_SESSION['user_details']['Fullname'] ?><br>
-                        <span class="red-font">Age : </span> <?php echo $_SESSION['age'] ?><br>
+                        <span class="red-font">Name : </span>
+                        <?php echo $_SESSION['user_details']['Fullname'] ?><br>
+                        <span class="red-font">Age : </span>
+                        <?php echo $_SESSION['age'] ?><br>
                         <span class="red-font">Blood Type : </span>
                         <?php echo $_SESSION['user_details']['BloodType'] ?><br>
-                        <span class="red-font">NIC : </span> <?php echo $_SESSION['user_details']['NIC'] ?><br>
+                        <span class="red-font">NIC : </span>
+                        <?php echo $_SESSION['user_details']['NIC'] ?><br>
                         <span class="red-font">Address : </span>
-                        <?php echo $_SESSION['user_details']['Number'].', '.$_SESSION['user_details']['LaneName'].', '.$_SESSION['user_details']['City']; ?><br>
+                        <?php echo $_SESSION['user_details']['Number'] . ', ' . $_SESSION['user_details']['LaneName'] . ', ' . $_SESSION['user_details']['City']; ?><br>
                         <span class="red-font">Total Donations : </span>
                         <?php echo $_SESSION['no_of_donations'] ?><br>
                     </b>
@@ -146,15 +152,20 @@ $metaTitle = 'Donor Dashboard';
 
         <div class="last-don">
             <p>
-                <b><span class="red-font">Last Donation : </span> <?php echo $_SESSION['last_donation_date'] ?></b><br>
+                <b><span class="red-font">Last Donation : </span>
+                    <?php if ($_SESSION['last_donation_date'] == NULL) {
+                        echo 'No Donations Yet';
+                    } else {
+                        echo $_SESSION['last_donation_date'];
+                    } ?>
+                </b><br>
             </p>
             <div>
                 <p>
-                    <?php if($_SESSION['eligible'] == false) {
-                    echo 'Not Eligible for new donations' ;
+                    <?php if ($_SESSION['eligible'] == false) {
+                        echo 'Not Eligible for new donations';
 
-                    }
-                    else{
+                    } else {
                         echo 'Eligible for new donations';
                     }
                     ?>
@@ -176,8 +187,8 @@ $metaTitle = 'Donor Dashboard';
         <div id="ydonations" class="ydonations">
             <p id="ydonationsp">Your Donations</p>
             <div>
-                <?php foreach($_SESSION['donation_dates'] as $donation) {
-                    echo '<p>'.$donation['Date'].'</p>';
+                <?php foreach ($_SESSION['donation_dates'] as $donation) {
+                    echo '<p>' . $donation['Date'] . '</p>';
                 } ?>
 
             </div>
@@ -244,44 +255,10 @@ $metaTitle = 'Donor Dashboard';
                 let columns = ["Date", "Campaign", "Place"];
                 let data = [
                     <?php $count = 0;
-                        foreach($_SESSION['camp_donation_dates'] as $donation) {
-                            echo '["'.$donation['Date'].'", "'.$_SESSION['camp_donation_details'][$count]['Name'].'", "'.$_SESSION['camp_donation_details'][$count]['Location'].'"],';
+                        foreach ($_SESSION['camp_donation_dates'] as $donation) {
+                            echo '["' . $donation['Date'] . '", "' . $_SESSION['camp_donation_details'][$count]['Name'] . '", "' . $_SESSION['camp_donation_details'][$count]['Location'] . '"],';
                             $count++;
                         } ?>
-
-                    // ["2020-12-12", "Blood Bank 1", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 2", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 3", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 4", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 5", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 6", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 7", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 8", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 9", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 10", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 11", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 12", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 13", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 14", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 15", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 16", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 17", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 18", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 19", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 20", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 21", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 22", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 23", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 24", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 25", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 26", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 27", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 28", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 29", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 30", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 31", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 32", "sdgsf"],
-                    // ["2020-12-12", "Blood Bank 33", "sdgsf"],
 
 
                 ];
@@ -329,8 +306,8 @@ $metaTitle = 'Donor Dashboard';
                 let columns1 = ["Date", "Blood Bank"];
                 let data1 = [
                     <?php $count = 0;
-                        foreach($_SESSION['bank_donation_dates'] as $donation) {
-                            echo '["'.$donation['Date'].'", "'.$_SESSION['bank_donation_details'][$count]['BloodBank_Name'].'"],';
+                        foreach ($_SESSION['bank_donation_dates'] as $donation) {
+                            echo '["' . $donation['Date'] . '", "' . $_SESSION['bank_donation_details'][$count]['BloodBank_Name'] . '"],';
                             $count++;
                         } ?>
                     // ["2020-12-12", "Blood Bank 1"],

@@ -34,80 +34,92 @@ $metaTitle = "Advertisements"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/ad_active_sidebar.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/add_archive_confirmation.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/filters/advertisements_filter.php'); ?>
+
             
     <!-- main content -->
-    <div class="box">
+    <div class="box-main">
         <p class="add-user-title">Advertisements</p>
-            <a href="/adadvertisements/add_advertisement" class="brown-button addnew-user">Add New Advertisement</a>
+        <a href="/adadvertisements/add_advertisement" class="brown-button addnew-user">Add New Advertisement</a>
     
         
-        <a href="/usermanage/add_hosmed_successful" class="ash-button reservation-filter">Filter & Short</a>
+        <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('idfil01').style.display='block'">Filter & Short</a>
         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
-
-        <table class="user-types-table" style="width:90%">
-        <tr>
-            <th>Advertisement ID</th>
-            <th>Description</th>
-            <th>Published Date</th>
-            <th>Action</th>
-        </tr>
-        <hr class="blood-types-line">
-        
-        
-        <?php 
-        $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
-        $number_of_page = ceil($number_of_results / $results_per_page);
-
-        //determine which page number visitor is currently on  
-        if (!isset ($_GET['page']) ) {  
-        $page = 1;  
-        } else {  
-        $page = $_GET['page'];  
-        }  
-
-        //determine the sql LIMIT starting number for the results on the displaying page  
-        $page_first_result = ($page-1) * $results_per_page;  
-        $result = $_SESSION['advertisements'];
-
-        //display the link of the pages in URL  
-        if ($_SESSION['rowCount'] > 0) {
-            
-            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                echo '<div class="table-content-types"> <tr>
-                        <td>' . $row["AdvertisementID"]. "</td>
-                        <td>" . $row["Description"] . "</td>
-                        <td>" . $row["PublishedDate"] . '</td>
-                        <td><div class="delete-btn-div"> <a href="#"><img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                    </tr> </div>';
-                
+        <div class="campaign-view-box">
+        <h2 class="header2">Cash Donation Advertisements</h2>
+        <div class="view-campaign-container">
+            <?php
+            $number_of_results1 = count($_SESSION['cash_advertisements']);
+            $result1 = $_SESSION['cash_advertisements'];
+            if ($number_of_results1 > 0) {
+                foreach ($result1 as $row) {
+                    //print_r($result);die();
+                    echo '<div class="view-campaign-card">
+                                            <img src = "./../../public/img/advertisements/'.$row['Advertisement_pic']."".'"class="campaign-card-img" alt="campaigns">
+                                            <div class="campaign-card-bottom"
+                                            <p class="campaign-card-info">
+                                            <h3> ' .
+                        $row['Description'] .
+                        '</h3>
+                                            Published Date :' .
+                        $row['PublishedDate'] .
+                        '<br>
+                                            Amount Expected: Rs.' .
+                        $row['Total_amount'] .
+                        '<br>
+                                            Amount Received: Rs.' .
+                        $row['CurrentSum'] .
+                        '<br><br>
+                                            <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                                            document.getElementById('."'del'".').action = '."'/adadvertisements/archive_add/".$row["AdvertisementID"]."'";
+                        echo '" name="view_camp_info" class="archive"> Hide Advertisement</a></p>
+                                            </div>
+                                            </div>';
+                }
+            } else {
+                //echo '0 results';
             }
-        } 
-        else {
-            echo "0 results";
-        }
-        echo "</table>";
-        echo '<div class="pag-box">';
-        if ($_GET['page'] == 1) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-        }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
-        }
-
-        for($page = 1; $page<= $number_of_page; $page++) {  
-            if ($page == $_GET['page']) {
-                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-            }else{
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+            ?>
+        </div>
+        <div class="campaign-view-box2">
+        <h2 class="header2">Inventory Donation Advertisements</h2>
+        <div class="view-campaign-container">
+            <?php
+            $number_of_results2 = count($_SESSION['inventory_advertisements']);
+            $result2 = $_SESSION['inventory_advertisements'];
+            if ($number_of_results2 > 0) {
+                foreach ($result2 as $row) {
+                    //print_r($result);die();
+                    echo '<div class="view-campaign-card">
+                                            <img src = "./../../public/img/advertisements/'.$row['Advertisement_pic']."".'"class="campaign-card-img" alt="campaigns">
+                                            <div class="campaign-card-bottom"
+                                            <p class="campaign-card-info">
+                                            <h3> ' .
+                        $row['Description'] .
+                        '</h3>
+                                            Published Date :' .
+                        $row['PublishedDate'] .
+                        '<br>
+                                            Inventory Category: ' .
+                        $row['InventoryCategory'] .
+                        '<br>
+                                            Quantity received: ' .
+                        $row['CurrentSum'] .
+                        '<br><br>
+                        <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
+                        document.getElementById('."'del'".').action = '."'/adadvertisements/archive_add/".$row["AdvertisementID"]."'";
+    echo '" name="view_camp_info" class="archive"> Hide Advertisement</a></p>
+                        </div>
+                        </div>';
+                }
+            } else {
+                //echo '0 results';
             }
-        }
-        if ($_GET['page'] == $number_of_page) {
-                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-        }else{
-            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-        }
+            ?>
+        </div>
+        
             
-        echo '</div>' ;?>                              
     
     </div>
 

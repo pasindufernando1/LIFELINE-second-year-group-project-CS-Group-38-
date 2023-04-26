@@ -10,7 +10,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -24,7 +26,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <iframe src="<?php echo $_SESSION['bb_info']['Location']?>" width="910" height="300"
+    <iframe src="<?php echo $_SESSION['bb_info']['Location'] ?>" width="910" height="300"
         style="border:0;position: absolute;z-index: 3;top: 563px;left: 638px;border: 1px solid;border-radius: 6px;"
         allowfullscreen="" loading="lazy"></iframe>
 
@@ -35,7 +37,7 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -100,18 +102,23 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div class="contact-container">
-        <p><?php echo $_SESSION['bb_info']['BloodBank_Name']?></p>
+        <p>
+            <?php echo $_SESSION['bb_info']['BloodBank_Name'] ?>
+        </p>
         <div class="contact-card">
-            <img src="../../../public/img/bloodbanks/<?php echo $_SESSION['bb_info']['BloodBank_pic']; ?>"
-                alt="profile-pic">
+            <img src="../../../public/img/bloodbanks/<?php echo $_SESSION['bb_info'][8]; ?>" alt="profile-pic">
             <div>
                 <p>
-                    <b>Phone : </b> <?php echo $_SESSION['bb_contact'][0]?><br>
-                    <b>Email : </b> <?php echo $_SESSION['bb_info']['Email']?><br>
+                    <b>Phone : </b>
+                    <?php echo $_SESSION['bb_contact'][0] ?><br>
+                    <b>Email : </b>
+                    <?php echo $_SESSION['bb_info']['Email'] ?><br>
                     <b>Address</b> :
-                    <?php echo $_SESSION['bb_info']['Number'].', '.$_SESSION['bb_info']['LaneName'].', '.$_SESSION['bb_info']['City']?><br>
-                    <b>District : </b> <?php echo $_SESSION['bb_info']['District']?><br>
-                    <b>Province : </b> <?php echo $_SESSION['bb_info']['Province']?><br>
+                    <?php echo $_SESSION['bb_info']['Number'] . ', ' . $_SESSION['bb_info']['LaneName'] . ', ' . $_SESSION['bb_info']['City'] ?><br>
+                    <b>District : </b>
+                    <?php echo $_SESSION['bb_info']['District'] ?><br>
+                    <b>Province : </b>
+                    <?php echo $_SESSION['bb_info']['Province'] ?><br>
                 </p>
             </div>
         </div>

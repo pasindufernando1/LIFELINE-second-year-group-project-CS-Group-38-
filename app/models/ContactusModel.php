@@ -29,6 +29,8 @@ class ContactusModel extends Model
             ':BloodBankID',
             $bankid
         )[0];
+        // print_r($data);
+        // die();
         return $data;
     }
 

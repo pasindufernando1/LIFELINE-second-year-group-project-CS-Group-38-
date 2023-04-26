@@ -49,7 +49,7 @@ $metaTitle = 'Hospitals Dashboard';
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+                <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo $_SESSION['username']; ?></p>
@@ -129,18 +129,10 @@ $metaTitle = 'Hospitals Dashboard';
                     if ($_SESSION['rowCount'] > 0) {
                         foreach ($result as $row) {
                             echo ' <div class="bb">
-                        <p class="bbn">' .
-                                $row['BloodBank_Name'] .
-                                '</p><p class = "bbd">
+                        <p class="bbn">' .$row['BloodBank_Name'] . '</p>
+                        <p class = "bbd">
                                 Location : ' .
-                                $row['Number'] .
-                                ', ' .
-                                $row['LaneName'] .
-                                ', ' .
-                                $row['City'] .
-                                ', ' .
-                                $row['District'] .
-                                ' 
+                                $row['Number'] . ', ' .$row['LaneName'] .', ' .$row['City'] .', ' .$row['District'] .' 
                                 <br>
                                 Email : ' .
                                 $row['Email'] .

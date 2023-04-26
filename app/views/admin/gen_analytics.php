@@ -42,7 +42,7 @@ $metaTitle = "Inventory"
                         <!-- Add four buttons -->
         <a href="/reports/productiveDonationAreas"><button class="button-type1 user-btn">Productive Donation Areas</button></a>
         <a href="/reports/usageVSexpiry"><button class="button-type2 user-btn" >Blood Usage vs Expiry</button></a>
-        <a href="/reports/donationsVsmonths"><button class="button-type3 user-btn" >Blood Usage respect to months</button></a>             
+        <a href="/reports/usageVsmonths"><button class="button-type3 user-btn" >Blood Usage respect to months</button></a>             
     </div>
 
 </body>

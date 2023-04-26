@@ -1,7 +1,8 @@
 <?php 
 
-$metaTitle = "organizations Dashboard" 
-
+$metaTitle = "organizations Dashboard" ;
+$_SESSION['AdvertisementID']=intval($_GET['ad']);
+print_r($_SESSION['AdvertisementID']);
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -76,6 +77,7 @@ $metaTitle = "organizations Dashboard"
                         <p class="dashboard-non-active menu-item"><a href="/organizationuser/dashboard/">Dashboard</a></p>
                     </div>
 
+
                     <div class="campaigns menu-item">
                         
                         <img src="./../../public/img/orgdashboard/non-active/campaigns.png" alt="campaigns">
@@ -105,7 +107,7 @@ $metaTitle = "organizations Dashboard"
                         <div class="marker"></div>
                         <!-- <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations"> -->
                         <img class="inventory-donations-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-act "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-act "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -117,7 +119,7 @@ $metaTitle = "organizations Dashboard"
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -130,12 +132,14 @@ $metaTitle = "organizations Dashboard"
             <div class="box">
             <form action="/requestApproval/addInvenReq/" method="post" id="addform">  
                 <p class="quantity-title">Inventory Donations</p>
-                <img class="inventory-img" src="./../../public/img/orgdashboard/inventory.jpg" alt="campaigns" width=100%>
+                <img class="inventory-img" src="./../../public/img/orgdashboard/inventory.gif" alt="campaigns" width=100%>
                 <label id="quant-label" class="quant-label" for="text">Quantity:</label>
                     <br>
                     <input class="quant-input" id="quant"  type="text" name="quant" autofocus placeholder="Quantity" required>
                     <br>
                     <button class='reqAccom-button' type='submit' name='request' id="submit-btn">Request</button>
                     
-                    <button class='outline-button1' type='reset' name='cancel-adding' ><a href="/requestApproval/accommodation/" class="cancel">Cancel Adding</a></button>
+                    <button class='outline-button1' type='reset' name='cancel-adding' ><a href="/requestApproval/viewAdvertisements" class="cancel">Cancel Adding</a></button>
+                    <script src="../../../public/js/validation/orgvalidation.js"></script>
+                </form>
             </div>
