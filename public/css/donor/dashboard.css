@@ -15,7 +15,11 @@ button:hover {
     box-sizing: border-box;
     left: 301px;
     width: 875px;
+<<<<<<< HEAD
     top: 123px;
+=======
+    top: 133px;
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
     height: 489px;
     /* background: white; */
     border: solid 2px #eceef7;
@@ -37,6 +41,7 @@ button:hover {
 }
 
 .dash-wp {
+<<<<<<< HEAD
     position: absolute;
     top: 120px;
     left: 37px;
@@ -47,6 +52,22 @@ button:hover {
 .dash-div {
     width: 373px;
     height: 250px;
+=======
+    position: absolute;
+    top: 120px;
+    left: 37px;
+    font-family: Poppins;
+    font-size: 36px;
+}
+
+.dash-div {
+    position: absolute;
+    width: 431px;
+    height: 270px;
+    left: 301px;
+    top: 646px;
+    /* background: #c58f8f; */
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
     background-color: rgba(255, 255, 255, 0.3);
     border: 2px solid #630e0b;
     border-radius: 6px;
@@ -114,7 +135,11 @@ button:hover {
     width: 683px;
     height: 487px;
     left: 1199px;
+<<<<<<< HEAD
     top: 123px;
+=======
+    top: 133px;
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
     background: #FFFFFF;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
@@ -2232,6 +2257,7 @@ fieldset {
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .dialog-content #email-error {
     font-size: 14px;
     position: static;
@@ -2239,6 +2265,8 @@ fieldset {
     margin-top: 2px;
 }
 
+=======
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 .dialog-content button {
     display: block;
     width: 100%;
@@ -2250,6 +2278,7 @@ fieldset {
     margin-top: 10px;
     font-family: 'Poppins';
     border-radius: 10px;
+<<<<<<< HEAD
     font-weight: bold;
 }
 
@@ -2259,6 +2288,11 @@ fieldset {
 }
 
 #cancelButton, #cancelButton1, #cancelButton2 {
+=======
+}
+
+#cancelButton {
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
     background-color: #fcfefe;
     color: #640E0B;
     border: solid 2px #640E0B;
@@ -2275,9 +2309,12 @@ fieldset {
     opacity: 0.8;
 }
 
+<<<<<<< HEAD
 #profile_update {
     margin-top: 17%;
 }
+=======
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 
 .profile-container h3 {
 
@@ -3138,6 +3175,7 @@ fieldset {
 .camp-summary #sumt td {
     text-align: left;
     text-indent: 10px;
+<<<<<<< HEAD
 }
 
 .camp-summary #sum-noc {
@@ -3148,6 +3186,9 @@ fieldset {
     font-size: 18px;
     color: #000;
     font-weight: normal;
+=======
+
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 }
 
 .header2 {

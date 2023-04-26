@@ -169,13 +169,18 @@ $metaTitle = 'Donor Dashboard'; ?>
     <h3 id="titt">Complications You Had </h3>';
         $scount = 0;
         //make a table for the complications and the camp they happened at
+<<<<<<< HEAD
         
         if (empty($_SESSION['complications']) != 1) {
             echo '<table id="sumt">
+=======
+        echo '<table id="sumt">
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
             <tr>
                 <th>Complication</th>
                 <th>Camp</th>
             </tr>';
+<<<<<<< HEAD
             foreach ($_SESSION['complications'] as $complications) {
                 echo '<tr>
                 <td>' . $complications . '</td>
@@ -187,6 +192,15 @@ $metaTitle = 'Donor Dashboard'; ?>
             echo '<p id="sum-noc">You Have Not Had Any Complications so far</p>';
         }
 
+=======
+        foreach ($_SESSION['complications'] as $complications) {
+            echo '<tr>
+                <td>' . $complications . '</td>
+                <td>' . $_SESSION['complication_camps'][$scount] . '</td>
+            </tr>';
+            $scount++;
+        }
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
         ?>
     </div>
 </body>

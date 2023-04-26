@@ -140,6 +140,19 @@ class UserModel extends Model
         return $ret_donorID;
     }
 
+<<<<<<< HEAD
+    // public function getAllCampaigns($today)
+    // {
+    //     $data = $this->db->select(
+    //         '*',
+    //         'donation_campaign',
+    //         'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
+    //         ':Date',
+    //         $today
+    //     );
+    //     return $data;
+    // }
+=======
     // Donor's Functions
 
     public function getAllCampaigns($today, $district)
@@ -313,6 +326,7 @@ class UserModel extends Model
     }
 
     // EO Donor's Functions
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 
     public function getHospitals()
     {

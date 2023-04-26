@@ -112,7 +112,10 @@ $metaTitle = 'Donor Dashboard'; ?>
         <!-- href="/donorprofile/c_password" -->
         <div id="myDialog" class="dialog">
             <div class="dialog-content">
+<<<<<<< HEAD
                 <h2>Change Your Email</h2>
+=======
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
                 <form action="/donorprofile/confirm_password" method="POST">
                     <?php if (isset($_SESSION['p_error'])) {
                         echo "<p id='pass_error'>" . $_SESSION['p_error'] . "</p>";
@@ -124,6 +127,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 </form>
             </div>
         </div>
+<<<<<<< HEAD
 
         <div id="myEmail" class="dialog">
             <div class="dialog-content">
@@ -158,46 +162,48 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
 
         <script>
-        // Get the dialog box
-        var dialog = document.getElementById("myDialog");
-        var emaili = document.getElementById("myEmail");
-        var otp = document.getElementById("myOTP")
-        // Get the input field and buttons 
-        var input = document.getElementById("name");
-        var okButton = document.getElementById("okButton");
-        var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
+            // Get the dialog box
+            var dialog = document.getElementById("myDialog");
+            var emaili = document.getElementById("myEmail");
+            var otp = document.getElementById("myOTP")
+            // Get the input field and buttons 
+            var input = document.getElementById("name");
+            var okButton = document.getElementById("okButton");
+            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
 
-        function showalert() {
-            dialog.style.display = "block";
-        } //Show the email dialog box when the page loads
+            function showalert() {
+                dialog.style.display = "block";
+            } //Show the email dialog box when the page loads
 
-        function showemail() {
-            emaili.style.display = "block";
-        } //Show the otp dialog box when the page loads
-        function showotp() {
-            otp.style.display = "block";
-        }
-        // When the user clicks the OKbutton, get the input value and close the dialog box 
+            function showemail() {
+                emaili.style.display = "block";
+            } //Show the otp dialog box when the page loads
+            function showotp() {
+                otp.style.display = "block";
+            }
+            // When the user clicks the OKbutton, get the input value and close the dialog box 
 
-        // When the user clicks the Cancelbutton, close the dialog box
+            // When the user clicks the Cancelbutton, close the dialog box
 
-        function hidealert() {
-            dialog.style.display = "none";
-        }
+            function hidealert() {
+                dialog.style.display = "none";
+            }
 
-        function hideemail() {
-            emaili.style.display = "none";
-            return false;
-        }
+            function hideemail() {
+                emaili.style.display = "none";
+                return false;
+            }
 
-        function hideotp() {
-            otp.style.display = "none";
-            return false;
-        }
+            function hideotp() {
+                otp.style.display = "none";
+                return false;
+            }
         </script>
 
         <script src="../../../public/js/validation/donorupdatevalidation.js"></script>
 
+=======
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 
         <div id="myEmail" class="dialog">
             <div class="dialog-content">
@@ -230,41 +236,41 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
 
         <script>
-        // Get the dialog box
-        var dialog = document.getElementById("myDialog");
-        var email = document.getElementById("myEmail");
-        var otp = document.getElementById("myOTP")
-        // var otp = document.getElementById("myOTP");
-        // Get the input field and buttons 
-        var input = document.getElementById("name");
-        var okButton = document.getElementById("okButton");
-        var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
+            // Get the dialog box
+            var dialog = document.getElementById("myDialog");
+            var email = document.getElementById("myEmail");
+            var otp = document.getElementById("myOTP")
+            // var otp = document.getElementById("myOTP");
+            // Get the input field and buttons 
+            var input = document.getElementById("name");
+            var okButton = document.getElementById("okButton");
+            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
 
-        function showalert() {
-            dialog.style.display = "block";
-        } //Show the email dialog box when the page loads
+            function showalert() {
+                dialog.style.display = "block";
+            } //Show the email dialog box when the page loads
 
-        function showemail() {
-            email.style.display = "block";
-        } //Show the otp dialog box when the page loads
-        function showotp() {
-            otp.style.display = "block";
-        }
-        // When the user clicks the OKbutton, get the input value and close the dialog box 
+            function showemail() {
+                email.style.display = "block";
+            } //Show the otp dialog box when the page loads
+            function showotp() {
+                otp.style.display = "block";
+            }
+            // When the user clicks the OKbutton, get the input value and close the dialog box 
 
-        // When the user clicks the Cancelbutton, close the dialog box
+            // When the user clicks the Cancelbutton, close the dialog box
 
-        function hidealert() {
-            dialog.style.display = "none";
-        }
+            function hidealert() {
+                dialog.style.display = "none";
+            }
 
-        function hideemail() {
-            email.style.display = "none";
-        }
+            function hideemail() {
+                email.style.display = "none";
+            }
 
-        function hideotp() {
-            otp.style.display = "none";
-        }
+            function hideotp() {
+                otp.style.display = "none";
+            }
         </script>
         <div class="main">
             <div class="left">

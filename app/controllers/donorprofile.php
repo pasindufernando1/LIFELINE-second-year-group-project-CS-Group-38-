@@ -134,7 +134,6 @@ class Donorprofile extends Controller
                     );
                 } else {
                     $user_input = [$username, $userpic];
-                    $user_input = [$username, $userpic];
                     $u_p = $this->model->updateuser(
                         $user_input,
                         $_SESSION['user_ID']
@@ -237,6 +236,16 @@ class Donorprofile extends Controller
 
     function get_email()
     {
+        if (!isset($_POST['confirm'])) {
+            print_r('not working');
+            die();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
+            header('Location: /donorprofile');
+            exit();
+        }
         $_SESSION['email_reset'] = $_POST['email'];
 
 

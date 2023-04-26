@@ -130,6 +130,26 @@ class GetcampaignModel extends Model
         return $dates;
     }
 
+    public function getCampAds($camps)
+    {
+        $camp_ads = [];
+        foreach ($camps as $camp) {
+            $data = $this->db->select(
+                'Advertisement_Pic',
+                'advertisement',
+                'WHERE AdvertisementID = :AdvertisementID',
+                ':AdvertisementID',
+                $camp['AdvertisementID']
+            );
+            array_push($camp_ads, $data);
+        }
+        return $camp_ads;
+<<<<<<< HEAD
+=======
+
+    }
+
+>>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 
     }
 
