@@ -23,7 +23,6 @@ class Getcampaign extends Controller
                     $_SESSION['today']
                 );
 
-<<<<<<< HEAD
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
 
                 $this->view->render('donor/getcampaign');
@@ -78,12 +77,6 @@ class Getcampaign extends Controller
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
 
-=======
-                $_SESSION['camp_ads'] = $this->model->getCampAds(
-                    $_SESSION['upcoming_campaigns']
-                );
-                
->>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
                 $this->view->render('donor/getcampaign');
                 exit();
             }

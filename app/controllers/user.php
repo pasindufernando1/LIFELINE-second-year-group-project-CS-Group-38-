@@ -175,11 +175,8 @@ class User extends Controller
                 ] = $this->model->viewBloodBankContact(
                         $_SESSION['nearbyBloodbanks']
                     );
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
 
                 $this->view->render('hospitals/dashboard');
             } else {

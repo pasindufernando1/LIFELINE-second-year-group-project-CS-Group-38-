@@ -131,36 +131,6 @@ $metaTitle = 'Donor Dashboard';
         }
     </script>
 
-<<<<<<< HEAD
-    <div class="dash-ad">
-        <?php
-        // print_r($_SESSION['upcoming_campaigns'][0][0]);
-        echo '<a><img class="r-arrow-img" src="./../../public/img/donordashboard/right-arrow.jpg" alt="dashboard"></a>';
-        $count = 0;
-
-        echo '<a id="adid" href="/getcampaign/view_campaign?camp=' . $_SESSION['upcoming_campaigns'][$count][0] . '"><img class="dash-img"
-                src="./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" alt="dashboard"></a>';
-        echo '<a><img class="l-arrow-img" src="./../../public/img/donordashboard/left-arrow.jpg" alt="dashboard"></a>';
-        ?>
-    </div>
-
-    <script>
-=======
-    <div class="dash-div">
-        <?php if ($_SESSION['no_of_donations'] == 0) {
-            echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
-        } else {
-            echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
-            if ($_SESSION['days_last_donation'] < 56) {
-                echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
-            } else {
-                echo 'You Can Donate Blood <span>Now</span></p>';
-            }
-
-        }
-        ?>
-    </div>
-
     <div class="dash-ad">
         <?php
         // print_r($_SESSION['upcoming_campaigns'][0][0]);
@@ -213,48 +183,6 @@ $metaTitle = 'Donor Dashboard';
                 <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
         });
     </script>
-    <!-- <script>
->>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
-    // Initialize the count variable
-    var count = 0;
-
-    // Get a reference to the image element
-    var image = document.querySelector('.dash-img');
-
-    // Get a reference to the ad ID element
-<<<<<<< HEAD
-    var adId = document.getElementById('adid');
-
-    // Get a reference to the left arrow image element
-    var leftArrow = document.querySelector('.l-arrow-img');
-
-    // Add an event listener to the left arrow image element
-    leftArrow.addEventListener('click', function() {
-        // Increment the value of count by 1
-        count++;
-        console.log(count);
-        // Update the image source based on the value of count
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
-        // var link = "/getcampaign/view_campaign?camp=" + campaignId;
-        adId.href = "/getcampaign/view_campaign?camp=" +
-            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-    });
-
-    // Get a reference to the right arrow image element
-    var rightArrow = document.querySelector('.r-arrow-img');
-
-    // Add an event listener to the right arrow image element
-    rightArrow.addEventListener('click', function() {
-        // Decrement the value of count by 1
-        count--;
-        console.log(count);
-        // Update the image source based on the value of count
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        adId.href = "/getcampaign/view_campaign?camp=" +
-            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-    });
-    </script>
 
     <div class="dash-div-container">
 
@@ -304,61 +232,6 @@ $metaTitle = 'Donor Dashboard';
             } ?>
         </div>
 
-=======
-    var adId = document.querySelector('#adid');
-
-    // Add an event listener to the left arrow image element
-    document.querySelector('.l-arrow-img').addEventListener('click', function() {
-        // Increment the value of count by 1
-        count++;
-
-        // Update the image source and link based on the value of count
-        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
-            0
-        ];
-        var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
-        var link = "/getcampaign/view_campaign?camp=" + campaignId;
-
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        adId.href = link;
-    });
-
-    // Add an event listener to the right arrow image element
-    document.querySelector('.r-arrow-img').addEventListener('click', function() {
-        // Decrement the value of count by 1
-        count--;
-
-        // Update the image source and link based on the value of count
-        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
-            0
-        ];
-        var campaignId = <?php echo $_SESSION['camp_ads'][$count][0][1]; ?>;
-        var link = "/getcampaign/view_campaign?camp=" + campaignId;
-
-        image.src = imagePath;
-        adId.href = link;
-    });
-    </script> -->
-
-
-
-
-    <div class="dash-badge">
-        <p>Your Latest Badge</p>
-        <img src="./../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="badge">
-    </div>
-
-    <div class="dash-don">
-        <?php if ($_SESSION['total_donated_amount'] == 0) {
-            echo "<p>A SINGLE Donation of Yours can save <span>3 LIVES</span><br>
-            You Can Donate Your BLOOD at a Campaign OR a Blood Bank</p>";
-        } else {
-            echo "<p>A SINGLE Donation of Yours can save THREE LIVES<br><br>
-  
-            You Have DONATED Your BLOOD <span>" . $_SESSION['no_of_donations'] . "</span> times <br>Potentially 
-            Saving " . ($_SESSION['no_of_donations'] * 3) . " Lives</p>";
-        } ?>
->>>>>>> 3126d671f5e7f5ab7b793e5941758bb0f0d95f45
     </div>
 
     <div id="dash-camp" class="campaign-view-box">
