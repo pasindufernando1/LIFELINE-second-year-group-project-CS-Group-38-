@@ -110,15 +110,15 @@ $metaTitle = 'Donor Dashboard'; ?>
             <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
 
             <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById("donor_img").src = e.target.result;
-                    };
-                    reader.readAsDataURL(input.files[0]);
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById("donor_img").src = e.target.result;
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
                 }
-            }
             </script>
 
             <label class="name-lable" for="name">NAME</label>

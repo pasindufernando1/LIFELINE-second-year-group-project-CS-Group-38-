@@ -140,17 +140,179 @@ class UserModel extends Model
         return $ret_donorID;
     }
 
-    // public function getAllCampaigns($today)
-    // {
-    //     $data = $this->db->select(
-    //         '*',
-    //         'donation_campaign',
-    //         'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
-    //         ':Date',
-    //         $today
-    //     );
-    //     return $data;
-    // }
+    // Donor's Functions
+
+    public function getAllCampaigns($today, $district)
+    {
+        // $columns=['']
+        $inputs = [':Date', ':District'];
+        $values = [$today, $district];
+        $data = $this->db->select(
+            '*',
+            'donation_campaign',
+            'WHERE Date > :Date AND Status = 1 AND District = :District ORDER BY Date ASC',
+            $inputs,
+            $values
+        );
+        return $data;
+    }
+
+    public function getnewestbadge($userid)
+    {
+        $camp_donations = $this->db->select(
+            'COUNT(*)',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $userid
+        )[0][0];
+
+        $bank_donations = $this->db->select(
+            'COUNT(*)',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $userid
+        )[0][0];
+        $donations = $camp_donations + $bank_donations;
+
+        $newest_badge = $this->db->select(
+            'BadgePic',
+            'badge',
+            'WHERE Donation_Constraint <= :Donations ORDER BY Donation_Constraint DESC',
+            ':Donations',
+            $donations
+        )[0][0];
+        return $newest_badge;
+    }
+
+    public function getCampAds($camps)
+    {
+        $camp_ads = [];
+        foreach ($camps as $camp) {
+            $data = $this->db->select(
+                'Advertisement_Pic',
+                'advertisement',
+                'WHERE AdvertisementID = :AdvertisementID',
+                ':AdvertisementID',
+                $camp['AdvertisementID']
+            );
+            array_push($camp_ads, $data);
+        }
+        return $camp_ads;
+
+    }
+
+    public function getLastDonation($donorID)
+    {
+        $date1 = $this->db->select(
+            'Date',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
+        );
+        $date2 = $this->db->select(
+            'Date',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
+        );
+        if (empty($date1) && empty($date2)) {
+            return false;
+        } else if (empty($date1)) {
+            return $date2[0]['Date'];
+        } else if (empty($date2)) {
+            return $date1[0]['Date'];
+        } else {
+            if ($date1[0]['Date'] > $date2[0]['Date']) {
+                return $date1[0]['Date'];
+            } else {
+                return $date2[0]['Date'];
+            }
+        }
+    }
+
+    public function getTotalDonatedAmount($donorID)
+    {
+        $blood_packet_ids = $this->db->select(
+            'PacketID',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+        $amount1 = 0;
+        foreach ($blood_packet_ids as $blood_packet_id) {
+            $amount1 += $this->db->select(
+                'Quantity',
+                'bloodpacket',
+                'WHERE PacketID = :PacketID',
+                ':PacketID',
+                $blood_packet_id['PacketID']
+            )[0]['Quantity'];
+        }
+
+        $blood_packet_ids = $this->db->select(
+            'PacketID',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+        $amount2 = 0;
+        foreach ($blood_packet_ids as $blood_packet_id) {
+            $amount2 += $this->db->select(
+                'Quantity',
+                'bloodpacket',
+                'WHERE PacketID = :PacketID',
+                ':PacketID',
+                $blood_packet_id['PacketID']
+            )[0]['Quantity'];
+        }
+        return $amount1 + $amount2;
+    }
+
+    public function getNoOfCampDonations($donorID)
+    {
+        $data = $this->db->select(
+            'count',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+        return $data;
+    }
+
+    public function getNoOfBankDonations($donorID)
+    {
+        $data = $this->db->select(
+            'count',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+        return $data;
+    }
+
+    public function getdonordistrict($userid)
+    {
+        $data = $this->db->select(
+            'District',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        );
+
+        return $data[0]['District'];
+
+    }
+
+    // EO Donor's Functions
 
     public function getHospitals()
     {

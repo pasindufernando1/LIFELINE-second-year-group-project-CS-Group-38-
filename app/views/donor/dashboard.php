@@ -115,20 +115,20 @@ $metaTitle = 'Donor Dashboard';
     </div>
 
     <script>
-    function scrollToDiv() {
-        console.log("scrolling");
-        var div = document.getElementById("see-more-container");
-        var offset = 100;
-        var bodyRect = document.body.getBoundingClientRect().top;
-        var elementRect = div.getBoundingClientRect().top;
-        var elementPosition = elementRect - bodyRect;
-        var offsetPosition = elementPosition - offset;
+        function scrollToDiv() {
+            console.log("scrolling");
+            var div = document.getElementById("see-more-container");
+            var offset = 100;
+            var bodyRect = document.body.getBoundingClientRect().top;
+            var elementRect = div.getBoundingClientRect().top;
+            var elementPosition = elementRect - bodyRect;
+            var offsetPosition = elementPosition - offset;
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    }
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
     </script>
 
     <div class="dash-ad">
@@ -144,44 +144,44 @@ $metaTitle = 'Donor Dashboard';
     </div>
 
     <script>
-    // Initialize the count variable
-    var count = 0;
+        // Initialize the count variable
+        var count = 0;
 
-    // Get a reference to the image element
-    var image = document.querySelector('.dash-img');
+        // Get a reference to the image element
+        var image = document.querySelector('.dash-img');
 
-    // Get a reference to the ad ID element
-    var adId = document.getElementById('adid');
+        // Get a reference to the ad ID element
+        var adId = document.getElementById('adid');
 
-    // Get a reference to the left arrow image element
-    var leftArrow = document.querySelector('.l-arrow-img');
+        // Get a reference to the left arrow image element
+        var leftArrow = document.querySelector('.l-arrow-img');
 
-    // Add an event listener to the left arrow image element
-    leftArrow.addEventListener('click', function() {
-        // Increment the value of count by 1
-        count++;
-        console.log(count);
-        // Update the image source based on the value of count
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
-        // var link = "/getcampaign/view_campaign?camp=" + campaignId;
-        adId.href = "/getcampaign/view_campaign?camp=" +
-            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-    });
+        // Add an event listener to the left arrow image element
+        leftArrow.addEventListener('click', function () {
+            // Increment the value of count by 1
+            count++;
+            console.log(count);
+            // Update the image source based on the value of count
+            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
+            // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
+            // var link = "/getcampaign/view_campaign?camp=" + campaignId;
+            adId.href = "/getcampaign/view_campaign?camp=" +
+                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
+        });
 
-    // Get a reference to the right arrow image element
-    var rightArrow = document.querySelector('.r-arrow-img');
+        // Get a reference to the right arrow image element
+        var rightArrow = document.querySelector('.r-arrow-img');
 
-    // Add an event listener to the right arrow image element
-    rightArrow.addEventListener('click', function() {
-        // Decrement the value of count by 1
-        count--;
-        console.log(count);
-        // Update the image source based on the value of count
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        adId.href = "/getcampaign/view_campaign?camp=" +
-            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-    });
+        // Add an event listener to the right arrow image element
+        rightArrow.addEventListener('click', function () {
+            // Decrement the value of count by 1
+            count--;
+            console.log(count);
+            // Update the image source based on the value of count
+            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
+            adId.href = "/getcampaign/view_campaign?camp=" +
+                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
+        });
     </script>
 
     <div class="dash-div-container">
