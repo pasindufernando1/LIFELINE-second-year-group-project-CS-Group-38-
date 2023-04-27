@@ -1,16 +1,16 @@
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
     margin-bottom: 9vw;
-}
+} */
 
-.container img {
+/* .container img {
     width: 100%;
     height: auto;
     margin-top: -1.05vh;
-}
+} */
 
 .visit-us-heading {
     text-align: left;
@@ -322,7 +322,6 @@ footer hr {
 .banner {
     width: 100%;
     height: 35vw;
-    margin-top: 19.77vh;
 }
 
 .banner-img {

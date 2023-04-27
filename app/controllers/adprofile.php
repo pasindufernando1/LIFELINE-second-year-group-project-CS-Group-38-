@@ -118,7 +118,7 @@ class Adprofile extends Controller
             $Name = $_POST['Name'];
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
-            $$Password = $_POST['password'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{

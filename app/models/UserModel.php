@@ -140,17 +140,17 @@ class UserModel extends Model
         return $ret_donorID;
     }
 
-    public function getAllCampaigns($today)
-    {
-        $data = $this->db->select(
-            '*',
-            'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
-            ':Date',
-            $today
-        );
-        return $data;
-    }
+    // public function getAllCampaigns($today)
+    // {
+    //     $data = $this->db->select(
+    //         '*',
+    //         'donation_campaign',
+    //         'WHERE Date > :Date AND Status = 1 ORDER BY Date ASC',
+    //         ':Date',
+    //         $today
+    //     );
+    //     return $data;
+    // }
 
     public function getHospitals()
     {

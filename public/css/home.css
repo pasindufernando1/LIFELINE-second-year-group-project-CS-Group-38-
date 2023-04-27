@@ -49,11 +49,21 @@
     border-radius: 3.472vw;
     border: #FBDAD9;
     font-size: 1vw;
+    cursor: pointer;
+}
+
+.btn-ban:hover {
+    background: #640E0B;
+    color: #FFFFFF;
 }
 
 .t-boxes {
     width: 68.750vw;
     height: 18vw;
+}
+
+.t-boxes a{
+    text-decoration: none;
 }
 
 .box-1 {

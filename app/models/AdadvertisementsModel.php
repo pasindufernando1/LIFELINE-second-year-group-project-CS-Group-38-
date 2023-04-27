@@ -230,5 +230,16 @@ class AdadvertisementsModel extends Model
         }
     }
 
+    // Function to get the inventory types
+    public function getInventoryTypes()
+    {
+        $data = $this->db->select("Name","inventory",null);
+        // Get only the name of the inventory types
+        foreach($data as $key => $value){
+            $data[$key] = $value['Name'];
+        }
+        return $data;
+    }
+
     
 }

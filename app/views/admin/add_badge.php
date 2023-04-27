@@ -45,14 +45,14 @@ $metaTitle = "Add Badges"
                 <br>
                 <input id="quantity" class="quantity-input" type="text" name="badgeid" value="<?php echo $_SESSION['Badgeno']?>" required disabled>
             <div class="reg-container">
-                <label id ="reg-label" class="reg-lable" for="badgename">Badge Name:</label>
+                <label id ="badge-lable" class="reg-lable" for="badgename">Badge Name:</label>
                 <br>
-                <input id="reg" class="reg-input" type="text" name="badgename" autofocus placeholder="Badge Name" required>
+                <input id="badge-name" class="reg-input" type="text" name="badgename" autofocus placeholder="Badge Name" required>
             </div>
             <div class="status-container">
-                <label class="status-lable" for="hosname">Donation Contraint</label>
+                <label id="don-cons-lable" class="status-lable" for="hosname">Donation Contraint</label>
                 <br>
-                <input id="status" class="status-input" type="text" name="constraint" autofocus placeholder="No. of donations required to achieve" required>  
+                <input id="don-cons" class="status-input" type="text" name="constraint" autofocus placeholder="No. of donations required to achieve" required>  
             </div>
             <!-- Container to upload the badge image -->
             <div class="image-1">
@@ -86,6 +86,6 @@ $metaTitle = "Add Badges"
             </div>
         </form>       
     </div>
-
+    <script src="../../../public/js/validation/basicvalidation.js"></script>
 </body>
 </html>
