@@ -984,6 +984,11 @@ class Usermanage extends Controller
                         $this->view->render('admin/delete_donor_successful');
                         exit;
                     }
+                }elseif($_SESSION['user_type'] == "Admin"){
+                    if($this->model->deleteAdminDetails($user_id)){
+                        $this->view->render('admin/delete_admin_successful');
+                        exit;
+                    }
                 }
             } 
         }
