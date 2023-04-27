@@ -11,7 +11,7 @@
 
 .dashboard-active a {
     color: #000000 !important;
-    font-weight: unset !important;
+    font-weight: 300 !important;
 }
 
 .red-dash {
@@ -229,4 +229,94 @@
     left: 65px;
     right: 114px;
     top: 499px;
+}
+
+.dwn-btn {
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    /* position: absolute; */
+    width: 283.65999999999997px;
+    height: 37.49px;
+    /* left: 459px; */
+    /* top: 32px; */
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    margin-bottom: 10px;
+    margin-left: 148px;
+}
+
+.save-btn {
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    /* position: absolute; */
+    width: 283.65999999999997px;
+    height: 37.49px;
+    /* left: 459px; */
+    /* top: 32px; */
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    margin-bottom: 10px;
+   margin-left: 469px;
+    margin-top: -68px;
+}
+.delete-btn {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0px 41px 0px -172px !important;
+}
+
+td {
+    width: 16px !important;
+}
+
+.inv-type {
+    border: 5px solid;
+    width: 460px;
+    font-size: 20px;
+    /* border: #640e0b; */
+    border-width: 2px;
+    border-radius: 4px;
+    padding: 4px;
+    border-color: #640e0b;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    height: 158px;
+    overflow: auto;
+}
+
+.input-te {
+    width: 250px;
 }

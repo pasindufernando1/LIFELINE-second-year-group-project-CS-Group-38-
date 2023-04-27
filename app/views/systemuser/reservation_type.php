@@ -22,9 +22,16 @@ $metaTitle = "Blood Type - Reservations"
     <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
      <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/reservation.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/reservation_type.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/inc/calender.css" rel="stylesheet">
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+    <script src="../../../public/js/systemuser/filter/quantityDate.js"></script>
+
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"> </script>  
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"> </script>  
+
     
 
     
@@ -35,28 +42,26 @@ $metaTitle = "Blood Type - Reservations"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <!-- Side bar -->
+    <?php $delete = "Blood types"; ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
+
+    
             
-                    <div class="box">
-                        <p class="add-reservation-title">Blood Types</p>
-                        
-                        <a href="/reservation/add_type" class="brown-button types-reservation">Add Type</a>
-                        <img class="typebutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button">
+                    <div class="box-big">
+                        <p class="add-reservation-title">Pending Blood Quantity Updates</p>
                         
                         <a href="/reservation?page=1" class="brown-button expired-stock-btn">Back to Reservas</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="expired-stocks">
 
-                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
-                        <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
-
-                        <table class="blood-types-table" style="width:90%">
+                        <table id="blood-types-table" class="blood-types-table" style="width:90%">
                         <tr>
-                            <th>Type ID</th>
-                            <th>Name</th>
-                            <th>Storing Constraints</th>
-                            <th>Expiry Constraints</th>
+                            <th>Date</th>
+                            <th>Donor NIC</th>
+                            <th>Blood Group</th>
+                            <th>Quantities</th>
                             <th>Action</th>
                         </tr>
+                        
                         <hr class="blood-types-line">
                         <?php 
                         $results_per_page = 7;
@@ -75,18 +80,27 @@ $metaTitle = "Blood Type - Reservations"
 
                         //display the link of the pages in URL  
                           
-
+                        
                         // print_r($result[0]);die();
                         if ($_SESSION['rowCount'] > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                                echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["TypeID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Storing_temperature"] . "</td>
-                                        <td>" . $row["Expiry_constraint"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_type_id/'.$row["TypeID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                                    </tr> </div>';
+                                echo '<div class="table-content-types"> <tr class="t-row">
+                        
+                                        <td class="t-det">' . $row["Date"] . '</td>
+                                        <td class="t-det">' . $row["NIC"] . '</td>
+                                        <td class="t-det">' . $row["BloodType"] . '</td>
+                                        <form action="/reservation/update_quantity/'.$row["PacketID"].'" method="POST">
+                                        <td>
+                                            <input title="RBC" class="sub-input" type="text" id="RBC" name="RBC" placeholder="RBC" required>
+                                            <input title="WBC" class="sub-input" type="text" id="WBC" name="WBC" placeholder="WBC" required>
+                                            <input title="Platelet" class="sub-input" type="text" id="Platelet" name="Platelet" placeholder="Platelet" required>
+                                            <input title="Plasma" class="sub-input" type="text" id="Plasma" name="Plasma" placeholder="Plasma" required>
+                                         </td>
+                                        <td> <button type="submit" class="update-btn">Update </button> </td>
+                                    </tr> </div>
+                                    
+                                    </form>';
                                 
                             }
                         } else {
@@ -117,13 +131,28 @@ $metaTitle = "Blood Type - Reservations"
                         </table>
 
                 </div>
+           
+            <div class = "container" >  
+            <input id="search-nic" class="search-donor" autofocus placeholder="Search By NIC" onchange="filterNIC()"> 
+            <input id = "calendar" class="cale" autofocus placeholder="Filter By Date" onchange="filterDate()"> 
+            
+             <script>  
+            $('#calendar').datepicker({  
+            inline:true,  
+            firstDay: 1,  
+            showOtherMonths:false,  
+            dateFormat: "yy-mm-dd",
+            dayNamesMin:['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] ,
+            
+           
+            }); 
 
-            </div>
+            
 
-
-        </div>
-
-    </div>
+             
+            </script>   
+            </div>  
+           
 
 </body>
 </html>

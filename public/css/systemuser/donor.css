@@ -11,7 +11,7 @@
 
 .dashboard-active a {
     color: #000000 !important;
-    font-weight: unset !important;
+    font-weight: 300 !important;
 }
 
 .red-dash {
@@ -128,3 +128,40 @@
     color: #000000;
     opacity: 0.4;
 }
+
+.eligible{
+    border-radius: 4px;
+    /* background-color: #c6cbc6; */
+    padding: 4px 7px;
+    margin-left: 10px;
+    border: 2px solid;
+    font-weight: bolder;
+    font-size: 10px;
+    color: #27764a;
+   
+    }
+
+.not-eligible{
+    border-radius: 4px;
+    /* background-color: #c6cbc6; */
+    padding: 4px 7px;
+    margin-left: 10px;
+    color: #b31a1a;
+    border: 2px solid;
+    font-weight: bolder;
+    font-size: 10px;
+}
+
+.action-btns {
+    gap: 0.5rem;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.edit-btn-div {
+    margin: 0;
+    text-align: center;
+}
+
+

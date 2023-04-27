@@ -43,7 +43,7 @@ $metaTitle = "Profile"
     <div class="box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/admindashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Successfully updated the Admin Details.</p>
+            <p class="success-msg-txt">Successfully updated the Admin Details. Your changes will be fully applied once you login again</p>
             <a href="/adprofile/" class="brown-button back-to-reserve">Back to Profile</a>
             <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
         </div>

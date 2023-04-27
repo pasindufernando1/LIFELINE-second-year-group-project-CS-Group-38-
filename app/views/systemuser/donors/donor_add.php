@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "Donors - Add New" 
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ $metaTitle = "System User Reservations"
                         <a href="#" class="ash-button reservation-filter">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img"> -->
 
-                        <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data">
+                        <form action="/sys_donors/storeDonor" method="post" enctype="multipart/form-data">
                             <div class="quantity-container">
                                 <label class="quantity-lable" for="name">Full name</label>
                                 <br>
@@ -55,6 +55,11 @@ $metaTitle = "System User Reservations"
                                 <label id="nic-label" class="nic-lable" for="nic">NIC no</label>
                                 <br>
                                 <input id="nic" class="nic-input" type="text" name="nic" autofocus placeholder="NIC no" required>
+                            </div>
+                            <div class="gender-container">
+                                <label id="gender-label" class="gender-lable" for="gender">Gender</label>
+                                <br>
+                                <input id="gender" class="gender-input" type="text" name="gender" autofocus placeholder="Gender" required>
                             </div>
                             <div class="dob-container">
                                 <label id="dob-label" class="dob-lable" for="dob">DOB</label>

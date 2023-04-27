@@ -1,0 +1,100 @@
+.box {
+    width: 60%;
+}
+
+.reservation-filter-img {
+    position: absolute;
+    top: 51px;
+    left: 1048px;
+}
+.reservation-filter {
+    position: absolute;
+    top: 33px;
+    left: 869px;
+}
+.delete-btn {
+    margin: 0px -17px 0px -172px;
+}
+
+.box-generate{
+        box-sizing: border-box;
+    position: absolute;
+    width: 22.5%;
+    left: 1454px;
+    top: 96px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+}
+
+.generate {
+    width: 271px;
+    height: 73px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #0c0c0d;
+}
+
+.blood-reserve {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.05963px;
+    gap: 9.06px;
+    /* position: absolute; */
+    width: 283.65999999999997px;
+    height: 37.49px;
+    /* left: 459px; */
+    /* top: 32px; */
+    background: #640E0B;
+    border-radius: 10.8716px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.6835px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #FCFEFE;
+    cursor: pointer;
+    border: 1px #949494 solid;
+    margin-bottom: 10px;
+}
+
+.blood-reserve:hover {
+    font-size: 13.6835px;
+}
+
+.edit-btn {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    background: rgba(175, 175, 175, 0.2);
+    border-radius: 4px;
+    margin: 0px 5px 0px -30px;
+    text-align: center;
+}
+
+.delete-btn {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+        margin: 0px -17px 0px -172px;
+}
+

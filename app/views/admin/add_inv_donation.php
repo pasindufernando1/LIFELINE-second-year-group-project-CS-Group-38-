@@ -42,7 +42,7 @@ $metaTitle = "Inventory Donation"
             <div class="quantity-container">
                 <label id= "description-lable" class="quantity-lable" for="description">Description : </label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
+                <input id="description" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="total_amt">Inventory Category:</label>
                 <br>

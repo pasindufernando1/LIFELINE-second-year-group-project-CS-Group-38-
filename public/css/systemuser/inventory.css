@@ -11,7 +11,7 @@
 
 .dashboard-active a {
     color: #000000 !important;
-    font-weight: unset !important;
+    font-weight: 300 !important;
 }
 
 .red-dash {
@@ -129,14 +129,14 @@
     color: #BF1B16;
 }
 
-th {
+/* th {
     padding-bottom: 22px;
 }
 
 td {
     padding-top: 0px;
     margin-bottom: 30px;
-}
+} */
 
 .dreq {
     display: flex;
