@@ -11,7 +11,9 @@ $metaTitle = 'Donor Feedback';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -31,7 +33,7 @@ $metaTitle = 'Donor Feedback';
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
 
     <!-- Side bar -->
@@ -102,9 +104,8 @@ $metaTitle = 'Donor Feedback';
             '</h2>'; ?>
         <div class="viewrating">
             <p class="p11">Your Rating</p>
-            <p id="exper" class="p22">Your Experience : <?php echo $_SESSION['selected_camprating']['Feedback']?></p>
             <div class="view-stars">
-                <?php 
+                <?php
                 $rating = $_SESSION['selected_camprating']['Rating'];
                 for ($i = 0; $i < $rating; $i++) {
                     echo '<img src="../../../public/img/donordashboard/yellow_star.png" alt="star">';
@@ -115,14 +116,23 @@ $metaTitle = 'Donor Feedback';
                 ?>
 
             </div>
-            <div class="rate_btn_view">
-                <?php echo '<a href="editrating?camp=' .
+            <p id="exper">Your Experience : </p>
+            <?php echo '<div class="feedback-read"><p>' . $_SESSION['selected_camprating']['Feedback'] ?>
+            </p>
+        </div>
+
+        <div class="rate_btn_view">
+            <?php echo '<a href="editrating?camp=' .
                     $_SESSION['selected_campid'] .
                     '">Edit Rating</a>
                 <a href="remove_rating">Delete Rating</a>'; ?>
-            </div>
-
         </div>
+
+    </div>
+
+
+
+    </div>
 
 
     </div>

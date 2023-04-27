@@ -123,9 +123,14 @@ $metaTitle = 'Donor Dashboard'; ?>
                         echo '<img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">';
                     }
                     echo '</div>
-            <br>
-            <p id="fbv">Feedback : ' . $_SESSION['all_feedback'][$count]['Feedback'] . ' </p>
-            </div>
+            <br>';
+                    if (strlen($_SESSION['all_feedback'][$count]['Feedback']) > 30) {
+                        echo '<p id="fbv">Feedback : ' . substr($_SESSION['all_feedback'][$count]['Feedback'], 0, 30) . '... <a href="/ratecampaign/viewrating?camp=' . $row['CampaignID'] . '">see more</a> </p>';
+                    } else {
+                        echo '<p id="fbv">Feedback : ' . $_SESSION['all_feedback'][$count]['Feedback'] . ' </p>';
+
+                    }
+                    echo '</div>
             
             <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
                 <a href="remove_rating?camp=' . $row['CampaignID'] . '""> <button id = "fbd-btn">Delete</button></a>

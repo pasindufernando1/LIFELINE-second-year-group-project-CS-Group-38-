@@ -104,79 +104,92 @@ $metaTitle = 'Donor Dashboard';
     <!-- filter -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/filter/camp_filter.php'); ?>
 
-    <div class="campaign-reg-box">
-        <h2 class="header2">Registered Campaigns</h2>
-        <div class="view-register-container">
-            <?php
-            //$number_of_results = $_SESSION['rowCount'];
-            $number_of_results = count($_SESSION['registrations']);
+    <!-- Campaigns -->
+    <?php if (count($_SESSION['registrations']) == 0) {
+        echo '<div class="campaign-reg-box">';
+    } else {
+        echo '<div class="campaign-reg-box" style="height:325px">';
+    } ?>
 
-            $result = $_SESSION['registrations'];
-            $countt = 0;
-            if (count($_SESSION['registrations']) > 0) {
-                for ($x = 0; $x < $number_of_results; $x++) {
-                    $stime = substr($_SESSION['registrations'][$x][0][5], 0, 2);
-                    $stimeval = intval($stime);
-                    if ($stimeval > 12) {
-                        $st = 24 - $stime;
-                        $_SESSION['registrations'][$x][0][5] =
-                            strval($st) . ' PM';
-                    } else {
-                        $_SESSION['registrations'][$x][0][5] =
-                            strval($stimeval) . ' AM';
-                    }
-                    echo '<div class="view-register-card">
+    <h2 class="header2">Registered Campaigns</h2>
+
+    <?php
+    //$number_of_results = $_SESSION['rowCount'];
+    $number_of_results = count($_SESSION['registrations']);
+
+    $result = $_SESSION['registrations'];
+    $countt = 0;
+    if (count($_SESSION['registrations']) > 0) {
+        echo '<div class="view-register-container">';
+        for ($x = 0; $x < $number_of_results; $x++) {
+            $stime = substr($_SESSION['registrations'][$x][0][5], 0, 2);
+            $stimeval = intval($stime);
+            if ($stimeval > 12) {
+                $st = 24 - $stime;
+                $_SESSION['registrations'][$x][0][5] =
+                    strval($st) . ' PM';
+            } else {
+                $_SESSION['registrations'][$x][0][5] =
+                    strval($stimeval) . ' AM';
+            }
+            echo '<div class="view-register-card">
                                             <div class="campaign-card-left-box">
                                             <h3>' .
-                        $_SESSION['registrations'][$x][0][1] .
-                        '</h3>
+                $_SESSION['registrations'][$x][0][1] .
+                '</h3>
                                             <p>Starting At :' .
-                        $_SESSION['registrations'][$x][0][5] .
-                        '<br>
+                $_SESSION['registrations'][$x][0][5] .
+                '<br>
                                             On:' .
-                        $_SESSION['registrations'][$x][0][4] .
-                        '<br>
+                $_SESSION['registrations'][$x][0][4] .
+                '<br>
                         Location:' .
-                        $_SESSION['registrations'][$x][0][2] .
-                        '<br></p>
+                $_SESSION['registrations'][$x][0][2] .
+                '<br></p>
                                             </div>
                                             <div class="campaign-card-right-box">
                                             <a href="/getcampaign/view_campaign?camp=' .
-                        $_SESSION['registrations'][$x][0][0] .
-                        '"> <button class="register-btn" name="view_camp_info" > View </button> </a>
+                $_SESSION['registrations'][$x][0][0] .
+                '"> <button class="register-btn" name="view_camp_info" > View </button> </a>
                                             <a href="/getcampaign/view_timeslot?camp=' . $_SESSION['registrations'][$x][0][0] . '"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
                                             </div>
                                             </div>';
-                }
-            } else {
-                echo 'You are not currently registered to any campaign';
-            }
-            ?>
-        </div>
+        }
+        echo '</div>';
+    } else {
+        echo '<p style="text-indent:20px;">You are not currently registered to any campaign</p>';
+    }
+    ?>
 
     </div>
-    <div class="campaign-view-box">
-        <h2 class="header2">Upcoming Campaigns</h2>
-        <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<img
-                src="./../../public/img/donordashboard/filter-icon.png"></button>
-        <div class="view-campaign-container">
-            <?php
-            $number_of_results = $_SESSION['rowCount'];
-            $result = $_SESSION['upcoming_campaigns'];
-            $count = 0;
+    <?php if (count($_SESSION['registrations']) == 0) {
+        echo '<div class="campaign-view-box" style="top:260px;">';
+    } else {
+        echo '<div class="campaign-view-box">';
+    }
+    ?>
+    <!-- <div class="campaign-view-box"> -->
+    <h2 class="header2">Upcoming Campaigns</h2>
+    <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<img
+            src="./../../public/img/donordashboard/filter-icon.png"></button>
+    <div class="view-campaign-container">
+        <?php
+        $number_of_results = $_SESSION['rowCount'];
+        $result = $_SESSION['upcoming_campaigns'];
+        $count = 0;
 
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
-                    $stime = substr($row['Starting_time'], 0, 2);
-                    // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
-                    $stimeval = intval($stime);
-                    if ($stimeval > 12) {
-                        $st = 24 - $stime;
-                        $row['Starting_time'] = strval($st) . ' PM';
-                    } else {
-                        $row['Starting_time'] = strval($stimeval) . ' AM';
-                    }
-                    echo '<div class="view-campaign-card" style="margin-top: 5px; margin-bottom: 5px;">
+        if ($_SESSION['rowCount'] > 0) {
+            foreach ($result as $row) {
+                $stime = substr($row['Starting_time'], 0, 2);
+                // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
+                $stimeval = intval($stime);
+                if ($stimeval > 12) {
+                    $st = 24 - $stime;
+                    $row['Starting_time'] = strval($st) . ' PM';
+                } else {
+                    $row['Starting_time'] = strval($stimeval) . ' AM';
+                }
+                echo '<div class="view-campaign-card" style="margin-top: 5px; margin-bottom: 5px;">
             <img src = "./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
             <div class="campaign-card-bottom">
             <h3>' . $row['Name'] . '</h3>
@@ -185,18 +198,18 @@ $metaTitle = 'Donor Dashboard';
             <b>On : </b>' . $row['Date'] . '<br>
             <b>Location : </b>' . $row['Location'] . '<br><br>
             <a href="/getcampaign/view_campaign?camp=' .
-                        $row['CampaignID'] .
-                        '" name="view_camp_info"> View more... </a></p>
+                    $row['CampaignID'] .
+                    '" name="view_camp_info"> View more... </a></p>
                                             </div>
                                             </div>';
-                    $count++;
+                $count++;
 
-                }
-            } else {
-                echo '0 results';
             }
-            ?>
-        </div>
+        } else {
+            echo '0 results';
+        }
+        ?>
+    </div>
     </div>
 
 

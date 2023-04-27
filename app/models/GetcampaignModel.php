@@ -44,6 +44,24 @@ class GetcampaignModel extends Model
         return $data;
     }
 
+    public function getCampAds($camps)
+    {
+        $camp_ads = [];
+        foreach ($camps as $camp) {
+            $data = $this->db->select(
+                'Advertisement_Pic',
+                'advertisement',
+                'WHERE AdvertisementID = :AdvertisementID',
+                ':AdvertisementID',
+                $camp['AdvertisementID']
+            );
+            array_push($camp_ads, $data);
+        }
+        return $camp_ads;
+
+    }
+
+
     public function get_campaign_info($campid)
     {
         $data = $this->db->select(
@@ -131,7 +149,7 @@ class GetcampaignModel extends Model
     }
 
 
-    }
+
 
     public function ifregistered($user_id, $campaign_id)
     {
@@ -465,26 +483,61 @@ class GetcampaignModel extends Model
 
     public function Campaignsofdistrict($today, $district)
     {
-        $data = $this->db->select(
+        $camps = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 AND Archive = 0 AND District = :District ORDER BY Date ASC',
-            [':Date', ':District'],
-            [$today, $district]
+            'WHERE Date > :Date AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
+            ":Date",
+            $today
         );
-        return $data;
+
+        $camps_of_district = [];
+        foreach ($camps as $camp) {
+            $bb = $this->db->select(
+                '*',
+                'bloodbank',
+                'WHERE BloodBankID = :BloodBankID AND District = :District',
+                [":BloodBankID", ":District"],
+                [$camp['BloodBankID'], $district]
+            );
+            // print_r($bb);
+            if ($bb != NULL) {
+                array_push($camps_of_district, $camp);
+            }
+
+        }
+
+        return $camps_of_district;
     }
 
     public function Campaignsofmonthdistict($today, $month, $district)
     {
-        $data = $this->db->select(
+        $camps = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND MONTH(Date) = :Month AND Status = 1 AND Archive = 0 AND District = :District ORDER BY Date ASC',
-            [':Date', ':Month', ':District'],
-            [$today, $month, $district]
+            'WHERE Date > :Date AND MONTH(Date) = :Month AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
+            [":Date", ":Month"],
+            [$today, $month]
         );
-        return $data;
+
+        $camps_of_district = [];
+        foreach ($camps as $camp) {
+            $bb = $this->db->select(
+                '*',
+                'bloodbank',
+                'WHERE BloodBankID = :BloodBankID AND District = :District',
+                [":BloodBankID", ":District"],
+                [$camp['BloodBankID'], $district]
+            );
+            // print_r($bb);
+            if ($bb != NULL) {
+                array_push($camps_of_district, $camp);
+            }
+
+        }
+
+        return $camps_of_district;
+
     }
 
 

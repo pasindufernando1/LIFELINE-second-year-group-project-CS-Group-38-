@@ -45,4 +45,39 @@ class ContactusModel extends Model
         )[0];
         return $data;
     }
+
+    public function getbloodbankreserves($bankid, $btype)
+    {
+        $typeids = $this->db->select(
+            'TypeID',
+            'bloodcategory',
+            'WHERE Name= :Name',
+            ':Name',
+            $btype
+        );
+
+        // print_r($typeids);
+        // die();
+
+
+        $total_packets = 0;
+
+        foreach ($typeids as $typeid) {
+            // print_r($typeid['TypeID'] . '\n');
+            $data = $this->db->select(
+                'COUNT(*) as total_packets',
+                'bloodpacket',
+                'WHERE blood_bank_ID= :blood_bank_ID AND TypeID= :TypeID',
+                [':blood_bank_ID', ':TypeID'],
+                [$bankid, $typeid['TypeID']]
+            )[0];
+            // print_r($data['total_packets']);
+            $total_packets += $data['total_packets'];
+        }
+        // die();
+        return $total_packets;
+
+
+        // return $data;
+    }
 }

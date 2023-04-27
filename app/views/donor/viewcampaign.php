@@ -14,7 +14,9 @@ $metaTitle = 'Donor Dashboard';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -34,7 +36,7 @@ $metaTitle = 'Donor Dashboard';
 
 <body>
     <!-- header -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
 
     <!-- Side bar -->
@@ -101,8 +103,8 @@ $metaTitle = 'Donor Dashboard';
         </div>
     </div>
     <?php
-// If the current user is registered to the campaign
-?>
+    // If the current user is registered to the campaign
+    ?>
     <?php if ($_SESSION['if_registered'] == 0) {
         if ($_SESSION['time_okay'] == 1) {
             echo '<div class="view-campaign-box">
@@ -130,7 +132,7 @@ $metaTitle = 'Donor Dashboard';
         <a href="/getcampaign/reg_to_campaign?camp=' .
                 $_SESSION['selected_campid'] .
                 '"><button class="to-reg-btn">Register</button>
-            <img src="./../../public/img/ads/'.$_SESSION['campaign_ad'].'" class="campaign-img" alt="campaigns">
+            <img src="./../../public/img/ads/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
     </div>';
         } else {
             echo '<div class="view-campaign-box">
@@ -155,9 +157,9 @@ $metaTitle = 'Donor Dashboard';
             Number of Beds : ' .
                 $_SESSION['campaign_array'][3] .
                 '</p><br>
-        <p style="position: absolute;top: 571px;left: 610px;font-size: 25px;">Cannot Register to Campaign</p>
-        <p style="position: absolute;top: 621px;left: 555px;font-size: 20px;">You can ONLY donate BLOOD Once in TWO Months...</p>
-            <img src="./../../public/img/ads/'.$_SESSION['campaign_ad'].'" class="campaign-img" alt="campaigns">
+        <p style="position: absolute;top: 571px;left: 525px;font-size: 25px;">You can donate BLOOD Once in 4 Months...</p>
+        <p style="position: absolute;top: 621px;left: 367px;font-size: 20px;">Seems You have donated OR registered to donate in 4 months to This Campaign</p>
+            <img src="./../../public/img/ads/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
 
     </div>';
         }

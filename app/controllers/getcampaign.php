@@ -23,6 +23,9 @@ class Getcampaign extends Controller
                     $_SESSION['today']
                 );
 
+                // print_r($_SESSION['upcoming_campaigns']);
+                // die();
+
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
 
                 $this->view->render('donor/getcampaign');
@@ -45,12 +48,12 @@ class Getcampaign extends Controller
 
 
 
-                if (isset($_POST['all_type'])) {
+                if (!empty($_POST['all_type'])) {
                     header('Location: /getcampaign/index');
                     exit();
                 }
 
-                if (isset($_POST['month'])) {
+                if (!empty($_POST['month'])) {
                     $month = $_POST['month'];
 
                     $_SESSION['upcoming_campaigns'] = $this->model->Campaignsofmonth(
@@ -58,21 +61,26 @@ class Getcampaign extends Controller
                         $month
                     );
 
-                    if (isset($_POST['district'])) {
+                    if (!empty($_POST['district'])) {
                         $district = $_POST['district'];
                         $_SESSION['upcoming_campaigns'] = $this->model->Campaignsofmonthdistict(
                             $_SESSION['today'],
                             $month,
                             $district
                         );
+
+                        // print_r("Hello");
+                        // die();
                     }
                     // echo "month is set";
-                } elseif (isset($_POST['district'])) {
+                } elseif (!empty($_POST['district'])) {
                     $district = $_POST['district'];
                     $_SESSION['upcoming_campaigns'] = $this->model->Campaignsofdistrict(
                         $_SESSION['today'],
                         $district
                     );
+                    // print_r($_SESSION['upcoming_campaigns']);
+                    // die();
                 }
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
@@ -156,6 +164,9 @@ class Getcampaign extends Controller
                     $_SESSION['user_ID']
                 );
 
+                $campdate = date_create($_SESSION['campaign_array'][4]);
+
+
                 $_SESSION['time_okay'] = true;
 
                 //check for eachdate if the difference between that date and the date of this campaign is less than 2 months
@@ -176,7 +187,7 @@ class Getcampaign extends Controller
                             // $_SESSION['if_registered'] = 2;
                         }
 
-                        if ($diff < 56) {
+                        if ($diff < 112) {
                             $_SESSION['time_okay'] = 0;
                             // break;
                             $this->view->render('donor/viewcampaign');
@@ -197,7 +208,7 @@ class Getcampaign extends Controller
                     $date_diff = date_diff($campdate, $date1);
                     $date_diff = $date_diff->days;
 
-                    if ($date_diff < 56) {
+                    if ($date_diff < 112) {
                         $_SESSION['time_okay'] = 0;
                         $this->view->render('donor/viewcampaign');
                         exit();

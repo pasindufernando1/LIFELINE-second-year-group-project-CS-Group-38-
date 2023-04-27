@@ -1594,11 +1594,11 @@ fieldset {
 
 
 .contact-card {
-    margin-top: 1%;
+    margin-top: -1%;
     margin-left: auto;
     margin-right: auto;
-    height: 290px;
-    width: 910px;
+    height: 304px;
+    width: 1114px;
     background-color: white;
     border-radius: 10px;
     border: 2px solid #fbdad9;
@@ -1915,6 +1915,26 @@ fieldset {
 
 }
 
+.blood_rchart {
+    position: absolute;
+    width: 1304px;
+    height: 339px;
+    display: flex;
+    top: 420px;
+    left: -65px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#myBarChart {
+    display: block;
+    box-sizing: border-box;
+    height: 329px;
+    width: 825px;
+}
+
 .card-container {
     position: absolute;
     box-sizing: border-box;
@@ -2145,9 +2165,9 @@ fieldset {
 
 #btb {
     display: flex;
-    margin-left: 1324px;
+    margin-left: 1112px;
     /* margin-right: 9%; */
-    margin-top: 20.4%;
+    margin-top: 19.2%;
     height: 50px;
     width: 238px;
     background-color: #640e0b;
@@ -2813,8 +2833,8 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1565px;
-    height: 325px;
+    width: 1585px;
+    height: auto;
     left: 301px;
     top: 114px;
     font-family: 'Poppins';
@@ -3509,9 +3529,6 @@ fieldset {
 }
 
 #exper {
-    top: 318px;
-    left: 119px;
-    position: absolute;
     font-weight: 500;
     line-height: 30px;
     letter-spacing: 0.30000001192092896px;
@@ -3519,6 +3536,8 @@ fieldset {
     font-size: 20px;
     font-family: 'Poppins';
     text-align: left;
+    margin-top: 3%;
+    margin-left: 2%;
 }
 
 .do_rate {
@@ -3658,6 +3677,18 @@ fieldset {
 
 }
 
+.viewrating .feedback-read {
+    position: absolute;
+    left: 323px;
+    top: 308px;
+    height: 150px;
+    width: 1068px;
+    border: solid 2px #eceef7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
 .viewrating .p11 {
     margin-left: 2%;
     margin-top: 5%;
@@ -3687,7 +3718,7 @@ fieldset {
 .rate_btn_view {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15%;
+    margin-top: 11%;
     height: 132.16px;
     display: flex;
     flex-direction: row;
@@ -3820,8 +3851,13 @@ fieldset {
     font-weight: normal;
     color: black;
     text-align: left;
-    width: 678px;
-    text-indent: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.view-camp-feedback p a {
+    font-size: 15px;
+    color: #eb5550;
 }
 
 #fbv {

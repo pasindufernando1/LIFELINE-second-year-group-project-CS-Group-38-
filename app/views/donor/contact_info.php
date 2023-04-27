@@ -26,9 +26,11 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <iframe src="<?php echo $_SESSION['bb_info']['Location'] ?>" width="910" height="300"
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- <iframe src="<?php echo $_SESSION['bb_info']['Location'] ?>" width="910" height="300"
         style="border:0;position: absolute;z-index: 3;top: 563px;left: 638px;border: 1px solid;border-radius: 6px;"
-        allowfullscreen="" loading="lazy"></iframe>
+        allowfullscreen="" loading="lazy"></iframe> -->
 
 
 
@@ -122,7 +124,79 @@ $metaTitle = 'Donor Dashboard'; ?>
                 </p>
             </div>
         </div>
-        <p style="font-size: 21px;position: absolute;left: 333px;top: 369px;color: black;">Location</p>
+        <p style="font-size: 21px;position: absolute;left: 255px;top: 369px;color: black;">Blood Reserves at
+            <?php echo $_SESSION['bb_info']['BloodBank_Name'] ?>
+        </p>
+        <div class="blood_rchart" width="400" height="400">
+            <canvas id="myBarChart"></canvas>
+        </div>
+        <script>
+            var ctx = document.getElementById('myBarChart').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+                    datasets: [{
+                        label: 'Blood Group',
+                        backgroundColor: [
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                            '#BF1B16',
+                        ],
+
+                        // data: [10, 20, 5, 15, 10, 20, 5, 15],
+                        data: [<?php echo $_SESSION['b_reserves_ap'] . ',' . $_SESSION['b_reserves_an'] . ',' . $_SESSION['b_reserves_bp'] . ',' . $_SESSION['b_reserves_bn'] . ',' . $_SESSION['b_reserves_abp'] . ',' . $_SESSION['b_reserves_abn'] . ',' . $_SESSION['b_reserves_op'] . ',' . $_SESSION['b_reserves_on'] ?>],
+
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        barpercentage: 1,
+                        borderWidth: 2,
+
+                        borderSkipped: false,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+
+                    title: {
+                        display: true,
+                        text: 'Donation Received ',
+                        // Align the chart title to the top left
+                        position: 'top',
+                        fontSize: 30,
+                        fontColor: '#000000',
+                        fontFamily: 'Poppins',
+                        fontStyle: 'bold',
+                        hoverOffset: 4
+                    },
+                    scales: {
+                        x: {
+
+                            grid: {
+                                display: false,
+                                tickBorderDash: [10, 15]
+
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: true,
+                                borderDash: [5, 5],
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            },
+
+                        }
+                    }
+                }
+            });
+        </script>
         <a id="btb" href="/contactus">Back to Blood Banks</a>
     </div>
 </body>
