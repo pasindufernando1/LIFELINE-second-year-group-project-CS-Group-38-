@@ -1,6 +1,10 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donor Dashboard';
+// print_r($_SESSION['camp_ads'][2][0][0]);
+// die();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +14,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -32,43 +38,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -128,62 +99,175 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
             </div>
-
         </div>
-
     </div>
 
     <div class="container">
         <p class="dash-p">
-            Hello <?php echo $_SESSION['username']; ?>
+            Hello
+            <?php echo $_SESSION['username']; ?>
+
         </p>
-        <a><img class="r-arrow-img" src="./../../public/img/donordashboard/right-arrow.jpg" alt="dashboard"></a>
-        <a href="/getcampaign/view_campaign?camp=4"><img class="dash-img"
-                src="./../../public/img/donordashboard/dash-ad.jpg" alt="dashboard"></a>
-        <a><img class="l-arrow-img" src="./../../public/img/donordashboard/left-arrow.jpg" alt="dashboard"></a>
+        <p class="dash-wp">Welcome to LIFELINE</p>
+        <button onclick="scrollToDiv()">Learn More About Donating</button>
+
 
     </div>
-    <div class="bo7">
-        <div class="male">
-            <img class="malepic" src="./../../public/img/donordashboard/male.png" alt="male">
-            <p class="matex">35%</p>
 
-        </div>
+    <script>
+        function scrollToDiv() {
+            console.log("scrolling");
+            var div = document.getElementById("see-more-container");
+            var offset = 100;
+            var bodyRect = document.body.getBoundingClientRect().top;
+            var elementRect = div.getBoundingClientRect().top;
+            var elementPosition = elementRect - bodyRect;
+            var offsetPosition = elementPosition - offset;
 
-        <div class="female">
-            <img class="femalepic" src="./../../public/img/donordashboard/female.png" alt="male">
-            <p class="matex">65%</p>
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+    </script>
 
-        </div>
-        <p class="tebar">Donor Composition</p>
-        <canvas id="pie-chart" width="800" height="450"></canvas>
-        <script>
-        new Chart(document.getElementById("pie-chart"), {
-            type: 'doughnut',
-            data: {
+    <div class="dash-div">
+        <?php if ($_SESSION['no_of_donations'] == 0) {
+            echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
+        } else {
+            echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
+            if ($_SESSION['days_last_donation'] < 56) {
+                echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
+            } else {
+                echo 'You Can Donate Blood <span>Now</span></p>';
+            }
 
-                datasets: [{
-                    label: "Donor Composition",
-                    backgroundColor: ["#BF1B16", "#BF1B16"],
-                    data: [2478, 5267]
+        }
+        ?>
+    </div>
 
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050',
-                    hoverOffset: 4
-                }
-            },
+    <div class="dash-ad">
+        <?php
+        // print_r($_SESSION['upcoming_campaigns'][0][0]);
+        echo '<a><img class="r-arrow-img" src="./../../public/img/donordashboard/right-arrow.jpg" alt="dashboard"></a>';
+        $count = 0;
 
+        echo '<a id="adid" href="/getcampaign/view_campaign?camp=' . $_SESSION['upcoming_campaigns'][$count][0] . '"><img class="dash-img"
+                src="./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" alt="dashboard"></a>';
+        echo '<a><img class="l-arrow-img" src="./../../public/img/donordashboard/left-arrow.jpg" alt="dashboard"></a>';
+        ?>
+    </div>
+
+    <script>
+        // Initialize the count variable
+        var count = 0;
+
+        // Get a reference to the image element
+        var image = document.querySelector('.dash-img');
+
+        // Get a reference to the ad ID element
+        var adId = document.getElementById('adid');
+
+        // Get a reference to the left arrow image element
+        var leftArrow = document.querySelector('.l-arrow-img');
+
+        // Add an event listener to the left arrow image element
+        leftArrow.addEventListener('click', function () {
+            // Increment the value of count by 1
+            count++;
+            console.log(count);
+            // Update the image source based on the value of count
+            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
+            // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
+            // var link = "/getcampaign/view_campaign?camp=" + campaignId;
+            adId.href = "/getcampaign/view_campaign?camp=" +
+                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
         });
-        </script>
+
+        // Get a reference to the right arrow image element
+        var rightArrow = document.querySelector('.r-arrow-img');
+
+        // Add an event listener to the right arrow image element
+        rightArrow.addEventListener('click', function () {
+            // Decrement the value of count by 1
+            count--;
+            console.log(count);
+            // Update the image source based on the value of count
+            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
+            adId.href = "/getcampaign/view_campaign?camp=" +
+                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
+        });
+    </script>
+    <!-- <script>
+    // Initialize the count variable
+    var count = 0;
+
+    // Get a reference to the image element
+    var image = document.querySelector('.dash-img');
+
+    // Get a reference to the ad ID element
+    var adId = document.querySelector('#adid');
+
+    // Add an event listener to the left arrow image element
+    document.querySelector('.l-arrow-img').addEventListener('click', function() {
+        // Increment the value of count by 1
+        count++;
+
+        // Update the image source and link based on the value of count
+        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
+            0
+        ];
+        var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
+        var link = "/getcampaign/view_campaign?camp=" + campaignId;
+
+        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
+        adId.href = link;
+    });
+
+    // Add an event listener to the right arrow image element
+    document.querySelector('.r-arrow-img').addEventListener('click', function() {
+        // Decrement the value of count by 1
+        count--;
+
+        // Update the image source and link based on the value of count
+        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
+            0
+        ];
+        var campaignId = <?php echo $_SESSION['camp_ads'][$count][0][1]; ?>;
+        var link = "/getcampaign/view_campaign?camp=" + campaignId;
+
+        image.src = imagePath;
+        adId.href = link;
+    });
+    </script> -->
+
+
+
+
+    <div class="dash-badge">
+        <p>Your Latest Badge</p>
+        <img src="./../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="badge">
     </div>
+
+    <div class="dash-don">
+        <?php if ($_SESSION['total_donated_amount'] == 0) {
+            echo "<p>A SINGLE Donation of Yours can save <span>3 LIVES</span><br>
+            You Can Donate Your BLOOD at a Campaign OR a Blood Bank</p>";
+        } else {
+            echo "<p>A SINGLE Donation of Yours can save THREE LIVES<br><br>
+  
+            You Have DONATED Your BLOOD <span>" . $_SESSION['no_of_donations'] . "</span> times <br>Potentially 
+            Saving " . ($_SESSION['no_of_donations'] * 3) . " Lives</p>";
+        } ?>
+    </div>
+
     <div id="dash-camp" class="campaign-view-box">
         <div class="hed">
             <button><a id="see-more" href="/getcampaign">See More</a></button>
-            <p>Upcoming Campaigns</p>
+            <p>Upcoming Campaigns of
+                <?php echo $_SESSION['userdistrict']; ?>
+                District
+            </p>
         </div>
         <div class="view-campaign-container">
             <?php
@@ -192,8 +276,7 @@ $metaTitle = 'Donor Dashboard'; ?>
             $count = 0;
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
-                    $count++;
-                    if ($count > 4) {
+                    if ($count == 4) {
                         break;
                     }
                     $stime = substr($row['Starting_time'], 0, 2);
@@ -206,26 +289,20 @@ $metaTitle = 'Donor Dashboard'; ?>
                         $row['Starting_time'] = strval($stimeval) . ' AM';
                     }
                     echo '<div class="view-campaign-card">
-                                            <img src = "./../../public/img/donordashboard/donation_campaign.jpg" class="campaign-card-img" alt="campaigns">
-                                            <div class="campaign-card-bottom"
-                                            <p class="campaign-card-info">
-                                            <h3>' .
-                        $row['Name'] .
-                        '</h3>
-                                            Starting At :' .
-                        $row['Starting_time'] .
-                        '<br>
-                                            Location:' .
-                        $row['Location'] .
-                        '<br>
-                                            At:' .
-                        $row['Date'] .
-                        '<br><br>
-                                            <a href="/getcampaign/view_campaign?camp=' .
+            <img src = "./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
+            <div class="campaign-card-bottom">
+            <h3>' . $row['Name'] . '</h3>
+            <p class="campaign-card-info">
+            <b>Starting At : </b>' . $row['Starting_time'] . '<br>
+            <b>Location : </b>' . $row['Location'] . '<br>
+            <b>At : </b>' . $row['Date'] . '<br><br>
+            <a href="/getcampaign/view_campaign?camp=' .
                         $row['CampaignID'] .
                         '" name="view_camp_info"> View more... </a></p>
                                             </div>
                                             </div>';
+                    $count++;
+
                 }
             } else {
                 echo '0 results';
@@ -233,12 +310,13 @@ $metaTitle = 'Donor Dashboard'; ?>
             ?>
         </div>
     </div>
-    <div class="container2">
+    <div id="see-more-container" class="container2">
         <h2>Things You need to know about Donating Blood in Sri Lanka</h2>
         <div>
             <h3>Who can donate blood?</h3>
             <p>
-                The person must fulfill several criteria to be accepted as a blood donor. These criteria are set forth
+                The person must fulfill several criteria to be accepted as a blood donor. These criteria are set
+                forth
                 to
                 ensure the safety of the donor as well as the quality of donated blood.</p>
 
@@ -246,7 +324,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             <ul>
                 <li>Age above 18 years and below 60 years.</li>
                 <li>If previously donated, at least 4 months should be elapsed since the date of previous donation.
-                <li>Hemoglobin level should be more than 12g/dL. (this blood test is done prior to each blood donation)
+                <li>Hemoglobin level should be more than 12g/dL. (this blood test is done prior to each blood
+                    donation)
                 </li>
                 <li>Free from any serious disease condition or pregnancy.</li>
                 <li>Should have a valid identity card or any other document to prove the identity.</li>
@@ -268,7 +347,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <li>Directed donors. (donate only for a specific patient's requirement)</li>
             </ul>
 
-            <h5>Please Note:</h5>
+            <h5 style=" font-size: 20px;">Please Note:</h5>
             <p id="note">
                 Replacement and Paid donors are no longer accepted by NBTS. <br>
                 Replacement donation was carried out until recently in some blood banks due to the shortage of blood

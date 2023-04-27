@@ -46,7 +46,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -117,7 +117,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -131,7 +131,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -152,7 +152,7 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                             
                                 <table class="timeslots-table" style="width:40%">
                                 <tr>
-                                <th>Timeslot ID</th>
+                                
                                 <th>Starting Time</th>
                                 <th>Ending Time</th>
                                 <th>Action</th>
@@ -179,19 +179,14 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                             if ($_SESSION['rowCount'] > 0) {
                                 foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                     echo '<div class="table-content-types"> <tr>
-                                            <td>' . $row["SlotID"]. "</td>
-                                            <td>" . $row["Start_time"] . "</td>
+                                            
+                                            <td>' . $row["Start_time"] . "</td>
                                             
                                             
                                             <td>" . $row["End_time"] . '</td>
-                                            
-                                            
                                             <td> 
-                                            
                                             <a href="/requestApproval/view_feedbacks?campaign='.$row["CampaignID"].'"><button class="req-btn" type="button" name="request" >More Details</a></button>                                
-                                            
-                                            
-                                            
+                                  
                                             </td>
                                             </tr> </div>';                                        
                                 }

@@ -139,7 +139,7 @@ body {
 .side-bar {
     position: absolute;
     width: 277.49px;
-    height: 640px;
+    height: 946px;
     left: -5px;
     top: 102px;
     background: #FFFFFF;
@@ -699,7 +699,7 @@ body {
 
 .instructions-nav a {
     position: absolute;
-    width: 122px;
+    width: 176px;
     height: 28px;
     left: 52.74px;
     top: 0px;
@@ -933,7 +933,7 @@ body {
 .box {
     box-sizing: border-box;
     position: absolute;
-    width: 1540px;
+    width: 900px;
     height: 500px;
     left: 316px;
     top: 127px;
@@ -945,19 +945,19 @@ body {
 .dashboard-img {
     position: absolute;
     top: 0px;
-    left: 0px;
-    width: 1573px;
-    height: 500px;
+    left: -2px;
+    width: 899px;
+    height: 499px;
 }
 
 .box1 {
     box-sizing: border-box;
     position: absolute;
-    width: 840px;
+    width: 780px;
     height: 400px;
     left: 315px;
     top: 653px;
-    background: #e3d8db;
+    background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
     overflow: auto;
@@ -974,8 +974,8 @@ body {
 
 .welcome-image {
     position: absolute;
-    top: 103px;
-    left: -44px;
+    top: 148px;
+    left: -16px;
     width: 360px;
 }
 
@@ -983,7 +983,7 @@ body {
     position: absolute;
     width: 406px;
     height: 30px;
-    left: 273.44px;
+    left: 219.44px;
     top: 13px;
     font-family: 'Poppins';
     font-style: normal;
@@ -1027,11 +1027,11 @@ tr {
 .box2 {
     box-sizing: border-box;
     position: absolute;
-    width: 711px;
-    height: 399px;
-    left: 1178px;
-    top: 653px;
-    background: #e3d8db;
+    width: 646px;
+    height: 500px;
+    left: 1244px;
+    top: 128px;
+    background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
 }
@@ -1040,8 +1040,8 @@ tr {
     position: absolute;
     width: 213.69px;
     height: 75.2px;
-    left: 298.01px;
-    top: 16.84px;
+    left: 242.01px;
+    top: 33.84px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1069,12 +1069,14 @@ tr {
 }
 
 .dash-img {
-    width: 208%;
+    width: 87%;
     /* height: 100%; */
-    margin-top: 8%;
-    margin-left: -65%;
+    /* margin-top: 18%; */
+    /* margin-left: -122%; */
     border-radius: 8px;
     position: absolute;
+    left: 47px;
+    top: 94px;
 }
 
 .dash-img :hover {
@@ -1102,28 +1104,133 @@ tr {
 }
 
 .campaignName {
+    font-size: 16px;
+    font-weight: bold;
     font-family: 'Poppins';
-    color: #BF1B16;
-    text-align: center;
+    /* text-indent: 5px; */
+    margin-left: 5px;
+    
 }
 
 .campaign-card {
-    width: 232px;
-    border: 15px solid #a7172e;
-    padding: 32px;
-    margin: 82px 0px -30px 57px;
-    /* margin: 9px; */
-    border-style: inset;
-    /* margin-top: 80px; */
-    background-color: #FFFFFF;
-    font-family: 'Poppins';
-    font-weight: 600;
+    margin-left: 37px;
+    width: 474px;
+    height: 284px;
+    /* top: 648px; */
+    /* background: #580000; */
+    /* margin-top: 10px; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
 }
 
 .view-campaign-card {
-    display: inline-block;
+    float: left;
+    /* margin: 88px; */
+    width: 363px;
+    height: 244px;
+    margin-left: 225px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 3px 7px rgb(0 0 0 / 25%);
+    margin-top: 100px;
+    
 }
 
-.campaign-card-info {
+.view-campaign-card:hover {
+    cursor: pointer;
+}
+
+.campaignDate{
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Poppins';
+    /* text-indent: 5px; */
+    margin-left: 5px;
+}
+
+.nearby_bb {
+    margin-left: 76px;
+    width: 700px;
+    height: 264px;
+    top: 82px;
+    position: absolute;
+    /* background: #580000; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.nearby_bb .bb {
+    float: left;
+    margin: 20px;
+    width: 412px;
+    height: 207px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 3px 7px rgb(0 0 0 / 25%);
+}
+
+.nearby_bb .bb .bbn {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Poppins';
+    /* text-indent: 5px; */
+    margin-left: 5px;
+    text-align: center;
+    color: #cd1414;
+}
+
+.nearby_bb .bb .bbd {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Poppins';
+    /* text-indent: 5px; */
+    margin-left: 5px;
+}
+
+.nearby_bb .bb button {
+    margin-left: 262px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 125px;
+    height: 39px;
+    background: #640E0B;
+    color: white;
+    border-radius: 6px;
     font-family: 'Poppins';
 }
+
+.nearby_bb .bb button a {
+    color: white
+}
+
+
+.box3{
+    box-sizing: border-box;
+    position: absolute;
+    width: 780px;
+    height: 400px;
+    left: 1112px;
+    top: 653px;
+    background: #ffffff;
+    border: 2px solid #ECEEF7;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.error{
+    color: #c71313;
+    font-size: 24px;
+    font-family: 'Poppins';
+    margin-left: 10px;
+}
+

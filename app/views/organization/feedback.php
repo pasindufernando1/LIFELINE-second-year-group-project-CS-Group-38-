@@ -44,7 +44,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -106,7 +106,7 @@ $metaTitle = "organizations Dashboard"
                     <div class="inventory-donations menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations">
                         <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -120,7 +120,7 @@ $metaTitle = "organizations Dashboard"
                         <div class="marker"></div>
                        <!--  <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions"> -->
                         <img class="feedback-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="feedback-act "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="feedback-act "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -131,13 +131,13 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="box">
-                <p class="feedback-title">Give your Ideas</p>
+                <p class="feedback-title">Give your Ideas to Improve LIFELINE</p>
                 <form action="/requestApproval/add_Feedback/" method="post" id="addform">
-                <img class="feedback-img" src="./../../public/img/orgdashboard/inventory.jpg" alt="req" >
-                <label id="feedback-label" class="feedback-label" for="feedback">Feedback:</label>
+                <img class="feedback-img" src="./../../public/img/orgdashboard/giveFeedback.gif" alt="req" >
+                <label id="feedback-label" class="feedback-label" for="feedback">Your Ideas:</label>
                     <br>
-                    <input class="feedback-input" id="feedback"  type="text" name="feedback" autofocus placeholder="Feedback" required>
-                    <br>
+                    <TEXTAREA class="feedback-input" id="feedback"  type="text" name="feedback" autofocus placeholder="Suggessions" rows="6" cols="50" name="commentfield"></TEXTAREA>
+<!--                     <input class="feedback-input" id="feedback"  type="text" name="feedback" autofocus placeholder="Feedback" required>-->                    <br>
                     <button class='feedback-btn' type='submit' name='request' id="submit-btn">Submit</button>
                 </form>
             </div>

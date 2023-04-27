@@ -15,7 +15,8 @@ class Hospitals extends Controller
         if (isset($_SESSION['login'])) {  
             
             if ($_SESSION['type'] == "Hospital/Medical_Center") { 
-             
+                $user_pic = $this->model->getuserimg($uname);
+                $_SESSION['user_pic'] = $user_pic;
 
                 
                 header("Location: /hospitaluser/dashboard");

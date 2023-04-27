@@ -12,7 +12,7 @@ class Contactus extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                $_SESSION['bloodbanknames'] = $this->model->getbanknames();
+                $_SESSION['bbs']=$this->view->bb = $this->model->getbb();
                 $this->view->render('donor/contact_us');
                 exit();
             }
@@ -21,24 +21,19 @@ class Contactus extends Controller
         }
     }
 
-    function send_bank()
+    function getcontact()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                // print_r($_POST['bb']);
-                // die();
-                $bankid = $_POST['bloodbank'];
-                $_SESSION[
-                    'bloodbankcontact'
-                ] = $this->model->getbloodbankcontact($bankid);
-                $_SESSION['selected_bank_info'] = $this->model->getbankinfo(
-                    $bankid
-                );
-
+                $bbid = $_GET['bbid'];
+                $_SESSION['bb_info'] = $this->model->getbankinfo($bbid);
+                $_SESSION['bb_contact'] = $this->model->getbloodbankcontact($bbid);
                 $this->view->render('donor/contact_info');
             }
         } else {
-            $this->view->render('authentication/login');
+            $this->view->render('authentication/donorlogin');
         }
     }
+
+    
 }

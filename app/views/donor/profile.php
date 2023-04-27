@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,43 +35,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -134,17 +101,98 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 
     <div class="profile-container">
-        <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>
+        <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>"><br>
         <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"><br>
         <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
         <a href="/donorprofile/editprofile">Edit Profile<img
                 src="../../../public/img/donordashboard/edit_btn_img.png"></a>
+        <a onclick="showalert()" id="email-edit">Edit Email<img
+                src="../../../public/img/donordashboard/edit_btn_img.png"></a>
+        <!-- href="/donorprofile/c_password" -->
+        <div id="myDialog" class="dialog">
+            <div class="dialog-content">
+                <form action="/donorprofile/confirm_password" method="POST">
+                    <?php if (isset($_SESSION['p_error'])) {
+                        echo "<p id='pass_error'>" . $_SESSION['p_error'] . "</p>";
+                    } ?>
+                    <label for="password">Please enter your password :</label>
+                    <input type="password" id="password" name="password">
+                    <button type="submit" name='confirm'>Enter</button>
+                    <button id="cancelButton" onclick="hidealert()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="myEmail" class="dialog">
+            <div class="dialog-content">
+                <form action="/donorprofile/get_email" method="POST">
+                    <p class="ppp">After submitting the new email, you will receive an OTP code...</p>
+                    <?php if (isset($_SESSION['e_error'])) {
+                        echo "<p class='pass_error'>" . $_SESSION['e_error'] . "</p>";
+                    } ?>
+                    <label for="email">Please enter your new email :</label>
+                    <input type="text" id="email" name="email">
+                    <button type="submit" name="confirm">Enter</button>
+                    <button onclick="hidealert()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="myOTP" class="dialog">
+            <div class="dialog-content">
+                <!-- <p>After submitting the new email, you will receive an OTP code...</p> -->
+                <form action="/donorprofile/confirm_OTP" method="POST">
+                    <?php if (isset($_SESSION['otp_error'])) {
+                        echo "<p id='pass_error'>" . $_SESSION['otp_error'] . "</p>";
+                    } ?>
+                    <label for="otp">Please enter the received OTP :</label>
+                    <input type="text" id="otp" name="otp">
+                    <button type="submit" name="confirm">Enter</button>
+                    <button onclick="hidealert()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Get the dialog box
+            var dialog = document.getElementById("myDialog");
+            var email = document.getElementById("myEmail");
+            var otp = document.getElementById("myOTP")
+            // var otp = document.getElementById("myOTP");
+            // Get the input field and buttons 
+            var input = document.getElementById("name");
+            var okButton = document.getElementById("okButton");
+            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
+
+            function showalert() {
+                dialog.style.display = "block";
+            } //Show the email dialog box when the page loads
+
+            function showemail() {
+                email.style.display = "block";
+            } //Show the otp dialog box when the page loads
+            function showotp() {
+                otp.style.display = "block";
+            }
+            // When the user clicks the OKbutton, get the input value and close the dialog box 
+
+            // When the user clicks the Cancelbutton, close the dialog box
+
+            function hidealert() {
+                dialog.style.display = "none";
+            }
+
+            function hideemail() {
+                email.style.display = "none";
+            }
+
+            function hideotp() {
+                otp.style.display = "none";
+            }
+        </script>
         <div class="main">
             <div class="left">
                 <p>
-                    Full Name
-                    <br>
-                    <br>
                     NIC Number
                     <br>
                     <br>
@@ -163,11 +211,6 @@ $metaTitle = 'Donor Dashboard'; ?>
             <div class="right">
                 <p>
                     <?php echo '<p>
-                    : ' .
-                        $_SESSION['donor_info']['Fullname'] .
-                        '
-                    <br>
-                    <br>
                     : ' .
                         $_SESSION['donor_info']['NIC'] .
                         '

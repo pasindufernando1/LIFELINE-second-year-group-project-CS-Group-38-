@@ -44,7 +44,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -117,7 +117,7 @@ $metaTitle = "organizations Dashboard"
                     <div class="feedback menu-item">
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="feedback-non-active" src="./../../public/img/orgdashboard/active/feedback.png" alt="instructions">
-                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="feedback-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile-selected">
@@ -128,13 +128,36 @@ $metaTitle = "organizations Dashboard"
                     </div>    
                 </div>
             </div>
-            <?php 
-            echo '<div class="profilebox">
-            <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br>
-            <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png"><br>
-                <p class="usr-name">'.($_SESSION['Username']).'</p><br>
-                <p class="usr-type">'.($_SESSION['UserType']).'</p><br>
-                <form action="/requestApproval/edit_profile/" method="post" id="addform"> 
+             
+            <div class="profilebox">
+            <form action="/requestApproval/edit_profile/" method="post" id="addform" enctype="multipart/form-data"> 
+            <!-- <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br> -->
+            <div class="profile-pic">
+                <div class="image-1">
+                    <img class="hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
+                    <div class="image-upload">
+                        <label for="file-input">
+                        <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png" />
+                        </label>
+                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);">
+                    </div>
+                </div>
+
+                <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("hospital_img").src = e.target.result;
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                </script> 
+                
+                 <p class="usr-name"><?php echo ($_SESSION['Username'])?></p><br>
+                <p class="usr-type"><?php echo($_SESSION['UserType'])?></p><br>
+            </div>    
                 <label id="orgName-label" class="orgName-label" for="campName">Organization Name:</label>
                 <br>
                 <input class="orgName-input" id="orgName"  type="text" name="orgName" autofocus placeholder="Organization Name" required>
@@ -203,16 +226,23 @@ $metaTitle = "organizations Dashboard"
 
                 <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
                 <br>
-                <input class="currentPw-input" id="currentPw"  type="text" name="currentPw" autofocus placeholder="Current Password" required>
+                <input class="currentPw-input" id="currentPw"  type="password" name="currentPw" autofocus placeholder="Current Password" required>
                 <br>
 
                 <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
                 <br>
-                <input class="newPw-input" id="newPw"  type="text" name="newPw" autofocus placeholder="New Password" required>
+                <input class="newPw-input" id="newPw"  type="password" name="newPw" autofocus placeholder="New Password" required>
                 <br>
+
+                <label id="confirmPw-label" class="confirmPw-label" for="confirmPw">Confirm Password:</label>
+                <br>
+                <input class="confirmPw-input" id="confirmPw"  type="password" name="confirmPw" autofocus placeholder="Confirm Password" required>
+                <br>
+                
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>
                 <button class="cancl-button" type="reset" name="cancel-adding" ><a href="/requestApproval/viewProfile/" class="cancel">Cancel Adding</a></button>
                 </form>
-            </div>'
-            ?>
+                <script src="../../../public/js/validation/orgvalidation.js"></script>
+            </div>
+            

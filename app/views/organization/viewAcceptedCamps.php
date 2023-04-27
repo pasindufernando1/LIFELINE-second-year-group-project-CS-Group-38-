@@ -46,7 +46,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -118,7 +118,7 @@ $metaTitle = "organizations Dashboard"
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -132,7 +132,7 @@ $metaTitle = "organizations Dashboard"
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -148,11 +148,11 @@ $metaTitle = "organizations Dashboard"
 
                 <table class="campaigns-table" style="width:90%">
                     <tr>
-                        <th>Campaign ID</th>
+                        
                         <th>Name</th>
                         <th>Location</th>
                         <th>Date</th>
-                        <th>Status</th>
+                        
                         <th>Action</th>
                     </tr>
                     <hr class="campaigns-line">
@@ -169,7 +169,7 @@ $metaTitle = "organizations Dashboard"
                         }  
                         //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['accepted_campaigns'];
+                        $result = $_SESSION['upcoming_campaigns'];
 
                         //display the link of the pages in URL  
                           
@@ -178,11 +178,11 @@ $metaTitle = "organizations Dashboard"
                         if ($_SESSION['rowCount'] > 0) {
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["CampaignID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
+                                        
+                                        <td>' . $row["Name"] . "</td>
                                         <td>" . $row["Location"] ."</td>
-                                        <td>" . $row["Date"] . "</td>
-                                        <td>" . $row["Status"] . '</td>
+                                        <td>" . $row["Date"] . '</td>
+                                        
                                         
                                         
                                         <td> 
@@ -190,7 +190,7 @@ $metaTitle = "organizations Dashboard"
                                         <a href="/requestApproval/scheduleTimeslots?campaign='.$row["CampaignID"].'"><button class="schedule-btn" type="button" name="request" >Schedule Time</a></button>                                
                                         
                                         
-                                        <button class="schedule-btn" type="button" name="view" ><a href="/requestApproval/viewTimeslots?campaign='.$row["CampaignID"].'">View Timeslots</a></button>
+                                          
                                         
                                         
                                         </td>
@@ -200,27 +200,33 @@ $metaTitle = "organizations Dashboard"
                         else {
                             echo "0 results";
                         }
-                        /* echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        echo '<div class="pag-box">';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
                         }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
                                 echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-                            }else{
+                            } else {
                                 echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
                             }
                         }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
                         }
-                          
-                        echo '</div>' ; */?>
+                        
+                        echo '</div>'; ?>
 
                 </table>
 

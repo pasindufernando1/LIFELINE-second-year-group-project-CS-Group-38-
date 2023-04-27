@@ -46,7 +46,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -117,7 +117,7 @@ $metaTitle = "organizations Dashboard"
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -131,7 +131,7 @@ $metaTitle = "organizations Dashboard"
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -150,6 +150,7 @@ $metaTitle = "organizations Dashboard"
                     <tr>
 
                         <th>Name of the Donor</th>
+                        <th>Date</th>
                         <th>Feedback</th>
 
                     </tr>
@@ -167,24 +168,34 @@ $metaTitle = "organizations Dashboard"
                         }  
                         //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['feedbacks'];
-
+                        // $result = $_SESSION['feedbacks'];
+                        // $donorNames= $_SESSION['donorNames'];
                         //display the link of the pages in URL  
-                          
-
+                        $feadbacks = $_SESSION['feedbacks'];
+                        //print_r($feadbacks);die();
                         // print_r($result[0]);die();
                         if ($_SESSION['rowCount'] > 0) {
-                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                                echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["DonorID"]. "</td>
+                            // foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                            //     echo '<div class="table-content-types"> <tr>
+                            //             <td>' . $row["Fullname"]. "</td>
                                         
-                                        <td>" . $row["Feedback"] . '</td>
+                            //             <td>" . $row["Feedback"] . '</td>
                                         
                                         
                                         
-                                    </tr> </div>';
+                            //         </tr> </div>';
                                 
-                            }
+                            // }
+
+                                foreach($feadbacks as $feadback){
+                                    echo '<div class="table-content-types"> 
+                                    <tr>
+                                         <td>' . $feadback["Fullname"]. "</td>
+                                            <td>" . $feadback["Date"]. "</td>
+                                         <td>" . $feadback["Feedback"] . '</td>
+                                    </tr>
+                                </div>';
+                                }
                         } 
                         else {
                             echo "0 results";

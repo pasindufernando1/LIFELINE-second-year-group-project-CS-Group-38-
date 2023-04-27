@@ -1,7 +1,8 @@
 <?php 
 
-$metaTitle = "organizations Dashboard" 
-
+$metaTitle = "organizations Dashboard" ;
+$_SESSION['campaignId'] =intval($_GET['campaign']);
+//print_r($_SESSION['campaignId']);die();
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ $metaTitle = "organizations Dashboard"
         </div>
         <div class="login-user">
             <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
+            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
             </div>
             <div class="user-name">
                 <p><?php echo ($_SESSION['username']); ?></p>
@@ -132,7 +133,7 @@ $metaTitle = "organizations Dashboard"
                         <img src="./../../public/img/orgdashboard/non-active/feedback.png" alt="instructions">
                         <img class="instructions-non-active" src="./../../public/img/orgdashboard/active/feedback.png"
                             alt="instructions">
-                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Feedback</a></p>
+                        <p class="instructions-nav "><a href="/requestApproval/addFeedback">Improve LIFELINE</a></p>
                     </div>
 
                     <div class="profile menu-item">
@@ -144,24 +145,99 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="box">
-                <h2 class="scheduleTime-title"> Schedule Timeslots</h2>
-                <form action="/requestApproval/addTimeslot/" method="post" id="addform">
-                    <img src="./../../public/img/orgdashboard/timeslot.png" class="scheduleTimeslot-img" alt="profile">
-                    <label id="startingTime-label" class="startingTime-label" for="startingTime">Starting Time:</label>
-                    <br>
-                    <input class="startingTime-input" id="startingTime" type="time" name="startingTime" autofocus
-                        placeholder="Starting Time" required>
-                    <br>
+                <p class="view-campaigns-title">Schedule Timeslots </p>
 
-                    <label id="endingTime-label" class="endingTime-label" for="endingTime">Ending Time:</label>
-                    <br>
-                    <input class="endingTime-input" id="endingTime" type="time" name="endingTime" autofocus
-                        placeholder="Ending Time" required>
-                    <br>
+                <table class="campaigns-table" style="width:90%">
+                    <tr>
+                        <th>Slot ID</th>
+                        <th>Starting Time</th>
+                        <th>Ending Time</th>
+                        <th>Action</th>
+                    
+                    </tr>
+                    <hr class="campaigns-line">
+                    <?php 
+                        $results_per_page = 7;
+                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_page = ceil($number_of_results / $results_per_page);
 
-                    <button class='brown-btn' type='submit' name='request' id="submit-btn">Add</button>
+                        //determine which page number visitor is currently on  
+                        if (!isset ($_GET['page']) ) {  
+                            $page = 1;  
+                        } else {  
+                            $page = $_GET['page'];  
+                        }  
+                        //determine the sql LIMIT starting number for the results on the displaying page  
+                        $page_first_result = ($page-1) * $results_per_page;  
+                        $result = $_SESSION['allTimeslots'];
+
+                        //display the link of the pages in URL  
+                          
+                       
+
+                         //print_r($result);die();
+                        if ($_SESSION['rowCount'] > 0) {
+                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                echo '<div class="table-content-types"> <tr>
+                                        <td>' . $row["SlotID"] . "</td>
+                                        <td>" . $row["Start_time"] . "</td>
+                                        <td>" . $row["End_time"]  .'</td>
+                                        
+                                        <td> 
+                                        <div class="action-btns" >
+                                        <div class="edit-btn-div">
+                        
+                                
+                                    <a href="/requestApproval/addTimeslot?timeSlot='.$row["SlotID"].'"><button class="req-btn1" type="button" name="request">Select</button></a>
+                                
+                        
+                                 </div> 
+                                        </div>
+                                        </td>
+                                        
+                                        </tr> </div>';                                        
+                            }
+                        } else {
+                            echo '<div class="table-content-types"> <tr>
+                            <td> No timeslots available </td>
+                            </tr> </div>';
+                        }
+                        
+                        echo '<div class="pag-box">';
+if (!isset($_GET['page']) || $_GET['page'] == 1) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+}
+
+for($page = 1; $page <= $number_of_page; $page++) {  
+    if (!isset($_GET['page'])) {
+        $current_page = 1;
+    } else {
+        $current_page = $_GET['page'];
+    }
+    if ($page == $current_page) {
+        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+    } else {
+        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+    }
+}
+
+if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+}
+
+echo '</div>';
+ ?>
+
+                </table>
 
 
-                    <button class='outline-btn' type='reset' name='cancel-adding'><a
-                            href="/requestApproval/viewAcceptedCamps/" class="cancel">Cancel Adding</button>
             </div>
+
+
+        </div>
+
+    </div>

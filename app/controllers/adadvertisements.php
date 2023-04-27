@@ -96,6 +96,7 @@ class Adadvertisements extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['bloodbanks'] = $this->model->getBloodBankName();
                 $this->view->render('admin/add_cash_donation');
                 exit;
             }
@@ -203,6 +204,7 @@ class Adadvertisements extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $_SESSION['bloodbanks'] = $this->model->getBloodBankName();
+                $_SESSION['inventory'] = $this->model->getInventoryTypes();
                 $this->view->render('admin/add_inv_donation');
                 exit;
             }

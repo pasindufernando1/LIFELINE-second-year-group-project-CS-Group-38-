@@ -30,8 +30,8 @@ class DonorsignupModel extends Model
 
     public function insertuser($user_inputs)
     {
-        $columns = array('Email', 'Password','Username', 'UserType');
-        $param = array(':Email', ':Password',':Username', ':UserType');
+        $columns = array('Email', 'Password','Username', 'UserType', 'Userpic');
+        $param = array(':Email', ':Password',':Username', ':UserType', ':Userpic');
         $result = $this->db->insert("User", $columns, $param, $user_inputs);
         if ($result == "Success") {
             return true;

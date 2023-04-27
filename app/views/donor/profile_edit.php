@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -33,43 +35,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -132,12 +99,28 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <div id="profile-edit-form" class="profile-container">
-        <img id="donor_img" src="../../../public/img/donordashboard/sneha.jpg"><br>
-        <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"><br>
-        <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
-        <!-- <a href="/donorprofile/editprofile">Edit Profile<img
-                src="../../../public/img/donordashboard/edit_btn_img.png"></a> -->
-        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form">
+        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
+            enctype="multipart/form-data">
+
+            <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>"><br>
+
+            <label for="fileToUpload"> <img id="change_img"
+                    src="../../../public/img/donordashboard/lil_cam.png"></label>
+            <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
+            <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
+
+            <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            document.getElementById("donor_img").src = e.target.result;
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+
             <label class="name-lable" for="name">NAME</label>
 
             <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION[
@@ -178,8 +161,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'District'
                 ]; ?>" hidden><?php echo $_SESSION['donor_info'][
-    'District'
-]; ?></option>
+                     'District'
+                 ]; ?></option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -212,8 +195,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="<?php echo $_SESSION['donor_info'][
                     'Province'
                 ]; ?> " hidden><?php echo $_SESSION['donor_info'][
-     'Province'
- ]; ?> </option>
+                      'Province'
+                  ]; ?> </option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
                 <option value="North Central">North Central</option>
@@ -225,12 +208,6 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="Western">Western</option>
             </select>
             <p class="province-error" id="province-error"></p>
-            <label class="email-lable" for="email">EMAIL</label>
-
-            <input id="email" class="email-input" type="email" name="email" autofocus value="<?php echo $_SESSION[
-                'email'
-            ]; ?> " required>
-            <p class="email-error" id="email-error"></p>
             <label class="tel-lable" for="tel">Telephone</label>
 
             <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION[

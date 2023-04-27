@@ -27,8 +27,6 @@ $metaTitle = 'Donor Feedback';
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <script src="../../../public/js/star-ratings.js"></script>
-
     <!-- <script src="../../../public/js/star-ratings.js"></script> -->
 
 
@@ -37,43 +35,8 @@ $metaTitle = 'Donor Feedback';
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -136,34 +99,42 @@ $metaTitle = 'Donor Feedback';
             </div>
         </div>
     </div>
+
     <div class="rate-campaign-box">
-        <?php echo '<h2 class="header2">' .
+        <?php echo '<h2 class="rate-camp">' .
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
         <!-- <div class="rate-box"> -->
-        <!-- <form action="/getcampaign/register_to_campaign" method="post" id="feedback-form"> -->
-        <p class="p1">Rate Campaign</p>
-        <div class="stars do_rate" id="star_rating">
-            <img class="rating_star" onclick="rate(1)" id="star1" onmouseover="hov(1)" onmouseout="norm(1)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star2" onmouseover="hov(2)" onmouseout="norm(2)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star3" onmouseover="hov(3)" onmouseout="norm(3)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star4" onmouseover="hov(4)" onmouseout="norm(4)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-            <img class="rating_star" id="star5" onmouseover="hov(5)" onmouseout="norm(5)"
-                src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+        <form action="/ratecampaign/send_rating" method="post" id="feedback-form">
+            <p class="p1">Rate Campaign</p>
+            <div class="stars do_rate" id="star_rating">
+                <!-- radio buttons with Star image in lable  -->
+                <input type="radio" name="rating" value="1" id="in-star1">
+                <label for="in-star1"><img class="rating_star" id="star1" onclick="change_stars(1)"
+                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+                <input type="radio" name="rating" value="2" id="in-star2">
+                <label for="in-star2"><img class="rating_star" id="star2" onclick="change_stars(2)"
+                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+                <input type="radio" name="rating" value="3" id="in-star3">
+                <label for="in-star3"><img class="rating_star" id="star3" onclick="change_stars(3)"
+                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+                <input type="radio" name="rating" value="4" id="in-star4">
+                <label for="in-star4"><img class="rating_star" id="star4" onclick="change_stars(4)"
+                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+                <input type="radio" name="rating" value="5" id="in-star5">
+                <label for="in-star5"><img class="rating_star" id="star5" onclick="change_stars(5)"
+                        src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
+            </div>
+            <label for="fb" class="p2">Describe Your Experience</label>
 
-        </div>
-        <label class="p2">Describe Your Experience</label>
-        <input type="text" class="feedback-input">
-        <br>
-        <!-- </form> -->
-
-        <button><a href="feedback_success"> Rate</a> </button>
+            <textarea id="message" name="fb"></textarea>
+            <br>
+            <button type="submit">Submit</button>
+            <script src="../../../public/js/star-ratings.js">
+            </script>
+        </form>
     </div>
-    >
+
 </body>
 
 </html>

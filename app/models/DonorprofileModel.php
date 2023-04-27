@@ -35,8 +35,8 @@ class DonorprofileModel extends Model
 
     public function updateuserp($user_input, $userid)
     {
-        $columns = ['Email', 'Password', 'Username'];
-        $param = [':Email', ':Password', ':Username'];
+        $columns = ['Password', 'Username','UserPic'];
+        $param = [':Password', ':Username',':UserPic'];
         $result = $this->db->update(
             'user',
             $columns,
@@ -54,8 +54,8 @@ class DonorprofileModel extends Model
     }
     public function updateuser($user_input, $userid)
     {
-        $columns = ['Email', 'Username'];
-        $param = [':Email', ':Username'];
+        $columns = ['Username','UserPic'];
+        $param = [':Username',':UserPic'];
         $result = $this->db->update(
             'user',
             $columns,
@@ -125,6 +125,28 @@ class DonorprofileModel extends Model
             return true;
         } else {
             print_r($result);
+        }
+    }
+
+     public function check_password($userid,$password)
+    {
+        $result=($this->db->select('Password','User','WHERE UserID = :UserID',':UserID',$userid));
+        if(password_verify($password,$result[0]['Password'])){
+            return true;
+        }
+        else{
+            return false;
+        }
+        // return $result;
+    }
+
+    public function update_email($userid,$email){
+        $result=$this->db->update('user','Email',':Email',$email,':UserID',$userid,'WHERE UserID =:UserID');
+        if($result=='Success'){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }

@@ -15,7 +15,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -35,43 +37,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-        </div>
-        <div class="user-name">
-            <p><?php echo $_SESSION['username']; ?></p>
-        </div>
-        <div class="role">
-            <div class="role-type">
-                <p><?php echo $_SESSION['type']; ?> <br>
-            </div>
-            <div class="role-sub">
-
-            </div>
-
-        </div>
-        <div class="more">
-            <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-            <div id="more-drop-down" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="/donoruser/logout">Log Out</a>
-            </div>
-        </div>
-    </div>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -139,35 +106,33 @@ $metaTitle = 'Donor Dashboard'; ?>
         <div class="view-campaign-container">
             <?php
             $result = $_SESSION['all_feedback'];
+            $count = 0;
 
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
                     echo '<div class="view-camp-feedback">
-                                            <h2>Campaign : ' .
-                        $row['CampaignID'] .
-                        '</h2><p>
-                                            Rating :
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <br>
-                                            Feedback :
-                                            </p>
-                                            <a href="editrating?camp=' .
-                        $row['CampaignID'] .
-                        '"> <button>Edit</button> </a>
-                                            <a href="#"> <button id = "feedback-btn">Delete</button> </a>
-                                            <div class="feedback-stars">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">
-                                                <img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">
-                                            </div>
-                                            <div class="feedback-d">
-                                                good and helpful organizers and nurses. Did not have to wait in line
-                                            </div>
-                                            </div>';
+            <img src="../../../public/img/ads/' . $_SESSION['camp_ads'][$count] . '" alt="camp ad">
+            <div class="feed-info">
+            <h2>' . $_SESSION['camp_names'][$count] . '</h2>
+            <p>Rating :</p>
+            <div class="feedback-stars">';
+                    for ($i = 0; $i < $_SESSION['all_feedback'][$count]['Rating']; $i++) {
+                        echo '<img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">';
+                    }
+                    for ($i = 0; $i < 5 - $_SESSION['all_feedback'][$count]['Rating']; $i++) {
+                        echo '<img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">';
+                    }
+                    echo '</div>
+            <br>
+            <p id="fbv">Feedback : ' . $_SESSION['all_feedback'][$count]['Feedback'] . ' </p>
+            </div>
+            
+            <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
+                <a href="remove_rating?camp=' . $row['CampaignID'] . '""> <button id = "fbd-btn">Delete</button></a>
+                
+            </div>
+            ';
+                    $count++;
                 }
             } else {
                 echo 'You Have Not Yet Provided feedBack';
@@ -175,10 +140,6 @@ $metaTitle = 'Donor Dashboard'; ?>
             ?>
             <script src="../../../public/js/getcampname.js"></script>
         </div>
-
-    </div>
-
-    </div>
     </div>
 </body>
 

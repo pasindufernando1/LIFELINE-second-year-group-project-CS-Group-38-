@@ -9,7 +9,7 @@ class ContactusModel extends Model
         parent::__construct();
     }
 
-    public function getbanknames()
+    public function getbb()
     {
         $data = $this->db->select(
             'BloodBankID,BloodBank_Name',

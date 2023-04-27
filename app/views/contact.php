@@ -64,7 +64,9 @@
 
             </div>
         </div>
-        <!-- Footer -->
+        <?php require_once __ROOT__ . '/app/views/layout/footer.php'; ?>
+
+        <!-- Footer
         <footer class="footer-container">
             <div class="footer-section company">
                 <h4>Life Line</h4>
@@ -106,7 +108,7 @@
             </div>
             <a href="/login"><button class="login-btn">Login</button></a>
             
-        </footer>
+        </footer> -->
     </body>
 </html>
 

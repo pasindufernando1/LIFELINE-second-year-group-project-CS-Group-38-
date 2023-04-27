@@ -1,9 +1,12 @@
 <?php
 // print_r($_SESSION['donor_contact']);
 // die();
+// print_r($_SESSION['timeslot_period']);
+// die();
+
 
 $metaTitle = 'Donor Dashboard'; ?>
-
+iu
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,43 +36,8 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Side bar -->
     <div class="side-bar">
         <div class="side-nav">
@@ -147,54 +115,68 @@ $metaTitle = 'Donor Dashboard'; ?>
             </tr>
             <hr class="blood-types-line">
             <div class="table-content-types">
-                <tr>
-                    <td>01</td>
-                    <td>9.00 AM</td>
-                    <td>9.30 AM</td>
+                <?php 
+                $count=0;
+                foreach($_SESSION['camp_timeslots'] as $timeslot) {
+                    $stime = substr($_SESSION['timeslot_period'][$count][0], 0, 2);
+                    $mins = substr($_SESSION['timeslot_period'][$count][0], 3, 2);
+                    
+                    $stimeval = intval($stime);
+                    if ($stimeval >= 12) {
+                        $st = 24 - $stime;
+                        //appent minutes next to the time
+                        if($mins==00){
+                            
+                        $_SESSION['timeslot_period'][$count][0] = strval($st) . ' PM';}
+                        else{
+                            $_SESSION['timeslot_period'][$count][0] = strval($st) .':'. $mins.' PM';
+                        }
+                    } else {
+                        if($mins==00)
+                        {$_SESSION['timeslot_period'][$count][0] = strval($stimeval) . ' AM';}
+                        else{
+                            $_SESSION['timeslot_period'][$count][0] = strval($stimeval) .':'. $mins.' AM';
+                        }
+                        
+                    }
+                    $etime = substr($_SESSION['timeslot_period'][$count][1], 0, 2);
+                    $mins=substr($_SESSION['timeslot_period'][$count][1], 3, 2);
+                    $etimeval = intval($etime);
+                    if ($etimeval >= 12) {
+                        $et = 24 - $etime;
+                        if($mins==00){
+                        $_SESSION['timeslot_period'][$count][1] = strval($et) . ' PM';}
+                        else{
+                            $_SESSION['timeslot_period'][$count][1] = strval($et) .':'. $mins.' PM';
+                        }
+                    } else {
+                        if($mins==00){
+                        $_SESSION['timeslot_period'][$count][1] = strval($etimeval) . ' AM';}
+                        else{
+                            $_SESSION['timeslot_period'][$count][1] = strval($etimeval) .':'. $mins.' AM';
+                        }
+                    }
+
+                    if($_SESSION['reserved_timeslots'][$count]==$_SESSION['beds']){
+                    echo '<tr>
+                    <td>'.$timeslot[0].'</td>
+                    <td>'.$_SESSION['timeslot_period'][$count][0].'</td>
+                    <td>'.$_SESSION['timeslot_period'][$count][1].'</td>
                     <td><button id="disable">Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>9.30 AM</td>
-                    <td>10.00 AM</td>
-                    <td><button><a href="reserve_timeslot">Reserve</a></button></td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>10.30 AM</td>
-                    <td>11.00 AM</td>
-                    <td><button>Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td>11.30 AM</td>
-                    <td>12.00 PM</td>
-                    <td><button id="disable">Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td>12.30 PM</td>
-                    <td>1.00 PM</td>
-                    <td><button id="disable">Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>06</td>
-                    <td>1.00 PM</td>
-                    <td>1.30 PM</td>
-                    <td><button>Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>07</td>
-                    <td>1.30 PM</td>
-                    <td>2.00 PM</td>
-                    <td><button>Reserve</button></td>
-                </tr>
-                <tr>
-                    <td>08</td>
-                    <td>2.30 PM</td>
-                    <td>3.00 PM</td>
-                    <td><button id="disable">Reserve</button></td>
-                </tr>
+                </tr>';
+                }else{
+                    echo '<tr>
+                    <td>'.$timeslot[0].'</td>
+                    <td>'.$_SESSION['timeslot_period'][$count][0].'</td>
+                    <td>'.$_SESSION['timeslot_period'][$count][1].'</td>
+                    <td><button><a href="/getcampaign/reserve_timeslot?slotid='.$timeslot[0].'&stime='.$_SESSION['timeslot_period'][$count][0].'&etime='.$_SESSION['timeslot_period'][$count][1].'" >Reserve</a></button></td>
+                </tr>';
+                }
+                    
+                $count++;
+                }
+                
+                ?>
             </div>
         </table>
     </div>

@@ -37,12 +37,10 @@
                 </ul>
             </div>
             <div class="right-block">
-                <div class="icon-search">
-                    <img src="../../../public/img/navigation/icon-search.png" alt="icon-search">
-                </div>
                 <div class="btn-donation">
-                    <button>Donation</button>
+                    <a href="/login"><button>Login</button></a>
                 </div>
+                
             </div>
 
         </div>

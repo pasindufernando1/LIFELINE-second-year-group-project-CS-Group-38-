@@ -32,79 +32,76 @@ require_once __ROOT__ . '/app/views/layout/navigation.php';
         <div class="t-boxes">
             <div class="box-1">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][0]['Name']?></b>
+                        <!-- Give the start time in human readable format with am pm -->
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][0]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][0]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][0]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][0]['BedQuantity']?>
+                        
                     </p>
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][0][0]['Advertisement_Pic']; ?>" alt="advertisement">
+
             </div>
             <div class="box-2">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][1]['Name']?></b>
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][1]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][1]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][1]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][1]['BedQuantity']?>
                     </p>
 
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][1][0]['Advertisement_Pic']; ?>" alt="advertisement">
             </div>
             <div class="box-3">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][2]['Name']?></b>
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][2]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][2]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][2]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][2]['BedQuantity']?>
                     </p>
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][2][0]['Advertisement_Pic']; ?>" alt="advertisement">
             </div>
             <div class="box-4">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][3]['Name']?></b>
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][3]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][3]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][3]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][3]['BedQuantity']?>
                     </p>
 
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][3][0]['Advertisement_Pic']; ?>" alt="advertisement">
             </div>
             <div class="box-5">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][4]['Name']?></b>
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][4]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][4]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][4]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][4]['BedQuantity']?>
                     </p>
 
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][4][0]['Advertisement_Pic']; ?>" alt="advertisement">
             </div>
             <div class="box-6">
                 <div>
-                    <p class="box-p"><b>Campaign</b>
-                        <br>Starting At :
-                        <br>Location:
-                        <br>At:
-                        <br>Lorem ipsum dolor sit amet, consectetur adipiscing Quisque placerat Convallis felis vitae
-                        tortor augue. Velit nascetur massa in.
+                    <p class="box-p"><b><?php echo $_SESSION['upcoming_campaigns'][5]['Name']?></b>
+                        <br>Starting At : <?php echo date('h:i A', strtotime($_SESSION['upcoming_campaigns'][5]['Starting_time']))?>
+                        <br>Date : <?php echo $_SESSION['upcoming_campaigns'][5]['Date']?>
+                        <br>Location : <br><?php echo $_SESSION['upcoming_campaigns'][5]['Location']?>
+                        <br>Bed Count : <?php echo $_SESSION['upcoming_campaigns'][5]['BedQuantity']?>
                     </p>
 
                 </div>
-                <img src="../../../public/img/camp_img.png" alt="">
+                <img src="./../../public/img/advertisements/<?php echo $_SESSION['camp_ads'][5][0]['Advertisement_Pic']; ?>" alt="advertisement">
             </div>
         </div>
 

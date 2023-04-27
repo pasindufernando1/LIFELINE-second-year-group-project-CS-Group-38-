@@ -450,10 +450,30 @@ class requestApproval extends Controller
         }
     }
 
+    //donate begin
+
     function donateCash()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
+                // list($_SESSION['cash_ads'],$_SESSION['cash_amounts'])=$this->model->getcashads();
+                $_SESSION['cash_ads'] = $this->model->getcashads();
+                $_SESSION['cash_adpics'] = $this->model->getcashadpics($_SESSION['cash_ads']);
+                $_SESSION['cash_bbs'] = $this->model->getcashbbs($_SESSION['cash_adpics']);
+                $_SESSION['cash_received_amounts'] = $this->model->getreceivedcashamounts($_SESSION['cash_ads']);
+                $this->view->render('organization/donateAds');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/organizationlogin');
+        }
+    }
+
+    function donationPage()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Organization/Society') {
+                $_SESSION['donationID'] = $_GET['donationID'];
                 $this->view->render('organization/donateToday');
                 exit();
             }
@@ -485,6 +505,22 @@ class requestApproval extends Controller
             $this->view->render('authentication/organizationlogin');
         }
     }
+
+    function donatesuccess()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Organization/Society') {
+                $dbconned = $this->model->insertDonation($_SESSION['donationID'], $_SESSION['donating_amount'] / 100);
+                unset($_SESSION['donating_amount']);
+                $this->view->render('organization/paymentDone');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/organizationlogin');
+        }
+    }
+
+    //donate end
 
     function addFeedback()
     {

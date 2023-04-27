@@ -9,260 +9,185 @@ class CardModel extends Model
         parent::__construct();
     }
 
-    public function campregistraions($userid)
+    public function getUserName($userid)
     {
-        $data = $this->db->select(
-            'CampaignID',
-            'register_to_campaign',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
+        $name = $this->db->select(
+            'Fullname,NIC,BloodType,Number,LaneName,City',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
             $userid
-        );
-        $registered_campaign_data = [];
-        for ($x = 0; $x < count($data); $x++) {
-            $campaign_data = $this->db->select(
-                '*',
-                'donation_campaign',
-                'WHERE CampaignID =:CampaignID',
-                ':CampaignID',
-                $data[$x][0]
-            );
-            array_push($registered_campaign_data, $campaign_data);
-        }
-        return $registered_campaign_data;
+        )[0];
+        return $name;
     }
 
-    public function getAllCampaigns($today)
+    public function getAge($userid)
+    {
+        //calculate age from dob and today's date
+        $dob = $this->db->select(
+            'DOB',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        )[0][0];
+        $dob = new DateTime($dob);
+        $today = new DateTime();
+        $age = $today->diff($dob)->y;
+        return $age;
+        
+    }
+
+    public function getNoOfCampDonations($donorID)
     {
         $data = $this->db->select(
-            '*',
-            'donation_campaign',
-            'WHERE Date > :Date AND Status = 1',
-            ':Date',
-            $today
+            'count',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
         );
         return $data;
     }
 
-    public function get_campaign_info($campid)
+    public function getNoOfBankDonations($donorID)
     {
         $data = $this->db->select(
-            '*',
-            'donation_campaign',
-            'WHERE CampaignID =:CampaignID',
-            ':CampaignID',
-            $campid
-        );
-        $ret_data = $data[0];
-        return $ret_data;
-    }
-
-    public function get_org_name($org_id)
-    {
-        $org_name = $this->db->select(
-            'Name',
-            'organization_society',
-            'WHERE UserID=:UserID',
-            ':UserID',
-            $org_id
-        );
-        $ret_org_name = $org_name[0][0];
-        return $ret_org_name;
-    }
-
-    public function iftimeokay($user_ID, $camp_ID)
-    {
-        $camp_date = $this->db->select(
-            'Date',
-            'donation_campaign',
-            'WHERE CampaignID =:CampaignID',
-            ':CampaignID',
-            $camp_ID
-        )[0]['Date'];
-        // $camp_date = $camp_date['Date'];
-        // print_r(gettype($camp_date));
-        $params = [':DonorID', ':Date'];
-        $columns = [$user_ID, $camp_date];
-        if (
-            $this->db->select(
-                'count',
-                'donor_bloodbank_bloodpacket',
-                'WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-                $params,
-                $columns
-            ) > 0 ||
-            ($this->db->select(
-                'count',
-                //donation campaign inner join date
-                'donation_campaign',
-                'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-                $params,
-                $columns
-            ) > 0 ||
-                $this->db->select(
-                    'count',
-                    //donation campaign inner join date
-                    'donation_campaign',
-                    'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) < -56',
-                    $params,
-                    $columns
-                ) > 0)
-        ) {
-            return $this->db->select(
-                'count',
-                //donation campaign inner join date
-                'donation_campaign',
-                'INNER JOIN register_to_campaign on donation_campaign.CampaignID = register_to_campaign.CampaignID WHERE DonorID =:DonorID AND DATEDIFF(Date,:Date) > 56',
-                $params,
-                $columns
-            );
-        } else {
-            return 0;
-        }
-    }
-
-    public function ifregistered($user_id, $campaign_id)
-    {
-        $param = [':DonorID', ':CampaignID'];
-        $inputs = [$user_id, $campaign_id];
-        $count = $this->db->select(
             'count',
-            'register_to_campaign',
-            'WHERE DonorID = :DonorID AND CampaignID = :CampaignID',
-            $param,
-            $inputs
-        );
-        return $count;
-    }
-
-    public function get_campreg_info($user_ID)
-    {
-        $emcontno = $this->db->select(
-            'Emergency_contact_no',
-            'register_to_campaign',
-            'WHERE DonorID =:DonorID',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
             ':DonorID',
-            $user_ID
-        )[0];
-        $contno = $this->db->select(
-            'ContactNumber',
-            'usercontactnumber',
-            'WHERE UserID =:UserID',
-            ':UserID',
-            $user_ID
-        )[0];
-        $reg_data = [$emcontno[0], $contno[0]];
-        // print_r($reg_data);
-        // die();
-        return $reg_data;
+            $donorID
+        );
+        return $data;
     }
 
-    public function getcontno($user_id)
+    public function getLastDonationDate($donorID)
     {
-        $contno = $this->db->select(
-            'ContactNumber',
-            'usercontactnumber',
-            'WHERE UserID =:UserID',
-            ':UserID',
-            $user_id
-        )[0];
-        // print_r($contno);
-        // die();
-        return $contno;
-    }
+        $date1 = $this->db->select(
+            'Date',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
+        );
 
-    public function putregistraion($inputs, $contno, $user_id)
-    {
-        $columns = ['DonorID', 'CampaignID', 'Emergency_contact_no'];
-        $param = [':DonorID', ':CampaignID', ':Emergency_contact_no'];
-        $result1 = $this->db->insert(
-            'register_to_campaign',
-            $columns,
-            $param,
-            $inputs
+        $date2 = $this->db->select(
+            'Date',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            ':DonorID',
+            $donorID
         );
-        $result2 = $this->db->update(
-            'usercontactnumber',
-            'ContactNumber',
-            ':ContactNumber',
-            $contno,
-            ':user_id',
-            $user_id,
-            'WHERE UserID = :user_id'
-        );
-        if ($result1 == 'Success' && $result2 == 'Success') {
-            return true;
+
+        if ($date1[0][0] > $date2[0][0]) {
+            $data = $date1[0][0];
         } else {
-            print_r($result1);
+            $data = $date2[0][0];
         }
-        print_r($result2);
-    }
-    public function editregistraion($campaign_id, $contno, $emcontno, $user_id)
-    {
-        $param = [':DonorID', ':CampaignID'];
-        $inputs = [$user_id, $campaign_id];
-        $result1 = $this->db->update(
-            'register_to_campaign',
-            'Emergency_contact_no',
-            ':Emergency_contact_no',
-            $emcontno,
-            $param,
-            $inputs,
-            'WHERE DonorID = :DonorID AND CampaignID = :CampaignID'
-        );
-        $result2 = $this->db->update(
-            'usercontactnumber',
-            'ContactNumber',
-            ':ContactNumber',
-            $contno,
-            ':user_id',
-            $user_id,
-            'WHERE UserID = :user_id'
-        );
-        if ($result1 == 'Success' && $result2 == 'Success') {
-            return 'Success';
-        } else {
-            print_r($result1);
-            print_r($result2);
-        }
+        return $data;
     }
 
-    public function deleteregistration($user_id, $campaign_id)
+    public function getDonationDates($donorID)
     {
-        $campaign_id = intval($campaign_id);
-        $param = [':DonorID', ':CampaignID'];
-        $inputs = [$user_id, $campaign_id];
-        $result = $this->db->delete(
-            'register_to_campaign',
-            'WHERE DonorID = :DonorID AND CampaignID = :CampaignID',
-            $param,
-            $inputs
+        $dates1 = $this->db->select(
+            'Date',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
         );
-        if ($result == 'Success') {
-            return true;
-        } else {
-            print_r($result);
-        }
+
+        $dates2 = $this->db->select(
+            'Date',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+
+        $data = array_merge($dates1, $dates2);
+        return $data;
+
     }
 
-    public function get_reg_info($campid, $user_ID)
+    public function getCampDonationDates($donorID)
     {
-        $reg_info =
-            $this->db->select(
-                '*',
-                'register_to_campaign',
-                'WHERE DonorID =:DonorID',
-                ':DonorID',
-                $user_ID
-            ) > 0 &&
-            $this->db->select(
-                'count',
-                'register_to_campaign',
-                'WHERE CampaignID =:CampaignID',
+        $dates1 = $this->db->select(
+            'Date',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+
+        return $dates1;
+    }
+
+    public function getCampDonationDetails($donorID)
+    {
+        $campids = $this->db->select(
+            'CampaignID',
+            'donor_campaign_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+
+        $data = array();
+        foreach ($campids as $campid) {
+            $campid = $campid[0];
+            $campdetails = $this->db->select(
+                'Name,Location',
+                'donation_campaign',
+                'WHERE CampaignID = :CampaignID',
                 ':CampaignID',
                 $campid
-            );
-        $ret_reg_info = $reg_info[0];
-        return $ret_reg_info;
+            )[0];
+            array_push($data, $campdetails);
+        }
+
+        return $data;
     }
+
+    public function getBankDonationDates($donorID)
+    {
+        $dates2 = $this->db->select(
+            'Date',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+
+        return $dates2;
+    }
+
+    public function getBankDonationDetails($donorID)
+    {
+        $bankids = $this->db->select(
+            'BloodBankID',
+            'donor_bloodbank_bloodpacket',
+            'WHERE DonorID = :DonorID',
+            ':DonorID',
+            $donorID
+        );
+
+        $data = array();
+        foreach ($bankids as $bankid) {
+            $bankid = $bankid[0];
+            $bankdetails = $this->db->select(
+                'BloodBank_Name',
+                'bloodbank',
+                'WHERE BloodBankID = :BloodBankID',
+                ':BloodBankID',
+                $bankid
+            )[0];
+            array_push($data, $bankdetails);
+        }
+
+        return $data;
+    }
+
+   
 }

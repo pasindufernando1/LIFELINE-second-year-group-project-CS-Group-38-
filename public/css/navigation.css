@@ -130,15 +130,15 @@
     bottom: 39.29%;
 }
 
-.btn-donation button {
+.btn-donation button{
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-indent: 18px;
+    text-indent: 23px;
     padding: 17px 35px;
     gap: 10px;
     position: absolute;
-    left: 77.22%;
+    left: 79.22%;
     right: 12.99%;
     top: 22.62%;
     bottom: 23.81%;
@@ -147,7 +147,23 @@
     border-width: 0;
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 800;
+    font-size: 23px;
+    color: #BF1B16;
+    cursor: pointer;
+    height: 59%;
+    width: 10%;  
+}
+
+.btn-donation button:hover{
+    background: #640E0B;
+    color: #FFFFFF;
+}
+
+.btn-donation a{
+    text-decoration: none;
     color: #BF1B16;
 }
+
+
+

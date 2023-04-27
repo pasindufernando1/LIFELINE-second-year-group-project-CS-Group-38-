@@ -40,13 +40,13 @@ $metaTitle = "Add cash donation"
         <p class="add-user-title">New cash donation advertisement</p>
         <form action="/adadvertisements/add_cashad_done" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label id= "hospital_name-label" class="quantity-lable" for="description">Description : </label>
+                <label id= "description-lable" class="quantity-lable" for="description">Description : </label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
+                <input id="description" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
             <div class="reg-container">
-                <label id ="reg-label" class="reg-lable" for="total_amt">Total amount:</label>
+                <label id ="quantity-label" class="reg-lable" for="total_amt">Total amount:</label>
                 <br>
-                <input id="reg" class="reg-input" type="text" name="total_amt" autofocus placeholder="Total amount" required>
+                <input id="quantity" class="reg-input" type="text" name="total_amt" autofocus placeholder="Total amount" required>
             </div>
             <div class="blood-container">
                 <label id ="reg-label" class="reg-lable" for="total_amt">Related Blood Bank:</label>
@@ -91,6 +91,6 @@ $metaTitle = "Add cash donation"
         </form>       
     
     </div>
-
+    <script src="../../../public/js/validation/basicvalidation.js"></script>
 </body>
 </html>

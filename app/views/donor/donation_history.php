@@ -22,7 +22,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -35,50 +37,15 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/donordashboard/profilepic.jpg" alt="profile-pic">
-            </div>
-        </div>
-        <div class="user-name">
-            <p><?php echo $_SESSION['username']; ?></p>
-        </div>
-        <div class="role">
-            <div class="role-type">
-                <p><?php echo $_SESSION['type']; ?> <br>
-            </div>
-            <div class="role-sub">
-
-            </div>
-
-        </div>
-        <div class="more">
-            <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
-            <div id="more-drop-down" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="/donoruser/logout">Log Out</a>
-            </div>
-        </div>
-    </div>
 
     <!-- Side bar -->
     <div class="side-bar">
@@ -140,119 +107,66 @@ $metaTitle = 'Donor Dashboard'; ?>
             </div>
         </div>
     </div>
-    <div class="history-campaign-box">
-        <h2 class="header2">Your Donations</h2>
-        <p class="header31">At Campaigns</p>
-        <div class="view-campaign-container">
-            <?php
-            $result = $_SESSION['camp_donations'];
-            $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-            $count = 0;
+    <div class="history-box">
+        <h1>Your Donations</h1>
+        <div class="content">
 
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
-                    if (empty($_SESSION['camp_donations'][$count][2]) == 1) {
-                        echo '<div class="view-campdon-card">
-                                            <h3>' .
-                            $row['Date'] .
-                            '</h3>
-                                            <h2>' .
-                            $_SESSION['camp_names'][$count] .
-                            '</h2><p>
-                                            Organized By : ' .
-                            $_SESSION['org_names'][$count] .
-                            '<br>
-                                            At : ' .
-                            $_SESSION['camp_locations'][$count] .
-                            '<br>
-                                            <br>
-                                            Amount You Donated : ' .
-                            $_SESSION['camp_donation_amounts'][$count] .
-                            ' ml
-                                            <br>
-                                            Total Donation at the Campaign : ' .
-                            $_SESSION['total_donations_campaign'][$count] .
-                            ' ml
-                                            </p>
-                                             <a href="/ratecampaign/addrating?camp=' .
-                            $row['CampaignID'] .
-                            '"> <button>FeedBack</button> </a>
+            <div class="don-type">
+                <button><a href="donationhistory/atcampaigns">At Campaigns<a></button>
+            </div>
 
-                                            </div>';
-                    } else {
-                        echo '<div class="view-campdon-card">
-                                        <h3>' .
-                            $row['Date'] .
-                            '</h3>
-                                        <h2>' .
-                            $_SESSION['camp_names'][$count] .
-                            '</h2><p>
-                                        Organized By : ' .
-                            $_SESSION['org_names'][$count] .
-                            '<br>
-                                        At : ' .
-                            $_SESSION['camp_locations'][$count] .
-                            '<br>
-                                        <br>
-                                        Amount You Donated : ' .
-                            $_SESSION['camp_donation_amounts'][$count] .
-                            ' ml
-                                        <br>
-                                        Total Donation at the Campaign : ' .
-                            $_SESSION['total_donations_campaign'][$count] .
-                            ' ml
-                                        </p>
-                                         <a href="/ratecampaign/viewrating?camp=' .
-                            $row['CampaignID'] .
-                            '"> <button>View FeedBack</button> </a>
+            <div class="pie-chart">
+                <p class="title">Your Blood Donations</p>
+                <p>
+                    <?php echo 'Total Donations : ' . $_SESSION['no_of_bank_donations'] + $_SESSION['no_of_camp_donations']; ?>
+                </p>
+                <canvas id="myDoughnutChart"></canvas>
+            </div>
+            <script>
+                // Get the canvas element
+                var ctx = document.getElementById('myDoughnutChart').getContext('2d');
 
-                                        </div>';
+                // Define the data for the chart
+                var data = {
+                    labels: ['Blood Banks', 'Campaigns'],
+                    datasets: [{
+                        data: [
+                            <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
+                        ],
+                        backgroundColor: [
+                            'rgba(245, 174, 172, 1)',
+                            'rgba(115, 29, 29, 1)'
+                        ]
+                    }]
+                };
+
+                var options = {
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#333',
+                            fontSize: 19
+                        }
                     }
-                    $count++;
-                }
-            } else {
-                echo 'You Have Not Yet Donated Blood at a Blood Donation Campaign';
-            }
-            ?>
-            <script src="../../../public/js/getcampname.js"></script>
-        </div>
-        <p class="header32">At BloodBanks</p>
-        <div class="view-bloodbank-container">
-            <?php
-            $count = 0;
-            $result = $_SESSION['bank_donations'];
-            $_SESSION['rowCount'] = sizeof($_SESSION['bank_donations']);
-            if ($_SESSION['rowCount'] > 0) {
-                foreach ($result as $row) {
-                    echo '<div class="view-bankdon-card">
-                                            <h3>' .
-                        $row['Date'] .
-                        '</h3>
-                                           <h2>' .
-                        $_SESSION['bank_names'][$count] .
-                        '</h2><p>
-                                            Amount You Donated : ' .
-                        $_SESSION['bank_donation_amounts'][$count] .
-                        ' ml
-                                            <br>
-                                            Total Donations that Day : ' .
-                        $_SESSION['total_donations_bank'][$count] .
-                        ' ml
-                                            </p>
-                                            </p>
-                                            
-                                            </div>';
-                    $count++;
-                }
-            } else {
-                echo 'You Have Not Yet Donated Blood at a Blood Bank';
-            }
-            ?>
+                };
+
+                // Create the doughnut chart
+                var myDoughnutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: options
+                });
+            </script>
+
+
+
+
+            <div class="don-type" id="bank">
+                <button><a href="donationhistory/atbloodbanks">At Blood Banks</a></button>
+            </div>
         </div>
 
-    </div>
-
-    </div>
     </div>
 </body>
 
