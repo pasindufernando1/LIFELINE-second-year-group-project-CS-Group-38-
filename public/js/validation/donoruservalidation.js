@@ -233,7 +233,7 @@ passwordcheck?.addEventListener("input", function () {
 });
 
 form?.addEventListener("submit", function (e) {
-    if (!(email_flag == true && regno_flag == true && regnum_flag == true && contact_flag == true && password_flag == true && dob_flag == true && nic_flag == true && quantity_flag == true && confirmPassword_flag == true)) {
+    if (!(fnameflag == true && lnameflag == true && nicflag == true && dobflag == true && telflag == true && passwordflag == true && passwordcheckflag == true)) {
         e.preventDefault();
     }
 });

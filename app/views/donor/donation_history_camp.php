@@ -169,18 +169,24 @@ $metaTitle = 'Donor Dashboard'; ?>
     <h3 id="titt">Complications You Had </h3>';
         $scount = 0;
         //make a table for the complications and the camp they happened at
-        echo '<table id="sumt">
+        
+        if (empty($_SESSION['complications']) != 1) {
+            echo '<table id="sumt">
             <tr>
                 <th>Complication</th>
                 <th>Camp</th>
             </tr>';
-        foreach ($_SESSION['complications'] as $complications) {
-            echo '<tr>
+            foreach ($_SESSION['complications'] as $complications) {
+                echo '<tr>
                 <td>' . $complications . '</td>
                 <td>' . $_SESSION['complication_camps'][$scount] . '</td>
             </tr>';
-            $scount++;
+                $scount++;
+            }
+        } else {
+            echo '<p id="sum-noc">You Have Not Had Any Complications so far</p>';
         }
+
         ?>
     </div>
 </body>

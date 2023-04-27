@@ -64,10 +64,10 @@ $metaTitle = 'Donor Dashboard';
 
             </div>
             <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
+                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
                     alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
+                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
 
             </div>
             <div class="badges menu-item">
@@ -131,21 +131,6 @@ $metaTitle = 'Donor Dashboard';
         }
     </script>
 
-    <div class="dash-div">
-        <?php if ($_SESSION['no_of_donations'] == 0) {
-            echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
-        } else {
-            echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
-            if ($_SESSION['days_last_donation'] < 56) {
-                echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
-            } else {
-                echo 'You Can Donate Blood <span>Now</span></p>';
-            }
-
-        }
-        ?>
-    </div>
-
     <div class="dash-ad">
         <?php
         // print_r($_SESSION['upcoming_campaigns'][0][0]);
@@ -198,67 +183,55 @@ $metaTitle = 'Donor Dashboard';
                 <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
         });
     </script>
-    <!-- <script>
-    // Initialize the count variable
-    var count = 0;
 
-    // Get a reference to the image element
-    var image = document.querySelector('.dash-img');
+    <div class="dash-div-container">
 
-    // Get a reference to the ad ID element
-    var adId = document.querySelector('#adid');
+        <div class="dash-div">
+            <img style="width:63px;" src="../../public/img/donordashboard/drop.jpg" alt="donate">
+            <?php if ($_SESSION['no_of_donations'] == 0) {
+                echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
+            } else {
+                echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
+                if ($_SESSION['days_last_donation'] < 56) {
+                    echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
+                } else {
+                    echo 'You Can Donate Blood <span>Now</span></p>';
+                }
 
-    // Add an event listener to the left arrow image element
-    document.querySelector('.l-arrow-img').addEventListener('click', function() {
-        // Increment the value of count by 1
-        count++;
-
-        // Update the image source and link based on the value of count
-        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
-            0
-        ];
-        var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
-        var link = "/getcampaign/view_campaign?camp=" + campaignId;
-
-        image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-        adId.href = link;
-    });
-
-    // Add an event listener to the right arrow image element
-    document.querySelector('.r-arrow-img').addEventListener('click', function() {
-        // Decrement the value of count by 1
-        count--;
-
-        // Update the image source and link based on the value of count
-        var imagePath = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][
-            0
-        ];
-        var campaignId = <?php echo $_SESSION['camp_ads'][$count][0][1]; ?>;
-        var link = "/getcampaign/view_campaign?camp=" + campaignId;
-
-        image.src = imagePath;
-        adId.href = link;
-    });
-    </script> -->
+            }
+            ?>
+        </div>
 
 
+        <div class="dash-div">
+            <img style="width:100px;" src="../../public/img/donordashboard/crowd.png" alt="donate">
+            <p>100% of Sri Lankan blood donors are voluntory non rermunerated donors.</p>
+        </div>
+
+        <div class="dash-div">
+            <img style="width:100px;" src="../../public/img/donordashboard/people.png" alt="donate">
+            <?php if ($_SESSION['total_donated_amount'] == 0) {
+                echo "<p>Your precious donation of blood can save as many as 3 lives</p>
+            ";
+            } else {
+                echo "<p>Your precious donation of blood can save as many as 3 lives</p>";
 
 
-    <div class="dash-badge">
-        <p>Your Latest Badge</p>
-        <img src="./../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="badge">
-    </div>
+            } ?>
+        </div>
 
-    <div class="dash-don">
-        <?php if ($_SESSION['total_donated_amount'] == 0) {
-            echo "<p>A SINGLE Donation of Yours can save <span>3 LIVES</span><br>
-            You Can Donate Your BLOOD at a Campaign OR a Blood Bank</p>";
-        } else {
-            echo "<p>A SINGLE Donation of Yours can save THREE LIVES<br><br>
-  
-            You Have DONATED Your BLOOD <span>" . $_SESSION['no_of_donations'] . "</span> times <br>Potentially 
-            Saving " . ($_SESSION['no_of_donations'] * 3) . " Lives</p>";
-        } ?>
+        <div class="dash-div">
+            <img style="width:100px;" src="../../public/img/donordashboard/clock.png" alt="donate">
+            <?php if ($_SESSION['total_donated_amount'] == 0) {
+                echo "<p>You can donate blood in every 4 months time</p>";
+
+            } else {
+                echo "<p>You can donate blood in every 4 months time</p>";
+
+
+            } ?>
+        </div>
+
     </div>
 
     <div id="dash-camp" class="campaign-view-box">

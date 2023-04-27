@@ -15,7 +15,7 @@ button:hover {
     box-sizing: border-box;
     left: 301px;
     width: 875px;
-    top: 133px;
+    top: 123px;
     height: 489px;
     /* background: white; */
     border: solid 2px #eceef7;
@@ -45,15 +45,12 @@ button:hover {
 }
 
 .dash-div {
-    position: absolute;
-    width: 431px;
-    height: 270px;
-    left: 301px;
-    top: 646px;
-    /* background: #c58f8f; */
+    width: 373px;
+    height: 250px;
     background-color: rgba(255, 255, 255, 0.3);
-    border: 2px solid #ECEEF7;
+    border: 2px solid #630e0b;
     border-radius: 6px;
+    padding-top: 17px;
     font-family: Poppins;
     font-size: 28px;
     font-weight: bold;
@@ -61,6 +58,7 @@ button:hover {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-around;
 }
 
 .container button {
@@ -82,10 +80,24 @@ button:hover {
     padding: 9px;
 }
 
+.dash-div-container {
+    position: absolute;
+    top: 630px;
+    left: 303px;
+    width: 1587px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+
 .dash-div p {
     width: 90%;
     text-align: center;
-
+    font-size: 20px;
+    font-weight: normal;
 }
 
 .dash-div span {
@@ -102,7 +114,7 @@ button:hover {
     width: 683px;
     height: 487px;
     left: 1199px;
-    top: 133px;
+    top: 123px;
     background: #FFFFFF;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
@@ -1582,11 +1594,11 @@ fieldset {
 
 
 .contact-card {
-    margin-top: 1%;
+    margin-top: -1%;
     margin-left: auto;
     margin-right: auto;
-    height: 290px;
-    width: 910px;
+    height: 304px;
+    width: 1114px;
     background-color: white;
     border-radius: 10px;
     border: 2px solid #fbdad9;
@@ -1903,6 +1915,26 @@ fieldset {
 
 }
 
+.blood_rchart {
+    position: absolute;
+    width: 1304px;
+    height: 339px;
+    display: flex;
+    top: 420px;
+    left: -65px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#myBarChart {
+    display: block;
+    box-sizing: border-box;
+    height: 329px;
+    width: 825px;
+}
+
 .card-container {
     position: absolute;
     box-sizing: border-box;
@@ -2133,9 +2165,9 @@ fieldset {
 
 #btb {
     display: flex;
-    margin-left: 1324px;
+    margin-left: 1112px;
     /* margin-right: 9%; */
-    margin-top: 20.4%;
+    margin-top: 19.2%;
     height: 50px;
     width: 238px;
     background-color: #640e0b;
@@ -2220,6 +2252,13 @@ fieldset {
     box-sizing: border-box;
 }
 
+.dialog-content #email-error {
+    font-size: 14px;
+    position: static;
+    width: auto;
+    margin-top: 2px;
+}
+
 .dialog-content button {
     display: block;
     width: 100%;
@@ -2231,9 +2270,15 @@ fieldset {
     margin-top: 10px;
     font-family: 'Poppins';
     border-radius: 10px;
+    font-weight: bold;
 }
 
-#cancelButton {
+.dialog-content .ppp {
+    margin-left: 25px;
+    font-family: Poppins;
+}
+
+#cancelButton, #cancelButton1, #cancelButton2 {
     background-color: #fcfefe;
     color: #640E0B;
     border: solid 2px #640E0B;
@@ -2250,6 +2295,9 @@ fieldset {
     opacity: 0.8;
 }
 
+#profile_update {
+    margin-top: 17%;
+}
 
 .profile-container h3 {
 
@@ -2286,6 +2334,10 @@ fieldset {
     top: 208px;
 }
 
+.profile-container #email-edit :hover {
+    cursor: pointer;
+}
+
 .profile-container a img {
     width: 30px;
 }
@@ -2311,9 +2363,14 @@ fieldset {
     margin-left: 50px;
 }
 
+.profile-container h2 {
+    font-family: Poppins;
+    text-align: center;
+}
+
 .profile-container form {
     font-family: Poppins;
-    margin-top: 17%;
+    margin-top: 3%;
     margin-left: 5%;
     width: 89%;
 }
@@ -2776,8 +2833,8 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1565px;
-    height: 325px;
+    width: 1585px;
+    height: auto;
     left: 301px;
     top: 114px;
     font-family: 'Poppins';
@@ -3101,7 +3158,16 @@ fieldset {
 .camp-summary #sumt td {
     text-align: left;
     text-indent: 10px;
+}
 
+.camp-summary #sum-noc {
+    width: 500px;
+    text-align: left;
+    text-indent: 10px;
+    margin-top: 30px;
+    font-size: 18px;
+    color: #000;
+    font-weight: normal;
 }
 
 .header2 {
@@ -3167,6 +3233,166 @@ fieldset {
     flex-direction: row;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+#fil-button {
+    position: absolute;
+    color: #640E0B;
+    font-size: 17px;
+    font-weight: bold;
+    top: 9px;
+    height: 46px;
+    background: #e0e0e0;
+    /* border: solid 21px; */
+    display: flex;
+    /* width: 38px; */
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    width: 219px;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 10000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    padding-top: 50px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    background: #000000a6;
+    ;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    /* Could be more or less, depending on screen size */
+}
+
+.remove-filter {
+    position: absolute;
+    left: 1123px;
+    top: 202px;
+    color: #640e0b;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.f-container {
+    padding: 16px;
+    text-align: center;
+}
+
+.f-container input {
+    font-weight: 700;
+    margin-left: 15px;
+    margin-right: 10px;
+    padding-right: 20px;
+    width: 46px;
+    height: 30px;
+    border-color: #640e0b;
+    border-width: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.f-container input[type="date"] {
+    width: 167px;
+    height: 33px;
+    margin-left: 20px;
+    padding-left: 37px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid black;
+}
+
+.f-container select {
+    width: 500px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.year {
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.clearfix {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.clearfix button {
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 47%;
+    border-radius: 10px;
+    opacity: 0.9;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.clearfix .cancel {
+    background-color: #ccc;
+    color: black;
+    color: #630e0b
+}
+
+.clearfix .fil {
+    background-color: #640e0b;
+    color: #f1f1f1;
+}
+
+.clearfix button:hover {
+    opacity: 1;
 }
 
 .vie-campaign-container a {
@@ -3303,9 +3529,6 @@ fieldset {
 }
 
 #exper {
-    top: 318px;
-    left: 147px;
-    position: absolute;
     font-weight: 500;
     line-height: 30px;
     letter-spacing: 0.30000001192092896px;
@@ -3313,6 +3536,8 @@ fieldset {
     font-size: 20px;
     font-family: 'Poppins';
     text-align: left;
+    margin-top: 3%;
+    margin-left: 2%;
 }
 
 .do_rate {
@@ -3452,6 +3677,18 @@ fieldset {
 
 }
 
+.viewrating .feedback-read {
+    position: absolute;
+    left: 323px;
+    top: 308px;
+    height: 150px;
+    width: 1068px;
+    border: solid 2px #eceef7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
 .viewrating .p11 {
     margin-left: 2%;
     margin-top: 5%;
@@ -3481,7 +3718,7 @@ fieldset {
 .rate_btn_view {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15%;
+    margin-top: 11%;
     height: 132.16px;
     display: flex;
     flex-direction: row;
@@ -3614,8 +3851,13 @@ fieldset {
     font-weight: normal;
     color: black;
     text-align: left;
-    width: 678px;
-    text-indent: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.view-camp-feedback p a {
+    font-size: 15px;
+    color: #eb5550;
 }
 
 #fbv {

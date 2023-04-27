@@ -125,14 +125,14 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION[
                 'donor_info'
-            ]['Fullname']; ?> " required>
+            ]['Fullname']; ?>" required>
             <p class="name-error" id="name-error"></p>
 
             <label class="nic-lable" for="nic">NIC NUMBER</label>
 
             <input id="nic" class="nic-input" type="text" name="nicno" autofocus value="<?php echo $_SESSION[
                 'donor_info'
-            ]['NIC']; ?> " required>
+            ]['NIC']; ?>" required>
             <p class="nic-error" id="nic-error"></p>
 
             <label class="dob-lable" for="dob">DATE OF BIRTH</label>
@@ -145,15 +145,15 @@ $metaTitle = 'Donor Dashboard'; ?>
             <div class="address-div">
                 <input id=" number" class="number-input" type="text" name="number" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['Number']; ?> " required>
+                ]['Number']; ?>" required>
                 <p class="number-error" id="number-error"></p>
                 <input id="lane" class="lane-input" type="text" name="lane" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['LaneName']; ?> " required>
+                ]['LaneName']; ?>" required>
                 <p class="lane-error" id="lane-error"></p>
                 <input id="city" class="city-input" type="text" name="city" autofocus value="<?php echo $_SESSION[
                     'donor_info'
-                ]['City']; ?> " " required>
+                ]['City']; ?>" required>
                 <p class=" city-error" id="city-error"></p>
             </div>
             <select id="district" class="district-input custom-select" type="text" name="district" autofocus required>
@@ -212,14 +212,14 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION[
                 'donor_contact'
-            ]['ContactNumber']; ?> " required>
+            ]['ContactNumber'];?>" required>
             <p class="tel-error" id="tel-error"></p>
 
             <label class="uname-lable" for="uname">USERNAME</label>
 
             <input id="uname" class="uname-input" type="text" name="uname" autofocus value="<?php echo $_SESSION[
                 'username'
-            ]; ?> " required>
+            ]; ?>" required>
             <p class="uname-error" id="uname-error"></p>
 
             <label class="password-lable" for="password">PASSWORD</label>
