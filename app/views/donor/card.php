@@ -121,14 +121,15 @@ $metaTitle = 'Donor Dashboard';
             <?php if ($_SESSION['newest_badge'] == NULL) {
                 echo '<p style="text-align:center; font-size: 19px">You are yet to earn a badge<br> Keep donating to earn badges</p>';
             } else { ?>
-                <img id="badge" src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="Your Badge">
+                <img id="badge" src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']['BadgePic']; ?>"
+                    alt="Your Badge">
             <?php } ?>
         </div>
 
-        <div style="display:none" class="ybadge">
+        <!-- <div style="display:none" class="ybadge">
             <p id="ybadgep">Your Current Badge</p>
             <img id="badge" src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="Your Badge">
-        </div>
+        </div> -->
 
         <div id="ydonations" class="ydonations">
             <p id="ydonationsp">Your Donations</p>

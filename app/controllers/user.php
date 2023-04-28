@@ -115,9 +115,9 @@ class User extends Controller
 
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today']);
 
-                $_SESSION['newest_badge'] = $this->model->getnewestbadge(
-                    $_SESSION['user_ID']
-                );
+                // $_SESSION['newest_badge'] = $this->model->getnewestbadge(
+                //     $_SESSION['user_ID']
+                // );
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds(
                     $_SESSION['upcoming_campaigns']

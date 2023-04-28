@@ -30,7 +30,7 @@ require_once(__ROOT__ . '/views/layout/navigation.php');
         <form class="donor-form" action="/signup/get_otp" method="post" id="user-login" name="login-form">
             <label class="username-lable" for="email">Email</label>
             <br>
-            <input id="email" class="username-input" type="email" name="email" autofocus placeholder="Enter Emmail"
+            <input id="email" class="username-input" type="email" name="email" autofocus placeholder="Enter Email"
                 required>
             <p id="email-error" class="email-error"></p>
             <button class='login-button' type='submit'>Get OTP</button>

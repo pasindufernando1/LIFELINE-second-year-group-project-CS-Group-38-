@@ -86,7 +86,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         <div>
             <p>Are you sure you want to change this time slot?</p>
             <div><button class="yes-button" id="yes-button">Yes</button>
-                <button onclick="hidealertc()">No</button>
+                <button class="no-button" onclick="hidealertc()">No</button>
             </div>
 
 
@@ -96,49 +96,49 @@ $metaTitle = 'Donor Dashboard'; ?>
     </div>
 
     <script>
-    function showPopup(event) {
-        // console.log(href);
+        function showPopup(event) {
+            // console.log(href);
 
-        event.preventDefault(); // prevent following the link
-        var popup = document.querySelector(".popup");
-        popup.style.display = "block"; // show the pop-up box
-        var yesButton = document.querySelector(".yes-button");
-        yesButton.onclick = function() {
-            window.location.href = event.target.href; // follow the link
-        };
-        var noButton = document.querySelector(".no-button");
-        noButton.onclick = function() {
-            popup.style.display = "none"; // hide the pop-up box
-        };
-    }
+            event.preventDefault(); // prevent following the link
+            var popup = document.querySelector(".popup");
+            popup.style.display = "block"; // show the pop-up box
+            var yesButton = document.querySelector(".yes-button");
+            yesButton.onclick = function () {
+                window.location.href = event.target.href; // follow the link
+            };
+            var noButton = document.querySelector(".no-button");
+            noButton.onclick = function () {
+                popup.style.display = "none"; // hide the pop-up box
+            };
+        }
 
-    function showPopupc(event) {
-        console.log(event.target.href);
+        function showPopupc(event) {
+            console.log(event.target.href);
 
-        // console.log(href);
+            // console.log(href);
 
-        event.preventDefault(); // prevent following the link
-        var popup = document.getElementById("popupc");
-        popup.style.display = "block"; // show the pop-up box
-        var yesButton = document.getElementById("yes-button");
-        yesButton.onclick = function() {
-            window.location.href = event.target.href; // follow the link
-        };
-        // var noButton = document.querySelector(".no-button");
-        // noButton.onclick = function () {
-        //     popup.style.display = "none"; // hide the pop-up box
-        // };
-    }
+            event.preventDefault(); // prevent following the link
+            var popup = document.getElementById("popupc");
+            popup.style.display = "block"; // show the pop-up box
+            var yesButton = document.getElementById("yes-button");
+            yesButton.onclick = function () {
+                window.location.href = event.target.href; // follow the link
+            };
+            // var noButton = document.querySelector(".no-button");
+            // noButton.onclick = function () {
+            //     popup.style.display = "none"; // hide the pop-up box
+            // };
+        }
 
-    function hidealert() {
-        var popup = document.querySelector(".popup");
-        popup.style.display = "none";
-    }
+        function hidealert() {
+            var popup = document.querySelector(".popup");
+            popup.style.display = "none";
+        }
 
-    function hidealertc() {
-        var popup = document.getElementById("popupc");
-        popup.style.display = "none";
-    }
+        function hidealertc() {
+            var popup = document.getElementById("popupc");
+            popup.style.display = "none";
+        }
     </script>
 </body>
 

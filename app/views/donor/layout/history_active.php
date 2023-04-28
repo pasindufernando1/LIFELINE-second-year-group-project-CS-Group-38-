@@ -14,17 +14,16 @@
         '/app/views/donor/layout/header.php'; ?>
     <div class="side-bar">
         <div class="side-nav">
-            <div class="dashboard menu-items">
-                <div class="dashboard-marker"></div>
-                <img src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="/user/dashboard">Dashboard</a></p>
+            <div class="dashboard-non menu-item">
+                <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
+                <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
+                    alt="dashboard">
+                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
             </div>
-            <div class="reservation menu-item">
-                <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
-                    alt="reservation">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
-                    alt="reservation">
-                <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
+            <div class="history menu-item">
+                <div class="history-marker"></div>
+                <img id="hist-s" src="./../../public/img/donordashboard/active/history.png" alt="reservation">
+                <p class="reservation-act menu-item"><a href="/donationhistory">History</a></p>
 
             </div>
             <div class="users menu-item">
@@ -35,10 +34,10 @@
 
             </div>
             <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
+                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
                     alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
+                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
 
             </div>
             <div class="badges menu-item">
@@ -70,9 +69,7 @@
                 <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
             </div>
-
         </div>
-
     </div>
 
 </body>
