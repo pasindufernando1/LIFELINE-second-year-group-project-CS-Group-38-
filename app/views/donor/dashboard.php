@@ -41,66 +41,8 @@ $metaTitle = 'Donor Dashboard';
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
 
     <!-- Side bar -->
-    <div class="side-bar">
-        <div class="side-nav">
-            <div class="dashboard menu-items">
-                <div class="dashboard-marker"></div>
-                <img src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="#">Dashboard</a></p>
-            </div>
-            <div class="reservation menu-item">
-                <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
-                    alt="reservation">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
-                    alt="reservation">
-                <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/dashboard_active.php'); ?>
 
-            </div>
-            <div class="users menu-item">
-                <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
-                    alt="donor-cards">
-                <p class="users-nav "><a href="/card">Donor Card</a></p>
-
-            </div>
-            <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
-                    alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
-
-            </div>
-            <div class="badges menu-item">
-                <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
-                    alt="campaigns">
-                <p class="badges-nav "><a href="/badges">Badges</a></p>
-
-            </div>
-            <div class="reports menu-item">
-                <img src="./../../public/img/donordashboard/non-active/reports.png" alt="reports">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/reports.png"
-                    alt="reports">
-                <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
-
-            </div>
-            <div class="campaigns menu-item">
-                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
-                    alt="campaigns">
-                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
-
-            </div>
-            <div class="line"></div>
-            <div class="profile menu-item">
-                <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
-                    alt="profile">
-                <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
-
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         <p class="dash-p">
@@ -115,20 +57,20 @@ $metaTitle = 'Donor Dashboard';
     </div>
 
     <script>
-        function scrollToDiv() {
-            console.log("scrolling");
-            var div = document.getElementById("see-more-container");
-            var offset = 100;
-            var bodyRect = document.body.getBoundingClientRect().top;
-            var elementRect = div.getBoundingClientRect().top;
-            var elementPosition = elementRect - bodyRect;
-            var offsetPosition = elementPosition - offset;
+    function scrollToDiv() {
+        console.log("scrolling");
+        var div = document.getElementById("see-more-container");
+        var offset = 100;
+        var bodyRect = document.body.getBoundingClientRect().top;
+        var elementRect = div.getBoundingClientRect().top;
+        var elementPosition = elementRect - bodyRect;
+        var offsetPosition = elementPosition - offset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        }
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
     </script>
 
     <div class="dash-ad">
@@ -138,50 +80,52 @@ $metaTitle = 'Donor Dashboard';
         $count = 0;
 
         echo '<a id="adid" href="/getcampaign/view_campaign?camp=' . $_SESSION['upcoming_campaigns'][$count][0] . '"><img class="dash-img"
-                src="./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" alt="dashboard"></a>';
+                src="./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" alt="dashboard"></a>';
         echo '<a><img class="l-arrow-img" src="./../../public/img/donordashboard/left-arrow.jpg" alt="dashboard"></a>';
         ?>
     </div>
 
     <script>
-        // Initialize the count variable
-        var count = 0;
+    // Initialize the count variable
+    var count = 0;
 
-        // Get a reference to the image element
-        var image = document.querySelector('.dash-img');
+    // Get a reference to the image element
+    var image = document.querySelector('.dash-img');
 
-        // Get a reference to the ad ID element
-        var adId = document.getElementById('adid');
+    // Get a reference to the ad ID element
+    var adId = document.getElementById('adid');
 
-        // Get a reference to the left arrow image element
-        var leftArrow = document.querySelector('.l-arrow-img');
+    // Get a reference to the left arrow image element
+    var leftArrow = document.querySelector('.l-arrow-img');
 
-        // Add an event listener to the left arrow image element
-        leftArrow.addEventListener('click', function () {
-            // Increment the value of count by 1
-            count++;
-            console.log(count);
-            // Update the image source based on the value of count
-            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-            // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
-            // var link = "/getcampaign/view_campaign?camp=" + campaignId;
-            adId.href = "/getcampaign/view_campaign?camp=" +
-                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-        });
+    // Add an event listener to the left arrow image element
+    leftArrow.addEventListener('click', function() {
+        // Increment the value of count by 1
+        count++;
+        console.log(count);
+        // Update the image source based on the value of count
+        image.src = './../../public/img/advertisements/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[
+            count][0][0];
+        // var campaignId = <?php echo $_SESSION['upcoming_campaigns'][$count][0]; ?>;
+        // var link = "/getcampaign/view_campaign?camp=" + campaignId;
+        adId.href = "/getcampaign/view_campaign?camp=" +
+            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
+    });
 
-        // Get a reference to the right arrow image element
-        var rightArrow = document.querySelector('.r-arrow-img');
+    // Get a reference to the right arrow image element
+    var rightArrow = document.querySelector('.r-arrow-img');
 
-        // Add an event listener to the right arrow image element
-        rightArrow.addEventListener('click', function () {
-            // Decrement the value of count by 1
-            count--;
-            console.log(count);
-            // Update the image source based on the value of count
-            image.src = './../../public/img/ads/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[count][0][0];
-            adId.href = "/getcampaign/view_campaign?camp=" +
-                <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
-        });
+    // Add an event listener to the right arrow image element
+    rightArrow.addEventListener('click', function() {
+        // Decrement the value of count by 1
+        count--;
+        console.log(count);
+        // Update the image source based on the value of count
+        image.src = './../../public/img/advertisements/' + <?php echo json_encode($_SESSION['camp_ads']); ?>[
+            count][0][0];
+        adId.href = "/getcampaign/view_campaign?camp=" +
+            <?php echo json_encode($_SESSION['upcoming_campaigns']); ?>[count][0];
+    });
     </script>
 
     <div class="dash-div-container">
@@ -237,9 +181,7 @@ $metaTitle = 'Donor Dashboard';
     <div id="dash-camp" class="campaign-view-box">
         <div class="hed">
             <button><a id="see-more" href="/getcampaign">See More</a></button>
-            <p>Upcoming Campaigns of
-                <?php echo $_SESSION['userdistrict']; ?>
-                District
+            <p>Upcoming Campaigns
             </p>
         </div>
         <div class="view-campaign-container">
@@ -262,7 +204,7 @@ $metaTitle = 'Donor Dashboard';
                         $row['Starting_time'] = strval($stimeval) . ' AM';
                     }
                     echo '<div class="view-campaign-card">
-            <img src = "./../../public/img/ads/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
+            <img src = "./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
             <div class="campaign-card-bottom">
             <h3>' . $row['Name'] . '</h3>
             <p class="campaign-card-info">

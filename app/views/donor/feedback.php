@@ -1,9 +1,4 @@
 <?php
-// $eh = empty($_SESSION['camp_donations'][0][1]);
-// print_r($eh);
-// // print_r($_SESSION['camp_donations'][1][1]);
-
-// die();
 
 $metaTitle = 'Donor Dashboard'; ?>
 
@@ -41,66 +36,9 @@ $metaTitle = 'Donor Dashboard'; ?>
 
 
     <!-- Side bar -->
-    <div class="side-bar">
-        <div class="side-nav">
-            <div class="dashboard-non menu-item">
-                <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
-                <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
-                    alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
-            </div>
-            <div class="reservation menu-item">
-                <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
-                    alt="reservation">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
-                    alt="reservation">
-                <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/feedback_active.php'); ?>
 
-            </div>
-            <div class="users menu-item">
-                <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
-                    alt="donor-cards">
-                <p class="users-nav "><a href="/card">Donor Card</a></p>
 
-            </div>
-            <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
-                    alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
-
-            </div>
-            <div class="badges menu-item">
-                <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
-                    alt="campaigns">
-                <p class="badges-nav "><a href="/badges">Badges</a></p>
-
-            </div>
-            <div class="feedback menu-item">
-                <div class="feedback-marker"></div>
-                <img id="card-s" src="./../../public/img/donordashboard/active/reports.png" alt="reports">
-                <p class="reservation-act"><a href="/ratecampaign/feedback_page">Feedback</a></p>
-
-            </div>
-            <div class="campaigns menu-item">
-                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
-                    alt="campaigns">
-                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
-
-            </div>
-            <div class="line"></div>
-            <div class="profile menu-item">
-                <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
-                    alt="profile">
-                <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
-
-            </div>
-        </div>
-    </div>
     <div class="feedback-box">
         <h2 class="header2">Your Feedbacks</h2>
         <div class="view-campaign-container">
@@ -108,10 +46,10 @@ $metaTitle = 'Donor Dashboard'; ?>
             $result = $_SESSION['all_feedback'];
             $count = 0;
 
-            if ($_SESSION['rowCount'] > 0) {
+            if (count($_SESSION['all_feedback']) > 0) {
                 foreach ($result as $row) {
                     echo '<div class="view-camp-feedback">
-            <img src="../../../public/img/ads/' . $_SESSION['camp_ads'][$count] . '" alt="camp ad">
+            <img src="../../../public/img/advertisements/' . $_SESSION['camp_ads_feedback'][$count] . '" alt="camp ad">
             <div class="feed-info">
             <h2>' . $_SESSION['camp_names'][$count] . '</h2>
             <p>Rating :</p>
@@ -133,7 +71,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                     echo '</div>
             
             <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
-                <a href="remove_rating?camp=' . $row['CampaignID'] . '""> <button id = "fbd-btn">Delete</button></a>
+                <a href="remove_rating?camp=' . $row['CampaignID'] . '" onclick="showPopup(event, this.href)"> <button id = "fbd-btn">Delete</button></a>
                 
             </div>
             ';
@@ -146,6 +84,43 @@ $metaTitle = 'Donor Dashboard'; ?>
             <script src="../../../public/js/getcampname.js"></script>
         </div>
     </div>
+
+    <div class="popup">
+        <div>
+            <p>Are you sure you want to cancel this feedback?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
+
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+    </div>
+
+    <script>
+        function showPopup(event, href) {
+            console.log(href);
+
+            event.preventDefault(); // prevent following the link
+            var popup = document.querySelector(".popup");
+            popup.style.display = "block"; // show the pop-up box
+            var yesButton = document.querySelector(".yes-button");
+            yesButton.onclick = function () {
+                window.location.href = href; // follow the link
+            };
+            var noButton = document.querySelector(".no-button");
+            noButton.onclick = function () {
+                popup.style.display = "none"; // hide the pop-up box
+            };
+        }
+
+        function hidealert() {
+            var popup = document.querySelector(".popup");
+            popup.style.display = "none";
+        }
+    </script>
+
 </body>
 
 </html>
