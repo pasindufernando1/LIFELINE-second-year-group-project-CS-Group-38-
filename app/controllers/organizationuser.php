@@ -27,8 +27,7 @@ class OrganizationUser extends Controller
             if ($_SESSION['type'] == "Organization/Society") {
                 // $camp_info = $this->model->view_campaign_info();
                 
-                $_SESSION['campaignsList'] = $this->model->view_campaign_info($_SESSION['User_ID']);
-                $_SESSION['PastCampaignsList'] = $this->model->view_past_campaign_info($_SESSION['User_ID']);
+                $_SESSION['campaignsList'] = $this->model->view_campaign_info();
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -42,9 +41,6 @@ class OrganizationUser extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
-        $user_pic = $this->model->getuserimg($uname);
-        $_SESSION['user_pic'] = $user_pic;
-
         if ($this->model->authenticate($uname, $pwd)) {
 
             //set session variables
@@ -53,7 +49,6 @@ class OrganizationUser extends Controller
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['User_ID'] = $this->model-> getUserID($uname);
-            
             $this->view->render('organization/dashboard');
 
             
@@ -84,6 +79,7 @@ class OrganizationUser extends Controller
 
             $Name = $_POST['name'];
             $Registration_no = $_POST['regno'];
+            
             $Number = $_POST['number'];
             $LaneName = $_POST['lane'];
             $City = $_POST['city'];

@@ -1,0 +1,254 @@
+/* button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-family: 'Poppins';
+    font-style: normal;
+} */
+ 
+button:hover {
+    opacity: 1;
+}
+
+
+/* Float cancel and delete buttons and add an equal width */
+
+.cancelbtn,
+.deletebtn {
+    width: 45%;
+    border-radius: 10px;
+}
+
+
+/* Add a color to the cancel button */
+
+.cancelbtn {
+    background-color: #ccc;
+    color: black;
+}
+
+
+/* Add a color to the delete button */
+
+.deletebtn {
+    background-color: #640e0b;
+    color: #f1f1f1;
+}
+
+
+/* Add padding and center-align text to the container */
+
+.containerR {
+    padding: 16px;
+    text-align: center;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    padding-top: 50px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    background: #000000a6;
+    ;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* Style the horizontal ruler */
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+/* The Modal Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #640e0b;
+    cursor: pointer;
+}
+
+
+/* Clear floats */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.clearfix {
+    margin-top: 30px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.containerR p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #640e0b;
+}
+
+input{
+    
+    font-weight: 700;
+    margin-left: 15px;
+    margin-right:10px;
+    padding-right: 20px;
+    width: 20px;
+    height: 20px;
+    border-color: #640e0b;
+    border-width: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="date"]{
+    width: 167px;
+    height: 33px;
+    margin-left: 20px;
+    padding-left: 37px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid black;
+}
+
+.export {
+    left: 1121px;
+    top: 33px;
+    width: 37.49px;
+}
+
+.expired-stock-btn {
+    left: 637px !important;
+}
+
+.expired-stocks-img {
+    left: 817px !important;
+}
+/* .reservation-filter {
+    left: 1180px !important;
+}
+.reservation-filter-img {
+    left: 1055px !important;
+} */
+.export-img{
+    width: 25px;
+    height: 25px;
+}
+
+
+.remove-filter{
+    position: absolute;
+    left: 1123px;
+    top: 202px;
+    color: #640e0b;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+select {
+    width: 500px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.input-text{
+    width: 300px;
+    height: 27px;
+    margin-left: 23px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.date{
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px
+}
+
+.year, .years{
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px
+}
