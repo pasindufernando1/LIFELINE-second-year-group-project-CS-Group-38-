@@ -18,17 +18,11 @@
 </head>
 <body>
     <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="./../../public/img/dashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/dashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
+        <a href="/">
+            <div class="logo">
+                <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
+            </div>
+        </a>
         <div class="login-user">
             <div class="image">
                 <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
@@ -41,7 +35,7 @@
             <div class="more">
                 <img class="3-dot" onclick="dropDown()" src="../../../public/img/dashboard/3-dot.png" alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
-                    <a href="/profile">Profile</a>
+                    <a href="/adprofile">Profile</a>
                     <a href="/adminuser/logout">Log Out</a>
                 </div>
             </div>

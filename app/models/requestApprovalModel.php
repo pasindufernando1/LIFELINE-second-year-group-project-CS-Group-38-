@@ -393,7 +393,8 @@ class RequestApprovalModel extends Model
         $result = $this->db->insert("campaign_timeslots", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
-        } else print_r($result);
+        } else {
+            print_r($result);}
     }
 
     public function getAllTimeslots(){

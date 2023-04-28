@@ -544,6 +544,156 @@ body {
     margin-top: 15px;
 }
 
+.pending-btn {
+    width: 114px;
+    height: 35px;
+    background: #FBDAD9;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    color: #BF1B16;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+    background: none;
+    font-size: 17px;
+}
+
+.verify-btn, .verify-btn2 {
+    width: 114px;
+    height: 35px;
+    background: #AFAFAF;
+    border-radius: 4px;
+    margin: 0px -43px 0px -30px;
+    text-align: center;
+    cursor: pointer;
+    color: #212121;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+    padding: 8px 23px 8px 23px;
+}
+
+.verify-btn2{
+    opacity: 0.5;
+}
+
+.popup {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(0 0 0 / 80%);
+    border: 1px solid #000;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.popup div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    z-index: 9999;
+    height: 200px;
+    width: 750px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.popup div p {
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: -68px;
+}
+
+
+.popup div div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5%;
+    width: 84%;
+    height: 14%;
+    flex-direction: row;
+    border: none;
+    background: none;
+}
+
+.popup div div button {
+    width: 42%;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.popup div div .yes-button {
+    background-color: #640e0b;
+    color: white;
+}
+
+.popup div div .no-button {
+    background-color: #e8e8e8;
+    color: #630e0b;
+}
+
+.popup div .close {
+    position: absolute;
+    width: 21px;
+    right: 5px;
+    top: 5px;
+}
+
+.popup div .close:hover {
+    cursor: pointer;
+}
+
+
+.validated-btn {
+    width: 114px;
+    height: 35px;
+    background: #AFAFAF;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    color: #5C5C5C;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    border: none;
+    background: none;
+    font-size: 17px;
+}
+
+.delete-btn-div{
+    position : absolute;
+    width : 100%;
+    height : 100%;
+}
+
+.delete-btn{
+    width: 30px;
+    height: 30px;
+    margin-top: -14px;
+    margin-left: 10px;
+}
+
+
 .feedback {
     position: absolute;
     width: 170.74px;

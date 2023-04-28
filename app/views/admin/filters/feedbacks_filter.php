@@ -86,7 +86,7 @@ year.addEventListener('input', function() {
         head.innerHTML = "Year invalid";
         year.style.color = 'red';
     } else {
-        head.innerHTML = "Select Date,Month,Year";
+        head.innerHTML = "Select Month & Year";
         year.style.color = 'black';
     }
 });

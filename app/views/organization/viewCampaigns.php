@@ -32,42 +32,7 @@ $metaTitle = "organizations Dashboard"
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -158,7 +123,7 @@ $metaTitle = "organizations Dashboard"
                     <hr class="campaigns-line">
                     <?php 
                         $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_results = count($_SESSION['campaigns']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
                         //determine which page number visitor is currently on  
@@ -175,7 +140,7 @@ $metaTitle = "organizations Dashboard"
                           
 
                         // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
                             /* foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 $disabled = $row['Status'] != "1" ? "disabled" : " ";
                                 echo '<div class="table-content-types"> <tr>
@@ -202,7 +167,7 @@ $metaTitle = "organizations Dashboard"
                             } */
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 // Disable button if status is not accepted
-                                if ($row['Status'] !== 1) {
+                                if ($row['Status'] != 1) {
                                     $disabled = "disabled";
                                     $opacity = "0.5"; 
                                 } else {

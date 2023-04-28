@@ -532,7 +532,7 @@ body {
     width: 1586px;
     height: 778px;
     left: 300px;
-    top: 129px;
+    top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -544,7 +544,7 @@ body {
     width: 1597px;
     height: 777px;
     left: 300px;
-    top: 20px;
+    top: -32px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -680,6 +680,7 @@ body {
 
 a {
     text-decoration: none;
+    color:#FCFEFE;
 }
 
 .brown-button {
@@ -1774,7 +1775,7 @@ td {
     width: 1586px;
     height: 1000px;
     left: 300px;
-    top: 129px;
+    top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -1811,7 +1812,7 @@ td {
     width: 1540px;
     height: 797px;
     left: 316px;
-    top: 127px;
+    top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px; 
@@ -1835,6 +1836,7 @@ td {
     align-content: stretch;
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 }
 
 .profileBox .main {

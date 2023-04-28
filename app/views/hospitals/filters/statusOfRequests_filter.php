@@ -39,12 +39,7 @@
             <input name="12" type="checkbox" value="Platelet" id="12">Platelet</input>
             <input name="13" type="checkbox" value="Plasma" id="13">Plasma</input>
         </div>
-        <div>
-            <p>
-                Select Date
-            </p>
-            <input name="14" type="Date" value="Date" id="14"></input>
-        </div>
+        
         <!-- <div>
         <p>
             Select Date Range

@@ -33,42 +33,7 @@ $metaTitle = "organizations Dashboard"
 <body>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/filters/bloodbanks_filter.php'); ?>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -144,7 +109,7 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="box">
-                <p class="view-bloodBank-title">View Blood Banks</p>
+                <p class="view-bloodBank-title">Request Approval For Campaigns From BloodBanks</p>
                 <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
                 <img class="user-filter-imgB" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
                 <table class="bloodBanks-table" style="width:90%">
@@ -158,9 +123,14 @@ $metaTitle = "organizations Dashboard"
                     </tr>
                     <hr class="bloodBanks-line">
                     <?php 
-                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                        $status = false;
+                        if(isset($_SESSION['is_filtered'])){
+                            $status = $_SESSION['is_filtered']? 'true' : 'false';
+                        }else{
+                            $status = 'false';
+                        }
                         $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_results = count($_SESSION['bloodBanks']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
                         //print_r($_GET['page']);die();
                         //determine which page number visitor is currently on  

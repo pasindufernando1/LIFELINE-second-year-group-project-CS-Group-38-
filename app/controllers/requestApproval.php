@@ -435,9 +435,9 @@ class requestApproval extends Controller
                 $camp_info = $this->model->get_campaign_info($campid);
                 $_SESSION['campaign_array'] = $camp_info;
 
-                $_SESSION['timeslots'] = $this->model->getSlotIDs($campid);
+                $_SESSION['Timeslots'] = $this->model->getSlotIDs($campid);
                 $_SESSION['slots'] = $this->model->getSlotDetails(
-                    $_SESSION['timeslots']
+                    $_SESSION['Timeslots']
                 );
 
                 $this->view->render('organization/viewTimeslots');
@@ -511,16 +511,28 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $campid = $_GET['campaign'];
             //echo $campid;
-            $allTimeslots=$this->model->getAllTimeslots();
-            //print_r($allTimeslots);die();
-            $_SESSION['rowCount']=count($allTimeslots);
+            $_SESSION['allTimeslots']=$this->model->getAllTimeslots();
+            
+            //$_SESSION['rowCount']=count($allTimeslots);
             //remove the timeslots that are already scheduled 
             $scheduledTimeslots=$this->model->getScheduledTimeslots($campid);
             //print_r($scheduledTimeslots);die();
-            
+            //set status =1 to the timeslots that are already scheduled
+            for($i=0;$i<count($_SESSION['allTimeslots']);$i++){
+                for($j=0;$j<count($scheduledTimeslots);$j++){
+                    if($_SESSION['allTimeslots'][$i]['SlotID']==$scheduledTimeslots[$j]['SlotID']){
+                        $_SESSION['allTimeslots'][$i]['Status']=1;
+                        break;
+                    }
+                    else{
+                        $_SESSION['allTimeslots'][$i]['Status']=0;
+                    }
+                }
+            }
+            //print_r($allTimeSlots);die();
             //print_r($allTimeslots);die();
-            $temp=$allTimeslots;
-            if(!empty($scheduledTimeslots)){
+            
+            /* if(!empty($scheduledTimeslots)){
                 //print_r("awa");die();
                 for($i=0;$i<count($scheduledTimeslots);$i++){
                     for($j=0;$j<count($allTimeslots);$j++){
@@ -532,11 +544,10 @@ class requestApproval extends Controller
                         }
                     }
                 }
-            }
+            } */
             //print_r($temp);die();
             
                 //print_r($temp);die();
-                $_SESSION['allTimeslots']=$temp;
             if(empty($_SESSION['allTimeslots'])){
                 $_SESSION['rowCount']=0;
             }
@@ -554,27 +565,23 @@ class requestApproval extends Controller
             
             
             //print_r($_SESSION['allTimeslots']);die();
-
-            
             $this->view->render('organization/scheduleTimeslots');
         } else {
             $this->view->render('authentication/organizationlogin');
         } 
     }
-    function addTimeslot()
+    function addTimeslot($TimeslotID)
     {
         if ($_SESSION['type'] == 'Organization/Society') {
-            
-            $_SESSION['slotid']=intval($_GET['timeSlot']);
-            //print_r($_SESSION['slotid']);die();
-
+            if ($this->model->addSlot($TimeslotID,$_SESSION['campaignId'])) {
+                header('Location: /requestApproval/add_slot_successfully');
+            }
+        }
+        else{
+            $this->view->render('authentication/login');
         }
 
-        if ($this->model->addSlot($_SESSION['slotid'],$_SESSION['campaignId'])) {
-            //print_r('awa');die();
-
-            header('Location: /requestApproval/add_slot_successfully');
-        }
+        
     }
 
     function add_slot_successfully(){
@@ -776,24 +783,15 @@ class requestApproval extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
                 $campid = $_GET['campaign'];
-                $camp_info = $this->model->get_campaign_info($campid);
-                //print_r($camp_info);die(); 
+                $camp_info = $this->model->get_campaign_info($campid); 
                 $_SESSION['campaign_array'] = $camp_info; 
                 $slotids = $this->model->getSlotIDs($campid);
                 //print_r($slotids);die();
                 $x=sizeof($slotids);
-                //print_r($x);die();
                 if(!empty($slotids)){
                     for($i=0;$i<$x;$i++){
                         $slotid=$slotids[$i]['SlotID'];
-    
-                        //print($slotid);
                         $_SESSION['timeslots'][$i]=$this->model->getSlotDetails($slotid);
-                        //print_r($_SESSION['timeslots']);die();
-                        /* $Start_time=$slotDet[0]['Start_time'];
-                        print_r($Start_time);die();
-                        $End_time=$slotDet[0]['End_time'];
-                        print_r($End_time);die(); */
                     } 
                     $_SESSION['rowCount']=count($_SESSION['timeslots']);
                 }

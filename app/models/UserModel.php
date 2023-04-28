@@ -315,15 +315,52 @@ class UserModel extends Model
         return $BBinfo;
     }
 
-    public function view_campaign_info()
+    public function view_campaign_info($orgid)
     {
+            $today= date('Y-m-d H:i:s');
+            //print_r($today);die();
+            $upCampid= $this->db->select("CampaignID","donation_campaign","WHERE OrganizationUserID=:OrganizationUserID",':OrganizationUserID',$orgid);
+            //print_r($upCampid);die();
+            //$upCampid = $upCampid[0]['CampaignID'];
+            //print_r($upCampid);die();
+            for($i=0;$i<count($upCampid);$i++){
+                $upCampid[$i] = $upCampid[$i]['CampaignID'];
 
-        $data = $this->db->select("Name,Date", "donation_campaign", "WHERE Status ='Accepted'");
-
-        return $data;
-
-
+            }
+            //print_r($upCampid);die();
+            $upCampid = implode(",",$upCampid);
+            //print_r($upCampid);die();
+            $data = $this->db->select("Name,Date,Location","donation_campaign"," WHERE CampaignID IN ($upCampid) && Status =1 && Date >= :Date",':Date',$today);
+            //print_r($data);die();
+           // $data = $this->db->select("Name,Date,Location","donation_campaign"," WHERE OrganizationUserID=:OrganizationUserID && Status =1 && Date >= :Date",':OrganizationUserID' ,':Date',$orgid,$today);
+            
+            //print_r($data);die();
+            return $data;
     }
+
+    public function view_past_campaign_info($orgid)
+    {
+            $today= date('Y-m-d H:i:s');
+            //print_r($today);die();
+            $upCampid= $this->db->select("CampaignID","donation_campaign","WHERE OrganizationUserID=:OrganizationUserID",':OrganizationUserID',$orgid);
+            //print_r($upCampid);die();
+            //$upCampid = $upCampid[0]['CampaignID'];
+            //print_r($upCampid);die();
+            for($i=0;$i<count($upCampid);$i++){
+                $upCampid[$i] = $upCampid[$i]['CampaignID'];
+
+            }
+            //print_r($upCampid);die();
+            $upCampid = implode(",",$upCampid);
+            //print_r($upCampid);die();
+            $data = $this->db->select("Name,Date,Location","donation_campaign"," WHERE CampaignID IN ($upCampid) && Status =1 && Date < :Date",':Date',$today);
+            //print_r($data);die();
+           // $data = $this->db->select("Name,Date,Location","donation_campaign"," WHERE OrganizationUserID=:OrganizationUserID && Status =1 && Date >= :Date",':OrganizationUserID' ,':Date',$orgid,$today);
+            
+            //print_r($data);die();
+            return $data;
+    }
+
 
     public function getAllTypes($blood_bank_id)
     {
@@ -448,15 +485,15 @@ class UserModel extends Model
     }
 
     // Donor related
-    public function getAllCampaigns($today, $district)
+    public function getAllCampaigns($today)
     {
         // $columns=['']
-        $inputs = [':Date', ':District'];
-        $values = [$today, $district];
+        $inputs = [':Date'];
+        $values = [$today];
         $data = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 AND District = :District ORDER BY Date ASC',
+            'WHERE Date > :Date AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
             $inputs,
             $values
         );
