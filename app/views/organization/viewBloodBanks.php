@@ -25,12 +25,13 @@ $metaTitle = "organizations Dashboard"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-
+    
 
 
 </head>
 
 <body>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/filters/bloodbanks_filter.php'); ?>
     <!-- header -->
     <div class="top-bar">
         <div class="logo">
@@ -144,7 +145,8 @@ $metaTitle = "organizations Dashboard"
             </div>
             <div class="box">
                 <p class="view-bloodBank-title">View Blood Banks</p>
-
+                <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
+                <img class="user-filter-imgB" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
                 <table class="bloodBanks-table" style="width:90%">
                     <tr>
                         
@@ -156,6 +158,7 @@ $metaTitle = "organizations Dashboard"
                     </tr>
                     <hr class="bloodBanks-line">
                     <?php 
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
                         $results_per_page = 7;
                         $number_of_results = $_SESSION['rowCount'];
                         $number_of_page = ceil($number_of_results / $results_per_page);
@@ -174,7 +177,7 @@ $metaTitle = "organizations Dashboard"
                           
 
                         // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         
@@ -199,9 +202,9 @@ $metaTitle = "organizations Dashboard"
                         echo "</table>";
                         echo '<div class="pag-box">';
                         if (!isset($_GET['page']) || $_GET['page'] == 1) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
                         } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
                         }
                         
                         for($page = 1; $page <= $number_of_page; $page++) {  
@@ -211,16 +214,16 @@ $metaTitle = "organizations Dashboard"
                                 $current_page = $_GET['page'];
                             }
                             if ($page == $current_page) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
                             } else {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
                             }
                         }
                         
                         if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
                         } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
                         }
                         
                         echo '</div>';

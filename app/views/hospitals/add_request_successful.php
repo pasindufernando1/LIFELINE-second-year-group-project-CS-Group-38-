@@ -78,7 +78,7 @@ $metaTitle = "Hospitals Dashboard"
                     <div class="requestBlood-selected">
                         <div class="marker"></div>
                         <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-act"><a href="#">Request Blood</a></p>
+                        <p class="requestBlood-act"><a href="/requestBlood/viewReqBlood">Request Blood</a></p>
                     </div>
                     <div class="profile menu-item">
                         <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">

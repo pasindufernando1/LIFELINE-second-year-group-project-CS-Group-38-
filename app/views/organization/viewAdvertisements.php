@@ -150,41 +150,44 @@ die(); */
                     </div>
                 </div>
             </div>
-            <div class="box">
+            <div class="ad-box">
             <p class="inventory-types">Advertisements</p>
                 <!-- A for loop to read the data from the $_SESSION['Advertisements'] variable -->
-                
-        <?php
-        $count=0;
-        //print_r($_SESSION['advertisements']);die();
-        foreach($_SESSION['advertisements'] as $item){
-            
-            // <!-- A container to hold the advertisement photo  and the bloodbankName -->
-            echo '<div class="ad_wrap ">
-                <!-- Image -->
-                <img class="ad_img" src="./../../public/img/orgdashboard/'.$item['Advertisement_pic'].'" alt="advertisement">
-                
-
-                <div class="bloodbankName">
-                    <!-- Label for bloodbank Name -->
-                    <p class="bloodbankName">'.$item['BloodBank_Name'].'</p>
-                </div>
-                <div class="inventoryType">
-                <!-- Label for bloodbank Name -->
-                <p class="inventoryType">'.$item['InventoryCategory'].'</p>
-                </div>
-                <!--get user input for quantity-->
-                
-                <button class="don-btn" type="submit" name="request" id="submit-btn">Donate</button>
-                <a href="/requestApproval/quantity?ad='.$item['AdvertisementID'].'"><button class="don-btn" type="submit" name="request" id="submit-btn">Donate</a></button>
-                
-            </form>
-            </div>';
-            $count++;
-             } ?>
+         
+    
+                <div class="ad-holder">
+                <?php
+                $count=0;
         
-            </div>
+        //print_r($_SESSION['advertisements']);die();
+                    foreach($_SESSION['advertisements'] as $item){
+                
+                // <!-- A container to hold the advertisement photo  and the bloodbankName -->
+                        echo '<div class="ad-card ">
 
+                        <!-- Image -->
+                        <img class="ad-img" src="./../../public/img/advertisements/'.$item['Advertisement_pic'].'" alt="advertisement">
+                        
+
+                        <div class="bloodbankName">
+                            <!-- Label for bloodbank Name -->
+                            <p class="bloodbankName">'.$item['Description'].'</p>
+                        </div>
+                        
+                        <!-- Label for bloodbank Name -->
+                        <p class="inventoryType">Inventory Categoty: '.$item['InventoryCategory'].'</p>
+                        
+                        <!--get user input for quantity-->
+                        
+                        <a href="/requestApproval/quantity?ad='.$item['AdvertisementID'].'">Donate</a>
+                        
+                
+                        </div>';
+                        $count++;
+                    } ?>
+        
+                </div>
+            </div>
 
         </div>
 

@@ -185,9 +185,9 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
                                 foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                     echo '<div class="table-content-types"> <tr>
                                             <td>' . $row[0]["SlotID"] . "</td>
-                                            <td>" . $row[0]["Start_time"] . "</td>
+                                            <td>" . date('h:i A', strtotime($row[0]["Start_time"])) . "</td>
                                             
-                                            <td>" . $row[0]["End_time"] . '</td>
+                                            <td>" . date('h:i A', strtotime($row[0]["End_time"])) . '</td>
 
                                             
 

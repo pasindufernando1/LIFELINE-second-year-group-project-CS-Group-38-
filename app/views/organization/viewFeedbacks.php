@@ -25,12 +25,14 @@ $metaTitle = "organizations Dashboard"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+    
 
 
 
 </head>
 
 <body>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/filters/rating_filter.php'); ?>
     <!-- header -->
     <div class="top-bar">
         <div class="logo">
@@ -146,81 +148,83 @@ $metaTitle = "organizations Dashboard"
                 <p class="view-feedbacks-title">View Feedbacks</p>
                 <a href="/requestApproval/viewAcceptedCampaigns"><button class="back-btn" type="button"
                         name="request">Back to Campaigns</a></button>
+                <a href="#" class="ash-button1 reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
+                <img class="user-filter-img1" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
                 <table class="feedbacks-table" style="width:90%">
                     <tr>
 
                         <th>Name of the Donor</th>
                         <th>Date</th>
                         <th>Feedback</th>
+                        <th>Rating</th>
 
                     </tr>
                     <hr class="feedbacks-line">
                     <?php 
-                        $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
-                        $number_of_page = ceil($number_of_results / $results_per_page);
-
-                        //determine which page number visitor is currently on  
-                        if (!isset ($_GET['page']) ) {  
-                            $page = 1;  
-                        } else {  
-                            $page = $_GET['page'];  
-                        }  
-                        //determine the sql LIMIT starting number for the results on the displaying page  
-                        $page_first_result = ($page-1) * $results_per_page;  
-                        // $result = $_SESSION['feedbacks'];
-                        // $donorNames= $_SESSION['donorNames'];
-                        //display the link of the pages in URL  
-                        $feadbacks = $_SESSION['feedbacks'];
-                        //print_r($feadbacks);die();
-                        // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
-                            // foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                            //     echo '<div class="table-content-types"> <tr>
-                            //             <td>' . $row["Fullname"]. "</td>
-                                        
-                            //             <td>" . $row["Feedback"] . '</td>
-                                        
-                                        
-                                        
-                            //         </tr> </div>';
-                                
-                            // }
-
-                                foreach($feadbacks as $feadback){
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                       $results_per_page = 7;
+                       
+                       $number_of_results = count($_SESSION['feedbacks']);
+                       
+                       $number_of_page = ceil($number_of_results / $results_per_page);
+                       
+                       //determine which page number visitor is currently on  
+                       if (!isset ($_GET['page']) ) {  
+                           $page = 1;  
+                       } else {  
+                           $page = $_GET['page'];  
+                       }  
+                       //determine the sql LIMIT starting number for the results on the displaying page  
+                       $page_first_result = ($page-1) * $results_per_page;  
+                       
+                       $result = $_SESSION['feedbacks'];
+                       
+                       if ($number_of_results  > 0) {
+                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                           
                                     echo '<div class="table-content-types"> 
                                     <tr>
-                                         <td>' . $feadback["Fullname"]. "</td>
-                                            <td>" . $feadback["Date"]. "</td>
-                                         <td>" . $feadback["Feedback"] . '</td>
+                                         <td>' . $row["Fullname"]. "</td>
+                                            <td>" . $row["Date"]. "</td>
+                                         <td>" . $row["Feedback"] . "</td>
+                                            <td>" . $row["Rating"] . '</td>
                                     </tr>
                                 </div>';
                                 }
                         } 
                         else {
-                            echo "0 results";
+                            echo '0 results';
                         }
-                        /* echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
-                        }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-                            }else{
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
-                            }
-                        }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-                        }
-                          
-                        echo '</div>' ; */?>
+                        echo '<div class="pag-box">';
+if (!isset($_GET['page']) || $_GET['page'] == 1) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+}
+for($page = 1; $page <= $number_of_page; $page++) {  
+    if (!isset($_GET['page'])) {
+        $current_page = 1;
+    } else {
+        $current_page = $_GET['page'];
+    }
+    if ($page == $current_page) {
+        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
+    } else {
+        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
+    }
+}
+if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+}
+echo '</div>';
+?>
 
                 </table>
 

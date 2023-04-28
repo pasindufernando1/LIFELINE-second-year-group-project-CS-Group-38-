@@ -25,7 +25,7 @@ $metaTitle = "organizations Dashboard"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/filters/campaigns_filter.php'); ?>
 
 
 </head>
@@ -144,7 +144,8 @@ $metaTitle = "organizations Dashboard"
             </div>
             <div class="box">
                 <p class="view-campaigns-title">View Campaigns</p>
-
+                <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
+                <img class="user-filter-img" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
                 <table class="campaigns-table" style="width:90%">
                     <tr>
                         
@@ -225,7 +226,9 @@ $metaTitle = "organizations Dashboard"
                             }
                         }    
                         else {
-                            echo "0 results";
+                            echo '<div class="table-content-types"> <tr>
+                                <td> No Feedbacks Yet </td>
+                                </tr> </div>';
                         }
                         echo '<div class="pag-box">';
                         if (!isset($_GET['page']) || $_GET['page'] == 1) {

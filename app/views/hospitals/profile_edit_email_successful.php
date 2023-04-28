@@ -1,8 +1,6 @@
-<?php
+<?php 
 
-$metaTitle = "Hospitals Dashboard";
-// print_r("giya request");
-// die();
+$metaTitle = "Hospitals Dashboard" 
 ?>
 
 <!DOCTYPE html>
@@ -70,38 +68,41 @@ $metaTitle = "Hospitals Dashboard";
             <!-- Side bar -->
             <div class="side-bar">
                 <div class="side-nav">
-                    
                 <div class="dashboard menu-item">       
-                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard"> 
+                        <img src="./../../public/img/hospitalsdashboard/non-active/dashboard.png" alt="dashboard">
                         <img class="reservation-non-active dash" src="../../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-non-active menu-item"><a href="/hospitaluser/dashboard">Dashboard</a></p>
                     </div>
-                    <div class="requestBlood-selected">
-                        <div class="marker"></div>
-                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/active/request blood.png" alt="requestBlood">
-                        <p class="requestBlood-act"><a href="/requestBlood/viewReqBlood">Request Blood</a></p>
+
+                    <div class="requestBlood menu-item">
+                        <img class="requestBlood-active" src="./../../public/img/hospitalsdashboard/non-active/Request blood.png" alt="requestBlood">
+                        <img class="requestBlood-non-active" src="./../../public/img/hospitalsdashboard/active/Request blood.png" alt="requestBlood">
+                        <p class="requestBlood-nav"><a href="/requestBlood/viewReqBlood">Request Blood</a></p>
+
                     </div>
-                    <div class="profile menu-item">
-                        <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile">
-                        <img class="profile-non-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
-                        <p class="profile-nav "><a href="/requestBlood/viewProfile">Profile</a></p>
-                    </div>      
+                    
+                    
+                    
+                    <div class="profile-selected">
+                        <div class="marker"></div>
+                        <!-- <img src="./../../public/img/hospitalsdashboard/non-active/profile.png" alt="profile"> -->
+                        <img class="profile-active" src="./../../public/img/hospitalsdashboard/active/profile.png" alt="profile">
+                        <p class="profile-act "><a href="/requestBlood/viewProfile">Profile</a></p>
+
+                    </div>
+
                 </div>
+
             </div>
+
             <div class="box">
-                <img class="success-msg" src="./../../public/img/hospitalsdashboard/success-msg-img.png" alt="success">
+            <img class="success-msg" src="./../../public/img/hospitalsdashboard/success-msg-img.png" alt="success">
                    
                     
-                <p class="msg">Successfully Deleted!</p>
+                   <p class="msg">Changes Saved Succefully!</p>
                
-                <a href="/requestBlood/viewReqBlood/" class="brown-button1">Back to request Blood</a>    
+                   <!-- <a href="/requestApproval/viewAcceptedCamps/" class="brown-button1">Back</a> -->
+                   <!-- <a href="/requestApproval/addTimeslot/" class="brown-button2">Add New</a> -->
+                   <button class='brown-button1' type='submit' name='Back' id="brown-button1" ><a href="/requestBlood/viewProfile/"  >Back</button>
 
             </div>
-
-
-        </div>
-
-    </div>
-
-</body>
-</html>

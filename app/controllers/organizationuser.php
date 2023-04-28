@@ -17,8 +17,8 @@ class OrganizationUser extends Controller
     function dashboard()
     {
         
-        //redirect to login if not logged in or login button is not clicked
-        if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
+         //redirect to login if not logged in or login button is not clicked
+         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
             header("Location: /authentication/organizationlogin");
         }
         
@@ -27,7 +27,8 @@ class OrganizationUser extends Controller
             if ($_SESSION['type'] == "Organization/Society") {
                 // $camp_info = $this->model->view_campaign_info();
                 
-                $_SESSION['campaignsList'] = $this->model->view_campaign_info();
+                $_SESSION['campaignsList'] = $this->model->view_campaign_info($_SESSION['User_ID']);
+                $_SESSION['PastCampaignsList'] = $this->model->view_past_campaign_info($_SESSION['User_ID']);
                 $this->view->render('organization/dashboard');
                 exit;
             }
@@ -41,6 +42,9 @@ class OrganizationUser extends Controller
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
+        $user_pic = $this->model->getuserimg($uname);
+        $_SESSION['user_pic'] = $user_pic;
+
         if ($this->model->authenticate($uname, $pwd)) {
 
             //set session variables
@@ -49,6 +53,7 @@ class OrganizationUser extends Controller
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['User_ID'] = $this->model-> getUserID($uname);
+            
             $this->view->render('organization/dashboard');
 
             

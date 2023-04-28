@@ -194,4 +194,33 @@ $_SESSION['CampID']=intval($_GET['campaign']);
                             else {
                                 echo "0 results";
                             }
+
+                            echo '</table>';
+                            echo '<div class="pag-box">';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                        }
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                        }
+                        
+                        echo '</div>';
             ?>

@@ -183,21 +183,24 @@ $metaTitle = 'organizations Dashboard';
                 )
                 as $row
             ) {
-                $disabled = $row['Status'] != "1" ? "disabled" : "";
+                
                 echo '<div class="table-content-types">
                           <tr>
                               <td>' . $row['Name'] . '</td>
                               <td>' . $row['Location'] . '</td>
                               <td>' . $row['Date'] . '</td>
                               <td> 
-                                  <button class="schedule-btn ' . $disabled . '" type="button" name="request" ' . $disabled . 'onclick="showConfirmation('. $row['CampaignID'] .')">Send</button>
+                              <a href="/notifications/sendNotifications?campaign='.$row["CampaignID"].'">
+                                  <button class="schedule-btn" type="button" name="request" id="btn" onclick="disableBtn()">Send</button></a>
+
                               </td>
+                              
                           </tr>
                       </div>';
             }
 
         } else {
-            echo '0 results';
+           // echo '0 results';
         }
         echo '<div class="pag-box">';
                     if (!isset($_GET['page']) || $_GET['page'] == 1) {
@@ -227,10 +230,20 @@ $metaTitle = 'organizations Dashboard';
                     
                     echo '</div>';
        ?>
+       <script>
+        document.getElementById('btn').disabled = true;
+//             var button = document.getElementById('btn');
+// button.addEventListener('click', function(event){
+//    event.target.disabled = true; 
+});
+
+        </script>
     </table>
 </div>
 
-<script>
+
+
+<!-- <script>
     function showConfirmation(campaignId) {
         var confirmed = confirm('Are you sure you want to send this notification?');
         if (confirmed) {
@@ -270,7 +283,7 @@ $metaTitle = 'organizations Dashboard';
     document.body.appendChild(confirmationBox);
 }
 
-</script>
+</script> -->
 
                         
 

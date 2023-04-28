@@ -273,7 +273,7 @@ body {
     margin-right: 1px;
 }
 
-.req-btn {
+ .req-btn {
     display: block;
     width: 131px;
     height: 33px;
@@ -281,7 +281,7 @@ body {
     border-radius: 4px;
     color: White;
     text-decoration: none;
-}
+} 
 
 .req-btn a {
     color: white;
@@ -1316,7 +1316,7 @@ td {
     color: #640E0B;
 }
 
-.usr-name {
+/* .usr-name {
     position: absolute;
     width: 318px;
     height: 48px;
@@ -1327,7 +1327,7 @@ td {
     font-weight: 700;
     font-size: 32px;
     line-height: 48px;
-    /* identical to box height */
+    
     letter-spacing: 0.01em;
     color: #000000;
 }
@@ -1343,10 +1343,10 @@ td {
     font-weight: 400;
     font-size: 24px;
     line-height: 36px;
-    /* identical to box height */
+    
     letter-spacing: 0.01em;
     color: #A4A4A4;
-}
+} */
 
 .hosName-label {
     position: absolute;
@@ -1511,28 +1511,12 @@ td {
     border-radius: 8px;
 }
 
-.currentPw-label {
-    position: absolute;
-    height: 16px;
-    left: 198px;
-    right: 0px;
-    top: 640px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.3px;
-    text-transform: capitalize;
-    color: #000000;
-}
-
-.currentPw-input {
+.newPw-input {
     box-sizing: border-box;
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 664px;
+    top: 575px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
@@ -1544,7 +1528,7 @@ td {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 730px;
+    top: 551px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1555,18 +1539,33 @@ td {
     color: #000000;
 }
 
-.newPw-input {
+.confirmPw-input {
     box-sizing: border-box;
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 755px;
+    top: 672px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
 }
 
+.confirmPw-label {
+    position: absolute;
+    height: 16px;
+    left: 198px;
+    right: 0px;
+    top: 648px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
 .edit-button {
     display: flex;
     flex-direction: row;
@@ -1599,7 +1598,8 @@ td {
     width: 165px;
     height: 52px;
     left: 934px;
-    top: 855px;
+    top: 790px;
+    color: white;
     background: #640E0B;
     border-radius: 10.8716px;
 }
@@ -1617,10 +1617,15 @@ td {
     width: 203.66px;
     height: 52.49px;
     left: 1124px;
-    top: 855px;
+    top: 790px;
+    color: #640E0B;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
+}
+
+.cancl-button a {
+    color: #640E0B;
 }
 
 .update-button a {
@@ -1708,17 +1713,17 @@ td {
 }
 
 .hospital_img {
-    top: 72px;
+    top: 135px;
     position: absolute;
-    width: 100px;
-    left: 164px;
+    width: 132px;
+    left: 360px;
 }
 
 .change_img {
-    top: 133px;
+    top: 113px;
     position: absolute;
     width: 38px;
-    left: 244px;
+    left: 394px;
     height: 43px;
 }
 
@@ -1741,7 +1746,7 @@ td {
     justify-content: space-evenly;
 }
 
-.box a img {
+/* .box a img {
     width: 30px;
 }
 
@@ -1762,7 +1767,7 @@ td {
     font-weight: normal;
     margin-left: 50px;
 }
-
+ */
 .cont {
     box-sizing: border-box;
     position: absolute;
@@ -1795,3 +1800,201 @@ td {
 .image-upload>input {
     display: none;
 }
+
+.profileBox a img {
+    width: 30px;
+}
+
+.profileBox{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 797px;
+    left: 316px;
+    top: 127px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px; 
+}
+.profileBox a{
+    /* position: absolute; */
+    /* top: 88px; */
+    margin-top: 2%;
+    margin-left: 80.5%;
+    height: 53px;
+    width: 231px;
+    background-color: #640e0b;
+    font-family: 'Poppins';
+    font-size: 19px;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profileBox .main {
+    margin-top: 7%;
+    margin-left: 24%;
+    display: flex;
+    font-family: 'Poppins';
+    line-height: 40px;
+    font-size: 22px;
+}
+
+.profileBox .main .left {
+    font-weight: bold;
+}
+
+.profileBox .main .right {
+    font-weight: normal;
+    margin-left: 50px;
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.dialog-content p{
+    font-family: 'Poppins';
+}
+
+.dialog-content label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Poppins';
+}
+
+.dialog-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.dialog-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #630e0b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Poppins';
+    border-radius: 10px;
+}
+
+#cancelButton {
+    background-color: #fcfefe;
+    color: #640E0B;
+    border: solid 2px #640E0B;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Poppins';
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    /* margin-bottom: 20px; */
+}
+
+.dialog-content button:hover {
+    opacity: 0.8;
+}
+
+
+.usr-name {
+    position: absolute;
+    width: 318px;
+    height: 48px;
+    left: 555px;
+    top: 126px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.usr-type {
+    position: absolute;
+    width: 258px;
+    height: 36px;
+    left: 555px;
+    top: 208px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+    color: #A4A4A4;
+}
+
+.edit_hospital_img {
+    top: 33px;
+position: absolute;
+width: 132px;
+left: 298px;
+}
+
+.edit_usr-name {
+    position: absolute;
+    width: 318px;
+    height: 48px;
+    left: 500px;
+    top: 23px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+    color: #000000;
+}
+
+.edit_usr-type {
+    position: absolute;
+    width: 258px;
+    height: 36px;
+    left: 500px;
+    top: 89px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+    color: #A4A4A4;
+}
+
+.user-filter-img{
+    margin-top: 51px;
+    margin-left: 1350px;
+    position: absolute;
+}
+

@@ -180,8 +180,8 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["SlotID"] . "</td>
-                                        <td>" . $row["Start_time"] . "</td>
-                                        <td>" . $row["End_time"]  .'</td>
+                                        <td>" . date('h:i A', strtotime($row["Start_time"])) . "</td>
+                                        <td>" . date('h:i A', strtotime($row["End_time"] )) .'</td>
                                         
                                         <td> 
                                         <div class="action-btns" >
