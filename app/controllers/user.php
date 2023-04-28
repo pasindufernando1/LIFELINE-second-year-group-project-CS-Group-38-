@@ -110,11 +110,11 @@ class User extends Controller
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['user_pic'] = $this->model->getuserimg($uname);
                 $_SESSION['username'] = $this->model->getUserName($uname);
-                $_SESSION['userdistrict'] = $this->model->getdonordistrict($_SESSION['user_ID']);
+                // $_SESSION['userdistrict'] = $this->model->getdonordistrict($_SESSION['user_ID']);
 
                 $_SESSION['today'] = date('Y-m-d H:i:s');
 
-                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today'], $_SESSION['userdistrict']);
+                $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today']);
 
                 $_SESSION['newest_badge'] = $this->model->getnewestbadge(
                     $_SESSION['user_ID']

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Files -->
-    <link href="../../../../public/css/admin/sidebar.css" rel="stylesheet">
+    <link href="../../../../public/css/donor/sidebar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <div class="dashboard menu-items">
                 <div class="dashboard-marker"></div>
                 <img src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="/donoruser/dashboard">Dashboard</a></p>
+                <p class="dashboard-active"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
@@ -35,10 +35,10 @@
 
             </div>
             <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
+                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
                     alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
+                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
 
             </div>
             <div class="badges menu-item">

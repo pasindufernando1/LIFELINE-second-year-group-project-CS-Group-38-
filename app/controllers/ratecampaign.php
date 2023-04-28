@@ -34,7 +34,7 @@ class Ratecampaign extends Controller
                 $_SESSION['camp_names'] = $this->model->getAllCampNames(
                     $_SESSION['all_feedback']
                 );
-                $_SESSION['camp_ads'] = $this->model->getAllCampAds(
+                $_SESSION['camp_ads_feedback'] = $this->model->getAllCampAds(
                     $_SESSION['all_feedback']
                 );
                 $this->view->render('donor/feedback');
@@ -78,6 +78,7 @@ class Ratecampaign extends Controller
                 if (
                     $this->model->save_rating($inputs, $_SESSION['selected_campid'], $_SESSION['user_ID'])
                 ) {
+                    $_SESSION['operation'] = 'sent';
                     $this->view->render('donor/campaign_feedback_successful');
                     exit();
                 } else {
@@ -139,23 +140,24 @@ class Ratecampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                if(!isset($_POST['rating'])){
+                if (!isset($_POST['rating'])) {
                     $rating = $_SESSION['selected_camprating']['Rating'];
-                }else{
+                } else {
                     $rating = $_POST['rating'];
                 }
-                    $feedback = $_POST['fb'];
-                    $inputs = [$feedback, $rating];
-                    if (
-                        $this->model->save_rating($inputs, $_SESSION['selected_campid'], $_SESSION['user_ID'])
-                    ) {
-                        $this->view->render('donor/campaign_feedback_successful');
-                        exit();
-                    } else {
-                        $this->view->render('donor/campaign_feedback');
-                        exit();
-                    }
-                
+                $feedback = $_POST['fb'];
+                $inputs = [$feedback, $rating];
+                if (
+                    $this->model->save_rating($inputs, $_SESSION['selected_campid'], $_SESSION['user_ID'])
+                ) {
+                    $_SESSION['operation'] = 'updated';
+                    $this->view->render('donor/campaign_feedback_successful');
+                    exit();
+                } else {
+                    $this->view->render('donor/campaign_feedback');
+                    exit();
+                }
+
 
             } else {
                 $this->view->render('authentication/donorlogin');
@@ -180,9 +182,13 @@ class Ratecampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $campid = $_GET['camp'];
+
+                // if (
                 $this->model->removerating($campid, $_SESSION['user_ID']);
+                $_SESSION['operation'] = 'removed';
                 $this->view->render('donor/campaign_feedback_successful');
                 exit();
+
             }
         } else {
             $this->view->render('authentication/donorlogin');

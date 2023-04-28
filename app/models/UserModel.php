@@ -142,49 +142,22 @@ class UserModel extends Model
 
     // Donor's Functions
 
-    public function getAllCampaigns($today, $district)
+    public function getAllCampaigns($today)
     {
         // $columns=['']
-        $inputs = [':Date', ':District'];
-        $values = [$today, $district];
+        $inputs = [':Date'];
+        $values = [$today];
         $data = $this->db->select(
             '*',
             'donation_campaign',
-            'WHERE Date > :Date AND Status = 1 AND District = :District ORDER BY Date ASC',
+            'WHERE Date > :Date AND Status = 1 AND Archive = 0 ORDER BY Date ASC',
             $inputs,
             $values
         );
         return $data;
     }
 
-    public function getnewestbadge($userid)
-    {
-        $camp_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_campaign_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        )[0][0];
 
-        $bank_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_bloodbank_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        )[0][0];
-        $donations = $camp_donations + $bank_donations;
-
-        $newest_badge = $this->db->select(
-            'BadgePic',
-            'badge',
-            'WHERE Donation_Constraint <= :Donations ORDER BY Donation_Constraint DESC',
-            ':Donations',
-            $donations
-        )[0][0];
-        return $newest_badge;
-    }
 
     public function getCampAds($camps)
     {
