@@ -110,15 +110,14 @@ class User extends Controller
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['user_pic'] = $this->model->getuserimg($uname);
                 $_SESSION['username'] = $this->model->getUserName($uname);
-                // $_SESSION['userdistrict'] = $this->model->getdonordistrict($_SESSION['user_ID']);
 
                 $_SESSION['today'] = date('Y-m-d H:i:s');
 
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today']);
 
-                $_SESSION['newest_badge'] = $this->model->getnewestbadge(
-                    $_SESSION['user_ID']
-                );
+                // $_SESSION['newest_badge'] = $this->model->getnewestbadge(
+                //     $_SESSION['user_ID']
+                // );
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds(
                     $_SESSION['upcoming_campaigns']
@@ -148,6 +147,7 @@ class User extends Controller
                 $no_of_bank_donations = $this->model->getNoOfBankDonations(
                     $_SESSION['user_ID']
                 );
+
                 $_SESSION['no_of_donations'] = $no_of_camp_donations + $no_of_bank_donations;
                 $this->view->render('donor/dashboard');
             } else {
@@ -162,6 +162,7 @@ class User extends Controller
             if ($this->model->authenticate($uname, $pwd)) {
                 //set session variables
                 $_SESSION['login'] = 'loggedin';
+                $_SESSION['user_pic'] = $this->model->getuserimg($uname);
                 $_SESSION['username'] = $this->model->getUserName($uname);
                 $_SESSION['User_ID'] = $this->model->getUserID($uname);
                 $_SESSION['District'] = $this->model->getUserDistrict(
@@ -189,11 +190,13 @@ class User extends Controller
 
             if ($this->model->authenticate($uname, $pwd)) {
                 //set session variables
-                $_SESSION['campaignsList'] = $this->model->view_campaign_info();
-
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['username'] = $this->model->getUserName($uname);
                 $_SESSION['User_ID'] = $this->model->getUserID($uname);
+                $_SESSION['campaignsList'] = $this->model->view_campaign_info($_SESSION['User_ID']);
+                $_SESSION['PastCampaignsList'] = $this->model->view_past_campaign_info($_SESSION['User_ID']);
+                $user_pic = $this->model->getuserimg($uname);
+                $_SESSION['user_pic'] = $user_pic;
                 $this->view->render('organization/dashboard');
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';

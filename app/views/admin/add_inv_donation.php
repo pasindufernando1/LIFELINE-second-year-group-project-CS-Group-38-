@@ -40,13 +40,18 @@ $metaTitle = "Inventory Donation"
         <p class="add-user-title">New inventory donation advertisement</p>
         <form action="/adadvertisements/add_invad_done" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label id= "hospital_name-label" class="quantity-lable" for="description">Description : </label>
+                <label id= "description-lable" class="quantity-lable" for="description">Description : </label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
+                <input id="description" class="quantity-input" type="text" name="description" autofocus placeholder="Description" required>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="total_amt">Inventory Category:</label>
                 <br>
-                <input id="reg" class="reg-input" type="text" name="inventory_category" autofocus placeholder="Inventory Category" required>
+                <select class="reg-input" type="text" name="inventory_category" id="category" placeholder="Category" required>
+                    <option value="" disabled selected hidden>Select Category</option>
+                        <?php foreach ($_SESSION['inventory'] as $category) : ?>
+                            <option value="<?php echo $category ?>"><?php echo $category ?></option>
+                        <?php endforeach; ?>
+                </select>
             </div>
             <div class="blood-container">
                 <label id ="reg-label" class="reg-lable" for="total_amt">Related Blood Bank:</label>
@@ -91,6 +96,8 @@ $metaTitle = "Inventory Donation"
         </form>       
     
     </div>
+    <script src="../../../public/js/validation/basicvalidation.js"></script>
+
 
 </body>
 </html>

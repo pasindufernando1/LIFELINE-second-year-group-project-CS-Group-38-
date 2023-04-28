@@ -723,7 +723,7 @@ td {
     font-size: 28px;
     /* identical to box height */
     letter-spacing: 0.01em;
-    color: #232323;
+    color: #bf1b16;
     margin-left: 30px;
     margin-top: 30px;
 }
@@ -814,4 +814,94 @@ td {
     background: #FFFFFF;
     box-shadow: 0px 20px 60px rgb(0 0 0 / 5%);
     border-radius: 10px;
+}
+.bloodtype-input-dash::placeholder {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    letter-spacing: 0.3px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+
+.location-container-dash {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 226px;
+}
+
+.location-lable-dash{
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    bottom: 95px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+.custom-select-dash{
+box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -16px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.bloodtype-container-dash{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 134px;
+}
+
+.bloodtype-lable-dash{
+    position: absolute;
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    bottom: 95px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.bloodtype-input-dash{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -16px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.dash-form{
+    left: 632px;
+    top: 304px;
 }

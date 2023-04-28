@@ -1,10 +1,10 @@
 <?php
-$metaTitle = "Login";
-define('__ROOT__', dirname(dirname(dirname(__FILE__))));
-require_once(__ROOT__ . '/app/views/layout/header.php');
-require_once(__ROOT__ . '/app/views/layout/navigation.php');
+    $metaTitle = "Login" ;
+    define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+    require_once(__ROOT__.'/app/views/layout/header.php');
+    require_once(__ROOT__.'/app/views/layout/navigation.php');
 
-
+    
 ?>
 <html lang="en">
 
@@ -25,20 +25,20 @@ require_once(__ROOT__ . '/app/views/layout/navigation.php');
                 <p class="b2">
                     Be the reason for someone's heartbeat.
                 </p>
-                <button class="btn-ban"><a href="donorsignup/"> Register</a></button>
+                <a href="/signup"><button class="btn-ban">Register</button></a>
             </div>
         </div>
         <div class="t-boxes">
             <div class="box-1">
-                <p class="box-p">Contact Us</p>
+                <a href="/contact"><p class="box-p">Contact Us</p></a>
                 <img src="../../../public/img/box1.png" alt="">
             </div>
             <div class="box-2">
-                <p class="box-p2">View Services</p>
+                <a href="/services"><p class="box-p2">View Services</p></a>
                 <img src="../../../public/img/box2.png" alt="">
             </div>
             <div class="box-3">
-                <p class="box-p">Donate For Good</p>
+                <a href="/signup/verify?utype=org"><p class="box-p">Organization Contributions</p></a>
                 <img src="../../../public/img/box3.png" alt="">
             </div>
         </div>
@@ -46,11 +46,11 @@ require_once(__ROOT__ . '/app/views/layout/navigation.php');
         <div class="about">
             <p class="p1-a">Welcome to LifeLine</p>
             <p class="p2-a">Blood Bank Management System</p>
-            <p class="p3-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor
-                ornare ornare. Convallis felis vitae tortor augue. Velit nascetur proin massa in. Consequat faucibus
-                porttitor enim et.</p>
+            <p class="p3-a">Your Lifesaving Blood Donation Solution! Our website connects 
+                blood donors with blood banks and hospitals, 
+                providing a user-friendly platform for easy registration, appointment scheduling, and efficient blood donation management. Join us in our mission to save lives by becoming a part of LIFELINE today!</p>
             <div class="learn">
-                <a href="#"> Learn More</a>
+                <a href="/aboutus"> Learn More</a>
                 <img src="../../../public/img/arrow.png" alt="">
 
             </div>
@@ -107,46 +107,46 @@ require_once(__ROOT__ . '/app/views/layout/navigation.php');
                     <p class="gp1">Get in touch</p>
                     <p class="gp2">Contact</p>
 
-                </div>
-
-                <div class="contact-details">
-                    <div class="phone">
-
-                        <img src="../../../public/img/g1.png" alt="Phone icon">
-                        <h3>Phone</h3>
-                        <p>+94112369931-4</p>
-                    </div>
-                    <div class="locations">
-                        <img src="../../../public//img/g2.png" alt="Location icon">
-                        <h3>Location</h3>
-                        <p>Colombo 00500</p>
-                        <p>Sri Lanka</p>
-                    </div>
-                    <div class="email">
-                        <img src="../../../public/img/g3.png" alt="Email icon">
-                        <h3>Email</h3>
-                        <p>info@nbts.health.gov.lk</p>
-                    </div>
-                    <div class="clock">
-                        <img src="../../../public/img/g4.png" alt="Clock icon">
-                        <h3>Working Hours</h3>
-                        <p>Monday-Sunday: 9am-8pm</p>
-
                     </div>
 
+                    <div class="contact-details">
+                        <div class="phone">
+                            
+                            <img src="../../../public/img/g1.png" alt="Phone icon">
+                            <h3>Phone</h3>
+                            <p>+94112369931-4</p>
+                        </div>
+                        <div class="locations">
+                            <img src="../../../public//img/g2.png" alt="Location icon">
+                            <h3>Location</h3>
+                            <p>Colombo 00500</p>
+                            <p>Sri Lanka</p>
+                        </div>
+                        <div class="email">
+                            <img src="../../../public/img/g3.png" alt="Email icon">
+                            <h3>Email</h3>
+                            <p>info@nbts.health.gov.lk</p>
+                        </div>
+                        <div class="clock">
+                            <img src="../../../public/img/g4.png" alt="Clock icon">
+                            <h3>Working Hours</h3>
+                            <p>Monday-Sunday: 9am-8pm</p>
+
+                        </div>
+                    
                 </div>
 
             </div>
         </div>
     </div>
-    <?php
+<?php
+    
+        
+    require_once(__ROOT__.'/app/views/layout/footer.php');
+ 
 
-
-    require_once(__ROOT__ . '/app/views/layout/footer.php');
-
-
-
-    ?>
+    
+?>
 </body>
 
 </html>

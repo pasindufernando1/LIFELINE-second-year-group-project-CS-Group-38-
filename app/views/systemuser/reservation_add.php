@@ -65,7 +65,7 @@ $metaTitle = "System User Reservations"
                             </div>
                             <div class="expiry-constraints-container">
                                 
-                                <button class='brown-button' type='submit' name='add-reservation'>Add Reservation</button>
+                                <button class='brown-button adbtn' type='submit' name='add-reservation'>Add Reservation</button>
                                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/reservation?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">

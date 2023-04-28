@@ -1,5 +1,5 @@
 <?php
-$metaTitle = "Reservations Added Successfully";
+$metaTitle = "Edit profile";
 
 ?>
 
@@ -38,7 +38,7 @@ $metaTitle = "Reservations Added Successfully";
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/profile_active_sidebar.php'); ?>
     <!-- main content -->
     <div class="box">
-        <form action="/adprofile/update" method="POST" enctype="multipart/form-data">
+        <form action="/adprofile/update" method="POST" enctype="multipart/form-data" id="addform">
             <div class="user-details">
                 <div class="image-1">
                     <img id="user_pic" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
@@ -83,7 +83,12 @@ $metaTitle = "Reservations Added Successfully";
                 <div class="quantity-container">
                     <label id="password-label" class="quantity-lable" for="email">Password:</label>
                     <br>
-                    <input id="password" class="quantity-input" type="text" name="password" autofocus placeholder="New Password">
+                    <input id="password" class="quantity-input" type="password" name="password" autofocus placeholder="New Password">
+                </div>
+                <div class="quantitys-container">
+                    <label id="confirmPassword-label" class="quantitys-lable" for="email">Confirm Password:</label>
+                    <br>
+                    <input id="confirmPassword" class="quantitys-input" type="password" name="password" autofocus placeholder="New Password">
                 </div>
                 <div class="expiry-constraints-container">
                     <label id="contact-label" class="expiry-constraints-lable" for="contact">Contact No:</label>
@@ -91,7 +96,7 @@ $metaTitle = "Reservations Added Successfully";
                     <input id="contact" class="expiry-constraints-input" type="text" name="contact" value="<?php echo ($_SESSION['user_contact']); ?>">
 
                 </div>
-                <button class='brown-button' type='submit' name='update-profile'>Update Profile</button>
+                <button id = "submit-btn" class='brown-button' type='submit' name='update-profile'>Update Profile</button>
                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
                 <a class='outline-button' type='reset' name='cancel-adding' href="/adprofile">Cancel Updating</a>
                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">

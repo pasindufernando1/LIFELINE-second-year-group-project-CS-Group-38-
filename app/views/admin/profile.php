@@ -71,7 +71,7 @@ $metaTitle = "Profile"
                     <br>
                     <input id="email" class="quantity-input" type="text" name="email" autofocus placeholder="<?php echo ($_SESSION['useremail']); ?>" disabled>
                 </div>
-                <div class="expiry-constraints-container">
+                <div class="expirys-constraints-container">
                     <label class="expiry-constraints-lable" for="contact">Contact No:</label>
                     <br>
                     <input id="contact" class="expiry-constraints-input" type="text" name="contact" autofocus placeholder="<?php echo ($_SESSION['user_contact']); ?>" disabled>

@@ -15,63 +15,62 @@ class HospitaluserModel extends Model
 
             if (password_verify($pwd, $hashed[0]['password'])) {
                 return true;
-            } else
-                return false;
-
-        } else
-            return false;
-
+            } else return false;
+        
+        } else return false;
+    
     }
 
     public function getUserName($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
-            $user_name = $this->db->select("username", "user", "WHERE email =:email", ':email', $email);
+            $user_name = $this->db->select("username","user","WHERE email =:email",':email',$email);
             $name_user = $user_name[0]['username'];
             return $name_user;
 
-
-        }
+        
+        } 
 
     }
 
     public function gettype($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
-            $type = $this->db->select("usertype", "user", "WHERE email =:email", ':email', $email);
+            $type = $this->db->select("usertype","user","WHERE email =:email",':email',$email);
             $type_of_user = $type[0]['usertype'];
+            //print_r($type_of_user);die();
             return $type_of_user;
-
-        }
+        
+        } 
     }
-
+    
     public function getUserID($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
-            $ID = $this->db->select("userID", "user", "WHERE email =:email", ':email', $email);
+            $ID = $this->db->select("userID","user","WHERE email =:email",':email',$email);
             $HospitalID = $ID[0]['userID'];
             return $HospitalID;
-
-        }
+        
+        } 
     }
 
-    public function signupHospital($inputs1, $inputs2, $inputs3)
+    public function signupHospital($inputs1,$inputs2,$inputs3) 
     {
 
         //Updating the user table
-        $columns1 = array('Email', 'Password', 'Username', 'Userpic', 'UserType');
-        $param1 = array(':Email', ':Password', ':Username', ':Userpic', ':UserType');
+        $columns1 = array('Email','Password','Username','Userpic','UserType');
+        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
         $result1 = $this->db->insert("user", $columns1, $param1, $inputs1);
 
 
         //Updating the hospital/medical center table
         //Get the UserID from the last inserted user from the user table
         $UserID = $this->db->lastInsertId();
-
+        
         array_unshift($inputs2, $UserID);
 
-        $columns2 = array('UserID', 'Registration_no', 'Name', 'Number', 'LaneName', 'City', 'District', 'Province', 'Status');
-        $param2 = array(':UserID', ':Registration_no', ':Name', ':Number', ':LaneName', ':City', ':District', ':Province', ':Status');
+        $columns2 = array('UserID','Registration_no','Name','Number','LaneName','City','District','Province','Status');
+        $param2 = array(':UserID',':Registration_no',':Name',':Number',':LaneName',':City',':District',':Province',':Status');
         $result2 = $this->db->insert("hospital_medicalcenter", $columns2, $param2, $inputs2);
 
         //Updating the usercontactnumber table
@@ -79,10 +78,11 @@ class HospitaluserModel extends Model
         $param3 = array(':UserID', ':ContactNumber');
         array_unshift($inputs3, $UserID);
         $result3 = $this->db->insert("usercontactnumber", $columns3, $param3, $inputs3);
-
-        if ($result1 == "Success" && $result2 == "Success" && $result3 == "Success") {
+        
+        if($result1=="Success" && $result2=="Success" && $result3=="Success"){
             return true;
-        } else {
+        }
+        else{
             print_r($result1);
             print_r($result2);
             print_r($result3);
@@ -92,24 +92,25 @@ class HospitaluserModel extends Model
     public function checkMail($email)
     {
         $res = ($this->db->select('userID', "user", "WHERE email = :email;", ':email', $email));
-        if (!empty($res)) {
+        if(!empty($res)){
             return true;
-        } else {
+        }
+        else{
             return false;
         }
 
     }
 
-
+    
     public function insertToken($email)
     {
         if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
-            $user_ID = $this->db->select("UserID", "user", "WHERE email =:email", ':email', $email);
+            $user_ID = $this->db->select("UserID","user","WHERE email =:email",':email',$email);
             $user_ID = $user_ID[0]['user_ID'];
             return $user_ID;
 
-
-        }
+        
+        } 
 
     }
 
@@ -119,19 +120,23 @@ class HospitaluserModel extends Model
         $result = $this->db->update("user", "password", ":password", $passw, ':email', $email, "WHERE email = :email");
         if ($result == "Success") {
             return true;
-        } else
-            print_r($result);
+        } else print_r($result);
     }
 
     public function getuserimg($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
-            $type = $this->db->select("userpic", "user", "WHERE email =:email", ':email', $email);
+            $type = $this->db->select("userpic","user","WHERE email =:email",':email',$email);
             $user_pic = $type[0]['userpic'];
             //print_r($user_pic);die();
             return $user_pic;
-
-        }
+        
+        } 
     }
 
 }
+
+
+
+    
+

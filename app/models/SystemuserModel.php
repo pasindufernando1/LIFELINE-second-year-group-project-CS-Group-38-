@@ -63,6 +63,22 @@ class SystemuserModel extends Model
         } 
     }
 
+    public function getAllDonorDetailsJoin()
+    {
+        // Get all the donor details
+        $data = $this->db->select("*, MAX(donor_bloodbank_bloodpacket.date) as lastdate", "donor","
+        LEFT JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID
+        INNER JOIN user on donor.UserID = user.UserID 
+        GROUP BY donor.UserID ORDER BY donor_bloodbank_bloodpacket.Date DESC",null);
+        return $data;
+    }
 
+    public function getMonthlyDonation()
+    {
+        // Get all the donor details
+        $data = $this->db->select(" COUNT(date) as counts", "donor_bloodbank_bloodpacket"," 
+        GROUP BY MONTH(record_date) ORDER BY Date ASC",null);
+        return $data;
+    }
     
 }

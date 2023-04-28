@@ -52,7 +52,12 @@ $metaTitle = "Blood Banks"
         
         
         <?php 
-        $status = $_SESSION['is_filtered_user']? 'true' : 'false';
+        $status = false;
+        if(isset($_SESSION['is_filtered'])){
+            $status = $_SESSION['is_filtered']? 'true' : 'false';
+        }else{
+            $status = 'false';
+        }
         $results_per_page = 7;
         $number_of_results = count($_SESSION['bloodbanks']);
         $number_of_page = ceil($number_of_results / $results_per_page);

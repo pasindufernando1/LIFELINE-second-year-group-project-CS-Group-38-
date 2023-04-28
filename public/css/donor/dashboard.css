@@ -4121,7 +4121,7 @@ fieldset {
 }
 
 .popup div div .no-button {
-    background-color: #e8e8e8;
+    background-color: #a7a7a7;
     color: #630e0b;
 }
 
@@ -4308,7 +4308,7 @@ h3 {
     left: 301px;
     width: 1585px;
     top: 133px;
-    height: 755px;
+    /* height: 755px; */
     border: 2px solid #eceef7;
     border-radius: 6px;
     background-color: white;

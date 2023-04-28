@@ -15,20 +15,20 @@
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
+
+    <!-- loader -->
+    
 </head>
 <body>
+    
+    
+
     <div class="top-bar">
         <div class="logo">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
         </div>
-        <div class="search">
-            <img src="./../../public/img/dashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/dashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
+        
+        
         <div class="login-user">
             <div class="image">
                 <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">

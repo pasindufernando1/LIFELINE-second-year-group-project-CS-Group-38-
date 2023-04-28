@@ -1,5 +1,6 @@
 <?php 
-$metaTitle = "System User Reservations" 
+$metaTitle = "System User Donors" 
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,10 @@ $metaTitle = "System User Reservations"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
 
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>       
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>     
+
+     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/filters/donor.php'); ?> 
+
                     <div class="box">
                         <p class="add-reservation-title">Donors</p>
                         
@@ -45,23 +49,23 @@ $metaTitle = "System User Reservations"
                          <a href="/sys_donors/donation?page=1" class="brown-button donation-btn">Donation</a>
                         <img class="typebutton-reservation donation-img" src="./../../public/img/dashboard/donation.png" alt="add-button">
 
-                        <a href="#" class="ash-button reservation-filter">Filter & Short</a>
+                        <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id02').style.display='block'">Filter & Short</a>
                         <img class="reservation-filter-img" src="./../../public/img/dashboard/filter-icon.png" alt="reservation-filter-img">
 
                         <table class="blood-types-table" style="width:90%">
                         <tr>
-                            <th>Donor ID</th>
                             <th>Full Name</th>
                             <th>NIC No</th>
-                            <th>Location</th>
-                            <th>Email</th>
-                            <th>Contact No</th>
+                            <th>BloodType</th>
+                            <th>Gender</th>
+                            <th>District</th>
                             <th>Action</th>
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
+                        $_SESSION['filtered_donors'] = $_SESSION['donors'];
                         $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_results = count($_SESSION['donors']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
                         //determine which page number visitor is currently on  
@@ -72,23 +76,38 @@ $metaTitle = "System User Reservations"
                         }  
                          //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['packets'];
+                        $result = $_SESSION['donors'];
 
                         //display the link of the pages in URL  
                           
 
                         // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
+
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                
+                                $lastdate = strtotime($row["lastdate"]);
+                                $diff = 10520000;
+
+                                $datenow = date("Y-m-d");
+                                $dateinsec = strtotime($datenow);
+                                
+                                
                                 echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Name"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
-                                        <td>" . $row["Quantity"] . '</td>
-                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/sys_inventory/view/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> <a href="/reservation/delete_types/'.$row["TypeID"].'">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
+                                        <td>' . $row["Fullname"] . '';
+                                        if($dateinsec - $lastdate >= $diff){
+                                            echo '<span class="eligible">Eligible</span>';
+                                        }else{
+                                             echo '<span class="not-eligible">Not Eligible</span>';
+                                        }
+                                        
+                                echo       "</td>
+                                        <td>" . $row["NIC"] . "</td>
+                                        <td>" . $row["BloodType"] . "</td>
+                                        <td>" . $row["Gender"] . "</td>
+                                        <td>" . $row["District"] . '</td>
+                                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/sys_donors/edit_donor/'.$row["UserID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="edit-btn-div"> <a href="/sys_donors/view_donor/'.$row["UserID"].'">   <img class="edit-btn" src="./../../public/img/dashboard/view-icon.png" alt="delete-btn"> </a> </div> </div></td>
                                     </tr> </div>';
                                 
                             }
@@ -96,26 +115,49 @@ $metaTitle = "System User Reservations"
                             echo "0 results";
                         }
                         echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
-                        }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                        if (isset($_GET['filtered'])) {
+                            if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '&filtered=1">&laquo;</a> </div>'; 
                             }else{
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '&filtered=1">&laquo;</a> </div>';   
                             }
-                        }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-                        }
-                          
-                        echo '</div>' ;?>
+                    
+                            for($page = 1; $page<= $number_of_page; $page++) {  
+                                if ($page == $_GET['page']) {
+                                    echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '&filtered=1">' . $page . ' </a> </div>';
+                                }else{
+                                    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '&filtered=1">' . $page . ' </a> </div>';  
+                                }
+                            }
+                            if ($_GET['page'] == $number_of_page) {
+                                    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '&filtered=1">&raquo; </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '&filtered=1">&raquo; </a> </div>';  
+                            }
+                            
+                            echo '</div>' ;
+                        } else {
+                            if ($_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                            }
+                    
+                            for($page = 1; $page<= $number_of_page; $page++) {  
+                                if ($page == $_GET['page']) {
+                                    echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                                }else{
+                                    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                                }
+                            }
+                            if ($_GET['page'] == $number_of_page) {
+                                    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                            }else{
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
+                            }
+                            
+                            echo '</div>' ;
+                        }?>
                         
                         </table>
 

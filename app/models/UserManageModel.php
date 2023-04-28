@@ -500,6 +500,18 @@ class UserManageModel extends Model
         }
     }
 
+    function deleteAdminDetails($user_id)
+    {
+        //Set the deactivation status of the user to 1 (Deactivated)
+        $result1 = $this->db->update("user", "Deactivation", ":Deactivation", "1", ":user_id", $user_id, "WHERE UserID = :user_id");
+        if ($result1 == "Success") {
+            return true;
+        } else 
+        {   
+            print_r($result1);
+        }
+    }
+
     public function reactivateUser($user_id)
     {
         //Set the deactivation status of the user to 0 (Activated)

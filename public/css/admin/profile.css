@@ -881,6 +881,14 @@ a {
     top: 320px;
 }
 
+.quantitys-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 530px;
+}
+
 .nic-container {
     position: absolute;
     height: 64px;
@@ -920,6 +928,20 @@ a {
     color: #000000;
 }
 
+.quantitys-lable {
+    height: 16px;
+    left: 0px;
+    right: 0px;
+    top: -200px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #000000;
+}
 .nic-lable {
     position: absolute;
     height: 16px;
@@ -1288,8 +1310,19 @@ a {
     width: 100%;
 }
 
-.quantity-input::placeholder {
-    font-family: 'Mulish';
+.quantitys-input {
+    box-sizing: border-box;
+    left: 0px;
+    right: 0px;
+    top: -180px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.quantity-input::placeholder , .quantitys-input::placeholder {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -1684,7 +1717,15 @@ a {
     height: 64px;
     left: 65px;
     right: 114px;
-    top: 420px;
+    top: 530px;
+}
+
+.expirys-constraints-container {
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 530px;
 }
 
 .expiry-constraints-lable {
@@ -2692,7 +2733,7 @@ canvas {
 }
 
 .expiry-constraints-container {
-    top: 530px;
+    top: 630px;
 }
 
 .expired-stock-btn {
