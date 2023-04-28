@@ -13,7 +13,8 @@ class UserModel extends Model
             $this->db->select(
                 'count',
                 'user',
-                'WHERE email = :email;',
+                'WHERE email = :email
+                AND Deactivation = 0;',
                 ':email',
                 $email
             ) > 0

@@ -12,6 +12,7 @@
     flex-wrap: nowrap;
     flex: 100%;
     flex-shrink: 100px;
+    justify-content:space-between;
 }
 
 .logo img {
@@ -142,6 +143,7 @@
     flex-shrink: 0;
     margin-left: 10.2vh;
     margin-top: 2.5vh;
+        margin-right: 39px;
 }
 
 .more img:hover {

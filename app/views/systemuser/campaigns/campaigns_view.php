@@ -101,7 +101,7 @@ $metaTitle = "System User - Campaigns"
                                 <?php 
                     
                                 foreach($_SESSION['addet'] as $row){ ?>
-                                    <img title="Open Image In New Tab" id="pie" class="mySlides" src="./../../public/img/adv/<?php echo $row['AdvertisementPic'] ?>" style="width:100%" onclick=" window.open(this.getAttribute('src'),'Image','width=largeImage.stylewidth,height=largeImage.style.height,resizable=1');">
+                                    <img title="Open Image In New Tab" id="pie" class="mySlides" src="./../../public/img/adv/<?php echo $row['Advertisement_pic'] ?>" style="width:100%" onclick=" window.open(this.getAttribute('src'),'Image','width=largeImage.stylewidth,height=largeImage.style.height,resizable=1');">
                                 <?php }
                                 
                                 ?>
@@ -114,7 +114,7 @@ $metaTitle = "System User - Campaigns"
                             </div>
                             <p class="destext"> Description: <?php echo $row['Description']; ?></p>
                             <p class="destext"> Published Date: <?php echo $row['PublishedDate']; ?></p>
-                            <div class="del-div"><a title="Delete This Advertisement" href="/sys_campaigns/deletead/<?php echo  $_SESSION['campaign'][0]['CampaignID'] ?>">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div>
+                            <div class="del-div"><a title="Delete This Advertisement" href="/sys_campaigns/deletead/<?php echo  $_SESSION['campaign'][0]['CampaignID'] ?>/<?php echo  $_SESSION['campaign'][0]['AdvertisementID'] ?>">   <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div>
                             <script>
                                 var slideIndex = 1;
                                 showDivs(slideIndex);
