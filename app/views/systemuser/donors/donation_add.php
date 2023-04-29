@@ -39,7 +39,7 @@ $metaTitle = "Donation - Add New" ;
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>1`
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
                     <div class="box">
                         <p class="add-reservation-title">Add to Donation</p>
                         <form action="/sys_donors/store_donation" method="post">
@@ -74,14 +74,7 @@ $metaTitle = "Donation - Add New" ;
                         </form>
                     </div>
 
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
+               
 
 </body>
 </html>

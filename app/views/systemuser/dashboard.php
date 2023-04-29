@@ -1,5 +1,9 @@
 <?php 
-$metaTitle = "System User Dashboard" 
+$result = $_SESSION['month_donations'];
+$result2 = $_SESSION['no_of_donors'];
+// print_r($result );die();
+
+$metaTitle = "System User Dashboard" ;
 ?>
 
 <!DOCTYPE html>
@@ -49,22 +53,22 @@ if (isset($_GET['mail'])) {
     
 <div class="bo1">
     <p class="te1">Donations Today</p>
-    <p class="te2">8566</p>
+    <p class="te2"><?= $_SESSION['donation_today']?></p>
 </div>
 
 <div class="bo2">
     <p class="te1">Card Issued</p>
-    <p class="te2">1,234</p>
+    <p class="te2"><?=$_SESSION['cards_issued']?></p>
 </div>
 
 <div class="bo3">
     <p class="te1">Advertisements Ongoing</p>
-    <p class="te2">7</p>
+    <p class="te2"><?=$_SESSION['ads_count'] ?></p>
 </div>
 
 <div class="bo4">
     <p class="te1">Campaign Requests</p>
-    <p class="te2">17</p>
+    <p class="te2"><?= $_SESSION['camp_req_count']?></p>
     
 </div>
 
@@ -76,10 +80,18 @@ if (isset($_GET['mail'])) {
                     var myChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            labels: <?php 
+                                    // Get the keys, and print them out.
+                                    $keys = array_keys($result);
+                                    echo json_encode($keys);
+                                ?>,
                             datasets: [{
                                 label: 'Donation Received',
-                                data: [12, 19, 3, 5, 2, 3, 1, 2, 3, 4, 5, 6],
+                                data: 
+                                 <?php 
+                                        $values = array_values($result);
+                                        echo json_encode($values);
+                                    ?>,
                                 backgroundColor: [
                                     '#BF1B16',
                                     '#BF1B16',
@@ -121,6 +133,8 @@ if (isset($_GET['mail'])) {
                                 fontStyle: 'bold',
                                 hoverOffset: 4
                             },
+                            responsive: true,
+                            maintainAspectRatio: false,
                             scales: {
                                 x: {
                                     
@@ -221,10 +235,17 @@ if (isset($_GET['mail'])) {
                      labels: ['Male', 'Female'],
                             
                     data: {
-                            labels: ['Male', 'Female'],
+                            labels: <?php 
+                                    // Get the keys, and print them out.
+                                    $keys2 = array_keys($result2);
+                                    echo json_encode($keys2);
+                                ?>,
                             datasets: [{
-                                label: 'Donation Received',
-                                data: [12, 19 ],
+                                label: 'Donation Composition',
+                                data: <?php 
+                                        $values2 = array_values($result2);
+                                        echo json_encode($values2);
+                                    ?>,
                                 backgroundColor: [
                                     '#BF1B16',
     
