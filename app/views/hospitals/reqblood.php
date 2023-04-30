@@ -57,7 +57,10 @@ $metaTitle = "Hospitals Dashboard";
             </div>
             <div class="box">
                 <p class ="reqb-head">Choose Here</p>
+                
+                        <img class= "reqb-img" src="../../../public/img/hospitalsdashboard/request blood.gif" alt="request blood">
                         <button class = "reqb-button"><a href="/requestBlood/viewDetails">Request Blood</a></button>
+                        <img class= "reqbstatus-img" src="../../../public/img/hospitalsdashboard/view status.gif" alt="view status">
                         <button class = "reqbstatus-button"><a href="/requestBlood/viewRequests">View Status Of Requested Blood</a></button>
                 </div>
 

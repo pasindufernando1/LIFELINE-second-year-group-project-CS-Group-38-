@@ -54,9 +54,9 @@ $metaTitle = "Hospitals Dashboard"
                 </div>
             </div>
             <div class="box">
-                        <p class="view-bloodBank-title">View Blood Banks</p>
+                        <p class="view-bloodBank-title">Select Blood Bank to Requset Blood</p>
                         <form action="/requestBlood/add_Request/" method="post">
-                        <table class="bloodBanks-table" style="width:90%">
+                        <table class="bloodBanks-table" style="width:80%">
                         <tr>
                             <th>Blood Bank ID</th>
                             <th>Name</th>

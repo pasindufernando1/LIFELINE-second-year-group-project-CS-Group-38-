@@ -225,7 +225,7 @@ class signup extends Controller
 
     function donor_regunseccessful()
     {
-        $this->view->render('signup/signupunsuccessful');
+        $this->view->render('signup/donorsignupunsuccessful');
         exit;
     }
 

@@ -11,7 +11,7 @@
 
 .dashboard-active a {
     color: #000000 !important;
-    font-weight: unset !important;
+    font-weight: 300 !important;
 }
 
 .red-dash {

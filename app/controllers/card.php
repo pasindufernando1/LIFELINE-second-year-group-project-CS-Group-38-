@@ -14,7 +14,7 @@ class Card extends Controller
             if ($_SESSION['type'] == 'Donor') {
 
                 $_SESSION['user_details'] = $this->model->getUserName($_SESSION['user_ID']);
-                $_SESSION['newest_badge'] = $this->model->getnewestbadge($_SESSION['user_ID']);
+                // $_SESSION['newest_badge']=$this->model->getnewestbadge($_SESSION['user_ID']);
                 $_SESSION['age'] = $this->model->getAge($_SESSION['user_ID']);
 
                 $_SESSION['no_of_donations'] = $this->model->getNoOfCampDonations($_SESSION['user_ID']) + $this->model->getNoOfBankDonations($_SESSION['user_ID']);

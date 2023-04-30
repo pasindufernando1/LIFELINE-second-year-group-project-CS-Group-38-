@@ -18,7 +18,7 @@ $metaTitle = "Donors - Add New"
     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/donor.css" rel="stylesheet">
-    <link href="../../../public/css/admin/add.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/donor_add.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">

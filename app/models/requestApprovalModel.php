@@ -21,6 +21,7 @@ class RequestApprovalModel extends Model
         $donationType = "Inventory";
         $data = $this->db->select("AdvertisementID", "donation", "WHERE DonationType = :DonationType;", ':DonationType', $donationType);
         //print_r($data);die();
+        //print_r($data);die();
         return $data;
     }
 

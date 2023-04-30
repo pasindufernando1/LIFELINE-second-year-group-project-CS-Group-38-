@@ -115,13 +115,14 @@ $metaTitle = "organizations Dashboard"
                         name="request">Back to Campaigns</a></button>
                 <a href="#" class="ash-button1 reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
                 <img class="user-filter-img1" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
-                <table class="feedbacks-table" style="width:90%">
+                <table class="feedbacks-table" style="width:84%">
                     <tr>
 
                         <th>Name of the Donor</th>
                         <th>Date</th>
-                        <th>Feedback</th>
                         <th>Rating</th>
+                        <th>Feedback</th>
+                        
 
                     </tr>
                     <hr class="feedbacks-line">
@@ -156,14 +157,14 @@ $metaTitle = "organizations Dashboard"
                                     <tr>
                                          <td>' . $row["Fullname"]. "</td>
                                             <td>" . $row["Date"]. "</td>
-                                         <td>" . $row["Feedback"] . "</td>
-                                            <td>" . $row["Rating"] . '</td>
+                                         <td>" . $row["Rating"] . "</td>
+                                            <td>" . $row["Feedback"] . '</td>
                                     </tr>
                                 </div>';
                                 }
                         } 
                         else {
-                            echo '0 results';
+                            //echo '0 results';
                         }
                         echo '<div class="pag-box">';
 if (!isset($_GET['page']) || $_GET['page'] == 1) {

@@ -60,7 +60,7 @@ $metaTitle = "Hospitals Dashboard";
                         <!-- <form action="/requestBlood/add_Request/" method="post"> -->
                         <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
                         <img class="user-filter-img" src="./../../public/img/hospitalsdashboard/filter-icon.png" alt="reservation-filter-img">   
-                        <table class="bloodBanks-table" style="width:90%">
+                        <table class="bloodBanks-table" style="width:80%">
                         <tr>
                             <th>Blood Group</th>
                             <th>Blood Component</th>
@@ -77,7 +77,13 @@ $metaTitle = "Hospitals Dashboard";
                         </tr>
                         <hr class="bloodBanks-line">
                         <?php 
-                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                        
+                        if(isset($_SESSION['is_filtered'])){
+                            $status = $_SESSION['is_filtered']? 'true' : 'false';
+                        }else{
+                            $status = 'false';
+                        }
+
                         $results_per_page = 7;
                         $number_of_results = count($_SESSION['bloodBanks']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
@@ -108,7 +114,7 @@ $metaTitle = "Hospitals Dashboard";
                                         <td>" . $row["BloodBank_Name"] . "</td>
                                         <td>"  . $row["Status"] .  '</td>
                                         <td> 
-                                        <a href="/requestBlood/deleteRequest?request='.$row["RequestID"].'"><button class="req-btn" type="button" name="request1">Withdraw</a></button>                                
+                                        <a href="/requestBlood/deleteRequest?request='.$row["RequestID"].'"><button class="req-btn" type="button" name="request1" onclick="showPopup(event)">Delete</a></button>                                
                                         </td>
                                     </tr> </div>';
                                 
@@ -158,6 +164,39 @@ echo '</div>';
         </div>
 
     </div>
+    <div class="popup">
+        <div>
+            <p>Are you sure you want to Delete this Request?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
 
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+    </div>
+    <script>
+    function showPopup(event) {
+        // console.log(href);
+
+        event.preventDefault(); // prevent following the link
+        var popup = document.querySelector(".popup");
+        popup.style.display = "block"; // show the pop-up box
+        var yesButton = document.querySelector(".yes-button");
+        yesButton.onclick = function() {
+            window.location.href = event.target.href; // follow the link
+        };
+        var noButton = document.querySelector(".no-button");
+        noButton.onclick = function() {
+            popup.style.display = "none"; // hide the pop-up box
+        };
+    }
+
+    function hidealert() {
+        var popup = document.querySelector(".popup");
+        popup.style.display = "none";
+    }
+    </script>
 </body>
 </html>

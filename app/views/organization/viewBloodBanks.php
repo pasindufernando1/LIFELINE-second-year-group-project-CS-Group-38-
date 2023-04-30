@@ -112,7 +112,7 @@ $metaTitle = "organizations Dashboard"
                 <p class="view-bloodBank-title">Request Approval For Campaigns From BloodBanks</p>
                 <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
                 <img class="user-filter-imgB" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
-                <table class="bloodBanks-table" style="width:90%">
+                <table class="bloodBanks-table" style="width:80%">
                     <tr>
                         
                         <th>Name</th>

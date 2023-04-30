@@ -21,7 +21,7 @@
 <body>
     <div class="top-bar">
         <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
+            <a href="/index"><img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal"></a>
         </div>
         <!-- <div class="search">
             <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
