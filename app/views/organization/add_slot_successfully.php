@@ -1,8 +1,8 @@
 <?php 
 
 $metaTitle = "organizations Dashboard" ;
-$_SESSION['campaignId'] =intval($_GET['campaign']);
-//print_r($_SESSION['campaignId']);die();
+
+// print_r($_SESSION['campaignId']);die();
 ?>
 
 <!DOCTYPE html>
@@ -109,11 +109,13 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                     </div>
                 </div>
             </div>
+            
             <div class="box">
             <img class="success-msg" src="./../../public/img/hospitalsdashboard/success-msg-img.png" alt="success">   
             <p class="msg">Successfully Reserved the timeslot!</p>
-            <a href="/requestApproval/scheduleTimeslots?campaign=19" class="brown-button1">Back to Schedule time</a>
-               
+           
+            <a href="/requestApproval/scheduleTimeslots?campaign=<?php echo $_SESSION['campaignId']; ?>"><button class="brown-button1">Back to Schedule time</button></a>
+              
 
                    
        </div>

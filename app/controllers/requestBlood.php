@@ -332,7 +332,19 @@ class requestBlood extends Controller
     function editProfile()
     {
         if ($_SESSION['type'] == "Hospital/Medical_Center") {
-            
+            $_SESSION['user_details'] = $this->model->get_telno($_SESSION['User_ID'] );
+           // print_r( $_SESSION['user_details'][1]['Password']);die();
+            $_SESSION['user_Name'] = $_SESSION['user_details'][0]['Name'];
+            $_SESSION['user_Number'] = $_SESSION['user_details'][0]['Number'];
+            $_SESSION['user_LaneName'] = $_SESSION['user_details'][0]['LaneName'];
+            $_SESSION['user_City'] = $_SESSION['user_details'][0]['City'];
+            $_SESSION['user_District'] = $_SESSION['user_details'][0]['District'];
+            $_SESSION['user_Province'] = $_SESSION['user_details'][0]['Province'];
+            $_SESSION['user_telno']= $_SESSION['user_details'][2]['ContactNumber'];
+            $_SESSION['user_username'] = $_SESSION['user_details'][1]['Username'];
+            $_SESSION['user_userType'] = $_SESSION['user_details'][1]['UserType'];
+            $_SESSION['user_user_pic'] = $_SESSION['user_details'][1]['Userpic'];
+            $_SESSION['password']= $_SESSION['user_details'][1]['Password'];
             $this->view->render('hospitals/editProfile');
 
         }
@@ -422,11 +434,11 @@ class requestBlood extends Controller
             $Password = $_POST['newPw'];
             $user_pic = $filename;
             
-            if(empty($Password)){
+             if(empty($Password)){
                 $Password = $_SESSION['password'];
             }else{
                 $Password = password_hash($_POST['newPw'], PASSWORD_DEFAULT);
-            }
+            } 
 
             $inputs1 = [$Password, $orgName,$user_pic];
             $inputs2 = [$orgName, $num, $laneNme, $cit, $dis, $prov];

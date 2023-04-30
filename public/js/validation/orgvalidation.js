@@ -22,10 +22,10 @@ const quantity = document.getElementById("quant");
 const quantityLabel = document.getElementById("quant-label");
 var quantity_flag = true;
 
-const location = document.getElementById("location-input");
+/* const location = document.getElementById("location-input");
 const locationLabel = document.getElementById("location-label");
 var location_flag = true;
-
+ */
 const beds = document.getElementById("beds");
 const bedsLabel = document.getElementById("beds-label");
 var beds_flag = true;
@@ -35,8 +35,10 @@ const submitQuantity = document.getElementById("submit-btn");
 
 //Contact number validation
 contactnumber?.addEventListener("input", function () {
+    console.log("Invalid Contact Number");
     var reg = /^[0-9]{10}$/;
     if (!reg.test(contactnumber.value)) {
+        
         contactnumber.readOnly = false;
         contactLabel.innerHTML = "Invalid Contact Number";
         contactLabel.style.color = "red";

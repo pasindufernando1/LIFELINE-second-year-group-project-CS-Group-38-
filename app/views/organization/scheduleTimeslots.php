@@ -110,7 +110,7 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                 </div>
             </div>
             <div class="box">
-                <p class="view-campaigns-title">Schedule Timeslots </p>
+                <p class="view-campaigns-title">Reserve Timeslots </p>
 
                 <table class="campaigns-table" style="width:70%">
                     <tr>
@@ -142,7 +142,7 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                           
                        
 
-                         
+                         //print_r($_SESSION['allTimeslots']);die();
                         if ($_SESSION['rowCount'] > 0) {
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
@@ -150,7 +150,7 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                                         <td>" . date('h:i A', strtotime($row["Start_time"])) . "</td>
                                         <td>" . date('h:i A', strtotime($row["End_time"] )) .'</td>';
                                         if($row["Status"] == 0){
-                                            echo "<td><span class='pending-btn'>Not reserved</span></td>";
+                                        echo "<td><span class='pending-btn'>Not reserved</span></td>";
                                             echo '<td><a class= "verify-btn" onclick="showPopup(event)" href="/requestApproval/addTimeslot/'.$row["SlotID"].'">
                                             Reserve</a></td>
                                             </tr> </div>';
@@ -216,7 +216,7 @@ echo '</div>';
             </div>
 
 
-            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+            <img class="close" onclick="hidealert()" src="../../../public/img/hospitalsdashboard/close.png">
 
         </div>
     </div>

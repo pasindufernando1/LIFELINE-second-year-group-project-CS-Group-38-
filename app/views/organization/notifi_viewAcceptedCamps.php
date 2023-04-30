@@ -111,20 +111,20 @@ $metaTitle = 'organizations Dashboard';
                 </div>
             </div>
             <div class="box">
-    <p class="view-campaigns-title">View Campaigns</p>
+                <p class="view-campaigns-title">View Campaigns</p>
 
-    <table class="campaigns-table" style="width:90%">
-        <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-        <hr class="campaigns-line">
-        <?php
-        $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
-        $number_of_page = ceil($number_of_results / $results_per_page);
+                <table class="campaigns-table" style="width:90%">
+                <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Action</th>
+                </tr>
+                <hr class="campaigns-line">
+                <?php
+                $results_per_page = 7;
+                $number_of_results = $_SESSION['rowCount'];
+                $number_of_page = ceil($number_of_results / $results_per_page);
 
         //determine which page number visitor is currently on
         if (!isset($_GET['page'])) {
@@ -156,7 +156,7 @@ $metaTitle = 'organizations Dashboard';
                               <td>' . $row['Date'] . '</td>
                               <td> 
                               <a href="/notifications/sendNotifications?campaign='.$row["CampaignID"].'">
-                                  <button class="schedule-btn" type="button" name="request" id="btn" onclick="disableBtn()">Send</button></a>
+                                  <button class="schedule-btn1" type="button" name="request1" id="btn" onclick="showPopup(event)" ">Send</a></button>
 
                               </td>
                               
@@ -195,16 +195,55 @@ $metaTitle = 'organizations Dashboard';
                     
                     echo '</div>';
        ?>
-       <script>
+       <!-- <script>
         document.getElementById('btn').disabled = true;
 //             var button = document.getElementById('btn');
 // button.addEventListener('click', function(event){
 //    event.target.disabled = true; 
-});
 
-        </script>
+
+        </script> -->
+      
     </table>
-</div>
+    <div class="popup">
+        <div>
+            <p>Are you sure to send notifications to Donors?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
+
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+    </div>
+    <script>
+    function showPopup(event) {
+        // console.log(href);
+
+        event.preventDefault(); // prevent following the link
+        var popup = document.querySelector(".popup");
+        popup.style.display = "block"; // show the pop-up box
+        var yesButton = document.querySelector(".yes-button");
+        yesButton.onclick = function() {
+            window.location.href = event.target.href; // follow the link
+        };
+        var noButton = document.querySelector(".no-button");
+        noButton.onclick = function() {
+            popup.style.display = "none"; // hide the pop-up box
+        };
+    }
+
+    function hidealert() {
+        var popup = document.querySelector(".popup");
+        popup.style.display = "none";
+    }
+
+    
+    </script>
+
+    
+</body>
 
 
 
@@ -254,16 +293,6 @@ $metaTitle = 'organizations Dashboard';
 
                   
 
-                </table>
+               
 
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</body>
-
-</html>
+          
