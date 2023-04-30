@@ -63,7 +63,7 @@ class DonationhistoryModel extends Model
         $camp_amounts = [];
         foreach ($packetids as $packetid) {
             $amount = $this->db->select(
-                'Quantity',
+                'SUM(Quantity)',
                 'bloodpacket',
                 'WHERE PacketID = :PacketID',
                 ':PacketID',
@@ -89,7 +89,7 @@ class DonationhistoryModel extends Model
             );
             foreach ($packetid as $packet) {
                 $amount = $this->db->select(
-                    'Quantity',
+                    'SUM(Quantity)',
                     'bloodpacket',
                     'WHERE PacketID = :PacketID',
                     ':PacketID',
@@ -241,7 +241,7 @@ class DonationhistoryModel extends Model
         $total = 0;
         foreach ($camps as $camp) {
             $amount = $this->db->select(
-                'Quantity',
+                'SUM(Quantity)',
                 'bloodpacket',
                 'WHERE PacketID = :PacketID',
                 ':PacketID',

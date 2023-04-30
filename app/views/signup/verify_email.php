@@ -27,13 +27,13 @@ require_once(__ROOT__ . '/views/layout/navigation.php');
             <p>Enter your Email below</p>
         </div>
 
-        <form class="donor-form" action="/signup/get_otp" method="post" id="user-login" name="login-form">
+        <form class="donor-form" action="/signup/get_otp" method="post" id="email-form" name="login-form">
             <label class="username-lable" for="email">Email</label>
             <br>
             <input id="email" class="username-input" type="email" name="email" autofocus placeholder="Enter Email"
                 required>
             <p id="email-error" class="email-error"></p>
-            <button class='login-button' type='submit'>Get OTP</button>
+            <button id="email-submit" class='login-button' type='submit' >Get OTP</button>
 
         </form>
 
