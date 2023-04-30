@@ -34,42 +34,7 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -146,9 +111,12 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
             echo '<div class="box">
              <p class="campaign-name">Registered Donors in '.($_SESSION['campaign_array'][1]).' Campaign</p><br>
                 <table class="timeslots-table" style="width:40%">
+                <img class="nurse-img" src="./../../public/img/orgdashboard/nurse.png" alt="nurse" >
                 <tr>
                 
                 <th>Name of the Donor</th>
+                <th>NIC</th>
+                <th>Contact Number</th>
                 
                 </tr>
             </div>';
@@ -179,36 +147,47 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                                 
                                 echo '<div class="table-content-types"> <tr>
                                         
-                                        <td>' .$row[0]. '</td>
+                                        <td>' .$row['Fullname']. "</td>
+                                        <td>" .$row['NIC']. "</td>
+                                        <td>" .$row['Contact']. '</td>
+
                                         
                                         </tr> </div>';  
                                                                             
                             }
                         } 
                         else {
-                            echo "0 results";
+                            echo '<div class="table-content-types"> <tr>
+                                <td>No Donors Yet </td>
+                                </tr> </div>';
                         }
-                         /* echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
+                        echo '<div class="pag-box1">';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
                         }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
                                 echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-                            }else{
+                            } else {
                                 echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
                             }
                         }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-                        } 
-                          
-                        echo '</div>' ; */ ?>
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                        }
+                        
+                        echo '</div>'; ?>
                 </table>
 
             

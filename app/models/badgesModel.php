@@ -26,16 +26,21 @@ class BadgesModel extends Model
             ':DonorID',
             $userid
         )[0][0];
-        $donations=$camp_donations + $bank_donations;
+        $donations = $camp_donations + $bank_donations;
 
-        $newest_badge = $this->db->select(
-            'BadgePic',
-            'badge',
-            'WHERE Donation_Constraint <= :Donations ORDER BY Donation_Constraint DESC',
-            ':Donations',
-            $donations
-        )[0][0];
-        return $newest_badge;
+        if ($donations == 0) {
+            return null;
+
+        } else {
+            $newest_badge = $this->db->select(
+                'BadgePic',
+                'badge',
+                'WHERE Donation_Constraint = :Donations',
+                ':Donations',
+                $donations
+            )[0][0];
+            return $newest_badge;
+        }
     }
 
     public function getbadges($badge)
@@ -47,7 +52,7 @@ class BadgesModel extends Model
             ':BadgePic',
             $badge
         )[0][0];
-        
+
         $badges = $this->db->select(
             'BadgePic',
             'badge',
@@ -88,4 +93,13 @@ class BadgesModel extends Model
         return $badge_info;
     }
 
+    public function getallbadges()
+    {
+        $badges = $this->db->select(
+            'BadgePic',
+            'badge',
+            'ORDER BY Donation_Constraint ASC'
+        );
+        return $badges;
+    }
 }

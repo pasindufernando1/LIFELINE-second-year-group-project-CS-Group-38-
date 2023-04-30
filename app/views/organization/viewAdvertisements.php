@@ -40,42 +40,7 @@ die(); */
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -150,41 +115,44 @@ die(); */
                     </div>
                 </div>
             </div>
-            <div class="box">
+            <div class="ad-box">
             <p class="inventory-types">Advertisements</p>
                 <!-- A for loop to read the data from the $_SESSION['Advertisements'] variable -->
-                
-        <?php
-        $count=0;
-        //print_r($_SESSION['advertisements']);die();
-        foreach($_SESSION['advertisements'] as $item){
-            
-            // <!-- A container to hold the advertisement photo  and the bloodbankName -->
-            echo '<div class="ad_wrap ">
-                <!-- Image -->
-                <img class="ad_img" src="./../../public/img/orgdashboard/'.$item['Advertisement_pic'].'" alt="advertisement">
-                
-
-                <div class="bloodbankName">
-                    <!-- Label for bloodbank Name -->
-                    <p class="bloodbankName">'.$item['BloodBank_Name'].'</p>
-                </div>
-                <div class="inventoryType">
-                <!-- Label for bloodbank Name -->
-                <p class="inventoryType">'.$item['InventoryCategory'].'</p>
-                </div>
-                <!--get user input for quantity-->
-                
-                <button class="don-btn" type="submit" name="request" id="submit-btn">Donate</button>
-                <a href="/requestApproval/quantity?ad='.$item['AdvertisementID'].'"><button class="don-btn" type="submit" name="request" id="submit-btn">Donate</a></button>
-                
-            </form>
-            </div>';
-            $count++;
-             } ?>
+         
+    
+                <div class="ad-holder">
+                <?php
+                $count=0;
         
-            </div>
+        //print_r($_SESSION['advertisements']);die();
+                    foreach($_SESSION['advertisements'] as $item){
+                
+                // <!-- A container to hold the advertisement photo  and the bloodbankName -->
+                        echo '<div class="ad-card ">
 
+                        <!-- Image -->
+                        <img class="ad-img" src="./../../public/img/advertisements/'.$item['Advertisement_pic'].'" alt="advertisement">
+                        
+
+                        <div class="bloodbankName">
+                            <!-- Label for bloodbank Name -->
+                            <p class="bloodbankName">'.$item['Description'].'</p>
+                        </div>
+                        
+                        <!-- Label for bloodbank Name -->
+                        <p class="inventoryType">Inventory Categoty: '.$item['InventoryCategory'].'</p>
+                        
+                        <!--get user input for quantity-->
+                        
+                        <a href="/requestApproval/quantity?ad='.$item['AdvertisementID'].'">Donate</a>
+                        
+                
+                        </div>';
+                        $count++;
+                    } ?>
+        
+                </div>
+            </div>
 
         </div>
 

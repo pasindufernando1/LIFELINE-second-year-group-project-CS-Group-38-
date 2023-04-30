@@ -49,11 +49,13 @@ class Sys_campaigns extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
+                
                 $campaign = $this -> model -> get_camp_info($id);
                 $adcount = $this -> model -> get_ad_count($id);
                 if($adcount != 0){
                     $adid = $this -> model -> get_ad_id($id);
                     $addet = $this -> model -> get_ad_det($adid);
+                    // print_r($addet);die();
                     $_SESSION['addet']= $addet;
                 }
                 
@@ -73,22 +75,22 @@ class Sys_campaigns extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
+                $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']); 
                 // print_r($_FILES);die();
                 $targetDir = "C:/xampp/htdocs/public/img/adv/"; 
                 $allowTypes = array('jpg','png','jpeg','gif'); 
                 $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = ''; 
-                $fileNames = array_filter($_FILES['fileimg']['name']); 
+                $fileNames = array_filter($_FILES['fileimg']['name']);
 
                 $cur_date = date("Y-m-d");
                 $des = $_POST['Description'];
                 
-                $ad_id = $this -> model -> addadvert($cur_date,$des);
-                $up_camp = $this -> model -> updatead($cid,$ad_id);
+                $ad_id = $this -> model -> addadvert($cur_date,$des,$blood_bank_id,$fileNames[0]);
+                $res = $this -> model ->updatead($cid,$ad_id);
                 if(!empty($fileNames)){ 
                     foreach($_FILES['fileimg']['name'] as $key=>$val){ 
                         // File upload path 
                         $fileName = basename($_FILES['fileimg']['name'][$key]); 
-                        $adimg = $this -> model -> adimg($ad_id,$fileName);
                         $targetFilePath = $targetDir . $fileName; 
                         
                         // Check whether file type is valid 
@@ -232,12 +234,13 @@ class Sys_campaigns extends Controller
         }
     }
 
-    function deletead($id)
+    function deletead($id,$aid)
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
                 $res = $this -> model -> deleteadv($id);
-                if ($res) {
+                $res2 = $this -> model -> acheiveadv($aid);
+                if ($res && $res2) {
                     header("Location: /sys_campaigns/view/".$id."");
                     exit;
                 }

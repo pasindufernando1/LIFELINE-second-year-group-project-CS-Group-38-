@@ -1,6 +1,9 @@
 const submit = document.getElementById("submit");
-
 const form = document.getElementById('profile_update');
+
+const esubmit = document.getElementById("esub");
+const eform = document.getElementById('email_update');
+
 // const regtocamp_form = document.getElementById('reg-to-campaign');
 const fname = document.getElementById('fname');
 var fnameflag = true;
@@ -89,34 +92,7 @@ function emailValidation() {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("email=" + email.value);
 }
-//firstname validation
-fname?.addEventListener("input", function () {
-    var reg = /^[a-zA-Z ]+$/;
-    if (!reg.test(fname.value)) {
-        fname_error.innerHTML = "Name can only include letters";
-        fname.style.borderColor = "red";
-        fnameflag = false
 
-    } else {
-        fname_error.innerHTML = "";
-        fname.style.borderColor = "#a7a7a7";
-        fnameflag = true;
-    }
-});
-
-//lastname validation
-lname?.addEventListener("input", function () {
-    var reg = /^[a-zA-Z ]+$/;
-    if (!reg.test(lname.value)) {
-        lname_error.innerHTML = "Name can only include letters";
-        lname.style.borderColor = "red";
-        lnameflag = false;
-    } else {
-        lname_error.innerHTML = "";
-        lname.style.borderColor = "#a7a7a7";
-        lnameflag = true;
-    }
-});
 
 //NIC validation
 nic?.addEventListener("input", function () {
@@ -173,34 +149,6 @@ dob?.addEventListener("input", function () {
     }
 });
 
-(contno)?.addEventListener("input", function () {
-    var reg1 = /^[0-9]{10}$/;
-    var reg2 = /^\+94([0-9]){9}$/;
-    if (!reg1.test(contno.value) && !reg2.test(contno.value)) {
-        contno_error.innerHTML = "Invalid Telephone Number";
-        contno.style.borderColor = "red";
-        contnoflag = false;
-    } else {
-        contno_error.innerHTML = "";
-        contno.style.borderColor = "#949494";
-        contnoflag = true;
-    }
-});
-(emcontno)?.addEventListener("input", function () {
-    var reg1 = /^[0-9]{10}$/;
-    var reg2 = /^\+94([0-9]){9}$/;
-    if (!reg1.test(emcontno.value) && !reg2.test(emcontno.value)) {
-        emcontno_error.innerHTML = "Invalid Telephone Number";
-        emcontno.style.borderColor = "red";
-        emcontnoflag = false;
-    } else {
-        emcontno_error.innerHTML = "";
-        emcontno.style.borderColor = "#949494";
-        emcontnoflag = true;
-    }
-});
-
-
 
 //Password validation
 password?.addEventListener("input", function () {
@@ -232,8 +180,18 @@ passwordcheck?.addEventListener("input", function () {
 
 });
 
-form?.addEventListener("submit", function (e) {
-    if (!(email_flag == true && regno_flag == true && regnum_flag == true && contact_flag == true && password_flag == true && dob_flag == true && nic_flag == true && quantity_flag == true && confirmPassword_flag == true)) {
+form?.addEventListener('submit', function () {
+    console.log('entered');
+    if (!(nicflag == true && dobflag == true && telflag == true && passwordflag == true && passwordcheckflag == true)) {
+        console.log('awa');
+        e.preventDefault();
+    }
+});
+
+eform?.addEventListener("esubmit", function () {
+    console.log('entered');
+    if (!(emailflag == true)) {
+        console.log('awa');
         e.preventDefault();
     }
 });

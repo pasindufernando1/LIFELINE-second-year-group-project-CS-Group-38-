@@ -1,6 +1,9 @@
 <?php
 session_start();
-// $_SESSION['error'] = '';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP   ;
+require '../vendor/autoload.php';
 
 class Systemuser extends Controller
 {
@@ -103,4 +106,82 @@ class Systemuser extends Controller
         session_regenerate_id(true);
         header("Location: /login ");
     }
+
+    function sendmail()
+    {
+        if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
+            header("Location: /systemuser/login");
+        }
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "System User") {
+
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date = date('Y-m-d');
+                $dateinsec = strtotime($cur_date);
+
+                $diff = 10520000;
+
+                $all_donors = $this->model->getAllDonorDetailsJoin();  
+                $month_donations = $this->model->getMonthlyDonation();
+                print_r($month_donations);die(); 
+
+                $output = array();
+                $number_of_results = count($all_donors);
+                for ($i=0; $i < $number_of_results; $i++) { 
+                    $last_date = strtotime($all_donors[$i]['lastdate']);
+                    
+                    if ($all_donors[$i]['District'] == $_POST['district'] && $dateinsec - $last_date >= $diff && $all_donors[$i]['BloodType']= $_POST['bloodtype']) {
+                        $output = array_merge($output,$all_donors[$i]);
+                        $email = $all_donors[$i]['Email'];
+                    //Create an instance; passing `true` enables exceptions
+                    $mail = new PHPMailer(true); //Argument true in constructor enables exceptions
+
+                    $mail->IsSMTP();  // telling the class to use SMTP
+                    // $mail->SMTPDebug = 2;
+                    $mail->Mailer = "smtp";
+                    $mail->Host = "smtp.gmail.com";
+                    $mail->Port = 587;
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'lifeline.managementservices@gmail.com';
+                    $mail->Password = 'kelpqmxgangljbqj';
+                    //From email address and name
+                    $mail->From = "lifeline.managementservices@gmail.com";
+                    $mail->FromName = "Life Line";
+
+                    //To address and name
+                    $mail->addAddress($email); //Recipient name is optional                                                                                         
+
+                    //Address to which recipient will reply
+                    $mail->addReplyTo("noreply@lifeline.com", "Life Line");
+
+
+                    //Send HTML or Plain Text email
+                    $mail->isHTML(true);
+
+                    $mail->Subject = "Kind Information On Shortage Of Blood";
+                    $mail->Body = "<p>There is a need for the bloodgroup of ".$all_donors[$i]['BloodType']." at this moment in bloodbank. Kindly ass with all your comfort, Visit bloodbank to donate blood and to be part of a helping service. </p>";
+                    $mail->AltBody = "This is the plain text version of the email content";
+
+                    try {
+                        $mail->send();
+                    } catch (Exception $e) {
+                        echo "Mailer Error: " . $mail->ErrorInfo;
+                    }
+
+                
+                    }
+                    
+                }
+
+                 header("Location: /systemuser/dashboard?mail=sent");
+                    exit;
+                }else {
+                    header("Location: /systemuser/login");
+                }
+        }
+        
+
+    }
+
+    
 }

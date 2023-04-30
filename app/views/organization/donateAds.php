@@ -109,42 +109,7 @@ require '../vendor/payment_config.php';
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-                <img src="../../../public/img/hospitalsdashboard/hospital logo.png" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
 
             <!-- Side bar -->
@@ -194,7 +159,7 @@ require '../vendor/payment_config.php';
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -229,7 +194,7 @@ require '../vendor/payment_config.php';
                     $count=0;
                     foreach ($_SESSION['cash_ads'] as $ad) {
                         // print_r($ad[0]);
-                        echo '<div class="ad-card"><img class="ad-img" src="./../../public/img/ads/'.$_SESSION['cash_adpics'][$count][0]['Advertisement_pic'].'" alt="advertisement">
+                        echo '<div class="ad-card"><img class="ad-img" src="./../../public/img/advertisements/'.$_SESSION['cash_adpics'][$count][0]['Advertisement_pic'].'" alt="advertisement">
                         <h2>'.$_SESSION['cash_bbs'][$count][0][0].'</h2>
                         <p>Amount Needed : LKR '.$_SESSION['cash_ads'][$count][3].'</p>
                         <p>Amount Received : LKR '.$_SESSION['cash_received_amounts'][$count][0][0].'</p>

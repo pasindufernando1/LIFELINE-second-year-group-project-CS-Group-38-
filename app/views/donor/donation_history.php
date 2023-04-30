@@ -118,7 +118,7 @@ $metaTitle = 'Donor Dashboard'; ?>
             <div class="pie-chart">
                 <p class="title">Your Blood Donations</p>
                 <p>
-                    <?php echo 'Total Donations : ' . $_SESSION['no_of_bank_donations'] + $_SESSION['no_of_camp_donations']; ?>
+                    <?php echo 'Total Donations : ' .( $_SESSION['no_of_bank_donations'] + $_SESSION['no_of_camp_donations']); ?>
                 </p>
                 <canvas id="myDoughnutChart"></canvas>
             </div>
@@ -131,7 +131,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                     labels: ['Blood Banks', 'Campaigns'],
                     datasets: [{
                         data: [
-                            <?php echo $_SESSION['no_of_bank_donations'] . ',' . $_SESSION['no_of_camp_donations']; ?>
+                            <?php echo json_encode($_SESSION['no_of_bank_donations'] ). ',' . json_encode($_SESSION['no_of_camp_donations']); ?>
                         ],
                         backgroundColor: [
                             'rgba(245, 174, 172, 1)',

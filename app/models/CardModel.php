@@ -35,7 +35,7 @@ class CardModel extends Model
         $today = new DateTime();
         $age = $today->diff($dob)->y;
         return $age;
-        
+
     }
 
     public function getNoOfCampDonations($donorID)
@@ -64,28 +64,51 @@ class CardModel extends Model
 
     public function getLastDonationDate($donorID)
     {
-        $date1 = $this->db->select(
-            'Date',
+        $count1 = $this->db->select(
+            'count',
             'donor_campaign_bloodpacket',
-            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            'WHERE DonorID = :DonorID',
             ':DonorID',
             $donorID
         );
-
-        $date2 = $this->db->select(
-            'Date',
+        $count2 = $this->db->select(
+            'count',
             'donor_bloodbank_bloodpacket',
-            'WHERE DonorID = :DonorID ORDER BY Date DESC',
+            'WHERE DonorID = :DonorID',
             ':DonorID',
             $donorID
         );
 
-        if ($date1[0][0] > $date2[0][0]) {
-            $data = $date1[0][0];
+        // print_r($count1);
+        // print_r($count2);
+        // die();
+
+        if ($count1 == 0 && $count2 == 0) {
+            return false;
         } else {
-            $data = $date2[0][0];
+            $date1 = $this->db->select(
+                'Date',
+                'donor_campaign_bloodpacket',
+                'WHERE DonorID = :DonorID ORDER BY Date DESC',
+                ':DonorID',
+                $donorID
+            );
+
+            $date2 = $this->db->select(
+                'Date',
+                'donor_bloodbank_bloodpacket',
+                'WHERE DonorID = :DonorID ORDER BY Date DESC',
+                ':DonorID',
+                $donorID
+            );
+
+            if ($date1[0][0] > $date2[0][0]) {
+                $data = $date1[0][0];
+            } else {
+                $data = $date2[0][0];
+            }
+            return $data;
         }
-        return $data;
     }
 
     public function getDonationDates($donorID)
@@ -189,5 +212,5 @@ class CardModel extends Model
         return $data;
     }
 
-   
+
 }

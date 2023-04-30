@@ -52,11 +52,11 @@ class sys_campaignsModel extends Model
         return $adcount;
     }
 
-    function addadvert($cur_date,$des)
+    function addadvert($cur_date,$des,$blood_bank_id,$fileName)
     {
-        $inputs1 = array($cur_date,$des);
-        $columns1 = array('PublishedDate','Description');
-        $param1 = array(':PublishedDate',':Description');
+        $inputs1 = array($cur_date,$des,$blood_bank_id,$fileName);
+        $columns1 = array('PublishedDate','Description','BloodBankID','Advertisement_pic');
+        $param1 = array(':PublishedDate',':Description',':BloodBankID',':Advertisement_pic');
         $result1 = $this->db->insert("advertisement", $columns1, $param1, $inputs1);
 
         
@@ -82,20 +82,6 @@ class sys_campaignsModel extends Model
         };
     }
 
-    function adimg($ad_id,$fileName)
-    {
-        $inputs1 = array($ad_id,$fileName);
-        $columns1 = array('AdvertisementID','AdvertisementPic');
-        $param1 = array(':AdvertisementID',':AdvertisementPic');
-        $result1 = $this->db->insert("advertisementpic", $columns1, $param1, $inputs1);
-
-        if($result1){
-            return true;
-        }
-        else{
-            return false;
-        };
-    }
 
     function get_ad_id($id)
     {
@@ -106,8 +92,6 @@ class sys_campaignsModel extends Model
     function get_ad_det($adid)
     {
         $adcount = $this->db->select('*', "advertisement", "
-        INNER JOIN advertisementpic
-        ON advertisement.AdvertisementID = advertisementpic.AdvertisementID
         WHERE advertisement.AdvertisementID = :adid;", ':adid', $adid);
         return $adcount;
     }
@@ -321,5 +305,25 @@ class sys_campaignsModel extends Model
             return false;
         };
     }
+
+    public function acheiveadv($id)
+    {
+        $Archive = 1;
+        $columns1 = array('Archive');
+        $param1 = array(':Archive');
+        $inputs1 = array($Archive);
+
+
+        $result1 = $this->db->update("advertisement", $columns1, $param1, $inputs1,':id',$id,"WHERE AdvertisementID = :id");
+
+        if($result1){
+            return true;
+        }
+        else{
+            return false;
+        };
+    }
+
+    
 
 }

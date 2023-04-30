@@ -1,5 +1,8 @@
 <?php
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP   ;
+require '../vendor/autoload.php'; 
 class RequestApprovalModel extends Model
 {
     function __construct()
@@ -10,8 +13,7 @@ class RequestApprovalModel extends Model
     public function getAllBloodBanks()
     {
         $data = $this->db->select("*", "bloodbank", null);
-        print_r($data);
-        die();
+        
         return $data;
     }
     public function getadvertisementIDs()
@@ -39,6 +41,9 @@ class RequestApprovalModel extends Model
         return $data;
     }
 
+    //function to get all details from inventory_donation table to get total amountof inventory for each category using the advertisement ID
+
+
     public function getInventoryCatToAd($adid)
     {
         $data = $this->db->select("InventoryCategory", "donation", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $adid);
@@ -54,6 +59,10 @@ class RequestApprovalModel extends Model
         $inventoryCat = $data[0]['InventoryCategory'];
         //print_r($inventoryCat);die();
         return $inventoryCat;
+    }
+
+    public function getTotalReceived($adid){
+
     }
     public function getBloodbankNames($bloodbankIds)
     {
@@ -113,6 +122,96 @@ class RequestApprovalModel extends Model
 
 
     }
+
+    public function getfeedbackInfoRating($campid,$rating){
+        $data = $this->db->select("*", "donor_campaign_bloodpacket", "WHERE CampaignID =:CampaignID AND Rating =:Rating", [":CampaignID",":Rating"], [$campid,$rating]);
+        return $data;
+    }
+
+    public function getCampaignsOfDate($date,$User_ID)
+    {
+        //print_r("awa");die();
+        $data = $this->db->select("*","donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Date =:Date", [":OrganizationUserID",":Date"], [$User_ID,$date]);
+        // [':OrganizationUserID'], 
+        // [$User_ID]);
+        //print_r($data);die();
+        return $data;
+    }
+
+    public function getBloodbankID($User_ID)
+    {
+
+        $data = $this->db->select("BloodBankID", "donation_campaign", "WHERE UserID =:UserID", ':UserID', $User_ID);
+        return $data;
+
+
+
+    }
+
+    public function getDistrict($bloodbankID){
+        $data = $this->db->select("District", "bloodbank", "WHERE BloodBankID =:BloodBankID", ':BloodBankID', $bloodbankID);
+        return $data;
+    }
+
+    public function getCampaignsOfDateAndDistrict($date, $User_ID, $district){
+        $campids=[];
+        $campidsofdate=$this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Date =:Date", [':OrganizationUserID',':Date'] , [$User_ID, $date]);
+        foreach ($campidsofdate as $campid){
+            $campid=$campid['CampaignID'];
+            //print_r($campid);die();
+            $bloodbankID=$this->db->select("BloodBankID", "donation_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campid)[0];
+            $bloodbankID=$bloodbankID['BloodBankID'];
+            //print_r($bloodbankID);die();
+            $districtofcamp=$this->db->select("District", "bloodbank", "WHERE BloodBankID =:BloodBankID", ':BloodBankID', $bloodbankID)[0];
+            $districtofcamp=$districtofcamp['District'];
+            //print_r($districtofcamp);die();
+            if($districtofcamp==$district){
+                array_push($campids,$campid);
+            }
+           // print_r($campids);die();
+        }
+        // print_r($campids);die();
+        // For each campaign id, get the campaign details
+        $campaigns=[];
+        foreach ($campids as $campid){
+            $campaign=$this->db->select("*", "donation_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campid)[0];
+            array_push($campaigns,$campaign);
+        }
+        return $campaigns;
+
+    }
+
+    public function Campaignsofdistrict($district,$User_ID){
+        // print_r("Awaa");die();
+        $campids=[];
+        $campidsofUser=$this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID", ':OrganizationUserID' , $User_ID);
+
+        // For each campaign id, check the district
+        foreach ($campidsofUser as $campid){
+            $campid=$campid['CampaignID'];
+            //print_r($campid);die();
+            $bloodbankID=$this->db->select("BloodBankID", "donation_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campid)[0];
+            $bloodbankID=$bloodbankID['BloodBankID'];
+            //print_r($bloodbankID);die();
+            $districtofcamp=$this->db->select("District", "bloodbank", "WHERE BloodBankID =:BloodBankID", ':BloodBankID', $bloodbankID)[0];
+            $districtofcamp=$districtofcamp['District'];
+            //print_r($districtofcamp);die();
+            if($districtofcamp==$district){
+                array_push($campids,$campid);
+            }
+            // print_r($campids);die();
+        }
+        
+        // For each campaign id, get the campaign details
+        $campaigns=[];
+        foreach ($campids as $campid){
+            $campaign=$this->db->select("*", "donation_campaign", "WHERE CampaignID =:CampaignID", ':CampaignID', $campid)[0];
+            array_push($campaigns,$campaign);
+        }
+        return $campaigns;
+    }
+    
+
     public function getSlotIDs($campid)
     {
 
@@ -187,12 +286,30 @@ class RequestApprovalModel extends Model
     public function getfeedbackInfo($campid)
     {
 
-        $data = $this->db->select("DonorID,Feedback,Date", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid", ':campid', $campid);
+        $data = $this->db->select("DonorID,Feedback,Date,Rating", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid", ':campid', $campid);
+        
         return $data;
 
 
 
     }
+
+    public function getdonorName($donorIds){
+        //print_r($donorIds);die();
+        $x=sizeof($donorIds);
+        //print_r($donorIds);die();
+        for($i=0;$i<$x;$i++){
+           $donorid=$donorIds[$i];
+           //print_r($donorid);die();
+           $name[$i] = $this->db->select("Fullname,UserID","donor","WHERE UserID =:UserID",':UserID',$donorid);
+       //print_r($name);die();
+       
+        }
+       //print_r($name);die();
+        return $name;
+       
+       
+   }
 
 
     public function get_telno($User_ID)
@@ -215,8 +332,8 @@ class RequestApprovalModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email', 'Password', 'Username', 'Userpic');
-        $param1 = array(':Email', ':Password', ':Username', ':Userpic');
+        $columns1 = array('Password', 'Username', 'Userpic');
+        $param1 = array(':Password', ':Username', ':Userpic');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1, ':User_ID', $User_ID, "WHERE UserID = :User_ID");
 
 
@@ -254,6 +371,83 @@ class RequestApprovalModel extends Model
 
     }
 
+    public function getDonorList($campid,$slotid){
+            
+        $data = $this->db->select("Fullname,NIC,UserID","donor","WHERE SlotID =$slotid && CampaignID=$campid");
+        return $data;
+        
+        
+        
+    }
+
+    function getDonorContact($donorid){
+        $data = $this->db->select("ContactNumber,UserID","usercontactnumber","WHERE UserID =:UserID",':UserID',$donorid);
+        return $data;
+    }
+
+    public function addSlot($slotid,$campid){
+        $inputs = array($slotid,$campid);
+        //print_r($inputs );die();
+        $columns = array('SlotID','CampaignID');
+        $param = array(':SlotID',':CampaignID');
+        $result = $this->db->insert("campaign_timeslots", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else {
+            print_r($result);}
+    }
+
+    public function getAllTimeslots(){
+                
+        $data = $this->db->select("*","timeslot",null);
+        //print_r($data);die();
+        return $data;
+     
+}
+
+    public function removeSlot($slotid,$campid){
+            
+        $result1 = $this->db->select("SlotID","campaign_timeslots","WHERE CampaignID =:CampaignID",':CampaignID',$campid);
+        $param=[':SlotID','CampaignID'];
+        $inputs=[$slotid,$campid];
+        $result = $this->db->delete("campaign_timeslots","WHERE SlotID =:SlotID && CampaignID=:CampaignID ",$param,$inputs);
+        //print_r(($result1));die();
+        for($i=0;$i<sizeof($result1);$i++){
+            //print_r($result1[$i]['SlotID']);die();
+            if($result1[$i]['SlotID']==$slotid){
+                //print_r("awa");die();
+                //print_r($result1[$i]['SlotID']);
+                //delete from campaign_timeslots where 
+                
+                
+            }
+        }
+        
+        //print_r($result);die();
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
+    public function getSlots($campid){
+                
+        $data = $this->db->select("SlotID","campaign_timeslots","WHERE CampaignID =:CampaignID",':CampaignID',$campid);
+        //print_r($data);die();
+        return $data;
+     
+    }
+
+    public function addFeedback($inputs) 
+    {
+        
+        $columns = array('OrganizationUserID','Feedback','Date');
+        $param = array(':OrganizationUserID',':Feedback',':Date');
+        $result = $this->db->insert("organization_feedback", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+    
     public function getcashads()
     {
         $data = $this->db->select("*", "donation", "WHERE DonationType = 'cash'");
@@ -317,6 +511,45 @@ class RequestApprovalModel extends Model
             return true;
         } else
             print_r($result);
+    }
+
+    public function check_password($userid,$password)
+    {
+        $result=($this->db->select('Password','User','WHERE UserID = :UserID',':UserID',$userid));
+        //print_r($result);die();
+        if(password_verify($password,$result[0]['Password'])){
+            //print_r($result);die();
+            return true;
+        }
+        else{
+            return false;
+        }
+        // return $result;
+    }
+
+    public function update_email($userid,$email){
+        $result=$this->db->update('user','Email',':Email',$email,':UserID',$userid,'WHERE UserID =:UserID');
+        if($result=='Success'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function filter_out($district , $UserID){
+        $data=$this->db->select("*","donation_campaign","WHERE District= :District AND OrganizationUserID=:OrganizationUserID",':District',$district,':OrganizationUserID',$UserID);
+        //print_r($data);die();
+        return true;
+    }
+
+    public function filter_out_bloodbank($district){
+        
+        $data=$this->db->select("*","bloodbank","WHERE District= :District",":District",$district);
+        //print_r($data);die();
+        return $data; 
+        
+        
     }
 
 

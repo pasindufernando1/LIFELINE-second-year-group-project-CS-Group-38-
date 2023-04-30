@@ -54,9 +54,14 @@ $metaTitle = "Deactivated Users"
         
         
         <?php 
-        $status = $_SESSION['is_filtered_user']? 'true' : 'false';
+        $status = false;
+        if(isset($_SESSION['is_filtered'])){
+            $status = $_SESSION['is_filtered']? 'true' : 'false';
+        }else{
+            $status = 'false';
+        }
         $results_per_page = 7;
-        $number_of_results = $_SESSION['rowCount'];
+        $number_of_results = count($_SESSION['users']);
         $number_of_page = ceil($number_of_results / $results_per_page);
 
         //determine which page number visitor is currently on  
@@ -71,7 +76,7 @@ $metaTitle = "Deactivated Users"
         $result = $_SESSION['users'];
 
         //display the link of the pages in URL  
-        if ($_SESSION['rowCount'] > 0) {
+        if ($number_of_results > 0) {
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>

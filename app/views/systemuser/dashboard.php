@@ -34,7 +34,18 @@ $metaTitle = "System User Dashboard"
 <body>
     <!-- header --> <!-- Side bar -->
     <?php require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); 
-    require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?> 
+    require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); 
+    require($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/shortage_blood.php');?> 
+
+<?php 
+if (isset($_GET['mail'])) { 
+    if ($_GET['mail'] == 'sent') { ?>
+         <script>
+                document.getElementById('id01').style.display='block';
+            </script>
+<?php } }?>
+
+
     
 <div class="bo1">
     <p class="te1">Donations Today</p>
@@ -139,79 +150,64 @@ $metaTitle = "System User Dashboard"
         </div>
 
         <div class="bo6">
-            <p class="tebar">Inventory Donation Status</p>
-            <table class="blood-types-table" style="width:90%">
-                        <tr>
-                            <th>Donated Item</th>
-                            <th>Date</th>
-                            <th>Details</th>
-                         
-                            <th>Status</th>
-                          
-                        </tr>
-                        <hr class="blood-types-line">
-                        <?php 
-                        $results_per_page = 3;
-                        $number_of_results = $_SESSION['rowCount'];
-                        $number_of_page = ceil($number_of_results / $results_per_page);
+            <p class="tebar">Send Blood Shortage Emails</p>
+            <form action="./sendmail" method="POST">
+            <div class="bloodtype-container-dash">
+                <label class="bloodtype-lable-dash" for="bloodtype">Blood Type</label>
+                <br>
+                <select id="bloodtype" class="bloodtype-input-dash bloodtype-input" type="text" name="bloodtype" autofocus placeholder="Blood Type" required>
+                    <!-- Placeholder -->
+                    <option value="" disabled selected hidden>Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="location-container-dash">
+                <label class="location-lable-dash" for="location">Location:</label>
+                <br>
+                <select id="district" class="district-input custom-select-dash" type="text" name="district" autofocus placeholder="District"required>
+                    <!-- Show placeholder -->
+                    <option value="" disabled selected hidden>District</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Kegalle">Kegalle</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                </select>
+            </div>
 
-                        //determine which page number visitor is currently on  
-                        if (!isset ($_GET['page']) ) {  
-                            $page = 1;  
-                        } else {  
-                            $page = $_GET['page'];  
-                        }  
-                         //determine the sql LIMIT starting number for the results on the displaying page  
-                        $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['packets'];
+            <button id="submit-btn" class='brown-button dash-form' type='submit' name='add-donor'>Send</button>
+            
 
-                        //display the link of the pages in URL  
-                          
-
-                        // print_r($result[0]);die();
-                        if ($_SESSION['rowCount'] > 0) {
-                           
-                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
-                                echo '<div class="table-content-types"> <tr>
-                                        <td>' . $row["PacketID"]. "</td>
-                                        <td>" . $row["Name"] . '</td>
-                                        <td ' . '<span class="validate">view </span>' . '</td>
-                            
-                                        <td ' . '<span class="validates">validate </span>' . '</td>
-                                        
-                                    </tr> </div>';
                                 
-                            }
-                        } else {
-                            echo "0 results";
-                        }
-                       
-                  
-                       echo '<div class="pag-box">';
-                        if ($_GET['page'] == 1) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page-1 . '">&laquo;</a> </div>';   
-                        }
-                  
-                        for($page = 1; $page<= $number_of_page; $page++) {  
-                            if ($page == $_GET['page']) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
-                            }else{
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
-                            }
-                        }
-                        if ($_GET['page'] == $number_of_page) {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
-                        }else{
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $_GET['page']+1 . '">&raquo; </a> </div>';  
-                        }
-                          
-                        
-                          
-                        echo '</div>' ;?>
-                        
-                        </table>
+            </form>
+            
 
         </div>
 

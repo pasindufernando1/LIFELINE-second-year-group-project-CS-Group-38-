@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "organizations Dashboard" ;
+$metaTitle = "Organizations Dashboard" ;
 $_SESSION['campaignId'] =intval($_GET['campaign']);
 //print_r($_SESSION['campaignId']);die();
 ?>
@@ -33,42 +33,7 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
 
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br>
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png"
-                    alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -119,7 +84,7 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                         <img class="inventory-donations-non-active"
                             src="./../../public/img/orgdashboard/active/inventory donations.png"
                             alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -147,11 +112,12 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
             <div class="box">
                 <p class="view-campaigns-title">Schedule Timeslots </p>
 
-                <table class="campaigns-table" style="width:90%">
+                <table class="campaigns-table" style="width:70%">
                     <tr>
                         <th>Slot ID</th>
                         <th>Starting Time</th>
                         <th>Ending Time</th>
+                        <th>Status</th>
                         <th>Action</th>
                     
                     </tr>
@@ -170,32 +136,32 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                         //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
                         $result = $_SESSION['allTimeslots'];
+                        
 
                         //display the link of the pages in URL  
                           
                        
 
-                         //print_r($result);die();
+                         
                         if ($_SESSION['rowCount'] > 0) {
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["SlotID"] . "</td>
-                                        <td>" . $row["Start_time"] . "</td>
-                                        <td>" . $row["End_time"]  .'</td>
-                                        
-                                        <td> 
-                                        <div class="action-btns" >
-                                        <div class="edit-btn-div">
+                                        <td>" . date('h:i A', strtotime($row["Start_time"])) . "</td>
+                                        <td>" . date('h:i A', strtotime($row["End_time"] )) .'</td>';
+                                        if($row["Status"] == 0){
+                                            echo "<td><span class='pending-btn'>Not reserved</span></td>";
+                                            echo '<td><a class= "verify-btn" onclick="showPopup(event)" href="/requestApproval/addTimeslot/'.$row["SlotID"].'">
+                                            Reserve</a></td>
+                                            </tr> </div>';
+                                         }else{
+                                            echo "<td><span class='validated-btn'>Reserved</span></td>";
+                                            echo '<td><a class= "verify-btn2" href="#">
+                                            Reserve</a></td>
+                                            </tr> </div>';
+                                        }
                         
                                 
-                                    <a href="/requestApproval/addTimeslot?timeSlot='.$row["SlotID"].'"><button class="req-btn1" type="button" name="request">Select</button></a>
-                                
-                        
-                                 </div> 
-                                        </div>
-                                        </td>
-                                        
-                                        </tr> </div>';                                        
                             }
                         } else {
                             echo '<div class="table-content-types"> <tr>
@@ -205,9 +171,9 @@ $_SESSION['campaignId'] =intval($_GET['campaign']);
                         
                         echo '<div class="pag-box">';
 if (!isset($_GET['page']) || $_GET['page'] == 1) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . 1 . '">&laquo;</a> </div>'; 
 } else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
 }
 
 for($page = 1; $page <= $number_of_page; $page++) {  
@@ -217,16 +183,16 @@ for($page = 1; $page <= $number_of_page; $page++) {
         $current_page = $_GET['page'];
     }
     if ($page == $current_page) {
-        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';
     } else {
-        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';  
     }
 }
 
 if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $number_of_page . '">&raquo; </a> </div>';
 } else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
 }
 
 echo '</div>';
@@ -241,3 +207,40 @@ echo '</div>';
         </div>
 
     </div>
+
+    <div class="popup">
+        <div>
+            <p>Are you sure you want to schedule this slot?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
+
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+    </div>
+    <script>
+    function showPopup(event) {
+        // console.log(href);
+
+        event.preventDefault(); // prevent following the link
+        var popup = document.querySelector(".popup");
+        popup.style.display = "block"; // show the pop-up box
+        var yesButton = document.querySelector(".yes-button");
+        yesButton.onclick = function() {
+            window.location.href = event.target.href; // follow the link
+        };
+        var noButton = document.querySelector(".no-button");
+        noButton.onclick = function() {
+            popup.style.display = "none"; // hide the pop-up box
+        };
+    }
+
+    function hidealert() {
+        var popup = document.querySelector(".popup");
+        popup.style.display = "none";
+    }
+    </script>
+</body>
+

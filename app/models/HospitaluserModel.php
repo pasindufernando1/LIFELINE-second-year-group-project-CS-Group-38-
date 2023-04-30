@@ -38,6 +38,7 @@ class HospitaluserModel extends Model
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
             $type = $this->db->select("usertype","user","WHERE email =:email",':email',$email);
             $type_of_user = $type[0]['usertype'];
+            //print_r($type_of_user);die();
             return $type_of_user;
         
         } 

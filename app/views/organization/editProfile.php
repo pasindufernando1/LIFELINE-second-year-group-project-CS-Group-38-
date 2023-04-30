@@ -30,41 +30,7 @@ $metaTitle = "organizations Dashboard"
 </head>
 <body>
     <!-- header -->
-    <div class="top-bar">
-        <div class="logo">
-            <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
-        </div>
-        <div class="search">
-            <img src="../../../public/img/hospitalsdashboard/search-icon.png" alt="search-icon">
-            <input class="search-box" type="text" autofocus placeholder="Search">
-        </div>
-        <div class="notification">
-            <img class="bell-icon" src="../../../public/img/hospitalsdashboard/bell-icon.png" alt="bell-icon">
-
-        </div>
-        <div class="login-user">
-            <div class="image">
-            <img src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
-            </div>
-            <div class="user-name">
-                <p><?php echo ($_SESSION['username']); ?></p>
-            </div>
-            <div class="role">
-                <div class="role-type">
-                    <p><?php echo ($_SESSION['type']); ?> <br> 
-                </div>
-                <div class="role-sub">
-
-                </div>
-
-            </div>
-            <div class="more">
-                <img class="3-dot" onclick="dropDown()" src="../../../public/img/hospitalsdashboard/3-dot.png" alt="3-dot">
-                <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/organizationuser/logout">Log Out</a>
-                </div>
-            </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/organization/layout/header.php'); ?>
 
             <!-- Side bar -->
             <div class="side-bar">
@@ -105,7 +71,7 @@ $metaTitle = "organizations Dashboard"
                         
                         <img src="./../../public/img/orgdashboard/non-active/inventory donations.png" alt="inventory donations"> 
                         <img class="inventory-donations-non-active" src="./../../public/img/orgdashboard/active/inventory donations.png" alt="inventory donations">
-                        <p class="inventory-donations-nav "><a href="/requestApproval/viewBloodbanks">Inventory </a></p>
+                        <p class="inventory-donations-nav "><a href="/requestApproval/viewAdvertisements">Inventory </a></p>
                     </div>
 
                     <div class="instructions menu-item">
@@ -134,7 +100,7 @@ $metaTitle = "organizations Dashboard"
             <!-- <img class="hospital_img" src="../../../public/img/hospitalsdashboard/hospital logo.png"><br> -->
             <div class="profile-pic">
                 <div class="image-1">
-                    <img class="hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
+                    <img class="edit_hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
                     <div class="image-upload">
                         <label for="file-input">
                         <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png" />
@@ -155,26 +121,26 @@ $metaTitle = "organizations Dashboard"
                 }
                 </script> 
                 
-                 <p class="usr-name"><?php echo ($_SESSION['Username'])?></p><br>
-                <p class="usr-type"><?php echo($_SESSION['UserType'])?></p><br>
+                 <p class="edit_usr-name"><?php echo ($_SESSION['Username'])?></p><br>
+                <p class="edit_usr-type"><?php echo($_SESSION['UserType'])?></p><br>
             </div>    
                 <label id="orgName-label" class="orgName-label" for="campName">Organization Name:</label>
                 <br>
-                <input class="orgName-input" id="orgName"  type="text" name="orgName" autofocus placeholder="Organization Name" required>
+                <input class="orgName-input" id="orgName"  type="text" name="orgName" value="<?php echo $_SESSION['username']?>" required>
                 <br>
 
                 <label id="teleNo-label" class="teleNo-label" for="teleNo">Telephone Number:</label>
                 <br>
-                <input class="teleNo-input" id="teleNo"  type="text" name="teleNo" autofocus placeholder="Telephone Number" required>
+                <input class="teleNo-input" id="teleNo"  type="text" name="teleNo" value="<?php echo $_SESSION['telno']?>" required>
                 <br>
 
                 <label id="loc-label" class="loc-label" for="loc">Location:</label>
                 <br>
-                <input class="num-input" id="num"  type="text" name="num" autofocus placeholder="Number" required>
+                <input class="num-input" id="num"  type="text" name="num" value="<?php echo $_SESSION['Number']?>" required>
                 <br>
-                <input class="laneNme-input" id="laneNme"  type="text" name="laneNme" autofocus placeholder="Lane Name" required>
+                <input class="laneNme-input" id="laneNme"  type="text" name="laneNme" value="<?php echo $_SESSION['LaneName']?>" required>
                 <br>
-                <input class="cit-input" id="cit"  type="text" name="cit" autofocus placeholder="City" required>
+                <input class="cit-input" id="cit"  type="text" name="cit" value="<?php echo $_SESSION['City']?>" required>
                 <br>
                 <select class="dis-input" id="dis"  type="text" name="dis" autofocus placeholder="District" required>
                 <option value="" disabled selected hidden>District</option>
@@ -219,15 +185,9 @@ $metaTitle = "organizations Dashboard"
                 </select>
                 <br>
 
-                <label id="em-label" class="em-label" for="em">Email Address:</label>
-                <br>
-                <input class="em-input" id="em"  type="text" name="em" autofocus placeholder="Email Address" required>
-                <br>
+                
 
-                <label id="currentPw-label" class="currentPw-label" for="currentPw">Current Password:</label>
-                <br>
-                <input class="currentPw-input" id="currentPw"  type="password" name="currentPw" autofocus placeholder="Current Password" required>
-                <br>
+                
 
                 <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
                 <br>
