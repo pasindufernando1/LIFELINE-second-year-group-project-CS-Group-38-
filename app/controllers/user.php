@@ -183,9 +183,6 @@ class User extends Controller
                 ] = $this->model->viewBloodBankContact(
                         $_SESSION['nearbyBloodbanks']
                     );
-
-
-
                 $this->view->render('hospitals/dashboard');
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
