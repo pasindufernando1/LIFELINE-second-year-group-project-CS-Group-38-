@@ -57,16 +57,16 @@ $metaTitle = 'Donor Feedback';
                 if ($_SESSION['selected_camprating']['Rating'] == NULL) {
                     for ($i = 1; $i <= 5; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
                     }
                 } else {
                     for ($i = 1; $i <= $_SESSION['selected_camprating']['Rating']; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/yellow_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/yellow_star.png" alt="star"></label>';
                     }
                     for ($i = $_SESSION['selected_camprating']['Rating'] + 1; $i <= 5; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
                     }
                 }
                 ?>
