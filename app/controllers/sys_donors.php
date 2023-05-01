@@ -420,7 +420,42 @@ class Sys_donors extends Controller
         $res= $this->model->updateDonorCard($_SESSION['Donor_det'][0]['UserID'],$img);
         
     }
-    
+
+    function verify_donation()
+
+    {
+        $donor = $this->model->getDonorIDCheck($_POST['search']);
+        if ($donor > 0) {
+            $donation = $this->model->getPastDonationsByNIC($_POST['search']);
+            $cdonations = count($donation);
+            if ($cdonations != 0){
+                $lastdate = strtotime($donation[0]['Date']);
+                $diff = 10520000;
+
+                $datenow = date("Y-m-d");
+                $dateinsec = strtotime($datenow);
+
+                if($dateinsec - $lastdate >= $diff ){
+                        echo '<span class="eligible">Eligible For New Donations</span>';
+                        echo "<button  class='brown-button' type='submit' name='add-donation'>Add Donation</button>";
+                        echo '<img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">';
+                    }else{
+                        echo '<span class="not-eligible">Not Eligible For New Donations</span>';
+                        
+                    }
+            }else {
+                echo '<span class="eligible">Eligible For New Donations</span>';
+                echo "<button  class='brown-button' type='submit' name='add-donation'>Add Donation</button>";
+                echo '<img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">';
+            }
+        } else {
+            echo '<span class="not-eligible">NIC Not Valid or Not Registered</span>';
+        }
+        
+        
+        
+       
+    }    
 
     
 

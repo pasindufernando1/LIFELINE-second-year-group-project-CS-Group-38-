@@ -61,7 +61,7 @@ class User extends Controller
                 $_SESSION['bloodbankname'] = $this->model->getBloodBankName(
                     $uname
                 );
-                $_SESSION['packets'] = $this->model->getAllPackets($_SESSION['blood_bank_id']);
+
                 $_SESSION['month_donations'] = $this->model->getMonthlyDonation($_SESSION['blood_bank_id']);
                 $_SESSION['no_of_donors'] = $this->model->getdonorcomposition();
 
@@ -71,6 +71,8 @@ class User extends Controller
                 $_SESSION['cards_issued'] =$this->model->getCardIssued();
                 $_SESSION['ads_count'] =$this->model->getAdCount($_SESSION['blood_bank_id']);
                 $_SESSION['camp_req_count'] =$this->model->getCampReqCount($_SESSION['blood_bank_id']);
+                $this->view->render('systemuser/dashboard');
+                exit();
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
                 header('Location: /login');
@@ -163,10 +165,11 @@ class User extends Controller
             }
             exit();
         } elseif ($_SESSION['type'] == 'Hospital/Medical_Center') {
-            $type = $this->model->gettype($uname);
+           $type = $this->model->gettype($uname);
             $_SESSION['type'] = $type;
+            $status =$this->model->checkHosStatus($uname);
 
-            if ($this->model->authenticate($uname, $pwd)) {
+            if ($this->model->authenticate($uname, $pwd) && $status == 1 ) {
                 //set session variables
                 $_SESSION['login'] = 'loggedin';
                 $_SESSION['user_pic'] = $this->model->getuserimg($uname);

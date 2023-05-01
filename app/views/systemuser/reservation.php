@@ -52,7 +52,7 @@ $metaTitle = "System User Reservations" ;
                         <!-- <a href="/reservation/add" class="brown-button addnew-reservation">Add Reserves</a>
                         <img class="addbutton-reservation" src="./../../public/img/dashboard/add-button.png" alt="add-button"> -->
 
-                        <a href="/reservation/type?page=1" class="brown-button types-reservation">Pending Quantity</a>
+                        <a href="/reservation/type?page=1" class="brown-button types-reservation pending-quan">Pending Quantity</a>
                         <img class="typebutton-reservation" src="./../../public/img/dashboard/blood-types.png" alt="add-button">
 
                         <a href="/reservation/expired_stocks?page=1" class="brown-button expired-stock-btn">Expired Stocks</a>
@@ -102,7 +102,7 @@ $metaTitle = "System User Reservations" ;
                                         <td>';
 
                                         
-                                         echo '<div class="action-btns" ><div class="edit-btn-div"> <a href="/reservation/edit_reservation_id/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> <div class="delete-btn-div"> 
+                                         echo '<div class="delete-btn-div"> 
                                          <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                                          document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";
                                          ">   

@@ -241,7 +241,7 @@ if (isset($_GET['mail'])) {
                                     echo json_encode($keys2);
                                 ?>,
                             datasets: [{
-                                label: 'Donation Composition',
+                                label: 'Donor Composition',
                                 data: <?php 
                                         $values2 = array_values($result2);
                                         echo json_encode($values2);

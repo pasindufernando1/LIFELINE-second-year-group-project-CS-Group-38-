@@ -9,7 +9,7 @@
 
 </html>
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <span onclick="location.href='/systemuser/dashboard'">×</span>
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
@@ -30,6 +30,7 @@ var modal = document.getElementById('id01');
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    location.href='/systemuser/dashboard';
   }
 }
 </script>
