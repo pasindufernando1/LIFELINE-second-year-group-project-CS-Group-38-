@@ -54,7 +54,7 @@ $metaTitle = "Edit System User"
             </div>
             
             <div class="fullname-container">
-                <label class="fullname-lable" for="fullname">Full Name</label>
+                <label class="fullname-lable" for="fullname" id="fullname-label">Full Name</label>
                 <br>
                 <input id="fullname" class="fullname-input" type="text" name="fullname" value ="<?php echo $_SESSION['Name'] ?>" required>
             </div>
@@ -79,9 +79,17 @@ $metaTitle = "Edit System User"
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="New Password">
             </div>
             <div>
+                <?php 
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                ?>
                 <button id="submit-btn" class='brown-button' type='submit' name='edit-systemuser'>Update SystemUser</button>
                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Updating</a>
+                <?php echo '<a class="outline-button" type="reset" name="cancel-adding"  href="/usermanage/type?filter='.$status.'&page=1">Cancel Updating</a>'?>
                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
             </div>
         </form>

@@ -129,9 +129,17 @@ $metaTitle = "Edit Hos/Med"
             </div>
             
             <div>
+                <?php 
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                ?>
                 <button id="submit-btn" class='brown-button-update' type='submit' name='update-hosmed'>Update Hospital/Medical Center</button>
                 <img class="addbutton" src="./../../public/img/admindashboard/updateuser.png" alt="edit-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Updating</a>
+                <?php echo '<a class="outline-button" type="reset" name="cancel-adding"  href="/usermanage/type?filter='.$status.'&page=1">Cancel Updating</a>'?>
                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
             </div>
         </form>

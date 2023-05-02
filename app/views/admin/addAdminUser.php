@@ -38,7 +38,7 @@ $metaTitle = "Add Admin"
         <form action="/usermanage/addnewAdmin" method="post" enctype="multipart/form-data" id="addform"> 
             <div class="form-placement">
                 <div class="fullname-container">
-                    <label class="fullname-lable" for="fullname">Full Name</label>
+                    <label class="fullname-lable" for="fullname" id="fullname-label">Full Name</label>
                     <br>
                     <input id="fullname" class="fullname-input" type="text" name="fullname" autofocus placeholder="Fullname" required>
                 </div>
