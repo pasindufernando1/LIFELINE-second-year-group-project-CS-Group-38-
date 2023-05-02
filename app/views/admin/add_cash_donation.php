@@ -67,7 +67,7 @@ $metaTitle = "Add cash donation"
                             <img id="browsepic" class="browsepic" src="../../../public/img/admindashboard/browseimg.png" />
                         </label>
 
-                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
+                        <input id="file-input" name="fileToUpload" required type="file" onchange="readURL(this);" />
                         <script>
                             function readURL(input) {
                                 if (input.files && input.files[0]) {

@@ -22,6 +22,7 @@
 .deletebtn {
     width: 45%;
     border-radius: 10px;
+    height: 46px;
 }
 
 
@@ -180,7 +181,7 @@ input[type="date"]{
     left: 817px !important;
 }
 .reservation-filter {
-    left: 1180px !important;
+    left: 1066px !important;
 }
 .reservation-filter-img {
     left: 1055px !important;

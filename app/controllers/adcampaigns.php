@@ -32,6 +32,8 @@ class Adcampaigns extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){

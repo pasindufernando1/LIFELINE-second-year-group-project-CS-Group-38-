@@ -108,10 +108,10 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="box">
-                <p class="view-campaigns-title">View Campaigns</p>
+                <p class="view-campaigns-title">Campaign Details</p>
                 <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
                 <img class="user-filter-img" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">   
-                <table class="campaigns-table" style="width:90%">
+                <table class="campaigns-table" style="width:80%">
                     <tr>
                         
                         <th>Name</th>

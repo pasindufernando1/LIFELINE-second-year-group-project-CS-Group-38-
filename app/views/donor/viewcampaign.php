@@ -40,68 +40,8 @@ $metaTitle = 'Donor Dashboard';
 
 
     <!-- Side bar -->
-    <div class="side-bar">
-        <div class="side-nav">
-            <div class="dashboard-non menu-item">
-                <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
-                <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
-                    alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
-            </div>
-            <div class="reservation menu-item">
-                <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
-                    alt="reservation">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/history.png"
-                    alt="reservation">
-                <p class="reservation-nav menu-item"><a href="/donationhistory">History</a></p>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/campaign_active.php'); ?>
 
-            </div>
-            <div class="users menu-item">
-                <img src="./../../public/img/donordashboard/non-active/cards.png" alt="donor-cards">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/cards.png"
-                    alt="donor-cards">
-                <p class="users-nav "><a href="/card">Donor Card</a></p>
-
-            </div>
-            <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
-                    alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
-
-            </div>
-            <div class="badges menu-item">
-                <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/badge.png"
-                    alt="campaigns">
-                <p class="badges-nav "><a href="/badges">Badges</a></p>
-
-            </div>
-            <div class="reports menu-item">
-                <img src="./../../public/img/donordashboard/non-active/reports.png" alt="reports">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/reports.png"
-                    alt="reports">
-                <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
-
-            </div>
-            <div class="campaigns-selected">
-                <div class="campaigns-marker"></div>
-                <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png"
-                    alt="campaigns">
-                <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
-
-            </div>
-            <div class="line"></div>
-            <div class="profile menu-item">
-                <img src="./../../public/img/donordashboard/non-active/profile.png" alt="profile">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/profile.png"
-                    alt="profile">
-                <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
-
-
-            </div>
-        </div>
-    </div>
     <?php
     // If the current user is registered to the campaign
     ?>
@@ -132,7 +72,7 @@ $metaTitle = 'Donor Dashboard';
         <a href="/getcampaign/reg_to_campaign?camp=' .
                 $_SESSION['selected_campid'] .
                 '"><button class="to-reg-btn">Register</button>
-            <img src="./../../public/img/ads/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
+            <img src="./../../public/img/advertisements/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
     </div>';
         } else {
             echo '<div class="view-campaign-box">
@@ -159,7 +99,7 @@ $metaTitle = 'Donor Dashboard';
                 '</p><br>
         <p style="position: absolute;top: 571px;left: 525px;font-size: 25px;">You can donate BLOOD Once in 4 Months...</p>
         <p style="position: absolute;top: 621px;left: 367px;font-size: 20px;">Seems You have donated OR registered to donate in 4 months to This Campaign</p>
-            <img src="./../../public/img/ads/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
+            <img src="./../../public/img/advertisements/' . $_SESSION['campaign_ad'] . '" class="campaign-img" alt="campaigns">
 
     </div>';
         }
@@ -226,12 +166,49 @@ $metaTitle = 'Donor Dashboard';
             <br>
             <a class="outline-regedit-button" href="updatereg">Update
                 <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
-            <a class="outline-regdelete-button" href="deletereg">Delete
+            <a class="outline-regdelete-button" href="deletereg"  onClick="showPopup(event)">Cancel
                 <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
         </div>';
     } ?>
     </div>
     </div>
+
+    <div class="popup">
+        <div>
+            <p>Are you sure you want to cancel this Registration?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
+
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+    </div>
+
+    <script>
+        function showPopup(event) {
+            console.log(event.target.href);
+
+            event.preventDefault(); // prevent following the link
+            var popup = document.querySelector(".popup");
+            popup.style.display = "block"; // show the pop-up box
+            var yesButton = document.querySelector(".yes-button");
+            yesButton.onclick = function () {
+                window.location.href = event.target.href; // follow the link
+            };
+            var noButton = document.querySelector(".no-button");
+            noButton.onclick = function () {
+                popup.style.display = "none"; // hide the pop-up box
+            };
+        }
+
+        function hidealert() {
+            var popup = document.querySelector(".popup");
+            popup.style.display = "none";
+        }
+    </script>
+
 </body>
 
 </html>

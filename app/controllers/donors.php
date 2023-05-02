@@ -29,10 +29,11 @@ class Donors extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
-                    
                     $_SESSION['is_filtered'] = false;
                     $_SESSION['donors'] = $this->model->getAllDonorDetails();
                     $this->view->render('admin/donors');
@@ -64,8 +65,8 @@ class Donors extends Controller
                         if(isset($_POST[$i])){
                             $district_flag = 1;
                             for($j=0;$j<8;$j++){
-                                $flag_category = 1;
                                 if(isset($_POST[$j])){
+                                    $flag_category = 1;
                                     $rows = $this->model->getFilteredDonorDetails_District_BloodCategory($_POST[$i], $_POST[$j]);
                                     $output = array_merge($output, $rows);
                                 }
@@ -87,7 +88,7 @@ class Donors extends Controller
                     }
 
                     //If no district is selected
-                    if($district_flag==0){
+                    elseif($district_flag==0){
                         for($i=0;$i<8;$i++){
                             if(isset($_POST[$i])){
                                 $rows = $this->model->getFilteredDonorDetails_BloodCategory($_POST[$i]);
@@ -97,9 +98,10 @@ class Donors extends Controller
                         
                     }
                     $_SESSION['donors'] = $output;
-                    $this->view->render('admin/donors');
-                    exit;
+                    
                 }
+                $this->view->render('admin/donors');
+                exit;
                 
                 
             }

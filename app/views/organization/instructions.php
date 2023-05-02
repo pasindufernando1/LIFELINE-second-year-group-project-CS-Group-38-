@@ -95,24 +95,35 @@ $metaTitle = "organizations Dashboard"
                     </div>   
                 </div>
             </div>
-            <div class="box">
+            <div class="instructionBox">
                 <h2 class="instructions-title" >Instructions for organizing a Blood Donation Campaign</h2>
-                <img class="instru-img" src="./../../public/img/orgdashboard/instructions.png" alt="req" width=100%>
+                <!-- <img class="instru-img" src="./../../public/img/orgdashboard/instructions.png" alt="req" width=100%> -->
+                <div class="instru-img">
+                    <img src="./../../public/img/orgdashboard/instruction2.gif" alt="req" >
+</div>
                 <ul class="ins-points">
+
                     <li>By organizing a blood donation campaign, you can give your society a chance to donate blood. It is not that difficult or expensive to organize a campaign in your area or work place.</li>
                     <br>
                     <li>The date of the donation campaign can be decided by the organizers.</li>
                     <br>
                     <li>The first step to planning a blood drive is to find a suitable location, such as a public square or a community center.</li>
                     <br>
+                    <li>Contact a blood bank to provide support and assistance with the campaign. The blood bank can provide trained staff, equipment, and supplies needed for the campaign.</li>
+                    <br>
                     <li>A few points to keep in mind: a comfortable waiting area for donors, likely weather conditions on the day and easy access to parking or public transport.</li>
                     <br>
                     <li>You should be responsible for providing equipment such as tables, chairs and trash cans, along with drinks and refreshments. </li>
+                    <br>
+                    <li>Ensure that all safety and hygiene protocols are in place and followed. This includes screening donors for eligibility, disinfecting surfaces and equipment, and using personal protective equipment.</li>
                     <br>
                     <li>The equipments and beds required for blood drawing will be provided by the blood bank.</li>
                     <br>
                     <li>Once you’ve got a date and place set it’s time to recruit some volunteers. </li>
                     <br>
                     <li>To make things easier, add a note in your community newsletter and take advantage of relevant social media channels and also you can use this website for advertising about your campaign and sending notifications to nearby donors.</li>
+                    <br>
+                    <li>Follow up with donors after the campaign to thank them for their donation and encourage them to donate again in the future.</li>
+
                 </ul>
             </div>

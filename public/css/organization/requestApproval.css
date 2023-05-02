@@ -574,6 +574,10 @@ body {
     padding: 8px 23px 8px 23px;
 }
 
+.verify-btn:hover{
+    font-size: 15px;
+}
+
 .verify-btn2{
     opacity: 0.5;
 }
@@ -682,8 +686,8 @@ body {
 
 .delete-btn-div{
     position : absolute;
-    width : 100%;
-    height : 100%;
+    /* width : 100%;
+    height : 100%; */
 }
 
 .delete-btn{
@@ -1094,7 +1098,7 @@ body {
     width: 1540px;
     height: 797px;
     left: 316px;
-    top: 127px;
+    top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -1102,10 +1106,10 @@ body {
 
 .bloodBanks-line {
     position: absolute;
-    width: 1297.77px;
+    width: 1136.77px;
     height: 0px;
-    left: 147.48px;
-    top: 124.25px;
+    left: 186.48px;
+    top: 182.25px;
     border: 0.818053px solid #EFEFEF;
 }
 
@@ -1122,8 +1126,8 @@ th {
 
 .bloodBanks-table {
     position: absolute;
-    top: 110px;
-    left: 147px;
+    top: 156px;
+    left: 189px;
 }
 
 td {
@@ -1145,8 +1149,12 @@ td {
     border-radius: 4px;
     color: White;
     text-decoration: none;
-    font-size: medium;
+    font-size: 14px;
     font-family: 'Poppins';
+}
+
+.req-btn:hover {
+    font-size: 15px;
 }
 
 .req-btn a {
@@ -1161,8 +1169,8 @@ td {
     position: absolute;
     width: 562.81px;
     height: 46.32px;
-    left: 70.89px;
-    top: 29.69px;
+    left: 189.89px;
+    top: 49.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1513,7 +1521,7 @@ a {
     width: 591px;
     height: 65px;
     left: 633px;
-    top: 0px;
+    top: 34px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1653,8 +1661,8 @@ a {
     position: absolute;
     width: 559.66px;
     height: 46.32px;
-    left: 79.65px;
-    top: 29.69px;
+    left: 177px;
+    top: 49.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1666,16 +1674,16 @@ a {
 
 .campaigns-table {
     position: absolute;
-    top: 110px;
-    left: 147px;
+    top: 156px;
+    left: 177px;
 }
 
 .campaigns-line {
     position: absolute;
-    width: 90%;
+    width: 72%;
     height: 0px;
-    top: 143.25px;
-    left: 72px;
+    top: 182.25px;
+    left: 177px;
     border: 0.818053px solid #EFEFEF;
 }
 
@@ -1696,7 +1704,7 @@ a {
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
+    font-weight: normal;
     font-size: 20px;
     line-height: 19px;
     text-align: center;
@@ -1735,7 +1743,7 @@ a {
     /* display: flex; */
     align-items: center;
     text-align: center;
-    color: #D3DAE0;
+    color: #640E0B;
     mix-blend-mode: darken;
 }
 
@@ -1792,11 +1800,32 @@ a {
     border-radius: 4px;
     color: White;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 14px;
     font-family: 'Poppins';
 }
 
 .schedule-btn a {
+    color: white;
+
+}
+
+.schedule-btn:hover{
+    font-size: 15px;
+}
+
+.schedule-btn1 {
+    display: block;
+    width: 143px;
+    height: 33px;
+    background: #640E0B;
+    border-radius: 4px;
+    color: White;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.schedule-btn1 a {
     color: white;
 }
 
@@ -1878,6 +1907,21 @@ a {
 
 .viewSchedule-button a {
     color: white;
+}
+
+.reqb-head {
+    position: absolute;
+    width: 20%;
+    height: 46.32px;
+    left: 40%;
+    top: 105px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 41px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+    color: #000000;
 }
 
 .startingTime-label {
@@ -2823,15 +2867,15 @@ a {
 .feedbacks-table {
     position: absolute;
     top: 221px;
-    left: 147px;
+    left: 191px;
 }
 
 .feedbacks-line {
     position: absolute;
-    width: 90%;
+    width: 80%;
     height: 0px;
     top: 242.25px;
-    left: 72px;
+    left: 190px;
     border: 0.818053px solid #EFEFEF;
 }
 
@@ -2849,6 +2893,7 @@ a {
     top: 101px;
     background: #640E0B;
     border-radius: 10.8716px;
+    font-size: 13px;
 }
 
 .back-btn a {
@@ -2856,6 +2901,11 @@ a {
     font-family: "Poppins";
     font-weight: 500;
 }
+
+.back-btn:hover{
+    font-size:14px ;
+}
+
 
 .donate-today {
     position: absolute;
@@ -3360,7 +3410,7 @@ a {
     width: 1540px;
     height: 797px;
     left: 316px;
-    top: 127px;
+    top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px; 
@@ -3387,16 +3437,37 @@ a {
 }
 
 .profileBox .main {
-    margin-top: 7%;
+     margin-top: 7%;
     margin-left: 24%;
     display: flex;
     font-family: 'Poppins';
     line-height: 40px;
+    font-size: 22px; 
+    /* box-sizing: border-box;
+    position: absolute;*/
+    /*  left: 189px;  */
+    margin-left: 24%;
+    /*right: 219px;
+    top: 310px;
+    /* margin-top: 288%; 
+    bottom: 50px;
+    background: #FFFFFF;
+    border: 1px solid #640E0B;
+    border-radius: 8px;
+    height: 642px;
+    line-height: 40px;
     font-size: 22px;
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+
 }
 
 .profileBox .main .left {
     font-weight: bold;
+    margin-left: -52px;
 }
 
 .profileBox .main .right {
@@ -3756,7 +3827,7 @@ a {
         width: 1540px;
         /* height: 797px; */
         left: 316px;
-        top: 127px;
+        top: 100px;
         background: #ffffff;
         border: 1.81193px solid #ECEEF7;
         border-radius: 6px;
@@ -3953,9 +4024,9 @@ a {
     }
 
     .user-filter-img{
-        margin-top: 51px;
-        margin-left: 1350px;
-        position: absolute;
+        margin-top: 74px;
+    margin-left: 1234px;
+    position: absolute;
     }
 
     .ash-button {
@@ -3969,8 +4040,8 @@ a {
         position: absolute;
         width: 203.66px;
         height: 37.49px;
-        left: 1135.29px;
-        top: 31.06px;
+        left: 1106.29px;
+        top: 56.06px;
         background: #F7F7F7;
         border-radius: 10.8716px;
         font-family: 'Poppins';
@@ -3983,6 +4054,11 @@ a {
         letter-spacing: 0.01em;
         color: #640E0B;
     }
+
+    .ash-button:hover {
+        font-size: 13.6835px;
+    }
+    
 
     .ash-button1 {
         display: flex;
@@ -4008,6 +4084,9 @@ a {
     margin-left: 828px;
     }
 
+    .ash-button1:hover {
+        font-size: 13.6835px;
+    }
     .user-filter-img1 {
         margin-top: 121px;
         margin-left: 997px;
@@ -4030,15 +4109,62 @@ a {
     }
     
     .user-filter-imgB {
-        margin-top: 51px;
-        margin-left: 1306px;
+        margin-top: 74px;
+        margin-left: 1277px;
         position: absolute;
     }
-    
-    
-    
-    
-   
 
+    .dlt-btn{
+        display: block;
+    width: 131px;
+    height: 33px;
+    background: #640E0B;
+    border-radius: 4px;
+    color: White;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Poppins';
+    margin-top: -15px;
+    }
+
+    .dlt-btn:hover {
+        font-size: 15px;
+    }
+
+    .dlt-btn a{
+        color: white;
+        text-decoration: none;
+    }
+    
+    .outline-button1:hover{
+        font-size: 13px;
+    }
+    
+    .brown-button1:hover{
+        font-size: 21px;
+    }
+    
+    .ad-card a:hover{
+        font-size: 15px;
+    }
+
+    .feedback-btn:hover{
+        font-size: 18px;
+    }
+    
+    .schedule-btn1:hover{
+        font-size: 14px;
+    }
+.instructionBox{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1540px;
+    height: 1080px;
+    left: 316px;
+    top: 100px;
+    background: #ffffff;
+    border: 1.81193px solid #ECEEF7;
+    border-radius: 6px;
+}
 
   

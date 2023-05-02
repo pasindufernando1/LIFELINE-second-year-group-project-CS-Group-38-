@@ -381,6 +381,8 @@ class Usermanage extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
@@ -425,6 +427,8 @@ class Usermanage extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
@@ -469,6 +473,8 @@ class Usermanage extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
@@ -1059,7 +1065,7 @@ class Usermanage extends Controller
                     }
 
                     // Check file size
-                    if ($_FILES["fileToUpload"]["size"] > 500000) {
+                    if ($_FILES["fileToUpload"]["size"] > 10000000) {
                         echo "Sorry, your file is too large.";
                         $uploadOk = 0;
                     }

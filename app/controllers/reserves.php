@@ -29,6 +29,8 @@ class Reserves extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             //var_dump($_POST);exit;
             if ($_SESSION['type'] == "Admin") {

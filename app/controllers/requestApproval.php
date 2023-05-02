@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
@@ -510,6 +511,8 @@ class requestApproval extends Controller
     {
         if ($_SESSION['type'] == 'Organization/Society') {
             $campid = $_GET['campaign'];
+            $_SESSION['campaignId']=$campid;
+            //print_r($_SESSION['campaignId']);die();
             //echo $campid;
             $_SESSION['allTimeslots']=$this->model->getAllTimeslots();
             
@@ -518,34 +521,24 @@ class requestApproval extends Controller
             $scheduledTimeslots=$this->model->getScheduledTimeslots($campid);
             //print_r($scheduledTimeslots);die();
             //set status =1 to the timeslots that are already scheduled
-            for($i=0;$i<count($_SESSION['allTimeslots']);$i++){
-                for($j=0;$j<count($scheduledTimeslots);$j++){
-                    if($_SESSION['allTimeslots'][$i]['SlotID']==$scheduledTimeslots[$j]['SlotID']){
-                        $_SESSION['allTimeslots'][$i]['Status']=1;
-                        break;
-                    }
-                    else{
-                        $_SESSION['allTimeslots'][$i]['Status']=0;
-                    }
-                }
-            }
-            //print_r($allTimeSlots);die();
-            //print_r($allTimeslots);die();
-            
-            /* if(!empty($scheduledTimeslots)){
-                //print_r("awa");die();
-                for($i=0;$i<count($scheduledTimeslots);$i++){
-                    for($j=0;$j<count($allTimeslots);$j++){
-                        
-                        if($scheduledTimeslots[$i]['SlotID']==$allTimeslots[$j]['SlotID']){
-                            unset($temp[$j]);
-                            //unset($_SESSION['allTimeslots'][$j]);
-                           // print_r($allTimeslots);
+            if(!empty($scheduledTimeslots)){
+                for($i=0;$i<count($_SESSION['allTimeslots']);$i++){
+                    for($j=0;$j<count($scheduledTimeslots);$j++){
+                        if($_SESSION['allTimeslots'][$i]['SlotID']==$scheduledTimeslots[$j]['SlotID']){
+                            $_SESSION['allTimeslots'][$i]['Status']=1;
+                            break;
+                        }
+                        else{
+                            $_SESSION['allTimeslots'][$i]['Status']=0;
                         }
                     }
                 }
-            } */
-            //print_r($temp);die();
+            }
+            else{
+                for($i=0;$i<count($_SESSION['allTimeslots']);$i++){
+                    $_SESSION['allTimeslots'][$i]['Status']=0;
+                }
+            }
             
                 //print_r($temp);die();
             if(empty($_SESSION['allTimeslots'])){
@@ -554,17 +547,7 @@ class requestApproval extends Controller
             else{
                 $_SESSION['rowCount']=count($_SESSION['allTimeslots']);
             }
-                //print_r($_SESSION['allTimeslots']);die();
-                //$_SESSION['rowCount']=count($temp);
-            
-            //unset($_SESSION['allTimeslots']);
-            //print_r($temp);die();
-           
-                //$_SESSION['allTimeslots']=$temp;
-              
-            
-            
-            //print_r($_SESSION['allTimeslots']);die();
+               
             $this->view->render('organization/scheduleTimeslots');
         } else {
             $this->view->render('authentication/organizationlogin');
@@ -573,8 +556,10 @@ class requestApproval extends Controller
     function addTimeslot($TimeslotID)
     {
         if ($_SESSION['type'] == 'Organization/Society') {
+            //print_r($_SESSION['campaignId']);die();
+            $campid=$_SESSION['campaignId'];
             if ($this->model->addSlot($TimeslotID,$_SESSION['campaignId'])) {
-                header('Location: /requestApproval/add_slot_successfully');
+                header('Location: /requestApproval/scheduleTimeslots?campaign='.$campid.'');
             }
         }
         else{
@@ -588,6 +573,10 @@ class requestApproval extends Controller
         //print_r('awa');die();
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
+                $campid=$_GET['campaign'];
+                // print_r($campid);die();
+                // print_r($_SESSION['campaignId']);die();
+                $_SESSION['campaignId']=$campid;
                 $this->view->render('organization/add_slot_successfully');
                 exit();
             }
@@ -620,28 +609,10 @@ class requestApproval extends Controller
     
                         //print($slotid);
                         $_SESSION['timeslots'][$i]=$this->model->getSlotDetails($slotid);
-                        //print_r($_SESSION['timeslots']);die();
-                        /* $Start_time=$slotDet[0]['Start_time'];
-                        print_r($Start_time);die();
-                        $End_time=$slotDet[0]['End_time'];
-                        print_r($End_time);die(); */
+                        
                     }
                 }
                  
-                //print_r($_SESSION['timeslots']);die();
-                
-                
-
-            
-                
-                //print_r($End_time);die();
-                //$_SESSION['timeslots']=$this->model->getSlotDetails($_SESSION['timeslots']);
-                
-                //print_r($_SESSION['timeslots']);die();
-                
-                    
-                
-                
                 
                 $this->view->render('organization/camps_view_Timeslots');
                 exit();
@@ -655,21 +626,26 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             
             $_SESSION['slotid']=intval($_GET['timeSlot']);
-            //print_r($_SESSION['slotid']);die();
-            
+           //print_r("awa");die();
 
         }
-        //print_r($_SESSION['campaign_array'][0]);die();
-        $this->model->removeSlot($_SESSION['slotid'],$_SESSION['campaign_array'][0]);
-        $data=$this->model->getSlots($_SESSION['campaign_array'][0]);
-
-            //print_r('awa');die();
-            //print_r(count($data));die();
-            //print_r(count($data));die();
-            $_SESSION['rowCount']=count($data);
+        
+        if($this->model->removeSlot($_SESSION['slotid'],$_SESSION['campaign_array'][0])){
+            $data=$this->model->getSlots($_SESSION['campaign_array'][0]);
+            //print_r($data);die();
+            
+            if(empty($data)){
+                $_SESSION['rowCount']=0;
+            }
+            else{
+                $_SESSION['rowCount']=count($data);
+            }
+            $_SESSION['Scheduled_timeslots']=$data;
             //print_r($_SESSION['rowCount']);die();
 
-            header('Location: /requestApproval/remove_slot_successfully');
+            header('Location: /requestApproval/view_viewTimeslots?campaign='.$_SESSION['campaign_array'][0].'');
+        
+        }
         
      }
 
@@ -733,28 +709,7 @@ class requestApproval extends Controller
                     //print_r($_SESSION['donorList']);die();
                     $this->view->render('organization/viewDonorsList');
                     exit();
-                  /* for($i=0;$i<sizeof($donorDetails);$i++){
-                    $donorID[$i]=$donorDetails[$i]['UserID'];
-                    
-                  }
-                    //print_r(sizeof($donorID));die();
-                    for($i=0;$i<sizeof($donorID);$i++){
-                        $donorContact[$i]=$this->model->getDonorContact($donorID[$i]);
-                    }
-                
-                    //print_r($donorContact);die();
-                    for($i=0;$i<sizeof($donorContact);$i++){
-                        $donorList[$i]['Fullname']=$donorDetails[$i]['Fullname'];
-                        $donorList[$i]['Contact']=$donorContact[$i][0]['ContactNumber'];
-                        $donorList[$i]['NIC']=$donorDetails[$i]['NIC'];
-                    }
-                    //print_r($donorList);die();
-                    $_SESSION['donorList']=$donorList;
-               // $_SESSION['donorList'] 
-                   //print_r($_SESSION['donorList']);die();
-                    $this->view->render('organization/viewDonorsList');
-                    
-                    exit; */
+                  
                 
             }
         }
@@ -788,44 +743,26 @@ class requestApproval extends Controller
                 $slotids = $this->model->getSlotIDs($campid);
                 //print_r($slotids);die();
                 $x=sizeof($slotids);
+                //print_r($x);die();
+                
                 if(!empty($slotids)){
                     for($i=0;$i<$x;$i++){
                         $slotid=$slotids[$i]['SlotID'];
-                        $_SESSION['timeslots'][$i]=$this->model->getSlotDetails($slotid);
+                        //print_r($slotid);die();
+                        
+                        $_SESSION['Scheduled_timeslots'][$i]=$this->model->getSlotDetails($slotid);
+                       
                     } 
-                    $_SESSION['rowCount']=count($_SESSION['timeslots']);
+                    
+                    $_SESSION['rowCount']=count($_SESSION['Scheduled_timeslots']);
+                    //print_r($_SESSION['timeslots']);die();
                 }
                 else{
-                    $_SESSION['timeslots']=null;
+                    $_SESSION['Scheduled_timeslots']=[];
                     $_SESSION['rowCount']=0;
                 }
-                /*for($i=0;$i<$x;$i++){
-                    $slotid=$slotids[$i]['SlotID'];
 
-                    //print($slotid);die();
-                    $data[$i]=$this->model->getSlotDetails($slotid);
-                    //print_r($_SESSION['timeslots']);die();
-                    /* $Start_time=$slotDet[0]['Start_time'];
-                    print_r($Start_time);die();
-                    $End_time=$slotDet[0]['End_time'];
-                    print_r($End_time);die(); */
-                
-                //print_r($_SESSION['timeslots']);die();
-                
-                
-
-            
-                
-                //print_r($End_time);die();
-                //$_SESSION['timeslots']=$this->model->getSlotDetails($_SESSION['timeslots']);
-                
-                //print_r($_SESSION['timeslots']);die();
-                
-                    
-                
-                
-                //$_SESSION['timeslots']=$data;
-                //print_r(sizeof($_SESSION['timeslots']));die();
+                //print_r($_SESSION['Scheduled_timeslots']);die();
                 $this->view->render('organization/view_viewTimeslots');
                 exit();
             }
@@ -870,41 +807,28 @@ class requestApproval extends Controller
             if ($_SESSION['type'] == 'Organization/Society') {
                 $AdID = $this->model->getadvertisementIDs();
                 
-                //$inventoryCat=$this->model->getInventoryCat();
-                //print_r($AdID);die();
-                //get all details from advertisement table from $_SESSION['AdID']
+                
                 $x=sizeof($AdID);
-                //print_r($x);die();
+                
                 for($i=0;$i<$x;$i++){
                     $adid=$AdID[$i]['AdvertisementID'];
-                    
-                    //print_r($adid);
-                    //print_r($i);
                     $AdDetails[$i]=$this->model->getAdvertisements($adid);
-                    //$bloodbankName[$i]=$this->model->getBloodbankName($AdDetails);
-                    //print_r($_SESSION['advertisements']);die();
                 }
                 for($i=0;$i<$x;$i++){
                     $adid=$AdID[$i]['AdvertisementID'];
                     
-                    //print_r($adid);
-                    //print_r($i);
                     $inventoryCat[$i]=$this->model->getInventoryCatToAd($adid);
-                    //$bloodbankName[$i]=$this->model->getBloodbankName($AdDetails);
-                    //print_r($_SESSION['advertisements']);die();
+                    
                 }
-                //print_r($inventoryCat);die();
-                //get the total amount of inventory receieved for each advertisement
+                
                 $x=sizeof($AdID);
-                //print_r($x);die();
+                
                 for($i=0;$i<$x;$i++){
                     $adid=$AdID[$i]['AdvertisementID'];
                     $total_received[$i]=$this->model->getTotalReceived($adid);
-                    //$bloodbankName[$i]=$this->model->getBloodbankName($AdDetails);
-                    //print_r($_SESSION['advertisements']);die();
+                    
                 }
-                //print_r($total_received);die();
-
+                
                 
                 //print_r($donationID);die();
                 foreach ($AdDetails as $details) {
@@ -1093,6 +1017,21 @@ class requestApproval extends Controller
     function editDetails()
     {
         if ($_SESSION['type'] == 'Organization/Society') {
+            $_SESSION['user_details'] = $this->model->get_telno($_SESSION['User_ID'] );
+            //print_r( $_SESSION['user_details'][2]['ContactNumber']);die();
+            $_SESSION['user_Name'] = $_SESSION['user_details'][0]['Name'];
+            $_SESSION['user_Number'] = $_SESSION['user_details'][0]['Number'];
+            $_SESSION['user_LaneName'] = $_SESSION['user_details'][0]['LaneName'];
+            $_SESSION['user_City'] = $_SESSION['user_details'][0]['City'];
+            $_SESSION['user_District'] = $_SESSION['user_details'][0]['District'];
+            $_SESSION['user_Province'] = $_SESSION['user_details'][0]['Province'];
+            $_SESSION['user_telno']= $_SESSION['user_details'][2]['ContactNumber'];
+            $_SESSION['user_username'] = $_SESSION['user_details'][1]['Username'];
+            $_SESSION['user_userType'] = $_SESSION['user_details'][1]['UserType'];
+            $_SESSION['user_user_pic'] = $_SESSION['user_details'][1]['Userpic'];
+            $_SESSION['password'] = $_SESSION['user_details'][1]['Password'];
+
+
             $this->view->render('organization/editProfile');
         } else {
             $this->view->render('authentication/organizationlogin');
@@ -1175,10 +1114,10 @@ class requestApproval extends Controller
             $cit = $_POST['cit'];
             $dis = $_POST['dis'];
             $prov = $_POST['prov'];
-            $em = $_POST['em'];
+            
             $Password = $_POST['newPw'];
             $user_pic = $filename;
-            
+            //print_r($_SESSION['password']);die();
             if(empty($Password)){
                 $Password = $_SESSION['password'];
             }else{
@@ -1217,6 +1156,7 @@ class requestApproval extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
                 $today=date("Y-m-d H:i:s");
+                
                 $_SESSION['accepted_campaigns'] = $this->model->getAcceptedCampaigns($_SESSION['User_ID'],$today);
                 $_SESSION['upcoming_campaigns'] = $this->model->getUpcomingCampaigns($_SESSION['accepted_campaigns'],$today);
                 //print_r($_SESSION['upcoming_campaigns']);die();

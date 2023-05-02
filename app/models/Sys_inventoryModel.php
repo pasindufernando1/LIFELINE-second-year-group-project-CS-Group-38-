@@ -169,7 +169,7 @@ public function getAllInventory($id)
         $inputs1 = array($date);
 
 
-        $result1 = $this->db->update("inventory_donation", $columns1, $param1, $inputs1,':id',$id,"WHERE DonationID = :id ");
+        $result1 = $this->db->update("inventory_donation", $columns1, $param1, $inputs1,':id',$id,"WHERE InventoryDonationID = :id ");
 
         if($result1){
             return true;

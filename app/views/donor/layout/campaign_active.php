@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Files -->
-    <link href="../../../../public/css/admin/sidebar.css" rel="stylesheet">
+    <link href="../../../../public/css/donor/sidebar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,10 +14,11 @@
         '/app/views/donor/layout/header.php'; ?>
     <div class="side-bar">
         <div class="side-nav">
-            <div class="dashboard menu-items">
-                <div class="dashboard-marker"></div>
-                <img src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
-                <p class="dashboard-active"><a href="/donoruser/dashboard">Dashboard</a></p>
+            <div class="dashboard-non menu-item">
+                <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
+                <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
+                    alt="dashboard">
+                <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
@@ -35,10 +36,10 @@
 
             </div>
             <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
+                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
                     alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
+                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
 
             </div>
             <div class="badges menu-item">
@@ -55,11 +56,11 @@
                 <p class="reports-nav "><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>
-            <div class="campaigns menu-item">
-                <img src="./../../public/img/donordashboard/non-active/campaigns.png" alt="campaigns">
-                <img class="reservation-non-active " src="./../../public/img/donordashboard/active/campaigns.png"
+            <div class="campaigns-selected">
+                <div class="campaigns-marker"></div>
+                <img class="campaigns-active" src="./../../public/img/donordashboard/active/campaigns2.png"
                     alt="campaigns">
-                <p class="campaigns-nav "><a href="/getcampaign?page=1">Campaigns</a></p>
+                <p class="campaigns-act "><a href="/getcampaign?page=1">Campaigns</a></p>
 
             </div>
             <div class="line"></div>
@@ -70,9 +71,7 @@
                 <p class="profile-nav "><a href="/donorprofile">Profile</a></p>
 
             </div>
-
         </div>
-
     </div>
 
 </body>

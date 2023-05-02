@@ -20,8 +20,9 @@ button:hover {
 
 .cancelbtn,
 .deletebtn {
-    width: 45%;
-    border-radius: 10px;
+    width: 47%;
+    border-radius: 7px;
+    height: 37px;
 }
 
 

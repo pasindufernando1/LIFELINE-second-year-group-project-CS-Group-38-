@@ -45,7 +45,7 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
                             src="./../../public/img/hospitalsdashboard/active/dashboard.png" alt="dashboard">
                         <p class="dashboard-non-active menu-item"><a href="/organizationuser/dashboard/">Dashboard</a>
                         </p>
-                    </div>
+                </div>
 
                     <div class="campaigns menu-item">
                         <div class="marker"></div>
@@ -129,8 +129,8 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
                                
 
                             </div>';
-                            $results_per_page = 4;
-                            $number_of_results = ($_SESSION['rowCount']);
+                            $results_per_page = 7;
+                            $number_of_results = $_SESSION['rowCount'];
                             $number_of_page = ceil($number_of_results / $results_per_page);
     
                             //determine which page number visitor is currently on  
@@ -141,7 +141,7 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
                             }  
                             //determine the sql LIMIT starting number for the results on the displaying page  
                             $page_first_result = ($page-1) * $results_per_page;  
-                            $result = $_SESSION['timeslots'];
+                            $result = $_SESSION['Scheduled_timeslots'];
 
                             
                             //print_r($_SESSION['rowCount']);die();
@@ -158,7 +158,11 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
 
                                             <td> 
                                             
-                                            <div class="delete-btn-div"> <a href="/requestApproval/removeTimeslot?timeSlot='.$row[0]["SlotID"].'"> <img class="delete-btn" src="./../../public/img/admindashboard/delete-btn.png" alt="delete-btn"></a></button> </div>       
+                                            <div class="delete-btn-div"> 
+                                                  
+                                                <a href="/requestApproval/removeTimeslot?timeSlot='.$row[0]["SlotID"].'"> <button class="dlt-btn" type="button" name="request1" onclick="showPopup(event)" >Remove</a> </button>
+                                               
+                                            </div>       
                                             
                                             
                                             
@@ -171,32 +175,71 @@ $_SESSION['CampID'] = intval($_GET['campaign']);
                                 </tr> </div>';
                             }
                             echo '<div class="page-box">';
-if (!isset($_GET['page']) || $_GET['page'] == 1) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . 1 . '">&laquo;</a> </div>'; 
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
-}
+                                    if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                                        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . 1 . '">&laquo;</a> </div>'; 
+                                    } else {
+                                        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                                    }
 
-for($page = 1; $page <= $number_of_page; $page++) {  
-    if (!isset($_GET['page'])) {
-        $current_page = 1;
-    } else {
-        $current_page = $_GET['page'];
+                                    for($page = 1; $page <= $number_of_page; $page++) {  
+                                        if (!isset($_GET['page'])) {
+                                            $current_page = 1;
+                                        } else {
+                                            $current_page = $_GET['page'];
+                                        }
+                                        if ($page == $current_page) {
+                                            echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';
+                                        } else {
+                                            echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';  
+                                        }
+                                    }
+
+                                    if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                                        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $number_of_page . '">&raquo; </a> </div>';
+                                    } else {
+                                        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                                    }
+
+                            echo '</div>';
+    ?>
+    </table>
+    <div class="popup">
+        <div>
+            <p>Are You Sure to Remove the Time Slot?</p>
+            <div><button class="yes-button">Yes</button>
+                <button class="no-button">No</button>
+            </div>
+
+
+            <img class="close" onclick="hidealert()" src="../../../public/img/orgdashboard/close.png">
+
+        </div>
+    </div>
+    <script>
+    function showPopup(event) {
+        // console.log(href);
+
+        event.preventDefault(); // prevent following the link
+        var popup = document.querySelector(".popup");
+        popup.style.display = "block"; // show the pop-up box
+        var yesButton = document.querySelector(".yes-button");
+        yesButton.onclick = function() {
+            window.location.href = event.target.href; // follow the link
+        };
+        var noButton = document.querySelector(".no-button");
+        noButton.onclick = function() {
+            popup.style.display = "none"; // hide the pop-up box
+        };
     }
-    if ($page == $current_page) {
-        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';
-    } else {
-        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';  
+
+    function hidealert() {
+        var popup = document.querySelector(".popup");
+        popup.style.display = "none";
     }
-}
 
-if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $number_of_page . '">&raquo; </a> </div>';
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
-}
+    
+    </script>
 
-echo '</div>';
 
                  
                 
@@ -205,5 +248,5 @@ echo '</div>';
             
             
 
-
+</body>
 ?>

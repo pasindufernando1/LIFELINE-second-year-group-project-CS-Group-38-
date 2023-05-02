@@ -62,8 +62,15 @@ class User extends Controller
                     $uname
                 );
                 $_SESSION['packets'] = $this->model->getAllPackets($_SESSION['blood_bank_id']);
-                $this->view->render('systemuser/dashboard');
-                $_SESSION['bloodtypes'] = $this->model->getAllTypes($_SESSION['blood_bank_id']);
+                $_SESSION['month_donations'] = $this->model->getMonthlyDonation($_SESSION['blood_bank_id']);
+                $_SESSION['no_of_donors'] = $this->model->getdonorcomposition();
+
+                date_default_timezone_set("Asia/Calcutta");
+                $date = date('Y-m-d');
+                $_SESSION['donation_today'] =$this->model->getTodayDonation($_SESSION['blood_bank_id'],$date);
+                $_SESSION['cards_issued'] =$this->model->getCardIssued();
+                $_SESSION['ads_count'] =$this->model->getAdCount($_SESSION['blood_bank_id']);
+                $_SESSION['camp_req_count'] =$this->model->getCampReqCount($_SESSION['blood_bank_id']);
             } else {
                 $_SESSION['error'] = 'Incorrect Username or Password';
                 header('Location: /login');
@@ -115,9 +122,9 @@ class User extends Controller
 
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns($_SESSION['today']);
 
-                $_SESSION['newest_badge'] = $this->model->getnewestbadge(
-                    $_SESSION['user_ID']
-                );
+                // $_SESSION['newest_badge'] = $this->model->getnewestbadge(
+                //     $_SESSION['user_ID']
+                // );
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds(
                     $_SESSION['upcoming_campaigns']

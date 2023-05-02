@@ -109,7 +109,7 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="box">
-                <p class="view-campaigns-title">View Campaigns</p>
+                <p class="view-campaigns-title">Select Campaign to Schedule Time Slots</p>
 
                 <table class="campaigns-table" style="width:90%">
                     <tr>

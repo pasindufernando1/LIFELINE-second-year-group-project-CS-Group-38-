@@ -33,48 +33,36 @@ class BadgesModel extends Model
 
         } else {
             $newest_badge = $this->db->select(
-                'BadgePic',
+                '*',
                 'badge',
                 'WHERE Donation_Constraint = :Donations',
                 ':Donations',
                 $donations
-            )[0][0];
+            )[0];
+
             return $newest_badge;
         }
     }
 
-    public function getbadges($badge)
+    public function getbadges($constraint)
     {
-        $constraint = $this->db->select(
-            'Donation_Constraint',
-            'badge',
-            'WHERE BadgePic = :BadgePic',
-            ':BadgePic',
-            $badge
-        )[0][0];
-
         $badges = $this->db->select(
-            'BadgePic',
+            'BadgePic,Name',
             'badge',
             'WHERE Donation_Constraint <= :Donation_Constraint',
             ':Donation_Constraint',
             $constraint
         );
+        // print_r($badges);
+        // die();
         return $badges;
     }
 
-    public function getyetbadges($badge)
+    public function getyetbadges($constraint)
     {
-        $constraint = $this->db->select(
-            'Donation_Constraint',
-            'badge',
-            'WHERE BadgePic = :BadgePic',
-            ':BadgePic',
-            $badge
-        )[0][0];
 
         $badges = $this->db->select(
-            'BadgePic',
+            'BadgePic,Name',
             'badge',
             'WHERE Donation_Constraint > :Donation_Constraint',
             ':Donation_Constraint',
@@ -86,7 +74,7 @@ class BadgesModel extends Model
     public function getbadgeinfo()
     {
         $badge_info = $this->db->select(
-            'BadgePic,Donation_Constraint',
+            'BadgePic,Donation_Constraint,Name',
             'badge',
             'ORDER BY Donation_Constraint ASC'
         );
@@ -96,7 +84,7 @@ class BadgesModel extends Model
     public function getallbadges()
     {
         $badges = $this->db->select(
-            'BadgePic',
+            'BadgePic,Name',
             'badge',
             'ORDER BY Donation_Constraint ASC'
         );

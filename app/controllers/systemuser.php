@@ -53,6 +53,22 @@ class Systemuser extends Controller
         //if already logged in redirect according to user types
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
+
+                $_SESSION['month_donations'] = $this->model->getMonthlyDonation($_SESSION['blood_bank_id']);
+               
+                $_SESSION['no_of_donors'] = $this->model->getdonorcomposition();
+
+                date_default_timezone_set("Asia/Calcutta");
+                $date = date('Y-m-d');
+                $_SESSION['donation_today'] =$this->model->getTodayDonation($_SESSION['blood_bank_id'],$date);
+                $_SESSION['cards_issued'] =$this->model->getCardIssued();
+                $_SESSION['ads_count'] =$this->model->getAdCount($_SESSION['blood_bank_id']);
+                $_SESSION['camp_req_count'] =$this->model->getCampReqCount($_SESSION['blood_bank_id']);
+                
+
+                //  print_r($_SESSION['cards_issued']);die();
+                
+                
                 $this->view->render('systemuser/dashboard');
                 exit;
             } else if ($_SESSION['type'] == "Admin") {
@@ -88,7 +104,23 @@ class Systemuser extends Controller
             $_SESSION['login'] = "loggedin";
             $_SESSION['username'] = $this->model->getUserName($uname);
             $_SESSION['bloodbankname'] = $this->model->getBloodBankName($uname);
-            $this->view->render('systemuser/dashboard');
+            $_SESSION['packets'] = $this->model->getAllPackets($_SESSION['blood_bank_id']);
+                $_SESSION['month_donations'] = $this->model->getMonthlyDonation($_SESSION['blood_bank_id']);
+                $_SESSION['no_of_donors'] = $this->model->getdonorcomposition();
+
+                date_default_timezone_set("Asia/Calcutta");
+                $date = date('Y-m-d');
+                $_SESSION['donation_today'] =$this->model->getTodayDonation($_SESSION['blood_bank_id'],$date);
+
+                $_SESSION['cards_issued'] =$this->model->getCardIssued();
+
+                $_SESSION['ads_count'] =$this->model->getAdCount($_SESSION['blood_bank_id']);
+
+                $_SESSION['camp_req_count'] =$this->model->getCampReqCount($_SESSION['blood_bank_id']);
+
+
+
+                $this->view->render('systemuser/dashboard');
 
             
         }
@@ -122,8 +154,7 @@ class Systemuser extends Controller
                 $diff = 10520000;
 
                 $all_donors = $this->model->getAllDonorDetailsJoin();  
-                $month_donations = $this->model->getMonthlyDonation();
-                print_r($month_donations);die(); 
+                
 
                 $output = array();
                 $number_of_results = count($all_donors);

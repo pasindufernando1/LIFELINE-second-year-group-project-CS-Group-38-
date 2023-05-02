@@ -158,7 +158,7 @@ $metaTitle = 'Organizations Dashboard';
                             // print_r($result[0]);die();
                         }
                     } else {
-                        echo 'div class="error">No campaigns found</div>';
+                        echo '<div class="error">No campaigns found</div>';
                         
                     }
 
@@ -237,9 +237,7 @@ $metaTitle = 'Organizations Dashboard';
             
 
             </div>
-        </div>
-
-    </div>
+        
 
 </body>
 

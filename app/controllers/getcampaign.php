@@ -451,6 +451,13 @@ class Getcampaign extends Controller
             if ($_SESSION['type'] == 'Donor') {
                 $_SESSION['selected_campid'] = $_GET['camp'];
                 // print_r($_SESSION['selected_campid']);
+
+                $_SESSION['camp_info'] = $this->model->get_campaign_info(
+                    $_SESSION['selected_campid']
+                );
+
+                // print_r($_SESSION['camp_info']);
+                // die();
                 $_SESSION['camp_timeslots'] = $this->model->get_timeslots($_SESSION['selected_campid']);
                 $_SESSION['timeslot_period'] = $this->model->get_timeslot_period($_SESSION['camp_timeslots']);
                 $_SESSION['beds'] = $this->model->get_beds($_SESSION['selected_campid']);

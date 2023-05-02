@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "System User Donations" 
+$metaTitle = "System User Donations" ;
 ?>
 
 <!DOCTYPE html>
@@ -53,11 +53,12 @@ $metaTitle = "System User Donations"
                         <table class="blood-types-table" style="width:90%">
                         <tr>
                             <th>Donor NIC</th>
+                            <th>Full Name</th>
+                            <th>Blood Group</th>
                             <th>Received Date</th>
-                            
                             <th>Complication</th>
                             
-                            <th>Action</th>
+                           
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
@@ -85,7 +86,9 @@ $metaTitle = "System User Donations"
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["NIC"]. "</td>
-                                        <td>" . $row["Date"] . "</td>
+                                        <td>" . $row["Fullname"] . "</td>
+                                        <td>" . $row["BloodType"] . "</td>
+                                         <td>" . $row["Date"] . "</td>
                                         
                                         <td>";
                                         
@@ -98,10 +101,6 @@ $metaTitle = "System User Donations"
                                             echo "No Complications";
                                         }
                                         
-                                        
-                                         
-                                        echo '<td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/sys_inventory/view/'.$row["PacketID"].'"> <img class="edit-btn" src="./../../public/img/dashboard/edit-btn.png" alt="edit-btn"> </a> </div> </div> </div></td>
-                                    </tr> </div>';
                                 
                             }
                         } else {

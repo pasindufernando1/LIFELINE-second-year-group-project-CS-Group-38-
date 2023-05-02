@@ -23,24 +23,27 @@
         <div class="logo">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
         </div>
-        <div class="search">
+        <!-- <div class="search">
             <img src="./../../public/img/donordashboard/search-icon.png" alt="search-icon">
             <input class="search-box" type="text" autofocus placeholder="Search">
         </div>
         <div class="notification">
             <img class="bell-icon" src="../../../public/img/donordashboard/bell-icon.png" alt="bell-icon">
 
-        </div>
+        </div> -->
         <div class="login-user">
             <div class="image">
                 <img src="../../../public/img/user_pics/<?php echo $_SESSION['user_pic'] ?>" alt="profile-pic">
             </div>
             <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
+                <p>
+                    <?php echo $_SESSION['username']; ?>
+                </p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
+                    <p>
+                        <?php echo $_SESSION['type']; ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -50,8 +53,8 @@
             <div class="more">
                 <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
+                    <a href="/donorprofile/index">Profile</a>
+                    <a href="/user/logout">Log Out</a>
                 </div>
             </div>
         </div>

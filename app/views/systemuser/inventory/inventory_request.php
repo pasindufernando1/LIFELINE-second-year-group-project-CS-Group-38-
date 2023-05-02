@@ -88,7 +88,7 @@ $metaTitle = "System User Reservations"
                                         if ($row['Accepted_date'] != null) {
                                             echo '<span class="verified">Verified</span>';
                                         } else {
-                                            echo '<a href="/sys_inventory/verify/'.$row[0].'"><span class="verify">Verify</span></a>';
+                                            echo '<a href="/sys_inventory/verify/'.$row['InventoryDonationID'].'"><span class="verify">Verify</span></a>';
                                         }
                                         
                                         ?>

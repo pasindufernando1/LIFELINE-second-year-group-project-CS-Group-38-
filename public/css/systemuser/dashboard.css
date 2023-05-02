@@ -540,21 +540,23 @@ a {
 }
 
 .edit-btn {
-    width: 35px;
-    height: 35px;
+    width: 26px;
+    height: 26px;
     background: rgba(175, 175, 175, 0.2);
-    border-radius: 4px;
+    border-radius: 7px;
     margin: 0px 5px 0px -30px;
+    padding: 4.5px;
     text-align: center;
 }
 
 .delete-btn {
-    width: 35px;
-    height: 35px;
+     width: 26px;
+    height: 26px;
     background: #FBDAD9;
     border-radius: 4px;
     text-align: center;
     margin: 0px 0px 0px -110px;
+    padding: 4.5px;
 }
 
 th {

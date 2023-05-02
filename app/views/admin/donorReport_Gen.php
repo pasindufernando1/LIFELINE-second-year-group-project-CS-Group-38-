@@ -78,12 +78,12 @@ $metaTitle = "Donor Report"
         </div>
         <div class="badgepic">
             <p>Current Badge</p>
-            <img src="./../../public/img/admindashboard/badges/<?php echo $_SESSION['badge']; ?>" alt="badge">
+            <img src="./../../public/img/badges/<?php echo $_SESSION['badge']; ?>" alt="badge">
 
         </div>
         <div class="donorcard">
             <p>Donor Card View</p>
-            <img src="../../../public/img/admindashboard/donor-card/<?php echo $_SESSION['donor-card']; ?>" alt="donorcard">
+            <img src="../../../public/img/donor-card/<?php echo $_SESSION['donor-card']; ?>" alt="donorcard">
         </div>
         <div class="donations">
             <p>Donation History</p>

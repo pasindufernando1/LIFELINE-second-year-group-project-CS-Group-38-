@@ -68,7 +68,7 @@ $metaTitle = "Hospitals Dashboard"
                     <div class="user-details">
                         <div class="image-1">
                             
-                            <img class="edit_hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']);?>" alt="profile-pic">
+                            <img class="edit_hospital_img" id="hospital_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_user_pic']);?>" alt="profile-pic">
                             <div class="image-upload">
                                 <label for="file-input">
                                 <img class="change_img" src="../../../public/img/hospitalsdashboard/lil_cam.png">
@@ -88,32 +88,32 @@ $metaTitle = "Hospitals Dashboard"
                         }
                         </script>
                         <div class="user">
-                            <p class="edit_usr-name"><?php echo ($_SESSION['username']); ?></p><br>
-                            <p class="edit_usr-type"><?php echo ($_SESSION['UserType']); ?></p><br>
+                            <p class="edit_usr-name"><?php echo ($_SESSION['user_username']); ?></p><br>
+                            <p class="edit_usr-type"><?php echo ($_SESSION['user_userType']); ?></p><br>
                         </div>
                     </div>
                     
                     
                     <label id="hosName-label" class="hosName-label" for="campName">Hospital Name:</label>
                     <br>
-                    <input class="hosName-input" id="hosName"  type="text" name="hosName" value="<?php echo $_SESSION['username']?>" required>
+                    <input class="hosName-input" id="hosName"  type="text" name="hosName" value="<?php echo $_SESSION['user_Name']?>" >
                     <br>
 
                 <label id="teleNo-label" class="teleNo-label" for="teleNo">Telephone Number:</label>
                 <br>
-                <input class="teleNo-input" id="teleNo"  type="text" name="teleNo"  value="<?php echo $_SESSION['telno']?>" required>
+                <input class="teleNo-input" id="teleNo"  type="text" name="teleNo"  value="<?php echo $_SESSION['user_telno']?>" >
                 <br>
 
                 <label id="loc-label" class="loc-label" for="loc">Location:</label>
                 <br>
-                <input class="num-input" id="num"  type="text" name="num" value="<?php echo $_SESSION['Number']?>" required>
+                <input class="num-input" id="num"  type="text" name="num" value="<?php echo $_SESSION['user_Number']?>" >
                 <br>
-                <input class="laneNme-input" id="laneNme"  type="text" name="laneNme" value="<?php echo $_SESSION['LaneName']?>" required>
+                <input class="laneNme-input" id="laneNme"  type="text" name="laneNme" value="<?php echo $_SESSION['user_LaneName']?>" >
                 <br>
-                <input class="cit-input" id="cit"  type="text" name="cit" value="<?php echo $_SESSION['City']?>" required>
+                <input class="cit-input" id="cit"  type="text" name="cit" value="<?php echo $_SESSION['user_City']?>" >
                 <br>
-                <select class="dis-input" id="dis"  type="text" name="dis" value="<?php echo $_SESSION['District']?>" required>
-                <option value="" disabled selected hidden>District</option>
+                <select class="dis-input" id="dis"  type="text" name="dis" value="<?php echo $_SESSION['user_District']?>" >
+                
                     <option value="Ampara">Ampara</option>
                     <option value="Anuradhapura">Anuradhapura</option>
                     <option value="Badulla">Badulla</option>
@@ -141,8 +141,8 @@ $metaTitle = "Hospitals Dashboard"
                     <option value="Vavuniya">Vavuniya</option>
                 </select>
                 <br>
-                <select class="prov-input" id="prov"  type="text" name="prov" value="<?php echo $_SESSION['Province']?>" required>
-                <option value="" disabled selected hidden>Province</option>
+                <select class="prov-input" id="prov"  type="text" name="prov" value="<?php echo $_SESSION['Province']?>" >
+                
                     <option value="Central">Central</option>
                     <option value="Eastern">Eastern</option>
                     <option value="North Central">North Central</option>
@@ -157,12 +157,12 @@ $metaTitle = "Hospitals Dashboard"
 
                 <label id="newPw-label" class="newPw-label" for="newPw">New Password:</label>
                 <br>
-                <input class="newPw-input" id="newPw"  type="password" name="newPw" autofocus placeholder="New Password" required>
+                <input class="newPw-input" id="newPw"  type="password" name="newPw" autofocus placeholder="New Password" >
                 <br>
 
                 <label id="confirmPw-label" class="confirmPw-label" for="confirmPw">Confirm Password:</label>
                 <br>
-                <input class="confirmPw-input" id="confirmPw"  type="password" name="confirmPw" autofocus placeholder="Confirm Password" required>
+                <input class="confirmPw-input" id="confirmPw"  type="password" name="confirmPw" autofocus placeholder="Confirm Password" >
                 <br>
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>

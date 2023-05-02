@@ -17,7 +17,9 @@ $metaTitle = 'Donor Dashboard';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -54,11 +56,14 @@ $metaTitle = 'Donor Dashboard';
                 <img src="../../../public/img/donordashboard/pasindudp.jpg" alt="profile-pic">
             </div>
             <div class="user-name">
-                <p><?php echo $_SESSION['username']; ?></p>
+                <p>
+                    <?php echo $_SESSION['username']; ?>
+                </p>
             </div>
             <div class="role">
                 <div class="role-type">
-                    <p><?php echo $_SESSION['type']; ?> <br>
+                    <p>
+                        <?php echo $_SESSION['type']; ?> <br>
                 </div>
                 <div class="role-sub">
 
@@ -69,7 +74,7 @@ $metaTitle = 'Donor Dashboard';
                 <img class="3-dot" onclick="dropDown()" src="../../../public/img/donordashboard/3-dot.png" alt="3-dot">
                 <div id="more-drop-down" class="dropdown-content">
                     <a href="#">Profile</a>
-                    <a href="/donoruser/logout">Log Out</a>
+                    <a href="/user/logout">Log Out</a>
                 </div>
             </div>
 
@@ -79,7 +84,7 @@ $metaTitle = 'Donor Dashboard';
                     <div class="dashboard menu-items">
                         <div class="dashboard-marker"></div>
                         <img src="./../../public/img/donordashboard/active/dashboard.png" alt="dashboard">
-                        <p class="dashboard-active"><a href="/donoruser/dashboard">Dashboard</a></p>
+                        <p class="dashboard-active"><a href="/user/dashboard">Dashboard</a></p>
                     </div>
                     <div class="reservation menu-item">
                         <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
@@ -183,8 +188,8 @@ $metaTitle = 'Donor Dashboard';
                                 <option value="<?php echo $_SESSION[
                                     'District'
                                 ]; ?>"><?php echo $_SESSION[
-    'District'
-]; ?></option>
+                                     'District'
+                                 ]; ?></option>
                                 <option value="Ampara">Ampara</option>
                                 <option value="Anuradhapura">Anuradhapura</option>
                                 <option value="Badulla">Badulla</option>
@@ -217,8 +222,8 @@ $metaTitle = 'Donor Dashboard';
                                 <option value="<?php echo $_SESSION[
                                     'Province'
                                 ]; ?>"><?php echo $_SESSION[
-    'Province'
-]; ?></option>
+                                     'Province'
+                                 ]; ?></option>
                                 <option value="Central">Central</option>
                                 <option value="Eastern">Eastern</option>
                                 <option value="North Central">North Central</option>
