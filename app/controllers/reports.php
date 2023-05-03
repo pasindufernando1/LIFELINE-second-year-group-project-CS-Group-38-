@@ -33,6 +33,8 @@ class Reports extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") { 
                 if(!isset($_POST['filter']) && !$is_filtered){
@@ -77,17 +79,17 @@ class Reports extends Controller
                         
                         // If all the month and year is selected
                         if(isset($_POST['month']) && isset($_POST['year'])){
-                            $rows = $this->model->getFilteredReportDetailsDate($_POST['month'],$_POST['year'],$_POST['requestee']);
+                            $rows = $this->model->getFilteredReportDetailsDate($_POST['month'],$_POST['year']);
                             $output = array_merge($output,$rows);
                         }
                         // If only a month is selected
                         if(isset($_POST['month']) && empty($_POST['year'])){
-                            $rows = $this->model->getFilteredReportDetailsMonth($_POST['month'],$_POST['requestee']);
+                            $rows = $this->model->getFilteredReportDetailsMonth($_POST['month']);
                             $output = array_merge($output,$rows);
                         }
                         // If only a year is selected
                         if(isset($_POST['year']) && empty($_POST['month'])){
-                            $rows = $this->model->getFilteredReportDetailsYear($_POST['year'],$_POST['requestee']);
+                            $rows = $this->model->getFilteredReportDetailsYear($_POST['year']);
                             $output = array_merge($output,$rows);
                         }
                         $_SESSION['reports'] = $output;

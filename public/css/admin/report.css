@@ -3007,7 +3007,9 @@ td {
 }
 
 .donorcard img{
-    margin-left: 96px;
+    width: 80%;
+    margin-left: 11%;
+    margin-top: -16px;
 }
 
 .donations th{

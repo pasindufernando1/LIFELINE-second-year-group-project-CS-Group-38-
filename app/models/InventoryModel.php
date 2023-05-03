@@ -198,18 +198,21 @@ class InventoryModel extends Model
     }
 
     // Function to verify the acceptance of inventory donations
-    public function verifyAcceptance($DonationID)
+    public function verifyAcceptance($InvDonationID)
     {
         // Get the inventory quantity based on the donation id
-        $data = $this->db->select("Quantity", "inventory_donation", "WHERE DonationID = :DonationID", "DonationID", $DonationID);
+        $data = $this->db->select("Quantity", "inventory_donation", "WHERE InventoryDonationID = :DonationID", "DonationID", $InvDonationID);
         $Quantity = $data[0]['Quantity'];
         // Get the inventory category based on the donation id
-        $data = $this->db->select("Inventory_category", "inventory_donation", "WHERE DonationID = :DonationID", "DonationID", $DonationID);
+        $data = $this->db->select("Inventory_category", "inventory_donation", "WHERE InventoryDonationID = :DonationID", "DonationID", $InvDonationID);
 
         $Inventory_category = $data[0]['Inventory_category'];
         // Get the inventory type id based on the inventory category
         $data = $this->db->select("InventoryID", "inventory", "WHERE Name = :Name", "Name", $Inventory_category);
         $InventoryID = $data[0]['InventoryID'];
+        // Get the DonationID based on the inventory donation id
+        $data = $this->db->select("DonationID", "inventory_donation", "WHERE InventoryDonationID = :DonationID", "DonationID", $InvDonationID);
+        $DonationID = $data[0]['DonationID'];
         // Get the blood bank id based on the donation id
         $data = $this->db->select("BloodBankID", "organization_donations_bloodbank", "WHERE DonationID = :DonationID", "DonationID", $DonationID);
         $BloodBankID = $data[0]['BloodBankID'];
@@ -234,8 +237,8 @@ class InventoryModel extends Model
                 $params =array(":Admin_verify");
                 $values = array(1);
                 $conditionparams = array(":DonationID");
-                $conditionvalues = array($DonationID);
-                $result_final = $this->db->update("inventory_donation","Admin_verify",":Admin_verify",1,$conditionparams,$conditionvalues,"WHERE DonationID = :DonationID");
+                $conditionvalues = array($InvDonationID);
+                $result_final = $this->db->update("inventory_donation","Admin_verify",":Admin_verify",1,$conditionparams,$conditionvalues,"WHERE InventoryDonationID = :DonationID");
                 if($result_final == "Success")
                 {    return true;
                 }else{
@@ -255,8 +258,8 @@ class InventoryModel extends Model
                     $params =array(":Admin_verify");
                     $values = array(1);
                     $conditionparams = array(":DonationID");
-                    $conditionvalues = array($DonationID);
-                    $result_final = $this->db->update("inventory_donation","Admin_verify",":Admin_verify",1,$conditionparams,$conditionvalues,"WHERE DonationID = :DonationID");
+                    $conditionvalues = array($InvDonationID);
+                    $result_final = $this->db->update("inventory_donation","Admin_verify",":Admin_verify",1,$conditionparams,$conditionvalues,"WHERE InventoryDonationID = :DonationID");
                     if($result_final == "Success")
                     {    return true;
                     }else{
@@ -269,11 +272,11 @@ class InventoryModel extends Model
     }
 
     // Function to send thank emails
-    public function sendThankEmail($DonationID)
+    public function sendThankEmail($InvDonationID)
     {
         // Get the OrganizationID based on the donation id
-        $data = $this->db->select("OrganizationUserID", "organization_donations_bloodbank", "WHERE DonationID = :DonationID", "DonationID", $DonationID);
-        $OrganizationUserID = $data[0]['OrganizationUserID'];
+        $data = $this->db->select("Organization_UserID", "inventory_donation", "WHERE InventoryDonationID = :DonationID", ":DonationID", $InvDonationID);
+        $OrganizationUserID = $data[0]['Organization_UserID'];
         // Get the email id based on the OrganizationID
         $data = $this->db->select("Email", "user", "WHERE UserID = :UserID", "UserID", $OrganizationUserID);
         $Email = $data[0]['Email'];
@@ -291,8 +294,8 @@ class InventoryModel extends Model
         $mail->addReplyTo("noreply@lifeline.com", "Life Line");
         $mail->isHTML(true);                                 // Set email format to HTML
         $mail->Subject = "Donation acceptance verification";
-        $mail->Body    = "<p>Thank you for your donation bearing the donation number : $DonationID. </p><p>This email is to confirm that we have received your donation and you have contributed to saving lives.</p>";
-        $mail->AltBody = "Thank you for your donation bearing the donation number : $DonationID. This email is to confirm that we have received your donation and you have contributed to saving lives.";
+        $mail->Body    = "<p>Thank you for your donation bearing the donation number : $InvDonationID. </p><p>This email is to confirm that we have received your donation and you have contributed to saving lives.</p>";
+        $mail->AltBody = "Thank you for your donation bearing the donation number : $InvDonationID. This email is to confirm that we have received your donation and you have contributed to saving lives.";
         if(!$mail->send()) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
