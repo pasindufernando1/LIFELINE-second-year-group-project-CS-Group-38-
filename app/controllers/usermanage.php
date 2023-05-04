@@ -787,7 +787,8 @@ class Usermanage extends Controller
             $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Userpic = $_SESSION['Userpic'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
@@ -828,7 +829,8 @@ class Usermanage extends Controller
             $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Userpic = $_SESSION['Userpic'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
@@ -873,7 +875,8 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = $_SESSION['Userpic'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
@@ -910,7 +913,8 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = $_SESSION['Userpic'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
@@ -941,6 +945,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
