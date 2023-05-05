@@ -41,10 +41,31 @@ $metaTitle = 'Donor Dashboard'; ?>
     <div class="camp-success-box">
         <div class="message-container">
             <img class="success-msg-img" src="./../../public/img/dashboard/success-msg-img.png" alt="success-msg-img">
-            <p class="success-msg-txt">Successfully Registered to Campaign!</p>
-            <a href="/getcampaign?page=1" class="brown-button back-to-reserve">Back to campaigns</a>
-            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png"
-                alt="success-reserve-img">
+            <!-- <p class="success-msg-txt">Successfully Registered to Campaign!</p> -->
+            <p class="success-msg-txt"><?php echo $_SESSION['camp_success_msg']?></p>
+            <?php unset($_SESSION['camp_success_msg']); ?>
+            <?php if($_SESSION['succ_type'] == 'reg') { ?>
+            <a href="/getcampaign?page=1" class="brown-button back-to-campaigns">Back to campaigns <img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+            <?php } else if($_SESSION['succ_type'] == 'edit'){ ?>
+            <a href="<?php echo '/getcampaign/view_campaign?camp='.$_SESSION['selected_campid']?>" class="brown-button back-to-campaigns">Back to campaign<img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+            <?php } else if($_SESSION['succ_type'] == 'delete') {?>
+            <a href="/getcampaign?page=1" class="brown-button back-to-campaigns">Back to campaigns <img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+            <?php } else if($_SESSION['succ_type'] == 'reserve') {?>
+            <a href="/getcampaign/display_timeslot" class="brown-button back-to-campaigns">View Time Slot<img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+            <?php } else  if($_SESSION['succ_type'] == 'reservation_change'){?>
+            <a href="/getcampaign/display_timeslot" class="brown-button back-to-campaigns">View Time Slot<img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+            <?php } else  if($_SESSION['succ_type'] == 'reservation_delete'){?>
+            <a href="/getcampaign?page=1" class="brown-button back-to-campaigns">Back to campaigns<img src="./../../public/img/dashboard/white-icons/reservation.png"
+                alt="success-reserve-img"></a>
+                <?php } ?>
+            <?php unset($_SESSION['succ_type']); ?>
+
+            
         </div>
     </div>
 

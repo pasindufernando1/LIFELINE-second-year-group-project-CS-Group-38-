@@ -41,7 +41,7 @@ $metaTitle = 'Donor Dashboard'; ?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/badge_active.php'); ?>
 
 
-    <div class="badges-container">
+    <!-- <div class="badges-container"> -->
 
         <div class="latest">
             <h2>Your Newest Badge</h2>
@@ -132,7 +132,7 @@ $metaTitle = 'Donor Dashboard'; ?>
         }
         </script>
 
-    </div>
+    
 </body>
 
 </html>

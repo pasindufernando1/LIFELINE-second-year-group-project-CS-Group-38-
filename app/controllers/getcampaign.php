@@ -333,9 +333,10 @@ class Getcampaign extends Controller
                         $_SESSION['selected_campid']
                     )
                 ) {
-                    header('Location: /getcampaign/index');
-                    $this->view->render('donor/getcampaign');
-                    exit();
+                    
+                    $_SESSION['succ_type'] = 'delete';
+                    $_SESSION['camp_success_msg'] = 'Registration Cancelled Successfully';
+                    $this->view->render('donor/regtocampaign_success');
                 } else {
                     header('Location: /getcampaign/index');
                     $this->view->render('donor/getcampaign');
@@ -368,19 +369,13 @@ class Getcampaign extends Controller
                 $_SESSION['user_ID']
             );
             if ($edited == 'Success') {
-                // print_r($inputs);
-                // die();
-                header(
-                    'Location: /getcampaign/view_campaign?camp=' .
-                    $_SESSION['selected_campid']
-                );
-                $_SESSION['reg_info'] = $this->model->get_campreg_info(
-                    $_SESSION['user_ID']
-                );
-                $this->view->render('donor/viewcampaign');
+                $_SESSION['succ_type'] = 'edit';
+                $_SESSION['camp_success_msg'] = 'Registration Updated Successfully';
+                $this->view->render('donor/regtocampaign_success');
             } else {
-                // print_r($inputs);
-                // die();
+                 header('Location: /getcampaign/index');
+                    $this->view->render('donor/getcampaign');
+                    exit();
             }
         } else {
             $this->view->render('authentication/donorlogin');
@@ -400,6 +395,8 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
+                $_SESSION['succ_type'] = 'reg';
+                $_SESSION['camp_success_msg'] = 'Successfully Registered to Campaign!';
                 $this->view->render('donor/regtocampaign_success');
                 exit();
             }
@@ -522,8 +519,6 @@ class Getcampaign extends Controller
 
                     }
 
-
-
                     $_SESSION['camp_na'] = $this->model->get_camp_na($_SESSION['selected_campid']);
                     $_SESSION['donor_name'] = $this->model->get_donor_name($_SESSION['user_ID']);
                     $_SESSION['reg_info'] = $this->model->get_campreg_info($_SESSION['user_ID']);
@@ -551,11 +546,39 @@ class Getcampaign extends Controller
                 $_SESSION['reg_info'] = $this->model->get_campreg_info($_SESSION['user_ID']);
 
                 if ($this->model->reserve_timeslot($_SESSION['selected_campid'], $_SESSION['selected_timeslot'], $_SESSION['user_ID'])) {
-                    $this->view->render('donor/view_reserved_timeslot');
-                    exit();
+                    if(isset($_SESSION['changing'])){
+                        $_SESSION['succ_type'] = 'reservation_change';
+                        $_SESSION['camp_success_msg'] = 'You Have Successfully Changed Your Timeslot Reservation !';
+                        unset($_SESSION['changing']);
+                        $this->view->render('donor/regtocampaign_success');
+                        exit();
+
+                    }
+                    else{
+                        $_SESSION['succ_type'] = 'reserve';
+                        $_SESSION['camp_success_msg'] = 'You Have Successfully Reserved a Timeslot !';	
+                        $this->view->render('donor/regtocampaign_success');
+                        exit();
+                    }
+                    
                 }
             }
         } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+
+    function display_timeslot(){
+        if(isset($_SESSION['login'])){
+            if($_SESSION['type'] == 'Donor'){
+                $this->view->render('donor/view_reserved_timeslot');
+            }
+            else{
+                $this->view->render('authentication/donorlogin');
+            }
+
+        }
+        else{
             $this->view->render('authentication/donorlogin');
         }
     }
@@ -565,6 +588,7 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $this->view->render('donor/view_time_slots');
+                $_SESSION['changing'] = 1;
             }
 
         } else {
@@ -577,7 +601,9 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 if ($this->model->cancel_reserved_timeslot($_SESSION['selected_campid'], $_SESSION['selected_timeslot'], $_SESSION['user_ID'])) {
-                    $this->view->render('donor/getcampaign');
+                     $_SESSION['succ_type'] = 'reservation_delete';
+                    $_SESSION['camp_success_msg'] = 'You Have Successfully Cancelled Your Timeslot Reservation !';
+                    $this->view->render('donor/regtocampaign_success');
                     exit();
                 }
 
