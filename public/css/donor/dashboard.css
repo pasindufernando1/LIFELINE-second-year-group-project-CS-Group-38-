@@ -1067,6 +1067,12 @@ fieldset {
     height: 28px;
 }
 
+#feedback-s {
+    margin-left: 5.2px;
+    margin-top: -1px;
+    width: 28px;
+}
+
 .contactus-marker {
     position: absolute;
     width: 6px;
