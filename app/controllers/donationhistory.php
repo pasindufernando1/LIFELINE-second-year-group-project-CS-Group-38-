@@ -60,6 +60,7 @@ class Donationhistory extends Controller
                 $_SESSION['complication_camps'] = $this->model->getComplicationCamps(
                     $_SESSION['camp_donations']
                 );
+
                 //Total donation amout at the campaigns donor attended
                 $_SESSION['total_donations_campaign'] = $this->model->getTotalDonationsCampaign(
                     $_SESSION['camp_donations']
@@ -116,6 +117,10 @@ class Donationhistory extends Controller
                 $_SESSION['bank_donation_total_amounts'] = $this->model->getBankDonationTotalAmounts($_SESSION['banks'], $_SESSION['user_ID']);
 
                 // $_SESSION['total_donations_bank'] = $this->model->getTotalDonationsBank($_SESSION['bank_donations']);
+
+                $_SESSION['bank_complications'] = $this->model->getBankComplications($_SESSION['user_ID']);
+
+                $_SESSION['complication_banks'] = $this->model->getComplicationBankNames($_SESSION['bank_complications']);
 
                 $this->view->render('donor/donation_history_bank');
                 exit();

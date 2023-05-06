@@ -410,45 +410,6 @@ class DonationhistoryModel extends Model
         return $bank_amounts;
     }
 
-    // public function getBankDonations($userid)
-    // {
-    //     $data = $this->db->select(
-    //         'BloodBankID,Date',
-    //         'donor_bloodbank_bloodpacket ',
-    //         'WHERE DonorID = :DonorID',
-    //         ':DonorID',
-    //         $userid
-    //     );
-    //     return $data;
-    // }
-
-    // public function getBankDonationAmounts($banks)
-    // {
-    //     $packetids = [];
-    //     foreach ($banks as $bank) {
-    //         $packetid = $this->db->select(
-    //             'PacketID',
-    //             'donor_bloodbank_bloodpacket',
-    //             'WHERE BloodBankID = :BloodBankID AND DonorID = :DonorID',
-    //             [':BloodBankID', ':DonorID'],
-    //             [$bank[0], $_SESSION['user_ID']]
-    //         );
-    //         array_push($packetids, $packetid[0][0]);
-    //     }
-    //     $bank_amounts = [];
-    //     foreach ($packetids as $packetid) {
-    //         $amount = $this->db->select(
-    //             'Quantity',
-    //             'bloodpacket',
-    //             'WHERE PacketID = :PacketID',
-    //             ':PacketID',
-    //             $packetid
-    //         );
-    //         array_push($bank_amounts, $amount[0][0]);
-    //     }
-    //     return $bank_amounts;
-    // }
-
     public function getTotalBankDonationAmount($userid)
     {
         $packetids = $this->db->select(
@@ -534,4 +495,34 @@ class DonationhistoryModel extends Model
         return $totals;
     }
 
+    public function getBankComplications($userid)
+    {
+        $data = $this->db->select(
+            'BloodBankID,Date,Complication',
+            'donor_bloodbank_bloodpacket ',
+            'WHERE DonorID = :DonorID AND Complication IS NOT NULL',
+            ':DonorID',
+            $userid
+        );
+        return $data;
+    }
+
+    public function getComplicationBankNames($compications){
+        $bank_names =[];
+        foreach ($compications as $complication) {
+            $name = $this->db->select(
+                'BloodBank_Name',
+                'bloodbank',
+                'WHERE BloodBankID = :BloodBankID',
+                ':BloodBankID',
+                $complication[0]
+            );
+
+            array_push($bank_names, $name[0][0]);
+            
+        }
+
+        return $bank_names;
+    }
 }
+

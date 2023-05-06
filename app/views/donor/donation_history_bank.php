@@ -93,8 +93,31 @@ $metaTitle = 'Donor Dashboard'; ?>
         <?php
         echo '<h3>Total Blood Banks Attended : ' . sizeof($_SESSION['banks']) . '</h3>
     <h3>Number of Donations : ' . $_SESSION['no_of_bank_donations'] . '</h3>
-    <h3>Your Total Donations : ' . $_SESSION['total_bank_donation_amount'] . 'ml</h3>';
+    <h3>Your Total Donations : ' . $_SESSION['total_bank_donation_amount'] . 'ml</h3>
+    <h3 id="titt">Complications You Had </h3>';
+        $scount = 0;
+        //make a table for the complications and the camp they happened at
+        
+        if (empty($_SESSION['bank_complications']) != 1) {
+            echo '<table id="sumt">
+            <tr>
+                <th>Complication</th>
+                <th>Blood Bank</th>
+                <th>Date</th>
+            </tr>';
+            foreach ($_SESSION['bank_complications'] as $complications) {
+                echo '<tr>
+                <td>' . $complications[2] . '</td>
+                <td>' . $_SESSION['complication_banks'][$scount] . '</td>
+                <td>' . $complications[1] . '</td>
+            </tr>';
+                $scount++;
+            }
+        } else {
+            echo '<p id="sum-noc">You Have Not Had Any Complications so far</p>';
+        }
         ?>
+        
     </div>
 </body>
 

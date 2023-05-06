@@ -143,7 +143,8 @@ class Ratecampaign extends Controller
                 if (!isset($_POST['rating'])) {
                     $rating = $_SESSION['selected_camprating']['Rating'];
                 } else {
-                    $rating = $_POST['rating'];
+                    
+                        $rating = $_POST['rating'];
                 }
                 $feedback = $_POST['fb'];
                 $inputs = [$feedback, $rating];

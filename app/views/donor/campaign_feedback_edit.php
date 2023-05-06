@@ -76,8 +76,7 @@ $metaTitle = 'Donor Feedback';
             <textarea id="message" name="fb"><?php echo $_SESSION['selected_camprating']['Feedback'] ?></textarea>
             <br>
             <button type="submit">Submit</button>
-            <script src="../../../public/js/star-ratings.js">
-            </script>
+            <script src= "../../../public/js/star-ratings.js"></script>
         </form>
     </div>
 
