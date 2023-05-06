@@ -212,5 +212,16 @@ class CardModel extends Model
         return $data;
     }
 
+    public function getnewestbadge($userid){
+        $data = $this->db->select(
+            'BadgeID',
+            'donor_badges',
+            'WHERE DonorUserID = :DonorUserID',
+            ':DonorUserID',
+            $userid
+        );
+        return $data;
+    }
+
 
 }
