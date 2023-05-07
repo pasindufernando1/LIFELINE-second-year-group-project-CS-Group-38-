@@ -297,8 +297,7 @@ class signup extends Controller
 
 
         if ($this->model->signupOrganization($inputs1, $inputs2, $inputs3)) {
-            $this->view->render('signup/login');
-
+            $this->view->render('signup/organizationsignupsuccessful');
         }
 
 

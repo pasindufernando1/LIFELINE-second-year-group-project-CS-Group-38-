@@ -176,8 +176,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                 placeholder="Confirm New Password">
             <p class="passwordcheck-error" id="passwordcheck-error"></p>
             <div class="buttons">
-                <button id="submit" class="submit" type="submit" name='update'>Save Changes</button>
-                <button href="/donorprofile" class="cancel">Cancel Editing</button>
+                <button id="submit" class="submit" type="submit" name='update'>Save Changes<img src="../../../public/img/donordashboard/saved.png"></button>
+                <button href="/donorprofile" class="cancel">Cancel Editing<img class="cbtn" src="../../../public/img/donordashboard/delete-btn.png"></button>
             </div>
         </form>
     </div>

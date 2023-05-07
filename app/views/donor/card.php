@@ -64,7 +64,7 @@ $metaTitle = 'Donor Dashboard';
 
     <div class="card-container">
         <h3>Donor Card</h3>
-        <button onclick="exportpdf()" id="download_card">Download</button>
+        <button onclick="exportpdf()" id="download_card">Download<img src="../../../public/img/donordashboard/down.png"></button>
 
         <div class="donor-card" id="donor_card">
             <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
@@ -125,11 +125,6 @@ $metaTitle = 'Donor Dashboard';
                     alt="Your Badge">
             <?php } ?>
         </div>
-
-        <!-- <div style="display:none" class="ybadge">
-            <p id="ybadgep">Your Current Badge</p>
-            <img id="badge" src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="Your Badge">
-        </div> -->
 
         <div id="ydonations" class="ydonations">
             <p id="ydonationsp">Your Donations</p>
@@ -229,18 +224,10 @@ $metaTitle = 'Donor Dashboard';
                     });
 
                     pdf.addPage();
-                    // var fontDataURL =
-                    //     'data:application/x-font-ttf;base64,<BASE64-ENCODED FONT FILE>';
-                    // pdf.addFileToVFS('Poppins-Regular.ttf', fontDataURL);
-                    // pdf.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
-                    // pdf.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
 
                     // Set the font size and font family
                     pdf.setFontSize(16);
-                    // pdf.setFont('Poppins');
-
-                    // Set the font size
-                    // pdf.setFontSize(16);
+                    
 
                     // Define the text to center
                     var text = "Your Donations At Blood Banks";
@@ -262,39 +249,7 @@ $metaTitle = 'Donor Dashboard';
                             echo '["' . $donation['Date'] . '", "' . $_SESSION['bank_donation_details'][$count]['BloodBank_Name'] . '"],';
                             $count++;
                         } ?>
-                        // ["2020-12-12", "Blood Bank 1"],
-                        // ["2020-12-12", "Blood Bank 2"],
-                        // ["2020-12-12", "Blood Bank 3"],
-                        // ["2020-12-12", "Blood Bank 4"],
-                        // ["2020-12-12", "Blood Bank 5"],
-                        // ["2020-12-12", "Blood Bank 6"],
-                        // ["2020-12-12", "Blood Bank 7"],
-                        // ["2020-12-12", "Blood Bank 8"],
-                        // ["2020-12-12", "Blood Bank 9"],
-                        // ["2020-12-12", "Blood Bank 10"],
-                        // ["2020-12-12", "Blood Bank 11"],
-                        // ["2020-12-12", "Blood Bank 12"],
-                        // ["2020-12-12", "Blood Bank 13"],
-                        // ["2020-12-12", "Blood Bank 14"],
-                        // ["2020-12-12", "Blood Bank 15"],
-                        // ["2020-12-12", "Blood Bank 16"],
-                        // ["2020-12-12", "Blood Bank 17"],
-                        // ["2020-12-12", "Blood Bank 18"],
-                        // ["2020-12-12", "Blood Bank 19"],
-                        // ["2020-12-12", "Blood Bank 20"],
-                        // ["2020-12-12", "Blood Bank 21"],
-                        // ["2020-12-12", "Blood Bank 22"],
-                        // ["2020-12-12", "Blood Bank 23"],
-                        // ["2020-12-12", "Blood Bank 24"],
-                        // ["2020-12-12", "Blood Bank 25"],
-                        // ["2020-12-12", "Blood Bank 26"],
-                        // ["2020-12-12", "Blood Bank 27"],
-                        // ["2020-12-12", "Blood Bank 28"],
-                        // ["2020-12-12", "Blood Bank 29"],
-                        // ["2020-12-12", "Blood Bank 30"],
-                        // ["2020-12-12", "Blood Bank 31"],
-                        // ["2020-12-12", "Blood Bank 32"],
-                        // ["2020-12-12", "Blood Bank 33"],
+                      
                     ];
 
                     // Add the table to the PDF using the autoTable method

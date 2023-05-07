@@ -49,7 +49,7 @@ $metaTitle = 'Donor Dashboard'; ?>
             if (count($_SESSION['all_feedback']) > 0) {
                 foreach ($result as $row) {
                     echo '<div class="view-camp-feedback">
-            <img src="../../../public/img/advertisements/' . $_SESSION['camp_ads_feedback'][$count] . '" alt="camp ad">
+            <img class="feed-ad" src="../../../public/img/advertisements/' . $_SESSION['camp_ads_feedback'][$count] . '" alt="camp ad">
             <div class="feed-info">
             <h2>' . $_SESSION['camp_names'][$count] . '</h2>
             <p>Rating :</p>

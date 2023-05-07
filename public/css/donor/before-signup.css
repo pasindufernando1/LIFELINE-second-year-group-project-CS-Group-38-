@@ -435,6 +435,11 @@
         color: #FFFFFF;
     }
 
+    .login-button:hover {
+        cursor: pointer;
+
+    }
+
     .forget-password {
         position: relative;
         width: 85px;

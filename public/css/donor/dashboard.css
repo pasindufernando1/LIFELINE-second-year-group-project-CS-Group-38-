@@ -373,8 +373,10 @@ button:hover {
     width: 131px;
     height: 33px;
     background: #640E0B;
-    border-radius: 4px;
+    border-radius: 7px;
     color: White;
+    border: none;
+    font-weight: bold;
     font-family: Poppins;
 }
 
@@ -663,21 +665,20 @@ fieldset {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     left: 911px;
     top: 423px;
-    background: #F7F7F7;
+    background: #640e0b;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B;
-    cursor: pointer;
+    color: #ffffff;
 }
 
 .regcancel-button {
@@ -688,15 +689,15 @@ fieldset {
     position: absolute;
     left: 1194px;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     top: 423px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
@@ -1985,17 +1986,21 @@ fieldset {
 }
 
 #download_card {
-    margin-left: 86.5%;
+    margin-left: 86.7%;
     position: absolute;
+    display: flex;
     margin-top: -3%;
     height: 50px;
-    width: 204px;
+    width: 185px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: large;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
     border: none;
     border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .card-container h3 {
@@ -2209,7 +2214,8 @@ fieldset {
     width: 238px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: large;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
     border: none;
     border-radius: 10px;
@@ -2352,12 +2358,13 @@ fieldset {
     top: 88px;
     left: 1246px;
     height: 53px;
-    width: 231px;
+    width: 210px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: 19px;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -2369,6 +2376,26 @@ fieldset {
 
 .profile-container #email-edit {
     top: 208px;
+}
+
+#delete-profile {
+    top: 639px;
+    left: 1246px;
+    height: 53px;
+    width: 210px;
+    background-color: #e8e8e8;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: bold;
+    color: #bf1b16;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .profile-container #email-edit :hover {
@@ -2472,12 +2499,18 @@ fieldset {
 }
 
 .profile-container form .buttons button {
-    width: 250px;
+    width: 232px;
     height: 50px;
-
     font-family: 'Poppins';
-    font-size: 17px;
+    font-size: 15.5px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile-container form .buttons button .cbtn {
+    width: 30px
 }
 
 .profile-container form .buttons .submit {
@@ -3145,7 +3178,7 @@ fieldset {
     margin-left: 449px;
     width: 144px;
     font-family: 'Poppins';
-    font-size: 17px;
+    font-size: 16px;
     height: 40px;
     background: #640E0B;
     border-radius: 6px;
@@ -3718,13 +3751,14 @@ fieldset {
 }
 
 .rate-campaign-box button {
-    width: 282px;
+    width: 210px;
     margin-top: 334px;
     margin-right: -73%;
-    height: 59px;
+    height: 50px;
     top: 559px;
     font-family: 'Poppins';
-    font-size: 23px;
+    font-size: 16px;
+    font-weight: bold;
     color: #FFF;
     background: #640E0B;
     border-color: #630e0b;
@@ -3801,16 +3835,17 @@ fieldset {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.05963px;
+    /* padding: 9.05963px; */
     gap: 9.06px;
     width: 203.66px;
-    height: 48.49px;
+    height: 50px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    /* FONT-WEIGHT: 100; */
+    font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.01em;
     color: #FCFEFE;
@@ -3870,7 +3905,7 @@ fieldset {
     float: left;
 }
 
-.view-camp-feedback img {
+.feed-ad {
     height: 52%;
     width: 100%;
     border-radius: 8px 8px 0 0;
@@ -3881,6 +3916,8 @@ fieldset {
     height: 25%;
     width: 100%;
 }
+
+
 
 .view-camp-feedback .feedback-d {
     height: 100%;
@@ -3957,6 +3994,7 @@ fieldset {
     width: 194px;
     font-family: 'Poppins';
     font-size: 16px;
+    font-weight: bold;
     height: 39px;
     margin-right: auto;
     margin-left: auto;
@@ -4777,20 +4815,20 @@ a {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     left: 911px;
     top: 423px;
-    background: #F7F7F7;
+    background: #640e0b;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12.6835px;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B;
+    color: #fcfdfe;
     cursor: pointer;
 }
 
@@ -4802,15 +4840,15 @@ a {
     position: absolute;
     left: 1194px;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     top: 423px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
@@ -4886,14 +4924,20 @@ a {
 }
 
 .back-to-reserve {
-    position: absolute;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 74px;
+    padding: unset;
+    padding: none;
     width: 227.96px;
-    height: 40.16px;
-    left: 640px;
+    height: 50px;
+    left: 678px;
     top: 513px;
     background: #640E0B;
     border-radius: 10.87px;
 }
+
 
 .back-to-campaigns {
     position: absolute;

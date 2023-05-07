@@ -165,7 +165,7 @@ $metaTitle = 'Donor Dashboard';
             </div>
             <br>
             <a class="outline-regedit-button" href="updatereg">Update
-                <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></a>
+                <img src="./../../public/img/donordashboard/edit-11-32.png" class="reg-edit-btn"></a>
             <a class="outline-regdelete-button" href="deletereg"  onClick="showPopup(event)">Cancel
                 <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
         </div>';

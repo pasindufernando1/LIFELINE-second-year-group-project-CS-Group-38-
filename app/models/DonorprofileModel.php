@@ -149,4 +149,14 @@ class DonorprofileModel extends Model
             return false;
         }
     }
+
+    public function delete_profile($userid){
+        $result = $this->db->update('user','Deactivation',':Deactivation','1',':UserID',$userid,'WHERE UserID =:UserID');
+        if($result=='Success'){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
 }

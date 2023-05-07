@@ -263,6 +263,57 @@ $metaTitle = 'Donor Dashboard'; ?>
                 </P>
             </div>
         </div>
+        <a id="delete-profile" class="update" onclick="showPassword()">Delete Profile</a>
+
+        <div id="myPassword" class="dialog">
+            <div class="dialog-content">
+                <h2>Delete Your LIFELINE Account</h2>
+                <form action="/donorprofile/d_confirm_password" method="POST">
+                    <?php if (isset($_SESSION['p_error'])) {
+                        echo "<p id='pass_error'>" . $_SESSION['p_error'] . "</p>";
+                    } ?>
+                    <label for="password1">Please enter your password :</label>
+                    <input type="password" id="password1" name="password1">
+                    <button type="submit" name='confirm'>Enter</button>
+                    <button id="cancelButton" onclick="hidepalert()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="myConfirm" class="popup">
+        <div>
+            <p>Are you sure you want to delete your LIFELINE account?</p>
+            <div><button class="yes-button"><a style="position: static;background: none;" href="/donorprofile/delete_success">Yes</a></button>
+                <button class="no-button" onclick="hidecalert()" >No</button>
+            </div>
+            <img class="close" onclick="hidecalert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+        </div>
+
+        <script>
+            var pword = document.getElementById('myPassword');
+            // const cancel = document.getElementById('cancelButton');
+            // const ok = document.getElementById('okButton');
+            const confirm = document.getElementById('myConfirm');
+
+            function showPassword() {
+                pword.style.display = "block";
+            }
+
+            function showConfirm() {
+                confirm.style.display = "block";
+            }
+
+            function hidepalert() {
+                pword.style.display = "none";
+            }
+
+            function hidecalert() {
+                confirm.style.display = "none";
+            }
+
+        </script>
     </div>
 </body>
 

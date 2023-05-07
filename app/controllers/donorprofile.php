@@ -349,4 +349,68 @@ class Donorprofile extends Controller
             $this->view->render('authentication/login');
         }
     }
+
+    // function delete_profile(){
+    //     if (isset($_SESSION['login'])) {
+    //         if ($_SESSION['type'] == 'Donor') {
+    //             if (isset($_SESSION['d_error'])) {
+    //                 unset($_SESSION['d_error']);
+    //             }
+    //             $this->view->render('donor/profile');
+    //             echo '<script>showPassword();</script>';
+    //             exit();
+    //         }
+    //     } else {
+    //         $this->view->render('authentication/login');
+    //     }
+    // }
+
+    function d_confirm_password()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                if (!isset($_POST['confirm'])) {
+                    // print_r('not working');
+                    // die();
+                    header('Location: /donorprofile');
+                    exit();
+                }
+                $password = $_POST['password1'];
+
+                $password = trim($password);
+                if ($this->model->check_password($_SESSION['user_ID'], $password)) {
+                    // header('Location: /donorprofile');
+                    $this->view->render('donor/profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showConfirm();</script>';
+                    if (isset($_SESSION['p_error'])) {
+                        unset($_SESSION['p_error']);
+                    }
+                } else {
+
+                    $_SESSION['p_error'] = "Password is incorrect";
+                    $this->view->render('donor/profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showPassword();</script>';
+                    // $this->view->render('donor/profile_edit_confirm_password');
+                }
+            }
+        } else {
+            $this->view->render('authentication/login');
+        }
+    }
+
+    function delete_success()
+    {
+        if($this->model->delete_profile($_SESSION['user_ID'])){
+            //destroy session variables
+        session_unset();
+        session_destroy();
+        // session_regenerate_id(true);
+        $this->view->render('donor/profile_delete_success');
+        }
+        
+        // header('Location: /');
+    }
+
 }
