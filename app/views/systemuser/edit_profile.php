@@ -88,13 +88,18 @@ $metaTitle = "Reservations Added Successfully";
                     <br>
                     <input id="password" class="quantity-input" type="password" name="password" autofocus placeholder="New Password" required>
                 </div>
-                <div class="expiry-constraints-container">
+                <div class="confirm-container">
+                    <label id="confirm-password-label" class="quantity-lable" for="email">Confirm Password:</label>
+                    <br>
+                    <input id="confirm-password" class="quantity-input" type="password" name="confirm-password" autofocus placeholder="New Password" required>
+                </div>
+                <div class="expiry-constraints-container  Shin-idiot">
                     <label id="contact-label" class="expiry-constraints-lable" for="contact">Contact No:</label>
                     <br>
                     <input id="contact" class="expiry-constraints-input" type="text" name="contact" value="<?php echo ($_SESSION['user_contact']); ?>">
 
                 </div>
-                <button class='brown-button' type='submit' name='update-profile'>Update Profile</button>
+                <button class='brown-button' id="update-button" type='submit' name='update-profile'>Update Profile</button>
                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
                 <a class='outline-button' type='reset' name='cancel-adding' href="/profile">Cancel Updating</a>
                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
@@ -104,5 +109,5 @@ $metaTitle = "Reservations Added Successfully";
     </div>
 
 </body>
-
+    <script src="../../../public/js/systemuser/passwordValidation.js"></script>
 </html>

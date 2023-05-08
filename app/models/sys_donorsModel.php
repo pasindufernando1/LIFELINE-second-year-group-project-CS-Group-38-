@@ -364,5 +364,17 @@ class sys_donorsModel extends Model
         return $pack;
     }
 
+    public function getPastDonationsByNIC($nic)
+    {
+        $donation = $this->db->select("*","donor","INNER JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID  WHERE donor.NIC =:nic ORDER BY donor_bloodbank_bloodpacket.date DESC",':nic',$nic);
+        return $donation;
+    }
+
+    public function getDonorIDCheck($nic)
+    {
+        $count = $this->db->select('count', "donor", "WHERE nic = :nic;", ':nic', $nic);
+        return $count;
+    }
+
 
 }

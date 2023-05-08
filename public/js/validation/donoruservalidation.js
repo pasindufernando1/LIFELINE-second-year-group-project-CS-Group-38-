@@ -1,6 +1,9 @@
 const submit = document.getElementById("signup-button");
+const esubmit = document.getElementById("email-submit");
 
 const form = document.getElementById('donor-form');
+const email_form = document.getElementById('email-form');
+
 const regtocamp_form = document.getElementById('reg-to-campaign');
 const fname = document.getElementById('fname');
 var fnameflag = true;
@@ -48,19 +51,16 @@ const passwordcheck_error = document.getElementById('passwordcheck-error');
 email?.addEventListener("input", function () {
     var reg = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
     if (!reg.test(email.value)) {
-        // signupformdisable();
-        // email.readOnly = false;
         email_error.innerHTML = "Invalid Email";
         email.style.borderColor = "red";
-        email_flag = false;
+        emailflag = false;
+        console.log(emailflag);
 
-        // submit.disabled = true;
     } else {
         emailValidation();
-        // signupformenable();
         email_error.innerHTML = "";
         email.style.borderColor = "#FBDAD9";
-        // submit.disabled = false;
+        console.log("howtf")
     }
 
 
@@ -126,6 +126,7 @@ nic?.addEventListener("input", function () {
         nic_error.innerHTML = "Invalid NIC";
         nic.style.borderColor = "red";
         nicflag = false;
+        console.log(nicflag);
     } else {
         nic_error.innerHTML = "";
         nic.style.borderColor = "#FBDAD9";
@@ -233,11 +234,21 @@ passwordcheck?.addEventListener("input", function () {
 });
 
 form?.addEventListener("submit", function (e) {
+
     if (!(fnameflag == true && lnameflag == true && nicflag == true && dobflag == true && telflag == true && passwordflag == true && passwordcheckflag == true)) {
         e.preventDefault();
     }
 });
+// console.log("email form");
+email_form?.addEventListener("submit", function (e) {
+    console.log("email form");
+    console.log(emailflag);
+    // if (emailflag == true) {
 
-
-
-
+    //     console.log("jwnrgerkjgber");
+    // }
+    if (emailflag == false) {
+        console.log("email form eflag false");
+        e.preventDefault();
+    }
+});

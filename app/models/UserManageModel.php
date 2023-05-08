@@ -286,8 +286,8 @@ class UserManageModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email','Password','Username','Userpic','UserType');
-        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
+        $columns1 = array('Email','Password','Username','UserType');
+        $param1 = array(':Email',':Password',':Username',':UserType');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':user_id',$user_id,"WHERE UserID = :user_id");
 
 
@@ -320,8 +320,8 @@ class UserManageModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email','Password','Username','Userpic','UserType');
-        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
+        $columns1 = array('Email','Password','Username','UserType');
+        $param1 = array(':Email',':Password',':Username',':UserType');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':user_id',$user_id,"WHERE UserID = :user_id");
 
 
@@ -354,8 +354,8 @@ class UserManageModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email','Password','Username','Userpic','UserType');
-        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
+        $columns1 = array('Email','Password','Username','UserType');
+        $param1 = array(':Email',':Password',':Username',':UserType');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':user_id',$user_id,"WHERE UserID = :user_id");
 
 
@@ -389,8 +389,8 @@ class UserManageModel extends Model
     {
 
         //Updating the user table
-        $columns1 = array('Email','Password','Username','Userpic','UserType');
-        $param1 = array(':Email',':Password',':Username',':Userpic',':UserType');
+        $columns1 = array('Email','Password','Username','UserType');
+        $param1 = array(':Email',':Password',':Username',':UserType');
         $result1 = $this->db->update("user", $columns1, $param1, $inputs1,':user_id',$user_id,"WHERE UserID = :user_id");
 
 

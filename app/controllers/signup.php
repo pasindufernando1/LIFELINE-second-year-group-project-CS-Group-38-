@@ -214,7 +214,7 @@ class signup extends Controller
                 $tellno = $_POST['tel'];
                 $donor_input = array($user_ID, $fullname, $nic, $dob, $gender, $bloodtype, $number, $lane, $city, $district, $province);
                 if ($this->model->insertdonor($donor_input) && $this->model->insertcontact($user_ID, $tellno)) {
-                    $this->view->render('authentication/login');
+                    $this->view->render('signup/donorsignupsuccessful');
                 }
             }
 
@@ -225,7 +225,7 @@ class signup extends Controller
 
     function donor_regunseccessful()
     {
-        $this->view->render('signup/signupunsuccessful');
+        $this->view->render('signup/donorsignupunsuccessful');
         exit;
     }
 
@@ -253,7 +253,6 @@ class signup extends Controller
         $Userpic = 'default_hospital.png';
         $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
 
         $inputs1 = array($Email, $Password, $Username, $Userpic, 'Hospital/Medical_Center');
         $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province, $Status);
@@ -261,7 +260,7 @@ class signup extends Controller
 
 
         if ($this->model->signupHospital($inputs1, $inputs2, $inputs3)) {
-            $this->view->render('authentication/login');
+            $this->view->render('signup/hospitalsignupsuccessful');
 
         }
     }
@@ -298,7 +297,7 @@ class signup extends Controller
 
 
         if ($this->model->signupOrganization($inputs1, $inputs2, $inputs3)) {
-            $this->view->render('authentication/login');
+            $this->view->render('signup/login');
 
         }
 

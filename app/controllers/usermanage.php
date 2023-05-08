@@ -787,13 +787,13 @@ class Usermanage extends Controller
             $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Hospital/Medical_Center');
+            $inputs1 = array($Email, $Password, $Username,'Hospital/Medical_Center');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province, $Status);
             $inputs3 = array($ContactNumber);
 
@@ -828,13 +828,13 @@ class Usermanage extends Controller
             $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
             $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
             $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Organization/Society');
+            $inputs1 = array($Email, $Password, $Username,'Organization/Society');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province);
             $inputs3 = array($ContactNumber);
 
@@ -873,13 +873,13 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
+            $inputs1 = array($Email, $Password, $Username,'Donor');
             $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
             $inputs3 = array($ContactNumber);
 
@@ -910,14 +910,14 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
             
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'System User');
+            $inputs1 = array($Email, $Password, $Username,'System User');
             $inputs2 = array($Full_name,$NIC,$BloodBankID);
             $inputs3 = array($ContactNumber);
 
@@ -941,6 +941,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{

@@ -4,6 +4,10 @@ const form = document.getElementById('profile_update');
 const esubmit = document.getElementById("esub");
 const eform = document.getElementById('email_update');
 
+const regtocamp_form = document.getElementById('reg-to-campaign');
+
+const reg_form = document.getElementById('donor-form');
+
 // const regtocamp_form = document.getElementById('reg-to-campaign');
 const fname = document.getElementById('fname');
 var fnameflag = true;
@@ -56,11 +60,14 @@ email?.addEventListener("input", function () {
         // email.readOnly = false;
         email_error.innerHTML = "Invalid Email";
         email.style.borderColor = "red";
-        email_flag = false;
+        emailflag = false;
+        console.log(emailflag);
 
         // submit.disabled = true;
     } else {
         emailValidation();
+        console.log('email format correct');
+        console.log(emailflag);
         // signupformenable();
         email_error.innerHTML = "";
         email.style.borderColor = "#a7a7a7";
@@ -140,7 +147,7 @@ dob?.addEventListener("input", function () {
     var reg2 = /^\+94([0-9]){9}$/;
     if (!reg1.test(tel.value) && !reg2.test(tel.value)) {
         tel_error.innerHTML = "Invalid Telephone Number";
-        tel.style.dorderColor = "red";
+        tel.style.borderColor = "red";
         telflag = false;
     } else {
         tel_error.innerHTML = "";
@@ -148,6 +155,44 @@ dob?.addEventListener("input", function () {
         telflag = true;
     }
 });
+
+//Contact number verification
+//Telephone number verification
+// It must either have 0711111111 or +94111111111  format
+(contno)?.addEventListener("input", function () {
+    var reg1 = /^[0-9]{10}$/;
+    var reg2 = /^\+94([0-9]){9}$/;
+    if (!reg1.test(contno.value) && !reg2.test(contno.value)) {
+        contno_error.innerHTML = "Invalid Telephone Number";
+        contno.style.borderColor = "red";
+        contnoflag = false;
+        console.log('conto: ' + contnoflag);
+    } else {
+        contno_error.innerHTML = "";
+        contno.style.borderColor = "#a7a7a7";
+        contnoflag = true;
+        console.log('conto: ' + contnoflag);
+    }
+});
+
+//Telephone number verification
+// It must either have 0711111111 or +94111111111  format
+(emcontno)?.addEventListener("input", function () {
+    var reg1 = /^[0-9]{10}$/;
+    var reg2 = /^\+94([0-9]){9}$/;
+    if (!reg1.test(emcontno.value) && !reg2.test(emcontno.value)) {
+        emcontno_error.innerHTML = "Invalid Telephone Number";
+        emcontno.style.borderColor = "red";
+        emcontnoflag = false;
+        console.log('emconto: ' + emcontnoflag);
+    } else {
+        emcontno_error.innerHTML = "";
+        emcontno.style.borderColor = "#a7a7a7";
+        emcontnoflag = true;
+        console.log('emconto: ' + emcontnoflag);
+    }
+});
+
 
 
 //Password validation
@@ -180,7 +225,7 @@ passwordcheck?.addEventListener("input", function () {
 
 });
 
-form?.addEventListener('submit', function () {
+form?.addEventListener('submit', function (e) {
     console.log('entered');
     if (!(nicflag == true && dobflag == true && telflag == true && passwordflag == true && passwordcheckflag == true)) {
         console.log('awa');
@@ -188,10 +233,31 @@ form?.addEventListener('submit', function () {
     }
 });
 
-eform?.addEventListener("esubmit", function () {
+eform?.addEventListener('submit', function (e) {
     console.log('entered');
-    if (!(emailflag == true)) {
-        console.log('awa');
+    // console.log(emailflag);
+    if (emailflag == false) {
+        console.log('form not submitted');
+        e.preventDefault();
+    }
+});
+
+regtocamp_form?.addEventListener('submit', function (e) {
+    console.log('entered');
+    console.log('emcont'.emcontnoflag);
+    console.log('cont'.contnoflag);
+    if (contnoflag == false || emcontnoflag == false) {
+        console.log('form not submitted');
+        e.preventDefault();
+    }
+});
+
+reg_form?.addEventListener('submit', function (e) {
+    console.log('entered');
+    console.log('emcont'.emcontnoflag);
+    console.log('cont'.contnoflag);
+    if (contnoflag == false || emcontnoflag == false) {
+        console.log('form not submitted');
         e.preventDefault();
     }
 });
