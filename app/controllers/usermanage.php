@@ -659,8 +659,6 @@ class Usermanage extends Controller
                     $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
                     $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
                     $_SESSION['Donorcard'] = $_SESSION['user_details'][0]['DonorCard_Img'];
-                    $_SESSION['SlotID'] = $_SESSION['user_details'][0]['SlotID'];
-                    $_SESSION['CampaignID'] = $_SESSION['user_details'][0]['CampaignID'];
                     $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                     $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];

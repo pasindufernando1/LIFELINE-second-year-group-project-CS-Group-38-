@@ -84,7 +84,7 @@ $metaTitle = "Users"
         $result = $_SESSION['users'];
 
         //display the link of the pages in URL  
-        if ($_SESSION['rowCount'] > 0) {
+        if ($number_of_results > 0) {
             
             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                 echo '<div class="table-content-types"> <tr>

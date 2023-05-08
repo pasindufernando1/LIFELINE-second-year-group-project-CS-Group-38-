@@ -19,7 +19,6 @@ class AdminUser extends Controller
         
         //redirect to login if not logged in or login button is not clicked
         if (!isset($_POST['login']) && !isset($_SESSION['login'])) {
-            print_r("Test");die();
             header("Location: /login");
         }
         

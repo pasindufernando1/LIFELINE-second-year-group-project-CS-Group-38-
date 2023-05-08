@@ -28,7 +28,7 @@ button:hover {
 /* Add a color to the cancel button */
 
 .cancelbtn {
-    background-color: #99EDC3;
+    background-color: #ccc;
     color: black;
 }
 
@@ -36,8 +36,8 @@ button:hover {
 /* Add a color to the delete button */
 
 .deletebtn {
-    background-color: #ccc;
-    color: black;
+    background-color: #640e0b;
+    color: #f1f1f1;
 }
 
 
