@@ -1,4 +1,5 @@
 <?php 
+// print_r($_SESSION['packets']);die();
 $metaTitle = "System User Reservations" ;
 
 ?>
@@ -67,7 +68,7 @@ $metaTitle = "System User Reservations" ;
                             <th>Blood Group</th>
                             <th>Quantity</th>
                             <th>Expiry Constraints</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                         <hr class="blood-types-line">
                         <?php 
@@ -98,19 +99,21 @@ $metaTitle = "System User Reservations" ;
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["Name"] . " " .$row['Subtype'] . "</td>
                                         <td>" . $row["Quantity"] ." Packs" ."</td>
-                                        <td>" . $row["Expiry_constraint"] . " Days". '</td>
-                                        <td>';
-
+                                        <td>" . $row["Expiry_constraint"] . " Days". "</td>
+                                        <td>" ;
+                                        if ($row["Status"] == 1) {
+                                            echo 'Available';
+                                        } else if($row["Status"] == 2) {
+                                             echo 'Expired';
+                                        }else {
+                                             echo 'Reserved';
+                                        }
                                         
-                                         echo '<div class="delete-btn-div"> 
-                                         <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
-                                         document.getElementById('."'del'".').action = '."'/reservation/delete/".$row["PacketID"]."'".'";
-                                         ">   
-                                         
-                                         
-                                         
-                                         <img class="delete-btn" src="./../../public/img/dashboard/delete-btn.png" alt="delete-btn"> </a> </div> </div></td>
-                                    </tr> </div>'; ?>
+                                          
+                                        
+                                        
+                                        echo  '</td>
+                                        </tr> </div>'; ?>
             
                                     <?php
 
@@ -120,7 +123,10 @@ $metaTitle = "System User Reservations" ;
                             }
                         } else {
                             
-                            echo "0 results";
+                           echo '<tr class="t-row">
+                            <td colspan="4" class="t-det">No Records Available</td>
+                            
+                            </tr>';
                         }
                         
                         echo '<div class="pag-box">';
@@ -226,13 +232,40 @@ var xValues =  <?php echo json_encode($lable); ?>;
 var yValues = <?php echo json_encode($quandata); ?>;
 var barColors = [
   "#640E0B",
-  "#F5AEAC", 
-  "#F0817E", 
-  "#EB5550", 
-  "#E62822", 
-  "#BF1B16", 
-  "#911511", 
-  "#FBDAD9"
+  "#960018", 
+  "#8D021F", 
+  "#9F1D35", 
+  "#D21F3C", 
+  "#841617", 
+  "#E30B5D", 
+  "#7C0A02",
+
+  "#933A16",
+  "#DA2C43", 
+  "#ED2939", 
+  "#D9381E", 
+  "#FFA07A", 
+  "#FA8072", 
+  "#E9967A", 
+  "#F08080",
+
+  "#E2062C",
+  "#EA3C53", 
+  "#C04000", 
+  "#5E1914", 
+  "#B43757", 
+  "#CD5C5C", 
+  "#FF6347", 
+  "#C21807",
+
+  "#D03D33",
+  "#BA1607", 
+  "#FF3C28", 
+  "#B22222", 
+  "#8B0000", 
+  "#E0115F", 
+  "#BF0A30", 
+  "#CB4154"
 ];
 
 new Chart(document.getElementById("myChart"), {

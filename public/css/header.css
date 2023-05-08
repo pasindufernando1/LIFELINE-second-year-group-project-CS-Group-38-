@@ -10,12 +10,12 @@ body {
     flex-direction: row;
     position: relative;
     width: 100%;
-    height: 8.4vh;
+    height:  3.90625vw;
 }
 
 .logo img {
     padding: 5px 15px 3px;
-    height: 75px;
+    height:  3.90625vw;
 }
 
 .header-block {
@@ -29,6 +29,7 @@ body {
 /* Emergency Block */
 
 .emergency {
+   
     left: 40.7%;
     right: 36.23%;
     top: 25%;
@@ -36,6 +37,8 @@ body {
 }
 
 .icon-emergency img {
+     width: 2vw;
+    height: 2vw;
     position: absolute;
     left: 40.7%;
     right: 46.35%;
@@ -52,7 +55,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
@@ -67,7 +70,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     color: #EB5550;
@@ -93,6 +96,8 @@ body {
 }
 
 .open-hours img {
+     width: 2vw;
+    height: 2vw;
     position: absolute;
     left: 57.83%;
     right: 31.97%;
@@ -109,7 +114,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
@@ -125,7 +130,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     color: #EB5550;
@@ -142,6 +147,8 @@ body {
 }
 
 .location img {
+     width: 2vw;
+    height: 2vw;
     position: absolute;
     left: 78.67%;
     right: 14.13%;
@@ -158,7 +165,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     text-transform: uppercase;
@@ -176,7 +183,7 @@ body {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.8333333333333334vw;
     line-height: 19px;
     /* identical to box height */
     color: #EB5550;
