@@ -21,7 +21,7 @@ class Login extends Controller
                 //$this->view->render('admin/dashboard');
                 exit;
             } else if ($_SESSION['type'] == "Donor") {
-                header("Location: /donoruser/dashboard");
+                header("Location: /user/dashboard");
                 $this->view->render('donor/dashboard');
                 exit;
             } else if ($_SESSION['type'] == "Hospital/Medical_Center") {

@@ -24,7 +24,7 @@ button:hover {
 
 .dash-p {
     position: absolute;
-    width: 561px;
+    /* width: 561px; */
     height: 57px;
     left: 29px;
     top: -27px;
@@ -1655,17 +1655,11 @@ fieldset {
 .contact-card div {
     width: 59.5%;
     height: 100%;
-    /* margin-left: 2%; */
-    /* margin-right: 2%; */
-    /* border-radius: 0 6px 0 6px; */
     position: relative;
     float: right;
-    /* /background-color: aquamarine; */
     font-family: 'Poppins';
     font-size: 16px;
     text-align: left;
-    /* color: white; */
-    /* border: none; */
 }
 
 .contact-card p {
@@ -1677,6 +1671,13 @@ fieldset {
     font-weight: normal;
 }
 
+.bb-name-info {
+    font-size: 21px;
+    position: absolute;
+    left: 255px;
+    top: 369px;
+    color: black;
+}
 
 .contact-container {
     position: absolute;
@@ -2281,6 +2282,13 @@ fieldset {
     width: 80%;
     max-width: 500px;
     border-radius: 10px;
+    font-family: 'Poppins';
+}
+
+.dialog-content h2 {
+    text-align: center;
+    /* margin-bottom: 20px;
+    font-family: 'Poppins'; */
 }
 
 .dialog-content label {
@@ -2293,13 +2301,18 @@ fieldset {
     padding: 10px;
     margin-bottom: 20px;
     box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 16px;
+
 }
 
 .dialog-content #email-error {
     font-size: 14px;
     position: static;
     width: auto;
-    margin-top: 2px;
+    /* margin-left: 82.4%; */
+    margin-top: -6px;
+    color: red;
 }
 
 .dialog-content button {
@@ -2342,6 +2355,8 @@ fieldset {
     margin-top: 17%;
 }
 
+
+
 .profile-container h3 {
 
     font-family: Poppins;
@@ -2376,6 +2391,7 @@ fieldset {
 
 .profile-container #email-edit {
     top: 208px;
+    cursor: pointer;
 }
 
 #delete-profile {
@@ -2396,6 +2412,7 @@ fieldset {
     align-content: stretch;
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 }
 
 .profile-container #email-edit :hover {
@@ -2556,25 +2573,13 @@ fieldset {
 #pass_error {
     text-align: center;
     position: static;
+    color: red;
 }
 
 #ppp {
     text-align: center;
     font-family: Poppins;
 }
-
-
-/* .badges-container {
-    position: absolute;
-    box-sizing: border-box;
-    left: 301px;
-    width: 1585px;
-    top: 133px;
-    height: 770px;
-    border: 2px solid #eceef7;
-    border-radius: 6px;
-    background-color: white;
-} */
 
 .latest h2, .your h2, .yet h2 {
     font-family: Poppins;
@@ -2589,19 +2594,13 @@ fieldset {
     width: 476px;
     top: 123px;
     left: 301px;
-    /* margin-top: 14px; */
-    /* margin-left: 14px; */
-    /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
     border: solid 2px #e8e8e8;
-    /* box-shadow: 0px 8px 12px #a4a4a4; */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white
 }
-
-
 
 .latest div {
     width: 63%;
@@ -3522,7 +3521,20 @@ fieldset {
     outline: 1px solid #bf1b16;
     border-radius: 1%;
     outline-offset: 46px;
+}
 
+.no-reg-1 {
+    position: absolute;
+    top: 571px;
+    left: 525px;
+    font-size: 25px;
+}
+
+.no-reg-2 {
+    position: absolute;
+    top: 621px;
+    left: 367px;
+    font-size: 20px;
 }
 
 .view-campaign-box {
@@ -4193,6 +4205,13 @@ fieldset {
     color: white;
 }
 
+.popup div div .yes-button a {
+    color: white;
+    position: static;
+    background: none;
+
+}
+
 .popup div div .no-button {
     background-color: #e8e8e8;
     color: #630e0b;
@@ -4355,7 +4374,8 @@ h3 {
 
 .campaign-card-left-box h3 {
     text-align: left;
-    margin-left: 10px;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 .campaign-card-left-box p {
@@ -4970,10 +4990,10 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.05963px;
+    /* padding: 9.05963px; */
     gap: 9.06px;
-    width: 203.66px;
-    height: 48.49px;
+    width: 210px;
+    height: 50px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';

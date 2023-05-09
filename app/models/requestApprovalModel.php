@@ -502,13 +502,30 @@ class RequestApprovalModel extends Model
         // return $data;
     }
 
-    public function insertDonation($donationid, $donationamount)
+    //payment
+    
+    public function insertDonation($donationid, $donationamount, $userid,$today)
     {
-        $columns = array('DonationID', 'Amount');
-        $param = array(':DonationID', ':Amount');
-        $inputs = array($donationid, $donationamount);
-        $result = $this->db->insert("cash_donation", $columns, $param, $inputs);
-        if ($result == "Success") {
+        $columns = array('DonationID', 'Amount', 'OrganizationUserID','Date');
+        $param = array(':DonationID', ':Amount', ':OrganizationUserID',':Date');
+        $inputs = array($donationid, $donationamount, $userid,$today);
+        $result1 = $this->db->insert("cash_donation", $columns, $param, $inputs);
+
+        $adid = $this->db->select("AdvertisementID", "donation", "WHERE DonationID =:DonationID", ':DonationID', $donationid);
+        $bloodbankid = $this->db->select("BloodBankID", "advertisement", "WHERE AdvertisementID =:AdvertisementID", ':AdvertisementID', $adid[0][0]);
+
+        $columns1 = array('DonationID', 'BloodBankID', 'OrganizationUserID');
+        $param1 = array(':DonationID', ':BloodBankID', ':OrganizationUserID');
+        $inputs1 = array($donationid, $bloodbankid[0][0], $userid);
+        $result2 = $this->db->insert('organization_donations_bloodbank', $columns1, $param1, $inputs1);
+
+        if ($result1 == "Success") {
+            if($result2 == "Success"){
+                return true;
+            }
+            else{
+                print_r($result);
+            }
             return true;
         } else
             print_r($result);

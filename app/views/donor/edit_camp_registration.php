@@ -1,9 +1,5 @@
 <?php
-//$_SESSION['çamp'] = $_GET['camp'];
-// $_SESSION['contno'] = $_SESSION['contno'][0];
-// print_r($_SESSION['contno']);
-// die();
-$metaTitle = 'Donor Campaigns'; ?>
+$metaTitle = 'Donation Campaigns'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

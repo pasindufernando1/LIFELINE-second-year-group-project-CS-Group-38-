@@ -1228,7 +1228,8 @@ class requestApproval extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
-                $dbconned = $this->model->insertDonation($_SESSION['donationID'], $_SESSION['donating_amount'] / 100);
+                $today = date("Y-m-d H:i:s");	
+                $dbconned = $this->model->insertDonation($_SESSION['donationID'], $_SESSION['donating_amount'] / 100,$_SESSION['User_ID'],$today);
                 unset($_SESSION['donating_amount']);
                 $this->view->render('organization/paymentDone');
                 exit();
@@ -1239,6 +1240,7 @@ class requestApproval extends Controller
     }
 
     //donate end
+
     function addFeedback(){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {

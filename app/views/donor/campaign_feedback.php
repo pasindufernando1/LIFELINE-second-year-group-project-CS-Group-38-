@@ -2,8 +2,6 @@
 $_SESSION['selected_campid'] = $_GET['camp'];
 $metaTitle = 'Donor Feedback';
 
-// print_r($_SESSION['selected_campname']);
-// die();
 ?>
 
 <!DOCTYPE html>

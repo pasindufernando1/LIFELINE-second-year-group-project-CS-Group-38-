@@ -1,9 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard';
-
-// print_r( $_SESSION['camp_donation_details'][0]['Name']);
-// die();
+$metaTitle = 'Donor Card';
 
 ?>
 
@@ -34,20 +31,14 @@ $metaTitle = 'Donor Dashboard';
     <script src="../../../public/js/drop-down.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"> </script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
-        </script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"
         integrity="sha512-JtgP5ehwmnI6UfiOV6U2WzX1l6D1ut4UHZ4ZiPw89TXEhxxr1rdCz88IKhzbm/JdX9T34ZsweLhMNSs2YwD1Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
     <script src="assets/js/jspdf-autotable-custom.js"></script>
 
@@ -145,6 +136,7 @@ $metaTitle = 'Donor Dashboard';
 
     <script>
         function exportpdf() {
+            // Get donor card from html code
             const front = document.getElementById("donor_card");
             const back = document.getElementById("ybadge");
             html2canvas(front).then((canvas) => {
@@ -158,7 +150,7 @@ $metaTitle = 'Donor Dashboard';
 
                 pdf.setFontSize(12);
                 // Define the text to center
-                var text = "Date Issue : <?php echo date('Y-m-d'); ?>";
+                var text = "Issued Date : <?php echo date('Y-m-d'); ?>";
 
                 // Get the width of the text
                 var textWidth = pdf.getTextWidth(text);

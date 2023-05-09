@@ -31,8 +31,7 @@ $metaTitle = 'Donor Dashboard';
     <!-- js Files -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
     <script src="../../../public/js/drop-down.js"></script>
-
-
+    <script src="../../../public/js/donor/dashboard.js"></script>
 
 </head>
 
@@ -56,26 +55,9 @@ $metaTitle = 'Donor Dashboard';
 
     </div>
 
-    <script>
-    function scrollToDiv() {
-        console.log("scrolling");
-        var div = document.getElementById("see-more-container");
-        var offset = 100;
-        var bodyRect = document.body.getBoundingClientRect().top;
-        var elementRect = div.getBoundingClientRect().top;
-        var elementPosition = elementRect - bodyRect;
-        var offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    }
-    </script>
 
     <div class="dash-ad">
         <?php
-        // print_r($_SESSION['upcoming_campaigns'][0][0]);
         echo '<a><img class="r-arrow-img" src="./../../public/img/donordashboard/right-arrow.jpg" alt="dashboard"></a>';
         $count = 0;
 
@@ -146,7 +128,6 @@ $metaTitle = 'Donor Dashboard';
             ?>
         </div>
 
-
         <div class="dash-div">
             <img style="width:100px;" src="../../public/img/donordashboard/crowd.png" alt="donate">
             <p>100% of Sri Lankan blood donors are voluntory non rermunerated donors.</p>
@@ -171,8 +152,6 @@ $metaTitle = 'Donor Dashboard';
 
             } else {
                 echo "<p>You can donate blood in every 4 months time</p>";
-
-
             } ?>
         </div>
 
@@ -204,23 +183,20 @@ $metaTitle = 'Donor Dashboard';
                         $row['Starting_time'] = strval($stimeval) . ' AM';
                     }
                     echo '<div class="view-campaign-card">
-            <img src = "./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
-            <div class="campaign-card-bottom">
-            <h3>' . $row['Name'] . '</h3>
-            <p class="campaign-card-info">
-            <b>Starting At : </b>' . $row['Starting_time'] . '<br>
-            <b>Location : </b>' . $row['Location'] . '<br>
-            <b>At : </b>' . $row['Date'] . '<br><br>
-            <a href="/getcampaign/view_campaign?camp=' .
-                        $row['CampaignID'] .
-                        '" name="view_camp_info"> View more... </a></p>
-                                            </div>
-                                            </div>';
+                            <img src = "./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
+                            <div class="campaign-card-bottom">
+                                <h3>' . $row['Name'] . '</h3>
+                                <p class="campaign-card-info">
+                                    <b>Starting At : </b>' . $row['Starting_time'] . '<br>
+                                    <b>Location : </b>' . $row['Location'] . '<br>
+                                    <b>At : </b>' . $row['Date'] . '<br><br>
+                                    <a href="/getcampaign/view_campaign?camp=' .$row['CampaignID'] .'" name="view_camp_info"> View more... </a></p>
+                            </div>
+                          </div>';
                     $count++;
-
                 }
             } else {
-                echo '0 results';
+                echo 'No Upcoming Campaigns';
             }
             ?>
         </div>

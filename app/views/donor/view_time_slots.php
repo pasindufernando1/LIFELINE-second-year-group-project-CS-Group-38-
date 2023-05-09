@@ -1,12 +1,6 @@
 <?php
-// print_r($_SESSION['donor_contact']);
-// die();
-// print_r($_SESSION['timeslot_period']);
-// die();
 
-
-$metaTitle = 'Donor Dashboard'; ?>
-iu
+$metaTitle = 'Campaign Timeslots'; ?>
 <!DOCTYPE html>
 <html lang="en">
 

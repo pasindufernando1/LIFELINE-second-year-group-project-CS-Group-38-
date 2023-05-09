@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Blood Banks'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +27,6 @@ $metaTitle = 'Donor Dashboard'; ?>
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- <iframe src="<?php echo $_SESSION['bb_info']['Location'] ?>" width="910" height="300"
-        style="border:0;position: absolute;z-index: 3;top: 563px;left: 638px;border: 1px solid;border-radius: 6px;"
-        allowfullscreen="" loading="lazy"></iframe> -->
-
-
-
 
 </head>
 
@@ -66,7 +59,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 </p>
             </div>
         </div>
-        <p style="font-size: 21px;position: absolute;left: 255px;top: 369px;color: black;">Blood Reserves at
+        <p class="bb-name-info" style="">Blood Reserves at
             <?php echo $_SESSION['bb_info']['BloodBank_Name'] ?>
         </p>
         <div class="blood_rchart" width="400" height="400">
@@ -91,7 +84,6 @@ $metaTitle = 'Donor Dashboard'; ?>
                             '#BF1B16',
                         ],
 
-                        // data: [10, 20, 5, 15, 10, 20, 5, 15],
                         data: [
                             <?php echo $_SESSION['b_reserves_ap'] . ',' . $_SESSION['b_reserves_an'] . ',' . $_SESSION['b_reserves_bp'] . ',' . $_SESSION['b_reserves_bn'] . ',' . $_SESSION['b_reserves_abp'] . ',' . $_SESSION['b_reserves_abn'] . ',' . $_SESSION['b_reserves_op'] . ',' . $_SESSION['b_reserves_on'] ?>
                         ],

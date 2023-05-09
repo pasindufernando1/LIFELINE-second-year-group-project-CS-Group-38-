@@ -1,8 +1,5 @@
 <?php
-//$_SESSION['çamp'] = $_GET['camp'];
-// print_r($_SESSION['contno']);
-// die();
-$metaTitle = 'Donor Campaigns'; ?>
+$metaTitle = 'Campaign Register'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -187,9 +184,6 @@ $metaTitle = 'Donor Campaigns'; ?>
                     </td>
                 </tr>
             </table>
-
-
-
         </form>
         <script src="../../../public/js/validation/donorupdatevalidation.js"></script>
 

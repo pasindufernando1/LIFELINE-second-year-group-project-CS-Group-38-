@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Profile Update'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,6 @@ $metaTitle = 'Donor Dashboard'; ?>
             <img class="success-msg-img" src="./../../public/img/dashboard/success-msg-img.png" alt="success-msg-img">
             <p class="success-msg-txt">Email Changed Succefully!</p>
             <a href="/donorprofile" class="brown-button back-to-reserve">Back to Profile<img style="width: 30px;" src="./../../public/img/donordashboard/usericon.png"></a>
-
         </div>
     </div>
 

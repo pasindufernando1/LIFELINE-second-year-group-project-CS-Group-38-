@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Profile Update'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

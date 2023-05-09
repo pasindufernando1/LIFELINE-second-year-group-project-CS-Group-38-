@@ -29,7 +29,6 @@ require_once(__ROOT__ . '/views/layout/navigation.php');
             <b>Thank You For Your Donations and Support</b><br><br>
             You have helped us to save lives and we are forever grateful for you!! </p>
         </div>
-        <!-- Create three containers to show 3 user types -->
     </div>
 
 </body>
