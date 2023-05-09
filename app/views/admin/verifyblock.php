@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Verify blocked" 
 ?>
 
 <!DOCTYPE html>

@@ -29,11 +29,7 @@ class Contactus extends Controller
                 $_SESSION['bb_info'] = $this->model->getbankinfo($bbid);
 
                 $_SESSION['b_reserves_ap'] = $this->model->getbloodbankreserves($bbid, 'A+');
-                // print_r($_SESSION['b_reserves_ap']);
-                // die();
                 $_SESSION['b_reserves_an'] = $this->model->getbloodbankreserves($bbid, 'A-');
-                // print_r($_SESSION['b_reserves_an']);
-                // die();
                 $_SESSION['b_reserves_bp'] = $this->model->getbloodbankreserves($bbid, 'B+');
                 $_SESSION['b_reserves_bn'] = $this->model->getbloodbankreserves($bbid, 'B-');
                 $_SESSION['b_reserves_op'] = $this->model->getbloodbankreserves($bbid, 'O+');
@@ -45,7 +41,7 @@ class Contactus extends Controller
                 $this->view->render('donor/contact_info');
             }
         } else {
-            $this->view->render('authentication/donorlogin');
+            $this->view->render('authentication/login');
         }
     }
 

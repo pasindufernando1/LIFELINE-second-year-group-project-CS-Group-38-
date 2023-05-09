@@ -7,22 +7,23 @@ class AdbadgesModel extends Model
         parent::__construct();
     }
 
+    // Function to get all the badge details
     public function getAllBadgeDetails()
     {
         $data = $this->db->select("*", "badge","Null");
-        // print_r($data);die();
         return $data;
 
     }
 
+    // Function to get the next badge number
     public function getNextBadgeNo()
     {
         $data = $this->db->select("MAX(BadgeID) as BadgeNo", "badge","Null");
-        // print_r($data);die();
         return $data[0]['BadgeNo']+1;
 
     }
 
+    // Function to add a new badge
     public function addBadge($inputs){
         $columns = array("Name","Donation_Constraint","BadgePic");
         $param = array(":Name",":Donation_Constraint",":BadgePic");

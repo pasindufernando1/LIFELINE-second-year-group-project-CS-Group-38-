@@ -7,6 +7,7 @@ class AdcampaignsModel extends Model
         parent::__construct();
     }
 
+    // Function to get all campaign details
     public function getAllCampaignDetails()
     {
         $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE donation_campaign.Archive = 0");
@@ -14,6 +15,7 @@ class AdcampaignsModel extends Model
 
     }
 
+    // Function to archive a donation campaign
     public function archive($id)
     {
         $result = $this->db->update("donation_campaign","Archive",":Archive",1,":CampaignID",$id,"WHERE CampaignID = :CampaignID");

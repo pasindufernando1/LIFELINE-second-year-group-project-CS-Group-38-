@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Advertisements" 
+$metaTitle = "Ad_Archive_Success" 
 ?>
 
 <!DOCTYPE html>

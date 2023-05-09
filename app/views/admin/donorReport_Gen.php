@@ -78,12 +78,40 @@ $metaTitle = "Donor Report"
         </div>
         <div class="badgepic">
             <p>Current Badge</p>
-            <img src="./../../public/img/badges/<?php echo $_SESSION['badge']; ?>" alt="badge">
-
+            <?php 
+                if($_SESSION['badge']!=null){
+                    echo '<img src="./../../public/img/badges/'.$_SESSION['badge'].'" alt="badge">';
+                }else{
+                    echo '<img src="./../../public/img/badges/Nobadge.jpeg" alt="no badge">';
+                }
+            ?>
         </div>
         <div class="donorcard">
-            <p>Donor Card View</p>
-            <img src="../../../public/img/donor-card/<?php echo $_SESSION['donor-card']; ?>" alt="donorcard">
+            <!-- <p>Donor Card View</p>
+            <img src="../../../public/img/donor-card/<?php echo $_SESSION['donor-card']; ?>" alt="donorcard"> -->
+            <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
+            <img style="height:300px;" src="../../../public/img/user_pics/<?php echo $_SESSION['donorpic'] ?>"
+                alt="profile-pic">
+            <div>
+                <h2>Donor <span>Card</span></h2><br>
+                <p>
+                    <b>
+                        <span class="red-font">Name : </span>
+                        <?php echo $_SESSION['user_details']['Fullname'] ?><br>
+                        <span class="red-font">Age : </span>
+                        <?php echo $_SESSION['age'] ?><br>
+                        <span class="red-font">Blood Type : </span>
+                        <?php echo $_SESSION['user_details']['BloodType'] ?><br>
+                        <span class="red-font">NIC : </span>
+                        <?php echo $_SESSION['user_details']['NIC'] ?><br>
+                        <span class="red-font">Address : </span>
+                        <?php echo $_SESSION['user_details']['Number'] . ', ' . $_SESSION['user_details']['LaneName'] . ', ' . $_SESSION['user_details']['City']; ?><br>
+                        <span class="red-font">Total Donations : </span>
+                        <?php echo count($_SESSION['donations'])-2 ?><br>
+                    </b>
+
+                </p>
+            </div>
         </div>
         <div class="donations">
             <p>Donation History</p>

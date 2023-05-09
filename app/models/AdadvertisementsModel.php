@@ -7,6 +7,7 @@ class AdadvertisementsModel extends Model
         parent::__construct();
     }
 
+    // Function to get all cash donation advertisement details
     public function getAllCashAdvertisementsDetails()
     {
         $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0",':DonationType',"Cash");
@@ -24,7 +25,7 @@ class AdadvertisementsModel extends Model
         return $data;
     }
 
-    // function to get the cash advertisements details for a particular month and year
+    //Function to get the cash advertisements details for a particular month and year
     public function getFilteredCashAdvertisements($month,$year)
     {
         $columns = array(":DonationType",":Month",":Year");
@@ -84,6 +85,7 @@ class AdadvertisementsModel extends Model
         return $data;
     }
 
+    // Function to get all inventory donation advertisements
     public function getAllInventoryAdvertisementsDetails(){
         $data = $this->db->select("*","advertisement","INNER JOIN donation on donation.AdvertisementID = advertisement.AdvertisementID INNER JOIN BloodBank on BloodBank.BloodBankID=Advertisement.BloodBankID WHERE donation.DonationType = :DonationType AND Advertisement.archive=0",':DonationType',"Inventory");
         //For each DonationID get teh sum of the quantity donated from the inventorydonation table and append only the sum to the array
@@ -160,6 +162,7 @@ class AdadvertisementsModel extends Model
         return $data;
     }
 
+    // Function to hide/archive an ad
     public function archive_ad($id){
 
         $result = $this->db->update("advertisement","Archive",":Archive",1,":AdvertisementID",$id,"WHERE AdvertisementID = :AdvertisementID");
@@ -201,8 +204,6 @@ class AdadvertisementsModel extends Model
         else{
             return false;
         }
-
-
     }
 
     // Function to add the cash donation advertisement to the database

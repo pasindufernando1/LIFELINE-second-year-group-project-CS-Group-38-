@@ -14,6 +14,7 @@ class AdminUser extends Controller
         parent::__construct();
     }
 
+    // Function for redirecting to the dashboard
     function dashboard()
     {
         
@@ -35,9 +36,6 @@ class AdminUser extends Controller
         $uname = $_POST['username'];
         $pwd = $_POST['password'];
 
-
-
-
         $type = $this->model->gettype($uname);
         $_SESSION['type'] = $type;
 
@@ -48,7 +46,7 @@ class AdminUser extends Controller
         $_SESSION['Password'] = $password;
 
 
-
+        // Authenticating
         if ($this->model->authenticate($uname, $pwd)) {
             $_SESSION['useremail'] = $_POST['username'];
             //set session variables
@@ -63,6 +61,7 @@ class AdminUser extends Controller
         }
     }
 
+    // Logging out
     function logout()
     {
         //destroy session variables
@@ -76,6 +75,7 @@ class AdminUser extends Controller
         $this->view->render('admin/forgetpassword');
     }
 
+    // Function to reset the password
     function reset()
     {
         if (!isset($_POST['reset'])) {
@@ -95,7 +95,6 @@ class AdminUser extends Controller
             $mail = new PHPMailer(true); //Argument true in constructor enables exceptions
 
             $mail->IsSMTP();  // telling the class to use SMTP
-            // $mail->SMTPDebug = 2;
             $mail->Mailer = "smtp";
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 587;
@@ -139,6 +138,7 @@ class AdminUser extends Controller
         $this->view->render('admin/OTP');
     }
 
+    // Function to update the password
     function update_password(){
         if (!isset($_POST['Submit'])) {
             header("Location: /adminuser/forgetpassword");
@@ -160,6 +160,7 @@ class AdminUser extends Controller
         $this->view->render('admin/new_password'); 
     }
 
+    // Function to set the password
     function password_set() {
         if ($_POST['new_pwd'] == $_POST['con_pwd']) {
             if( $this -> model -> updatePassword($_SESSION['email_reset'],$_POST['new_pwd']) ){

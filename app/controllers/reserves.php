@@ -180,12 +180,9 @@ class Reserves extends Controller
                         } 
                         $_SESSION['reserves'] = $final_output;
                     }
-                    // echo "<pre>";
-                    // print_r($_SESSION['reserves']);
-                    // echo "</pre>";
+                    
                 }
-                // Unset the post data
-                //unset($_POST);
+                
                 $this->view->render('admin/reserves');
                 exit;
             }
@@ -195,7 +192,7 @@ class Reserves extends Controller
                
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }     
     }

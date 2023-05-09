@@ -13,6 +13,7 @@ class AdminuserModel extends Model
         parent::__construct();
     }
 
+    // Function to authenticate the credentials
     public function authenticate($email, $pwd)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -26,11 +27,13 @@ class AdminuserModel extends Model
     
     }
 
+    // Functionn to get all hospital details not yet verified
     public function getHospitals(){
         $hospitals = $this->db->select(array("UserID","Name","District","Status"),"hospital_medicalcenter", "WHERE Status = :Status ;", ':Status', 0);
         return $hospitals;
     }
 
+    // Function to get the username by email
     public function getUserName($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -43,6 +46,7 @@ class AdminuserModel extends Model
 
     }
 
+    // Function to get password by email
     public function getpassword($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -53,6 +57,7 @@ class AdminuserModel extends Model
         } 
     }
 
+    // Function to get useriimage by email
     public function getuserimg($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -62,6 +67,7 @@ class AdminuserModel extends Model
         } 
     }
 
+    // Function to get the usertype by email
     public function gettype($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -72,6 +78,7 @@ class AdminuserModel extends Model
         } 
     }
 
+    // Function to check the mail is present
     public function checkMail($email)
     {
         $res = ($this->db->select('userID', "user", "WHERE email = :email;", ':email', $email));
@@ -84,6 +91,7 @@ class AdminuserModel extends Model
 
     }
 
+    // Function to update the password
     public function updatePassword($email, $pwd)
     {
         $passw = password_hash($pwd, PASSWORD_DEFAULT);
@@ -93,6 +101,7 @@ class AdminuserModel extends Model
         } else print_r($result);
     }
 
+    // Function to get the UserID based on email
     public function getUserId($email)
     {
         if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -105,6 +114,7 @@ class AdminuserModel extends Model
 
     }
     
+    // Function to get the UserID token
     public function insertToken($email)
     {
         if ($this->db->select('UserID', "user", "WHERE email = :email;", ':email', $email) > 0) {

@@ -28,7 +28,6 @@ class Adbadges extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $_SESSION['badges'] = $this->model->getAllBadgeDetails();
-                // print_r($_SESSION['inventory']);die();
                 $this->view->render('admin/badges');
                 exit;
             }
@@ -55,6 +54,7 @@ class Adbadges extends Controller
         }
     }
 
+    // Function to process new badge addition
     function add_badge_done()
     {
         if (isset($_SESSION['login'])) {
@@ -120,7 +120,7 @@ class Adbadges extends Controller
                     }
                 }
                 
-
+                // Updating tables
                 if (isset($_SESSION['login'])) {
                     if ($_SESSION['type'] == "Admin") {
 

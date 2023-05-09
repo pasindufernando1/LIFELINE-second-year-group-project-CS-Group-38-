@@ -11,6 +11,7 @@ class InventoryModel extends Model
         parent::__construct();
     }
 
+    // Function to get all the inventory details
     public function getAllInventoryDetails()
     {
         $data = $this->db->select("*", "bank_inventory_categories","Null");
@@ -23,7 +24,6 @@ class InventoryModel extends Model
             $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
             $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
         }
-        // print_r($data);die();
         return $data;
     }
 
@@ -48,7 +48,6 @@ class InventoryModel extends Model
             $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
             $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
         }
-        // print_r($data);die();
         return $data;
     }
 
@@ -86,19 +85,18 @@ class InventoryModel extends Model
             $data[$key]['Inventory_Name'] = $this->getInventoryTypeName($value['InventoryID']);
             $data[$key]['Inventory_Category'] = $this->getInventoryCategoryName($value['InventoryID']);
         }
-        // print_r($data);die();
         return $data;
     }
 
 
-    // Get the inventory names of a given blood bank
-    public function getInventoryofBank($bloodbankname)
-    {
-        // Get the blood bank id for a given blood bank name
-        $bank_id = $this->getBankID($bloodbankname);
-        // Get the inventory ids for a given blood bank id
+    // // Get the inventory names of a given blood bank
+    // public function getInventoryofBank($bloodbankname)
+    // {
+    //     // Get the blood bank id for a given blood bank name
+    //     $bank_id = $this->getBankID($bloodbankname);
+    //     // Get the inventory ids for a given blood bank id
 
-    }
+    // }
 
     // Get the blooddbank id for a given blood bank name
     public function getBankID($bank_name)
@@ -161,8 +159,6 @@ class InventoryModel extends Model
     {
         
         $data = $this->db->select("*", "inventory_donation","WHERE Admin_verify = :Admin_verify",":Admin_verify",0);
-
-        // print_r($data);die();
         return $data;
     }
 
