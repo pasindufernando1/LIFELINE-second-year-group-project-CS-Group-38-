@@ -101,7 +101,9 @@ $metaTitle = "Reports"
             }
         } 
         else {
-            //echo "0 results";
+            echo '<div class="table-content-types"> <tr>
+                            <td>Not available</td>
+                    </tr></div>';
         }
         echo "</table>";
         echo '<div class="pag-box">';

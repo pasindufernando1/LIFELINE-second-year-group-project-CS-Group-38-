@@ -270,7 +270,9 @@ $metaTitle = "Admin Dashboard";
                         
                     }
                 } else {
-                    echo "0 results";
+                    echo '<div class="table-content-types"> <tr>
+                            <td>Not available</td>
+                    </tr></div>';
                 }
                 
                 echo '</div>' ;
@@ -302,15 +304,6 @@ $metaTitle = "Admin Dashboard";
         
         <!-- Donor composition chart -->
         <div class="bo7">
-            <!-- <div class="male">
-                <img class="malepic" src="./../../public/img/admindashboard/male.png" alt="male">
-                <p class="matex">35%</p>
-            </div>
-
-            <div class="female">
-                <img class="femalepic" src="./../../public/img/admindashboard/female.png" alt="female">
-                <p class="matex">65%</p>
-            </div> -->
             <p class="tebar">Donor Composition</p>
             <canvas id="pie-chart" width="800" height="450"></canvas>
             <script>
