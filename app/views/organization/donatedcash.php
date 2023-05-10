@@ -2,6 +2,9 @@
 
 $metaTitle = "Organizations Dashboard" ;
 require '../vendor/payment_config.php';
+
+// print_r($_SESSION['past_donations'][2][0]);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -185,25 +188,87 @@ require '../vendor/payment_config.php';
                 </div>
 
             </div>
-            <div class="ad-box">
-                <p class="donate-today">Donate Today</p>
-                <div class="ad-holder">
+            <div class="box">
+                <p class="view-campaigns-title">Past Cash Donations</p>
+                <!-- <a href="#" class="ash-button reservation-filter" onclick="document.getElementById('id01').style.display='block'">Filter & Short</a>
+                <img class="user-filter-img" src="./../../public/img/orgdashboard/filter-icon.png" alt="reservation-filter-img">    -->
+                <table class="campaigns-table" style="width:80%">
+                    <tr>
+                        
+                        <th>Date</th>
+                        <th>Your Donation (LKR)</th>
+                        <th>Amount Requested (LKR)</th>
+                        <th>Amount Received (LKR)</th>
+                        <th>BloodBank </th>
+                    </tr>
+                    <hr class="campaigns-line">
                     <?php 
-                    // print_r($_SESSION['cash_received_amounts'][1][0][0]);
-                    $count=0;
-                    foreach ($_SESSION['cash_ads'] as $ad) {
-                        // print_r($ad[0]);
-                        echo '<div class="ad-card"><img class="ad-img" src="./../../public/img/advertisements/'.$_SESSION['cash_adpics'][$count][0]['Advertisement_pic'].'" alt="advertisement">
-                        <h2>'.$_SESSION['cash_bbs'][$count][0][0].'</h2>
-                        <p>Amount Needed : LKR '.$_SESSION['cash_ads'][$count][3].'</p>
-                        <p>Amount Received : LKR '.$_SESSION['cash_received_amounts'][$count][0][0].'</p>
-                        <a href="/requestApproval/donationPage?donationID='.$_SESSION['cash_ads'][$count][0].'">Donate</a>
-                        </div>';
-                    $count++;
-                    }
-                    ?>
+                        $results_per_page = 7;
+                        $number_of_results = count($_SESSION['past_donations'][0]);
+                        $number_of_page = ceil($number_of_results / $results_per_page);
 
-                </div>
+                        //determine which page number visitor is currently on  
+                        if (!isset ($_GET['page']) ) {  
+                            $page = 1;  
+                        } else {  
+                            $page = $_GET['page'];  
+                        }  
+                        //determine the sql LIMIT starting number for the results on the displaying page  
+                        $page_first_result = ($page-1) * $results_per_page;  
+                        $result = $_SESSION['past_donations'][0];
+                        $count = 0;
+
+                        if ($number_of_results > 0) {
+                           
+                            foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                                echo '<div class="table-content-types">
+                                          <tr>
+                                              <td>' . $row["Date"] . '</td>
+                                              <td>' . $row["Amount"] . '</td>
+                                              <td>' . $_SESSION['past_donations'][2][$count][0] . '</td>
+                                              <td>' . $_SESSION['past_donations'][3][$count][0] . '</td>
+                                              <td>' . $_SESSION['past_donations'][1][$count][0] . '</td>
+                                          </tr>
+                                      </div>';
+                                      $count++;
+                            }
+                        }    
+                        else {
+                            echo '<div class="table-content-types"> <tr>
+                                <td> No Cash Donations Yet </td>
+                                </tr> </div>';
+                        }
+                        echo '<div class="pag-box">';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                        }
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                        }
+                        
+                        echo '</div>';
+                         ?>
+
+                </table>
+
 
             </div>
 </body>

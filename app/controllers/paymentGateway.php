@@ -15,7 +15,6 @@ class PaymentGateway extends Controller
             if ($_SESSION['type'] == 'Organization/Society') {
 
                 $_SESSION['donating_amount'] = $_POST['amount']*100;
-
                 $this->view->render('organization/paymentDetails');
                 
             }

@@ -17,9 +17,6 @@ function showemail() {
 function showotp() {
     otp.style.display = "block";
 }
-// When the user clicks the OKbutton, get the input value and close the dialog box 
-
-// When the user clicks the Cancelbutton, close the dialog box
 
 function hidealert() {
     dialog.style.display = "none";
@@ -47,9 +44,9 @@ function showConfirm() {
     confirm.style.display = "block";
 }
 
-function hidepalert() {
-    pword.style.display = "none";
-}
+// function hidepalert() {
+//     pword.style.display = "none";
+// }
 
 function hidecalert() {
     confirm.style.display = "none";

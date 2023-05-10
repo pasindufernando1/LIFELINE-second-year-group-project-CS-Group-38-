@@ -83,6 +83,16 @@
 
         </div>
         </div>
+
+        <script>
+            function hidepalert() {
+                pword.style.display = "none";
+                <?php if (isset($_SESSION['p_error'])){
+                    unset($_SESSION['p_error']);
+                }
+                ?>
+            }
+        </script>
 </body>
 
 </html>

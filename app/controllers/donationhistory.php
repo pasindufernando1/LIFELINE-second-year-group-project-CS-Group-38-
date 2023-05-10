@@ -13,15 +13,12 @@ class Donationhistory extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 //get Number of donations at campaigns
-                $_SESSION['no_of_camp_donations'] = $this->model->getNoOfCampDonations(
-                    $_SESSION['user_ID']
+                $_SESSION['no_of_camp_donations'] = $this->model->getNoOfCampDonations($_SESSION['user_ID']
                 );
-                $_SESSION['no_of_bank_donations'] = $this->model->getNoOfBankDonations(
-                    $_SESSION['user_ID']
+                //get Number of donations at blood banks
+                $_SESSION['no_of_bank_donations'] = $this->model->getNoOfBankDonations($_SESSION['user_ID']
                 );
 
-                // $_SESSION['no_of_camp_donations'] = json_encode($no_of_camp_donations);
-                // $_SESSION['no_of_bank_donations'] = json_encode($no_of_bank_donations);
                 $this->view->render('donor/donation_history');
                 exit();
             }

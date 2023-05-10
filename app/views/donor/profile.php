@@ -59,18 +59,10 @@ $metaTitle = 'Donor Profile'; ?>
         <div class="main">
             <div class="left">
                 <p>
-                    NIC Number
-                    <br>
-                    <br>
-                    Date of Birth
-                    <br>
-                    <br>
-                    Telephone Number
-                    <br>
-                    <br>
-                    Email
-                    <br>
-                    <br>
+                    NIC Number<br><br>
+                    Date of Birth<br><br>
+                    Telephone Number<br><br>
+                    Email<br><br>
                     Address
                 </P>
             </div>
@@ -81,11 +73,11 @@ $metaTitle = 'Donor Profile'; ?>
                     : ' .$_SESSION['donor_info']['DOB'] .'<br><br>
                     : ' .$_SESSION['donor_contact']['ContactNumber'] .'<br><br>
                     : ' .$_SESSION['email'] .'<br><br>
-                    : ' .$_SESSION['donor_info']['Number'] .
-                        ', ' .$_SESSION['donor_info']['LaneName'] .
-                        ', ' .$_SESSION['donor_info']['City'] .
-                        ', ' .$_SESSION['donor_info']['District'] .
-                        ', ' .$_SESSION['donor_info']['Province'] .
+                    : ' .$_SESSION['donor_info']['Number'] .', 
+                    ' .$_SESSION['donor_info']['LaneName'] .',
+                    ' .$_SESSION['donor_info']['City'] .', 
+                    ' .$_SESSION['donor_info']['District'] .', 
+                    ' .$_SESSION['donor_info']['Province'] .
                         '</p>'; ?>
                 </P>
             </div>

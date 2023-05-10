@@ -47,8 +47,7 @@ $metaTitle = 'Blood Banks'; ?>
     <div class="contact-container" style="height:1472px">
         <p>Find Blood Bank Information</p>
         <!-- <> -->
-        <p style="position: absolute;top: 145px;font-size: 20px;left: 446px;color: black;font-weight: normal;">Search
-            for a blood bank by name</p>
+        <p id="bb-search">Search For Blood Banks By Name</p>
         <form>
             <div class="bb-list">
                 <input type="text" placeholder="Search.." id="myInput" onkeyup="searchBB()" onfocus="showDropdown()">

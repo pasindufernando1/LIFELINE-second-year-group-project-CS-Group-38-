@@ -137,7 +137,6 @@ class DonorprofileModel extends Model
         else{
             return false;
         }
-        // return $result;
     }
 
     public function update_email($userid,$email){

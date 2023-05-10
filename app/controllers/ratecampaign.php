@@ -50,7 +50,6 @@ class Ratecampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                //get the campaign id to retrieve data from the database
                 $_SESSION['selected_campid'] = $_GET['camp'];
                 $campid = $_GET['camp'];
                 $_SESSION['selected_campname'] = $this->model->getcampname(
@@ -68,10 +67,7 @@ class Ratecampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                //     var_dump($_POST);
-                // }
-
+               
                 $rating = $_POST['rating'];
                 $feedback = $_POST['fb'];
                 $inputs = [$feedback, $rating];
@@ -126,8 +122,7 @@ class Ratecampaign extends Controller
                     $_SESSION['selected_campid'],
                     $_SESSION['user_ID']
                 );
-                // print_r($_SESSION['selected_camprating']);
-                // die();
+                
                 $this->view->render('donor/campaign_feedback_edit');
                 exit();
             } else {
@@ -184,7 +179,7 @@ class Ratecampaign extends Controller
             if ($_SESSION['type'] == 'Donor') {
                 $campid = $_GET['camp'];
 
-                // if (
+                
                 $this->model->removerating($campid, $_SESSION['user_ID']);
                 $_SESSION['operation'] = 'removed';
                 $this->view->render('donor/campaign_feedback_successful');

@@ -70,9 +70,6 @@ class RatecampaignModel extends Model
 
     public function save_rating($inputs, $campid, $donorid)
     {
-        // print_r($inputs[0]);
-        // die();
-
         $params = [':Feedback', ':Rating'];
         $columns = ['Feedback', 'Rating'];
         if($this->db->update(

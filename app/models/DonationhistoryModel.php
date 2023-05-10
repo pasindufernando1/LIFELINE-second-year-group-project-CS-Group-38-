@@ -213,8 +213,7 @@ class DonationhistoryModel extends Model
             );
             array_push($campids, $campid[0][0]);
         }
-        // print_r($campids);
-        // die();
+
         $camp_names = [];
 
         if ($campids != NULL) {
@@ -229,9 +228,6 @@ class DonationhistoryModel extends Model
                 array_push($camp_names, $camp_name[0][0]);
             }
         }
-        // } else {
-        //     array_push($camp_names, 'No Complications');
-        // }
         return $camp_names;
 
     }
@@ -372,9 +368,6 @@ class DonationhistoryModel extends Model
             }
             array_push($bank_dates, $dates_of_bank);
         }
-
-        // print_r($bank_dates);
-        // die();
         return $bank_dates;
     }
 
@@ -400,13 +393,9 @@ class DonationhistoryModel extends Model
                 );
                 array_push($packet_amounts_of_bank, $amount[0][0]);
 
-                // array_push($dates_of_bank, $date[0]);
             }
             array_push($bank_amounts, $packet_amounts_of_bank);
         }
-        // print_r($bank_amounts);
-        // die();
-
         return $bank_amounts;
     }
 
@@ -456,14 +445,6 @@ class DonationhistoryModel extends Model
                 );
                 $total += $amount[0][0];
             }
-            // $amount = $this->db->select(
-            //     'Quantity',
-            //     'bloodpacket',
-            //     'WHERE PacketID = :PacketID',
-            //     ':PacketID',
-            //     $packetid[0][0]
-            // );
-            // $total += $amount[0][0];
             array_push($totals, $total);
         }
         return $totals;

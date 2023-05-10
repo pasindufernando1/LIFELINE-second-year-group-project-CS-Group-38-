@@ -401,7 +401,6 @@ class RequestApprovalModel extends Model
     public function getAllTimeslots(){
                 
         $data = $this->db->select("*","timeslot",null);
-        //print_r($data);die();
         return $data;
      
 }
@@ -448,14 +447,13 @@ class RequestApprovalModel extends Model
             return true;
         } else print_r($result);
     }
+
+    //payment related
     
     public function getcashads()
     {
-        $data = $this->db->select("*", "donation", "WHERE DonationType = 'cash'");
-        // print_r($data);die();
+        $data = $this->db->select("*", "donation", "INNER JOIN Advertisement on donation.AdvertisementID = Advertisement.AdvertisementID WHERE donation.DonationType = 'cash' AND Advertisement.Archive = 0");
         return $data;
-
-
     }
 
     public function getcashadpics($cash_ads)
@@ -465,9 +463,9 @@ class RequestApprovalModel extends Model
             $data = $this->db->select("*", "advertisement", "WHERE AdvertisementID =:cash_ads", ':cash_ads', $cash_ad[4]);
             array_push($ad_info, $data);
         }
-        // print_r($ad_info);die();
+
         return $ad_info;
-        // return $data;
+
 
     }
 
@@ -478,9 +476,9 @@ class RequestApprovalModel extends Model
             $data = $this->db->select("BloodBank_Name", "bloodbank", "WHERE BloodBankID =:adinfo", ':adinfo', $ad[0][3]);
             array_push($bb_info, $data);
         }
-        // print_r($bb_info);die();
+
         return $bb_info;
-        // return $data;
+
     }
 
     public function getreceivedcashamounts($cash_ads)
@@ -488,22 +486,46 @@ class RequestApprovalModel extends Model
         $amounts = [];
         foreach ($cash_ads as $cash_ad) {
             $count = $this->db->select("COUNT(Amount)", "cash_donation", "WHERE DonationID =:cash_ads", ':cash_ads', $cash_ad[0]);
-            // print_r($count[0][0]);
             if ($count[0][0] > 0) {
-                // print_r('wft');
                 $data = $this->db->select("SUM(Amount)", "cash_donation", "WHERE DonationID =:cash_ads", ':cash_ads', $cash_ad[0]);
             } else {
                 $data = '0';
             }
             array_push($amounts, $data);
         }
-        // print_r($amounts);die();
         return $amounts;
-        // return $data;
     }
 
-    //payment
-    
+    public function getpastdonations($userid)
+    {
+        $data = $this->db->select("*", "cash_donation", "WHERE OrganizationUserID =:userid", ':userid', $userid);
+        $bbnames = $this->db->select("BloodBank_Name",
+            "bloodbank",
+            "INNER JOIN organization_donations_bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID WHERE organization_donations_bloodbank.OrganizationUserID = :OrganizationUserID", 
+            ":OrganizationUserID", 
+            $userid);
+
+        $requested_amounts = $this->db->select(
+            "Total_amount",
+            "donation",
+            "INNER JOIN cash_donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.OrganizationUserID =:OrganizationUserID",
+            ":OrganizationUserID", 
+            $userid);
+
+        $received_amounts=[];
+        foreach ($data as $donation) {
+            $received_amount = $this->db->select(
+            "SUM(amount) AS received_amount",
+            "cash_donation",
+            "WHERE DonationID= :DonationID",
+            ":DonationID",
+            $donation['DonationID']
+            );
+            array_push($received_amounts,$received_amount[0]);
+        }
+        return [$data,$bbnames,$requested_amounts,$received_amounts];
+    }
+
     public function insertDonation($donationid, $donationamount, $userid,$today)
     {
         $columns = array('DonationID', 'Amount', 'OrganizationUserID','Date');
@@ -530,6 +552,8 @@ class RequestApprovalModel extends Model
         } else
             print_r($result);
     }
+
+    //end payment
 
     public function check_password($userid,$password)
     {
