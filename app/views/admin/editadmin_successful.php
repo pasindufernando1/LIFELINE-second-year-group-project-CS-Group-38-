@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Profile" 
+$metaTitle = "Edit admin successful" 
 ?>
 
 <!DOCTYPE html>

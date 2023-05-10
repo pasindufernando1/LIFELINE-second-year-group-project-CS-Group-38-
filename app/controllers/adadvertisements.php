@@ -26,8 +26,8 @@ class Adadvertisements extends Controller
     function type()
     {
         if (isset($_SESSION['login'])) {
-            //print_r($_POST);die();
             if ($_SESSION['type'] == "Admin") {
+                // If filtering is not set
                 if(!isset($_POST['filter']))
                 {
                     $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
@@ -35,12 +35,14 @@ class Adadvertisements extends Controller
                     $this->view->render('admin/advertisements');
                     exit;
                 }
+                // If remove filtering is set
                 if(isset($_POST['all_type'])){
                     $_SESSION['cash_advertisements'] = $this->model->getAllCashAdvertisementsDetails();
                     $_SESSION['inventory_advertisements'] = $this->model->getAllInventoryAdvertisementsDetails();
                     $this->view->render('admin/advertisements');
                     exit;
                 }
+                // Arrays to store the results(filtered)
                 $output_cash = array();
                 $output_inventory = array();
                 // If both month and year is selected
@@ -92,6 +94,7 @@ class Adadvertisements extends Controller
         }
     }
 
+    // Function to render cash donation page
     function cash_donation()
     {
         if (isset($_SESSION['login'])) {
@@ -107,6 +110,8 @@ class Adadvertisements extends Controller
         }
     }
 
+
+    // Function to handle new cash donation addition
     function add_cashad_done()
     {
         if (isset($_SESSION['login'])) {
@@ -121,6 +126,7 @@ class Adadvertisements extends Controller
                 $filename = $filename . "." . pathinfo(basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION);
                 $target_file = $target_dir . $filename;
                 
+                // Flag to keep track of the uploading
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -171,7 +177,7 @@ class Adadvertisements extends Controller
                 }
 
                 
-
+                // Updating the tables
                 if (isset($_SESSION['login'])) {
                     if ($_SESSION['type'] == "Admin") {
 
@@ -200,6 +206,7 @@ class Adadvertisements extends Controller
         }
     }
 
+    // Function to render the inventory donation page
     function inv_donation(){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
@@ -215,6 +222,7 @@ class Adadvertisements extends Controller
         }
     }
 
+    // Function to handle inventory donation addition
     function add_invad_done()
     {
 
@@ -280,7 +288,7 @@ class Adadvertisements extends Controller
                 }
 
                 
-
+                // Updating the tables
                 if (isset($_SESSION['login'])) {
                     if ($_SESSION['type'] == "Admin") {
 
@@ -316,9 +324,10 @@ class Adadvertisements extends Controller
     public function archive_add($Ad_id){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                $this->model->archive_ad($Ad_id);
-                $this->view->render('admin/ad_archive_success');
-                exit;
+                if($this->model->archive_ad($Ad_id)){
+                    $this->view->render('admin/ad_archive_success');
+                    exit;
+                }
             }
         }
         else{

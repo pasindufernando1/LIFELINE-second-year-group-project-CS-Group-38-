@@ -37,6 +37,23 @@ $metaTitle = "Donation - Add New" ;
 
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#input").keyup(function(){
+				var searchText = $(this).val();
+				$.ajax({
+					url: '../verify_donation',
+					type: 'post',
+					data: {search: searchText},
+					success: function(response){
+                        console.log(response);
+						$("#sub-btn").html(response);
+					}
+				});
+			});
+		});
+	</script>
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <!-- Side bar -->
@@ -67,22 +84,18 @@ $metaTitle = "Donation - Add New" ;
                                 <br>
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="comp" autofocus placeholder="Complication" >
 
-                                <button class='brown-button' type='submit' name='add-donation'>Add Donation</button>
+                                <div id="sub-btn">
+                                <button  class='brown-button' type='submit' name='add-donation'>Add Donation</button>
+                                
                                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
+                                </div>
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/sys_campaigns/view/<?php  echo $_SESSION['campaign'][0][0] ; ?>">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
                             </div>
                         </form>
                     </div>
 
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
+                
 
 </body>
 </html>

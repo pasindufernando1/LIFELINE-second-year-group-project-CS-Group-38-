@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Productive Donation Areas Report" 
 ?>
 
 <!DOCTYPE html>

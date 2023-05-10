@@ -7,6 +7,7 @@ class UserManageModel extends Model
         parent::__construct();
     }
 
+    // Function to add Hospital/Medical Center
     public function addHospitalMedCenter($inputs1,$inputs2,$inputs3) 
     {
 
@@ -41,6 +42,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to add Organization/Society
     public function addOrganizationsociety($inputs1,$inputs2,$inputs3) 
     {
 
@@ -75,6 +77,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to add Donor
     public function addDonor($inputs1,$inputs2,$inputs3) 
     {
 
@@ -109,6 +112,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to add System User
     public function addSystemUser($inputs1,$inputs2,$inputs3) 
     {
 
@@ -143,6 +147,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to add Admin
     public function addAdmin($inputs1, $inputs2, $inputs3)
     {
         //Updating the user table
@@ -176,31 +181,30 @@ class UserManageModel extends Model
 
     }
 
-
-    
+    //Function to get all the users 
     public function getAllUsers()
     {
         $data = $this->db->select("*", "user", "WHERE Deactivation = 0");
         return $data;
     }
 
+    //Function to get all the users filtered by usertype
     public function getFilteredUsers($usertype){
         $data = $this->db->select("*", "user", "WHERE UserType = :usertype AND Deactivation = 0",':usertype',$usertype);
         return $data;
     }
 
+    //Function to get all the deactivated users
     public function getDeactivatedUsers(){
         $data = $this->db->select("*", "user", "WHERE Deactivation = 1");
         return $data;
     }
 
+    //Function to get all the deactivated users filtered by usertype
     public function getFilteredDeactivatedUsers($usertype){
         $data = $this->db->select("*", "user", "WHERE UserType = :usertype AND Deactivation = 1",':usertype',$usertype);
         return $data;
     }
-
-    
-
 
     //Function to get the type of the user when user id is passed
     public function getUserType($user_id)
@@ -282,6 +286,7 @@ class UserManageModel extends Model
 
     }
 
+    // Function to edit Hospital/Medical Center
     public function editHospitalMedCenter($user_id,$inputs1,$inputs2,$inputs3) 
     {
 
@@ -316,6 +321,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to edit organization/society
     public function editOrganizationSociety($user_id,$inputs1,$inputs2,$inputs3) 
     {
 
@@ -326,10 +332,6 @@ class UserManageModel extends Model
 
 
         // //Updating the hospital/medical center table
-        // //Get the UserID from the last inserted user from the user table
-        // $UserID = $this->db->lastInsertId();
-        // array_unshift($inputs2, $UserID);
-
         $columns2 = array('Registration_no','Name','Number','LaneName','City','District','Province');
         $param2 = array(':Registration_no',':Name',':Number',':LaneName',':City',':District',':Province');
         $result2 = $this->db->update("organization_society", $columns2, $param2, $inputs2,':user_id',$user_id,"WHERE UserID = :user_id");
@@ -350,6 +352,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to edit donor
     public function editDonor($user_id,$inputs1,$inputs2,$inputs3) 
     {
 
@@ -360,10 +363,6 @@ class UserManageModel extends Model
 
 
         // //Updating the hospital/medical center table
-        // //Get the UserID from the last inserted user from the user table
-        // $UserID = $this->db->lastInsertId();
-        // array_unshift($inputs2, $UserID);
-
         $columns2 = array('Fullname','NIC','Gender','DOB','BloodType', 'Number', 'LaneName', 'City', 'District', 'Province','DonorCard_Img');
         $param2 = array(':Fullname', ':NIC',':Gender',':DOB',':BloodType', ':Number', ':LaneName', ':City', ':District', ':Province',':DonorCard_Img');
         $result2 = $this->db->update("donor", $columns2, $param2, $inputs2,':user_id',$user_id,"WHERE UserID = :user_id");
@@ -385,6 +384,7 @@ class UserManageModel extends Model
     }
 
 
+    // Function to edit system user
     public function editSystemUser($user_id,$inputs1,$inputs2,$inputs3) 
     {
 
@@ -395,10 +395,6 @@ class UserManageModel extends Model
 
 
         // //Updating the hospital/medical center table
-        // //Get the UserID from the last inserted user from the user table
-        // $UserID = $this->db->lastInsertId();
-        // array_unshift($inputs2, $UserID);
-
         $columns2 = array('Fullname','NIC','BloodBankID');
         $param2 = array(':Fullname',':NIC',':BloodBankID');
         $result2 = $this->db->update("system_user", $columns2, $param2, $inputs2,':user_id',$user_id,"WHERE UserID = :user_id");
@@ -419,6 +415,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to edit admin
     public function editAdmin($user_id,$inputs1,$inputs2,$inputs3) 
     {
 
@@ -449,9 +446,7 @@ class UserManageModel extends Model
 
     }
 
-
-
-
+    // Function to deactivate the hospital/medical center
     function deleteHosMedDetails($user_id)
     {
         //Set the deactivation status of the user to 1 (Deactivated)
@@ -464,6 +459,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to deactivate the organization/society
     function deleteOrgSocDetails($user_id)
     {
         //Set the deactivation status of the user to 1 (Deactivated)
@@ -476,6 +472,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to deactivate the system user
     function deleteSysUserDetails($user_id)
     {
         //Set the deactivation status of the user to 1 (Deactivated)
@@ -488,6 +485,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to deactivate the admin
     function deleteDonorDetails($user_id)
     {
         //Set the deactivation status of the user to 1 (Deactivated)
@@ -500,6 +498,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to deactivate the admin
     function deleteAdminDetails($user_id)
     {
         //Set the deactivation status of the user to 1 (Deactivated)
@@ -512,6 +511,7 @@ class UserManageModel extends Model
         }
     }
 
+    // Function to reactivate user
     public function reactivateUser($user_id)
     {
         //Set the deactivation status of the user to 0 (Activated)
@@ -531,6 +531,7 @@ class UserManageModel extends Model
         return $data;
     }
 
+    // Function to get blood bank details
     public function getBloodBanks(){
         // Get all blood bank details
         $data = $this->db->select("BloodBankID,BloodBank_Name,District,Province,Email", "bloodbank",null);
@@ -542,6 +543,7 @@ class UserManageModel extends Model
         return $data;
     }
 
+    // Function to get blood bank details filtered by province
     public function getFilteredBanks($Province){
         // Get all blood bank details
         $data = $this->db->select("BloodBankID,BloodBank_Name,District,Province,Email", "bloodbank","WHERE Province = :Province",':Province',$Province);
@@ -553,6 +555,7 @@ class UserManageModel extends Model
         return $data;
     }
 
+    // Function to add blood bank details
     public function addBloodBank($inputs1, $inputs2){
         
         //Inserting the blood bank details to the bloodbank table
@@ -579,7 +582,6 @@ class UserManageModel extends Model
             print_r($result2);
         }
     }
-
 
 
 

@@ -23,6 +23,7 @@ class Adprofile extends Controller
         }
     }
 
+    // Function to render the admin profile
     function edit()
     {
         if (isset($_SESSION['login'])) {
@@ -38,6 +39,7 @@ class Adprofile extends Controller
             }
     }
 
+    // Function to update the admin profile details
     function update()
     {
         $target_dir = "C:/xampp/htdocs/public/img/user_pics/";
@@ -109,6 +111,7 @@ class Adprofile extends Controller
 
         }
 
+        // Update the tables
         if ($_SESSION['type'] == "Admin") {
             if (!isset($_POST['update-profile'])) {
                 header("Location: /adprofile/edit");
@@ -124,13 +127,9 @@ class Adprofile extends Controller
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            
-            
 
             $inputs1 = array($Email, $Password, $Name,$filename);
             $inputs2 = array($ContactNumber);
-
-            
 
             if ($this->model->editAdmin($_SESSION['userid'],$inputs1, $inputs2)) {
                 $_SESSION['user_pic'] = $this->model->getuserimg($_SESSION['userid']);
@@ -142,6 +141,7 @@ class Adprofile extends Controller
         }    
     }
 
+    // Function to render the admin profile update successful
     function editadmin_successful()
     {
         if (isset($_SESSION['login'])) {

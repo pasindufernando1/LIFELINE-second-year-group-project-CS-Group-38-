@@ -26,7 +26,6 @@ class Adcampaigns extends Controller
     function type()
     {
         if (isset($_SESSION['login'])) {
-            //print_r($_POST);die();
             // Get the bloodbank names needed for the filter
             $_SESSION['bloodbank_names'] = $this->model->getAllBloodBankName();
             //To check whether a filter is applied
@@ -36,13 +35,16 @@ class Adcampaigns extends Controller
                 $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
+                // If not filtered
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered'] = false;
                     $_SESSION['campaigns'] = $this->model->getAllCampaignDetails();
                     $this->view->render('admin/campaigns');
                     exit;
                 }
+                // If filtered
                 if(isset($_POST['filter'])){
+                    // If all filtrations are removed
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered'] = true;
                         $_SESSION['campaigns'] = $this->model->getAllCampaignDetails();

@@ -22,7 +22,7 @@ class Reports extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -37,13 +37,16 @@ class Reports extends Controller
                 $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") { 
+                // If no filter is applied
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered'] = false;
                     $_SESSION['reports'] = $this->model->getAllReportDetails();
                     $this->view->render('admin/reports');
                     exit;
                 }
+                // If a filter is applied
                 if(isset($_POST['filter'])){
+                    // If all filters are removed
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered'] = true;
                         $_SESSION['reports'] = $this->model->getAllReportDetails();
@@ -75,6 +78,7 @@ class Reports extends Controller
                         }
                         $_SESSION['reports'] = $output;
                     }
+                    // If the requestor is not selected
                     if(!isset($_POST['requestor'])){
                         
                         // If all the month and year is selected
@@ -101,7 +105,7 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -116,7 +120,7 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -131,12 +135,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
-
+    // Give usageVsmonths report page
     function usageVsmonths()
     {
         if (isset($_SESSION['login'])) {
@@ -146,11 +150,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    //Function to generate usageVsmonths report
     function usageVsmonths_Report()
     {
         if (isset($_SESSION['login'])) {
@@ -169,11 +174,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Give usageVsexpiry report page
     function usageVSexpiry()
     {
         if (isset($_SESSION['login'])) {
@@ -183,11 +189,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    //Function to generate usageVsexpiry report
     function UsageVsExpiryreport()
     {
         if (isset($_SESSION['login'])) {
@@ -206,10 +213,11 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');  
+            $this->view->render('authentication/login');  
         }
     }
 
+    // Give productiveDonationAreas report page
     function productiveDonationAreas()
     {
         if (isset($_SESSION['login'])) {
@@ -219,11 +227,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    //Function to generate productiveDonationAreas report
     function productiveDonationAreasReport()
     {
         if (isset($_SESSION['login'])) {
@@ -244,17 +253,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
-    
-
-    
-
-    
-
+    // Give bloodAvailReport page
     function bloodAvailReport()
     {
         if (isset($_SESSION['login'])) {
@@ -264,11 +268,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    //Function to generate bloodAvailReport
     function bloodAvailReport_Gen()
     {
         if (isset($_SESSION['login'])) {
@@ -289,14 +294,14 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to redirect to database successfully updated page
     function updatedatabase_done()
     {
-        
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 
@@ -305,7 +310,7 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
@@ -331,12 +336,9 @@ class Reports extends Controller
                         $_SESSION['userid'] = $this->model->getUserId($_SESSION['useremail']);
                         // Send the file name to the database
                         if($this->model->saveBloodAvailreport($fileName,$_SESSION['userid'])){
-                            // header("Location: /reports/updatedatabase_done");
-                            // exit;
                             return true;
                         }
                        
-                        
                     } else {
                         // Failed to move the uploaded file
                         echo "Failed to move the uploaded file.";
@@ -347,7 +349,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
     
@@ -386,7 +388,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -425,7 +427,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -464,7 +466,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -503,7 +505,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -543,7 +545,7 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -583,10 +585,11 @@ class Reports extends Controller
                 }
             }
         }else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render the inventory report page
     function inventoryReport()
     {
         if (isset($_SESSION['login'])) {
@@ -596,11 +599,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to generate the inventory report
     function inventoryReport_Gen()
     {
         if (isset($_SESSION['login'])) {
@@ -619,11 +623,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to render the donor report page
     function donorReport()
     {
         if (isset($_SESSION['login'])) {
@@ -634,11 +639,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to generate the donor report
     function donorReport_Gen()
     {
         if (isset($_SESSION['login'])) {
@@ -652,18 +658,22 @@ class Reports extends Controller
                 $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['donations'] = $this->model->getAllDonations($_SESSION['donorid']);
                 $_SESSION['badge'] = $this->model->getDonorBadge($_SESSION['donorid']);
-                $_SESSION['donor-card'] = $this->model->getDonorCard($_SESSION['donorid']);
+                $_SESSION['donorpic'] = $this->model->getDonorPic($_SESSION['donorid']);
+                // $_SESSION['donor-card'] = $this->model->getDonorCard($_SESSION['donorid']);
+                $_SESSION['user_details'] = $this->model->getUserName($_SESSION['donorid']);
+                $_SESSION['age'] = $this->model->getAge($_SESSION['donorid']);
                 $_SESSION['report_name'] = "Donor-Report-".date("Y-m-d-H-i-s");
                 $this->view->render('admin/donorReport_Gen');
                 exit;
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to render the campaign report page
     function campaignReport()
     {
         if (isset($_SESSION['login'])) {
@@ -673,10 +683,11 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin'); 
+            $this->view->render('authentication/login'); 
         }
     }
 
+    // Function to generate the campaign report
     function campaignReport_Gen()
     {
         if (isset($_SESSION['login'])) {
@@ -695,11 +706,12 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }
 
+    // Function to download a copy of the report
     function download_copy($reportID)
     {
         if (isset($_SESSION['login'])) {
@@ -720,7 +732,7 @@ class Reports extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
     }

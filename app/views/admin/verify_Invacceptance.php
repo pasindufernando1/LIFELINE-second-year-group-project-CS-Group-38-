@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory Donations" 
+$metaTitle = "Verify Inventory Acceptance" 
 ?>
 
 <!DOCTYPE html>

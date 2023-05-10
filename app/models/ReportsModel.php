@@ -7,6 +7,7 @@ class ReportsModel extends Model
         parent::__construct();
     }
 
+    // Function to get all the report details
     public function getAllReportDetails()
     {
         $data = $this->db->select("*", "report","Null");
@@ -267,11 +268,13 @@ class ReportsModel extends Model
     }
 
 
+    // Function to get the next available report ID
     public function getReportId(){
         $data = $this->db->select("max(ReportID) + 1", "report","Null");
         return $data[0]['max(ReportID) + 1'];
     }
 
+    // Function to get the bloodavailability reports for a province and blood group
     public function getAllBloodAvailReports($province,$blood_group)
     {
         //Split the blood group into two word and take the values into 2 variables
@@ -302,6 +305,7 @@ class ReportsModel extends Model
         return $data;
     }
 
+    // Function to get the inventory availability reports for a province and inventory category
     public function getAllInvAvailReports($province,$inv_category)
     {
         $data = $this->db->select("BloodBankID,BloodBank_Name", "bloodbank","WHERE Province = :province",':province',$province);
@@ -325,6 +329,7 @@ class ReportsModel extends Model
         
     }
 
+    // Function to get campaign details for a specific date and province
     public function getAllCampaignDetails($date,$province)
     {
         $data = $this->db->select("*", "donation_campaign","WHERE Date = :date",':date',$date);
@@ -345,6 +350,7 @@ class ReportsModel extends Model
         return $data;
     }
 
+    // Function to get all the donors
     public function getAllDonors(){
         $data = $this->db->select("UserID,Fullname", "donor","Null");
         return $data;
@@ -384,6 +390,9 @@ class ReportsModel extends Model
     // Function to get the donor current badge
     public function getDonorBadge($donorID){
         $data = $this->db->select("BadgeID", "donor_badges","WHERE DonorUserID = :donorID",':donorID',$donorID);
+        if($data == null){
+            return null;
+        }
         $badgeID = $data[0]['BadgeID'];
         $data = $this->db->select("BadgePic", "badge","WHERE BadgeID = :badgeID",':badgeID',$badgeID);
         return $data[0]['BadgePic'];
@@ -395,11 +404,13 @@ class ReportsModel extends Model
         return $data[0]['DonorCard_Img'];
     }
 
+    // Function to get the donor details
     public function getDonorDetails($donorID){
         $data = $this->db->select("Fullname,NIC", "donor","WHERE UserID = :donorID",':donorID',$donorID);
         return $data;
     }
 
+    // Function to get the districts of a province and their usage and expiry data
     public function getAllusageVSexpiry($Province){
         // Create districts array for the province with index equal to the district name
         $districts = array();
@@ -582,62 +593,6 @@ class ReportsModel extends Model
 
     // Function to get all the donations of a year
     public function getUsageBlood($Year){
-
-        // // An array to store the used quantity for the 12 months
-        // $usedQuantity = array();
-
-        // // Get all the donations from the blood bank donations table
-        // $data = $this->db->select("PacketID,Date", "donor_bloodbank_bloodpacket","WHERE YEAR(Date) = :year",':year',$Year);
-        // // For each packet ID check the status of the packet, if status is o then it is used
-        // foreach ($data as $key => $value) {
-        //     $packetID = $data[$key]['PacketID'];
-        //     $status = $this->db->select("Status", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Status'];
-        //     if($status == 0){
-        //         // Get the quantity of the packet and add it to the array
-        //         $quantity = $this->db->select("Quantity", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Quantity'];
-        //         $data[$key]['Quantity'] = $quantity;
-        //     }
-        // }
-        // // For each packet get the month and add the quantity to the array
-        // foreach ($data as $key => $value) {
-        //     $month = date("m", strtotime($data[$key]['Date']));
-        //     $quantity = $data[$key]['Quantity'];
-        //     if(isset($usedQuantity[$month])){
-        //         $usedQuantity[$month] += $quantity;
-        //     }
-        //     else{
-        //         $usedQuantity[$month] = $quantity;
-        //     }
-        // }
-
-        
-        // // Get all the donations from the campaign donations table
-        // $data2 = $this->db->select("PacketID,Date", "donor_campaign_bloodpacket","WHERE YEAR(Date) = :year",':year',$Year);
-        // // For each packet ID check the status of the packet, if status is o then it is used
-        // foreach ($data2 as $key => $value) {
-        //     $packetID = $data2[$key]['PacketID'];
-        //     $status = $this->db->select("Status", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Status'];
-        //     if($status == 0){
-        //         // Get the quantity of the packet and add it to the array
-        //         $quantity = $this->db->select("Quantity", "bloodpacket","WHERE PacketID = :packetID",':packetID',$packetID)[0]['Quantity'];
-        //         $data2[$key]['Quantity'] = $quantity;
-        //     }
-        // }
-
-        // // For each packet get the month and add the quantity to the array
-        // foreach ($data2 as $key => $value) {
-        //     $month = date("m", strtotime($data2[$key]['Date']));
-        //     $quantity = $data2[$key]['Quantity'];
-        //     if(isset($usedQuantity[$month])){
-        //         $usedQuantity[$month] += $quantity;
-        //     }
-        //     else{
-        //         $usedQuantity[$month] = $quantity;
-        //     }
-        // }
-        // return $usedQuantity;
-
-
         //All requests from hospital_bloodbank_request table where Status = 1 and Year of Date_requested = $Year Group by Month and Year of Date_requested
         $data = $this->db->select("COUNT(*) as NoOfRequests, MONTH(Date_requested) as Month", "hospital_blood_requests","WHERE YEAR(Date_requested) = :year AND Status = 1 GROUP BY MONTH(Date_requested)",':year',$Year);
         
@@ -835,6 +790,7 @@ class ReportsModel extends Model
 
     }
 
+    // Function to save blood availability report in database table
     public function saveBloodAvailreport($filename,$userid){
         $columns = array('Name','Date_Generated','Requesting_entity','FileLink','AdminUserID');
         $params = array(':Name',':Date_Generated',':Requesting_entity',':FileLink',':AdminUserID');        
@@ -937,6 +893,7 @@ class ReportsModel extends Model
         }
     }
 
+    // Function to get the userID based on the email
     public function getUserId($email)
     {
         $data = $this->db->select("UserID", "user", "WHERE Email=:email", ":email", $email);
@@ -947,6 +904,50 @@ class ReportsModel extends Model
     public function getReportLink($id){
         $data = $this->db->select("FileLink", "report", "WHERE ReportID=:id", ":id", $id);
         return $data[0]['FileLink'];
+    }
+
+    // Function to get donor details for the donor card
+    public function getUserName($userid)
+    {
+        $name = $this->db->select(
+            'Fullname,NIC,BloodType,Number,LaneName,City',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        )[0];
+        return $name;
+    }
+
+    // Function to get the age of the donor based on the userid
+    public function getAge($userid)
+    {
+        //calculate age from dob and today's date
+        $dob = $this->db->select(
+            'DOB',
+            'donor',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        )[0][0];
+        $dob = new DateTime($dob);
+        $today = new DateTime();
+        $age = $today->diff($dob)->y;
+        return $age;
+
+    }
+
+    // Function to get the donor pic from donorid
+    public function getDonorPic($userid)
+    {
+        $pic = $this->db->select(
+            'Userpic',
+            'user',
+            'WHERE UserID = :UserID',
+            ':UserID',
+            $userid
+        )[0][0];
+        return $pic;
     }
 
     

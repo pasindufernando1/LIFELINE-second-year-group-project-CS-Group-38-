@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Verify blocked" 
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +39,7 @@ $metaTitle = "Inventory"
     <!-- main content -->
     <div class="box">
         <div class="message-container">
+            <img class="success-msg-img" src="./../../public/img/unsuccess-msg-img.jpg" alt="success-msg-img">
             <p class="success-msg-txt">Operation not possible. System user needs to validate first !</p>
             <a href="/inventory/donations?page=1" class="brown-button back-to-reserve">Back to Inventory Donations</a>
         </div>

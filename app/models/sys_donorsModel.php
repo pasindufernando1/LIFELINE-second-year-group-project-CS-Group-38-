@@ -26,8 +26,8 @@ class sys_donorsModel extends Model
         
         
 
-        $columns2 = array('UserID','Fullname','NIC','DOB','Gender','BloodType','Number','LaneName','City','District','Province','DonorCard_Img','blood_bank_ID');
-        $param2 = array(':UserID',':Fullname',':NIC',':DOB',':Gender',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img',':blood_bank_ID');
+        $columns2 = array('UserID','Fullname','NIC','DOB','Gender','BloodType','Number','LaneName','City','District','Province','DonorCard_Img');
+        $param2 = array(':UserID',':Fullname',':NIC',':DOB',':Gender',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img');
         $result2 = $this->db->insert("donor", $columns2, $param2, $inputs2);
 
         //Updating the usercontactnumber table

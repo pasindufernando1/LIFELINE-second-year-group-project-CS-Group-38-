@@ -7,6 +7,7 @@ class DonorsModel extends Model
         parent::__construct();
     }
 
+    // Get all the donor details
     public function getAllDonorDetails()
     {
         // Get all the donor details
@@ -41,6 +42,7 @@ class DonorsModel extends Model
         return $data;
     }
 
+    // Get the donor details based on the district and blood type
     public function getFilteredDonorDetails_District_BloodCategory($district,$bloodtype)
     {
         $columns = array(":District",":BloodType");
@@ -49,7 +51,7 @@ class DonorsModel extends Model
         return $data;
     }
 
-
+    // Function to add donor
     public function addDonor($inputs1,$inputs2,$inputs3) 
     {
 

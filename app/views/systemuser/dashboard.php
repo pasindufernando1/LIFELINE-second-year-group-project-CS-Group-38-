@@ -165,7 +165,7 @@ if (isset($_GET['mail'])) {
 
         <div class="bo6">
             <p class="tebar">Send Blood Shortage Emails</p>
-            <form action="./sendmail" method="POST">
+            <form action="/systemuser/sendmail" method="POST">
             <div class="bloodtype-container-dash">
                 <label class="bloodtype-lable-dash" for="bloodtype">Blood Type</label>
                 <br>

@@ -10,7 +10,7 @@ class Feedbacks extends Controller
     }
     
 
-    
+    // Function to render all the default feedbacks
     function type()
     {
         if (isset($_SESSION['login'])) {
@@ -63,6 +63,7 @@ class Feedbacks extends Controller
         }    
     } 
 
+    // Function to mark the reports as read
     function markread($feedbackid){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {

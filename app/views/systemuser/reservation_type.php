@@ -50,7 +50,7 @@ $metaTitle = "Blood Type - Reservations"
                     <div class="box-big">
                         <p class="add-reservation-title">Pending Blood Quantity Updates</p>
                         
-                        <a href="/reservation?page=1" class="brown-button expired-stock-btn">Back to Reservas</a>
+                        <a href="/reservation?page=1" class="brown-button expired-stock-btn">Back to Reserves</a>
                         <img class="expired-stocks-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="expired-stocks">
 
                         <table id="blood-types-table" class="blood-types-table" style="width:90%">
@@ -104,7 +104,10 @@ $metaTitle = "Blood Type - Reservations"
                                 
                             }
                         } else {
-                            echo "0 results";
+                            echo '<tr class="t-row">
+                            <td colspan="5" class="t-det">No Records Available</td>
+                            
+                            </tr>';
                         }
                         echo '<div class="pag-box">';
                         if ($_GET['page'] == 1) {

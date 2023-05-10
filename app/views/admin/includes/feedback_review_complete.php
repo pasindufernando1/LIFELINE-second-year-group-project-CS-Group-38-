@@ -16,8 +16,8 @@
       <p>Are you sure you need to proceed?</p>
     
       <div class="clearfix">
-        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Yes</button>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">No</button>
+        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Yes</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">No</button>
       </div>
     </div>
   </form>

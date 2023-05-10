@@ -112,6 +112,7 @@ class Donors extends Controller
         }    
     }
 
+    // Function to render the add new user page
     function addDonoruser()
     {
         if (isset($_SESSION['login'])) {
@@ -125,6 +126,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to add the donor
     function addDonor()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -150,7 +152,6 @@ class Donors extends Controller
             $Userpic = 'default-path';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
 
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
             $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
@@ -164,6 +165,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to render the add donor successful page
     function add_donor_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -177,6 +179,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to view the donor details
     function view_user($user_id){
         if (isset($_SESSION['login'])) {
                 $_SESSION['user_id'] = $user_id;
@@ -192,8 +195,6 @@ class Donors extends Controller
                 $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
                 $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
                 $_SESSION['Donorcard'] = $_SESSION['user_details'][0]['DonorCard_Img'];
-                $_SESSION['SlotID'] = $_SESSION['user_details'][0]['SlotID'];
-                $_SESSION['CampaignID'] = $_SESSION['user_details'][0]['CampaignID'];
                 $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                 $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                 $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];

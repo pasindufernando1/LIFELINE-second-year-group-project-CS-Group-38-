@@ -1,0 +1,25 @@
+.error-text, .error-sub-text {
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 600;
+    color: #640E0B;
+    position: absolute;
+    left: 860px;
+    top: 376px;
+}
+
+.error-sub-text {
+    position: absolute;
+    left: 14px;
+    top: 96px;
+    font-size: 30px;
+}
+  
+.errorimg {
+    display: block;
+    margin: 20px 20px 20px 250px;
+    width: 600px;
+    height: 600px;
+
+}

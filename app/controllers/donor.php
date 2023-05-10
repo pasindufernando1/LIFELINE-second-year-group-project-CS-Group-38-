@@ -19,7 +19,7 @@ class Donor extends Controller
             }
         }
         else{
-            $this->view->render('authentication/donorlogin');
+            $this->view->render('authentication/login');
         }
         
     }

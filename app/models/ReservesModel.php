@@ -7,6 +7,7 @@ class ReservesModel extends Model
         parent::__construct();
     }
 
+    // Function to get all the reserve details
     public function getAllReserveDetails()
     {
         // Get all the reserve details
@@ -25,6 +26,7 @@ class ReservesModel extends Model
 
     }
 
+    // Function to filter out reserves according to type name
     public function filter_out($type_name)
     {
         // Get all the type Ids for a given type name
@@ -42,6 +44,7 @@ class ReservesModel extends Model
         return $output;
     }
 
+    //Function to filter out reseves based on type name and subtype
     public function filter_out_subtypes($type_name,$subtype)
     {
         $columns = array(":Name",":Subtype");
@@ -63,7 +66,7 @@ class ReservesModel extends Model
     }
 
     
-
+    //Function to get reserve details
     public function getReserveDetails($TypeId)
     {
         // Get all the reserve details for a given type id
