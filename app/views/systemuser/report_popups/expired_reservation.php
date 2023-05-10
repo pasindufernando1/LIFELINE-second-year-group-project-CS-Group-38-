@@ -43,9 +43,9 @@
             Select Date Range
         </p>
             <label for="start">From:</label>
-            <input name="start" type="date" required >
+            <input id="from" max="<?php echo date('Y-m-d') ?>" name="start" type="date" required>
             <label for="end">To:</label>
-            <input name="end" type="date" required>
+            <input id="to" max="<?php echo date('Y-m-d') ?>" name="end" type="date" required>
         </div>
       </div>
     
@@ -58,6 +58,32 @@
 </div>
 
 <script>
+  document.getElementById("from").onchange = function () {
+    var input = document.getElementById("to");
+    input.setAttribute("min", this.value);
+}
+
+document.getElementById("to").onchange = function () {
+    var input = document.getElementById("from");
+    input.rem("max", this.value);
+    input.setAttribute("max", this.value);
+}
+
+  $(function(){
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+
+    var maxDate = year + '-' + month + '-' + day;    
+    $('#txtDate').attr('max', maxDate);
+});
 // Get the modal
 var modal = document.getElementById('r02');
 

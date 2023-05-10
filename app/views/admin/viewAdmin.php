@@ -61,7 +61,17 @@
 
             
             <div>
-                <a href="/usermanage/type?page=1"><button class='brown-button-view-admin' type='submit' name='update-hosmed' >Back to users</button></a>
+                <?php 
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                
+                echo '<a href="/usermanage/type?filter='.$status.'&page=1"><button class="brown-button-view-admin" type="submit" name="update-hosmed" >Back to users</button></a>'
+
+                ?>
             </div>
         
     </div>

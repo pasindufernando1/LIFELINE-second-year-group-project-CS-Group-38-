@@ -39,9 +39,9 @@ $metaTitle = "Edit Donor"
 
             <?php echo '<form action="/usermanage/editDonor/'.$_SESSION['user_id']. '" method="post" id="addform">' ?>                            
             <div class="quantity-container">
-                <label class="quantity-lable" for="name">Full name</label>
+                <label class="quantity-lable" for="name" id="fullname-label">Full name</label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="name" value="<?php echo $_SESSION['Name'] ?>" required>
+                <input id="fullname" class="quantity-input" type="text" name="name" value="<?php echo $_SESSION['Name'] ?>" required>
             </div>
             <div class="nic-container">
                 <label id="nic-label" class="nic-lable" for="nic">NIC no</label>
@@ -157,9 +157,17 @@ $metaTitle = "Edit Donor"
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="New Password">
             </div>
             <div>
+                <?php 
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                ?>
                 <button id="submit-btn" class='brown-button' type='submit' name='update-donor'>Update Donor</button>
                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Updating</a>
+                <?php echo '<a class="outline-button" type="reset" name="cancel-adding"  href="/usermanage/type?filter='.$status.'&page=1">Cancel Updating</a>'?>
                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
             </div>
         </form>

@@ -50,6 +50,7 @@ class App
             return true;
         } else {
             echo "Controller Not Found";
+            header('Location: /Error404');
             return false;
         }
     }
@@ -61,6 +62,7 @@ class App
         if ($urlLength > 1) {
             if (!method_exists($this->_controller, $this->_url[1])) {
                 echo "Method Not Found";
+                header('Location: /Error404');
                 exit;
             }
         }

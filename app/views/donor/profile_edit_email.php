@@ -12,7 +12,9 @@ $metaTitle = 'Donor Dashboard'; ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $metaTitle; ?></title>
+    <title>
+        <?php echo $metaTitle; ?>
+    </title>
 
     <!-- Favicons -->
     <link href="../../../public/img/favicon.jpg" rel="icon">
@@ -42,7 +44,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
                 <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
                     alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
+                <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
@@ -98,9 +100,9 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div id="check-password-form" class="profile-container">
         <h2>Your New Email</h2>
-        <?php if (isset($_SESSION['e_error'])) { 
+        <?php if (isset($_SESSION['e_error'])) {
             echo "<p class='pass_error'>" . $_SESSION['e_error'] . "</p>";
-        }?>
+        } ?>
         <form action="/donorprofile/get_email" method="post" name="confirmotp-form">
 
             <label class="password-lable" for="email">EMAIL</label>

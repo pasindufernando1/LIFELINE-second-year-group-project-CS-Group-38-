@@ -185,7 +185,10 @@ $metaTitle = "System User Reports"
                                 
                             }
                         } else {
-                            echo "0 results";
+                            echo '<tr class="t-row">
+                            <td colspan="3" class="t-det">No Records Available</td>
+                            
+                            </tr>';
                         }
                         echo '<div class="pag-box">';
                         if (isset($_GET['filtered'])) {

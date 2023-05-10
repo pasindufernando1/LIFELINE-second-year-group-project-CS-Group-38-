@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Reports" 
+$metaTitle = "Database updated" 
 ?>
 
 <!DOCTYPE html>

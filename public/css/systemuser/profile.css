@@ -137,9 +137,20 @@
 .quantity-container {
     top: 430px
 }
+.confirm-container{
+    position: absolute;
+    height: 64px;
+    left: 65px;
+    right: 114px;
+    top: 530px
+
+}
 
 .expiry-constraints-container {
     top: 530px;
+}
+.Shin-idiot{
+    top: 630px;
 }
 
 .expired-stock-btn {

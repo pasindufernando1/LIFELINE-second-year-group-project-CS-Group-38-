@@ -440,6 +440,28 @@ button:hover {
     text-align: right;
 }
 
+.contno-edit-error {
+    position: absolute;
+    right: 51.8%;
+    top: 287px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #FF0000;
+    width: 50%;
+    text-align: right;
+}
+
+.emcontno-edit-error {
+    position: absolute;
+    right: 7.8%;
+    top: 287px;
+    font-family: 'Poppins';
+    font-size: 12px;
+    color: #FF0000;
+    width: 50%;
+    text-align: right;
+}
+
 .qtable-reg {
     margin-left: auto;
     margin-right: auto;
@@ -2527,15 +2549,17 @@ fieldset {
     width: 32%;
     margin-top: 14px;
     margin-left: 14px;
-    border: 2px solid #fcfdfe;
+    /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
-    box-shadow: 0px 8px 12px #a4a4a4;
+    border: solid 2px #e8e8e8;
+    /* box-shadow: 0px 8px 12px #a4a4a4; */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
-
 }
+
+
 
 .badges-container .latest div {
     width: 63%;
@@ -2571,10 +2595,11 @@ fieldset {
     height: 33.5%;
     margin-top: 14px;
     margin-left: 14px;
-    border: 2px solid #fcfdfe;
+    /* border: 2px solid #fcfdfe; */
     background-color: white;
     border-radius: 6px;
-    box-shadow: 0px 8px 12px #a4a4a4;
+    border: solid 2px #e8e8e8;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2592,9 +2617,9 @@ fieldset {
     align-items: center;
     margin-left: 34.3%;
     margin-top: -46.9%;
-    border: 2px solid #fcfdfe;
+    /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
-    box-shadow: 0px 8px 12px #a4a4a4;
+    border: solid 2px #e8e8e8;
     background-color: white;
 
 }
@@ -2650,9 +2675,10 @@ fieldset {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #fcfdfe;
+    /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
-    box-shadow: 0px 8px 12px #a4a4a4;
+    border: solid 2px #e8e8e8;
+
     background-color: white;
 
 }

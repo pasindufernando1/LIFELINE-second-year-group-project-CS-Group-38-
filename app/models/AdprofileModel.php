@@ -7,6 +7,7 @@ class AdprofileModel extends Model
         parent::__construct();
     }
 
+    // Function to get the contact number based on the email
     public function getUserContactNo($email)
     { 
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -17,6 +18,7 @@ class AdprofileModel extends Model
 
     }
 
+    // Function to get the UserId based on the email
     public function getUserId($email)
     { 
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -47,6 +49,7 @@ class AdprofileModel extends Model
 
     }
 
+    // Function to get the Username based on the UserID
     public function getUserName($userid)
     {
         if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {
@@ -56,6 +59,7 @@ class AdprofileModel extends Model
         } 
     } 
 
+    // Function to get the userimage based on the userid
     public function getuserimg($userid)
     {
         if ($this->db->select('count', "user", "WHERE UserID = :UserID;", ':UserID', $userid) > 0) {

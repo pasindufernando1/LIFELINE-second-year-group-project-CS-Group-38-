@@ -28,7 +28,6 @@ class Adbadges extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $_SESSION['badges'] = $this->model->getAllBadgeDetails();
-                // print_r($_SESSION['inventory']);die();
                 $this->view->render('admin/badges');
                 exit;
             }
@@ -55,12 +54,13 @@ class Adbadges extends Controller
         }
     }
 
+    // Function to process new badge addition
     function add_badge_done()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
 
-                $target_dir = "C:/xampp/htdocs/public/img/admindashboard/badges/";
+                $target_dir = "C:/xampp/htdocs/public/img/badges/";
                 $filename = basename($_FILES["fileToUpload"]["name"]);
                 
                 // Get only the filename without the extension
@@ -94,7 +94,7 @@ class Adbadges extends Controller
                 }
 
                 // Check file size
-                if ($_FILES["fileToUpload"]["size"] > 500000) {
+                if ($_FILES["fileToUpload"]["size"] > 10000000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
@@ -119,9 +119,8 @@ class Adbadges extends Controller
                         echo "Sorry, there was an error uploading your file.";
                     }
                 }
-
                 
-
+                // Updating tables
                 if (isset($_SESSION['login'])) {
                     if ($_SESSION['type'] == "Admin") {
 

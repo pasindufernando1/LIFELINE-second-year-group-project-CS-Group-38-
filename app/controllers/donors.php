@@ -29,10 +29,11 @@ class Donors extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
-                    
                     $_SESSION['is_filtered'] = false;
                     $_SESSION['donors'] = $this->model->getAllDonorDetails();
                     $this->view->render('admin/donors');
@@ -64,8 +65,8 @@ class Donors extends Controller
                         if(isset($_POST[$i])){
                             $district_flag = 1;
                             for($j=0;$j<8;$j++){
-                                $flag_category = 1;
                                 if(isset($_POST[$j])){
+                                    $flag_category = 1;
                                     $rows = $this->model->getFilteredDonorDetails_District_BloodCategory($_POST[$i], $_POST[$j]);
                                     $output = array_merge($output, $rows);
                                 }
@@ -87,7 +88,7 @@ class Donors extends Controller
                     }
 
                     //If no district is selected
-                    if($district_flag==0){
+                    elseif($district_flag==0){
                         for($i=0;$i<8;$i++){
                             if(isset($_POST[$i])){
                                 $rows = $this->model->getFilteredDonorDetails_BloodCategory($_POST[$i]);
@@ -97,9 +98,10 @@ class Donors extends Controller
                         
                     }
                     $_SESSION['donors'] = $output;
-                    $this->view->render('admin/donors');
-                    exit;
+                    
                 }
+                $this->view->render('admin/donors');
+                exit;
                 
                 
             }
@@ -110,6 +112,7 @@ class Donors extends Controller
         }    
     }
 
+    // Function to render the add new user page
     function addDonoruser()
     {
         if (isset($_SESSION['login'])) {
@@ -123,6 +126,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to add the donor
     function addDonor()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -148,7 +152,6 @@ class Donors extends Controller
             $Userpic = 'default-path';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
 
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
             $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
@@ -162,6 +165,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to render the add donor successful page
     function add_donor_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -175,6 +179,7 @@ class Donors extends Controller
         }
     }
 
+    // Function to view the donor details
     function view_user($user_id){
         if (isset($_SESSION['login'])) {
                 $_SESSION['user_id'] = $user_id;
@@ -190,8 +195,6 @@ class Donors extends Controller
                 $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
                 $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
                 $_SESSION['Donorcard'] = $_SESSION['user_details'][0]['DonorCard_Img'];
-                $_SESSION['SlotID'] = $_SESSION['user_details'][0]['SlotID'];
-                $_SESSION['CampaignID'] = $_SESSION['user_details'][0]['CampaignID'];
                 $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                 $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                 $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];

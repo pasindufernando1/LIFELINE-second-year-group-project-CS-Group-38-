@@ -42,7 +42,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
                 <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
                     alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
+                <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"
@@ -98,9 +98,9 @@ $metaTitle = 'Donor Dashboard'; ?>
 
     <div id="check-password-form" class="profile-container">
         <h2>Confirm OTP</h2>
-        <?php if (isset($_SESSION['otp_error'])) { 
+        <?php if (isset($_SESSION['otp_error'])) {
             echo "<p class='pass_error'>" . $_SESSION['otp_error'] . "</p>";
-        }?>
+        } ?>
         <form action="/donorprofile/confirm_OTP" method="post" name="confirmotp-form">
 
             <label class="password-lable" for="OTP">OTP</label>

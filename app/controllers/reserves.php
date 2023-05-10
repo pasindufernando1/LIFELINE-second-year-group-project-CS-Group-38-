@@ -29,6 +29,8 @@ class Reserves extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             //var_dump($_POST);exit;
             if ($_SESSION['type'] == "Admin") {
@@ -178,12 +180,9 @@ class Reserves extends Controller
                         } 
                         $_SESSION['reserves'] = $final_output;
                     }
-                    // echo "<pre>";
-                    // print_r($_SESSION['reserves']);
-                    // echo "</pre>";
+                    
                 }
-                // Unset the post data
-                //unset($_POST);
+                
                 $this->view->render('admin/reserves');
                 exit;
             }
@@ -193,7 +192,7 @@ class Reserves extends Controller
                
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }     
     }

@@ -22,10 +22,6 @@ class campaign extends Controller
         $_SESSION['camp_ads'] = $this->model->getCampAds(
             $_SESSION['upcoming_campaigns']
         );
-
-        // print_r(($_SESSION['upcoming_campaigns']));
-        // print_r($_SESSION['camp_ads']);
-        // die();
         $this->view->render('campaigns');
         exit;
     }

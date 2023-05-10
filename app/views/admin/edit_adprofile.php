@@ -70,7 +70,7 @@ $metaTitle = "Edit profile";
 
             <div class="profile-det">
                 <div class="reserve-id-container">
-                    <label class="reserve-id-lable" for="Name">Name:</label>
+                    <label class="reserve-id-lable" for="Name">Username:</label>
                     <br>
                     <input id="Name" class="reserve-id-input" type="text" name="Name" value="<?php echo $_SESSION['username'] ?>">
                 </div>

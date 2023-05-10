@@ -41,12 +41,12 @@ $metaTitle = "Donor Report"
     <p class="add-user-title">Donor Details</p>
         <form action="/reports/donorReport_Gen" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label id= "hospital_name-label" class="quantity-lable" for="category">Donor ID : </label>
+                <label id= "hospital_name-label" class="quantity-lable" for="category">Select donor : </label>
                 <br>
                 <select class="quantity-input" type="text" name="donorID" id="donorID" placeholder="Donor ID" required>
                     <option value="" disabled selected hidden>Select Donor</option>
                         <?php foreach ($_SESSION['Donors'] as $donor) : ?>
-                            <option value="<?php echo $donor[0]; ?>"><?php echo $donor[0]." : ".$donor[1]; ?></option>
+                            <option value="<?php echo $donor[0]; ?>"><?php echo $donor[1]; ?></option>
                         <?php endforeach; ?>
                 </select>
                 <!-- <input class="quantity-input" type="text" name="donorID" id="category" placeholder="Donor ID" required> -->

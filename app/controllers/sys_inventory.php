@@ -110,6 +110,7 @@ class Sys_inventory extends Controller
             if ($_SESSION['type'] == "System User") {
                 $BloodBankID = $this ->model -> getBloodBankid($_SESSION['useremail']);
                 $date = date('y-m-d');
+                
                 $res = $this->model->verifyDonation($id,$date);
                 
                 if ($res) {

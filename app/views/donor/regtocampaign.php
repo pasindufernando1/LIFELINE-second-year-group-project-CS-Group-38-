@@ -191,7 +191,7 @@ $metaTitle = 'Donor Campaigns'; ?>
 
 
         </form>
-        <script src="../../../public/js/validation/donoruservalidation.js"></script>
+        <script src="../../../public/js/validation/donorupdatevalidation.js"></script>
 
     </div>
 

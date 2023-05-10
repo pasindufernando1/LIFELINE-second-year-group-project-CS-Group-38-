@@ -36,9 +36,9 @@ $metaTitle = "Add Donor"
         <p class="add-user-title">Add Donor</p>
         <form action="/usermanage/addDonor" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label class="quantity-lable" for="name">Full name</label>
+                <label class="quantity-lable" for="name" id="fullname-label">Full name</label>
                 <br>
-                <input id="quantity" class="quantity-input" type="text" name="name" autofocus placeholder="Full name" required>
+                <input id="fullname" class="quantity-input" type="text" name="name" autofocus placeholder="Full name" required>
             </div>
             <div class="nic-container">
                 <label id="nic-label" class="nic-lable" for="nic">NIC no</label>

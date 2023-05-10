@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Donor deleted successfully"; 
+$metaTitle = "Reactivate Successful"; 
 ?>
 
 <!DOCTYPE html>

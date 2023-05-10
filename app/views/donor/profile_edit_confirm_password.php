@@ -44,7 +44,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
                 <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
                     alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
+                <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="reservation menu-item">
                 <img class="reservation-active" src="./../../public/img/donordashboard/non-active/history.png"

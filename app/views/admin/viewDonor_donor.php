@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "View Donor" 
+$metaTitle = "View Donors" 
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +81,17 @@ $metaTitle = "View Donor"
                 <br>
             </div>
             <div>
-                <a href="/donors/type?page=1"><button class='brown-button-view' type='submit' name='update-hosmed' >Back to donors</button></a>
+                <?php
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                
+                    echo '<a href="/donors/type?filter='.$status.'&page=1"><button class="brown-button-view" type="submit" name="update-hosmed" >Back to donors</button></a>';
+
+                ?>
             </div>
         
     </div>

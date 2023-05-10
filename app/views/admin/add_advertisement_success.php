@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Advertisements" 
+$metaTitle = "Advertisements addition success" 
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,6 @@ $metaTitle = "Advertisements"
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link href="../../../public/css/admin/sidebar.css" rel="stylesheet">
-     <!-- <link href="../../../public/css/admin/dashboard.css" rel="stylesheet"> -->
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>

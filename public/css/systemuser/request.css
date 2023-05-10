@@ -19,3 +19,14 @@
     padding-top: 5px;
     padding-bottom: 25px;
 }
+
+td {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+    padding-top: 45px;
+}

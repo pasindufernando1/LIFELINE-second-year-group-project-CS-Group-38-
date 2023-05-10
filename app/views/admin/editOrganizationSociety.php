@@ -121,9 +121,17 @@ $metaTitle = "Edit org/soc"
                 <input id="password" class="password-input" type="password" name="password" autofocus placeholder="New Password">
             </div>
             <div>
+                <?php 
+                    $status = false;
+                    if(isset($_SESSION['is_filtered'])){
+                        $status = $_SESSION['is_filtered']? 'true' : 'false';
+                    }else{
+                        $status = 'false';
+                    }
+                ?>
                 <button id="submit-btn" class='brown-button' type='submit' name='update-orgsoc'>Update Organization/Society</button>
                 <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
-                <a class='outline-button' type='reset' name='cancel-adding' href="/usermanage/type?page=1">Cancel Updating</a>
+                <?php echo '<a class="outline-button" type="reset" name="cancel-adding"  href="/usermanage/type?filter='.$status.'&page=1">Cancel Updating</a>'?>
                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
             </div>
         </form>

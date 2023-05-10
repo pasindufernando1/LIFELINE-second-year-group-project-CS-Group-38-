@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 84px;
+    height: 4.375vw;
     background: #FBDAD9;
     mix-blend-mode: normal;
 }
@@ -26,19 +26,19 @@
 }
 
 .navigation-items li a {
-    padding-right: 20px;
+    padding-right: 1.0416666666666667vw;
     text-decoration: none;
 }
 
 .item-1 a {
     box-sizing: border-box;
     width: auto;
-    height: 28px;
+    height: 1.4583333333333333vw;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.25vw;
+    line-height: 1.4583333333333333vw;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -48,12 +48,12 @@
 
 .item-2 a {
     width: auto;
-    height: 28px;
+    height: 1.4583333333333333vw;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.25vw;
+    line-height: 1.4583333333333333vw;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -63,12 +63,12 @@
 
 .item-3 a {
     width: auto;
-    height: 28px;
+    height: 1.4583333333333333vw;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.25vw;
+    line-height: 1.4583333333333333vw;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -78,12 +78,12 @@
 
 .item-4 a {
     width: auto;
-    height: 28px;
+    height: 1.4583333333333333vw;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.25vw;
+    line-height: 1.4583333333333333vw;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -93,12 +93,12 @@
 
 .item-5 a {
     width: auto;
-    height: 28px;
+    height: 1.4583333333333333vw;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.25vw;
+    line-height: 1.4583333333333333vw;
     color: #BF1B16;
     /* Inside auto layout */
     flex: none;
@@ -107,15 +107,15 @@
 }
 
 .navigation-items {
-    padding-left: 250px !important;
+    padding-left: 13.020833333333334vw !important;
 }
 
 
 /* Right Block */
 
 .right-block {
-    width: 207px;
-    height: 45px;
+    width: 21.5625vw;
+    height: 4.6875vw;
     /* Inside auto layout */
     flex: none;
     order: 1;
@@ -134,25 +134,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-indent: 23px;
-    padding: 17px 35px;
-    gap: 10px;
+    padding: 1.7708333333333333vw  3.6458333333333335vw;
+    gap: 1.0416666666666667vw;
     position: absolute;
     left: 79.22%;
     right: 12.99%;
-    top: 22.62%;
-    bottom: 23.81%;
+    top: 12.62%;
+    bottom: 17.81%;
     background: #FFFFFF;
-    border-radius: 50px;
+    border-radius:  5.208333333333333vw;
     border-width: 0;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 800;
-    font-size: 23px;
+    font-size: 1.25vw;
     color: #BF1B16;
     cursor: pointer;
-    height: 59%;
-    width: 10%;  
+    height: 1.4583333333333333vw;
+    width: 10vw;  
 }
 
 .btn-donation button:hover{
