@@ -7,8 +7,4 @@ class PaymentGatewayModel extends Model
         parent::__construct();
     }
 
-    
-
-    
-
 }

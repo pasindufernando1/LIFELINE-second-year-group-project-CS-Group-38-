@@ -213,8 +213,7 @@ class DonationhistoryModel extends Model
             );
             array_push($campids, $campid[0][0]);
         }
-        // print_r($campids);
-        // die();
+
         $camp_names = [];
 
         if ($campids != NULL) {
@@ -229,9 +228,6 @@ class DonationhistoryModel extends Model
                 array_push($camp_names, $camp_name[0][0]);
             }
         }
-        // } else {
-        //     array_push($camp_names, 'No Complications');
-        // }
         return $camp_names;
 
     }
@@ -372,9 +368,6 @@ class DonationhistoryModel extends Model
             }
             array_push($bank_dates, $dates_of_bank);
         }
-
-        // print_r($bank_dates);
-        // die();
         return $bank_dates;
     }
 
@@ -400,54 +393,11 @@ class DonationhistoryModel extends Model
                 );
                 array_push($packet_amounts_of_bank, $amount[0][0]);
 
-                // array_push($dates_of_bank, $date[0]);
             }
             array_push($bank_amounts, $packet_amounts_of_bank);
         }
-        // print_r($bank_amounts);
-        // die();
-
         return $bank_amounts;
     }
-
-    // public function getBankDonations($userid)
-    // {
-    //     $data = $this->db->select(
-    //         'BloodBankID,Date',
-    //         'donor_bloodbank_bloodpacket ',
-    //         'WHERE DonorID = :DonorID',
-    //         ':DonorID',
-    //         $userid
-    //     );
-    //     return $data;
-    // }
-
-    // public function getBankDonationAmounts($banks)
-    // {
-    //     $packetids = [];
-    //     foreach ($banks as $bank) {
-    //         $packetid = $this->db->select(
-    //             'PacketID',
-    //             'donor_bloodbank_bloodpacket',
-    //             'WHERE BloodBankID = :BloodBankID AND DonorID = :DonorID',
-    //             [':BloodBankID', ':DonorID'],
-    //             [$bank[0], $_SESSION['user_ID']]
-    //         );
-    //         array_push($packetids, $packetid[0][0]);
-    //     }
-    //     $bank_amounts = [];
-    //     foreach ($packetids as $packetid) {
-    //         $amount = $this->db->select(
-    //             'Quantity',
-    //             'bloodpacket',
-    //             'WHERE PacketID = :PacketID',
-    //             ':PacketID',
-    //             $packetid
-    //         );
-    //         array_push($bank_amounts, $amount[0][0]);
-    //     }
-    //     return $bank_amounts;
-    // }
 
     public function getTotalBankDonationAmount($userid)
     {
@@ -495,14 +445,6 @@ class DonationhistoryModel extends Model
                 );
                 $total += $amount[0][0];
             }
-            // $amount = $this->db->select(
-            //     'Quantity',
-            //     'bloodpacket',
-            //     'WHERE PacketID = :PacketID',
-            //     ':PacketID',
-            //     $packetid[0][0]
-            // );
-            // $total += $amount[0][0];
             array_push($totals, $total);
         }
         return $totals;
@@ -534,4 +476,34 @@ class DonationhistoryModel extends Model
         return $totals;
     }
 
+    public function getBankComplications($userid)
+    {
+        $data = $this->db->select(
+            'BloodBankID,Date,Complication',
+            'donor_bloodbank_bloodpacket ',
+            'WHERE DonorID = :DonorID AND Complication IS NOT NULL',
+            ':DonorID',
+            $userid
+        );
+        return $data;
+    }
+
+    public function getComplicationBankNames($compications){
+        $bank_names =[];
+        foreach ($compications as $complication) {
+            $name = $this->db->select(
+                'BloodBank_Name',
+                'bloodbank',
+                'WHERE BloodBankID = :BloodBankID',
+                ':BloodBankID',
+                $complication[0]
+            );
+
+            array_push($bank_names, $name[0][0]);
+            
+        }
+
+        return $bank_names;
+    }
 }
+

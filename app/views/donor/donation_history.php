@@ -1,18 +1,6 @@
 <?php
-// $eh = empty($_SESSION['camp_donations'][0][1]);
-// // print_r($eh);
-// $result = $_SESSION['camp_donations'];
-// $_SESSION['rowCount'] = sizeof($result);
-// // print_r(sizeof($_SESSION['bank_donations']));
-// print_r($_SESSION['rowCount']);
-// die();
-// $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-// print_r(sizeof($_SESSION['camp_donations']));
-// die();
-// print_r($_SESSION['camp_locations']);
-// die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donation History'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +33,6 @@ $metaTitle = 'Donor Dashboard'; ?>
 <body>
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/header.php'); ?>
-
 
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/history_active.php'); ?>

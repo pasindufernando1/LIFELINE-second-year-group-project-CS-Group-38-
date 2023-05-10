@@ -148,9 +148,6 @@ class GetcampaignModel extends Model
         return $dates;
     }
 
-
-
-
     public function ifregistered($user_id, $campaign_id)
     {
         $param = [':DonorID', ':CampaignID'];
@@ -182,8 +179,7 @@ class GetcampaignModel extends Model
             $user_ID
         )[0];
         $reg_data = [$emcontno[0], $contno[0]];
-        // print_r($reg_data);
-        // die();
+
         return $reg_data;
     }
 
@@ -305,8 +301,7 @@ class GetcampaignModel extends Model
             ':CampaignID',
             $campid
         );
-        // print_r($timeslots[0][0]);
-        // die();
+
         return $timeslots;
     }
 
@@ -324,8 +319,7 @@ class GetcampaignModel extends Model
             array_push($timeslot_periods, $timeslot_period[0]);
         }
         return $timeslot_periods;
-        // print_r($timeslot_periods);
-        // die();
+
     }
 
     public function get_beds($campid)
@@ -351,12 +345,10 @@ class GetcampaignModel extends Model
                 [':CampaignID', ':SlotID'],
                 [$campid, $slotid[0]]
             );
-            // print_r($reserved_timeslot);
             array_push($reserved_timeslots, $reserved_timeslot);
 
         }
-        // print_r($reserved_timeslots);
-        // die();
+
         return $reserved_timeslots;
 
     }
@@ -376,9 +368,7 @@ class GetcampaignModel extends Model
             $inputs,
             'WHERE DonorID = :DonorID AND CampaignID = :CampaignID'
         );
-        //return
-        // print_r($result1);
-        // die();
+
         if ($result1 == 'Success') {
             return true;
         } else {
@@ -422,9 +412,6 @@ class GetcampaignModel extends Model
             [$campid, $userid]
         );
 
-        // print_r($timeslot);
-        // die();
-
         if ($timeslot[0][0] == NULL) {
             return false;
         } else {
@@ -459,9 +446,7 @@ class GetcampaignModel extends Model
             $inputs,
             'WHERE DonorID = :DonorID AND CampaignID = :CampaignID'
         );
-        //return
-        // print_r($result1);
-        // die();
+ 
         if ($result1 == 'Success') {
             return true;
         } else {
@@ -500,7 +485,6 @@ class GetcampaignModel extends Model
                 [":BloodBankID", ":District"],
                 [$camp['BloodBankID'], $district]
             );
-            // print_r($bb);
             if ($bb != NULL) {
                 array_push($camps_of_district, $camp);
             }
@@ -529,7 +513,6 @@ class GetcampaignModel extends Model
                 [":BloodBankID", ":District"],
                 [$camp['BloodBankID'], $district]
             );
-            // print_r($bb);
             if ($bb != NULL) {
                 array_push($camps_of_district, $camp);
             }

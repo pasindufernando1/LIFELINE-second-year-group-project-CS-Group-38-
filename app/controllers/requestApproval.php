@@ -1110,13 +1110,24 @@ class requestApproval extends Controller
         }
     }
 
-    //donate begin
+//donate begin
 
     function donateCash()
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
-                // list($_SESSION['cash_ads'],$_SESSION['cash_amounts'])=$this->model->getcashads();
+                $this->view->render('organization/cash_donation');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/organizationlogin');
+        }
+    }
+
+    function donateCashAds()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Organization/Society') {
                 $_SESSION['cash_ads'] = $this->model->getcashads();
                 $_SESSION['cash_adpics'] = $this->model->getcashadpics($_SESSION['cash_ads']);
                 $_SESSION['cash_bbs'] = $this->model->getcashbbs($_SESSION['cash_adpics']);
@@ -1170,7 +1181,8 @@ class requestApproval extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
-                $dbconned = $this->model->insertDonation($_SESSION['donationID'], $_SESSION['donating_amount'] / 100);
+                $today = date("Y-m-d H:i:s");	
+                $dbconned = $this->model->insertDonation($_SESSION['donationID'], $_SESSION['donating_amount'] / 100,$_SESSION['User_ID'],$today);
                 unset($_SESSION['donating_amount']);
                 $this->view->render('organization/paymentDone');
                 exit();
@@ -1180,7 +1192,20 @@ class requestApproval extends Controller
         }
     }
 
+    function pastDonations(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Organization/Society') {
+                $_SESSION['past_donations'] = $this->model->getpastcashdonations($_SESSION['User_ID']);
+                $this->view->render('organization/donatedcash');
+                exit();
+            }
+        } else {
+            $this->view->render('authentication/organizationlogin');
+        }
+    }
+
     //donate end
+
     function addFeedback(){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {

@@ -39,6 +39,8 @@ $metaTitle = 'Donor Feedback';
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/feedback_active.php'); ?>
 
+    <!-- Popup -->
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/includes/delete_feedback_popup.php'); ?>
 
     <div class="rate-campaign-box">
         <?php echo '<h2 class="rate-camp">' .
@@ -63,34 +65,14 @@ $metaTitle = 'Donor Feedback';
             </p>
         </div>
 
-        <div class="rate_btn_view">
-            <?php echo '<a href="editrating?camp=' .
-                $_SESSION['selected_campid'] .
-                '">Edit Rating</a>
-                <a href="remove_rating" onclick="showPopup(event)">Delete Rating</a>'; ?>
-        </div>
-
-    </div>
-
-
-
-    </div>
-
-
-    </div>
-
-    <div class="popup">
-        <div>
-            <p>Are you sure you want to delete this feedback?</p>
-            <div><button class="yes-button">Yes</button>
-                <button class="no-button">No</button>
+            <div class="rate_btn_view">
+            <?php echo '<a href="editrating?camp=' .$_SESSION['selected_campid'] .'">Edit Rating</a>
+                <a href="remove_rating?camp=' .$_SESSION['selected_campid'] .'" onclick="showPopup(event)">Delete Rating</a>'; ?>
             </div>
 
-
-            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
-
         </div>
     </div>
+
 
     <script>
         function showPopup(event) {

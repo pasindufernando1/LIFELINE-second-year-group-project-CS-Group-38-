@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Campaign Register'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +44,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 alt="success-msg-img">
             <p class="success-msg-txt">Sorry your registration was declined!</p>
             <a href="/getcampaign?page=1" class="brown-button back-to-reserve">Back to campaigns</a>
-            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png"
-                alt="success-reserve-img">
+            <img class="success-reserve-img" src="./../../public/img/dashboard/white-icons/reservation.png" alt="success-reserve-img">
         </div>
     </div>
 

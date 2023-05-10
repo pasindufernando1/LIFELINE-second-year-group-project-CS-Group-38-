@@ -24,7 +24,7 @@ button:hover {
 
 .dash-p {
     position: absolute;
-    width: 561px;
+    /* width: 561px; */
     height: 57px;
     left: 29px;
     top: -27px;
@@ -236,8 +236,8 @@ button:hover {
     position: absolute;
     box-sizing: border-box;
     left: 301px;
-    width: 1587px;
-    top: 465px;
+    width: 1574px;
+    top: 473px;
     height: 780px;
     border-radius: 6px;
     background-color: white;
@@ -373,8 +373,10 @@ button:hover {
     width: 131px;
     height: 33px;
     background: #640E0B;
-    border-radius: 4px;
+    border-radius: 7px;
     color: White;
+    border: none;
+    font-weight: bold;
     font-family: Poppins;
 }
 
@@ -663,21 +665,20 @@ fieldset {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     left: 911px;
     top: 423px;
-    background: #F7F7F7;
+    background: #640e0b;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B;
-    cursor: pointer;
+    color: #ffffff;
 }
 
 .regcancel-button {
@@ -688,15 +689,15 @@ fieldset {
     position: absolute;
     left: 1194px;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     top: 423px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
@@ -1065,6 +1066,12 @@ fieldset {
     cursor: pointer;
     width: 28px;
     height: 28px;
+}
+
+#feedback-s {
+    margin-left: 5.2px;
+    margin-top: -1px;
+    width: 28px;
 }
 
 .contactus-marker {
@@ -1622,7 +1629,14 @@ fieldset {
     display: block;
 }
 
-
+#bb-search {
+    position: absolute;
+    top: 145px;
+    font-size: 20px;
+    left: 446px;
+    color: black;
+    font-weight: normal;
+}
 
 .contact-card {
     margin-top: -1%;
@@ -1648,17 +1662,11 @@ fieldset {
 .contact-card div {
     width: 59.5%;
     height: 100%;
-    /* margin-left: 2%; */
-    /* margin-right: 2%; */
-    /* border-radius: 0 6px 0 6px; */
     position: relative;
     float: right;
-    /* /background-color: aquamarine; */
     font-family: 'Poppins';
     font-size: 16px;
     text-align: left;
-    /* color: white; */
-    /* border: none; */
 }
 
 .contact-card p {
@@ -1670,13 +1678,20 @@ fieldset {
     font-weight: normal;
 }
 
+.bb-name-info {
+    font-size: 21px;
+    position: absolute;
+    left: 255px;
+    top: 369px;
+    color: black;
+}
 
 .contact-container {
     position: absolute;
     box-sizing: border-box;
     left: 301px;
-    width: 1585px;
-    top: 133px;
+    width: 1570px;
+    top: 123px;
     height: 770px;
     border: 2px solid #eceef7;
     border-radius: 6px;
@@ -1971,7 +1986,7 @@ fieldset {
     box-sizing: border-box;
     left: 301px;
     width: 1585px;
-    top: 133px;
+    top: 123px;
     height: 770px;
     border: 2px solid #eceef7;
     border-radius: 6px;
@@ -1979,17 +1994,21 @@ fieldset {
 }
 
 #download_card {
-    margin-left: 86.5%;
+    margin-left: 86.7%;
     position: absolute;
+    display: flex;
     margin-top: -3%;
     height: 50px;
-    width: 204px;
+    width: 185px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: large;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
     border: none;
     border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .card-container h3 {
@@ -2203,7 +2222,8 @@ fieldset {
     width: 238px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: large;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
     border: none;
     border-radius: 10px;
@@ -2216,7 +2236,7 @@ fieldset {
     box-sizing: border-box;
     left: 301px;
     width: 1585px;
-    top: 133px;
+    top: 123px;
     height: 770px;
     border: 2px solid #eceef7;
     border-radius: 6px;
@@ -2269,6 +2289,13 @@ fieldset {
     width: 80%;
     max-width: 500px;
     border-radius: 10px;
+    font-family: 'Poppins';
+}
+
+.dialog-content h2 {
+    text-align: center;
+    /* margin-bottom: 20px;
+    font-family: 'Poppins'; */
 }
 
 .dialog-content label {
@@ -2281,13 +2308,18 @@ fieldset {
     padding: 10px;
     margin-bottom: 20px;
     box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 16px;
+
 }
 
 .dialog-content #email-error {
     font-size: 14px;
     position: static;
     width: auto;
-    margin-top: 2px;
+    /* margin-left: 82.4%; */
+    margin-top: -6px;
+    color: red;
 }
 
 .dialog-content button {
@@ -2330,6 +2362,8 @@ fieldset {
     margin-top: 17%;
 }
 
+
+
 .profile-container h3 {
 
     font-family: Poppins;
@@ -2346,12 +2380,13 @@ fieldset {
     top: 88px;
     left: 1246px;
     height: 53px;
-    width: 231px;
+    width: 210px;
     background-color: #640e0b;
     font-family: 'Poppins';
-    font-size: 19px;
+    font-size: 16px;
+    font-weight: bold;
     color: white;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -2363,6 +2398,28 @@ fieldset {
 
 .profile-container #email-edit {
     top: 208px;
+    cursor: pointer;
+}
+
+#delete-profile {
+    top: 639px;
+    left: 1246px;
+    height: 53px;
+    width: 210px;
+    background-color: #e8e8e8;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: bold;
+    color: #bf1b16;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
 }
 
 .profile-container #email-edit :hover {
@@ -2466,12 +2523,18 @@ fieldset {
 }
 
 .profile-container form .buttons button {
-    width: 250px;
+    width: 232px;
     height: 50px;
-
     font-family: 'Poppins';
-    font-size: 17px;
+    font-size: 15.5px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile-container form .buttons button .cbtn {
+    width: 30px
 }
 
 .profile-container form .buttons .submit {
@@ -2517,6 +2580,7 @@ fieldset {
 #pass_error {
     text-align: center;
     position: static;
+    color: red;
 }
 
 #ppp {
@@ -2524,44 +2588,28 @@ fieldset {
     font-family: Poppins;
 }
 
-
-.badges-container {
-    position: absolute;
-    box-sizing: border-box;
-    left: 301px;
-    width: 1585px;
-    top: 133px;
-    height: 770px;
-    border: 2px solid #eceef7;
-    border-radius: 6px;
-    background-color: white;
-}
-
-.badges-container h2 {
+.latest h2, .your h2, .yet h2 {
     font-family: Poppins;
     color: #640E0B;
     width: 100%;
     text-align: center;
 }
 
-.badges-container .latest {
-    height: 60%;
-    width: 32%;
-    margin-top: 14px;
-    margin-left: 14px;
-    /* border: 2px solid #fcfdfe; */
+.latest {
+    position: absolute;
+    height: 439px;
+    width: 476px;
+    top: 123px;
+    left: 301px;
     border-radius: 6px;
     border: solid 2px #e8e8e8;
-    /* box-shadow: 0px 8px 12px #a4a4a4; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: white
 }
 
-
-
-.badges-container .latest div {
+.latest div {
     width: 63%;
     height: 74%;
     display: flex;
@@ -2572,34 +2620,34 @@ fieldset {
     border-radius: 6px;
 }
 
-.badges-container .latest div img {
+.latest div img {
     width: 60%;
     height: 80%;
     margin-top: 13px;
 }
 
-.badges-container .latest div p {
+.latest div p {
     font-size: 19px;
     font-family: Poppins;
     margin-top: -13px
 }
 
-.badges-container .latest div img:hover {
+.latest div img:hover {
     transform: scale(1.1);
     transition: 0.5s;
     cursor: pointer;
 }
 
-.badges-container .clickon {
-    width: 32%;
-    height: 33.5%;
-    margin-top: 14px;
-    margin-left: 14px;
-    /* border: 2px solid #fcfdfe; */
+.clickon {
+    width: 436px;
+    height: 265px;
+    position: absolute;
+    left: 301px;
+    top: 592px;
+    padding: 20px;
     background-color: white;
     border-radius: 6px;
     border: solid 2px #e8e8e8;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2609,14 +2657,15 @@ fieldset {
     text-align: center;
 }
 
-.badges-container .your {
-    height: 50%;
-    width: 64.4%;
+.your {
+    position: absolute;
+    top: 123px;
+    left: 807px;
+    height: 385px;
+    width: 1082px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 34.3%;
-    margin-top: -46.9%;
     /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
     border: solid 2px #e8e8e8;
@@ -2624,7 +2673,7 @@ fieldset {
 
 }
 
-.badges-container .your .content {
+.your .content {
     width: 84%;
     height: 70%;
     flex-direction: row;
@@ -2635,7 +2684,7 @@ fieldset {
     display: flex;
 }
 
-.badges-container .your .content div {
+.your .content div {
     width: 183px;
     height: 219px;
     border-radius: 6px;
@@ -2649,41 +2698,42 @@ fieldset {
     flex-direction: column;
 }
 
-.badges-container .your .content div img {
+.your .content div img {
     width: 138px;
     margin-left: 13px;
     margin-top: 15px;
 }
 
-.badges-container .your .content div p {
+.your .content div p {
     font-family: Poppins;
     font-size: 14px;
     margin-top: -3px
 }
 
-.badges-container .your .content div img:hover {
+.your .content div img:hover {
     transform: scale(1.1);
     transition: 0.5s;
     cursor: pointer;
 }
 
-.badges-container .yet {
-    height: 43.5%;
-    margin-left: 34.3%;
-    margin-top: 16px;
-    width: 64.4%;
+.yet {
+    height: 360px;
+    width: 1080px;
+    /* width: 64.4%; */
+    position: absolute;
+    top: 537px;
+    left: 808px;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* border: 2px solid #fcfdfe; */
     border-radius: 6px;
     border: solid 2px #e8e8e8;
-
     background-color: white;
-
 }
 
-.badges-container .yet .content {
+
+.yet .content {
     width: 84%;
     height: 80%;
     margin-top: -10px;
@@ -2695,7 +2745,7 @@ fieldset {
     overflow-y: auto;
 }
 
-.badges-container .yet .content div {
+.yet .content div {
     width: 183px;
     height: 219px;
     border-radius: 6px;
@@ -2709,21 +2759,21 @@ fieldset {
     flex-direction: column;
 }
 
-.badges-container .yet .content div img {
+.yet .content div img {
     width: 138px;
     margin-left: 13px;
     margin-top: 15px;
     filter: grayscale(100%);
 }
 
-.badges-container .yet .content div p {
+.yet .content div p {
     margin-top: -3px;
     font-size: 14px;
     font-family: Poppins;
     filter: grayscale(100%);
 }
 
-.badges-container .yet .content div img:hover {
+.yet .content div img:hover {
     transform: scale(1.1);
     transition: 0.5s;
     cursor: pointer;
@@ -2851,10 +2901,10 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1565px;
+    width: 1596px;
     height: 793px;
-    left: 316px;
-    top: 145px;
+    left: 300px;
+    top: 122px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -2890,25 +2940,24 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1585px;
+    width: 1573px;
     height: auto;
     left: 301px;
-    top: 114px;
+    top: 123px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
-
 }
 
 .history-box {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1565px;
+    width: 1589px;
     height: 795px;
-    left: 316px;
-    top: 120px;
+    left: 301px;
+    top: 123px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -3000,10 +3049,10 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
+    left: 301px;
+    top: 123px;
     width: 1025px;
     height: 795px;
-    left: 316px;
-    top: 120px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -3135,7 +3184,7 @@ fieldset {
     margin-left: 449px;
     width: 144px;
     font-family: 'Poppins';
-    font-size: 17px;
+    font-size: 16px;
     height: 40px;
     background: #640E0B;
     border-radius: 6px;
@@ -3151,10 +3200,10 @@ fieldset {
 .camp-summary {
     box-sizing: border-box;
     position: absolute;
-    width: 526px;
+    width: 541px;
     height: 795px;
-    left: 1367px;
-    top: 120px;
+    left: 1352px;
+    top: 123px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -3479,7 +3528,20 @@ fieldset {
     outline: 1px solid #bf1b16;
     border-radius: 1%;
     outline-offset: 46px;
+}
 
+.no-reg-1 {
+    position: absolute;
+    top: 571px;
+    left: 525px;
+    font-size: 25px;
+}
+
+.no-reg-2 {
+    position: absolute;
+    top: 621px;
+    left: 367px;
+    font-size: 20px;
 }
 
 .view-campaign-box {
@@ -3656,6 +3718,16 @@ fieldset {
     display: none;
 }
 
+#rate_error {
+    position: absolute;
+    display: none;
+    font-family: Poppins;
+    font-size: 15px;
+    color: red;
+    top: 308px;
+    left: 453px;
+}
+
 .rate {
     box-sizing: border-box;
     display: flex;
@@ -3708,13 +3780,14 @@ fieldset {
 }
 
 .rate-campaign-box button {
-    width: 282px;
+    width: 210px;
     margin-top: 334px;
     margin-right: -73%;
-    height: 59px;
+    height: 50px;
     top: 559px;
     font-family: 'Poppins';
-    font-size: 23px;
+    font-size: 16px;
+    font-weight: bold;
     color: #FFF;
     background: #640E0B;
     border-color: #630e0b;
@@ -3791,16 +3864,17 @@ fieldset {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.05963px;
+    /* padding: 9.05963px; */
     gap: 9.06px;
     width: 203.66px;
-    height: 48.49px;
+    height: 50px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    /* FONT-WEIGHT: 100; */
+    font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.01em;
     color: #FCFEFE;
@@ -3818,15 +3892,14 @@ fieldset {
     box-sizing: border-box;
     width: 50%;
     position: absolute;
-    width: 1565px;
+    width: 1590px;
     height: 795px;
-    left: 316px;
-    top: 120px;
+    left: 301px;
+    top: 123px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
     border-radius: 6px;
-
 }
 
 .feedback-box .view-campaign-container {
@@ -3861,7 +3934,7 @@ fieldset {
     float: left;
 }
 
-.view-camp-feedback img {
+.feed-ad {
     height: 52%;
     width: 100%;
     border-radius: 8px 8px 0 0;
@@ -3872,6 +3945,8 @@ fieldset {
     height: 25%;
     width: 100%;
 }
+
+
 
 .view-camp-feedback .feedback-d {
     height: 100%;
@@ -3948,6 +4023,7 @@ fieldset {
     width: 194px;
     font-family: 'Poppins';
     font-size: 16px;
+    font-weight: bold;
     height: 39px;
     margin-right: auto;
     margin-left: auto;
@@ -4146,6 +4222,13 @@ fieldset {
     color: white;
 }
 
+.popup div div .yes-button a {
+    color: white;
+    position: static;
+    background: none;
+
+}
+
 .popup div div .no-button {
     background-color: #e8e8e8;
     color: #630e0b;
@@ -4308,7 +4391,8 @@ h3 {
 
 .campaign-card-left-box h3 {
     text-align: left;
-    margin-left: 10px;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 .campaign-card-left-box p {
@@ -4338,6 +4422,10 @@ h3 {
     border: 2px solid #eceef7;
     border-radius: 6px;
     background-color: white;
+}
+
+#ts {
+    height: auto;
 }
 
 .timeslot-container h2 {
@@ -4768,20 +4856,20 @@ a {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     left: 911px;
     top: 423px;
-    background: #F7F7F7;
+    background: #640e0b;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12.6835px;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
-    color: #640E0B;
+    color: #fcfdfe;
     cursor: pointer;
 }
 
@@ -4793,15 +4881,15 @@ a {
     position: absolute;
     left: 1194px;
     width: 203.66px;
-    height: 52.49px;
+    height: 50px;
     top: 423px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 700;
-    font-size: 12.6835px;
+    font-weight: bold;
+    font-size: 14px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.01em;
@@ -4877,13 +4965,30 @@ a {
 }
 
 .back-to-reserve {
-    position: absolute;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 74px;
+    padding: unset;
+    padding: none;
     width: 227.96px;
-    height: 40.16px;
-    left: 640px;
+    height: 50px;
+    left: 678px;
     top: 513px;
     background: #640E0B;
     border-radius: 10.87px;
+}
+
+
+.back-to-campaigns {
+    position: absolute;
+    width: 227.96px;
+    height: 40.16px;
+    left: 687px;
+    top: 483px;
+    background: #640E0B;
+    border-radius: 10.87px;
+
 }
 
 
@@ -4906,10 +5011,10 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.05963px;
+    /* padding: 9.05963px; */
     gap: 9.06px;
-    width: 203.66px;
-    height: 48.49px;
+    width: 210px;
+    height: 50px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';

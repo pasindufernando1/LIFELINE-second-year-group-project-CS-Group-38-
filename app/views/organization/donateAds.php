@@ -31,14 +31,13 @@ require '../vendor/payment_config.php';
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        /* height: 511px; */
         align-items: center;
         margin: 0 4%;
         margin-left: 2%;
         margin-right: 1%;
         background: #f7f7f7;
         margin-top: 8%;
-        /* overflow-x: auto; */
+        overflow-x: auto;
         border: #e8e8e8 solid 1px;
         border-radius: 6px;
     }

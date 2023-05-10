@@ -51,7 +51,7 @@
             </div>
             <div class="feedback menu-item">
                 <div class="feedback-marker"></div>
-                <img id="card-s" src="./../../public/img/donordashboard/active/reports.png" alt="reports">
+                <img id="feedback-s" src="./../../public/img/donordashboard/active/reports.png" alt="reports">
                 <p class="reservation-act"><a href="/ratecampaign/feedback_page">Feedback</a></p>
 
             </div>

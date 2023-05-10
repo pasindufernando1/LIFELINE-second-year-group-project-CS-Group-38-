@@ -1,8 +1,5 @@
 <?php
-
-$metaTitle = 'Donor Dashboard';
-// print_r($_SESSION['camp_ads'][0]);
-// die();
+$metaTitle = 'Donation Campaigns';
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +41,7 @@ $metaTitle = 'Donor Dashboard';
     <!-- filter -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/filter/camp_filter.php'); ?>
 
-    <!-- Campaigns -->
+    <!-- Registered Campaigns -->
     <?php if (count($_SESSION['registrations']) == 0) {
         echo '<div class="campaign-reg-box">';
     } else {
@@ -54,7 +51,6 @@ $metaTitle = 'Donor Dashboard';
     <h2 class="header2">Registered Campaigns</h2>
 
     <?php
-    //$number_of_results = $_SESSION['rowCount'];
     $number_of_results = count($_SESSION['registrations']);
 
     $result = $_SESSION['registrations'];
@@ -73,27 +69,18 @@ $metaTitle = 'Donor Dashboard';
                     strval($stimeval) . ' AM';
             }
             echo '<div class="view-register-card">
-                                            <div class="campaign-card-left-box">
-                                            <h3>' .
-                $_SESSION['registrations'][$x][0][1] .
-                '</h3>
-                                            <p>Starting At :' .
-                $_SESSION['registrations'][$x][0][5] .
-                '<br>
-                                            On:' .
-                $_SESSION['registrations'][$x][0][4] .
-                '<br>
-                        Location:' .
-                $_SESSION['registrations'][$x][0][2] .
-                '<br></p>
-                                            </div>
-                                            <div class="campaign-card-right-box">
-                                            <a href="/getcampaign/view_campaign?camp=' .
-                $_SESSION['registrations'][$x][0][0] .
-                '"> <button class="register-btn" name="view_camp_info" > View </button> </a>
-                                            <a href="/getcampaign/view_timeslot?camp=' . $_SESSION['registrations'][$x][0][0] . '"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
-                                            </div>
-                                            </div>';
+                    <div class="campaign-card-left-box">
+                        <h3>' .$_SESSION['registrations'][$x][0][1] .'</h3>
+                        <p>Starting At :' .$_SESSION['registrations'][$x][0][5] .'<br>
+                        On:' .$_SESSION['registrations'][$x][0][4] .'<br>
+                        Location:' .$_SESSION['registrations'][$x][0][2] .'<br>
+                        </p>
+                    </div>
+                    <div class="campaign-card-right-box">
+                        <a href="/getcampaign/view_campaign?camp=' .$_SESSION['registrations'][$x][0][0] .'"> <button class="register-btn" name="view_camp_info" > View </button> </a>
+                        <a href="/getcampaign/view_timeslot?camp=' . $_SESSION['registrations'][$x][0][0] . '"> <button class="register-btn" name="view_camp_info" > Time slot </button> </a>
+                    </div>
+                 </div>';
         }
         echo '</div>';
     } else {
@@ -108,12 +95,13 @@ $metaTitle = 'Donor Dashboard';
         echo '<div class="campaign-view-box">';
     }
     ?>
-    <!-- <div class="campaign-view-box"> -->
+
+
+<!-- Upcoming Campaigns -->
     <h2 class="header2">Upcoming Campaigns</h2>
-    <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<img
-            src="./../../public/img/donordashboard/filter-icon.png"></button>
+    <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<imgsrc="./../../public/img/donordashboard/filter-icon.png"></button>
     <div class="view-campaign-container">
-        <?php
+    <?php
         $number_of_results = $_SESSION['rowCount'];
         $result = $_SESSION['upcoming_campaigns'];
         $count = 0;
@@ -121,7 +109,6 @@ $metaTitle = 'Donor Dashboard';
         if ($_SESSION['rowCount'] > 0) {
             foreach ($result as $row) {
                 $stime = substr($row['Starting_time'], 0, 2);
-                // $etime = substr($_SESSION['registrations'][$x][0][6], 0, 2);
                 $stimeval = intval($stime);
                 if ($stimeval > 12) {
                     $st = 24 - $stime;
@@ -130,27 +117,24 @@ $metaTitle = 'Donor Dashboard';
                     $row['Starting_time'] = strval($stimeval) . ' AM';
                 }
                 echo '<div class="view-campaign-card" style="margin-top: 15px; margin-bottom: 5px;">
-            <img src = "./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
-            <div class="campaign-card-bottom">
-            <h3>' . $row['Name'] . '</h3>
-            <p class="campaign-card-info">
-            <b>Starting At : </b>' . $row['Starting_time'] . '<br>
-            <b>On : </b>' . $row['Date'] . '<br>
-            <b>Location : </b>' . $row['Location'] . '<br><br>
-            <a href="/getcampaign/view_campaign?camp=' .
-                    $row['CampaignID'] .
-                    '" name="view_camp_info"> View more... </a></p>
-                                            </div>
-                                            </div>';
+                        <img src = "./../../public/img/advertisements/' . $_SESSION['camp_ads'][$count][0][0] . '" class="campaign-card-img" alt="campaigns">
+                        <div class="campaign-card-bottom">
+                            <h3>' . $row['Name'] . '</h3>
+                            <p class="campaign-card-info">
+                            <b>Starting At : </b>' . $row['Starting_time'] . '<br>
+                            <b>On : </b>' . $row['Date'] . '<br>
+                            <b>Location : </b>' . $row['Location'] . '<br><br>
+                            <a href="/getcampaign/view_campaign?camp=' .$row['CampaignID'] .'" name="view_camp_info"> View more... </a></p>
+                        </div>
+                      </div>';
                 $count++;
-
             }
         } else {
             echo '0 results';
         }
         ?>
     </div>
-    </div>
+</div>
 
 
 </body>

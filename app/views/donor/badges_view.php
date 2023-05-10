@@ -1,8 +1,6 @@
 <?php
-// print_r($_SESSION['badges'][1][0]);
-// die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donor Badges'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +38,12 @@ $metaTitle = 'Donor Dashboard'; ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/badge_active.php'); ?>
 
+    <!-- Popup -->
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/includes/badges_popup.php'); ?>
 
-    <div class="badges-container">
 
+
+    <!-- Newest Badge -->
         <div class="latest">
             <h2>Your Newest Badge</h2>
             <div>
@@ -64,6 +65,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             <p>Click On the BADGES to know More About Them</p>
         </div>
 
+
+<!-- Donor's Badges -->
         <div class="your">
             <h2>Your Badges</h2>
             <div class="content">
@@ -80,6 +83,7 @@ $metaTitle = 'Donor Dashboard'; ?>
                 ?>
             </div>
         </div>
+<!-- Yet to Earn -->
         <div class="yet">
             <h2>Yet to Earn</h2>
             <div class="content">
@@ -92,15 +96,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             </div>
         </div>
 
-        <div id="alertBox" class="hidden">
-            <div>
-                <p id="badgeName"></p>
-                <img id="alertBadge" src='' alt="badge">
-                <p>This Badge is Rewarded For Donating Blood <span class="alertMessage"></span> Times </p>
-                <img id="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
-            </div>
-        </div>
 
+        <!-- Alert Box to View Badge Info-->
         <script>
         var badge;
 
@@ -132,7 +129,8 @@ $metaTitle = 'Donor Dashboard'; ?>
         }
         </script>
 
-    </div>
+
+    
 </body>
 
 </html>

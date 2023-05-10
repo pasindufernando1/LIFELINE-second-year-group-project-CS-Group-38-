@@ -22,6 +22,21 @@ require '../vendor/payment_config.php';
 
     <!-- CSS Files -->
     <link href="../../../public/css/organization/requestApproval.css" rel="stylesheet">
+    <style>
+        .donate-btn{
+            font-family: Poppins;
+            font-size: 20px;
+        }
+        .donate-btn:hover{
+            cursor: pointer;
+        }
+
+        input{
+            font-family: Poppins;
+            font-size: 17px;
+            height: 50px;
+        }
+    </style>
 
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -120,12 +135,7 @@ require '../vendor/payment_config.php';
                     <img class="donation-img" src="./../../public/img/orgdashboard/donation.png" alt="req">
                     <p class="para1">We are proudly non-profit, non-corporate and non-compromised. we rely on donations
                         to carry out our mission. <b>Will you give today? </b></p>
-                    <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="donate-btn"
-                        data-key="<?php echo $public_key ?>" data-amount="1000" data-name="Programming with Vishal"
-                        data-description="Programming with Vishal Desc"
-                        data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-                        data-currency="lkr" data-email="phpvishal@gmail.com"></script> -->
-
+                    
 
                     <label id="amount-label" class="amount-label" for="amount">Amount(Rs.):</label>
                     <br>

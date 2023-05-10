@@ -187,7 +187,7 @@ $metaTitle = "Organizations Dashboard"
                     to
                     save
                     lives,<br> and to provide support to those in need.</p>
-                <button class="but"><a href="/organizationuser/dashboard">Go to Dashboard</a></button>
+                <button class="but"><a href="/requestApproval/donateCash">Go to Donation Page</a></button>
 
 
             </div>

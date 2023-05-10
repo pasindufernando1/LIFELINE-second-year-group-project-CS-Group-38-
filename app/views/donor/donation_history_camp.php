@@ -1,18 +1,6 @@
 <?php
-// $eh = empty($_SESSION['camp_donations'][0][1]);
-// // print_r($eh);
-// $result = $_SESSION['camp_donations'];
-// $_SESSION['rowCount'] = sizeof($result);
-// // print_r(sizeof($_SESSION['bank_donations']));
-// print_r($_SESSION['rowCount']);
-// die();
-// $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-// print_r(sizeof($_SESSION['camp_donations']));
-// die();
-// print_r($_SESSION['complication_camps']);
-// die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donation History'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -121,8 +109,8 @@ $metaTitle = 'Donor Dashboard'; ?>
             </tr>';
             foreach ($_SESSION['complications'] as $complications) {
                 echo '<tr>
-                <td>' . $complications . '</td>
-                <td>' . $_SESSION['complication_camps'][$scount] . '</td>
+                        <td>' . $complications . '</td>
+                        <td>' . $_SESSION['complication_camps'][$scount] . '</td>
             </tr>';
                 $scount++;
             }

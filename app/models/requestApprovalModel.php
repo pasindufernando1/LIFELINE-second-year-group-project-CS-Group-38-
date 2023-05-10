@@ -465,14 +465,13 @@ class RequestApprovalModel extends Model
             return true;
         } else print_r($result);
     }
+
+    //payment related
     
     public function getcashads()
     {
-        $data = $this->db->select("*", "donation", "WHERE DonationType = 'cash'");
-        // print_r($data);die();
+        $data = $this->db->select("*", "donation", "INNER JOIN Advertisement on donation.AdvertisementID = Advertisement.AdvertisementID WHERE donation.DonationType = 'cash' AND Advertisement.Archive = 0");
         return $data;
-
-
     }
 
     public function getcashadpics($cash_ads)
@@ -482,9 +481,9 @@ class RequestApprovalModel extends Model
             $data = $this->db->select("*", "advertisement", "WHERE AdvertisementID =:cash_ads", ':cash_ads', $cash_ad[4]);
             array_push($ad_info, $data);
         }
-        // print_r($ad_info);die();
+
         return $ad_info;
-        // return $data;
+
 
     }
 
@@ -495,9 +494,9 @@ class RequestApprovalModel extends Model
             $data = $this->db->select("BloodBank_Name", "bloodbank", "WHERE BloodBankID =:adinfo", ':adinfo', $ad[0][3]);
             array_push($bb_info, $data);
         }
-        // print_r($bb_info);die();
+
         return $bb_info;
-        // return $data;
+
     }
 
     public function getreceivedcashamounts($cash_ads)
@@ -505,31 +504,50 @@ class RequestApprovalModel extends Model
         $amounts = [];
         foreach ($cash_ads as $cash_ad) {
             $count = $this->db->select("COUNT(Amount)", "cash_donation", "WHERE DonationID =:cash_ads", ':cash_ads', $cash_ad[0]);
-            // print_r($count[0][0]);
             if ($count[0][0] > 0) {
-                // print_r('wft');
                 $data = $this->db->select("SUM(Amount)", "cash_donation", "WHERE DonationID =:cash_ads", ':cash_ads', $cash_ad[0]);
             } else {
                 $data = '0';
             }
             array_push($amounts, $data);
         }
-        // print_r($amounts);die();
         return $amounts;
-        // return $data;
     }
 
-    public function insertDonation($donationid, $donationamount)
+    public function getpastcashdonations($userid)
     {
-        $columns = array('DonationID', 'Amount');
-        $param = array(':DonationID', ':Amount');
-        $inputs = array($donationid, $donationamount);
-        $result = $this->db->insert("cash_donation", $columns, $param, $inputs);
-        if ($result == "Success") {
+        $data = $this->db->select("DISTINCT cash_donation.*,bloodbank.BloodBank_Name,Total_amount", "cash_donation", "INNER JOIN organization_donations_bloodbank on cash_donation.DonationID = organization_donations_bloodbank.DonationID INNER JOIN bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID INNER JOIN donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.OrganizationUserID =:userid ORDER BY DATE DESC", ':userid', $userid);
+        return $data;
+    }
+
+    public function insertDonation($donationid, $donationamount, $userid,$today)
+    {
+        $columns = array('DonationID', 'Amount', 'OrganizationUserID','Date');
+        $param = array(':DonationID', ':Amount', ':OrganizationUserID',':Date');
+        $inputs = array($donationid, $donationamount, $userid,$today);
+        $result1 = $this->db->insert("cash_donation", $columns, $param, $inputs);
+
+        $adid = $this->db->select("AdvertisementID", "donation", "WHERE DonationID =:DonationID", ':DonationID', $donationid);
+        $bloodbankid = $this->db->select("BloodBankID", "advertisement", "WHERE AdvertisementID =:AdvertisementID", ':AdvertisementID', $adid[0][0]);
+
+        $columns1 = array('DonationID', 'BloodBankID', 'OrganizationUserID');
+        $param1 = array(':DonationID', ':BloodBankID', ':OrganizationUserID');
+        $inputs1 = array($donationid, $bloodbankid[0][0], $userid);
+        $result2 = $this->db->insert('organization_donations_bloodbank', $columns1, $param1, $inputs1);
+
+        if ($result1 == "Success") {
+            if($result2 == "Success"){
+                return true;
+            }
+            else{
+                print_r($result);
+            }
             return true;
         } else
             print_r($result);
     }
+
+    //end payment
 
     public function check_password($userid,$password)
     {

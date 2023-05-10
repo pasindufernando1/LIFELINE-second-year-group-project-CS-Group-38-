@@ -1,9 +1,5 @@
 <?php
-//$_SESSION['çamp'] = $_GET['camp'];
-// $_SESSION['contno'] = $_SESSION['contno'][0];
-// print_r($_SESSION['contno']);
-// die();
-$metaTitle = 'Donor Campaigns'; ?>
+$metaTitle = 'Donation Campaigns'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +55,7 @@ $metaTitle = 'Donor Campaigns'; ?>
             ][0]; ?>" placeholder="Emergency Contact Number" required>
             <p class="emcontno-edit-error" id="emcontno-error"></p>
             <button class="regedit-button" type="submit" name="reg-edit">Save Changes
-                <img src="./../../public/img/donordashboard/edit-btn.png" class="reg-edit-btn"></button>
+                <img src="./../../public/img/donordashboard/saved.png" class="reg-edit-btn"></button>
             <a class="regcancel-button" href="cancel_edit">Cancel Editing
                 <img src="./../../public/img/donordashboard/delete-btn.png" class="reg-delete-btn"></a>
         </form>

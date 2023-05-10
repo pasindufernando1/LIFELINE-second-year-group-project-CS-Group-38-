@@ -22,10 +22,7 @@ class Getcampaign extends Controller
                 $_SESSION['upcoming_campaigns'] = $this->model->getAllCampaigns(
                     $_SESSION['today']
                 );
-
-                // print_r($_SESSION['upcoming_campaigns']);
-                // die();
-
+                //get advertisements for campaigns
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
 
                 $this->view->render('donor/getcampaign');
@@ -36,6 +33,7 @@ class Getcampaign extends Controller
         }
     }
 
+    //filter function
     function type()
     {
         if (isset($_SESSION['login'])) {
@@ -52,7 +50,8 @@ class Getcampaign extends Controller
                     header('Location: /getcampaign/index');
                     exit();
                 }
-
+                
+                //if a month is selected
                 if (!empty($_POST['month'])) {
                     $month = $_POST['month'];
 
@@ -60,7 +59,7 @@ class Getcampaign extends Controller
                         $_SESSION['today'],
                         $month
                     );
-
+                    // if a month and a district is selected
                     if (!empty($_POST['district'])) {
                         $district = $_POST['district'];
                         $_SESSION['upcoming_campaigns'] = $this->model->Campaignsofmonthdistict(
@@ -69,22 +68,17 @@ class Getcampaign extends Controller
                             $district
                         );
 
-                        // print_r("Hello");
-                        // die();
                     }
-                    // echo "month is set";
+                    //if a district is selected
                 } elseif (!empty($_POST['district'])) {
                     $district = $_POST['district'];
                     $_SESSION['upcoming_campaigns'] = $this->model->Campaignsofdistrict(
                         $_SESSION['today'],
                         $district
                     );
-                    // print_r($_SESSION['upcoming_campaigns']);
-                    // die();
                 }
 
                 $_SESSION['camp_ads'] = $this->model->getCampAds($_SESSION['upcoming_campaigns']);
-
                 $this->view->render('donor/getcampaign');
                 exit();
             }
@@ -180,31 +174,25 @@ class Getcampaign extends Controller
                         $date2 = date_create($dates);
                         $diff = date_diff($date2, $campdate);
                         $diff = $diff->days;
-                        // print_r($diff);
-                        // print_r('haha');
+
                         if ($diff < 0) {
                             $diff = $diff * -1;
-                            // $_SESSION['if_registered'] = 2;
                         }
 
                         if ($diff < 112) {
                             $_SESSION['time_okay'] = 0;
-                            // break;
                             $this->view->render('donor/viewcampaign');
                             exit();
 
                         } else {
                             $_SESSION['time_okay'] = 1;
                         }
-
-
                     }
 
                 }
 
                 if ($last_donation != false) {
                     $date1 = date_create($last_donation);
-                    // $date2 = date_create($_SESSION['today']);
                     $date_diff = date_diff($campdate, $date1);
                     $date_diff = $date_diff->days;
 
@@ -212,7 +200,6 @@ class Getcampaign extends Controller
                         $_SESSION['time_okay'] = 0;
                         $this->view->render('donor/viewcampaign');
                         exit();
-                        // print_r('last-donation failed');
 
                     } else {
                         $_SESSION['time_okay'] = 1;
@@ -222,11 +209,8 @@ class Getcampaign extends Controller
                     $_SESSION['time_okay'] = 1;
                 }
 
-
-
                 $this->view->render('donor/viewcampaign');
                 exit();
-
             }
         } else {
             $this->view->render('authentication/donorlogin');
@@ -301,8 +285,8 @@ class Getcampaign extends Controller
                             'Location: /getcampaign/regtocampaignsuccessful'
                         );
                     } else {
-                        print_r($inputs);
-                        die();
+                         header('Location: /getcampaign/regtocampaignunsuccessful');
+                        exit();
                     }
                 }
             }
@@ -325,17 +309,16 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
-                // print_r($_SESSION['camp_reg_id']);
-                // die();
                 if (
                     $this->model->deleteregistration(
                         $_SESSION['user_ID'],
                         $_SESSION['selected_campid']
                     )
                 ) {
-                    header('Location: /getcampaign/index');
-                    $this->view->render('donor/getcampaign');
-                    exit();
+                    
+                    $_SESSION['succ_type'] = 'delete';
+                    $_SESSION['camp_success_msg'] = 'Registration Cancelled Successfully';
+                    $this->view->render('donor/regtocampaign_success');
                 } else {
                     header('Location: /getcampaign/index');
                     $this->view->render('donor/getcampaign');
@@ -351,16 +334,13 @@ class Getcampaign extends Controller
     {
         if ($_SESSION['type'] == 'Donor') {
             if (!isset($_POST['reg-edit'])) {
-                // print_r('awa');
-                // die();
                 header('Location: /getcampaign/index');
                 exit();
             }
 
             $contno = $_POST['contno'];
             $emcontno = $_POST['emcontno'];
-            // print_r($contno);
-            // die();
+          
             $edited = $this->model->editregistraion(
                 $_SESSION['selected_campid'],
                 $contno,
@@ -368,24 +348,17 @@ class Getcampaign extends Controller
                 $_SESSION['user_ID']
             );
             if ($edited == 'Success') {
-                // print_r($inputs);
-                // die();
-                header(
-                    'Location: /getcampaign/view_campaign?camp=' .
-                    $_SESSION['selected_campid']
-                );
-                $_SESSION['reg_info'] = $this->model->get_campreg_info(
-                    $_SESSION['user_ID']
-                );
-                $this->view->render('donor/viewcampaign');
+                $_SESSION['succ_type'] = 'edit';
+                $_SESSION['camp_success_msg'] = 'Registration Updated Successfully';
+                $this->view->render('donor/regtocampaign_success');
             } else {
-                // print_r($inputs);
-                // die();
+                 header('Location: /getcampaign/index');
+                    $this->view->render('donor/getcampaign');
+                    exit();
             }
         } else {
             $this->view->render('authentication/donorlogin');
         }
-        // $inputs = [$_SESSION['user_ID'], $campaign_ID, $emcontno];
     }
 
     function cancel_edit()
@@ -400,6 +373,8 @@ class Getcampaign extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
+                $_SESSION['succ_type'] = 'reg';
+                $_SESSION['camp_success_msg'] = 'Successfully Registered to Campaign!';
                 $this->view->render('donor/regtocampaign_success');
                 exit();
             }
@@ -450,14 +425,12 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $_SESSION['selected_campid'] = $_GET['camp'];
-                // print_r($_SESSION['selected_campid']);
 
                 $_SESSION['camp_info'] = $this->model->get_campaign_info(
                     $_SESSION['selected_campid']
                 );
 
-                // print_r($_SESSION['camp_info']);
-                // die();
+               
                 $_SESSION['camp_timeslots'] = $this->model->get_timeslots($_SESSION['selected_campid']);
                 $_SESSION['timeslot_period'] = $this->model->get_timeslot_period($_SESSION['camp_timeslots']);
                 $_SESSION['beds'] = $this->model->get_beds($_SESSION['selected_campid']);
@@ -471,8 +444,7 @@ class Getcampaign extends Controller
                     $_SESSION['selected_timeslot'] = $ifreserved;
                     $timeslot_period = $this->model->get_ts_period($_SESSION['selected_timeslot']);
                     $_SESSION['selected_stime'] = $timeslot_period[0];
-                    // print_r($_SESSION['selected_stime']);
-                    // die();
+                   
 
                     $stime = substr($_SESSION['selected_stime'], 0, 2);
                     $mins = substr($_SESSION['selected_stime'], 3, 2);
@@ -497,8 +469,7 @@ class Getcampaign extends Controller
                     }
 
                     $_SESSION['selected_etime'] = $timeslot_period[1];
-                    // print_r($_SESSION['selected_etime']);
-                    // die();
+                   
 
                     $etime = substr($_SESSION['selected_etime'], 0, 2);
                     $mins = substr($_SESSION['selected_etime'], 3, 2);
@@ -521,8 +492,6 @@ class Getcampaign extends Controller
                         }
 
                     }
-
-
 
                     $_SESSION['camp_na'] = $this->model->get_camp_na($_SESSION['selected_campid']);
                     $_SESSION['donor_name'] = $this->model->get_donor_name($_SESSION['user_ID']);
@@ -551,11 +520,39 @@ class Getcampaign extends Controller
                 $_SESSION['reg_info'] = $this->model->get_campreg_info($_SESSION['user_ID']);
 
                 if ($this->model->reserve_timeslot($_SESSION['selected_campid'], $_SESSION['selected_timeslot'], $_SESSION['user_ID'])) {
-                    $this->view->render('donor/view_reserved_timeslot');
-                    exit();
+                    if(isset($_SESSION['changing'])){
+                        $_SESSION['succ_type'] = 'reservation_change';
+                        $_SESSION['camp_success_msg'] = 'You Have Successfully Changed Your Timeslot Reservation !';
+                        unset($_SESSION['changing']);
+                        $this->view->render('donor/regtocampaign_success');
+                        exit();
+
+                    }
+                    else{
+                        $_SESSION['succ_type'] = 'reserve';
+                        $_SESSION['camp_success_msg'] = 'You Have Successfully Reserved a Timeslot !';	
+                        $this->view->render('donor/regtocampaign_success');
+                        exit();
+                    }
+                    
                 }
             }
         } else {
+            $this->view->render('authentication/donorlogin');
+        }
+    }
+
+    function display_timeslot(){
+        if(isset($_SESSION['login'])){
+            if($_SESSION['type'] == 'Donor'){
+                $this->view->render('donor/view_reserved_timeslot');
+            }
+            else{
+                $this->view->render('authentication/donorlogin');
+            }
+
+        }
+        else{
             $this->view->render('authentication/donorlogin');
         }
     }
@@ -565,6 +562,7 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 $this->view->render('donor/view_time_slots');
+                $_SESSION['changing'] = 1;
             }
 
         } else {
@@ -577,7 +575,9 @@ class Getcampaign extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 if ($this->model->cancel_reserved_timeslot($_SESSION['selected_campid'], $_SESSION['selected_timeslot'], $_SESSION['user_ID'])) {
-                    $this->view->render('donor/getcampaign');
+                     $_SESSION['succ_type'] = 'reservation_delete';
+                    $_SESSION['camp_success_msg'] = 'You Have Successfully Cancelled Your Timeslot Reservation !';
+                    $this->view->render('donor/regtocampaign_success');
                     exit();
                 }
 

@@ -2,8 +2,6 @@
 $_SESSION['selected_campid'] = $_GET['camp'];
 $metaTitle = 'Donor Feedback';
 
-// print_r($_SESSION['selected_campname']);
-// die();
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +27,6 @@ $metaTitle = 'Donor Feedback';
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-    <!-- <script src="../../../public/js/star-ratings.js"></script> -->
-
-
 
 </head>
 
@@ -48,36 +43,34 @@ $metaTitle = 'Donor Feedback';
         <?php echo '<h2 class="rate-camp">' .
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
-        <!-- <div class="rate-box"> -->
+        <!-- Feedback Submit Form -->
         <form action="/ratecampaign/update_rating" method="post" id="feedback-form">
             <p class="p1">Rate Campaign</p>
             <div class="stars do_rate" id="star_rating">
-                <!-- radio buttons with Star image in lable  -->
+                <!-- Star  Rating-->
                 <?php
                 if ($_SESSION['selected_camprating']['Rating'] == NULL) {
                     for ($i = 1; $i <= 5; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
                     }
                 } else {
                     for ($i = 1; $i <= $_SESSION['selected_camprating']['Rating']; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/yellow_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/yellow_star.png" alt="star"></label>';
                     }
                     for ($i = $_SESSION['selected_camprating']['Rating'] + 1; $i <= 5; $i++) {
                         echo '<input type="radio" name="rating" value="' . $i . '" id="in-star' . $i . '">
-                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="edit_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
+                    <label for="in-star' . $i . '"><img class="rating_star" id="star' . $i . '" onclick="change_stars(' . $i . ')" src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>';
                     }
                 }
                 ?>
             </div>
             <label for="fb" class="p2">Describe Your Experience</label>
-
             <textarea id="message" name="fb"><?php echo $_SESSION['selected_camprating']['Feedback'] ?></textarea>
             <br>
             <button type="submit">Submit</button>
-            <script src="../../../public/js/star-ratings.js">
-            </script>
+            <script src= "../../../public/js/star-ratings.js"></script>
         </form>
     </div>
 

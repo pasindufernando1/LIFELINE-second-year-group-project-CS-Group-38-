@@ -1,6 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Blood Banks'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,11 +47,10 @@ $metaTitle = 'Donor Dashboard'; ?>
     <div class="contact-container" style="height:1472px">
         <p>Find Blood Bank Information</p>
         <!-- <> -->
-        <p style="position: absolute;top: 145px;font-size: 20px;left: 446px;color: black;font-weight: normal;">Search
-            for a blood bank by name</p>
+        <p id="bb-search">Search For Blood Banks By Name</p>
         <form>
             <div class="bb-list">
-                <input type="text" placeholder="Search.." id="myInput" onkeyup="myFunction()" onfocus="showDropdown()">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="searchBB()" onfocus="showDropdown()">
                 <div id="myDropdown" class="bb-content">
                     <?php foreach ($_SESSION['bbs'] as $bb) {
                         echo '<a href="/contactus/getcontact?bbid=' . $bb['BloodBankID'] . '">' . $bb['BloodBank_Name'] . '</a>';
@@ -103,9 +102,6 @@ $metaTitle = 'Donor Dashboard'; ?>
 
         <h2 class="vus">Visit Us</h2>
 
-
-
-
         <div class="c-container">
             <p>Contact Information</p>
 
@@ -135,16 +131,13 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
     </div>
 
-    <!-- <p style="font-size: 23px;color: black;position: absolute;top: 210px;left: 712px;">Blood Bank List</p>
-
-        <img class="bbs" src="./../../public/img/donordashboard/cluster_bb.png" alt="search"> -->
-
+    
     <script>
         var dropdown = document.getElementById("myDropdown");
         dropdown.style.display = "none";
 
 
-        function myFunction() {
+        function searchBB() {
             var input, filter, div, a, i;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
@@ -172,7 +165,6 @@ $metaTitle = 'Donor Dashboard'; ?>
         function showDropdown() {
             var dropdown = document.getElementById("myDropdown");
             dropdown.style.display = "block";
-            //make display none when click outside the dropdown
 
         }
     </script>

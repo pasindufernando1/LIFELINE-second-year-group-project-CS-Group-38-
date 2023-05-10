@@ -53,8 +53,6 @@ class BadgesModel extends Model
             ':Donation_Constraint',
             $constraint
         );
-        // print_r($badges);
-        // die();
         return $badges;
     }
 

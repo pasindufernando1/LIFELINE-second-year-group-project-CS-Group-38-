@@ -1,9 +1,6 @@
 <?php
 
-$metaTitle = 'Donor Dashboard';
-
-// print_r( $_SESSION['camp_donation_details'][0]['Name']);
-// die();
+$metaTitle = 'Donor Card';
 
 ?>
 
@@ -34,20 +31,14 @@ $metaTitle = 'Donor Dashboard';
     <script src="../../../public/js/drop-down.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"> </script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
-        </script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"
         integrity="sha512-JtgP5ehwmnI6UfiOV6U2WzX1l6D1ut4UHZ4ZiPw89TXEhxxr1rdCz88IKhzbm/JdX9T34ZsweLhMNSs2YwD1Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
     <script src="assets/js/jspdf-autotable-custom.js"></script>
 
@@ -64,7 +55,7 @@ $metaTitle = 'Donor Dashboard';
 
     <div class="card-container">
         <h3>Donor Card</h3>
-        <button onclick="exportpdf()" id="download_card">Download</button>
+        <button onclick="exportpdf()" id="download_card">Download<img src="../../../public/img/donordashboard/down.png"></button>
 
         <div class="donor-card" id="donor_card">
             <img id="card_logo" src="../../../public/img/logo/logo-horizontal.jpg"><br>
@@ -126,11 +117,6 @@ $metaTitle = 'Donor Dashboard';
             <?php } ?>
         </div>
 
-        <!-- <div style="display:none" class="ybadge">
-            <p id="ybadgep">Your Current Badge</p>
-            <img id="badge" src="../../../public/img/badges/<?php echo $_SESSION['newest_badge']; ?>" alt="Your Badge">
-        </div> -->
-
         <div id="ydonations" class="ydonations">
             <p id="ydonationsp">Your Donations</p>
             <div>
@@ -150,6 +136,7 @@ $metaTitle = 'Donor Dashboard';
 
     <script>
         function exportpdf() {
+            // Get donor card from html code
             const front = document.getElementById("donor_card");
             const back = document.getElementById("ybadge");
             html2canvas(front).then((canvas) => {
@@ -163,7 +150,7 @@ $metaTitle = 'Donor Dashboard';
 
                 pdf.setFontSize(12);
                 // Define the text to center
-                var text = "Date Issue : <?php echo date('Y-m-d'); ?>";
+                var text = "Issued Date : <?php echo date('Y-m-d'); ?>";
 
                 // Get the width of the text
                 var textWidth = pdf.getTextWidth(text);
@@ -229,18 +216,10 @@ $metaTitle = 'Donor Dashboard';
                     });
 
                     pdf.addPage();
-                    // var fontDataURL =
-                    //     'data:application/x-font-ttf;base64,<BASE64-ENCODED FONT FILE>';
-                    // pdf.addFileToVFS('Poppins-Regular.ttf', fontDataURL);
-                    // pdf.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
-                    // pdf.addFont('Poppins-Regular.ttf', 'Poppins', 'normal');
 
                     // Set the font size and font family
                     pdf.setFontSize(16);
-                    // pdf.setFont('Poppins');
-
-                    // Set the font size
-                    // pdf.setFontSize(16);
+                    
 
                     // Define the text to center
                     var text = "Your Donations At Blood Banks";
@@ -262,39 +241,7 @@ $metaTitle = 'Donor Dashboard';
                             echo '["' . $donation['Date'] . '", "' . $_SESSION['bank_donation_details'][$count]['BloodBank_Name'] . '"],';
                             $count++;
                         } ?>
-                        // ["2020-12-12", "Blood Bank 1"],
-                        // ["2020-12-12", "Blood Bank 2"],
-                        // ["2020-12-12", "Blood Bank 3"],
-                        // ["2020-12-12", "Blood Bank 4"],
-                        // ["2020-12-12", "Blood Bank 5"],
-                        // ["2020-12-12", "Blood Bank 6"],
-                        // ["2020-12-12", "Blood Bank 7"],
-                        // ["2020-12-12", "Blood Bank 8"],
-                        // ["2020-12-12", "Blood Bank 9"],
-                        // ["2020-12-12", "Blood Bank 10"],
-                        // ["2020-12-12", "Blood Bank 11"],
-                        // ["2020-12-12", "Blood Bank 12"],
-                        // ["2020-12-12", "Blood Bank 13"],
-                        // ["2020-12-12", "Blood Bank 14"],
-                        // ["2020-12-12", "Blood Bank 15"],
-                        // ["2020-12-12", "Blood Bank 16"],
-                        // ["2020-12-12", "Blood Bank 17"],
-                        // ["2020-12-12", "Blood Bank 18"],
-                        // ["2020-12-12", "Blood Bank 19"],
-                        // ["2020-12-12", "Blood Bank 20"],
-                        // ["2020-12-12", "Blood Bank 21"],
-                        // ["2020-12-12", "Blood Bank 22"],
-                        // ["2020-12-12", "Blood Bank 23"],
-                        // ["2020-12-12", "Blood Bank 24"],
-                        // ["2020-12-12", "Blood Bank 25"],
-                        // ["2020-12-12", "Blood Bank 26"],
-                        // ["2020-12-12", "Blood Bank 27"],
-                        // ["2020-12-12", "Blood Bank 28"],
-                        // ["2020-12-12", "Blood Bank 29"],
-                        // ["2020-12-12", "Blood Bank 30"],
-                        // ["2020-12-12", "Blood Bank 31"],
-                        // ["2020-12-12", "Blood Bank 32"],
-                        // ["2020-12-12", "Blood Bank 33"],
+                      
                     ];
 
                     // Add the table to the PDF using the autoTable method

@@ -38,6 +38,10 @@ $metaTitle = 'Donor Dashboard'; ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/feedback_active.php'); ?>
 
+     <!-- Popup -->
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/includes/delete_feedback_popup.php'); ?>
+
+
 
     <div class="feedback-box">
         <h2 class="header2">Your Feedbacks</h2>
@@ -48,20 +52,20 @@ $metaTitle = 'Donor Dashboard'; ?>
 
             if (count($_SESSION['all_feedback']) > 0) {
                 foreach ($result as $row) {
+                    // Feedback for each campaign
                     echo '<div class="view-camp-feedback">
-            <img src="../../../public/img/advertisements/' . $_SESSION['camp_ads_feedback'][$count] . '" alt="camp ad">
-            <div class="feed-info">
-            <h2>' . $_SESSION['camp_names'][$count] . '</h2>
-            <p>Rating :</p>
-            <div class="feedback-stars">';
+                            <img class="feed-ad" src="../../../public/img/advertisements/' . $_SESSION['camp_ads_feedback'][$count] . '" alt="camp ad">
+                            <div class="feed-info">
+                                <h2>' . $_SESSION['camp_names'][$count] . '</h2>
+                                <p>Rating :</p>
+                                <div class="feedback-stars">';
                     for ($i = 0; $i < $_SESSION['all_feedback'][$count]['Rating']; $i++) {
                         echo '<img src="./../../public/img/donordashboard/yellow_star.png" alt="y_star">';
                     }
                     for ($i = 0; $i < 5 - $_SESSION['all_feedback'][$count]['Rating']; $i++) {
                         echo '<img src="./../../public/img/donordashboard/grey_star.png" alt="g_star">';
                     }
-                    echo '</div>
-            <br>';
+                    echo '</div><br>';
                     if (strlen($_SESSION['all_feedback'][$count]['Feedback']) > 30) {
                         echo '<p id="fbv">Feedback : ' . substr($_SESSION['all_feedback'][$count]['Feedback'], 0, 30) . '... <a href="/ratecampaign/viewrating?camp=' . $row['CampaignID'] . '">see more</a> </p>';
                     } else {
@@ -69,12 +73,9 @@ $metaTitle = 'Donor Dashboard'; ?>
 
                     }
                     echo '</div>
-            
-            <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
-                <a href="remove_rating?camp=' . $row['CampaignID'] . '" onclick="showPopup(event, this.href)"> <button id = "fbd-btn">Delete</button></a>
-                
-            </div>
-            ';
+                          <a href="editrating?camp=' . $row['CampaignID'] . '"> <button>Edit</button> </a>
+                          <a href="remove_rating?camp=' . $row['CampaignID'] . '" onclick="showPopup(event, this.href)"> <button id = "fbd-btn">Delete</button></a>
+                </div>';
                     $count++;
                 }
             } else {
@@ -85,18 +86,6 @@ $metaTitle = 'Donor Dashboard'; ?>
         </div>
     </div>
 
-    <div class="popup">
-        <div>
-            <p>Are you sure you want to cancel this feedback?</p>
-            <div><button class="yes-button">Yes</button>
-                <button class="no-button">No</button>
-            </div>
-
-
-            <img class="close" onclick="hidealert()" src="../../../public/img/donordashboard/close.png">
-
-        </div>
-    </div>
 
     <script>
         function showPopup(event, href) {
