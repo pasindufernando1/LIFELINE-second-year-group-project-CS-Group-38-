@@ -48,3 +48,37 @@ datalist option:hover, datalist option:focus {
     right: 114px;
     top: 225px;
 }
+
+.not-eligible {
+    border-radius: 10px;
+    width: 216px;
+    height: 32px;
+    /* background-color: #c6cbc6; */
+    padding: 13px 11px 3px 18px;
+    margin-left: 10px;
+    color: #b31a1a;
+    border: 3px solid;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    font-size: 14px;
+    margin-left: 871px;
+    margin-top: 131px;
+    position: absolute;
+}
+.eligible {
+    border-radius: 10px;
+    width: 216px;
+    height: 32px;
+    /* background-color: #c6cbc6; */
+    padding: 13px 11px 3px 18px;
+    margin-left: 10px;
+    color: #27764a;
+    border: 3px solid;
+    font-family: 'Poppins';
+    font-weight: bolder;
+    font-size: 14px;
+    margin-left: 638px;
+    margin-top: 131px;
+    position: absolute;
+}
+

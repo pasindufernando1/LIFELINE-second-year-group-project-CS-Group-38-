@@ -27,7 +27,6 @@ $metaTitle = "Donation - Add New" ;
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
     <!-- js Files -->
-    <script src="../../../public/js/drop-down.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js"></script>
     
     
@@ -36,6 +35,23 @@ $metaTitle = "Donation - Add New" ;
 
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#input").keyup(function(){
+				var searchText = $(this).val();
+				$.ajax({
+					url: './verify_donation',
+					type: 'post',
+					data: {search: searchText},
+					success: function(response){
+                        console.log(response);
+						$("#sub-btn").html(response);
+					}
+				});
+			});
+		});
+	</script>
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <!-- Side bar -->
@@ -44,7 +60,7 @@ $metaTitle = "Donation - Add New" ;
                         <p class="add-reservation-title">Add to Donation</p>
                         <form action="/sys_donors/store_donation" method="post">
                             <div class="reserve-id-container">
-                                <label class="reserve-id-lable" for="type_id">Donor NIC</label>
+                                <label id="donor_nic" class="reserve-id-lable" for="type_id">Donor NIC</label>
                                 <br>
                                 <input id="input" class="reserve-id-input" type="text" name="nic" autocomplete="off" autofocus placeholder="Donor NIC" list="donors" required>
                                 
@@ -65,9 +81,11 @@ $metaTitle = "Donation - Add New" ;
                                 <label class="expiry-constraints-lable" for="expiry_constraints">Complication:</label>
                                 <br>
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="comp" autofocus placeholder="Complication" >
-
-                                <button class='brown-button' type='submit' name='add-donation'>Add Donation</button>
+                                <div id="sub-btn">
+                                <button  class='brown-button' type='submit' name='add-donation'>Add Donation</button>
+                                
                                 <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
+                                </div>
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/sys_donors/donation?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/dashboard/cancel-button.png" alt="cancel-button">
                             </div>
@@ -78,3 +96,4 @@ $metaTitle = "Donation - Add New" ;
 
 </body>
 </html>
+<script src="../../../public/js/drop-down.js"></script>

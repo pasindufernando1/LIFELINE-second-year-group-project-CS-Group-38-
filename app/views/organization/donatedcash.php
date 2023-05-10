@@ -198,7 +198,6 @@ require '../vendor/payment_config.php';
                         <th>Date</th>
                         <th>Your Donation (LKR)</th>
                         <th>Amount Requested (LKR)</th>
-                        <th>Amount Received (LKR)</th>
                         <th>BloodBank </th>
                     </tr>
                     <hr class="campaigns-line">
@@ -215,8 +214,7 @@ require '../vendor/payment_config.php';
                         }  
                         //determine the sql LIMIT starting number for the results on the displaying page  
                         $page_first_result = ($page-1) * $results_per_page;  
-                        $result = $_SESSION['past_donations'][0];
-                        $count = 0;
+                        $result = $_SESSION['past_donations'];
 
                         if ($number_of_results > 0) {
                            
@@ -225,12 +223,11 @@ require '../vendor/payment_config.php';
                                           <tr>
                                               <td>' . $row["Date"] . '</td>
                                               <td>' . $row["Amount"] . '</td>
-                                              <td>' . $_SESSION['past_donations'][2][$count][0] . '</td>
-                                              <td>' . $_SESSION['past_donations'][3][$count][0] . '</td>
-                                              <td>' . $_SESSION['past_donations'][1][$count][0] . '</td>
+                                              <td>' . $row["Total_amount"] . '</td>
+                                              <td>' . $row["BloodBank_Name"] . '</td>
                                           </tr>
                                       </div>';
-                                      $count++;
+                                      
                             }
                         }    
                         else {

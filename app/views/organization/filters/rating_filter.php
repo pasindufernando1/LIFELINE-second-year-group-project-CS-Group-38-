@@ -8,7 +8,8 @@
 </html>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" id="del" action="/requestApproval/typeRating?page=1" method="POST">
+  
+  <form class="modal-content" id="del" action="/requestApproval/typeRating?campaign=<?php echo $_SESSION['campaignID']?>&page=1" method="POST">
   
     <div class="containerR">
       <h1>Filter & Short</h1>

@@ -18,10 +18,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add blood bank page
     function addbloodbank()
     {
         if (isset($_SESSION['login'])) {
@@ -31,11 +32,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
     
-    
+    // Function to render adduser type select page
     function adduser()
     {
         if (isset($_SESSION['login'])) {
@@ -45,10 +46,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add Hospital/Medical Center page
     function addHosMeduser()
     {
         if (isset($_SESSION['login'])) {
@@ -58,10 +60,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add Organization/Society page
     function addOrgSocuser()
     {
         if (isset($_SESSION['login'])) {
@@ -71,10 +74,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add Donor page
     function addDonoruser()
     {
         if (isset($_SESSION['login'])) {
@@ -84,10 +88,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add System User page
     function addSysuser()
     {
         if (isset($_SESSION['login'])) {
@@ -99,10 +104,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add Admin User page
     function addAdminUser()
     {
         if (isset($_SESSION['login'])) {
@@ -112,17 +118,11 @@ class Usermanage extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
-    
-
-
-
-
-
-
+    // Function to render user manage page
     function add()
     {
         if (isset($_SESSION['login'])) {
@@ -132,12 +132,12 @@ class Usermanage extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }  
     }
 
-        
+    //Function to handle adding Hospital/Medical Center 
     function addHospitalMedCenter()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -160,7 +160,6 @@ class Usermanage extends Controller
             $Userpic = 'default_hospital.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
 
             $inputs1 = array($Email, $Password, $Username, $Userpic, 'Hospital/Medical_Center');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province, $Status);
@@ -174,6 +173,7 @@ class Usermanage extends Controller
         }
     }
 
+    //Function to handle adding Organization/Society
     function addOrganizationSociety()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -209,6 +209,7 @@ class Usermanage extends Controller
         }
     }
 
+    //Function to handle adding Donor
     function addDonor()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -248,6 +249,7 @@ class Usermanage extends Controller
         }
     }
 
+    //Function to handle adding System User
     function addSystemUser()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -279,6 +281,7 @@ class Usermanage extends Controller
         }
     }
 
+    //Function to handle adding Admin
     function addnewAdmin()
     {
         if ($_SESSION['type'] == "Admin") {
@@ -305,11 +308,7 @@ class Usermanage extends Controller
         }
     }
 
-    
-
-
-    
-
+    // Function to render add hospital/medical center successful page
     function add_hosmed_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -319,10 +318,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add organization/society successful page
     function add_orgsoc_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -332,10 +332,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add donor successful page
     function add_donor_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -345,10 +346,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add system user successful page
     function add_systemuser_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -358,10 +360,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render add admin successful page
     function add_admin_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -371,25 +374,31 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render the default all users page
     function type()
     {
         if (isset($_SESSION['login'])) {
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
+                // If no filter is applied, get all users
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered_user'] = false;
                     $_SESSION['users'] = $this->model->getAllUsers();
                     $this->view->render('admin/usermanage');
                     exit;
                 }
+                // If filter is applied, get filtered users
                 if(isset($_POST['filter'])){
+                    // If all the filtrations are removed, get all users
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered_user'] = true;
                         $_SESSION['users'] = $this->model->getAllUsers();
@@ -398,6 +407,7 @@ class Usermanage extends Controller
                     }
                     $output = array();
                     $_SESSION['is_filtered_user'] = true;
+                    // checking if the user type is selected
                     for($i=0;$i<5;$i++){
                         if(isset($_POST[$i])){
                             $rows = $this->model->getFilteredUsers($_POST[$i]);
@@ -412,7 +422,7 @@ class Usermanage extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
             
@@ -425,14 +435,18 @@ class Usermanage extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
+                // If no filter is applied, get all users
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered_bank'] = false;
                     $_SESSION['bloodbanks'] = $this->model->getBloodBanks();
                     $this->view->render('admin/bloodbankmanage');
                     exit;
                 }
+                // If filter is applied, get filtered users
                 if(isset($_POST['filter'])){
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered_bank'] = true;
@@ -442,6 +456,7 @@ class Usermanage extends Controller
                     }
                     $output = array();
                     $_SESSION['is_filtered_bank'] = true;
+                    // checking if the province is selected
                     for($i=0;$i<9;$i++){
                         if(isset($_POST[$i])){
                             $rows = $this->model->getFilteredBanks($_POST[$i]);
@@ -456,7 +471,7 @@ class Usermanage extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }
 
@@ -469,15 +484,20 @@ class Usermanage extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
+                // If no filter is applied, get all users
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered_user'] = false;
                     $_SESSION['users'] = $this->model->getDeactivatedUsers();
                     $this->view->render('admin/deactivated_usermanage');
                     exit;
                 }
+                // If filter is applied, get filtered users
                 if(isset($_POST['filter'])){
+                    // If all the filtrations are removed, get all users
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered_user'] = true;
                         $_SESSION['users'] = $this->model->getDeactivatedUsers();
@@ -486,6 +506,7 @@ class Usermanage extends Controller
                     }
                     $output = array();
                     $_SESSION['is_filtered_user'] = true;
+                    // checking if the user type is selected
                     for($i=0;$i<5;$i++){
                         if(isset($_POST[$i])){
                             $rows = $this->model->getFilteredDeactivatedUsers($_POST[$i]);
@@ -500,10 +521,11 @@ class Usermanage extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');  
+            $this->view->render('authentication/login');  
         }
     }
 
+    // Function to edit the user details
     function edit_user($user_id)
     {
         if (isset($_SESSION['login'])) {
@@ -530,7 +552,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Organization/Society"){
                     $_SESSION['user_details'] = $this->model->getOrgSocDetails($user_id);
-                    // print_r($_SESSION['user_details']);die();
+                    // Get the orgsoc details to variables
                     $_SESSION['Registration_no'] = $_SESSION['user_details'][0]['Registration_no'];
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Name'];
                     $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
@@ -547,6 +569,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Donor"){
                     $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
+                    // Get the donor details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
                     $_SESSION['Gender'] = $_SESSION['user_details'][0]['Gender'];
@@ -570,6 +593,7 @@ class Usermanage extends Controller
                 elseif($_SESSION['user_type'] == "System User"){
                     $_SESSION['bloodbanks'] = $this->model->getBloodBankName();
                     $_SESSION['user_details'] = $this->model->getSystemUserDetails($user_id);
+                    // Get the system user details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
                     $_SESSION['BloodBankID'] = $_SESSION['user_details'][0]['BloodBankID'];
@@ -582,6 +606,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Admin"){
                     $_SESSION['user_details'] = $this->model->getAdminDetails($user_id);
+                    // Get the admin details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
@@ -594,10 +619,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to view the user details
     function view_user($user_id){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
@@ -624,7 +650,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Organization/Society"){
                     $_SESSION['user_details'] = $this->model->getOrgSocDetails($user_id);
-                    // print_r($_SESSION['user_details']);die();
+                    //Get the orgsoc details to variables
                     $_SESSION['Registration_no'] = $_SESSION['user_details'][0]['Registration_no'];
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Name'];
                     $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
@@ -642,6 +668,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Donor"){
                     $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
+                    // Get the donor details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
                     $_SESSION['Gender'] = $_SESSION['user_details'][0]['Gender'];
@@ -653,8 +680,6 @@ class Usermanage extends Controller
                     $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
                     $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
                     $_SESSION['Donorcard'] = $_SESSION['user_details'][0]['DonorCard_Img'];
-                    $_SESSION['SlotID'] = $_SESSION['user_details'][0]['SlotID'];
-                    $_SESSION['CampaignID'] = $_SESSION['user_details'][0]['CampaignID'];
                     $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
                     $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
@@ -665,6 +690,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "System User"){
                     $_SESSION['user_details'] = $this->model->getSystemUserDetails($user_id);
+                    // Get the system user details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
                     $_SESSION['BloodBankID'] = $_SESSION['user_details'][0]['BloodBankID'];
@@ -679,6 +705,7 @@ class Usermanage extends Controller
                 }
                 elseif($_SESSION['user_type'] == "Admin"){
                     $_SESSION['user_details'] = $this->model->getAdminDetails($user_id);
+                    // Get the admin details to variables
                     $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
                     $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
                     $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
@@ -692,10 +719,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render edit hospital/medical center successful page
     function edit_hosmed_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -705,10 +733,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render edit orgsoc successful page
     function edit_orgsoc_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -718,10 +747,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render edit donor successful page
     function edit_donor_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -731,10 +761,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
     
+    // Function to render edit system user successful page
     function edit_systemuser_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -744,10 +775,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to render edit admin successful page
     function edit_admin_successful()
     {
         if (isset($_SESSION['login'])) {
@@ -757,10 +789,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to edit hospital/medical center
     function editHospitalMedCenter($user_id)
     {
 
@@ -770,39 +803,35 @@ class Usermanage extends Controller
                 exit;
             }
 
-            $Name = $_POST['name']; //if(empty($Name)){$Name = $_SESSION['Name'];}
-            $Registration_no = $_POST['regno']; //if(empty($Registration_no)){$Registration_no = $_SESSION['Registration_no'];}
-            $Status = $_POST['status']; //if(empty($Status)){$Status = $_SESSION['Status'];}
-            $Number = $_POST['number']; //if(empty($Number)){$Number = $_SESSION['Number'];}
-            $LaneName = $_POST['lane']; //if(empty($LaneName)){$LaneName = $_SESSION['LaneName'];}
-            $City = $_POST['city']; //if(empty($City)){$City = $_SESSION['City'];}
-            $District = $_POST['district']; //if(empty($District)){$District = $_SESSION['District'];}
-            $Province = $_POST['province']; //if(empty($Province)){$Province = $_SESSION['Province'];}
-            $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
-            $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
-            $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Name = $_POST['name'];
+            $Registration_no = $_POST['regno']; 
+            $Status = $_POST['status']; 
+            $Number = $_POST['number']; 
+            $LaneName = $_POST['lane']; 
+            $City = $_POST['city']; 
+            $District = $_POST['district']; 
+            $Province = $_POST['province']; 
+            $Email = $_POST['email']; 
+            $ContactNumber = $_POST['contact']; 
+            $Username = $_POST['uname']; 
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Hospital/Medical_Center');
+            $inputs1 = array($Email, $Password, $Username,'Hospital/Medical_Center');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province, $Status);
             $inputs3 = array($ContactNumber);
 
             if ($this->model->editHospitalMedCenter($user_id,$inputs1, $inputs2, $inputs3)) {
                 header("Location: /usermanage/edit_hosmed_successful");
             }
-            // $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
-
-            // if ($this->model->editReserveTypes($type_id,$inputs)){
-            //     header("Location: /reservation/add_reservation_successful");
-                
-            // }   
+              
         }    
     }
 
+    // Function to edit organization/society
     function editOrganizationSociety($user_id)
     {
 
@@ -812,38 +841,34 @@ class Usermanage extends Controller
                 exit;
             }
 
-            $Name = $_POST['name']; //if(empty($Name)){$Name = $_SESSION['Name'];}
-            $Registration_no = $_POST['regno']; //if(empty($Registration_no)){$Registration_no = $_SESSION['Registration_no'];}
-            $Number = $_POST['number']; //if(empty($Number)){$Number = $_SESSION['Number'];}
-            $LaneName = $_POST['lane']; //if(empty($LaneName)){$LaneName = $_SESSION['LaneName'];}
-            $City = $_POST['city']; //if(empty($City)){$City = $_SESSION['City'];}
-            $District = $_POST['district']; //if(empty($District)){$District = $_SESSION['District'];}
-            $Province = $_POST['province']; //if(empty($Province)){$Province = $_SESSION['Province'];}
-            $Email = $_POST['email']; //if(empty($Email)){$Email = $_SESSION['Email'];}
-            $ContactNumber = $_POST['contact']; //if(empty($ContactNumber)){$ContactNumber = $_SESSION['Contact_no'];}
-            $Username = $_POST['uname']; //if(empty($Username)){$Username = $_SESSION['Username'];}
-            $Userpic = 'default-path';
+            $Name = $_POST['name']; 
+            $Registration_no = $_POST['regno']; 
+            $Number = $_POST['number']; 
+            $LaneName = $_POST['lane']; 
+            $City = $_POST['city']; 
+            $District = $_POST['district']; 
+            $Province = $_POST['province']; 
+            $Email = $_POST['email']; 
+            $ContactNumber = $_POST['contact']; 
+            $Username = $_POST['uname']; 
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Organization/Society');
+            $inputs1 = array($Email, $Password, $Username,'Organization/Society');
             $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province);
             $inputs3 = array($ContactNumber);
 
             if ($this->model->editOrganizationSociety($user_id,$inputs1, $inputs2, $inputs3)) {
                 header("Location: /usermanage/edit_orgsoc_successful");
             }
-            // $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
-
-            // if ($this->model->editReserveTypes($type_id,$inputs)){
-            //     header("Location: /reservation/add_reservation_successful");
-                
-            // }   
+              
         }    
     }
 
+    // Function to edit donor
     function editDonor($user_id)
     {
 
@@ -867,28 +892,23 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'Donor');
+            $inputs1 = array($Email, $Password, $Username,'Donor');
             $inputs2 = array($Full_name, $NIC,$Gender,$DOB,$Blood_type, $Number, $LaneName, $City, $District, $Province,$Donor_card);
             $inputs3 = array($ContactNumber);
 
             if ($this->model->editDonor($user_id,$inputs1, $inputs2, $inputs3)) {
                 header("Location: /usermanage/edit_donor_successful");
-            }
-            // $inputs = array($blood_group, $storing_constraints, $expiry_constraints);
-
-            // if ($this->model->editReserveTypes($type_id,$inputs)){
-            //     header("Location: /reservation/add_reservation_successful");
-                
-            // }   
+            }   
         }    
     }
 
+    // Function to edit system user
     function editSystemUser($user_id)
     {
 
@@ -904,14 +924,14 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
                 $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             }
             
-            $inputs1 = array($Email, $Password, $Username, $Userpic, 'System User');
+            $inputs1 = array($Email, $Password, $Username,'System User');
             $inputs2 = array($Full_name,$NIC,$BloodBankID);
             $inputs3 = array($ContactNumber);
 
@@ -922,6 +942,7 @@ class Usermanage extends Controller
         }    
     }
 
+    // Function to edit admin
     function editAdmin($user_id)
     {
 
@@ -935,6 +956,7 @@ class Usermanage extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
+            $Password = $_POST['password'];
             if(empty($Password)){
                 $Password = $_SESSION['Password'];
             }else{
@@ -952,8 +974,7 @@ class Usermanage extends Controller
         }    
     }
 
-
-
+    // Function to delete user
     function delete_user($user_id)
     {
         if (isset($_SESSION['login'])) {
@@ -993,11 +1014,12 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
         
     }
 
+    // Function to reactivate user
     function reactivate_user($user_id){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
@@ -1008,10 +1030,11 @@ class Usermanage extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }
 
+    // Function to add blood bank
     function addbloodbank_done()
     {
         if (isset($_SESSION['login'])) {
@@ -1059,7 +1082,7 @@ class Usermanage extends Controller
                     }
 
                     // Check file size
-                    if ($_FILES["fileToUpload"]["size"] > 500000) {
+                    if ($_FILES["fileToUpload"]["size"] > 10000000) {
                         echo "Sorry, your file is too large.";
                         $uploadOk = 0;
                     }
@@ -1107,7 +1130,7 @@ class Usermanage extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
         }
     }    
 }

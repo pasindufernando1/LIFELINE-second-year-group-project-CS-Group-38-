@@ -40,7 +40,7 @@ $metaTitle = 'Campaign Timeslots'; ?>
 
 
 
-    <div class="timeslot-container">
+    <div class="timeslot-container" id="ts">
         <h2>Time Slots of
             <?php echo $_SESSION['camp_info']['Name'] ?>
         </h2>

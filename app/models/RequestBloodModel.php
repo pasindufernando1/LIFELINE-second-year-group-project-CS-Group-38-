@@ -266,12 +266,7 @@ class RequestBloodModel extends Model
             
         }
         
-        // For each TypeID take the Type name and add it to the array
-        /* foreach ($data as $key => $value) {
-            $data[$key]['Blood_group'] = $this->getTypeName($value['RequestID']);
-            $data[$key]['Blood_component'] = $this->getSubtypeName($value['RequestID']);
-        } */
-        //print_r($data);die();
+        
         return $data;
     }
 
@@ -284,20 +279,7 @@ class RequestBloodModel extends Model
 
     }
 
-    // Get the blood type name for a given blood type id
-    /* public function getTypeName($type_id)
-    {
-        $data = $this->db->select("Blood_group", "hospital_blood_requests", "WHERE RequestID = :RequestID", "RequestID", $type_id);
-        return $data[0]['Blood_group'];
-    }
-
-    // Get the blood subtype name for a given blood type id
-    public function getSubtypeName($type_id)
-    {
-        $data = $this->db->select("Blood_component", "hospital_blood_requests", "WHERE RequestID = :RequestID", "RequestID", $type_id);
-        return $data[0]['Blood_component'];
-    }
- */
+    
 
 
     

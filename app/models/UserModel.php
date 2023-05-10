@@ -689,4 +689,16 @@ class UserModel extends Model
         
          
     }
+    public function checkHosStatus($uname){
+
+        $status = 1;
+        $params = [':uname', ':status'];
+        $inputs = [$uname, $status];
+
+        $count = $this->db->select('count', "user", "
+        INNER JOIN hospital_medicalcenter ON hospital_medicalcenter.UserID = user.UserID
+        WHERE user.Email = :uname
+        AND hospital_medicalcenter.Status = :status ;", $params, $inputs);
+        return $count;
+    }
 }

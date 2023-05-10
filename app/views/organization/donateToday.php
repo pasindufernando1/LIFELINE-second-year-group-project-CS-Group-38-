@@ -34,6 +34,7 @@ require '../vendor/payment_config.php';
         input{
             font-family: Poppins;
             font-size: 17px;
+            height: 50px;
         }
     </style>
 

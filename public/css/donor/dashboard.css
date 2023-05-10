@@ -3718,6 +3718,16 @@ fieldset {
     display: none;
 }
 
+#rate_error {
+    position: absolute;
+    display: none;
+    font-family: Poppins;
+    font-size: 15px;
+    color: red;
+    top: 308px;
+    left: 453px;
+}
+
 .rate {
     box-sizing: border-box;
     display: flex;
@@ -4412,6 +4422,10 @@ h3 {
     border: 2px solid #eceef7;
     border-radius: 6px;
     background-color: white;
+}
+
+#ts {
+    height: auto;
 }
 
 .timeslot-container h2 {

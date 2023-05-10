@@ -47,26 +47,29 @@ $metaTitle = 'Donor Feedback';
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
         <!-- <div class="rate-box">d -->
-        <form action="/ratecampaign/send_rating" method="post" id="feedback-form">
+        <form action="/ratecampaign/send_rating" method="post" id="feedback-form" onsubmit="checkrating(event)">
             <p class="p1">Rate Campaign</p>
             <div class="stars do_rate" id="star_rating">
                 <!-- radio buttons with Star image in lable  -->
-                <input type="radio" name="rating" value="1" id="in-star1"required>
+                <input type="radio" name="rating" value="1" id="in-star1">
                 <label for="in-star1"><img class="rating_star" id="star1" onclick="change_stars(1)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <input type="radio" name="rating" value="2" id="in-star2"required>
+                <input type="radio" name="rating" value="2" id="in-star2">
                 <label for="in-star2"><img class="rating_star" id="star2" onclick="change_stars(2)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <input type="radio" name="rating" value="3" id="in-star3"required>
+                <input type="radio" name="rating" value="3" id="in-star3">
                 <label for="in-star3"><img class="rating_star" id="star3" onclick="change_stars(3)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <input type="radio" name="rating" value="4" id="in-star4"required>
+                <input type="radio" name="rating" value="4" id="in-star4">
                 <label for="in-star4"><img class="rating_star" id="star4" onclick="change_stars(4)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
-                <input type="radio" name="rating" value="5" id="in-star5" required>
+                <input type="radio" name="rating" value="5" id="in-star5">
                 <label for="in-star5"><img class="rating_star" id="star5" onclick="change_stars(5)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
             </div>
+
+            <p id="rate_error" class="rate-error">You must enter a star rating</p>
+
             <label for="fb" class="p2">Describe Your Experience</label>
 
             <textarea id="message" name="fb"></textarea>

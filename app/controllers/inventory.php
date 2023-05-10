@@ -33,6 +33,8 @@ class Inventory extends Controller
             //To check whether a filter is applied
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
+            }else{
+                $is_filtered = false;
             }
             if ($_SESSION['type'] == "Admin") {
                 if(!isset($_POST['filter']) && !$is_filtered){
@@ -84,7 +86,7 @@ class Inventory extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }
@@ -95,23 +97,22 @@ class Inventory extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
                 $_SESSION['inventory_donations'] = $this->model->getAllInventoryDonations();
-                //print_r($_SESSION['inventory']);die();
                 $this->view->render('admin/inventory_donations');
                 exit;
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }
 
     //Verify acceptance
-    function verify_acceptance($DonationID)
+    function verify_acceptance($InvDonationID)
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
-                if($this->model->verifyAcceptance($DonationID) && $this->model->sendThankEmail($DonationID)){
+                if($this->model->verifyAcceptance($InvDonationID) && $this->model->sendThankEmail($InvDonationID)){
                     $this->view->render('admin/verify_Invacceptance');
                     exit;
                 }
@@ -119,7 +120,7 @@ class Inventory extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }
@@ -134,7 +135,7 @@ class Inventory extends Controller
             }
         }
         else{
-            $this->view->render('authentication/adminlogin');
+            $this->view->render('authentication/login');
             
         }    
     }

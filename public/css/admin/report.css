@@ -3007,7 +3007,9 @@ td {
 }
 
 .donorcard img{
-    margin-left: 96px;
+    width: 80%;
+    margin-left: 11%;
+    margin-top: -16px;
 }
 
 .donations th{
@@ -3063,3 +3065,54 @@ td {
     margin: 20px;
     }
 
+/* Donor card  */
+#card_logo {
+    width: 20%;
+    top: 860px;
+    left: 84px;
+    border-radius: 10px;
+}
+
+.donorcard h2 {
+    position: absolute;
+    left: 932px;
+    font-family: Poppins;
+    font-size: 47px;
+    font-weight: 900;
+    font-weight: bolder;
+    text-align: right;
+    margin-top: -1%;
+}
+
+
+.donorcard img {
+    width: 17%;
+    position: absolute;
+    top: 949px;
+    left: 151px;
+    border-radius: 10px;
+}
+
+.donorcard div h2 span {
+    font-family: 'Poppins';
+    font-size: 39px;
+    /* text-align: left; */
+    color: #bf1b16;
+    font-weight: bold;
+}
+
+.red-font {
+    color: #bf1b16;
+}
+
+
+.donorcard p {
+    font-family: 'Poppins';
+    font-size: 23px;
+    text-align: left;
+    line-height: 51px;
+    color: black;
+    font-weight: normal;
+    margin-top: 5%;
+    margin-left: 310px;
+}

@@ -18,6 +18,7 @@ $metaTitle = "System User Donations" ;
     <link href="../../../public/css/systemuser/dashboard.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/donor.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/donation.css" rel="stylesheet">
     
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
@@ -104,7 +105,10 @@ $metaTitle = "System User Donations" ;
                                 
                             }
                         } else {
-                            echo "0 results";
+                           echo '<tr class="t-row">
+                            <td colspan="5" class="t-det">No Records Available</td>
+                            
+                            </tr>';
                         }
                         echo '<div class="pag-box">';
                         if (isset($_GET['filtered'])) {

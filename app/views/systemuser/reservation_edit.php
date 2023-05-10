@@ -43,14 +43,14 @@ $metaTitle = "System User Reservations"
                     <div class="reserve-id-container">
                         <label class="reserve-id-lable" for="reserve_id">Reserve ID:</label>
                         <br>
-                        <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['reserve_id'] ?>" disabled>
+                        <input id="reserve_id" class="reserve-id-input" type="text" name="reserve_id" autofocus placeholder="<?php echo $_SESSION['reserve_id'] ?>" readonly>
                     </div>
                     <div class="blood-group-container">
                         <label class="blood-group-lable" for="blood_group">Blood Group/Type:</label>
                         <br>
                         
                         <div class="custom-select">
-                            <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" required>
+                            <select name="blood_group" id="blood_group" class="blood-group-input" autofocus placeholder="Blood Group/Type" readonly>
                                 <?php $result = $_SESSION['bloodtypes']; 
                                 foreach($result as $row){
                                 echo '<option value="'.$row["Name"].'">'.$row["Name"].'</option>';

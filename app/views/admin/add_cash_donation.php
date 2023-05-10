@@ -20,7 +20,6 @@ $metaTitle = "Add cash donation"
     <!-- Font Files -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link href="../../../public/css/admin/sidebar.css" rel="stylesheet">
-     <!-- <link href="../../../public/css/admin/dashboard.css" rel="stylesheet"> -->
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
@@ -67,7 +66,7 @@ $metaTitle = "Add cash donation"
                             <img id="browsepic" class="browsepic" src="../../../public/img/admindashboard/browseimg.png" />
                         </label>
 
-                        <input id="file-input" name="fileToUpload" type="file" onchange="readURL(this);" />
+                        <input id="file-input" name="fileToUpload" required type="file" onchange="readURL(this);" />
                         <script>
                             function readURL(input) {
                                 if (input.files && input.files[0]) {

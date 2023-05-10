@@ -11,12 +11,14 @@ class FeedbacksModel extends Model
         parent::__construct();
     }
 
+    // Function to get all the feedbacks
     public function getAllFeedbacks()
     {
         $data = $this->db->select("*", "organization_feedback" , "INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID Where Read_status = 0");
         return $data;
     }
 
+    // Function to mark th feedback as read
     public function markread($feedbackid){
         $result = $this->db->update("organization_feedback","Read_status",":Read_status",1,":FeedbackID",$feedbackid,"WHERE FeedbackID = :FeedbackID");
         if($result){

@@ -55,7 +55,7 @@ $metaTitle = "Inventory Donations"
                         
                         <?php 
                         $results_per_page = 7;
-                        $number_of_results = $_SESSION['rowCount'];
+                        $number_of_results = count($_SESSION['inventory_donations']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
 
                         //determine which page number visitor is currently on  
@@ -70,7 +70,7 @@ $metaTitle = "Inventory Donations"
                         $result = $_SESSION['inventory_donations'];
 
                         //display the link of the pages in URL  
-                        if ($_SESSION['rowCount'] > 0) {
+                        if ($number_of_results > 0) {
                            
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> 
@@ -86,7 +86,7 @@ $metaTitle = "Inventory Donations"
                                             </tr> </div>';
                                          }else{
                                             echo "<td><button class='validated-btn' >Validated</button></td>";
-                                            echo '<td><a class= "verify-btn" href="/inventory/verify_acceptance/'.$row["DonationID"].' <button class = "verify-btn">
+                                            echo '<td><a class= "verify-btn" href="/inventory/verify_acceptance/'.$row["InventoryDonationID"].' <button class = "verify-btn">
                                             Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
                                             </tr> </div>';
                                         }
@@ -94,7 +94,9 @@ $metaTitle = "Inventory Donations"
                             }
                         } 
                         else {
-                            echo "0 results";
+                            echo '<div class="table-content-types"> <tr>
+                                <td>Not available</td>
+                            </tr></div>';
                         }
                         echo "</table>";
                         echo '<div class="pag-box">';

@@ -215,6 +215,8 @@ class requestApproval extends Controller
     
     function typeRating(){
         //print_r("awa");die();
+        
+        //print_r($_SESSION['campaignID']);die();
         if(isset($_SESSION['login'])){
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
@@ -223,14 +225,14 @@ class requestApproval extends Controller
             if($_SESSION['type']=='Organization/Society'){
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered'] = false;
-                    header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID']);
+                    header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID'].'filter=true&page=1');
                     this->view->render('organization/viewFeedbacks');
                     exit();
                 }
                 if(isset($_POST['filter'])){
                     if(isset($_POST['all_type'])){
                         $_SESSION['is_filtered'] = true;
-                        header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID']);
+                        header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID'].'filter=true&page=1');
                         this->view->render('organization/viewFeedbacks');
                         exit();
                     }
@@ -248,36 +250,39 @@ class requestApproval extends Controller
                         }
                         else{
                             $donorIds = [];
-                        foreach ($feedbackDet as $feedback) {
-                            $donorIds[] = $feedback['DonorID'];
-                        }
-                        $donorName=$this->model->getdonorName($donorIds);
-                        for($i=0;$i<count($donorName);$i++){
-                            $data[$i]['Fullname'] = $donorName[$i][0]['Fullname'];
-                            $data[$i]['UserID'] = $donorName[$i][0]['UserID'];
-                            
-                            foreach($feedbackDet as $f){
-                                if($f['DonorID']==$donorName[$i][0]['UserID']){
-                                    $data[$i]['Feedback'] = $f['Feedback'];
-                                    $data[$i]['Date'] = $f['Date'];
-                                    $data[$i]['Rating']=$f['Rating'];
+                            foreach ($feedbackDet as $feedback) {
+                                $donorIds[] = $feedback['DonorID'];
+                            }
+                            $donorName=$this->model->getdonorName($donorIds);
+                            for($i=0;$i<count($donorName);$i++){
+                                $data[$i]['Fullname'] = $donorName[$i][0]['Fullname'];
+                                $data[$i]['UserID'] = $donorName[$i][0]['UserID'];
+                                
+                                foreach($feedbackDet as $f){
+                                    if($f['DonorID']==$donorName[$i][0]['UserID']){
+                                        $data[$i]['Feedback'] = $f['Feedback'];
+                                        $data[$i]['Date'] = $f['Date'];
+                                        $data[$i]['Rating']=$f['Rating'];
+                                    }
                                 }
                             }
-                        }
-                        $feedbackDet = $data;
+                            $feedbackDet = $data;
+                            $_SESSION['rowCount'] = count($feedbackDet);
                         }
                         //print_r($feedbackDet);die();
-                        if(empty($feedbackDet)){
+                        /* if(empty($feedbackDet)){
                             $_SESSION['feedbacks'] = $feedbackDet;
                             header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID']);
                             this->view->render('organization/viewFeedbacks');
                             exit();
-                        }
+                        } */
                         foreach($feedbackDet as $row){
                             $output[] = $row;
                         }
                     }
-                    $_SESSION['feedbacks'] = $output;
+                        $_SESSION['feedbacks'] = $output;
+                    //print_r($_SESSION['feedbacks']);die();
+                    // header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID'].'filter=true&page=1');
                     $this->view->render('organization/viewFeedbacks');
                     exit();
                 }
@@ -288,73 +293,7 @@ class requestApproval extends Controller
         }
     }
 
-               /*  //print_r($_POST);die();
-
-                // var_dump($_POST);die();
-                
-                if(!empty($_POST["all_type"])){
-                    
-                    //call the controller function view_feedbacks()
-                    header('Location: /requestApproval/view_feedbacks?campaign='.$_SESSION['campaignID']);
-                    exit();
-                    
-                }
-            if(isset($_POST['0'])){
-                
-                $rating = $_POST['0'];
-                //$campid=$_GET['campaign'];
-                //print_r($campid);die();
-                 //$_SESSION['campaignID']=$campid;
-                 //print_r($_SESSION['campaignID']);die();
-                 $campid=$_SESSION['campaignID'];
-                $feedbackDet=$this->model->getfeedbackInfoRating($campid,$rating);
-                //print_r($feedbackDet);die();
-                $feedbackDet = array_filter($feedbackDet, function($item) {
-                    return $item['Feedback'] !== null;
-                });
-                if(empty($feedbackDet)){
-                    $_SESSION['rowCount'] = 0;
-                }
-                else{
-                    $donorIds = [];
-                foreach ($feedbackDet as $feedback) {
-                    $donorIds[] = $feedback['DonorID'];
-                }
-                $donorName=$this->model->getdonorName($donorIds);
-                for($i=0;$i<count($donorName);$i++){
-                    $data[$i]['Fullname'] = $donorName[$i][0]['Fullname'];
-                    $data[$i]['UserID'] = $donorName[$i][0]['UserID'];
-                    
-                    foreach($feedbackDet as $f){
-                        if($f['DonorID']==$donorName[$i][0]['UserID']){
-                            $data[$i]['Feedback'] = $f['Feedback'];
-                            $data[$i]['Date'] = $f['Date'];
-                            $data[$i]['Rating']=$f['Rating'];
-                        }
-                    }
-                }
-                if(count($donorName)>0){
-                    $_SESSION['feedbacks'] = $data;
-                   /*  $_SESSION['rowCount'] = count($data); */
-               /* }
-                 else{
-                    $_SESSION['rowCount'] = 0;
-                    $_SESSION['feedbacks'] = [];
-                } 
-                
-            }
-            $this->view->render('organization/viewFeedbacks');
-                exit();
-        }
-
-            
-        }
-        }
-        else{
-            $this->view->render('authentication/organizationlogin');
-        }
-    }
- */
+               
     function view_feedbacks()
     {
         if (isset($_SESSION['login'])) {
@@ -370,9 +309,9 @@ class requestApproval extends Controller
                 
                 //print_r($feedbackDet);die();
                 
-                $feedbackDet = array_filter($feedbackDet, function($item) {
+                /* $feedbackDet = array_filter($feedbackDet, function($item) {
                     return $item['Feedback'] !== null;
-                });
+                }); */
                 /* for ($i = 0; $i < sizeof($feedbackDet); $i++) {
                     if ($feedbackDet[$i]['Feedback'] == null) {
                         unset($feedbackDet[$i]);
@@ -380,41 +319,43 @@ class requestApproval extends Controller
                     }
                 } */
                 
-                
-                //print_r($count);die();
-                //print_r($feedbackDet);die();
-                //$_SESSION['feedbacks']= $this->model->getfeedbackInfo($campid);
-                //print_r($_SESSION['feedbacks']);die();
-                if(!empty($feedbackDet)){
-                    
+                if(empty($feedbackDet)){
+                    $_SESSION['rowCount'] = 0;
+                    $_SESSION['feedbacks'] = $data;
+                    $this->view->render('organization/viewFeedbacks');
+                    exit();
+                }
+                else{
                     $donorIds = [];
                     foreach ($feedbackDet as $feedback) {
                         $donorIds[] = $feedback['DonorID'];
                     }
-                 //print_r($donorIds);die();
-                //print_r($feedbackDet)[0];die();
-                $donorName=$this->model->getdonorName($donorIds);
-                // print_r($feedbackDet);
-                 //print_r($donorName);die();
-                
-
-                for($i=0;$i<count($donorName);$i++){
-                    $data[$i]['Fullname'] = $donorName[$i][0]['Fullname'];
-                    $data[$i]['UserID'] = $donorName[$i][0]['UserID'];
-                    
-                    foreach($feedbackDet as $f){
-                        if($f['DonorID']==$donorName[$i][0]['UserID']){
-                            $data[$i]['Feedback'] = $f['Feedback'];
-                            $data[$i]['Date'] = $f['Date'];
-                            $data[$i]['Rating']=$f['Rating'];
+                    $donorName=$this->model->getdonorName($donorIds);
+                    for($i=0;$i<count($donorName);$i++){
+                        $data[$i]['Fullname'] = $donorName[$i][0]['Fullname'];
+                        $data[$i]['UserID'] = $donorName[$i][0]['UserID'];
+                        
+                        foreach($feedbackDet as $f){
+                            if($f['DonorID']==$donorName[$i][0]['UserID']){
+                                $data[$i]['Feedback'] = $f['Feedback'];
+                                $data[$i]['Date'] = $f['Date'];
+                                $data[$i]['Rating']=$f['Rating'];
+                            }
                         }
                     }
+                    $feedbackDet = $data;
+                    $_SESSION['rowCount'] = count($feedbackDet);
+                    
                 }
+                //print_r($count);die();
+                //print_r($feedbackDet);die();
+                //$_SESSION['feedbacks']= $this->model->getfeedbackInfo($campid);
+                //print_r($_SESSION['feedbacks']);die();
                 
                 
-                }
+                
                 //print_r($data);die();
-                $_SESSION['feedbacks']=$data;
+                $_SESSION['feedbacks']=$feedbackDet;
                 
                 // print_r($_SESSION['feedbacks']);die();
                 
@@ -600,10 +541,11 @@ class requestApproval extends Controller
                 //print_r($x);die();
                 if($x==0){
                     $_SESSION['rowCount']=0;
-                    $_SESSION['timeslots']=null;
+                    $_SESSION['timeslots']=[];
                 }
                 else{
                     $_SESSION['rowCount']=$x;
+                    //print_r($_SESSION['rowCount']);die();
                     for($i=0;$i<$x;$i++){
                         $slotid=$slotids[$i]['SlotID'];
     
@@ -666,49 +608,44 @@ class requestApproval extends Controller
             if ($_SESSION['type'] == 'Organization/Society') {
                 $campid = $_SESSION['campaign_array'][0];
                 
-                
-                
-
-
                 $slotid=intval($_GET['slot']);
-                //print_r($_GET['slot']);die();
-                //print_r($campid);die();
-                $donorDetails=$this->model->getDonorList($campid,$slotid);
-                    /* print_r($res);die();
-                    for($i=0;$i<sizeof($res);$i++){
-                        $_SESSION['donorList'][$i]=$res[$i]['Fullname'];
-                    }
-                     */
-                    //print_r($donorDetails[0]['UserID']);die();
-                   // $donorList=$res[0]['Fullname'];
-                   if($donorDetails==null){
-                    $_SESSION['donorList']=[];
-                    $_SESSION['rowCount']=0;
+                
+                $donorids=$this->model->getDonorList($campid,$slotid);
+                    
+                   for($i=0;$i<sizeof($donorids);$i++){
+                    $donorID[$i]=$donorids[$i]['DonorID'];
                    }
-                   else{
-                    for($i=0;$i<sizeof($donorDetails);$i++){
-                        $donorID[$i]=$donorDetails[$i]['UserID'];
+                    if($donorID==null){
+                        $_SESSION['donorList']=[];
+                        $_SESSION['rowCount']=0;
+                    }
+                    else{
+                        $x=sizeof($donorID);
+                        for($i=0;$i<$x;$i++){
+                            $donorDetails[$i]=$this->model->getDonorDetails($donorID[$i]);
+                        }
                         
-                      }
-                        //print_r(sizeof($donorID));die();
                         for($i=0;$i<sizeof($donorID);$i++){
                             $donorContact[$i]=$this->model->getDonorContact($donorID[$i]);
                         }
-                    
-                        //print_r($donorContact);die();
+                        
+                            //print_r($donorContact);die();
                         for($i=0;$i<sizeof($donorContact);$i++){
-                            $donorList[$i]['Fullname']=$donorDetails[$i]['Fullname'];
+                            $donorList[$i]['Fullname']=$donorDetails[$i][0]['Fullname'];
                             $donorList[$i]['Contact']=$donorContact[$i][0]['ContactNumber'];
-                            $donorList[$i]['NIC']=$donorDetails[$i]['NIC'];
+                            $donorList[$i]['NIC']=$donorDetails[$i][0]['NIC'];
                         }
-                        //print_r($donorList);die();
-                        $_SESSION['donorList']=$donorList;
-                        $_SESSION['rowCount']=sizeof($donorList);
-                   }
+                            //print_r($donorList);die();
+                            $_SESSION['donorList']=$donorList;
+                            $_SESSION['rowCount']=sizeof($donorList);
+                     }
+                     //print_r($donorID);die();
+                     
+                   
                     
                     //print_r($_SESSION['donorList']);die();
                     $this->view->render('organization/viewDonorsList');
-                    exit();
+                    exit(); 
                   
                 
             }
@@ -912,6 +849,15 @@ class requestApproval extends Controller
     function quantity()
     {
         if ($_SESSION['type'] == 'Organization/Society') {
+            //get advertisement details from the advertisement id
+            $AdvertisementID = $_GET['ad'];
+            //print_r($AdvertisementID);die();
+            
+            $data['Description']=$this->model->getAdvertisementDescription($AdvertisementID);
+            //print_r($data['Description']);die();
+            $data['ItemName']=$this->model->getAdvertisementItemName($AdvertisementID);
+            //print_r($data['ItemName']);die();
+            $_SESSION['InventoryDet']=$data;
             $this->view->render('organization/quantity');
         } else {
             $this->view->render('authentication/organizationlogin');
@@ -932,36 +878,32 @@ class requestApproval extends Controller
                     $quantity = $_POST['quant'];
                     
                     $AdvertisementID = $_SESSION['AdvertisementID'];
-                    //print_r($AdvertisementID);die();
+                    
                     $donID=$this->model->getDonationID($AdvertisementID);
                     $donationID=$donID[0]['DonationID'];
-                    //print_r($donationID);die();
-                    //$today=date("Y-m-d");
-                    //print_r($today);die();
-                    //$donationType='Inventory';
-                    //print_r($donationType);die();
+                    
                     $inventorycategory=$this->model->getInventoryCat($AdvertisementID);
-                    //$inventorycategory=$_SESSION['advertisements'][0]['InventoryCategory'];
-                    //print_r($inventorycategory);die();
-                    //print_r($AdvertisementID);die();
-                   //$acceptedDate='NULL';
+                      
+                    //get the blood bnak id from the advertisement id
+                    $bloodbankID=$this->model->getAdBloodbankID($AdvertisementID);
                    
                    $adminVerify='0';
-
-                   //$donationID=$_SESSION['advertisements'][0]['DonationID'];
-                   //print_r($donationID);die();
-                    //$BloodBankID=$_POST['bloodbank'];
+                    $acceptedDate=Null;
+                  
         
-                    $inputs = [
+                    $inputs1 = [
                         $donationID,
                         $inventorycategory,
                         $quantity,
                         $acceptedDate,
                         $adminVerify,
+                        $_SESSION['User_ID'],
                         
                     ];
+
+                    $inputs2 = [$donationID,$_SESSION['User_ID'],$bloodbankID];
         
-                    if ($this->model->addinventoryItem($inputs)) {
+                    if ($this->model->addinventoryItem($inputs1, $inputs2)) {
                         //header('Location: /requestApproval/add_inventory_successful');
                         $this->view->render('organization/add_inventory_successful');
                     }
@@ -1168,7 +1110,7 @@ class requestApproval extends Controller
         }
     }
 
-    //donate begin
+//donate begin
 
     function donateCash()
     {
@@ -1253,7 +1195,7 @@ class requestApproval extends Controller
     function pastDonations(){
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
-                $_SESSION['past_donations'] = $this->model->getpastdonations($_SESSION['User_ID']);
+                $_SESSION['past_donations'] = $this->model->getpastcashdonations($_SESSION['User_ID']);
                 $this->view->render('organization/donatedcash');
                 exit();
             }
@@ -1460,6 +1402,28 @@ class requestApproval extends Controller
                     echo '<script>showotp();</script>';
                     // $this->view->render('donor/profile_edit_otp');
                 }
+            }
+        } else {
+            $this->view->render('authentication/login');
+        }
+    }
+
+    function viewPastDonations(){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Organization/Society') {
+                $data = $this->model->getPastDonations($_SESSION['User_ID']);
+                //print_r($data);die();
+                if(empty($data)){
+                    $_SESSION['pastDonations']=[];
+                    $_SESSION['rowCount']=0;
+                }
+                else{
+                    $_SESSION['rowCount']=count($data);
+                }
+                $_SESSION['pastDonations'] =$data;
+                //print_r($_SESSION['pastDonations']);die();
+                $this->view->render('organization/view_past_donations');
+                exit();
             }
         } else {
             $this->view->render('authentication/login');

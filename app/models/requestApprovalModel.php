@@ -101,18 +101,25 @@ class RequestApprovalModel extends Model
         } else
             print_r($result);
     }
-    public function addinventoryItem($inputs)
+    public function addinventoryItem($inputs1,$inputs2)
     {
         /* $columns1 = array('DonationID','Inventory_category');
         $param1 = array(':AdvertisementID',':Total_amount');
         $result1 = $this->db->update("donation", $columns1, $param1, $inputs1,':AdvertisementID',$AdvertisementID,"WHERE AdvertisementID = :AdvertisementID"); */
-        $columns = array('DonationID', 'Inventory_category', 'Quantity', 'Accepted_date', 'Admin_verify');
-        $param = array(':DonationID', ':Inventory_category', ':Quantity', ':Accepted_date', ':Admin_verify');
-        $result = $this->db->insert("inventory_donation", $columns, $param, $inputs);
-        if ($result == "Success") {
+        $column1 = array('DonationID', 'Inventory_category', 'Quantity', 'Accepted_date', 'Admin_verify','Organization_UserID');
+        $param1 = array(':DonationID', ':Inventory_category', ':Quantity', ':Accepted_date', ':Admin_verify',':Organization_UserID');
+        $result1 = $this->db->insert("inventory_donation", $column1, $param1, $inputs1);
+
+        $column2=array('DonationID','OrganizationUserID','BloodBankID');
+        $param2=array(':DonationID',':OrganizationUserID',':BloodBankID');
+        $result2=$this->db->insert("organization_donations_bloodbank", $column2, $param2, $inputs2);
+        if ($result1 == "Success" && $result2 == "Success" ) {
             return true;
-        } else
-            print_r($result);
+        } else {
+            print_r($result1);
+            print_r($result2);
+            
+        };
     }
 
     public function getCampaigns($User_ID)
@@ -373,12 +380,22 @@ class RequestApprovalModel extends Model
     }
 
     public function getDonorList($campid,$slotid){
-            
-        $data = $this->db->select("Fullname,NIC,UserID","donor","WHERE SlotID =$slotid && CampaignID=$campid");
+        //print_r($slotid);die(); 
+        $param=[':SlotID',':CampaignID'];
+        $inputs=[$slotid,$campid];
+        $data = $this->db->select("DonorID","register_to_campaign","WHERE SlotID =:SlotID && CampaignID=:CampaignID ",$param,$inputs);
+        //print_r($data);die();
         return $data;
         
         
         
+    }
+
+    public function getDonorDetails($donorid){
+        //print_r($donorid);die();
+        $data = $this->db->select("*","donor","WHERE UserID =:UserID",':UserID',$donorid);
+        //print_r($data);die();
+        return $data;
     }
 
     function getDonorContact($donorid){
@@ -401,6 +418,7 @@ class RequestApprovalModel extends Model
     public function getAllTimeslots(){
                 
         $data = $this->db->select("*","timeslot",null);
+        //print_r($data);die();
         return $data;
      
 }
@@ -496,34 +514,10 @@ class RequestApprovalModel extends Model
         return $amounts;
     }
 
-    public function getpastdonations($userid)
+    public function getpastcashdonations($userid)
     {
-        $data = $this->db->select("*", "cash_donation", "WHERE OrganizationUserID =:userid", ':userid', $userid);
-        $bbnames = $this->db->select("BloodBank_Name",
-            "bloodbank",
-            "INNER JOIN organization_donations_bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID WHERE organization_donations_bloodbank.OrganizationUserID = :OrganizationUserID", 
-            ":OrganizationUserID", 
-            $userid);
-
-        $requested_amounts = $this->db->select(
-            "Total_amount",
-            "donation",
-            "INNER JOIN cash_donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.OrganizationUserID =:OrganizationUserID",
-            ":OrganizationUserID", 
-            $userid);
-
-        $received_amounts=[];
-        foreach ($data as $donation) {
-            $received_amount = $this->db->select(
-            "SUM(amount) AS received_amount",
-            "cash_donation",
-            "WHERE DonationID= :DonationID",
-            ":DonationID",
-            $donation['DonationID']
-            );
-            array_push($received_amounts,$received_amount[0]);
-        }
-        return [$data,$bbnames,$requested_amounts,$received_amounts];
+        $data = $this->db->select("DISTINCT cash_donation.*,bloodbank.BloodBank_Name,Total_amount", "cash_donation", "INNER JOIN organization_donations_bloodbank on cash_donation.DonationID = organization_donations_bloodbank.DonationID INNER JOIN bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID INNER JOIN donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.OrganizationUserID =:userid ORDER BY DATE DESC", ':userid', $userid);
+        return $data;
     }
 
     public function insertDonation($donationid, $donationamount, $userid,$today)
@@ -594,5 +588,64 @@ class RequestApprovalModel extends Model
         
     }
 
+    public function getPastDonations($userid){
+        $data=$this->db->select("DonationID,Inventory_category,Quantity,Accepted_date","inventory_donation","WHERE Organization_UserID=:Organization_UserID",':Organization_UserID',$userid);
+        for($i=0;$i<sizeof($data);$i++){
+            if($data[$i]['Accepted_date']==null){
+                $data[$i]['Status']="Not Accepted";
+            }
+            else{
+                $data[$i]['Status']="Accepted";
+            }
+        }
+        for($i=0;$i<sizeof($data);$i++){
+            $data[$i]['AdvertisementID']=$this->getAdvertisementID($data[$i]['DonationID']);
+        }
+        //take the inventory category and quantity for each donation id and add it to the array
+        //print_r($data);die();
+        for($i=0;$i<sizeof($data);$i++){
+            $data[$i]['BloodbankID']=$this->getAdBloodbankID($data[$i]['AdvertisementID']);
+        }
+        //print_r($data);die();
+
+        for($i=0;$i<sizeof($data);$i++){
+            $data[$i]['Bloodbank_Name']=$this->getAdBloodbankName($data[$i]['BloodbankID']);
+        }
+        //print_r($data);die();
+        
+        return $data;
+    }
+
+    public function getAdvertisementID($donationID){
+        $data=$this->db->select("AdvertisementID","donation","WHERE DonationID=:DonationID",':DonationID',$donationID);
+        //print_r($data);die();
+        return $data[0]['AdvertisementID'];
+    }
+
+    public function getAdBloodbankID($advertisementID){
+        $data=$this->db->select("BloodBankID","advertisement","WHERE AdvertisementID=:AdvertisementID",':AdvertisementID',$advertisementID);
+        //print_r($data);die();
+        return $data[0]['BloodBankID'];
+    }
+
+    public function getAdBloodbankName($bloodbankID){
+        $data=$this->db->select("BloodBank_Name","bloodbank","WHERE BloodBankID=:BloodBankID",':BloodBankID',$bloodbankID);
+        //print_r($data);die();
+        return $data[0]['BloodBank_Name'];
+    }
+
+    public function getAdvertisementDescription($advertisementID){
+        $data=$this->db->select("Description","advertisement","WHERE AdvertisementID=:AdvertisementID",':AdvertisementID',$advertisementID);
+        //print_r($data);die();
+        return $data[0]['Description'];
+    }
+
+    public function getAdvertisementItemName($advertisementID){
+        $data=$this->db->select("InventoryCategory","donation","WHERE AdvertisementID=:AdvertisementID",':AdvertisementID',$advertisementID);
+        //print_r($data);die();
+        return $data[0]['InventoryCategory'];
+    }
+
+    
 
 }

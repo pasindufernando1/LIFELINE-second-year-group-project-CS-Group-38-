@@ -25,8 +25,11 @@ var quantity_flag = true;
 const confirmPassword = document.getElementById("confirmPassword");
 const confirmPasswordLabel = document.getElementById("confirmPassword-label");
 var confirmPassword_flag = true;
-const adminform = document.getElementById("addform");
+const fullname = document.getElementById("fullname");
+const fullnameLabel = document.getElementById("fullname-label");
+var fullname_flag = true;
 
+const adminform = document.getElementById("addform");
 const submit = document.getElementById("submit-btn");
 
 
@@ -228,23 +231,6 @@ function regnumValidation() {
     xhttp.send("regnum=" + regnum.value);
 }
 
-// //quantity validation
-// quantity?.addEventListener("input", function () {
-//     // Quantity should be greater than zero
-//     if ((quantity.value <= 0)) {
-//         quantity.readOnly = false;
-//         quantityLabel.innerHTML = "Quantity should be a number greater than zero ";
-//         quantityLabel.style.color = "red";
-//         quantity_flag = false;
-//         // submit.disabled = true;
-//     } else {
-//         quantityLabel.innerHTML = "Quantity";
-//         quantityLabel.style.color = "#000000";
-//         quantity_flag = true;
-//         // submit.disabled = false;
-//     }
-// });
-
 //quantity validation
 quantity?.addEventListener("input", function () {
     // Quantity should be greater than zero
@@ -279,19 +265,23 @@ confirmPassword?.addEventListener("input", function () {
     }
 });
 
-// //Function to enable the submit button when all the fields are valid on moving the cursor on the submit button
-// submit?.addEventListener("mouseover", function () {
-//     console.log("function called");
-//     if (email_flag==true && regno_flag==true && regnum_flag==true && contact_flag==true && password_flag==true && dob_flag==true && nic_flag==true && quantity_flag==true && confirmPassword_flag==true) {
-//         // console.log("true");
-//         submit.disabled = false;
-//     }else{
-//         submit.disabled = true;
-//     }
-// });
+// Fullname user validtion
+fullname?.addEventListener("input", function () {
+    var reg = /^[a-zA-Z ]+$/;
+    if (!reg.test(fullname.value)) {
+        fullnameLabel.innerHTML = "Full Name can only include letters";
+        fullnameLabel.style.color = "red";
+        fullname_flag = false;
+    } else {
+        fullnameLabel.innerHTML = "Full Name";
+        fullnameLabel.style.color = "#000000";
+        fullname_flag = true;
+    }
+});
+
 
 adminform?.addEventListener("submit", function (e) {
-    if (!(email_flag == true && regno_flag == true && regnum_flag == true && contact_flag == true && password_flag == true && dob_flag == true && nic_flag == true && quantity_flag == true && confirmPassword_flag == true)) {
+    if (!(email_flag == true && regno_flag == true && regnum_flag == true && contact_flag == true && password_flag == true && dob_flag == true && nic_flag == true && quantity_flag == true && confirmPassword_flag == true && fullname_flag == true)) {
         e.preventDefault();
     }
 });

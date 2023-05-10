@@ -52,9 +52,9 @@ $metaTitle = 'Donation History'; ?>
                             <img class="bb-img"src="../../../public/img/bloodbanks/' . $_SESSION['bank_pics'][$count] . '" alt="blood bannk image">
                             <div class="b-info">
                                 <h4>' . $_SESSION['bank_names'][$count] . '</h4>
-                                <h3>Latest Donation ' . $_SESSION['latest_bank_donation_amounts'][$count] . ' ml At ' . $_SESSION['latest_bank_donation_dates'][$count] . '</h3>
+                                <h3>Latest Donation ' . $_SESSION['latest_bank_donation_amounts'][$count] . ' ml On ' . $_SESSION['latest_bank_donation_dates'][$count] . '</h3>
                                 <p>
-                                    <b>Your Total Donations :</b> ' . $_SESSION['bank_donation_total_amounts'][$count] . '</p>
+                                    <b>Your Total Donations :</b> ' . $_SESSION['bank_donation_total_amounts'][$count] . ' ml </p>
                                     <h3>Past Donations</h3>
                                     <div class="past-donations">';
                     $d_count = 0;

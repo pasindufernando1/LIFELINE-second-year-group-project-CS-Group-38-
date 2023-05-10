@@ -104,7 +104,7 @@ $metaTitle = "System User Reservations"
                                     </form>
                                     <form action="/sys_inventory/substract_quantity/'.$row["InventoryID"].'" method="POST">
                                         
-                                            <input min="0" title="Substract Quantity" class="sub-input" type="number" id="quantity" name="quantity" placeholder="" required>
+                                            <input min="0" max="'. $row["Quantity"] .'" title="Substract Quantity" class="sub-input" type="number" id="quantity" name="quantity" placeholder="" required>
                                             
                                          <button type="submit" class="remove-btn">-</button> 
                                      
@@ -116,7 +116,10 @@ $metaTitle = "System User Reservations"
                                 
                             }
                         } else {
-                            echo "0 results";
+                           echo '<tr class="t-row">
+                            <td colspan="5" class="t-det">No Records Available</td>
+                            
+                            </tr>';
                         }
                         echo '<div class="pag-box">';
                         if (isset($_GET['filtered'])) {

@@ -324,6 +324,25 @@ class sys_campaignsModel extends Model
         };
     }
 
+    public function getAllDonorDetails()
+    {
+        // Get all the donor details
+        $data = $this->db->select("*", "donor","Null");
+        return $data;
+    }
+
+    public function getPastDonationsByNIC($nic)
+    {
+        $donation = $this->db->select("*","donor","INNER JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID  WHERE donor.NIC =:nic ORDER BY donor_bloodbank_bloodpacket.date DESC",':nic',$nic);
+        return $donation;
+    }
+
+    public function getDonorIDCheck($nic)
+    {
+        $count = $this->db->select('count', "donor", "WHERE nic = :nic;", ':nic', $nic);
+        return $count;
+    }
+
     
 
 }

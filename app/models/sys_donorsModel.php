@@ -26,8 +26,8 @@ class sys_donorsModel extends Model
         
         
 
-        $columns2 = array('UserID','Fullname','NIC','DOB','Gender','BloodType','Number','LaneName','City','District','Province','DonorCard_Img','blood_bank_ID');
-        $param2 = array(':UserID',':Fullname',':NIC',':DOB',':Gender',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img',':blood_bank_ID');
+        $columns2 = array('UserID','Fullname','NIC','DOB','Gender','BloodType','Number','LaneName','City','District','Province','DonorCard_Img');
+        $param2 = array(':UserID',':Fullname',':NIC',':DOB',':Gender',':BloodType',':Number',':LaneName',':City',':District',':Province',':DonorCard_Img');
         $result2 = $this->db->insert("donor", $columns2, $param2, $inputs2);
 
         //Updating the usercontactnumber table
@@ -362,6 +362,18 @@ class sys_donorsModel extends Model
         AND donor_bloodbank_bloodpacket.Date <= :end "
         ,$params,$inputs);
         return $pack;
+    }
+
+    public function getPastDonationsByNIC($nic)
+    {
+        $donation = $this->db->select("*","donor","INNER JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID  WHERE donor.NIC =:nic ORDER BY donor_bloodbank_bloodpacket.date DESC",':nic',$nic);
+        return $donation;
+    }
+
+    public function getDonorIDCheck($nic)
+    {
+        $count = $this->db->select('count', "donor", "WHERE nic = :nic;", ':nic', $nic);
+        return $count;
     }
 
 

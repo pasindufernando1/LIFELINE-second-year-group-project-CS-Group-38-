@@ -66,18 +66,13 @@ $metaTitle = 'Donor Feedback';
         </div>
 
             <div class="rate_btn_view">
-            <?php echo '<a href="editrating?camp=' .
-                $_SESSION['selected_campid'] .
-                '">Edit Rating</a>
-                <a href="remove_rating" onclick="showPopup(event)">Delete Rating</a>'; ?>
+            <?php echo '<a href="editrating?camp=' .$_SESSION['selected_campid'] .'">Edit Rating</a>
+                <a href="remove_rating?camp=' .$_SESSION['selected_campid'] .'" onclick="showPopup(event)">Delete Rating</a>'; ?>
             </div>
 
         </div>
     </div>
 
-
-
-    
 
     <script>
         function showPopup(event) {

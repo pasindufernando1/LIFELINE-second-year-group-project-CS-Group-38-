@@ -95,13 +95,15 @@ print_r($_SESSION['AdvertisementID']);
                     </div>   
                 </div>
             </div>
+
             <div class="box">
             <form action="/requestApproval/addInvenReq/" method="post" id="addform">  
-                <p class="quantity-title">Inventory Donations</p>
+            <?php echo '<p class="quantity-title">'.($_SESSION['InventoryDet']['Description']).'</p><br> 
+                <p class="item-title">Item Name:    '.($_SESSION['InventoryDet']['ItemName']).'</p><br> '?>
                 <img class="inventory-img" src="./../../public/img/orgdashboard/inventory.gif" alt="campaigns" width=100%>
                 <label id="quant-label" class="quant-label" for="text">Quantity:</label>
                     <br>
-                    <input class="quant-input" id="quant"  type="text" name="quant" autofocus placeholder="Quantity" required>
+                    <input class="quantity-input" id="quant"  type="text" name="quant" autofocus placeholder="Quantity" required>
                     <br>
                     <button class='reqAccom-button' type='submit' name='request' id="submit-btn">Request</button>
                     

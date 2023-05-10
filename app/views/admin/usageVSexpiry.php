@@ -1,5 +1,5 @@
 <?php 
-$metaTitle = "Inventory" 
+$metaTitle = "Usage Vs Expiry Report" 
 ?>
 
 <!DOCTYPE html>

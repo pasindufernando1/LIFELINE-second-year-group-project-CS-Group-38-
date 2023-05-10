@@ -22,7 +22,7 @@ $metaTitle = "Add System User"
 
     <!-- js Files -->
     <script src="../../../public/js/drop-down.js"></script>
-
+    <script src="../../../public/js/custom-select.js"></script>
     
 
 </head>
@@ -54,7 +54,7 @@ $metaTitle = "Add System User"
             </div>
             
             <div class="fullname-container">
-                <label class="fullname-lable" for="fullname">Full Name</label>
+                <label class="fullname-lable" for="fullname" id="fullname-label">Full Name</label>
                 <br>
                 <input id="fullname" class="fullname-input" type="text" name="fullname" autofocus placeholder="Fullname" required>
             </div>
