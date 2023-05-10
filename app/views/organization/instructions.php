@@ -96,10 +96,12 @@ $metaTitle = "organizations Dashboard"
                 </div>
             </div>
             <div class="instructionBox">
+                
                 <h2 class="instructions-title" >Instructions for organizing a Blood Donation Campaign</h2>
+                <div class="instructionsB">
                 <!-- <img class="instru-img" src="./../../public/img/orgdashboard/instructions.png" alt="req" width=100%> -->
-                <div class="instru-img">
-                    <img src="./../../public/img/orgdashboard/instruction2.gif" alt="req" >
+                
+                    
 </div>
                 <ul class="ins-points">
 
@@ -126,4 +128,5 @@ $metaTitle = "organizations Dashboard"
                     <li>Follow up with donors after the campaign to thank them for their donation and encourage them to donate again in the future.</li>
 
                 </ul>
+                </div>
             </div>

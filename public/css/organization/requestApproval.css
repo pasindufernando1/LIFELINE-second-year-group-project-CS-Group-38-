@@ -139,7 +139,7 @@ body {
 .side-bar {
     position: absolute;
     width: 277.49px;
-    height: 821px;
+    height: 864px;
     left: -5px;
     top: 102px;
     background: #FFFFFF;
@@ -1096,7 +1096,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 797px;
+    height: 869px;
     left: 316px;
     top: 100px;
     background: #ffffff;
@@ -1109,7 +1109,7 @@ body {
     width: 1136.77px;
     height: 0px;
     left: 186.48px;
-    top: 182.25px;
+    top: 212.25px;
     border: 0.818053px solid #EFEFEF;
 }
 
@@ -1126,7 +1126,7 @@ th {
 
 .bloodBanks-table {
     position: absolute;
-    top: 156px;
+    top: 188px;
     left: 189px;
 }
 
@@ -1167,14 +1167,14 @@ td {
 
 .view-bloodBank-title {
     position: absolute;
-    width: 562.81px;
+    width: 844.81px;
     height: 46.32px;
     left: 189.89px;
     top: 49.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 20.2958px;
+    font-size: 30.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -1185,11 +1185,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 100px;
+    top: 161px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1201,12 +1201,13 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 125px;
+    top: 189px;
     bottom: 634px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .date-label {
@@ -1214,11 +1215,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 183px;
+    top: 259px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1230,12 +1231,13 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 208px;
+    top: 286px;
     bottom: 565px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .startTime-label {
@@ -1243,11 +1245,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 274px;
+    top: 361px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1259,24 +1261,25 @@ td {
     position: absolute;
     left: 154px;
     right: 869px;
-    top: 299px;
+    top: 388px;
     bottom: 479px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .endTime-label {
     position: absolute;
     height: 16px;
-    left: 684px;
+    left: 691px;
     right: 0px;
-    top: 274px;
+    top: 360px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1288,12 +1291,13 @@ td {
     position: absolute;
     left: 690px;
     right: 285px;
-    top: 299px;
+    top: 388px;
     bottom: 480px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .location-label {
@@ -1301,11 +1305,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 362px;
+    top: 461px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1317,13 +1321,13 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 386px;
+    top: 490px;
     bottom: 382px;
-    
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .lane-input {
@@ -1384,11 +1388,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 451px;
+    top: 562px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1400,12 +1404,13 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 474px;
+    top: 588px;
     bottom: 206px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .donors-input {
@@ -1413,13 +1418,14 @@ td {
     position: absolute;
     left: 154px;
     right: 285px;
-    top: 563px;
+    top: 686px;
     bottom: 50px;
     bottom: 117px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
+    padding: 10px;
 }
 
 .donors-label {
@@ -1427,11 +1433,11 @@ td {
     height: 16px;
     left: 154px;
     right: 0px;
-    top: 538px;
+    top: 660px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1448,8 +1454,8 @@ td {
     position: absolute;
     width: 200px;
     height: 50px;
-    left: 932px;
-    top: 674px;
+    left: 824px;
+    top: 784px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -1476,8 +1482,8 @@ td {
     position: absolute;
     width: 203.66px;
     height: 51px;
-    left: 1139px;
-    top: 674px;
+    left: 1043px;
+    top: 784px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -1659,14 +1665,14 @@ a {
 
 .view-campaigns-title {
     position: absolute;
-    width: 559.66px;
+    width: 641.66px;
     height: 46.32px;
     left: 177px;
     top: 49.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 20.2958px;
+    font-size: 30.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -2120,8 +2126,8 @@ a {
     position: absolute;
     width: 1125px;
     height: 46px;
-    left: 133px;
-    top: 73px;
+    left: 199px;
+    top: 71px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2142,8 +2148,8 @@ a {
     position: absolute;
     width: 1123px;
     height: 514px;
-    left: 76px;
-    top: 161px;
+    left: 199px;
+    top: 222px;
     font-size: larger;
     border-radius: 10.8716px;
 }
@@ -2287,7 +2293,7 @@ a {
     width: 591px;
     height: 65px;
     left: 608px;
-    top: 0px;
+    top: 35px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2424,7 +2430,7 @@ a {
 
 .quantity-title {
     position: absolute;
-    width: 559.66px;
+    width: 972.66px;
     height: 46.32px;
     left: 158px;
     top: 70px;
@@ -2451,7 +2457,7 @@ a {
     height: 16px;
     left: 675px;
     right: 0px;
-    top: 315px;
+    top: 344px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -2484,7 +2490,7 @@ a {
     position: absolute;
     width: 200px;
     height: 50px;
-    left: 714px;
+    left: 690px;
     top: 552px;
     background: #640E0B;
     border-radius: 10.8716px;
@@ -2511,8 +2517,8 @@ a {
     align-items: center;
     position: absolute;
     width: 203.66px;
-    height: 51px;
-    left: 940px;
+    height: 50px;
+    left: 912px;
     top: 552px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
@@ -2538,11 +2544,11 @@ a {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 202px;
+    top: 241px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -2554,11 +2560,13 @@ a {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 225px;
+    top: 274px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .teleNo-label {
@@ -2566,11 +2574,11 @@ a {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 298px;
+    top: 356px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -2582,11 +2590,13 @@ a {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 320px;
+    top: 386px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .loc-label {
@@ -2594,11 +2604,11 @@ a {
     height: 16px;
     left: 198px;
     right: 114px;
-    top: 391px;
+    top: 468px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -2611,11 +2621,13 @@ a {
     height: 56px;
     left: 198px;
     right: 993px;
-    top: 412px;
+    top: 499px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     transform: rotate(-0.23deg);
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .laneNme-input {
@@ -2624,10 +2636,12 @@ a {
     height: 56px;
     left: 577px;
     right: 636px;
-    top: 412px;
+    top: 499px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .cit-input {
@@ -2636,10 +2650,12 @@ a {
     height: 56px;
     left: 927px;
     right: 335px;
-    top: 412px;
+    top: 499px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .dis-input {
@@ -2648,10 +2664,12 @@ a {
     height: 56px;
     left: 198px;
     right: 813px;
-    top: 476px;
+    top: 583px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .prov-input {
@@ -2660,10 +2678,12 @@ a {
     height: 56px;
     left: 747px;
     right: 335px;
-    top: 476px;
+    top: 583px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .em-label {
@@ -2704,6 +2724,8 @@ a {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .currentPw-label {
@@ -2727,11 +2749,13 @@ a {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 575px;
+    top: 693px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
 }
 
 .newPw-label {
@@ -2739,11 +2763,11 @@ a {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 551px;
+    top: 665px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -2755,11 +2779,14 @@ a {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 672px;
+    top: 799px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins';
+
 }
 
 .confirmPw-label {
@@ -2767,11 +2794,11 @@ a {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 648px;
+    top: 771px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -2809,16 +2836,21 @@ a {
     position: absolute;
     width: 165px;
     height: 52px;
-    left: 934px;
-    top: 790px;
+    left: 853px;
+    top: 900px;
     color: white;
     background: #640E0B;
     border-radius: 10.8716px;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.update-button:hover {
+    font-size: 16px;
 }
 
 .cancl-button {
     box-sizing: border-box;
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -2826,14 +2858,20 @@ a {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    width: 203.66px;
+    width: 164.66px;
     height: 52.49px;
-    left: 1124px;
-    top: 790px;
+    left: 1037px;
+    top: 896px;
     color: #640E0B;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.cancl-button:hover {
+    font-size: 16px;
 }
 
 .cancl-button a {
@@ -2853,12 +2891,12 @@ a {
     position: absolute;
     width: 559.66px;
     height: 46.32px;
-    left: 130.65px;
+    left: 184.65px;
     top: 71.69px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 20.2958px;
+    font-size: 30.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -3301,7 +3339,7 @@ a {
     left: 603px;
     right: 252px;
     top: 256px;
-    bottom: 227px;
+    bottom: 349px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
@@ -3331,7 +3369,7 @@ a {
     width: 200px;
     height: 50px;
     left: 1088px;
-    top: 645px;
+    top: 559px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -3434,6 +3472,7 @@ a {
     align-content: stretch;
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 }
 
 .profileBox .main {
@@ -3501,8 +3540,9 @@ a {
 
 .add-user-title {
     margin-left: 152px;
-    margin-top: 49px;
+    margin-top: 83px;
     font-family: 'Poppins';
+    font-size: 30px;
 }
 
 .cont2 {
@@ -3634,7 +3674,7 @@ a {
 .pag-box {
     float: right;
     display: flex;
-    margin-top: 725px;
+    margin-top: 777px;
     margin-right: 192px;
 }
 
@@ -3793,7 +3833,7 @@ a {
         margin-left: 2%;
         margin-right: 1%;
         background: #f7f7f7;
-        margin-top: 8%;
+        margin-top: 2%;
         /* overflow-x: auto; */
         border: #e8e8e8 solid 1px;
         border-radius: 6px;
@@ -4024,7 +4064,7 @@ a {
     }
 
     .user-filter-img{
-        margin-top: 74px;
+        margin-top: 85px;
     margin-left: 1234px;
     position: absolute;
     }
@@ -4041,7 +4081,7 @@ a {
         width: 203.66px;
         height: 37.49px;
         left: 1106.29px;
-        top: 56.06px;
+        top: 67.06px;
         background: #F7F7F7;
         border-radius: 10.8716px;
         font-family: 'Poppins';
@@ -4109,7 +4149,7 @@ a {
     }
     
     .user-filter-imgB {
-        margin-top: 74px;
+        margin-top: 85px;
         margin-left: 1277px;
         position: absolute;
     }
@@ -4167,4 +4207,75 @@ a {
     border-radius: 6px;
 }
 
-  
+.viewPastDon-btn{
+    margin-top: 6%;
+    margin-right: auto;
+    margin-left: 1213px;
+    background: #640e0b;
+    border-radius: 6px;
+    color: white;
+    height: 57px;
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-size: 18px;
+}
+
+.viewPastDon-btn:hover{
+    font-size: 19px;
+}
+
+.viewPastDon-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+.camps-pag-box{
+    float: right;
+    display: flex;
+    margin-top: 44px;
+    margin-right: 192px;
+}
+
+.quantity-input{
+    box-sizing: border-box;
+    position: absolute;
+    left: 672px;
+    right: 394px;
+    top: 390px;
+    /* bottom: 453px; */
+    height: 69px;
+    background: #FFFFFF;
+    border: 2px solid #949494;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.item-title{
+    position: absolute;
+    height: 16px;
+    left: 767px;
+    right: 0px;
+    top: 232px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 21px;
+    letter-spacing: 0.3px;
+    text-transform: capitalize;
+    color: #640E0B;
+}
+
+
+ .instructionsB{
+    border: 1px solid #BF1B16;
+    position: absolute;
+    top: 197px;
+    height: 859px;
+    width: 1233px;
+    border-radius: 5%;
+    left: 145px;
+ }

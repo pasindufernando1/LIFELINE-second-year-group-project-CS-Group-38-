@@ -115,49 +115,91 @@ die(); */
                     </div>
                 </div>
             </div>
-            <div class="ad-box">
-            <p class="inventory-types">Advertisements</p>
-                <!-- A for loop to read the data from the $_SESSION['Advertisements'] variable -->
-                <button class="viewPastDon-btn"><a href="/requestApproval/viewPastDonations">Past Donations</a></button>
-    
-                <div class="ad-holder">
-                <?php
-                $count=0;
-        
-        //print_r($_SESSION['advertisements']);die();
-                    foreach($_SESSION['advertisements'] as $item){
-                
-                // <!-- A container to hold the advertisement photo  and the bloodbankName -->
-                        echo '<div class="ad-card ">
+            <div class="box">
+                <p class="view-campaigns-title">Past Donations</p>
 
-                        <!-- Image -->
-                        <img class="ad-img" src="./../../public/img/advertisements/'.$item['Advertisement_pic'].'" alt="advertisement">
-                        
-
-                        <div class="bloodbankName">
-                            <!-- Label for bloodbank Name -->
-                            <p class="bloodbankName">'.$item['Description'].'</p>
-                        </div>
-                        
-                        <!-- Label for bloodbank Name -->
-                        <p class="inventoryType">Inventory Categoty: '.$item['InventoryCategory'].'</p>
-                        
-                        <!--get user input for quantity-->
-                        
-                        <a href="/requestApproval/quantity?ad='.$item['AdvertisementID'].'">Donate</a>
-                        
-                
-                        </div>';
-                        $count++;
-                    } ?>
+                <table class="campaigns-table" style="width:80%">
+                <tr>
         
-                </div>
+                    <th>Donation ID</th>
+                    <th>Inventory Category</th>
+                    <th>Quantity</th>
+                    <th>Status of the Request</th>
+                    <th>Blood bank Name</th>
+        
+                    
+                </tr>
+                <hr class="campaigns-line">
+                <?php 
+                    $results_per_page = 7;
+                    $number_of_results = $_SESSION['rowCount'];
+                    $number_of_page = ceil($number_of_results / $results_per_page);
+
+                    //determine which page number visitor is currently on  
+                    if (!isset ($_GET['page']) ) {  
+                        $page = 1;  
+                    } else {  
+                         $page = $_GET['page'];  
+                    }  
+                    //determine the sql LIMIT starting number for the results on the displaying page  
+                    $page_first_result = ($page-1) * $results_per_page;  
+                    $result = $_SESSION['pastDonations'];
+
+                    //display the link of the pages in URL  
+          
+
+                     //print_r($result[0]);die();
+                    if ($_SESSION['rowCount'] > 0) {
+                        foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
+                        echo '<div class="table-content-types"> <tr>
+                        
+                        <td>' . $row["DonationID"] . "</td>
+                        <td>" . $row["Inventory_category"]  ."</td>
+                        <td>" . $row["Quantity"] . "</td>
+                        <td>" . $row["Status"] . "</td>
+                        <td>" . $row["Bloodbank_Name"] . '</td>
+
+                      
+                        
+                        </tr> </div>';                                        
+                        }
+                    } 
+                    else {
+                        echo "0 results";
+                    }
+                    echo '<div class="pag-box">';
+                    if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+                    } else {
+                        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                    }
+        
+                    for($page = 1; $page <= $number_of_page; $page++) {  
+                        if (!isset($_GET['page'])) {
+                            $current_page = 1;
+                         } else {
+                             $current_page = $_GET['page'];
+                        }
+                        if ($page == $current_page) {
+                            echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+                        }
+                    }
+        
+                    if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+                    } else {
+                        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                    }
+        
+                     echo '</div>';
+                ?>
+
+                </table>
+
+
             </div>
 
-        </div>
-
-    </div>
 
 </body>
-
-</html>

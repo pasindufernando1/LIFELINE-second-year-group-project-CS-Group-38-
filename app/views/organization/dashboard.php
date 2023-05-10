@@ -170,7 +170,7 @@ $metaTitle = 'Organizations Dashboard';
                 </p>
             </div>
             <div class="box2">
-                <p class="box2-title">Advertisements</p>
+                <p class="box2-title">Click Here To View Advertisements</p>
                     <!-- <a><img class="r-arrow-img" src="./../../public/img/orgdashboard/right-arrow.jpg"
                             alt="dashboard"></a> -->
                     <a href="/requestApproval/viewAdvertisements"><img class="dash-img"

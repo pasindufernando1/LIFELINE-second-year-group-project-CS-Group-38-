@@ -150,7 +150,7 @@ $metaTitle = "organizations Dashboard"
                                         
                                         <td> 
                                         
-                                        <a href="/requestApproval/view_viewTimeslots?campaign='.$row["CampaignID"].'"><button class="schedule-btn" type="button" name="request" >view</a></button>                                
+                                        <a href="/requestApproval/view_viewTimeslots?campaign='.$row["CampaignID"].'"><button class="schedule-btn" type="button" name="request" >View</a></button>                                
                                         
                                         </td>
                                         </tr> </div>';                                        

@@ -67,11 +67,18 @@ $metaTitle = 'Hospitals Dashboard';
 
             </div>
             <div class="box">
-                <img class="dashboard-img" src="./../../public/img/hospitalsdashboard/dashboard_img.jpg"
-                    alt="dashboard_img">
+                <img class="dashboard-img" src="./../../public/img/hospitalsdashboard/dashboard_img.jpg" alt="dashboard_img">
                 <p class="welcome">Welcome to <br>
                     <img class="welcome-image" src="./../../public/img/hospitalsdashboard/logo.jpg" alt="dashboard_img">
                 </p>
+            </div>
+            <div class=box2>
+                
+                <p class="hospital_name"> <?php echo $_SESSION['username']; ?> </p>
+                <p class="hospital_address"> <?php echo $_SESSION['Number'] . ', ' . $_SESSION['LaneName'] . ', ' . $_SESSION['City'] . ', ' . $_SESSION['District']; ?> </p>
+                <img class="hospitalLogo" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>" alt="profile-pic">
+
+                <img class="hospital_img" src="./../../public/img/hospitalsdashboard/hospital_img.png" alt="hospital_img"> 
             </div>
             <div class="box1">
                 <p class="dashSub-title">Nearby Blood Banks for you</p>

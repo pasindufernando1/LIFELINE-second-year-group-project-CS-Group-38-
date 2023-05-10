@@ -136,9 +136,9 @@ $metaTitle = "organizations Dashboard"
                        $results_per_page = 7;
                        
                        $number_of_results = count($_SESSION['feedbacks']);
-                       
+                       //print_r($_SESSION['feedbacks']);die();
                        $number_of_page = ceil($number_of_results / $results_per_page);
-                       
+                       //print_r($number_of_page);die();
                        //determine which page number visitor is currently on  
                        if (!isset ($_GET['page']) ) {  
                            $page = 1;  
@@ -149,7 +149,7 @@ $metaTitle = "organizations Dashboard"
                        $page_first_result = ($page-1) * $results_per_page;  
                        
                        $result = $_SESSION['feedbacks'];
-                       
+                       //print_r($result);die();
                        if ($number_of_results  > 0) {
                              foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                            
@@ -164,32 +164,34 @@ $metaTitle = "organizations Dashboard"
                                 }
                         } 
                         else {
-                            //echo '0 results';
+                            echo '<div class="table-content-types"> <tr>
+                                <td>No Feedbacks Yet </td>
+                                </tr> </div>';
                         }
                         echo '<div class="pag-box">';
-if (!isset($_GET['page']) || $_GET['page'] == 1) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
-}
-for($page = 1; $page <= $number_of_page; $page++) {  
-    if (!isset($_GET['page'])) {
-        $current_page = 1;
-    } else {
-        $current_page = $_GET['page'];
-    }
-    if ($page == $current_page) {
-        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
-    } else {
-        echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
-    }
-}
-if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
-}
-echo '</div>';
+                            if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                            }
+                            for($page = 1; $page <= $number_of_page; $page++) {  
+                                if (!isset($_GET['page'])) {
+                                    $current_page = 1;
+                                } else {
+                                    $current_page = $_GET['page'];
+                                }
+                                if ($page == $current_page) {
+                                    echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
+                                } else {
+                                    echo '<div class="pag-div"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
+                                }
+                            }
+                            if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "./view_feedbacks?campaign='.$_GET['campaign'].'&filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                            }
+                        echo '</div>';
 ?>
 
                 </table>
