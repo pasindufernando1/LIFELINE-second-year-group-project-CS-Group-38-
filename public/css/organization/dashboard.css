@@ -946,7 +946,7 @@ body {
     position: absolute;
     top: 0px;
     left: -2px;
-    width: 1000px;
+    width: 899px;
     height: 499px;
 }
 
@@ -1027,9 +1027,9 @@ tr {
 .box2 {
     box-sizing: border-box;
     position: absolute;
-    width: 555px;
+    width: 646px;
     height: 500px;
-    left: 1335px;
+    left: 1244px;
     top: 100px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
@@ -1038,10 +1038,10 @@ tr {
 
 .box2-title {
     position: absolute;
-    /* width: 213.69px; */
+    width: 213.69px;
     height: 75.2px;
-    left: 92.01px;
-    top: 46.84px;
+    left: 242.01px;
+    top: 33.84px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -1076,7 +1076,7 @@ tr {
     border-radius: 8px;
     position: absolute;
     left: 47px;
-    top: 119px;
+    top: 94px;
 }
 
 .dash-img :hover {

@@ -98,7 +98,6 @@ $metaTitle = "Hospitals Dashboard"
                     <br>
                     <input class="hosName-input" id="hosName"  type="text" name="hosName" value="<?php echo $_SESSION['user_Name']?>" >
                     <br>
-                    
 
                 <label id="teleNo-label" class="teleNo-label" for="teleNo">Telephone Number:</label>
                 <br>
@@ -168,8 +167,6 @@ $metaTitle = "Hospitals Dashboard"
 
                 <button class="update-button" type="submit" name="request" id="submit-btn">Update Profile</button>
                 <button class="cancl-button" type="reset" name="cancel-adding" ><a href="/requestBlood/viewProfile/" class="cancel">Cancel Adding</a></button>
-
-                <script src="../../../public/js/validation/orgvalidation.js"></script> 
                 </form>
             </div>
             

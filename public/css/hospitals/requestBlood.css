@@ -139,7 +139,7 @@ body {
 .side-bar {
     position: absolute;
     width: 277.49px;
-    height: 864px;
+    height: 825px;
     left: -5px;
     top: 102px;
     background: #FFFFFF;
@@ -263,7 +263,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 30.2958px;
+    font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -289,7 +289,6 @@ body {
 .req-btn a {
     color: white;
     font-family: "Poppins";
-    font-size: 14px;
 }
 
 .dashboard {
@@ -534,7 +533,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1586px;
-    height: 868px;
+    height: 778px;
     left: 300px;
     top: 100px;
     background: #ffffff;
@@ -546,7 +545,7 @@ body {
     box-sizing: border-box;
     position: absolute;
     width: 1597px;
-    height: 867px;
+    height: 777px;
     left: 300px;
     top: -32px;
     background: #ffffff;
@@ -698,7 +697,7 @@ a {
     width: 200px;
     height: 50px;
     left: 714px;
-    top: 600px;
+    top: 513px;
     background: #640E0B;
     border-radius: 10.8716px;
     font-family: 'Poppins';
@@ -726,7 +725,7 @@ a {
     width: 203.66px;
     height: 51px;
     left: 940px;
-    top: 600px;
+    top: 513px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -988,15 +987,15 @@ th {
 
 .bloodBanks-table {
     position: absolute;
-    top: 169px;
+    top: 144px;
     left: 166px;
 }
 
 .bloodBanks-line {
     position: absolute;
-    width: 72%;
+    width: 76%;
     height: 0px;
-    top: 193.25px;
+    top: 168.25px;
     left: 168px;
     border: 0.818053px solid #EFEFEF;
 }
@@ -1023,7 +1022,7 @@ th {
     width: 960px;
     height: 78px;
     left: 183px;
-    top: 193px;
+    top: 149px;
 }
 
 .bloodGroup-input {
@@ -1036,9 +1035,6 @@ th {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: 'Poppins';
 }
 
 .add-user-title {
@@ -1050,7 +1046,7 @@ th {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 30.2958px;
+    font-size: 20.2958px;
     line-height: 30px;
     letter-spacing: 0.01em;
     color: #000000;
@@ -1065,7 +1061,7 @@ th {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1077,7 +1073,7 @@ th {
     width: 960px;
     height: 78px;
     left: 184px;
-    top: 244px;
+    top: 173px;
 }
 
 .bloodComponent-label {
@@ -1089,12 +1085,11 @@ th {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
     color: #000000;
-    
 }
 
 .bloodComponent-input {
@@ -1107,17 +1102,13 @@ th {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: 'Poppins';
-
 }
 
 .quant-container {
     position: relative;
     width: 960px;
     height: 78px;
-    top: 291px;
+    top: 197px;
     left: 185px;
 }
 
@@ -1130,7 +1121,7 @@ th {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1147,9 +1138,6 @@ th {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: 'Poppins';
 }
 
 .bloodbank-container {
@@ -1237,7 +1225,7 @@ td {
 .pag-box {
     float: right;
     display: flex;
-    margin-top: 778px;
+    margin-top: 725px;
     margin-right: 192px;
 }
 
@@ -1396,11 +1384,11 @@ td {
     height: 16px;
     left: 200px;
     right: 0px;
-    top: 227px;
+    top: 200px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1412,16 +1400,13 @@ td {
     position: absolute;
     left: 198px;
     right: 335px;
-    
-    top: 256px;
+    ;
+    top: 224px;
     /* bottom: 727px; */
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     height: 56px;
-    padding:10px;
-    font-family: 'Poppins';
-    font-size: 15px;
 }
 
 .teleNo-label {
@@ -1429,11 +1414,11 @@ td {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 332px;
+    top: 290px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1445,31 +1430,27 @@ td {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 361px;
+    top: 315px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    padding: 10px;
-    font-family: 'Poppins';
-    font-size: 15px;
 }
 
 .loc-label {
     position: absolute;
     height: 16px;
-    left: 191px;
+    left: 198px;
     right: 114px;
-    top: 424px;
+    top: 378px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
     color: #000000;
-    padding: 10px;
 }
 
 .num-input {
@@ -1478,14 +1459,11 @@ td {
     height: 56px;
     left: 198px;
     right: 1035px;
-    top: 462px;
+    top: 402.22px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
     transform: rotate(-0.23deg);
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .laneNme-input {
@@ -1494,14 +1472,10 @@ td {
     height: 56px;
     left: 577px;
     right: 680px;
-    top: 462px;
+    top: 402.22px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
-
 }
 
 .cit-input {
@@ -1510,13 +1484,10 @@ td {
     height: 56px;
     left: 927px;
     right: 335px;
-    top: 462px;
+    top: 402.22px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .dis-input {
@@ -1525,13 +1496,10 @@ td {
     height: 56px;
     left: 198px;
     right: 909px;
-    top: 544px;
+    top: 468px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .prov-input {
@@ -1540,13 +1508,10 @@ td {
     height: 56px;
     left: 747px;
     right: 335px;
-    top: 544px;
+    top: 468px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .em-label {
@@ -1558,7 +1523,7 @@ td {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1575,9 +1540,6 @@ td {
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .newPw-input {
@@ -1585,14 +1547,11 @@ td {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 652px;
+    top: 575px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .newPw-label {
@@ -1600,11 +1559,11 @@ td {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 623px;
+    top: 551px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1616,14 +1575,11 @@ td {
     position: absolute;
     left: 198px;
     right: 335px;
-    top: 756px;
+    top: 672px;
     height: 56px;
     background: #FFFFFF;
     border: 2px solid #949494;
     border-radius: 8px;
-    font-size: 15px;
-    font-family: "Poppins";
-    padding: 10px;
 }
 
 .confirmPw-label {
@@ -1631,11 +1587,11 @@ td {
     height: 16px;
     left: 198px;
     right: 0px;
-    top: 729px;
+    top: 648px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
@@ -1672,21 +1628,16 @@ td {
     position: absolute;
     width: 165px;
     height: 52px;
-    left: 854px;
-    top: 871px;
+    left: 934px;
+    top: 790px;
     color: white;
     background: #640E0B;
     border-radius: 10.8716px;
-    font-family: 'Poppins';
-    font-size: 15px;
-}
-
-.update-button:hover {
-    font-size: 16px;
 }
 
 .cancl-button {
     box-sizing: border-box;
+    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1694,20 +1645,14 @@ td {
     padding: 9.05963px;
     gap: 9.06px;
     position: absolute;
-    width: 182.66px;
-    height: 52px;
-    left: 1066px;
-    top: 871px;
+    width: 203.66px;
+    height: 52.49px;
+    left: 1124px;
+    top: 790px;
     color: #640E0B;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
-    font-size: 15px;
-    font-family: 'Poppins';
-}
-
-.cancl-button:hover {
-    font-size: 16px;
 }
 
 .cancl-button a {
@@ -1895,7 +1840,7 @@ td {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 869px;
+    height: 797px;
     left: 316px;
     top: 100px;
     background: #ffffff;

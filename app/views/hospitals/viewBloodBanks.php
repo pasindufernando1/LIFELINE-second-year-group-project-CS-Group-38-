@@ -54,11 +54,11 @@ $metaTitle = "Hospitals Dashboard"
                 </div>
             </div>
             <div class="box">
-                        <p class="view-bloodBank-title">Select Blood Bank to Request Blood</p>
+                        <p class="view-bloodBank-title">Select Blood Bank to Requset Blood</p>
                         <form action="/requestBlood/add_Request/" method="post">
                         <table class="bloodBanks-table" style="width:80%">
                         <tr>
-                            
+                            <th>Blood Bank ID</th>
                             <th>Name</th>
                             <th>Address</th>
                             <th>Province</th>
@@ -88,8 +88,8 @@ $metaTitle = "Hospitals Dashboard"
                             //print_r($result);die();
                             foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                 echo '<div class="table-content-types"> <tr>
-                                        
-                                        <td>' . $row["BloodBank_Name"] . "</td>
+                                        <td>' . $row["BloodBankID"]. "</td>
+                                        <td>" . $row["BloodBank_Name"] . "</td>
                                         <td>" . $row["Number"] ," , ",$row["LaneName"]," , ",$row["City"]," , ",$row["District"] ."</td>
                                         
                                        

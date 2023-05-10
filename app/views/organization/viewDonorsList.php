@@ -163,9 +163,9 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                         }
                         echo '<div class="pag-box1">';
                         if (!isset($_GET['page']) || $_GET['page'] == 1) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . 1 . '">&laquo;</a> </div>'; 
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
                         } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
                         }
                         
                         for($page = 1; $page <= $number_of_page; $page++) {  
@@ -175,16 +175,16 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                                 $current_page = $_GET['page'];
                             }
                             if ($page == $current_page) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . $page . '">' . $page . ' </a> </div>';
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
                             } else {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . $page . '">' . $page . ' </a> </div>';  
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
                             }
                         }
                         
                         if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . $number_of_page . '">&raquo; </a> </div>';
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
                         } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?slot='.$_GET['slot'].'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
                         }
                         
                         echo '</div>'; ?>

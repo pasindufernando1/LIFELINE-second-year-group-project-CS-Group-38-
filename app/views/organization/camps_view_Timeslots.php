@@ -127,11 +127,8 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                                
 
                             </div>';
-                            $results_per_page = 7;
-                            //print_r(count($_SESSION['timeslots']));die();
-                            $number_of_results = count($_SESSION['timeslots']);
-                            //print_r($_SESSION['rowCount']);die();
-                            //print_r($number_of_results);die();
+                            $results_per_page = 4;
+                            $number_of_results = $_SESSION['rowCount'];
                             $number_of_page = ceil($number_of_results / $results_per_page);
     
                             //determine which page number visitor is currently on  
@@ -145,7 +142,7 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                             $result = $_SESSION['timeslots'];
 
 
-                            if ($number_of_results > 0) {
+                            if ($_SESSION['rowCount'] > 0) {
                                 foreach(array_slice($result, ($results_per_page*$page - $results_per_page), $results_per_page) as $row) {
                                     echo '<div class="table-content-types"> <tr>
                                             
@@ -167,32 +164,40 @@ $_SESSION['SlotID'] = intval($_GET['slot']);
                                 <td> No timeslots available </td>
                                 </tr> </div>';
                             }
-                            echo '<div class="camps-pag-box">';
-                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . 1 . '">&laquo;</a> </div>'; 
-                        } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
-                        }
-                        
-                        for($page = 1; $page <= $number_of_page; $page++) {  
-                            if (!isset($_GET['page'])) {
-                                $current_page = 1;
-                            } else {
-                                $current_page = $_GET['page'];
-                            }
-                            if ($page == $current_page) {
-                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';
-                            } else {
-                                echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $page . '">' . $page . ' </a> </div>';  
-                            }
-                        }
-                        
-                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . $number_of_page . '">&raquo; </a> </div>';
-                        } else {
-                            echo '<div class="pag-div"> <a class="pagination-number" href = "?campaign='.$_GET['campaign'].'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
-                        }
-                        
-                        echo '</div>';
-                        ?>
-                    
+                            echo '<div class="page-box">';
+if (!isset($_GET['page']) || $_GET['page'] == 1) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . 1 . '">&laquo;</a> </div>'; 
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+}
+
+for($page = 1; $page <= $number_of_page; $page++) {  
+    if (!isset($_GET['page'])) {
+        $current_page = 1;
+    } else {
+        $current_page = $_GET['page'];
+    }
+    if ($page == $current_page) {
+        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';
+    } else {
+        echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $page . '">' . $page . ' </a> </div>';  
+    }
+}
+
+if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . $number_of_page . '">&raquo; </a> </div>';
+} else {
+    echo '<div class="pag-div"> <a class="pagination-number" href = "?page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+}
+
+echo '</div>';
+
+                 
+                
+               
+
+            
+            
+
+
+?>

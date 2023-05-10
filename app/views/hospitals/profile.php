@@ -73,7 +73,6 @@ $metaTitle = "Hospitals Dashboard"
 
                 <div id="myDialog" class="dialog">
                     <div class="dialog-content">
-                        <h2>Change your Email</h2>
                         <form action="/requestBlood/confirm_password" method="POST">
                             <?php if (isset($_SESSION['p_error'])) {
                                 echo "<p id='pass_error'>" . $_SESSION['p_error'] . "</p>";
@@ -88,18 +87,15 @@ $metaTitle = "Hospitals Dashboard"
 
                 <div id="myEmail" class="dialog">
                     <div class="dialog-content">
-                    <p class="ppp">After submitting the new email, you will receive an OTP code...</p>
-                        <form action="/requestBlood/get_email" method="POST" id="emailform">
-                            
+                        <form action="/requestBlood/get_email" method="POST">
+                            <p class="ppp">After submitting the new email, you will receive an OTP code...</p>
                             <?php if (isset($_SESSION['e_error'])) {
                                 echo "<p class='pass_error'>" . $_SESSION['e_error'] . "</p>";
                             } ?>
-                            <label id="email-label" >Please enter your new email :</label>
+                            <label for="email">Please enter your new email :</label>
                             <input type="text" id="email" name="email">
                             <button type="submit" name="confirm">Enter</button>
-                            <button id="cancelButton1"
-                            onclick="document.getElementById('myEmail').style.display = 'none';return false;">Cancel</button>
-                            
+                            <button onclick="hidealert()">Cancel</button>
                         </form>
                     </div>
                 </div>
@@ -114,7 +110,7 @@ $metaTitle = "Hospitals Dashboard"
                             <label for="otp">Please enter the received OTP :</label>
                             <input type="text" id="otp" name="otp">
                             <button type="submit" name="confirm">Enter</button>
-                            <button id="cancelButton2" onclick="hideotp()">Cancel</button>
+                            <button onclick="hidealert()">Cancel</button>
                         </form>
                     </div>
                 </div>
@@ -156,75 +152,7 @@ $metaTitle = "Hospitals Dashboard"
                 otp.style.display = "none";
             }
         </script>
-        <script src="../../../public/js/validation/orgvalidation.js"></script>
 
-        <div id="myEmail" class="dialog">
-            <div class="dialog-content">
-                <form action="/requestBlood/get_email" method="POST">
-                    <p class="ppp">After submitting the new email, you will receive an OTP code...</p>
-                    <?php if (isset($_SESSION['e_error'])) {
-                        echo "<p class='pass_error'>" . $_SESSION['e_error'] . "</p>";
-                    } ?>
-                    <label id="email-label2" for="email2">Please enter your new email :</label>
-                    <input type="text" id="email2" name="email">
-                    <button type="submit" name="confirm">Enter</button>
-                    <button onclick="hidealert()">Cancel</button>
-                </form>
-            </div>
-        </div>
-
-        <div id="myOTP" class="dialog">
-            <div class="dialog-content">
-                <!-- <p>After submitting the new email, you will receive an OTP code...</p> -->
-                <form action="/requestBlood/confirm_OTP" method="POST">
-                    <?php if (isset($_SESSION['otp_error'])) {
-                        echo "<p id='pass_error'>" . $_SESSION['otp_error'] . "</p>";
-                    } ?>
-                    <label for="otp2">Please enter the received OTP :</label>
-                    <input type="text" id="otp2" name="otp">
-                    <button type="submit" name="confirm">Enter</button>
-                    <button onclick="hidealert()">Cancel</button>
-                </form>
-            </div>
-        </div>
-
-        <script>
-            // Get the dialog box
-            var dialog = document.getElementById("myDialog");
-            var email = document.getElementById("myEmail");
-            var otp = document.getElementById("myOTP")
-            // var otp = document.getElementById("myOTP");
-            // Get the input field and buttons 
-            var input = document.getElementById("name");
-            var okButton = document.getElementById("okButton");
-            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
-
-            function showalert() {
-                dialog.style.display = "block";
-            } //Show the email dialog box when the page loads
-
-            function showemail() {
-                email.style.display = "block";
-            } //Show the otp dialog box when the page loads
-            function showotp() {
-                otp.style.display = "block";
-            }
-            // When the user clicks the OKbutton, get the input value and close the dialog box 
-
-            // When the user clicks the Cancelbutton, close the dialog box
-
-            function hidealert() {
-                dialog.style.display = "none";
-            }
-
-            function hideemail() {
-                email.style.display = "none";
-            }
-
-            function hideotp() {
-                otp.style.display = "none";
-            }
-        </script>
             <div class="main">
                 <div class="left">
                 <p>
@@ -280,11 +208,5 @@ $metaTitle = "Hospitals Dashboard"
             </div>
             
             </div>   
-        </div>
-    </div>
-    
-
-</body>
-</html>
 
             

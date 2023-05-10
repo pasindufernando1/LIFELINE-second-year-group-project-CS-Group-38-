@@ -110,7 +110,7 @@ $metaTitle = "organizations Dashboard"
             </div>
             <div class="box">
                 <h2 class="add-user-title"> Request for Approval of Donation Campaign</h2>
-                <form action="/requestApproval/addRequest/" method="post" id="requestform">
+                <form action="/requestApproval/addRequest/" method="post" id="addform">
                 
                     <label id="campName-label" class="campName-label" for="campName">Campaign Name:</label>
                     <br>
@@ -143,9 +143,10 @@ $metaTitle = "organizations Dashboard"
                     <br>
                     <label id="donors-label" class="donors-label" for="donors">Number of Donors:</label>
                     <br>
-                    <input class="donors-input" id="donors" type="text" name="donors" autofocus placeholder="Number of Donors" required>
+                    <input class="donors-input" id="donors" type="text" name="donors" autofocus
+                        placeholder="Number of Donors" required>
 
-                    <button class='brown-button' type='submit' name='request' id="submit-btn-request">Request</button>
+                    <button class='brown-button' type='submit' name='request' id="submit-btn">Request</button>
 
                     <button class='outline-button' type='reset' name='cancel-adding'><a href="/requestApproval/viewDetails/" class="cancel">Cancel Adding</a></button>
 
