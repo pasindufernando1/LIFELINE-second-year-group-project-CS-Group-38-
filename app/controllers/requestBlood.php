@@ -615,7 +615,7 @@ class requestBlood extends Controller
                     }
                 } else {
                     $_SESSION['otp_error'] = "OTP is incorrect";
-                    $this->view->render('/requestBlood/viewProfile');
+                    $this->view->render('/hospitals/Profile');
                     echo '<script>hidealert();</script>';
                     echo '<script>showotp();</script>';
                     // $this->view->render('donor/profile_edit_otp');

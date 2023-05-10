@@ -1,0 +1,111 @@
+/* navigation.php CSS File */
+
+.navigation {
+    /* Auto layout */
+    display: flex;
+    position: sticky;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 84px;
+    background: #FBDAD9;
+    mix-blend-mode: normal;
+}
+
+.navigation-items li {
+    /* Auto layout */
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.navigation-items li a {
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.item-1 a {
+    box-sizing: border-box;
+    width: auto;
+    height: 28px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BF1B16;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.item-2 a {
+    width: auto;
+    height: 28px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BF1B16;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.item-3 a {
+    width: auto;
+    height: 28px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BF1B16;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.item-4 a {
+    width: auto;
+    height: 28px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BF1B16;
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.item-5 a {
+    width: auto;
+    height: 28px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #BF1B16;
+    /* Inside auto layout */
+    flex: none;
+    order: 4;
+    flex-grow: 0;
+}
+
+.navigation-items {
+    padding-left: 400px !important;
+}
