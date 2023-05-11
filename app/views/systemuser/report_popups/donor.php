@@ -13,7 +13,7 @@
     <div class="container">
       <h1>Generate Donor Report</h1>
       <div class="remove-filter">
-        <input name="all_type" type="checkbox" value="all">Remove all filters</input>
+        
       </div>
     <div>
         <div>

@@ -34,9 +34,17 @@ $metaTitle = "System User - Blood Requests"
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/accepted_request.php'); 
+    include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/rejected_request.php'); 
     if ($_GET['status'] == "accepted") { ?>
         <script>
             document.getElementById('id01').style.display='block';
+        </script>
+    <?php }
+    ?>
+    <?php
+    if ($_GET['status'] == "rejected") { ?>
+        <script>
+            document.getElementById('id02').style.display='block';
         </script>
     <?php }
     ?>
