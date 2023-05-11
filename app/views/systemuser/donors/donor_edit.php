@@ -19,6 +19,7 @@ $metaTitle = "Donors - Edit"
     <link href="../../../public/css/systemuser/sidebar.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/donor.css" rel="stylesheet">
     <link href="../../../public/css/systemuser/donor_add.css" rel="stylesheet">
+    <link href="../../../public/css/systemuser/donor_edit.css" rel="stylesheet">
    
     
     <!-- Font Files -->
@@ -195,7 +196,7 @@ $metaTitle = "Donors - Edit"
                                 <input id="expiry_constraints" class="expiry-constraints-input" type="text" name="expiry_constraints" autofocus placeholder="Expiry Constraints" required> -->
                             <div>
                                 <button id="submit-btn" class='brown-button' type='submit' name='add-donor'>Update Donor</button>
-                                <img class="addbutton" src="./../../public/img/admindashboard/add-button.png" alt="add-button">
+                                <img class="addbutton" src="./../../public/img/dashboard/add-button.png" alt="add-button">
                                 <a class='outline-button' type='reset' name='cancel-adding' href="/sys_donors?page=1">Cancel Adding</a>
                                 <img class="cancelbutton" src="./../../public/img/admindashboard/cancel-button.png" alt="cancel-button">
                             </div>
