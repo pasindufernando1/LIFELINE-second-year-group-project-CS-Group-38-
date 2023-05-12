@@ -39,6 +39,7 @@ class BadgesModel extends Model
                 ':Donations',
                 $donations
             )[0];
+            // print_r($newest_badge);die();
 
             return $newest_badge;
         }
@@ -53,6 +54,7 @@ class BadgesModel extends Model
             ':Donation_Constraint',
             $constraint
         );
+        print_r($badges);die();
         return $badges;
     }
 
