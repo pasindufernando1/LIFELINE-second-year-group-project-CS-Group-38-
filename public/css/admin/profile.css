@@ -793,7 +793,7 @@ body {
     padding: 12px 20px;
 }
 
-.reserve-id-input::placeholder {
+.reserve-id-input::placeholder{
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -866,7 +866,6 @@ body {
     /* identical to box height, or 143% */
     letter-spacing: 0.3px;
     color: #000000;
-    opacity: 0.4;
 }
 
 a {
@@ -1330,7 +1329,6 @@ a {
     /* identical to box height, or 143% */
     letter-spacing: 0.3px;
     color: #000000;
-    opacity: 0.4;
 }
 
 .nic-input {
@@ -1766,7 +1764,6 @@ a {
     /* identical to box height, or 143% */
     letter-spacing: 0.3px;
     color: #000000;
-    opacity: 0.4;
 }
 
 .brown-button {
@@ -2776,4 +2773,8 @@ canvas {
     left: 0px;
     margin-left: 17px;
     margin-top: 15px;
+}
+
+#Name::placeholder, #email::placeholder, #password::placeholder , #confirmPassword::placeholder, #contact::placeholder{
+    opacity: 0.5;
 }

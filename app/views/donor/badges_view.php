@@ -76,7 +76,6 @@ $metaTitle = 'Donor Badges'; ?>
                     The Badges You Earned Will be Displayed Here<br><br>Go to Campaigns to See Upcoming Campaigns </p>";
                 } else {
                     foreach ($_SESSION['badges'] as $badge) {
-                        print_r($badge[0]);die();
                         echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '">
                     <p>' . $badge['Name'] . ' Badge</p></div>';
                     }

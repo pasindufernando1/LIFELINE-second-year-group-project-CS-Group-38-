@@ -19,7 +19,7 @@ class RequestApprovalModel extends Model
     public function getadvertisementIDs()
     {
         $donationType = "Inventory";
-        $data = $this->db->select("AdvertisementID", "donation", "WHERE DonationType = :DonationType;", ':DonationType', $donationType);
+        $data = $this->db->select("AdvertisementID", "donation", "WHERE DonationType = :DonationType", ':DonationType', $donationType);
         //print_r($data);die();
         //print_r($data);die();
         return $data;
@@ -33,12 +33,18 @@ class RequestApprovalModel extends Model
         return $data;
     }
 
+    public function getInventoryDonationAdvertisements()
+    {
+        $data = $this->db->select("donation.*,advertisement.*","donation","Inner Join advertisement ON donation.AdvertisementID = advertisement.AdvertisementID WHERE donation.DonationType = 'Inventory' AND advertisement.Archive = 0");
+        return $data;
+    }
+
 
     //function to get all details from the advertisement table using the advertisement ID
     public function getAdvertisements($adid)
     {
-        $data = $this->db->select("*", "advertisement", "WHERE AdvertisementID = :AdvertisementID;", ':AdvertisementID', $adid);
-        //print_r($data);
+        $data = $this->db->select("*", "advertisement", "WHERE AdvertisementID = :AdvertisementID  AND Archive = 0", ':AdvertisementID', $adid);
+        //print_r($data);die();
         return $data;
     }
 
@@ -136,7 +142,8 @@ class RequestApprovalModel extends Model
     public function getCampaigns($User_ID)
     {
 
-        $data = $this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID", ':OrganizationUserID', $User_ID);
+        $data = $this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Archive = 0", ':OrganizationUserID', $User_ID);
+        //print_r($data);die();
         return $data;
 
 
@@ -261,7 +268,7 @@ class RequestApprovalModel extends Model
     public function getAcceptedCampaigns($User_ID)
     {
 
-        $data = $this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Status= 1 ", ':OrganizationUserID', $User_ID);
+        $data = $this->db->select("*", "donation_campaign", "WHERE OrganizationUserID =:OrganizationUserID AND Status= 1 AND Archive = 0", ':OrganizationUserID', $User_ID);
         //filter the $data array to get only upcoming campaigns
         //print_r($data);die();
         /* $upcoming_campaigns = array();
@@ -685,6 +692,15 @@ class RequestApprovalModel extends Model
         return $data[0]['InventoryCategory'];
     }
 
+    public function delete_profile($userid){
+        $result = $this->db->update('user','Deactivation',':Deactivation','1',':UserID',$userid,'WHERE UserID =:UserID');
+        if($result=='Success'){
+            return true;
+        }
+        else{
+            return false;
+        } 
+    }
     
 
 }

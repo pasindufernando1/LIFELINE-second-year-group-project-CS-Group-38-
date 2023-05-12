@@ -20,8 +20,6 @@
         <p id="heading">
             Select Month & Year
         </p>
-            <!-- Only the date section in date format
-            <input type="int" name="date" id="date" placeholder="Date" class="date"> -->
             <!-- Only the month section in date format -->
             <select id="month" name="month">
                 <option value="" disabled selected hidden>--Select Month--</option>
@@ -66,18 +64,6 @@ window.onclick = function(event) {
 // const date = document.getElementById('date');
 const year = document.getElementById('year');
 const head = document.getElementById('heading');
-
-// Date should be in the range of 1-31
-// date.addEventListener('input', function() {
-//     const inputValue = parseInt(date.value); // Parse input value as an integer
-//     if (isNaN(inputValue) || inputValue > 31 || inputValue < 1) {
-//         head.innerHTML = "Date should be in the range of 1-31";
-//         date.style.color = 'red';
-//     } else {
-//         head.innerHTML = "Select Date,Month,Year";
-//         date.style.color = 'black';
-//     }
-// });
 
 // Year should be a four digit number
 year.addEventListener('input', function() {

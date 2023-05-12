@@ -124,6 +124,7 @@ $metaTitle = "Campaign Report"
     
     </script>
     <script>
+        // Send to the database
         var doc = new jsPDF();
         $('#send-database').click(function() {
             var htmlContent = $('#box-camp').html();
@@ -154,7 +155,7 @@ $metaTitle = "Campaign Report"
         });
 
 
-
+        // Download the report as PDF
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box-camp')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');

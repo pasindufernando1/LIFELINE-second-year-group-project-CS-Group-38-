@@ -87,7 +87,7 @@ $metaTitle = "Reserves"
                         <td>' . $row["BloodBank_Details"]["BloodBank_Name"]. "</td>
                         <td>" . $row["Type_Name"] . "</td>
                         <td>" . $row["Subtype"] . "</td>
-                        <td>" . $row["Quantity"] . "</td>
+                        <td>" . $row["Quantity"] . " ml</td>
                         <td>" . $row["BloodBank_Details"]["District"] . "</td>
                         <td>" . $row["BloodBank_Details"]["Province"] . '</td>
                     </tr> </div>';

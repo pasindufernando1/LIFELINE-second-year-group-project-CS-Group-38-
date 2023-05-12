@@ -2073,7 +2073,6 @@ a {
     color: #BF1B16;
     font-family: 'Poppins';
     font-weight: bolder;
-    font-size: 18px;
     border: none;
     padding: 0px;
 }
@@ -2081,15 +2080,14 @@ a {
 .validated-btn {
     width: 236px;
     height: 35px;
-    background: #AFAFAF;
+    background: #87d4ad;
     border-radius: 4px;
     margin: 0px -43px 0px -30px;
     text-align: center;
     cursor: pointer;
-    color: #5C5C5C;
+    color: #040404;
     font-family: 'Poppins';
     font-weight: bolder;
-    font-size: 18px;
     border: none;
     padding: 0px;
 }

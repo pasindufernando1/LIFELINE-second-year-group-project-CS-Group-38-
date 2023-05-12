@@ -11,38 +11,38 @@ class BadgesModel extends Model
 
     public function getnewestbadge($userid)
     {
-        $camp_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_campaign_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        )[0][0];
+            $newest_badge_count = $this->db->select(
+                'COUNT(*)',
+                'donor_badges',
+                'WHERE DonorUserID = :DonorID',
+                ':DonorID',
+                $userid
+            );
+            if($newest_badge_count[0][0] == 0)
+            {
+                return null;
+            }
+            else{
+                $newest_badge_id = $this->db->select(
+                    'BadgeID',
+                    'donor_badges',
+                    'WHERE DonorUserID = :DonorID',
+                    ':DonorID',
+                    $userid
+                )[0];
+                $newest_badge = $this->db->select(
+                    '*',
+                    'badge',
+                    'WHERE BadgeID = :BadgeID',
+                    ':BadgeID',
+                    $newest_badge_id['BadgeID']
+                )[0];
+                // print_r($newest_badge);die();
+                return $newest_badge;
+            }
 
-        $bank_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_bloodbank_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        )[0][0];
-        $donations = $camp_donations + $bank_donations;
-
-        if ($donations == 0) {
-            return null;
-
-        } else {
-            $newest_badge = $this->db->select(
-                '*',
-                'badge',
-                'WHERE Donation_Constraint = :Donations',
-                ':Donations',
-                $donations
-            )[0];
-
-            return $newest_badge;
-        }
     }
+    
 
     public function getbadges($constraint)
     {
@@ -53,6 +53,7 @@ class BadgesModel extends Model
             ':Donation_Constraint',
             $constraint
         );
+        //print_r($badges);die(); 
         return $badges;
     }
 

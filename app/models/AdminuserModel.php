@@ -182,7 +182,7 @@ class AdminuserModel extends Model
         $mail->addReplyTo("noreply@lifeline.com", "Life Line");
         $mail->isHTML(true);                                 // Set email format to HTML
         $mail->Subject = "Registration acceptance verification";
-        $mail->Body    = "<p>This email is to confirm that your registration has been approved for 'LIFELINE' blood banks and donation management system. <br>Now you can use login to the system and stay in connect with us.</p>";
+        $mail->Body    = "<p>This email is to confirm that your registration has been approved for 'LIFELINE' blood banks and donation management system. <br>Now you can use login in to the system and stay in connect with us.</p>";
         $mail->AltBody = "This email is to confirm that your registration has been approved for 'LIFELINE' blood banks and donation management system. <br>Now you can use login to the system and stay in connect with us.";
         if(!$mail->send()) {
             echo 'Message could not be sent.';

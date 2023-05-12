@@ -1,0 +1,16 @@
+Date,Complication,Name,Subtype,Quantity,Status
+2023-05-11,None,A+,RBC,100,1
+2023-05-11,None,A+,RBC,80,1
+2023-05-12,Fained,A+,RBC,,1
+2023-05-11,None,A+,RBC,120,1
+2023-05-11,None,A+,WBC,110,1
+2023-05-11,None,A+,WBC,90,1
+2023-05-12,Fained,A+,WBC,,1
+2023-05-11,None,A+,WBC,200,1
+2023-05-11,None,A+,Platelet,130,1
+2023-05-11,None,A+,Platelet,60,1
+2023-05-12,Fained,A+,Platelet,,1
+2023-05-11,None,A+,Platelet,180,1
+2023-05-11,,A-,RBC,300,1
+2023-05-11,,A-,WBC,100,1
+2023-05-11,,A-,Platelet,100,1

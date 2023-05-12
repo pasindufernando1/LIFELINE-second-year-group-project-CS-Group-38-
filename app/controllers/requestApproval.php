@@ -742,68 +742,68 @@ class requestApproval extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Organization/Society') {
-                $AdID = $this->model->getadvertisementIDs();
+                // $AdID = $this->model->getadvertisementIDs();
                 
+                // $x=sizeof($AdID);
+                // //print_r($x);die();
+                // for($i=0;$i<$x;$i++){
+                //     $adid=$AdID[$i]['AdvertisementID'];
+                //     $AdDetails[$i]=$this->model->getAdvertisements($adid);
+                //     if(empty($AdDetails[$i])){
+                //         unset($AdDetails[$i]);
+                //         $i--;
+                //     }
+                // }
+                // //print_r($AdDetails);die();
+                // $y=sizeof($AdDetails);
                 
-                $x=sizeof($AdID);
-                
-                for($i=0;$i<$x;$i++){
-                    $adid=$AdID[$i]['AdvertisementID'];
-                    $AdDetails[$i]=$this->model->getAdvertisements($adid);
-                }
-                for($i=0;$i<$x;$i++){
-                    $adid=$AdID[$i]['AdvertisementID'];
+                // for($i=0;$i<$y;$i++){
+                //     $adid=$AdDetails[$i][0]['AdvertisementID'];
                     
-                    $inventoryCat[$i]=$this->model->getInventoryCatToAd($adid);
+                //     $inventoryCat[$i]=$this->model->getInventoryCatToAd($adid);
+                  
+                // }
+                // //print_r($inventoryCat);die();
+                // $x=sizeof($AdID);
+                
+                // //print_r($donationID);die();
+                // foreach ($AdDetails as $details) {
+                //     $bloodbankIds[] = $details[0]['BloodBankID'];
+                // }
+                  
+                //     $x=sizeof($bloodbankIds);
+                //   for($i=0;$i<$x;$i++){
+                //     $bloodbankName[$i]=$this->model->getBloodbankNames($bloodbankIds[$i]);
                     
-                }
+                //   }
+                //   //print_r($bloodbankName);die();
+                //   $data=[];
                 
-                $x=sizeof($AdID);
+                // for($i=0;$i<$x;$i++){
+                //     //$data[$i]['BloodBank_Name'] = $bloodbankName[$i][0]['BloodBank_Name'];
+                //     $data[$i]['Advertisement_pic'] = $AdDetails[$i][0]['Advertisement_pic'];
+                //     $data[$i]['Description'] = $AdDetails[$i][0]['Description'];
+                //     $data[$i]['InventoryCategory'] = $inventoryCat[$i][0]['InventoryCategory'];
+                //     $data[$i]['AdvertisementID'] = $AdID[$i]['AdvertisementID'];
+                   
+                // }
+                // //print_r(count($data));die();
+                // print_r($data);die();
+                // //if the advertisement is not archived then only display it
                 
-                for($i=0;$i<$x;$i++){
-                    $adid=$AdID[$i]['AdvertisementID'];
-                    $total_received[$i]=$this->model->getTotalReceived($adid);
-                    
-                }
                 
+                // $_SESSION['advertisements'] = $data;
                 
-                //print_r($donationID);die();
-                foreach ($AdDetails as $details) {
-                    $bloodbankIds[] = $details[0]['BloodBankID'];
-                  }
-                  //print_r($AdDetails);die();
-                  //print_r($bloodbankIds[0]);die();
-                    $x=sizeof($bloodbankIds);
-                  for($i=0;$i<$x;$i++){
-                    $bloodbankName[$i]=$this->model->getBloodbankNames($bloodbankIds[$i]);
-                    //print_r($bloodbankName[$i]);die();
-                  }
-                  $data=[];
-                //$bloodbankName=$this->model->getBloodbankNames($bloodbankIds);
-                //print_r($bloodbankName);die();
-                for($i=0;$i<count($bloodbankName);$i++){
-                    //$data[$i]['BloodBank_Name'] = $bloodbankName[$i][0]['BloodBank_Name'];
-                    $data[$i]['Advertisement_pic'] = $AdDetails[$i][0]['Advertisement_pic'];
-                    $data[$i]['Description'] = $AdDetails[$i][0]['Description'];
-                    $data[$i]['InventoryCategory'] = $inventoryCat[$i][0]['InventoryCategory'];
-                    $data[$i]['AdvertisementID'] = $AdID[$i]['AdvertisementID'];
-                    //$data[$i]['$Total_amount']=$AdID[$i]['Total_amount'];
-                    /* foreach($AdDetails as $f){
-                        //if($f['BloodBankID']==$bloodbankIds[$i]){
-                        
-                            $data[$i]['advertisements'] = $f['advertisements'];
-                        //}
-                    } */
-                }
-                //print_r($data);die();
-                $_SESSION['advertisements'] = $data;
-                //print_r($_SESSION['advertisements']);die();
+                // $this->view->render('organization/viewAdvertisements');
+                
+                // exit();
+
+                // Get the inventory donation advertismnets where the advertisement is not archived
+                $_SESSION['advertisements'] = $this->model->getInventoryDonationAdvertisements();
                 $this->view->render('organization/viewAdvertisements');
-                
-                exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1427,6 +1427,54 @@ class requestApproval extends Controller
         } else {
             $this->view->render('authentication/login');
         }
+    }
+
+    function d_confirm_password()
+    {
+        if(isset($_SESSION['login'])){
+            if($_SESSION['type']=='Organization/Society'){
+                if(!(isset($_POST['confirm']))){
+                    header('Location: /requestApproval');
+                }
+                $password=$_POST['password1'];
+                $password=trim($password);
+                if($this->model->check_password($_SESSION['User_ID'],$password)){
+                    $this->view->render('organization/Profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showConfirm();</script>';
+                    if (isset($_SESSION['p_error'])) {
+                        unset($_SESSION['p_error']);
+                    }   
+                }
+                else{
+                    $_SESSION['p_error']="Password is incorrect";
+                    $this->view->render('organization/Profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showalert();</script>';
+                    
+
+                } 
+                
+            }
+            else{
+                $this->view->render('authentication/login');
+            }
+        }
+
+    }
+
+    function delete_success(){
+        if(isset($_SESSION['User_ID'])){
+            if($this->model->delete_profile($_SESSION['User_ID'])){
+                session_unset();
+                session_destroy();
+                $this->view->render('organization/delete_success');
+            }
+        }else{
+            $this->view->render('organization/delete_success');
+        }
+        
+        
     }
 
 }

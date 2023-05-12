@@ -58,23 +58,23 @@ $metaTitle = "Profile"
                 <div class="reserve-id-container">
                     <label class="reserve-id-lable" for="Name">Name:</label>
                     <br>
-                    <input id="Name" class="reserve-id-input" type="text" name="Name" autofocus placeholder="<?php echo $_SESSION['username'] ?>" disabled>
+                    <input class="reserve-id-input" type="text" name="Name" autofocus placeholder="<?php echo $_SESSION['username'] ?>" disabled>
                 </div>
                 <div class="blood-group-container">
                     <label class="blood-group-lable" for="Role">Role:</label>
                     <br>
-                    <input id="Role" class="blood-group-input" type="text" name="Role" autofocus placeholder="<?php echo ($_SESSION['type']); ?>" disabled>
+                    <input class="blood-group-input" type="text" name="Role" autofocus placeholder="<?php echo ($_SESSION['type']); ?>" disabled>
 
                 </div>
                 <div class="quantity-container">
                     <label class="quantity-lable" for="email">E-Mail:</label>
                     <br>
-                    <input id="email" class="quantity-input" type="text" name="email" autofocus placeholder="<?php echo ($_SESSION['useremail']); ?>" disabled>
+                    <input class="quantity-input" type="text" name="email" autofocus placeholder="<?php echo ($_SESSION['useremail']); ?>" disabled>
                 </div>
                 <div class="expirys-constraints-container">
                     <label class="expiry-constraints-lable" for="contact">Contact No:</label>
                     <br>
-                    <input id="contact" class="expiry-constraints-input" type="text" name="contact" autofocus placeholder="<?php echo ($_SESSION['user_contact']); ?>" disabled>
+                    <input  class="expiry-constraints-input" type="text" name="contact" autofocus placeholder="<?php echo ($_SESSION['user_contact']); ?>" disabled>
 
                 </div>
             </div>

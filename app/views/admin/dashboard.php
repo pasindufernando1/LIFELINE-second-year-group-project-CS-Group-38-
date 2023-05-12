@@ -99,38 +99,39 @@ $metaTitle = "Admin Dashboard";
             </div>
         </div>
     </div>
+
     <!-- $_SESSION['dashboard_stats'] -->
     <div class="bo1">
     <p class="te1">Blood Donations Today</p>
     <p class="te2"><?php echo $_SESSION['dashboard_stats']['Today_donations'];?></p>
-</div>
+    </div>
 
-<div class="bo2">
-    <p class="te1">Unread Feedbacks</p>
-    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Unread_feedbacks']?></p>
-    <!-- Button to take a look at the feedbacks -->
-    <a href="/feedbacks/type?page=1"><button class="feedback-btn">Review</button></a>
-</div>
+    <div class="bo2">
+        <p class="te1">Unread Feedbacks</p>
+        <p class="te2"><?php echo $_SESSION['dashboard_stats']['Unread_feedbacks']?></p>
+        <!-- Button to take a look at the feedbacks -->
+        <a href="/feedbacks/type?page=1"><button class="feedback-btn">Review</button></a>
+    </div>
 
-<div class="bo3">
-    <p class="te1">Cash Donations Today</p>
-    <p class="te2">Rs.<?php 
-    if($_SESSION['dashboard_stats']['Today_cash_donations'] != 0){
-        echo $_SESSION['dashboard_stats']['Today_cash_donations'];
-    }else{
-        echo "0";
-    }
-    ?></p>
-</div>
+    <div class="bo3">
+        <p class="te1">Cash Donations Today</p>
+        <p class="te2">Rs.<?php 
+        if($_SESSION['dashboard_stats']['Today_cash_donations'] != 0){
+            echo $_SESSION['dashboard_stats']['Today_cash_donations'];
+        }else{
+            echo "0";
+        }
+        ?></p>
+    </div>
 
-<div class="bo4">
-    <p class="te1">Approval Requests</p>
-    <p class="te2"><?php echo $_SESSION['dashboard_stats']['Total_hospital_requests']?></p>
-    
-</div>
+    <div class="bo4">
+        <p class="te1">Approval Requests</p>
+        <p class="te2"><?php echo $_SESSION['dashboard_stats']['Total_hospital_requests']?></p>
+        
+    </div>
 
-<div class="bo5">
-<p class="tebar">Recent Blood Donation Statistics</p>
+    <div class="bo5">
+    <p class="tebar">Recent Blood Donation Statistics</p>
 
 <!-- Barchart of donations -->
 <canvas id="usage-months">
