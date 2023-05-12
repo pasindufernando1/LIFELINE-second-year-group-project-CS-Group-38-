@@ -14,8 +14,10 @@ class Sys_reports extends Controller
         
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
+                $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+                $userid = $useridobj[0]['UserID'];
                 $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-                $_SESSION['reports'] = $this ->model-> getAllReportDetails($blood_bank_id);
+                $_SESSION['reports'] = $this ->model-> getAllReportDetails($userid);
                 $_SESSION['inv_types'] = $this ->model-> getAllInvTypes();
                 $_SESSION['don_org'] = $this ->model-> getAllorg($blood_bank_id);
                 $_SESSION['camp_org'] = $this ->model-> getCamporg($blood_bank_id);
@@ -28,7 +30,7 @@ class Sys_reports extends Controller
                     $start = $_POST['start'];
                     $end = $_POST['end'];
                     $output = array();
-                    $rows = $this->model->getfilterrep($blood_bank_id,$start,$end);
+                    $rows = $this->model->getfilterrep($userid,$start,$end);
                     $output = array_merge($output,$rows);       
                     
                 
@@ -448,8 +450,9 @@ class Sys_reports extends Controller
 
     function saver1()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+         $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+         $userid = $useridobj[0]['UserID'];
+         
         $header_args = array('Date','Complication','Name','Subtype','Quantity','Status');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/reservation_report_".date("Y-m-d_H-i",time()).".csv";
@@ -466,7 +469,7 @@ class Sys_reports extends Controller
         $name = 'Reservation Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -475,8 +478,8 @@ class Sys_reports extends Controller
 
     function saver2()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+         $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+         $userid = $useridobj[0]['UserID'];
         $header_args = array('Date','Complication','Name','Subtype','Quantity','Status');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/expired_blood_report_".date("Y-m-d_H-i",time()).".csv";
@@ -493,7 +496,7 @@ class Sys_reports extends Controller
         $name = 'Expired Blood Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -502,8 +505,9 @@ class Sys_reports extends Controller
 
     function saver3()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+        $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+        $userid = $useridobj[0]['UserID'];
+
         $header_args = array('Inventory Name','Inventory Type','Quantity');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/inventory_report_".date("Y-m-d_H-i",time()).".csv";
@@ -520,7 +524,7 @@ class Sys_reports extends Controller
         $name = 'Inventory Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -529,8 +533,9 @@ class Sys_reports extends Controller
 
     function saver4()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+        $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+        $userid = $useridobj[0]['UserID'];
+
         $header_args = array('Inventory Category','Quantity','Accepted_date','Admin_verify','Donated By');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/inventory_donation_report_".date("Y-m-d_H-i",time()).".csv";
@@ -547,7 +552,7 @@ class Sys_reports extends Controller
         $name = 'Inventory Donation Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -556,8 +561,9 @@ class Sys_reports extends Controller
 
     function saver5()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+        $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+        $userid = $useridobj[0]['UserID'];
+
         $header_args = array('Donor Name','Donor NIC','Date of Birth','Gender','Blood Type','Address No','Lane Name', 'City','District','Province');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/Donor_Report".date("Y-m-d_H-i",time()).".csv";
@@ -574,7 +580,7 @@ class Sys_reports extends Controller
         $name = 'Donor Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -583,8 +589,9 @@ class Sys_reports extends Controller
 
     function saver6()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+        $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+        $userid = $useridobj[0]['UserID'];
+
         $header_args = array('Donor Name','Donor NIC','blood Group','Date of Donation','Complication');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/Donation_Report".date("Y-m-d_H-i",time()).".csv";
@@ -601,7 +608,7 @@ class Sys_reports extends Controller
         $name = 'Donotion Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }
@@ -610,8 +617,9 @@ class Sys_reports extends Controller
 
     function saver7()
     {
-         $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
-        
+        $useridobj = $this ->model -> getUserid($_SESSION['useremail']);
+        $userid = $useridobj[0]['UserID'];
+
         $header_args = array('Campaign Name','Organized By','Location','Bed Quantity','Date','Starting Time','Ending Time','Number of Donors');
         $cur_date = date('Y-m-d');
         $csv_filename = $_SERVER['DOCUMENT_ROOT'] . "/public/reports/Campaigns_Report".date("Y-m-d_H-i",time()).".csv";
@@ -628,7 +636,7 @@ class Sys_reports extends Controller
         $name = 'Campaign Report '.date("Y-m-d_H-i",time()) ;
         $date = date("Y-m-d");
         $entity = 'System User';
-        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $res= $this->model->addReport($name,$date,$entity,$csv_filename,$userid);
         if($res){
              header("Location: /sys_reports?page=1");
         }

@@ -161,11 +161,27 @@ class ReservationModel extends Model
         return $pack;
     }
 
+    public function getfiltertypeRes($type,$blood_bank_id)
+    {
+        $params = array(':type',':blood_bank_ID');
+        $inputs = array($type,$blood_bank_id);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID  AND bloodcategory.Name = :type",$params,$inputs);
+        return $pack;
+    }
+
     public function getfiltertypes($type,$blood_bank_id,$subtype)
     {
         $params = array(':type',':blood_bank_ID','subtype');
         $inputs = array($type,$blood_bank_id,$subtype);
         $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.status = 2 AND bloodcategory.Name = :type AND bloodcategory.subtype = :subtype",$params,$inputs);
+        return $pack;
+    }
+
+    public function getfiltertypesRes($type,$blood_bank_id,$subtype)
+    {
+        $params = array(':type',':blood_bank_ID','subtype');
+        $inputs = array($type,$blood_bank_id,$subtype);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID  AND bloodcategory.Name = :type AND bloodcategory.subtype = :subtype",$params,$inputs);
         return $pack;
     }
 

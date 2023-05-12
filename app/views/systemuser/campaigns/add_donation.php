@@ -57,7 +57,7 @@ $metaTitle = "Donation - Add New" ;
     <!-- header -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <!-- Side bar -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>1`
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>
                     <div class="box">
                         <p class="add-reservation-title">Add to Donation - Campaign <?php echo $_SESSION['campaign'][0][1] ; ?></p>
                         <form action="/sys_campaigns/store_donation/<?php echo $_SESSION['campaign'][0][0] ; ?>" method="post">

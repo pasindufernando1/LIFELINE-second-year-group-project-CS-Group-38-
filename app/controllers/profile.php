@@ -79,7 +79,7 @@ class Profile extends Controller
 
         if($file_upload){
                 // Check if image file is a actual image or fake image
-                if (isset($_POST["submit"])) {
+                if (isset($_POST["update-profile"])) {
                     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
                     if ($check !== false) {
                         echo "File is an image - " . $check["mime"] . ".";

@@ -24,9 +24,10 @@
     
 
     <div class="top-bar">
-        <div class="logo">
+        <a href='/'><div class="logo">
             <img src="../../../public/img/logo/logo-horizontal.jpg" alt="logo-horizontal">
         </div>
+        </a>
         
         
         <div class="login-user">
