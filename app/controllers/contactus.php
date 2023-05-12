@@ -38,10 +38,11 @@ class Contactus extends Controller
                 $_SESSION['b_reserves_abn'] = $this->model->getbloodbankreserves($bbid, 'AB-');
 
                 $_SESSION['bb_contact'] = $this->model->getbloodbankcontact($bbid);
+                
                 $this->view->render('donor/contact_info');
             }
         } else {
-            $this->view->render('authentication/login');
+            $this->view->render('authentication/donorlogin');
         }
     }
 

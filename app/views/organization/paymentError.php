@@ -33,11 +33,11 @@ $metaTitle = "Organizations Dashboard"
         font-family: Poppins;
         font-size: 23px;
         position: absolute;
-        top: 479px;
-        left: 575px;
+        top: 471px;
+        left: 809px;
         color: #bf1b16;
         font-weight: bold;
-        width: 962px;
+        width: 512px;
         text-align: center;
     }
 
@@ -46,6 +46,30 @@ $metaTitle = "Organizations Dashboard"
         left: 963px;
         top: 241px;
         width: 182px;
+    }
+     .but {
+        position: absolute;
+        left: 930px;
+        top: 598px;
+        width: 268px;
+        font-family: Poppins;
+        font-size: 20px;
+        /* font-weight: bold; */
+        color: #ffffff;
+        background: #640e0b;
+        border-radius: 10px;
+        border: none;
+        padding: 7px;
+        cursor: pointer;
+    }
+
+    .but:hover {
+        cursor: pointer
+    }
+
+    .but a {
+        text-decoration: none;
+        color: #ffffff;
     }
     </style>
     <!-- Font Files -->
@@ -172,6 +196,8 @@ $metaTitle = "Organizations Dashboard"
                     <p class='title'>Payement Failed!!</p>
                     <img class="x-img" src="./../../public/img/unsuccess-msg-img.jpg" alt="req">
                     <p class="p-err"><?php echo $_SESSION['PaymentError']; ?></p>
+                    <button class="but"><a href="/organizationuser/donateCash">Go to Donation Page</a></button>
+
 
                 </form>
 

@@ -65,6 +65,7 @@ class Sys_inventory extends Controller
             if ($_SESSION['type'] == "System User") {
                 $BloodBankID = $this ->model -> getBloodBankid($_SESSION['useremail']);
                 $_SESSION['invdonation'] = $this ->model-> getAllInvDonation($BloodBankID);
+                // print_r($_SESSION['invdonation']);die();
                 $_SESSION['count_ver']  = $this ->model-> getCountVer($BloodBankID);
                 $_SESSION['count_non_ver']  = $this ->model-> getCountVer2($BloodBankID);
                 // print_r($_SESSION['count_ver']);die();

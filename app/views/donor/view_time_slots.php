@@ -1,12 +1,6 @@
 <?php
-// print_r($_SESSION['donor_contact']);
-// die();
-// print_r($_SESSION['timeslot_period']);
-// die();
 
-
-$metaTitle = 'Donor Dashboard'; ?>
-iu
+$metaTitle = 'Campaign Timeslots'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +40,7 @@ iu
 
 
 
-    <div class="timeslot-container">
+    <div class="timeslot-container" id="ts">
         <h2>Time Slots of
             <?php echo $_SESSION['camp_info']['Name'] ?>
         </h2>
@@ -101,7 +95,7 @@ iu
                         }
                     }
 
-                    if ($_SESSION['reserved_timeslots'][$count] == $_SESSION['beds']) {
+                    if ($_SESSION['reserved_timeslots'][$count] >= $_SESSION['beds']) {
                         echo '<tr>
                     <td>' . $timeslot[0] . '</td>
                     <td>' . $_SESSION['timeslot_period'][$count][0] . '</td>

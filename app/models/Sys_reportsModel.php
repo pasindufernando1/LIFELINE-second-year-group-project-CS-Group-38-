@@ -18,9 +18,9 @@ class sys_reportsModel extends Model
 
     }
 
-    public function getAllReportDetails($bloodbankID)
+    public function getAllReportDetails($userid)
     {
-       $reports = $this->db->select("*","Report","WHERE SystemUserID =:bloodbankID",':bloodbankID',$bloodbankID);
+       $reports = $this->db->select("*","Report","WHERE SystemUserID =:userid",':userid',$userid);
         return $reports;
     }
     
@@ -120,11 +120,11 @@ class sys_reportsModel extends Model
         return $coloum;
     }
 
-    public function addReport($name,$date,$entity,$csv_filename,$blood_bank_id)
+    public function addReport($name,$date,$entity,$csv_filename,$userid)
     {
         $columns = array('Name', 'Date_Generated', 'Requesting_entity' , 'FileLink','SystemUserID');
-        $param = array(':name', ':date', ':entity', ':csv_filename', ':blood_bank_id');
-        $inputs = array($name,$date,$entity,$csv_filename,$blood_bank_id);
+        $param = array(':name', ':date', ':entity', ':csv_filename', ':userid');
+        $inputs = array($name,$date,$entity,$csv_filename,$userid);
         $result = $this->db->insert("report", $columns, $param, $inputs);
         if ($result == "Success") {
             return true;
@@ -161,12 +161,10 @@ class sys_reportsModel extends Model
 
     public function getAllorg($blood_bank_id)
     {
-        $org = $this->db->select("*","organization_donations_bloodbank","
-        INNER JOIN inventory_donation on organization_donations_bloodbank.DonationID = inventory_donation.DonationID 
-        INNER JOIN organization_society on organization_donations_bloodbank.OrganizationUserID = organization_society.UserID 
-        WHERE organization_donations_bloodbank.BloodBankID =:blood_bank_id  
-        "
-        ,':blood_bank_id',$blood_bank_id);
+        $org = $this->db->select("DISTINCT organization_society.Name","inventory_donation","
+        INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = inventory_donation.DonationID 
+        INNER JOIN organization_society ON organization_society.UserID = organization_donations_bloodbank.OrganizationUserID
+        WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID",':BloodBankID',$blood_bank_id);
         return $org;
     }
 
@@ -250,6 +248,12 @@ class sys_reportsModel extends Model
         "
         ,$params,$inputs);
         return $camp;
+    }
+
+    public function getUserid($email)
+    {
+        $data = $this->db->select("UserID", "user", "WHERE Email = :email",':email', $email);
+        return $data;
     }
 
 }

@@ -89,7 +89,7 @@ $metaTitle = "Blood Availability Report"
             foreach(array_slice($result,0,$no_rows) as $row){
                 echo '<div class="table-content-types"> <tr>
                         <td>' . $row["BloodBank_Name"]. "</td>
-                        <td>" . $row["Quantity"] . '</td>
+                        <td>" . $row["Quantity"] . ' ml</td>
                     </tr> </div>';
                 
             }
@@ -245,7 +245,7 @@ $metaTitle = "Blood Availability Report"
                         // Display the y-axis label
                         scaleLabel: {
                             display: true,
-                            labelString: 'No. of pints',
+                            labelString: 'Quantity  (ml)',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,

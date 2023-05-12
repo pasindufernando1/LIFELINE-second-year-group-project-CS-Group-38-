@@ -18,7 +18,7 @@
                 <img class="" src="./../../public/img/donordashboard/non-active/dashboard.png" alt="dashboard">
                 <img class="reservation-non-active dash" src="./../../public/img/donordashboard/active/dashboard.png"
                     alt="dashboard">
-                <p class="dashboard-non-active menu-item"><a href="/donoruser/dashboard">Dashboard</a></p>
+                <p class="dashboard-non-active menu-item"><a href="/user/dashboard">Dashboard</a></p>
             </div>
             <div class="history menu-item">
                 <div class="history-marker"></div>
@@ -34,11 +34,10 @@
 
             </div>
             <div class="inventory menu-item">
-                <img src="./../../public/img/donordashboard/non-active/inventory.png" alt="inventory">
-                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/inventory.png"
+                <img src="./../../public/img/donordashboard/non-active/bb_na.png" alt="inventory">
+                <img class="reservation-non-active" src="./../../public/img/donordashboard/active/bb_a.png"
                     alt="inventory">
-                <p class="inventory-nav "><a href="/contactus">Contact Us</a></p>
-
+                <p class="inventory-nav "><a href="/contactus">Blood Banks</a></p>
             </div>
             <div class="badges menu-item">
                 <img src="./../../public/img/donordashboard/non-active/badge.png" alt="badges">

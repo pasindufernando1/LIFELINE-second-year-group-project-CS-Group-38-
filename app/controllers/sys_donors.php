@@ -339,7 +339,7 @@ class Sys_donors extends Controller
 
 
             if ($this->model->addDonor($inputs1, $inputs2, $inputs3)) {
-                header("Location: /usermanage/add_donor_successful");
+                header("Location: /sys_donors?page=1");
             }
             
         }
@@ -381,7 +381,7 @@ class Sys_donors extends Controller
 
 
             if ($this->model->editDonor($id,$inputs1, $inputs2, $inputs3)) {
-                header("Location: /reservation/add_reservation_successful");
+                header("Location: /sys_donors?page=1");
             }
             
         }

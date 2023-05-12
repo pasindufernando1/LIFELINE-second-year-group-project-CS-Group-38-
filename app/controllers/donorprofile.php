@@ -125,13 +125,14 @@ class Donorprofile extends Controller
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $username = $_POST['uname'];
                 $userpic = $filename;
-
+                //if password is updates
                 if (strlen($password) > 0) {
                     $user_input = [$hashed_password, $username, $userpic];
                     $u_wp = $this->model->updateuserp(
                         $user_input,
                         $_SESSION['user_ID']
                     );
+                    //if password is not updated
                 } else {
                     $user_input = [$username, $userpic];
                     $user_input = [$username, $userpic];
@@ -142,7 +143,6 @@ class Donorprofile extends Controller
                 }
 
                 if ($u_wp || $u_p) {
-                    // $user_ID = $this->model->get_user_id($email);
                     $name = $_POST['name'];
                     $nic = $_POST['nicno'];
                     $dob = $_POST['dob'];
@@ -205,8 +205,6 @@ class Donorprofile extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == 'Donor') {
                 if (!isset($_POST['confirm'])) {
-                    // print_r('not working');
-                    // die();
                     header('Location: /donorprofile');
                     exit();
                 }
@@ -214,7 +212,6 @@ class Donorprofile extends Controller
 
                 $password = trim($password);
                 if ($this->model->check_password($_SESSION['user_ID'], $password)) {
-                    // header('Location: /donorprofile');
                     $this->view->render('donor/profile');
                     echo '<script>hidealert();</script>';
                     echo '<script>showemail();</script>';
@@ -227,7 +224,6 @@ class Donorprofile extends Controller
                     $this->view->render('donor/profile');
                     echo '<script>hidealert();</script>';
                     echo '<script>showalert();</script>';
-                    // $this->view->render('donor/profile_edit_confirm_password');
                 }
             }
         } else {
@@ -271,7 +267,7 @@ class Donorprofile extends Controller
         $mail->Subject = "Verify Your Email Address";
         $mail->Body = "<p>Dear Donor,</p>
             <p>To change your email, we need to verify your new email address.
-            Use the following OTP to confirm:$num_str </p>
+            Use the following OTP to confirm : $num_str </p>
             <p>enter the OTP on the confirmation page to complete the verification process.
             If you didn't request this OTP, please ignore this email.</p>";
         $mail->AltBody = "This is the plain text version of the email content";
@@ -282,7 +278,7 @@ class Donorprofile extends Controller
             $this->view->render('donor/profile');
             echo '<script>hidealert();</script>';
             echo '<script>showotp();</script>';
-            // header('Location: /donorprofile/OTP');
+            
             if (isset($_SESSION['e_error'])) {
                 unset($_SESSION['e_error']);
             }
@@ -313,17 +309,12 @@ class Donorprofile extends Controller
             if ($_SESSION['type'] == 'Donor') {
 
                 if (!isset($_POST['confirm'])) {
-                    // print_r('coming');
-                    // die();
                     header('Location: /donorprofile');
                     exit();
                 }
-                // print_r('coming');
-                // die();
+                
                 $otp = $_POST['otp'];
-                // print_r($_SESSION['token']);
-                // var_dump($otp);
-                // die();
+            
                 if ($otp == $_SESSION['token']) {
                     $email = $_SESSION['email_reset'];
 
@@ -342,11 +333,52 @@ class Donorprofile extends Controller
                     $this->view->render('donor/profile');
                     echo '<script>hidealert();</script>';
                     echo '<script>showotp();</script>';
-                    // $this->view->render('donor/profile_edit_otp');
                 }
             }
         } else {
             $this->view->render('authentication/login');
         }
     }
+
+    function d_confirm_password()
+    {
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == 'Donor') {
+                if (!isset($_POST['confirm'])) {
+                    header('Location: /donorprofile');
+                    exit();
+                }
+                $password = $_POST['password1'];
+
+                $password = trim($password);
+                if ($this->model->check_password($_SESSION['user_ID'], $password)) {
+                    $this->view->render('donor/profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showConfirm();</script>';
+                    if (isset($_SESSION['p_error'])) {
+                        unset($_SESSION['p_error']);
+                    }
+                } else {
+
+                    $_SESSION['p_error'] = "Password is incorrect";
+                    $this->view->render('donor/profile');
+                    echo '<script>hidealert();</script>';
+                    echo '<script>showPassword();</script>';
+                }
+            }
+        } else {
+            $this->view->render('authentication/login');
+        }
+    }
+
+    function delete_success()
+    {
+        if($this->model->delete_profile($_SESSION['user_ID'])){
+        //destroy session variables
+        session_unset();
+        session_destroy();
+        $this->view->render('donor/profile_delete_success');
+        }
+    }
+
 }

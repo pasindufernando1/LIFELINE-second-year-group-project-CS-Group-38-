@@ -289,16 +289,13 @@ class signup extends Controller
         $Userpic = 'default-path';
         $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        // $inputs = array($Name, $Registration_no, $Status, $Number, $LaneName, $City, $District, $Province, $Email, $ContactNumber, $Username, $UserID, $Password);
-
         $inputs1 = array($Email, $Password, $Username, $Userpic, 'Organization/Society');
         $inputs2 = array($Registration_no, $Name, $Number, $LaneName, $City, $District, $Province);
         $inputs3 = array($ContactNumber);
 
 
         if ($this->model->signupOrganization($inputs1, $inputs2, $inputs3)) {
-            $this->view->render('signup/login');
-
+            $this->view->render('signup/organizationsignupsuccessful');
         }
 
 

@@ -98,12 +98,13 @@ $metaTitle = "organizations Dashboard"
             </div>
             <div class="box">
                 <p class="feedback-title">Give your Ideas to Improve LIFELINE</p>
-                <form action="/requestApproval/add_Feedback/" method="post" id="addform">
+                <form action="/requestApproval/add_Feedback/" method="post" id="feedbackform">
                 <img class="feedback-img" src="./../../public/img/orgdashboard/giveFeedback.gif" alt="req" >
                 <label id="feedback-label" class="feedback-label" for="feedback">Your Ideas:</label>
                     <br>
                     <TEXTAREA class="feedback-input" id="feedback"  type="text" name="feedback" autofocus placeholder="Suggessions" rows="6" cols="50" name="commentfield"></TEXTAREA>
 <!--                     <input class="feedback-input" id="feedback"  type="text" name="feedback" autofocus placeholder="Feedback" required>-->                    <br>
-                    <button class='feedback-btn' type='submit' name='request' id="submit-btn">Submit</button>
+                    <button class='feedback-btn' type='submit' name='request' id="feedback-btn">Submit</button>
+                    <script src="../../../public/js/validation/orgvalidation.js"></script> 
                 </form>
             </div>

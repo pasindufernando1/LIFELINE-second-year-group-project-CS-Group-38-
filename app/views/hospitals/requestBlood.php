@@ -80,7 +80,8 @@ $metaTitle = "Hospitals Dashboard"
                             <select class="bloodComponent-input" id="bloodComponent"  type="text" name="bloodComponent" autofocus placeholder="Enter BloodComponent" required>
                             <img class="dropDown" src="./../../public/img/hospitalsdashboard/dropDown.png" alt="dropDown">
                                 <option value="" disabled selected hidden>Blood Component</option>
-                                <option value="Red Blood Cells">Red Blood Cells</option>
+                                <option value="RBC">Red Blood Cells</option>
+                                <option value="WBC">White Blood Cells</option>
                                 <option value="Platelets">Platelets</option>
                                 <option value="Plasma" >Plasma</option>
                             <select>

@@ -1,8 +1,5 @@
 <?php
-// print_r($_SESSION['donor_info']['DOB']);
-// die();
-
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Profile Edit'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,15 +37,12 @@ $metaTitle = 'Donor Dashboard'; ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/app/views/donor/layout/profile_active.php'); ?>
 
-
     <div id="profile-edit-form" class="profile-container">
-        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form"
-            enctype="multipart/form-data">
+        <form action="/donorprofile/update_profile" method="post" id="profile_update" name="profileupdate-form" enctype="multipart/form-data">
 
             <img id="donor_img" src="../../../public/img/user_pics/<?php echo ($_SESSION['user_pic']); ?>"><br>
 
-            <label for="fileToUpload"> <img id="change_img"
-                    src="../../../public/img/donordashboard/lil_cam.png"></label>
+            <label for="fileToUpload"> <img id="change_img" src="../../../public/img/donordashboard/lil_cam.png"></label>
             <?php echo '<h3>' . $_SESSION['donor_info']['Fullname'] . '</h3>'; ?>
             <input style="display:none;" type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this)">
 
@@ -65,47 +59,29 @@ $metaTitle = 'Donor Dashboard'; ?>
             </script>
 
             <label class="name-lable" for="name">NAME</label>
-
-            <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION[
-                'donor_info'
-            ]['Fullname']; ?>" required>
+            <input id="name" class="full-l-input" type="text" name="name" autofocus value="<?php echo $_SESSION['donor_info']['Fullname']; ?>" required>
             <p class="name-error" id="name-error"></p>
 
             <label class="nic-lable" for="nic">NIC NUMBER</label>
-
-            <input id="nic" class="nic-input" type="text" name="nicno" autofocus value="<?php echo $_SESSION[
-                'donor_info'
-            ]['NIC']; ?>" required>
+            <input id="nic" class="nic-input" type="text" name="nicno" autofocus value="<?php echo $_SESSION['donor_info']['NIC']; ?>" required>
             <p class="nic-error" id="nic-error"></p>
 
             <label class="dob-lable" for="dob">DATE OF BIRTH</label>
-
-            <input id="dob" class="dob-input" type="date" name="dob" autofocus
-                value="<?php echo $_SESSION['donor_info']['DOB']; ?>" required>
+            <input id="dob" class="dob-input" type="date" name="dob" autofocus value="<?php echo $_SESSION['donor_info']['DOB']; ?>" required>
             <p class="dob-error" id="dob-error"></p>
 
             <label class="address-lable" for="address">ADDRESS</label>
             <div class="address-div">
-                <input id=" number" class="number-input" type="text" name="number" autofocus value="<?php echo $_SESSION[
-                    'donor_info'
-                ]['Number']; ?>" required>
+                <input id=" number" class="number-input" type="text" name="number" autofocus value="<?php echo $_SESSION['donor_info']['Number']; ?>" required>
                 <p class="number-error" id="number-error"></p>
-                <input id="lane" class="lane-input" type="text" name="lane" autofocus value="<?php echo $_SESSION[
-                    'donor_info'
-                ]['LaneName']; ?>" required>
+                <input id="lane" class="lane-input" type="text" name="lane" autofocus value="<?php echo $_SESSION['donor_info']['LaneName']; ?>" required>
                 <p class="lane-error" id="lane-error"></p>
-                <input id="city" class="city-input" type="text" name="city" autofocus value="<?php echo $_SESSION[
-                    'donor_info'
-                ]['City']; ?>" required>
+                <input id="city" class="city-input" type="text" name="city" autofocus value="<?php echo $_SESSION['donor_info']['City']; ?>" required>
                 <p class=" city-error" id="city-error"></p>
             </div>
             <select id="district" class="district-input custom-select" type="text" name="district" autofocus required>
                 <!-- Show placeholder -->
-                <option value="<?php echo $_SESSION['donor_info'][
-                    'District'
-                ]; ?>" hidden><?php echo $_SESSION['donor_info'][
-                     'District'
-                 ]; ?></option>
+                <option value="<?php echo $_SESSION['donor_info']['District']; ?>" hidden><?php echo $_SESSION['donor_info']['District']; ?></option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -133,13 +109,9 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="Vavuniya">Vavuniya</option>
             </select>
             <p class="district-error" id="district-error"></p>
+
             <select id="province" class="province-input custom-select" type="text" name="province" value="" required>
-                <!-- Show placeholder -->
-                <option value="<?php echo $_SESSION['donor_info'][
-                    'Province'
-                ]; ?> " hidden><?php echo $_SESSION['donor_info'][
-                      'Province'
-                  ]; ?> </option>
+                <option value="<?php echo $_SESSION['donor_info']['Province']; ?> " hidden><?php echo $_SESSION['donor_info']['Province']; ?> </option>
                 <option value="Central">Central</option>
                 <option value="Eastern">Eastern</option>
                 <option value="North Central">North Central</option>
@@ -151,33 +123,25 @@ $metaTitle = 'Donor Dashboard'; ?>
                 <option value="Western">Western</option>
             </select>
             <p class="province-error" id="province-error"></p>
-            <label class="tel-lable" for="tel">Telephone</label>
 
-            <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION[
-                'donor_contact'
-            ]['ContactNumber']; ?>" required>
+            <label class="tel-lable" for="tel">Telephone</label>
+            <input id="tel" class="tel-input" type="text" name="tel" autofocus value="<?php echo $_SESSION['donor_contact']['ContactNumber']; ?>" required>
             <p class="tel-error" id="tel-error"></p>
 
             <label class="uname-lable" for="uname">USERNAME</label>
-
-            <input id="uname" class="uname-input" type="text" name="uname" autofocus value="<?php echo $_SESSION[
-                'username'
-            ]; ?>" required>
+            <input id="uname" class="uname-input" type="text" name="uname" autofocus value="<?php echo $_SESSION['username']; ?>" required>
             <p class="uname-error" id="uname-error"></p>
 
             <label class="password-lable" for="password">PASSWORD</label>
-
-            <input id="password" class="password-input" type="password" name="password" autofocus
-                placeholder="New Password">
+            <input id="password" class="password-input" type="password" name="password" autofocus placeholder="New Password">
             <p class="password-error" id="password-error"></p>
 
             <label class="passwordcheck-lable" for="password-check">RE-ENTER PASSWORD</label>
-            <input id="passwordcheck" class="password-check-input" type="password" name="password-check" autofocus
-                placeholder="Confirm New Password">
+            <input id="passwordcheck" class="password-check-input" type="password" name="password-check" autofocus placeholder="Confirm New Password">
             <p class="passwordcheck-error" id="passwordcheck-error"></p>
             <div class="buttons">
-                <button id="submit" class="submit" type="submit" name='update'>Save Changes</button>
-                <button href="/donorprofile" class="cancel">Cancel Editing</button>
+                <button id="submit" class="submit" type="submit" name='update'>Save Changes<img src="../../../public/img/donordashboard/saved.png"></button>
+                <button href="/donorprofile" class="cancel">Cancel Editing<img class="cbtn" src="../../../public/img/donordashboard/delete-btn.png"></button>
             </div>
         </form>
     </div>

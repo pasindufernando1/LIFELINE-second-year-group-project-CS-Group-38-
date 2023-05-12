@@ -118,7 +118,7 @@ die(); */
             <div class="ad-box">
             <p class="inventory-types">Advertisements</p>
                 <!-- A for loop to read the data from the $_SESSION['Advertisements'] variable -->
-         
+                <button class="viewPastDon-btn"><a href="/requestApproval/viewPastDonations">Past Donations</a></button>
     
                 <div class="ad-holder">
                 <?php

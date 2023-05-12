@@ -79,10 +79,6 @@ class CardModel extends Model
             $donorID
         );
 
-        // print_r($count1);
-        // print_r($count2);
-        // die();
-
         if ($count1 == 0 && $count2 == 0) {
             return false;
         } else {
@@ -212,7 +208,7 @@ class CardModel extends Model
         return $data;
     }
 
-    public function getnewestbadge($userid)
+        public function getnewestbadge($userid)
     {
         $camp_donations = $this->db->select(
             'COUNT(*)',
@@ -246,5 +242,6 @@ class CardModel extends Model
             return $newest_badge;
         }
     }
+
 
 }

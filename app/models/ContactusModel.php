@@ -29,8 +29,6 @@ class ContactusModel extends Model
             ':BloodBankID',
             $bankid
         )[0];
-        // print_r($data);
-        // die();
         return $data;
     }
 
@@ -56,14 +54,9 @@ class ContactusModel extends Model
             $btype
         );
 
-        // print_r($typeids);
-        // die();
-
-
         $total_packets = 0;
 
         foreach ($typeids as $typeid) {
-            // print_r($typeid['TypeID'] . '\n');
             $data = $this->db->select(
                 'COUNT(*) as total_packets',
                 'bloodpacket',
@@ -71,13 +64,8 @@ class ContactusModel extends Model
                 [':blood_bank_ID', ':TypeID'],
                 [$bankid, $typeid['TypeID']]
             )[0];
-            // print_r($data['total_packets']);
             $total_packets += $data['total_packets'];
         }
-        // die();
         return $total_packets;
-
-
-        // return $data;
     }
 }

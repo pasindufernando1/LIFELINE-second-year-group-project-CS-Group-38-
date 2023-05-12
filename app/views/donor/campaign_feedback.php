@@ -2,8 +2,6 @@
 $_SESSION['selected_campid'] = $_GET['camp'];
 $metaTitle = 'Donor Feedback';
 
-// print_r($_SESSION['selected_campname']);
-// die();
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +46,8 @@ $metaTitle = 'Donor Feedback';
         <?php echo '<h2 class="rate-camp">' .
             $_SESSION['selected_campname'] .
             '</h2>'; ?>
-        <!-- <div class="rate-box"> -->
-        <form action="/ratecampaign/send_rating" method="post" id="feedback-form">
+        <!-- <div class="rate-box">d -->
+        <form action="/ratecampaign/send_rating" method="post" id="feedback-form" onsubmit="checkrating(event)">
             <p class="p1">Rate Campaign</p>
             <div class="stars do_rate" id="star_rating">
                 <!-- radio buttons with Star image in lable  -->
@@ -69,6 +67,9 @@ $metaTitle = 'Donor Feedback';
                 <label for="in-star5"><img class="rating_star" id="star5" onclick="change_stars(5)"
                         src="./../../public/img/donordashboard/grey_star.png" alt="star"></label>
             </div>
+
+            <p id="rate_error" class="rate-error">You must enter a star rating</p>
+
             <label for="fb" class="p2">Describe Your Experience</label>
 
             <textarea id="message" name="fb"></textarea>

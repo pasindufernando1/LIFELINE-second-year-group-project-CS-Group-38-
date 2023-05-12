@@ -35,6 +35,8 @@ $metaTitle = "Inventory Donations"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/header.php'); ?>
     <!-- Side bar -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/layout/sidebar.php'); ?>
+    <!-- Includes -->
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/admin/includes/inventory_donation_confirm.php'); ?>
             
     <!-- main content -->
     <div class="box">
@@ -86,7 +88,7 @@ $metaTitle = "Inventory Donations"
                                             </tr> </div>';
                                          }else{
                                             echo "<td><button class='validated-btn' >Validated</button></td>";
-                                            echo '<td><a class= "verify-btn" href="/inventory/verify_acceptance/'.$row["InventoryDonationID"].' <button class = "verify-btn">
+                                            echo '<td><a class= "verify-btn" onclick="document.getElementById('."'id01'".').style.display='."'block'".'; document.getElementById('."'del'".').action = '."'/inventory/verify_acceptance/".$row["InventoryDonationID"]."'".'";<button class = "verify-btn">
                                             Verify Acceptance <img  class="tick" src="./../../public/img/admindashboard/tick.png" alt="tick.png"></a></button></td>
                                             </tr> </div>';
                                         }

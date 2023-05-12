@@ -64,6 +64,8 @@ class Systemuser extends Controller
                 $_SESSION['cards_issued'] =$this->model->getCardIssued();
                 $_SESSION['ads_count'] =$this->model->getAdCount($_SESSION['blood_bank_id']);
                 $_SESSION['camp_req_count'] =$this->model->getCampReqCount($_SESSION['blood_bank_id']);
+                $_SESSION['month_donations'] = $this->model->getMonthlyDonation($_SESSION['blood_bank_id']);
+                $_SESSION['no_of_donors'] = $this->model->getdonorcomposition();
                 
 
                 //  print_r($_SESSION['cards_issued']);die();

@@ -1,0 +1,4 @@
+Date,Complication,Name,Subtype,Quantity,Status
+2023-05-11,None,A+,RBC,100,1
+2023-05-11,None,A+,RBC,,1
+2023-05-11,Fainted,B+,RBC,,1

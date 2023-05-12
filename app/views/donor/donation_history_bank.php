@@ -1,18 +1,6 @@
 <?php
-// $eh = empty($_SESSION['camp_donations'][0][1]);
-// // print_r($eh);
-// $result = $_SESSION['camp_donations'];
-// $_SESSION['rowCount'] = sizeof($result);
-// // print_r(sizeof($_SESSION['bank_donations']));
-// print_r($_SESSION['rowCount']);
-// die();
-// $_SESSION['rowCount'] = sizeof($_SESSION['camp_donations']);
-// print_r(sizeof($_SESSION['camp_donations']));
-// die();
-// print_r($_SESSION['bank_donation_total_amounts']);
-// die();
 
-$metaTitle = 'Donor Dashboard'; ?>
+$metaTitle = 'Donation History'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,14 +49,14 @@ $metaTitle = 'Donor Dashboard'; ?>
             if ($_SESSION['rowCount'] > 0) {
                 foreach ($result as $row) {
                     echo '<div class="view-campdon-card">
-                <img class="bb-img"src="../../../public/img/bloodbanks/' . $_SESSION['bank_pics'][$count] . '" alt="blood bannk image">
-                <div class="b-info">
-                <h4>' . $_SESSION['bank_names'][$count] . '</h4>
-                <h3>Latest Donation ' . $_SESSION['latest_bank_donation_amounts'][$count] . ' ml At ' . $_SESSION['latest_bank_donation_dates'][$count] . '</h3>
-                <p>
-                    <b>Your Total Donations :</b> ' . $_SESSION['bank_donation_total_amounts'][$count] . '</p>
-                    <h3>Past Donations</h3>
-                    <div class="past-donations">';
+                            <img class="bb-img"src="../../../public/img/bloodbanks/' . $_SESSION['bank_pics'][$count] . '" alt="blood bannk image">
+                            <div class="b-info">
+                                <h4>' . $_SESSION['bank_names'][$count] . '</h4>
+                                <h3>Latest Donation ' . $_SESSION['latest_bank_donation_amounts'][$count] . ' ml On ' . $_SESSION['latest_bank_donation_dates'][$count] . '</h3>
+                                <p>
+                                    <b>Your Total Donations :</b> ' . $_SESSION['bank_donation_total_amounts'][$count] . ' ml </p>
+                                    <h3>Past Donations</h3>
+                                    <div class="past-donations">';
                     $d_count = 0;
                     foreach ($_SESSION['past_bank_donations'][$count] as $dates) {
                         echo '<p>' . $_SESSION['past_bank_donation_amounts'][$count][$d_count] . ' ml <b>Donated On </b> ' . $dates . '<br></p>';
@@ -76,8 +64,8 @@ $metaTitle = 'Donor Dashboard'; ?>
                     }
 
                     echo '</div>
-            </div>
-            </div>';
+                            </div>
+                         </div>';
 
                     $count++;
                 }
@@ -92,9 +80,31 @@ $metaTitle = 'Donor Dashboard'; ?>
         <h2>Summary of Your Donations</h2>
         <?php
         echo '<h3>Total Blood Banks Attended : ' . sizeof($_SESSION['banks']) . '</h3>
-    <h3>Number of Donations : ' . $_SESSION['no_of_bank_donations'] . '</h3>
-    <h3>Your Total Donations : ' . $_SESSION['total_bank_donation_amount'] . 'ml</h3>';
+              <h3>Number of Donations : ' . $_SESSION['no_of_bank_donations'] . '</h3>
+              <h3>Your Total Donations : ' . $_SESSION['total_bank_donation_amount'] . 'ml</h3>
+              <h3 id="titt">Complications You Had </h3>';
+        $scount = 0;
+        //make a table for the complications and the camp they happened at
+        if (empty($_SESSION['bank_complications']) != 1) {
+            echo '<table id="sumt">
+                    <tr>
+                        <th>Complication</th>
+                        <th>Blood Bank</th>
+                        <th>Date</th>
+                    </tr>';
+            foreach ($_SESSION['bank_complications'] as $complications) {
+                echo '<tr>
+                        <td>' . $complications[2] . '</td>
+                        <td>' . $_SESSION['complication_banks'][$scount] . '</td>
+                        <td>' . $complications[1] . '</td>
+                    </tr>';
+                $scount++;
+            }
+        } else {
+            echo '<p id="sum-noc">You Have Not Had Any Complications so far</p>';
+        }
         ?>
+        
     </div>
 </body>
 

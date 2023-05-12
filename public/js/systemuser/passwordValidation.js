@@ -17,13 +17,17 @@ password?.addEventListener("input", function () {
         password_error.innerHTML = "Password must contain at least 8 characters, including uppercase letters, lowercase letters and numbers";
         password_error.style.color = "red";
         password.style.borderColor = "red";
+        update_button.style.background = "grey";
         update_button.disabled = true;
         passwordflag = false;
     } else {
         // signupformenable();
         password_error.innerHTML = "Password";
+        password_error.style.color = "black";
         password.style.borderColor = "#a7a7a7";
         passwordflag = true;
+        // update_button.style.background = "#640E0B";
+        
     }
 });
 
@@ -38,7 +42,10 @@ passwordcheck?.addEventListener("input", function () {
         passwordcheckflag = false;
     } else {
         passwordcheck_error.innerHTML = "Confirm Password";
+        passwordcheck_error.style.color = "black";
         passwordcheck.style.borderColor = "#a7a7a7";
+        update_button.style.background = "#640E0B";
+        update_button.disabled = false;
         passwordcheckflag = true;
     }
 

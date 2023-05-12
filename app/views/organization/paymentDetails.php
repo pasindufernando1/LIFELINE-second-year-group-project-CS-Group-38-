@@ -222,7 +222,7 @@ $amount = $_SESSION['donating_amount'] / 100;
                         data-key="<?php echo $_SESSION['public_key'] ?>"
                         data-amount="<?php echo $_SESSION['donating_amount'] ?>" data-name="LifeLine"
                         data-description="Donate to Save Lives" data-currency="lkr"
-                        data-image="../../../public/img/favicon2.jpg" data-email="<?php echo $_SESSION['email'] ?>">
+                        data-image="../../../public/img/donordashboard/favicon2.jpg">
                         </script>
                     <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req">
 
