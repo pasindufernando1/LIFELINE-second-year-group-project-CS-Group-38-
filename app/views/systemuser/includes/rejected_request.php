@@ -8,15 +8,15 @@
     
 
 </html>
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
       <h1>Request Rejected & Mail Sent Successfully</h1>
     
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Done</button>
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="deletebtn">Done</button>
         </div>
     </div>
   </form>
@@ -24,7 +24,7 @@
 
 <script>
 // Get the modal
-var modal = document.getElementById('id01');
+var modal = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

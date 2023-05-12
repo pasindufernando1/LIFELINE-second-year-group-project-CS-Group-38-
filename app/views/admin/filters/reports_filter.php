@@ -20,8 +20,6 @@
         <p id="heading">
             Select Month & Year
         </p>
-            <!-- Only the date section in date format
-            <input type="int" name="date" id="date" placeholder="Date" class="date"> -->
             <!-- Only the month section in date format -->
             <select id="month" name="month">
                 <option value="" disabled selected hidden>--Select Month--</option>

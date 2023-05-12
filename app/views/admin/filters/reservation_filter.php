@@ -53,15 +53,6 @@
             <input name="21" type="checkbox" value="Sabaragamuwa">Sabaragamuwa</input>
             <input name="22" type="checkbox" value="Eastern">Eastern</input>
         </div>
-        <!-- <div>
-        <p>
-            Select Date Range
-        </p>
-            <label for="start">From:</label>
-            <input name="start" type="date" ></input>
-            <label for="end">To:</label>
-            <input name="end" type="date"></input>
-        </div> -->
       </div>
     
       <div class="clearfix">

@@ -119,7 +119,7 @@ $metaTitle = 'Donor Dashboard';
             } else {
                 echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
                 if ($_SESSION['days_last_donation'] < 56) {
-                    echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> <br>Days</p>';
+                    echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> Days</p>';
                 } else {
                     echo 'You Can Donate Blood <span>Now</span></p>';
                 }

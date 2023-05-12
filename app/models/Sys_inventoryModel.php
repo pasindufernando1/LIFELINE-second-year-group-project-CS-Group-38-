@@ -128,8 +128,8 @@ public function getAllInventory($id)
 
     public function getAllInvDonation($BloodBankID)
     {
-        $invdon = $this->db->select("*","organization_donations_bloodbank","
-        INNER JOIN inventory_donation ON inventory_donation.DonationID = inventory_donation.DonationID 
+        $invdon = $this->db->select("*","inventory_donation","
+        INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = organization_donations_bloodbank.DonationID 
         INNER JOIN organization_society ON organization_society.UserID = organization_donations_bloodbank.OrganizationUserID
         WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID",':BloodBankID',$BloodBankID);
         return $invdon;

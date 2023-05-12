@@ -180,7 +180,7 @@ $metaTitle = "Organizations Dashboard"
                     to carry out our mission. <b>Will you give today? </b></p>
                 <!-- <p class="para2">Your donation will help us to continue our work to save lives, and to provide
                         support to those affected by blood cancer.</p> -->
-                <p class='title'>Payement successful!!</p>
+                <p class='title'>Payment successful!!</p>
                 <img class="x-img" src="./../../public/img/success-msg-img.png" alt="req">
                 <!-- <p class="p-err"><?php echo $_SESSION['PaymentError']; ?></p> -->
                 <p class="para3"><b>Thank you for your donation.</b><br> Your donation will help us to continue our work

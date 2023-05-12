@@ -89,7 +89,7 @@ $metaTitle = "Blood Availability Report"
             foreach(array_slice($result,0,$no_rows) as $row){
                 echo '<div class="table-content-types"> <tr>
                         <td>' . $row["BloodBank_Name"]. "</td>
-                        <td>" . $row["Quantity"] . '</td>
+                        <td>" . $row["Quantity"] . ' ml</td>
                     </tr> </div>';
                 
             }
@@ -120,6 +120,7 @@ $metaTitle = "Blood Availability Report"
     </script>
     
     <script>
+        // Sending the report to the database
         var doc = new jsPDF();
         $('#send-database').click(function() {
             var htmlContent = $('#box').html();
@@ -150,7 +151,7 @@ $metaTitle = "Blood Availability Report"
         });
 
 
-
+        // Downloading the report as a pdf
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');
@@ -245,7 +246,7 @@ $metaTitle = "Blood Availability Report"
                         // Display the y-axis label
                         scaleLabel: {
                             display: true,
-                            labelString: 'No. of pints',
+                            labelString: 'Quantity  (ml)',
                             fontColor: '#BCBCBC',
                             fontFamily: 'Poppins',
                             fontSize: 16,

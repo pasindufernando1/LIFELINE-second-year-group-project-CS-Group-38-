@@ -99,14 +99,14 @@ $metaTitle = 'Donation Campaigns';
 
 <!-- Upcoming Campaigns -->
     <h2 class="header2">Upcoming Campaigns</h2>
-    <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<imgsrc="./../../public/img/donordashboard/filter-icon.png"></button>
+    <button id="fil-button" onclick="document.getElementById('idfil01').style.display='block'">filter & short<img src="./../../public/img/donordashboard/filter-icon.png"></button>
     <div class="view-campaign-container">
     <?php
-        $number_of_results = $_SESSION['rowCount'];
+        $number_of_results = count($_SESSION['upcoming_campaigns']);
         $result = $_SESSION['upcoming_campaigns'];
         $count = 0;
 
-        if ($_SESSION['rowCount'] > 0) {
+        if ($number_of_results > 0) {
             foreach ($result as $row) {
                 $stime = substr($row['Starting_time'], 0, 2);
                 $stimeval = intval($stime);

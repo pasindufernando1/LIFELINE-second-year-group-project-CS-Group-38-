@@ -95,7 +95,7 @@ $metaTitle = 'Campaign Timeslots'; ?>
                         }
                     }
 
-                    if ($_SESSION['reserved_timeslots'][$count] == $_SESSION['beds']) {
+                    if ($_SESSION['reserved_timeslots'][$count] >= $_SESSION['beds']) {
                         echo '<tr>
                     <td>' . $timeslot[0] . '</td>
                     <td>' . $_SESSION['timeslot_period'][$count][0] . '</td>

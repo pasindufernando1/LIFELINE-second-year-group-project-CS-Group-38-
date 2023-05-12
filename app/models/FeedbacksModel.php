@@ -14,7 +14,7 @@ class FeedbacksModel extends Model
     // Function to get all the feedbacks
     public function getAllFeedbacks()
     {
-        $data = $this->db->select("*", "organization_feedback" , "INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID Where Read_status = 0");
+        $data = $this->db->select("*", "organization_feedback" , "INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID Where Read_status = 0 ORDER BY Date DESC");
         return $data;
     }
 
@@ -72,21 +72,21 @@ class FeedbacksModel extends Model
         // The date format is YYYY-MM-DD comparing the month and year components separately
         $columns = array(":Month",":Year");
         $values = array($month,$year);
-        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE MONTH(Date) = :Month AND YEAR(Date) = :Year AND Read_status = 0",$columns,$values);
+        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE MONTH(Date) = :Month AND YEAR(Date) = :Year AND Read_status = 0 ORDER BY Date DESC",$columns,$values);
         return $data;
     }
 
     // Get the feedbacks for a month
     public function getFilteredFeedbacksMonth($month)
     {
-        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE MONTH(Date) = :Month AND Read_status = 0","Month",$month);
+        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE MONTH(Date) = :Month AND Read_status = 0 ORDER BY Date DESC","Month",$month);
         return $data;
     }
 
     // Get the feedbacks for a year
     public function getFilteredFeedbacksYear($year)
     {
-        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE YEAR(Date) = :Year AND Read_status = 0","Year",$year);
+        $data = $this->db->select("*", "organization_feedback","INNER JOIN organization_society ON organization_feedback.OrganizationUserID = organization_society.UserID WHERE YEAR(Date) = :Year AND Read_status = 0 ORDER BY Date DESC","Year",$year);
         return $data;
     }
 

@@ -120,6 +120,7 @@ $metaTitle = "Inventory Availability Report"
     
     </script>
     <script>
+        // Send to database
         var doc = new jsPDF();
         $('#send-database').click(function() {
             var htmlContent = $('#box').html();
@@ -150,7 +151,7 @@ $metaTitle = "Inventory Availability Report"
         });
 
 
-
+        // Download the report as PDF
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');

@@ -373,12 +373,18 @@ class Donorprofile extends Controller
 
     function delete_success()
     {
-        if($this->model->delete_profile($_SESSION['user_ID'])){
-        //destroy session variables
-        session_unset();
-        session_destroy();
-        $this->view->render('donor/profile_delete_success');
+        if(isset($_SESSION['user_ID'])){
+            if($this->model->delete_profile($_SESSION['user_ID'])){
+                //destroy session variables
+                session_unset();
+                session_destroy();
+                $this->view->render('donor/profile_delete_success');
+                }
         }
+        else{
+            $this->view->render('donor/profile_delete_success');
+        }
+       
     }
 
 }

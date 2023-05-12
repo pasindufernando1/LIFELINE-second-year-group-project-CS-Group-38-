@@ -110,10 +110,11 @@ $metaTitle = 'Donor Badges'; ?>
 
             // message = badge.split(".")[0];
             <?php foreach ($_SESSION['badge_info'] as $badge) {
-                    echo "if(badge == '$badge[0]'){
-                    message = '$badge[1]';
-                    name = '$badge[2]';
-                }";
+                    // var_dump($badge[0]);die();
+                    echo 'if(badge == "'.$badge[0].'"){
+                    message = "'.$badge[1].'";
+                    name = "'.$badge[2].'";
+                }';
                 } ?>
 
             alertBadge.src = "../../../public/img/badges/" + badge;

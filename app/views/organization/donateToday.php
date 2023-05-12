@@ -147,4 +147,5 @@ require '../vendor/payment_config.php';
                     <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req">
                     <button class='donate-btn' type='submit' name='request' id="donate-btn">Donate</button>
                 </form>
-            </div>j
+                <script src="../../../public/js/payment.js"></script>
+            </div>

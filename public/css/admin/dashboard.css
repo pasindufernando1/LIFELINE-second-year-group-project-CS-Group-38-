@@ -2100,7 +2100,7 @@ a {
 .user-filter-img{
     position: absolute;
     top: 51px;
-    left: 1350px;
+    left: 1359px;
 }
 
 .action-btns {
@@ -2811,7 +2811,7 @@ td {
     display: flex;
     position: absolute;
     width: 14.4vw;
-    height: 142vh !important;
+    height: 126vh !important;
     left: -5px;
     top: 110px;
     background: #FFFFFF;

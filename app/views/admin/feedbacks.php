@@ -104,7 +104,7 @@ $metaTitle = "Unattended Feedbacks"
     <div class="box">
         <p class="add-user-title">Unattended Feedbacks</p>
                         
-                        <a href="#" class="ash-button reservation-filter"onclick="document.getElementById('idfil01').style.display='block'" >Filter & Short</a>
+                        <a href="#" class="ash-button reservation-filter"onclick="document.getElementById('idfil01').style.display='block'" >Apply Filter</a>
                         <img class="user-filter-img" src="./../../public/img/admindashboard/filter-icon.png" alt="reservation-filter-img">
 
                         <table class="user-types-table" style="width:90%">

@@ -186,6 +186,14 @@ class User extends Controller
                 ] = $this->model->viewBloodBankContact(
                         $_SESSION['nearbyBloodbanks']
                     );
+                $_SESSION['user_details'] = $this->model->get_telno($_SESSION['User_ID']);
+                //print_r($_SESSION['user_details'][0][2]);die();
+                $_SESSION['Name'] = $_SESSION['user_details'][0][2];
+                
+                $_SESSION['Number'] = $_SESSION['user_details'][0][3];
+                $_SESSION['LaneName'] = $_SESSION['user_details'][0][4];
+                $_SESSION['City'] = $_SESSION['user_details'][0][5];
+                $_SESSION['District'] = $_SESSION['user_details'][0][6];
 
 
 

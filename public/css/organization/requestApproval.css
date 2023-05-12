@@ -645,6 +645,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    color: white;
 }
 
 .popup div div .yes-button {
@@ -652,6 +653,10 @@ body {
     color: white;
 }
 
+.popup div div .yes-button a{
+    
+    color: white;
+}
 .popup div div .no-button {
     background-color: #e8e8e8;
     color: #630e0b;
@@ -4278,4 +4283,33 @@ a {
     width: 1233px;
     border-radius: 5%;
     left: 145px;
+ }
+
+ .sub-1{
+    position: absolute;
+    width: 100%;
+    height: 33.24px;
+    /* left: 415px; */
+    left: -24px;
+    top: 139px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 36px;
+    /* display: flex; */
+    align-items: center;
+    text-align: center;
+    color: #640E0B;
+    mix-blend-mode: darken;
+ }
+
+ .sub-2 p{
+    align-items: center;
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    margin-left: 544px;
+    margin-top: 78px;
+    font-size: 30px;
  }

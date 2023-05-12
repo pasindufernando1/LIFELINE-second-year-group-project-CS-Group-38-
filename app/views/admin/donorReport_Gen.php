@@ -166,6 +166,7 @@ $metaTitle = "Donor Report"
     
     </script>
     <script>
+        // Send to database
         var doc = new jsPDF();
         $('#send-database').click(function() {
             var htmlContent = $('#box-donor').html();
@@ -196,7 +197,7 @@ $metaTitle = "Donor Report"
         });
 
 
-
+        // Download pdf
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box-donor')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');

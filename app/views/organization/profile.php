@@ -219,43 +219,7 @@ $metaTitle = "organizations Dashboard"
                 </form>
             </div>
         </div>
-        <script>
-            // Get the dialog box
-            var dialog = document.getElementById("myDialog");
-            var email = document.getElementById("myEmail");
-            var otp = document.getElementById("myOTP")
-            // var otp = document.getElementById("myOTP");
-            // Get the input field and buttons 
-            var input = document.getElementById("name");
-            var okButton = document.getElementById("okButton");
-            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
-
-            function showalert() {
-                dialog.style.display = "block";
-            } //Show the email dialog box when the page loads
-
-            function showemail() {
-                email.style.display = "block";
-            } //Show the otp dialog box when the page loads
-            function showotp() {
-                otp.style.display = "block";
-            }
-            // When the user clicks the OKbutton, get the input value and close the dialog box 
-
-            // When the user clicks the Cancelbutton, close the dialog box
-
-            function hidealert() {
-                dialog.style.display = "none";
-            }
-
-            function hideemail() {
-                email.style.display = "none";
-            }
-
-            function hideotp() {
-                otp.style.display = "none";
-            }
-        </script>
+        
             <div class="main">
                 <div class="left">
                 <p>
@@ -299,8 +263,100 @@ $metaTitle = "organizations Dashboard"
             </div>
             
             </div>
+            <a id="delete-profile" class="update" onclick="showPassword()">Delete Profile</a>
             </div>
         </div>
+        
+        <div id="myPassword" class="dialog">
+            <div class="dialog-content">
+                <h2>Delete Your LIFELINE Account</h2>
+                <form action="/requestApproval/d_confirm_password" method="POST">
+                    <?php if (isset($_SESSION['p_error'])) {
+                        echo "<p id='pass_error'>" . $_SESSION['p_error'] . "</p>";
+                    } ?>
+                    <label for="password1">Please enter your password :</label>
+                    <input type="password" id="password1" name="password1">
+                    <button type="submit" name='confirm'>Enter</button>
+                    <button id="cancelButton" onclick="hidepalert()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        
+
     
+
+    <div id="myConfirm" class="popup">
+        <div>
+            <p>Are you sure you want to delete your LIFELINE account?</p>
+            <div><button class="yes-button"><a href="/requestApproval/delete_success">Yes</a></button>
+                <button class="no-button" onclick="hidecalert()" >No</button>
+            </div>
+            <img class="close" onclick="hidecalert()" src="../../../public/img/donordashboard/close.png">
+
+        </div>
+        </div>
+
+        <script>
+            // Get the dialog box
+            var dialog = document.getElementById("myDialog");
+            var email = document.getElementById("myEmail");
+            var otp = document.getElementById("myOTP")
+            // var otp = document.getElementById("myOTP");
+            // Get the input field and buttons 
+            var input = document.getElementById("name");
+            var okButton = document.getElementById("okButton");
+            var cancelButton = document.getElementById("cancelButton"); // Show the dialog box whenthe page loads
+
+            function showalert() {
+                dialog.style.display = "block";
+            } //Show the email dialog box when the page loads
+
+            function showemail() {
+                email.style.display = "block";
+            } //Show the otp dialog box when the page loads
+            function showotp() {
+                otp.style.display = "block";
+            }
+            // When the user clicks the OKbutton, get the input value and close the dialog box 
+
+            // When the user clicks the Cancelbutton, close the dialog box
+
+            function hidealert() {
+                dialog.style.display = "none";
+            }
+
+            function hideemail() {
+                email.style.display = "none";
+            }
+
+            function hideotp() {
+                otp.style.display = "none";
+            }
+
+            var pword = document.getElementById('myPassword');
+
+        const confirm = document.getElementById('myConfirm');
+
+        function showPassword() {
+            pword.style.display = "block";
+        }
+
+        function showConfirm() {
+            confirm.style.display = "block";
+        }
+
+        function hidepalert() {
+                pword.style.display = "none";
+                <?php if (isset($_SESSION['p_error'])){
+                    unset($_SESSION['p_error']);
+                }
+                ?>
+        }
+
+        function hidecalert() {
+            confirm.style.display = "none";
+        }
+        </script>
 </body>
 </html>

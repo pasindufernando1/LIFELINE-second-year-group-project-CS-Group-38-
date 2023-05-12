@@ -22,10 +22,6 @@ class Badges extends Controller
             }
 
             $_SESSION['badge_info'] = $this->model->getbadgeinfo();
-
-
-
-
             $this->view->render('donor/badges_view');
             exit();
 

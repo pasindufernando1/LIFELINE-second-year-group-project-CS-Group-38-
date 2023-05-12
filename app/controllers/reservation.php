@@ -30,24 +30,24 @@ class Reservation extends Controller
                     for ($i=0; $i < 8 ; $i++) { 
                         if(isset($_POST[$i])){
                             if(!isset($_POST[10]) && !isset($_POST[11]) && !isset($_POST[12]) && !isset($_POST[13])){
-                                $rows = $this->model->getfiltertype($_POST[$i],$blood_bank_id,$start,$end);
+                                $rows = $this->model->getfiltertypeRes($_POST[$i],$blood_bank_id,$start,$end);
                                 $output = array_merge($output,$rows);
                             }
                             else{
                                 if(isset($_POST[10])){
-                                    $rows = $this->model->getfiltertypes($_POST[$i],$blood_bank_id,$_POST[10],$start,$end);
+                                    $rows = $this->model->getfiltertypesRes($_POST[$i],$blood_bank_id,$_POST[10],$start,$end);
                                     $output = array_merge($output,$rows);
                                 }
                                 if(isset($_POST[11])){
-                                    $rows = $this->model->getfiltertypes($_POST[$i],$blood_bank_id,$_POST[11],$start,$end);
+                                    $rows = $this->model->getfiltertypesRes($_POST[$i],$blood_bank_id,$_POST[11],$start,$end);
                                     $output = array_merge($output,$rows);
                                 }
                                 if(isset($_POST[12])){
-                                    $rows = $this->model->getfiltertypes($_POST[$i],$blood_bank_id,$_POST[12],$start,$end);
+                                    $rows = $this->model->getfiltertypesRes($_POST[$i],$blood_bank_id,$_POST[12],$start,$end);
                                     $output = array_merge($output,$rows);
                                 }
                                 if(isset($_POST[13])){
-                                    $rows = $this->model->getfiltertypes($_POST[$i],$blood_bank_id,$_POST[13],$start,$end);
+                                    $rows = $this->model->getfiltertypesRes($_POST[$i],$blood_bank_id,$_POST[13],$start,$end);
                                     $output = array_merge($output,$rows);
                                 }
                             }
@@ -379,7 +379,7 @@ class Reservation extends Controller
                 $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
                 $date = date("Y-m-d");
                 $packets =$this ->model -> getAllPacks($blood_bank_id);
-                $countp = count($packets) -1;
+                $countp = count($packets);
 
                 for ($i=0; $i < $countp; $i++)
                 {
@@ -388,7 +388,8 @@ class Reservation extends Controller
             
                     if($diff - $constraint > 0)
                     {
-                        //print_r($diff - $packets[$i]['Expiry_constraint']*86400 . $packets[$i]['PacketID']);    
+                        // print_r("Check");die();
+                        // print_r($diff - $packets[$i]['Expiry_constraint']*86400 . $packets[$i]['PacketID']);die();    
                         $status = $this ->model -> changeStatus($packets[$i]['PacketID']);
                     }
                     

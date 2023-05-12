@@ -167,7 +167,7 @@ $metaTitle = "Productive donation areas Report"
     
     </script>
     <script>
-
+        // Send to database
         var doc = new jsPDF();
         $('#send-database').click(function() {
             var htmlContent = $('#box-productive').html();
@@ -198,7 +198,7 @@ $metaTitle = "Productive donation areas Report"
         });
 
 
-
+        // Download copy as pdf
         document.querySelector('#submit-btn').addEventListener('click', function () {
                 html2canvas(document.querySelector('#box-productive')).then((canvas) => {
                 let base64image = canvas.toDataURL('image/png');
