@@ -41,7 +41,6 @@ class Donors extends Controller
                 }
                 if(isset($_POST['filter'])){
                     if(isset($_POST['all_type'])){
-                        
                         $_SESSION['is_filtered'] = true;
                         $_SESSION['donors'] = $this->model->getAllDonorDetails();
                         $this->view->render('admin/donors');
@@ -73,6 +72,15 @@ class Donors extends Controller
                             }
                         }
                         
+                    }
+
+                    // Checking whether a single blood category is selected
+                    if($flag_category==0){
+                        for($i=0;$i<8;$i++){
+                            if(isset($_POST[$i])){
+                                $flag_category = 1;
+                            }
+                        }
                     }
                     
                     //If a single blood category is not selected
@@ -149,7 +157,7 @@ class Donors extends Controller
             $Email = $_POST['email'];
             $ContactNumber = $_POST['contact'];
             $Username = $_POST['uname'];
-            $Userpic = 'default-path';
+            $Userpic = 'default_donor.png';
             $Password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 

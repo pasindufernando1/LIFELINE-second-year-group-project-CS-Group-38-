@@ -674,7 +674,7 @@ body {
     width: 1540px;
     height: 810px;
     left: 316px;
-    top: 102px;
+    top: 110px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -2073,7 +2073,9 @@ a {
     color: #BF1B16;
     font-family: 'Poppins';
     font-weight: bolder;
+    font-size: 18px;
     border: none;
+    padding: 0px;
 }
 
 .validated-btn {
@@ -2087,7 +2089,9 @@ a {
     color: #5C5C5C;
     font-family: 'Poppins';
     font-weight: bolder;
+    font-size: 18px;
     border: none;
+    padding: 0px;
 }
 
 .verify-btn {

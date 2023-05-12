@@ -576,5 +576,16 @@
     padding: 10px 12px 10px 12px
 }
 
+td {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14.4954px;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+    padding-top: 26px;
+}
+
 
 

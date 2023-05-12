@@ -51,6 +51,7 @@ const submitFeedback = document.getElementById("feedback-btn");
 const addform = document.getElementById("addform");
 const emailform = document.getElementById("emailform");
 const requestform = document.getElementById("requestform");
+const feedbackform = document.getElementById("feedbackform");
 
 //Contact number validation
 contactnumber?.addEventListener("input", function () {
@@ -162,7 +163,6 @@ addform?.addEventListener('submit', function (e) {
         e.preventDefault();
     }
 }); 
-
 
 
 //Submit button validation
@@ -309,13 +309,13 @@ feedback?.addEventListener("input", function () {
 });
 
 //Submit button validation
-submitFeedback?.addEventListener("click", function () {
-    if (feedback_flag) {
-        submitFeedback.disabled = false;
-    } else {
-        submitFeedback.disabled = true;
+feedbackform?.addEventListener('submit', function (e) {
+    console.log("submitting");
+    if (!(feedback_flag == true )) {
+        e.preventDefault();
     }
-});
+}); 
+
 
 
   

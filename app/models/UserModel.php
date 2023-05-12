@@ -701,4 +701,21 @@ class UserModel extends Model
         AND hospital_medicalcenter.Status = :status ;", $params, $inputs);
         return $count;
     }
+
+    public function get_telno($User_ID)
+    {
+        $data1 = $this->db->select("*", "hospital_medicalcenter", "WHERE UserID = :User_ID",':User_ID',$User_ID);
+        
+        //Select Email,Username,Password from user table
+        $data2 = $this->db->select("Email,Username,UserType,Password,Userpic", "user", "WHERE UserID = :UserID",':UserID',$User_ID);
+        //Select ContactNumber from usercontactnumber table
+        $data3 = $this->db->select("ContactNumber", "usercontactnumber", "WHERE UserID = :UserID",':UserID',$User_ID);
+        
+        $data = array_merge($data1,$data2,$data3);
+        //Return data as a single array
+        
+        return $data;
+        /* $data = $this->db->select("ContactNumber", "usercontactnumber","WHERE UserID =:UserID", ':UserID', $User_ID);
+        return $data; */
+    }
 }

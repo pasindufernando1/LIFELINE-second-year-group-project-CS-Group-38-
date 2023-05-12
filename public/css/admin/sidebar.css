@@ -1,9 +1,10 @@
 .side-bar {
+    display: flex;
     position: absolute;
-    width: 277.49px;
-    height: 922px;
+    width: 14.4vw;
+    height: 126vh !important;
     left: -5px;
-    top: 102px;
+    top: 110px;
     background: #FFFFFF;
     border-right: 1px;
     border-color: #000000;

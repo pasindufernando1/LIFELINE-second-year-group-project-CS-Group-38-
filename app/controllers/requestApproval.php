@@ -852,7 +852,6 @@ class requestApproval extends Controller
             //get advertisement details from the advertisement id
             $AdvertisementID = $_GET['ad'];
             //print_r($AdvertisementID);die();
-            
             $data['Description']=$this->model->getAdvertisementDescription($AdvertisementID);
             //print_r($data['Description']);die();
             $data['ItemName']=$this->model->getAdvertisementItemName($AdvertisementID);
@@ -887,7 +886,7 @@ class requestApproval extends Controller
                     //get the blood bnak id from the advertisement id
                     $bloodbankID=$this->model->getAdBloodbankID($AdvertisementID);
                    
-                   $adminVerify='0';
+                    $adminVerify='0';
                     $acceptedDate=Null;
                   
         

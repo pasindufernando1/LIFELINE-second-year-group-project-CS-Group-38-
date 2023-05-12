@@ -103,6 +103,7 @@ class RequestApprovalModel extends Model
     }
     public function addinventoryItem($inputs1,$inputs2)
     {
+
         /* $columns1 = array('DonationID','Inventory_category');
         $param1 = array(':AdvertisementID',':Total_amount');
         $result1 = $this->db->update("donation", $columns1, $param1, $inputs1,':AdvertisementID',$AdvertisementID,"WHERE AdvertisementID = :AdvertisementID"); */
@@ -110,9 +111,19 @@ class RequestApprovalModel extends Model
         $param1 = array(':DonationID', ':Inventory_category', ':Quantity', ':Accepted_date', ':Admin_verify',':Organization_UserID');
         $result1 = $this->db->insert("inventory_donation", $column1, $param1, $inputs1);
 
+         
         $column2=array('DonationID','OrganizationUserID','BloodBankID');
         $param2=array(':DonationID',':OrganizationUserID',':BloodBankID');
-        $result2=$this->db->insert("organization_donations_bloodbank", $column2, $param2, $inputs2);
+
+
+        // Check whether the donation is already inserted
+        $check = $this->db->select("count(*)", "organization_donations_bloodbank", "WHERE DonationID =:DonationID AND OrganizationUserID =:OrganizationUserID AND BloodBankID =:BloodBankID", $param2, $inputs2);
+        // If the donation is not inserted, insert it
+        if ($check[0][0] == 0) {
+            $result2 = $this->db->insert('organization_donations_bloodbank', $column2, $param2, $inputs2);
+        } else {
+            $result2 = "Success";
+        }
         if ($result1 == "Success" && $result2 == "Success" ) {
             return true;
         } else {
@@ -294,7 +305,7 @@ class RequestApprovalModel extends Model
     public function getfeedbackInfo($campid)
     {
 
-        $data = $this->db->select("DonorID,Feedback,Date,Rating", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid", ':campid', $campid);
+        $data = $this->db->select("DonorID,Feedback,Date,Rating", "donor_campaign_bloodpacket", "WHERE CampaignID =:campid AND (Feedback is not null and Rating is not null)", ':campid', $campid);
         
         return $data;
 
@@ -516,14 +527,35 @@ class RequestApprovalModel extends Model
 
     public function getpastcashdonations($userid)
     {
-        $data = $this->db->select("DISTINCT cash_donation.*,bloodbank.BloodBank_Name,Total_amount", "cash_donation", "INNER JOIN organization_donations_bloodbank on cash_donation.DonationID = organization_donations_bloodbank.DonationID INNER JOIN bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID INNER JOIN donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.OrganizationUserID =:userid ORDER BY DATE DESC", ':userid', $userid);
+        // $data = $this->db->select("DISTINCT cash_donation.*,bloodbank.BloodBank_Name,donation.Total_amount", "cash_donation", "INNER JOIN organization_donations_bloodbank on cash_donation.DonationID = organization_donations_bloodbank.DonationID INNER JOIN bloodbank on organization_donations_bloodbank.BloodBankID = bloodbank.BloodBankID INNER JOIN donation on donation.DonationID = cash_donation.DonationID WHERE cash_donation.Organization_UserID =:userid ORDER BY DATE DESC", ':userid', $userid);
+        // return $data;
+
+        // Get the cash donations relevent to the organization
+        $data = $this->db->select("*", "cash_donation", "WHERE Organization_UserID =:userid", ':userid', $userid);
+        // For each DonationID, get the bloodbank name and total amount
+        for ($i = 0; $i < sizeof($data); $i++) {
+            // Get the donation id and append the bloodbank name and total amount
+            $donationid = $data[$i]["DonationID"];
+            // Get the total amount from the donation table and append it to the data array
+            $total_amount = $this->db->select("Total_amount", "donation", "WHERE DonationID =:donationid", ':donationid', $donationid);
+            $data[$i]["Total_amount"] = $total_amount[0][0];
+
+            // Get the bloodbankID from the organization_donations_bloodbank table
+            $bloodbankid = $this->db->select("BloodBankID", "organization_donations_bloodbank", "WHERE DonationID =:donationid", ':donationid', $donationid);
+            // Get the bloodbank name from the bloodbank table and append it to the data array
+            $bloodbankname = $this->db->select("BloodBank_Name", "bloodbank", "WHERE BloodBankID =:bloodbankid", ':bloodbankid', $bloodbankid[0][0]);
+            $data[$i]["BloodBank_Name"] = $bloodbankname[0][0];
+        }
+
         return $data;
     }
 
     public function insertDonation($donationid, $donationamount, $userid,$today)
     {
-        $columns = array('DonationID', 'Amount', 'OrganizationUserID','Date');
-        $param = array(':DonationID', ':Amount', ':OrganizationUserID',':Date');
+        
+
+        $columns = array('DonationID', 'Amount', 'Organization_UserID','Date');
+        $param = array(':DonationID', ':Amount', ':Organization_UserID',':Date');
         $inputs = array($donationid, $donationamount, $userid,$today);
         $result1 = $this->db->insert("cash_donation", $columns, $param, $inputs);
 
@@ -533,18 +565,25 @@ class RequestApprovalModel extends Model
         $columns1 = array('DonationID', 'BloodBankID', 'OrganizationUserID');
         $param1 = array(':DonationID', ':BloodBankID', ':OrganizationUserID');
         $inputs1 = array($donationid, $bloodbankid[0][0], $userid);
-        $result2 = $this->db->insert('organization_donations_bloodbank', $columns1, $param1, $inputs1);
 
+        // Check whether the donation is already inserted
+        $check = $this->db->select("count(*)", "organization_donations_bloodbank", "WHERE DonationID =:DonationID AND BloodBankID =:BloodBankID AND OrganizationUserID =:OrganizationUserID", $param1, $inputs1);
+        // If the donation is not inserted, insert it
+        if ($check[0][0] == 0) {
+            $result2 = $this->db->insert('organization_donations_bloodbank', $columns1, $param1, $inputs1);
+        } else {
+            $result2 = "Success";
+        }
         if ($result1 == "Success") {
             if($result2 == "Success"){
                 return true;
             }
             else{
-                print_r($result);
+                print_r($result2);
             }
             return true;
         } else
-            print_r($result);
+            print_r($result1);
     }
 
     //end payment

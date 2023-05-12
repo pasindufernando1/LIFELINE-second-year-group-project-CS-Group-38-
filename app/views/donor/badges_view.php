@@ -76,6 +76,7 @@ $metaTitle = 'Donor Badges'; ?>
                     The Badges You Earned Will be Displayed Here<br><br>Go to Campaigns to See Upcoming Campaigns </p>";
                 } else {
                     foreach ($_SESSION['badges'] as $badge) {
+                        print_r($badge[0]);die();
                         echo '<div><img onclick="showalert(\'' . $badge[0] . '\')" src="../../../public/img/badges/' . $badge[0] . '">
                     <p>' . $badge['Name'] . ' Badge</p></div>';
                     }
@@ -110,10 +111,11 @@ $metaTitle = 'Donor Badges'; ?>
 
             // message = badge.split(".")[0];
             <?php foreach ($_SESSION['badge_info'] as $badge) {
-                    echo "if(badge == '$badge[0]'){
-                    message = '$badge[1]';
-                    name = '$badge[2]';
-                }";
+                    // var_dump($badge[0]);die();
+                    echo 'if(badge == "'.$badge[0].'"){
+                    message = "'.$badge[1].'";
+                    name = "'.$badge[2].'";
+                }';
                 } ?>
 
             alertBadge.src = "../../../public/img/badges/" + badge;
