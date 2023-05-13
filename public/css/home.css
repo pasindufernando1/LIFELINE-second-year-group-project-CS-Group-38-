@@ -221,6 +221,7 @@
     width: 100vw;
     height: 45.139vw;
     margin-top: 6vw;
+    
 }
 
 .head {
@@ -252,8 +253,27 @@
 }
 
 .campbox {
-    margin-left: 13.69%;
+    margin-left: 10.69%;
     height: 24vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.campbox .adc{
+    margin-right: 2vw;
+    margin-left: 11vw;
+    margin-top: -3vw;
+    /* gap: 1vw; */
+    width: 18vw;
+    /* height: 35vw; */
+    /* border: #dde0e0 1px solid; */
+    /* border-radius: 10px;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3); */
+}
+
+.campbox .adc img{
+    border-radius: 10px;
+    box-shadow: 0px 8px 12px rgba(135, 145, 233, 0.3);
 }
 
 .campbox1 {

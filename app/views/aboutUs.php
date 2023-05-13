@@ -9,6 +9,7 @@ require_once __ROOT__ . '/app/views/layout/navigation.php';
 <head>
     <!-- CSS Files -->
     <link href="../../../public/css/organization/aboutUs.css" rel="stylesheet">
+    
 </head>
 
 

@@ -652,7 +652,8 @@ class Reports extends Controller
                     header("Location: /reports/donorReport");
                     exit;
                 }
-                $_SESSION['donorid']= $_POST['donorID'];
+                $donornic= $_POST['donornic'];
+                $_SESSION['donorid'] = $this->model->getDonorId($donornic);
                 $_SESSION['donordetails']= $this->model->getDonorDetails($_SESSION['donorid']);
                 $_SESSION['report_id'] = $this->model->getReportId();
                 $_SESSION['donations'] = $this->model->getAllDonations($_SESSION['donorid']);

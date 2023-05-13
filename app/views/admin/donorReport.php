@@ -41,14 +41,18 @@ $metaTitle = "Donor Report"
     <p class="add-user-title">Donor Details</p>
         <form action="/reports/donorReport_Gen" method="post" enctype="multipart/form-data" id="addform">
             <div class="quantity-container">
-                <label id= "hospital_name-label" class="quantity-lable" for="category">Select donor : </label>
+                <label id= "hospital_name-label" class="quantity-lable" for="category">Donor NIC : </label>
                 <br>
-                <select class="quantity-input" type="text" name="donorID" id="donorID" placeholder="Donor ID" required>
-                    <option value="" disabled selected hidden>Select Donor</option>
-                        <?php foreach ($_SESSION['Donors'] as $donor) : ?>
-                            <option value="<?php echo $donor[0]; ?>"><?php echo $donor[1]; ?></option>
-                        <?php endforeach; ?>
-                </select>
+                <input class="quantity-input" type="text" name="donornic" id="donorID" placeholder="Donor NIC" list = "donors" required>
+                <datalist id="donors">                                    
+                    <?php 
+                        $count = count($_SESSION['Donors']);
+                        for ($i=0; $i <$count ; $i++) { 
+                            echo'<option value="'.$_SESSION['Donors'][$i]['NIC'].'">'.$_SESSION['Donors'][$i]['NIC'].' - '.$_SESSION['Donors'][$i]['Fullname'].'</option> ';
+                        }
+                    ?>
+                </datalist>
+                
                 <!-- <input class="quantity-input" type="text" name="donorID" id="category" placeholder="Donor ID" required> -->
                 <div>
                 <button id="submit-btn" class='brown-button-rep generate-analytics' type='submit' name='gen_report'>Generate report</button>                            

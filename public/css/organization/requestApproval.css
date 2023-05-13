@@ -137,7 +137,7 @@ body {
 }
 
 .side-bar {
-    position: absolute;
+    position: fixed;
     width: 277.49px;
     height: 864px;
     left: -5px;
@@ -4204,7 +4204,7 @@ a {
     box-sizing: border-box;
     position: absolute;
     width: 1540px;
-    height: 1080px;
+    height: 1120px;
     left: 316px;
     top: 100px;
     background: #ffffff;
@@ -4279,7 +4279,7 @@ a {
     border: 1px solid #BF1B16;
     position: absolute;
     top: 197px;
-    height: 859px;
+    height: 892px;
     width: 1233px;
     border-radius: 5%;
     left: 145px;

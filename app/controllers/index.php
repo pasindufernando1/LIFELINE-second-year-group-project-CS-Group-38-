@@ -11,6 +11,7 @@ class Index extends Controller
 
     function index()
     {
+        $_SESSION['advertsements_home'] = $this->model->getAdvertisements();
         $this->view->render('index');
     }
 

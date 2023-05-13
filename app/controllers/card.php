@@ -26,7 +26,7 @@ class Card extends Controller
                     $last_donation_date = new DateTime($_SESSION['last_donation_date']);
                     $today = new DateTime();
                     $interval = $today->diff($last_donation_date)->days;
-                    if ($interval >= 56) {
+                    if ($interval >= 108) {
                         $_SESSION['eligible'] = true;
                     } else {
                         $_SESSION['eligible'] = false;

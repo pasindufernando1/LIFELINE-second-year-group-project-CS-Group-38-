@@ -118,8 +118,8 @@ $metaTitle = 'Donor Dashboard';
                 echo "<p>Thank You<br> For Joining With Us<br> to <br>Donate Blood And Save Lives</p>";
             } else {
                 echo '<p>Your Last Donation Was<br><span id="r"> ' . $_SESSION['days_last_donation'] . '</span> Days Ago<br><br>';
-                if ($_SESSION['days_last_donation'] < 56) {
-                    echo 'You Can Donate Blood Again In<br><span> ' . (56 - $_SESSION['days_last_donation']) . '</span> Days</p>';
+                if ($_SESSION['days_last_donation'] < 112) {
+                    echo 'You Can Donate Blood Again In<br><span> ' . (112 - $_SESSION['days_last_donation']) . '</span> Days</p>';
                 } else {
                     echo 'You Can Donate Blood <span>Now</span></p>';
                 }
@@ -202,6 +202,44 @@ $metaTitle = 'Donor Dashboard';
         </div>
     </div>
     <div id="see-more-container" class="container2">
+        <h2>What to Do Before, During and After Your Donation</h2>
+        <div>
+            <h3>Before Your Donation</h3>
+            <p>
+            <li>Before donating blood, you should prepare yourself by eating well and drinking fluids. Eat a
+                healthy meal, avoiding fatty foods.</li>
+                <li>Drink an extra 2 glasses of water and fluids before the donation. </li>
+                <li>Avoid alcohol and caffeine before and on the day of your donation. </li>
+                <li>Get a good night’s sleep before your donation.</li>
+            </p>
+            <h3>What to Bring</h3>
+            <p>
+                <li>Your national identity card, driver’s license or any other acceptable forms of ID.</li> 
+                <li>The names of medications you are taking.</li>
+            </p>
+            <h3>During Your Donation</h3>
+            <p>
+                During the donation, you will be seated comfortably while a pint of blood is drawn. The actual
+                donation takes about 10 minutes. The entire process, from when you sign in to the time you leave,
+                takes
+                about half an hour.<br>
+                After donating blood, you will be asked to sit for a short time to be sure you are
+                feeling
+                well. Then you will be provided with refreshments.
+            </p>
+            <h3>After Your Donation</h3>
+            <p>
+                <b>After donating blood</b>, 
+                <li>you should drink plenty of fluids over the next 24-48 hours to replace any
+                fluids you lost during donation.</li>
+                <li>Avoid strenuous physical activity or heavy lifting for about five
+                hours
+                after donation. </li>
+                <li><b>If you feel light headed, </b>lie down, preferably with feet elevated, until the feeling
+                passes. </li>
+                <li>Avoid driving if you feel dizzy.</li>
+            </p>
+        </div>
         <h2>Things You need to know about Donating Blood in Sri Lanka</h2>
         <div>
             <h3>Who can donate blood?</h3>

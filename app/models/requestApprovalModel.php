@@ -538,7 +538,7 @@ class RequestApprovalModel extends Model
         // return $data;
 
         // Get the cash donations relevent to the organization
-        $data = $this->db->select("*", "cash_donation", "WHERE Organization_UserID =:userid", ':userid', $userid);
+        $data = $this->db->select("*", "cash_donation", "WHERE Organization_UserID =:userid ORDER BY DATE DESC", ':userid', $userid);
         // For each DonationID, get the bloodbank name and total amount
         for ($i = 0; $i < sizeof($data); $i++) {
             // Get the donation id and append the bloodbank name and total amount

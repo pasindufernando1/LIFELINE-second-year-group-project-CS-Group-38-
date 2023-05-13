@@ -352,8 +352,14 @@ class ReportsModel extends Model
 
     // Function to get all the donors
     public function getAllDonors(){
-        $data = $this->db->select("UserID,Fullname", "donor","Null");
+        $data = $this->db->select("UserID,Fullname,NIC", "donor","Null");
         return $data;
+    }
+
+    // Function to get the donorId from the donornic
+    public function getDonorId($donorNIC){
+        $data = $this->db->select("UserID", "donor","WHERE NIC = :donorNIC",':donorNIC',$donorNIC);
+        return $data[0]['UserID'];
     }
 
     // Function to get all the donations of the donor

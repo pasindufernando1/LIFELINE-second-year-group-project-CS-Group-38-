@@ -137,7 +137,7 @@ body {
 }
 
 .side-bar {
-    position: absolute;
+    position: fixed;
     width: 277.49px;
     height: 946px;
     left: -5px;

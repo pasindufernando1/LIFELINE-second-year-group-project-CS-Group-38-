@@ -59,46 +59,40 @@
         <div class="camp">
             <div class="head">
                 <p class="ph1">Better information, Better health</p>
-                <p class="ph2">Campaigns</p>
+                <p class="ph2">Contribute To The Needful</p>
 
             </div>
 
             <div class="campbox">
-                <div class="campbox1">
-                    <img class="box-img" src="../../../public/img/camp.png" alt="">
-                    <div class="campbox1-d">
-                        <p class="box1-p1">Monday 05, September 2021 | By Author</p>
-                        <p class="box1-p2">This Article’s Title goes Here,
-                            but not too long.</p>
-                    </div>
+                <?php if(count($_SESSION['advertsements_home'])> 2){
+                    $count = 0;
+                    foreach ($_SESSION['advertsements_home'] as $ad) {
+                        if($count >=2){
+                            break;
+                        }
+                        echo '
+                        <div class="adc">
+                        <img src="./../../public/img/advertisements/'.$ad['Advertisement_pic'].'" alt="advertisement"><div>
                 </div>
+                
+                </div>';
+                $count++;
+                    }
+                }
+                else{
+                    $count = 0;
+                    foreach ($_SESSION['upcoming_campaigns'] as $campaign) {
+                        echo '
+                        <div class="box-1">
+                        <img src="./../../public/img/advertisements/'.$ad['Advertisement_pic'].'" alt="advertisement"><div>
+                </div>
+                
+                </div>';
+                $count++;
+                    }
+                }
+                ?>
 
-                <div class="campbox2">
-                    <img class="box-img" src="../../../public/img/camp.png" alt="">
-                    <div class="campbox1-d">
-                        <p class="box1-p1">Monday 05, September 2021 | By Author</p>
-                        <p class="box1-p2">This Article’s Title goes Here,
-                            but not too long.</p>
-                    </div>
-                </div>
-
-                <div class="campbox3">
-                    <img class="box-img" src="../../../public/img/camp.png" alt="">
-                    <div class="campbox1-d">
-                        <p class="box1-p1">Monday 05, September 2021 | By Author</p>
-                        <p class="box1-p2">This Article’s Title goes Here,
-                            but not too long.</p>
-                    </div>
-                </div>
-
-                <div class="campbox4">
-                    <img class="box-img" src="../../../public/img/camp.png" alt="">
-                    <div class="campbox1-d">
-                        <p class="box1-p1">Monday 05, September 2021 | By Author</p>
-                        <p class="box1-p2">This Article’s Title goes Here,
-                            but not too long.</p>
-                    </div>
-                </div>
 
             </div>
 

@@ -1,7 +1,8 @@
 .top-bar {
     display: flex;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     width: 100vw;
     height: auto;
     vertical-align: middle;

@@ -2809,7 +2809,7 @@ td {
 
 .side-bar {
     display: flex;
-    position: absolute;
+    position: fixed;
     width: 14.4vw;
     height: 126vh !important;
     left: -5px;

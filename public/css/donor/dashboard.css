@@ -275,34 +275,34 @@ button:hover {
     font-family: Poppins;
 }
 
-.container2 h2 {
+.container2 h2, .about-donations h2 {
     color: #BF1B16;
     font-family: Poppins;
     margin-left: 28px;
     font-size: 30px;
 }
 
-.container2 h3 {
+.container2 h3, .about-donations h3 {
     font-size: 26px;
 }
 
-.container2 h4 {
+.container2 h4, .about-donations h4 {
     font-size: 24px;
 }
 
-.container2 li {
+.container2 li, .about-donations li {
     font-size: 20px;
 }
 
-.container2 p {
+.container2 p,  .about-donations p {
     font-size: 20px;
 }
 
-.container2 div {
+.container2 div, .about-donations div {
     margin-left: 20px;
 }
 
-.container2 div #note {
+.container2 div #note, .about-donations div #note {
     font-size: 19px;
     width: 70%;
 }
@@ -4086,10 +4086,10 @@ fieldset {
     width: 50%;
     position: absolute;
     display: flex;
-    width: 1565px;
-    height: 746px;
-    left: 316px;
-    top: 138px;
+    width: 1575px;
+    height: 566px;
+    left: 301px;
+    top: 123px;
     font-family: 'Poppins';
     background: #ffffff;
     border: 2px solid #ECEEF7;
@@ -4106,7 +4106,7 @@ fieldset {
     border: 1px solid #ECEEF7;
     border-radius: 7px;
     box-shadow: 2px;
-    height: 45%;
+    height: 65%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
 
@@ -4140,7 +4140,7 @@ fieldset {
     border: 1px solid #ECEEF7;
     border-radius: 7px;
     box-shadow: 2px;
-    height: 45%;
+    height: 65%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
 
@@ -4157,6 +4157,20 @@ fieldset {
     float: right;
     text-align: left;
     width: 50%;
+}
+
+.about-donations{
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    width: 1571px;
+    top: 596px;
+    height: fit-content;
+    border-radius: 6px;
+    background-color: white;
+    border: #ECEEF6 2px solid;
+    font-family: Poppins;
+    text-align: left;
 }
 
 .popup {
@@ -4866,7 +4880,7 @@ a {
     width: 203.66px;
     height: 50px;
     left: 911px;
-    top: 423px;
+    top: 352px;
     background: #640e0b;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
@@ -4890,7 +4904,7 @@ a {
     left: 1194px;
     width: 203.66px;
     height: 50px;
-    top: 423px;
+    top: 352px;
     background: #F7F7F7;
     border: 1px solid #640E0B;
     border-radius: 10.8716px;
