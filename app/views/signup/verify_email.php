@@ -26,6 +26,10 @@ require_once(__ROOT__ . '/views/layout/navigation.php');
         <div class="sub-2">
             <p>Enter your Email below</p>
         </div>
+        <?php if (isset($_SESSION['email_error'])) {
+            echo '<div class="sub-3">
+            <p class="otp-error">' . $_SESSION['email_error'] . '</p>';
+        } ?>
 
         <form class="donor-form" action="/signup/get_otp" method="post" id="email-form" name="login-form">
             <label class="username-lable" for="email">Email</label>

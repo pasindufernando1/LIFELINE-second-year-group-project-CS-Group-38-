@@ -8,7 +8,7 @@
     background: #FFFFFF;
     border: 1px solid #640E0B;
     border-radius: 8px;
-    height: 1145px
+    height: 1024px
 }
 
 .logo-img {
@@ -81,7 +81,7 @@
     position: absolute;
     width: 258px;
     height: 20px;
-    top: 790px;
+    top: 690px;
     left: calc(50% - 158px/2 - 28px);
     bottom: 40px;
     font-family: 'Mulish';
@@ -370,7 +370,7 @@ fieldset {
     height: 16px;
     left: 0px;
     right: 0px;
-    top: 370px;
+    top: 288px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -386,7 +386,7 @@ fieldset {
     position: absolute;
     left: 0;
     right: 0px;
-    top: 396px;
+    top: 312px;
     bottom: -71px;
     background: #FCFDFE;
     border: 2px solid #FBDAD9;
@@ -410,7 +410,7 @@ fieldset {
     height: 16px;
     left: 0px;
     right: 0px;
-    top: 448px;
+    top: 360px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -426,7 +426,7 @@ fieldset {
     position: absolute;
     left: 0;
     right: 0px;
-    top: 473px;
+    top: 387px;
     bottom: -71px;
     background: #FCFDFE;
     border: 2px solid #FBDAD9;
@@ -450,7 +450,7 @@ fieldset {
     height: 16px;
     left: 0px;
     right: 0px;
-    top: 525px;
+    top: 435px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -466,7 +466,7 @@ fieldset {
     position: absolute;
     left: 0;
     right: 0px;
-    top: 548px;
+    top: 458px;
     bottom: -71px;
     background: #FCFDFE;
     border: 2px solid #FBDAD9;
@@ -490,7 +490,7 @@ fieldset {
     height: 16px;
     left: 0px;
     right: 0px;
-    top: 600px;
+    top: 508px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -506,7 +506,7 @@ fieldset {
     position: absolute;
     left: 0;
     right: 0px;
-    top: 622px;
+    top: 534px;
     bottom: -71px;
     background: #FCFDFE;
     border: 2px solid #FBDAD9;
@@ -524,12 +524,13 @@ fieldset {
     color: #640E0B;
     opacity: 0.4;
 }
+
 .login-button {
     position: absolute;
     height: 48px;
     left: 0px;
     right: 0px;
-    top: 720px;
+    top: 623px;
     bottom: 0px;
     background: #640E0B;
     box-shadow: 0px 4px 12px rgb(55 81 255 / 24%);
@@ -549,8 +550,3 @@ fieldset {
     color: #640E0B;
 
 }
-
-
-
-
-

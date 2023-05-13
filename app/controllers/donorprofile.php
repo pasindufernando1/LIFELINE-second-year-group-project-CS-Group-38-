@@ -213,6 +213,9 @@ class Donorprofile extends Controller
                 $password = trim($password);
                 if ($this->model->check_password($_SESSION['user_ID'], $password)) {
                     $this->view->render('donor/profile');
+                    if (isset($_SESSION['e_error'])) {
+                        unset($_SESSION['e_error']);
+                    }
                     echo '<script>hidealert();</script>';
                     echo '<script>showemail();</script>';
                     if (isset($_SESSION['p_error'])) {
@@ -283,8 +286,13 @@ class Donorprofile extends Controller
                 unset($_SESSION['e_error']);
             }
         } catch (Exception $e) {
-            $_SESSION['e_error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            echo "Mailer Error: " . $mail->ErrorInfo;
+
+            $_SESSION['e_error'] = "Email could not be sent.";
+            $this->view->render('donor/profile');
+            echo '<script>hidealert();</script>';
+            echo '<script>showemail();</script>';
+            exit();
+            // echo "Mailer Error: " . $mail->ErrorInfo;
         }
     }
 

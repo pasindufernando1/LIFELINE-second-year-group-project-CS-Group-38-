@@ -31,7 +31,7 @@
                 <p class="ppp">After submitting the new email, you will receive an OTP code...</p>
                 <form action="/donorprofile/get_email" method="POST" id="email_update">
                     <?php if (isset($_SESSION['e_error'])) {
-                        echo "<p class='pass_error'>" . $_SESSION['e_error'] . "</p>";
+                        echo "<p id='e_error'>" . $_SESSION['e_error'] . "</p>";
                     } ?>
                     <label for="email">Please enter your new email :</label>
                     <input type="text" id="email" name="email">

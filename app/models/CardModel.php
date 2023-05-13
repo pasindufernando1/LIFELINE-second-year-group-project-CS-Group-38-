@@ -210,33 +210,24 @@ class CardModel extends Model
 
         public function getnewestbadge($userid)
     {
-        $camp_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_campaign_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
+        $newest_badge_count = $this->db->select(
+            'count(*), BadgeID',
+            'donor_badges',
+            'WHERE DonorUserID = :UserID',
+            ':UserID',
             $userid
-        )[0][0];
-
-        $bank_donations = $this->db->select(
-            'COUNT(*)',
-            'donor_bloodbank_bloodpacket',
-            'WHERE DonorID = :DonorID',
-            ':DonorID',
-            $userid
-        )[0][0];
-        $donations = $camp_donations + $bank_donations;
-
-        if ($donations == 0) {
+        )[0];
+        
+        if ($newest_badge_count == 0) {
             return null;
 
         } else {
             $newest_badge = $this->db->select(
                 '*',
                 'badge',
-                'WHERE Donation_Constraint = :Donations',
-                ':Donations',
-                $donations
+                'WHERE BadgeID = :BadgeID',
+                ':BadgeID',
+                $newest_badge_count['BadgeID']
             )[0];
 
             return $newest_badge;

@@ -196,7 +196,7 @@ $metaTitle = "Organizations Dashboard"
                     <p class='title'>Payement Failed!!</p>
                     <img class="x-img" src="./../../public/img/unsuccess-msg-img.jpg" alt="req">
                     <p class="p-err"><?php echo $_SESSION['PaymentError']; ?></p>
-                    <button class="but"><a href="/organizationuser/donateCash">Go to Donation Page</a></button>
+                    <button class="but"><a href="/requestApproval/donateCash">Go to Donation Page</a></button>
 
 
                 </form>

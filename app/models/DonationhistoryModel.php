@@ -308,7 +308,7 @@ class DonationhistoryModel extends Model
         $bank_amounts = [];
         foreach ($latest_donations as $latest_donation) {
             $bank_amount = $this->db->select(
-                'Quantity',
+                'SUM(Quantity)',
                 'bloodpacket',
                 'WHERE PacketID = :PacketID',
                 ':PacketID',
@@ -385,7 +385,7 @@ class DonationhistoryModel extends Model
             );
             foreach ($packetids as $packetid) {
                 $amount = $this->db->select(
-                    'Quantity',
+                    'SUM(Quantity)',
                     'bloodpacket',
                     'WHERE PacketID = :PacketID',
                     ':PacketID',
@@ -411,7 +411,7 @@ class DonationhistoryModel extends Model
         $total = 0;
         foreach ($packetids as $packetid) {
             $amount = $this->db->select(
-                'Quantity',
+                'SUM(Quantity)',
                 'bloodpacket',
                 'WHERE PacketID = :PacketID',
                 ':PacketID',
@@ -437,7 +437,7 @@ class DonationhistoryModel extends Model
             );
             foreach ($packetid as $packet) {
                 $amount = $this->db->select(
-                    'Quantity',
+                    'SUM(Quantity)',
                     'bloodpacket',
                     'WHERE PacketID = :PacketID',
                     ':PacketID',
@@ -464,7 +464,7 @@ class DonationhistoryModel extends Model
                 [$bank[0], $bank[1]]
             );
             $amount = $this->db->select(
-                'Quantity',
+                'SUM(Quantity)',
                 'bloodpacket',
                 'WHERE PacketID = :PacketID',
                 ':PacketID',

@@ -21,6 +21,9 @@ class signup extends Controller
     function verify()
     {
         $_SESSION['utype'] = $_GET['utype'];
+        if(isset($_SESSION['email_error'])){
+            unset($_SESSION['email_error']);
+        }
         $this->view->render('signup/verify_email');
         exit;
     }
@@ -59,9 +62,9 @@ class signup extends Controller
         $mail->isHTML(true);
 
         $mail->Subject = "Verify Your Email Address";
-        $mail->Body = "<p>Dear Donor,</p>
+        $mail->Body = "
             <p>Thank you for registering to LifeLine. To verify your account, we need to verify your email address.
-            Use the following OTP to confirm:$num_str </p>
+            Use the following OTP to confirm: $num_str </p>
             <p>enter the OTP on the confirmation page to complete the verification process.
             If you didn't request this OTP, please ignore this email.</p>";
         $mail->AltBody = "This is the plain text version of the email content";
@@ -74,8 +77,12 @@ class signup extends Controller
                 unset($_SESSION['e_error']);
             }
         } catch (Exception $e) {
-            $_SESSION['e_error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            echo "Mailer Error: " . $mail->ErrorInfo;
+            $_SESSION['email_error']="Message could not be sent.";
+            $this->view->render('signup/verify_email');
+            exit;
+
+            // $_SESSION['e_error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            // echo "Mailer Error: " . $mail->ErrorInfo;
         }
 
     }
