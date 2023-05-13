@@ -10,7 +10,7 @@ class AdcampaignsModel extends Model
     // Function to get all campaign details
     public function getAllCampaignDetails()
     {
-        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE donation_campaign.Archive = 0");
+        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE donation_campaign.Archive = 0 ORDER BY Date DESC");
         return $data;
 
     }
@@ -43,21 +43,21 @@ class AdcampaignsModel extends Model
     {
         $columns = array(":BloodBank_Name",":Date");
         $values = array($bloodbank,$date);
-        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE BloodBank_Name = :BloodBank_Name AND Date = :Date AND donation_campaign.Archive = 0",$columns,$values);
+        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE BloodBank_Name = :BloodBank_Name AND Date = :Date AND donation_campaign.Archive = 0  ORDER BY Date DESC",$columns,$values);
         return $data;
     }
 
     // Get the campaigns for a date
     public function getFilteredCampaignsDate($date)
     {
-        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE Date = :Date AND donation_campaign.Archive = 0","Date",$date);
+        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE Date = :Date AND donation_campaign.Archive = 0  ORDER BY Date DESC","Date",$date);
         return $data;
     }
 
     // Get the campaigns for a blood bank
     public function getFilteredCampaignsBank($bloodbank)
     {
-        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE BloodBank_Name = :BloodBank_Name AND donation_campaign.Archive = 0","BloodBank_Name",$bloodbank);
+        $data = $this->db->select("*", "donation_campaign","INNER JOIN bloodbank ON donation_campaign.BloodBankID = bloodbank.BloodBankID WHERE BloodBank_Name = :BloodBank_Name AND donation_campaign.Archive = 0  ORDER BY Date DESC","BloodBank_Name",$bloodbank);
         return $data;
     }
     

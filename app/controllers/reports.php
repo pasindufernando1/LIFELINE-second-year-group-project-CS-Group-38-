@@ -80,7 +80,6 @@ class Reports extends Controller
                     }
                     // If the requestor is not selected
                     if(!isset($_POST['requestor'])){
-                        
                         // If all the month and year is selected
                         if(isset($_POST['month']) && isset($_POST['year'])){
                             $rows = $this->model->getFilteredReportDetailsDate($_POST['month'],$_POST['year']);

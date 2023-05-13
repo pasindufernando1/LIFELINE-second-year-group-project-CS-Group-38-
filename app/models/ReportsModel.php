@@ -10,7 +10,7 @@ class ReportsModel extends Model
     // Function to get all the report details
     public function getAllReportDetails()
     {
-        $data = $this->db->select("*", "report","Null");
+        $data = $this->db->select("*", "report","ORDER BY Date_Generated DESC");
         // If there is an AdminID in the report, get the name of the admin
         foreach ($data as $key => $value) {
             if($data[$key]['AdminUserID'] != null){
@@ -55,7 +55,7 @@ class ReportsModel extends Model
             // Get the report details for the given month, year and admin
             $columns = array(":Month",":Year",":UserID");
             $values = array($month,$year,$userID);
-            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND AdminUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND AdminUserID = :UserID  ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['AdminUserID'] != null){
                     $adminID = $data[$key]['AdminUserID'];
@@ -69,7 +69,7 @@ class ReportsModel extends Model
             // Get the report details for the given month, year and system user
             $columns = array(":Month",":Year",":UserID");
             $values = array($month,$year,$userID);
-            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND SystemUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year AND SystemUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['SystemUserID'] != null){
                     $userID = $data[$key]['SystemUserID'];
@@ -100,7 +100,7 @@ class ReportsModel extends Model
             // Get the report details for the given month and admin
             $columns = array(":Month",":UserID");
             $values = array($month,$userID);
-            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND AdminUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND AdminUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['AdminUserID'] != null){
                     $adminID = $data[$key]['AdminUserID'];
@@ -114,7 +114,7 @@ class ReportsModel extends Model
             // Get the report details for the given month and system user
             $columns = array(":Month",":UserID");
             $values = array($month,$userID);
-            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND SystemUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND SystemUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['SystemUserID'] != null){
                     $userID = $data[$key]['SystemUserID'];
@@ -144,7 +144,7 @@ class ReportsModel extends Model
             // Get the report details for the given year and admin
             $columns = array(":Year",":UserID");
             $values = array($year,$userID);
-            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND AdminUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND AdminUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['AdminUserID'] != null){
                     $adminID = $data[$key]['AdminUserID'];
@@ -158,7 +158,7 @@ class ReportsModel extends Model
             // Get the report details for the given year and system user
             $columns = array(":Year",":UserID");
             $values = array($year,$userID);
-            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND SystemUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year AND SystemUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['SystemUserID'] != null){
                     $userID = $data[$key]['SystemUserID'];
@@ -188,7 +188,7 @@ class ReportsModel extends Model
             // Get the report details for the given admin
             $columns = array(":UserID");
             $values = array($userID);
-            $data = $this->db->select("*", "report","WHERE AdminUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE AdminUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['AdminUserID'] != null){
                     $adminID = $data[$key]['AdminUserID'];
@@ -202,7 +202,7 @@ class ReportsModel extends Model
             // Get the report details for the given system user
             $columns = array(":UserID");
             $values = array($userID);
-            $data = $this->db->select("*", "report","WHERE SystemUserID = :UserID",$columns,$values);
+            $data = $this->db->select("*", "report","WHERE SystemUserID = :UserID ORDER BY Date_Generated DESC",$columns,$values);
             foreach ($data as $key => $value) {
                 if($data[$key]['SystemUserID'] != null){
                     $userID = $data[$key]['SystemUserID'];
@@ -219,7 +219,7 @@ class ReportsModel extends Model
     {
         $columns = array(":Month",":Year");
         $values = array($month,$year);
-        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year",$columns,$values);
+        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month AND YEAR(Date_Generated) = :Year ORDER BY Date_Generated DESC",$columns,$values);
         foreach ($data as $key => $value) {
             if($data[$key]['AdminUserID'] != null){
                 $adminID = $data[$key]['AdminUserID'];
@@ -236,7 +236,7 @@ class ReportsModel extends Model
     // Function to get the report details for a specific month
     public function getFilteredReportDetailsMonth($month)
     {
-        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month",':Month',$month);
+        $data = $this->db->select("*", "report","WHERE MONTH(Date_Generated) = :Month ORDER BY Date_Generated DESC",':Month',$month);
         foreach ($data as $key => $value) {
             if($data[$key]['AdminUserID'] != null){
                 $adminID = $data[$key]['AdminUserID'];
@@ -253,7 +253,7 @@ class ReportsModel extends Model
     // Function to get the report details for a specific year
     public function getFilteredReportDetailsYear($year)
     {
-        $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year",':Year',$year);
+        $data = $this->db->select("*", "report","WHERE YEAR(Date_Generated) = :Year ORDER BY Date_Generated DESC",':Year',$year);
         foreach ($data as $key => $value) {
             if($data[$key]['AdminUserID'] != null){
                 $adminID = $data[$key]['AdminUserID'];
