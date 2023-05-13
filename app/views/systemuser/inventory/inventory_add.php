@@ -53,7 +53,7 @@ $metaTitle = "System User Inventory"
                                         <?php 
                                             $count = count($_SESSION['invtypes']);
                                             for ($i=0; $i <$count ; $i++) { 
-                                                echo'<option value="'.$_SESSION['invtypes'][$i]['Type'].'">'.$_SESSION['invtypes'][$i]['Type'].'</option> ';
+                                                echo'<option value="'.$_SESSION['invtypestypes'][$i]['Type'].'">'.$_SESSION['invtypestypes'][$i]['Type'].'</option> ';
                                             }
                                         ?>
                                     </datalist>
@@ -71,7 +71,7 @@ $metaTitle = "System User Inventory"
                                         <?php 
                                             $count = count($_SESSION['invtypes']);
                                             for ($i=0; $i <$count ; $i++) { 
-                                                echo'<option value="'.$_SESSION['invtypes'][$i]['Name'].'">'.$_SESSION['invtypes'][$i]['Name'].'</option> ';
+                                                echo'<option value="'.$_SESSION['invtypesnames'][$i]['Name'].'">'.$_SESSION['invtypesnames'][$i]['Name'].'</option> ';
                                             }
                                         ?>
                                     </datalist>

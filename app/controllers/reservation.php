@@ -484,8 +484,7 @@ class Reservation extends Controller
     function update_quantity($packID)
     {
         if (isset($_SESSION['login'])) {
-    
-            $RBC = 'RBC';
+             $RBC = 'RBC';
             $WBC = 'WBC';
             $Platelet = 'Platelet';
             $Plasma = 'Plasma';
@@ -494,6 +493,23 @@ class Reservation extends Controller
             $res3 =$this ->model -> updateQuantity($packID,$Platelet,$_POST['Platelet']);
             $res4 =$this ->model -> updateQuantity($packID,$Plasma,$_POST['Plasma']);
 
+
+            $blood_bank_id = $this ->model -> getBloodBankid($_SESSION['useremail']);
+            $total = $this->model->getfullcounts($blood_bank_id);
+            foreach($total as $row){
+                // print_r($row['totalquantity']);die();
+                $type_idObj = $this->model->getTypeId($row['name'],$row['subtype']);
+                $type_id = $type_idObj[0]['TypeID'];
+                
+                if ($this->model->checkTotalTableCount($type_id,$blood_bank_id) > 0) {
+                   $res = $this->model->updateTotalTableCount($type_id,$blood_bank_id,$row['totalquantity']);
+                } else {
+                  $res = $this->model->addTotalTableCount($type_id,$blood_bank_id,$row['totalquantity']);
+                }
+            }
+           
+
+           
             if($res1 && $res2 && $res3 && $res4)
             {
                 header("Location: /reservation/type?page=1");

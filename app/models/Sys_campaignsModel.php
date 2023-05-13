@@ -19,7 +19,10 @@ class sys_campaignsModel extends Model
 
     function getCamp($blood_bank_id)
     {
-        $camp = $this->db->select("*","donation_campaign","WHERE BloodBankID =:id",':id',$blood_bank_id);
+        $camp = $this->db->select("*","donation_campaign","
+        WHERE BloodBankID =:id
+        ORDER BY CampaignID DESC"
+        ,':id',$blood_bank_id);
         return $camp;
     }
 

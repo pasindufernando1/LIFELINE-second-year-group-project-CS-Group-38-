@@ -348,3 +348,7 @@ footer hr {
     z-index: 1;
     /* margin-top: 0%; */
 }
+
+.item-5 a {
+    color: #640e0b !important;
+}

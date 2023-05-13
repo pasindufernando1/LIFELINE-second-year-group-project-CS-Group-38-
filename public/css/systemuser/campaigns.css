@@ -533,6 +533,7 @@
     border: 1px #640e0b solid;
     padding-top: 5px;
     padding-bottom: 25px;
+    cursor: default;
 }
 
 .delete-btn {

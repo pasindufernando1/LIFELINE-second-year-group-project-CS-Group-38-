@@ -4,7 +4,7 @@ body {
 
 .side-bar {
     display: flex;
-    position: absolute;
+    position: fixed;
     width: 14.4vw;
     height: 90vh;
     left: -5px;

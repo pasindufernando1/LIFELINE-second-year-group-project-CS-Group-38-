@@ -340,9 +340,10 @@ color: #b31a1a;
 
 .export {
         position: absolute;
-    left: 1451px;
-    top: 33px;
+    left: 1736px;
+    top: 128px;
     width: 37.49px;
+    z-index: 1;
 }
 
 .export-img {
@@ -361,20 +362,22 @@ color: #b31a1a;
     position: absolute;
     width: 203.66px;
     height: 37.49px;
-    left: 1202px;
-    top: 32px;
+    left: 1473px;
+    top: 127px;
     background: #640E0B;
     border-radius: 10.8716px;
+    z-index: 1;
 }
 
 .donation-img {
     position: absolute;
-    top: 49px;
-    left: 1379px;
+    top: 143px;
+    left: 1651px;
+    z-index: 1;
 }
 
 .card-btn{
-    display: flex;
+        display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -383,10 +386,11 @@ color: #b31a1a;
     position: absolute;
     width: 203.66px;
     height: 37.49px;
-    left: 953px;
-    top: 32px;
+    left: 1224px;
+    top: 126px;
     background: #640E0B;
     border-radius: 10.8716px;
+    z-index: 1;
 
 }
 

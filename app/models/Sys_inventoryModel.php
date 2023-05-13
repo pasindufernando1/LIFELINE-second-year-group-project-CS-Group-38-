@@ -13,6 +13,18 @@ class sys_inventoryModel extends Model
         return $invTypes;
     }
 
+    function getAllTypesNames()
+    {
+        $invTypes = $this->db->select("DISTINCT(Name)","inventory",null);
+        return $invTypes;
+    }
+
+    function getAllTypesType()
+    {
+        $invTypes = $this->db->select("DISTINCT(Type)","inventory",null);
+        return $invTypes;
+    }
+
     public function getBloodBankid($email)
     {
         if ($this->db->select('count', "user", "WHERE email = :email;", ':email', $email) > 0) {
@@ -26,7 +38,11 @@ class sys_inventoryModel extends Model
 
 public function getAllInventory($id)
 {
-    $inv = $this->db->select("*","inventory","INNER JOIN bank_inventory_categories on inventory.InventoryID = bank_inventory_categories.InventoryID WHERE bank_inventory_categories.BloodBankID =:id",':id',$id);
+    $inv = $this->db->select("*","inventory","
+    INNER JOIN bank_inventory_categories on inventory.InventoryID = bank_inventory_categories.InventoryID 
+    WHERE bank_inventory_categories.BloodBankID =:id
+    ORDER BY inventory.InventoryID DESC"
+    ,':id',$id);
     return $inv;
 }
 
@@ -131,7 +147,9 @@ public function getAllInventory($id)
         $invdon = $this->db->select("*","inventory_donation","
         INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = organization_donations_bloodbank.DonationID 
         INNER JOIN organization_society ON organization_society.UserID = organization_donations_bloodbank.OrganizationUserID
-        WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID",':BloodBankID',$BloodBankID);
+        WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID
+        ORDER BY inventory_donation.InventoryDonationID DESC"
+        ,':BloodBankID',$BloodBankID);
         return $invdon;
     }
 
@@ -181,7 +199,7 @@ public function getAllInventory($id)
 
     public function  getAllInvTypes()
     {
-        $inv_types = $this->db->select("*","inventory","GROUP BY Type",null);
+        $inv_types = $this->db->select("*","inventory",null);
         return $inv_types;
     }
 

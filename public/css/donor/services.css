@@ -586,3 +586,7 @@
     height: 17.605vw;
     background-color: #F5AEAC;
 }
+
+.item-3 a {
+    color: #640e0b !important;
+}

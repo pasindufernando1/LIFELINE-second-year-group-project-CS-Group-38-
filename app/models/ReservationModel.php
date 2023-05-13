@@ -38,7 +38,12 @@ class ReservationModel extends Model
 
     public function getAllPackets($blood_bank_id)
     {
-        $packets = $this->db->select("*","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.Quantity IS NOT NULL",':blood_bank_ID',$blood_bank_id);
+        $packets = $this->db->select("*","bloodpacket","
+        INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID 
+        WHERE bloodpacket.blood_bank_ID =:blood_bank_ID 
+        AND bloodpacket.Quantity IS NOT NULL 
+        ORDER BY bloodpacket.PacketID DESC"
+        ,':blood_bank_ID',$blood_bank_id);
         return $packets;
     }
 
@@ -142,7 +147,13 @@ class ReservationModel extends Model
 
     public function getAllExpiredPacks($blood_bank_id)
     {
-        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND bloodpacket.status = 2",':blood_bank_ID',$blood_bank_id);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","
+        INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID 
+        INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID 
+        WHERE bloodpacket.blood_bank_ID =:blood_bank_ID 
+        AND bloodpacket.status = 2
+        ORDER BY bloodpacket.PacketID DESC"
+        ,':blood_bank_ID',$blood_bank_id);
         return $pack;
     }
 
@@ -187,7 +198,13 @@ class ReservationModel extends Model
 
     public function getAllNullQuantity($blood_bank_id)
     {
-        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID INNER JOIN donor on donor.UserID = donor_bloodbank_bloodpacket.DonorID WHERE bloodpacket.blood_bank_ID =:blood_bank_ID AND Quantity IS NULL GROUP BY bloodpacket.PacketID",':blood_bank_ID',$blood_bank_id);
+        $pack = $this->db->select("*","donor_bloodbank_bloodpacket","
+        INNER JOIN bloodpacket on donor_bloodbank_bloodpacket.PacketID = bloodpacket.PacketID 
+        INNER JOIN donor on donor.UserID = donor_bloodbank_bloodpacket.DonorID 
+        WHERE bloodpacket.blood_bank_ID =:blood_bank_ID 
+        AND Quantity IS NULL GROUP BY bloodpacket.PacketID
+        ORDER BY bloodpacket.PacketID"
+        ,':blood_bank_ID',$blood_bank_id);
         return $pack;
     }
 
@@ -207,4 +224,63 @@ class ReservationModel extends Model
 
 
     }
+
+    public function getfullcounts($blood_bank_id)
+    {
+        $count = $this->db->select("name,subtype,SUM(quantity) as totalquantity,COUNT(Subtype)","bloodpacket","INNER JOIN bloodcategory on bloodcategory.TypeID = bloodpacket.TypeID WHERE bloodpacket.blood_bank_id =:blood_bank_id AND bloodpacket.Quantity IS NOT NULL  GROUP BY Subtype,name",':blood_bank_id',$blood_bank_id);
+        
+        return $count;
+        
+    }
+
+     public function checkTotalTableCount($type_id,$blood_bank_id) 
+    {
+        $params = array(':type_id',':blood_bank_id');
+        $inputs = array($type_id,$blood_bank_id);
+        $pack = $this->db->select("count","bank_blood_categories","
+        WHERE TypeID =:type_id 
+        AND BloodBankID = :blood_bank_id",$params,$inputs);
+        return $pack;
+    }
+
+     public function getTypeId($name,$sub) 
+    {
+        $params = array(':name',':sub');
+        $inputs = array($name,$sub);
+        $pack = $this->db->select("*","bloodcategory","
+        WHERE Name =:name 
+        AND Subtype = :sub",$params,$inputs);
+        return $pack;
+    }
+
+    public function addTotalTableCount($type_id,$blood_bank_id,$quantity)
+        
+    {
+        $columns = array('BloodBankID', 'TypeID', 'Quantity');
+        $param = array(':BloodBankID', ':TypeID', ':Quantity');
+        $inputs =  array($blood_bank_id,$type_id,$quantity);
+        $result = $this->db->insert("bank_blood_categories", $columns, $param, $inputs);
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
+    public function updateTotalTableCount($type_id,$blood_bank_id,$quantity)
+        
+    {        
+        $columns = array('Quantity');
+        $params = array(':Quantity');
+        $inputs = array($quantity);
+
+        $para = array(':BloodBankID', ':TypeID');
+        $inp = array($blood_bank_id,$type_id);
+    
+        $result = $this->db->update("bank_blood_categories", $columns, $params, $inputs,$para, $inp, "
+        WHERE BloodBankID = :BloodBankID 
+        AND TypeID = :TypeID;");
+        if ($result == "Success") {
+            return true;
+        } else print_r($result);
+    }
+
 }

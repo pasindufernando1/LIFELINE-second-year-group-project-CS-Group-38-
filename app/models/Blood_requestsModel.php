@@ -23,7 +23,9 @@ class blood_requestsModel extends Model
         $req = $this->db->select("*","hospital_blood_requests","
         INNER JOIN hospital_medicalcenter 
         ON hospital_blood_requests.HospitalID = hospital_medicalcenter.UserID 
-        WHERE hospital_blood_requests.BloodBankID =:BloodBankID",':BloodBankID',$BloodBankID);
+        WHERE hospital_blood_requests.BloodBankID =:BloodBankID
+        ORDER BY hospital_blood_requests.RequestID DESC"
+        ,':BloodBankID',$BloodBankID);
         return $req;
     }
 

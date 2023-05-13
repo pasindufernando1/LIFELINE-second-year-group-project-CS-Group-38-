@@ -1,7 +1,7 @@
 .top-bar {
     display: flex;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: auto;
     vertical-align: middle;
@@ -13,6 +13,7 @@
     flex: 100%;
     flex-shrink: 100px;
     justify-content:space-between;
+    z-index: 1;
 }
 
 .logo img {
@@ -184,4 +185,21 @@
 
 .show {
     display: block;
+}
+
+.box-small::-webkit-scrollbar-track,.box-cont::-webkit-scrollbar-track {
+    padding: 2px 0;
+    background-color: #640e0b33;
+    border-radius: 6px;
+  }
+  
+.box-small::-webkit-scrollbar,.box-cont::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.box-small::-webkit-scrollbar-thumb,.box-cont::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    box-shadow: inset 0 0 6px #640e0b;
+    background-color: #640e0b;
+    border: 1px solid #e5e5e500;
 }

@@ -99,7 +99,7 @@ $metaTitle = "System User Donations" ;
                                         }
                                         else
                                         {
-                                            echo "No Complications";
+                                            echo "No Complications" . '</td>';
                                         }
                                         
                                 

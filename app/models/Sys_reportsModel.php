@@ -20,7 +20,10 @@ class sys_reportsModel extends Model
 
     public function getAllReportDetails($userid)
     {
-       $reports = $this->db->select("*","Report","WHERE SystemUserID =:userid",':userid',$userid);
+       $reports = $this->db->select("*","Report","
+       WHERE SystemUserID =:userid
+       ORDER BY ReportID DESC"
+       ,':userid',$userid);
         return $reports;
     }
     

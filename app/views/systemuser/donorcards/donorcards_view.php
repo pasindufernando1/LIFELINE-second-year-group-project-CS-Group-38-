@@ -35,6 +35,7 @@ $metaTitle = "System User - Blood Requests"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/header.php'); ?>
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/accepted_request.php'); 
     include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/rejected_request.php'); 
+    if (isset($_GET['status'])) {
     if ($_GET['status'] == "accepted") { ?>
         <script>
             document.getElementById('id01').style.display='block';
@@ -47,6 +48,7 @@ $metaTitle = "System User - Blood Requests"
             document.getElementById('id02').style.display='block';
         </script>
     <?php }
+    }
     ?>
 
     <!-- Side bar -->
@@ -66,6 +68,7 @@ $metaTitle = "System User - Blood Requests"
                                       <div class="det-div">
                                             <p class="fb-txt1"><span class="fb-span1"> Hostpital Name: </span>  <?php echo $_SESSION['request'][0]['Name'] ;?></p>
                                             <p class="fb-txt1"><span class="fb-span1"> Hospital Registration No: </span>  <?php echo $_SESSION['request'][0]['Registration_no'] ;?></p>
+                                            <p class="fb-txt1"><span class="fb-span1"> District: </span>  <?php echo $_SESSION['request'][0]['District'] ;?></p>
                                             <p class="fb-txt1"><span class="fb-span1"> Email: </span>  <?php echo $_SESSION['request'][0]['Email'] ;?></p>
                                             <p class="fb-txt1"><span class="fb-span1"> Contact No: </span>  <?php echo $_SESSION['request'][0]['ContactNumber'] ;?></p>
                                             <p class="fb-txt1"><span class="fb-span1"> Requested Blood Group: </span>  <?php echo $_SESSION['request'][0]['Blood_group'] ;?></p>

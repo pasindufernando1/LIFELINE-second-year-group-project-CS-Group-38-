@@ -208,7 +208,11 @@ class sys_donorsModel extends Model
 
     public function getAllDonations($BloodBankID)
     {
-        $donation = $this->db->select("*","donor","INNER JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID  WHERE donor_bloodbank_bloodpacket.BloodBankID =:BloodBankID",':BloodBankID',$BloodBankID);
+        $donation = $this->db->select("*","donor","
+        INNER JOIN donor_bloodbank_bloodpacket on donor.UserID = donor_bloodbank_bloodpacket.DonorID  
+        WHERE donor_bloodbank_bloodpacket.BloodBankID =:BloodBankID
+        ORDER BY donor_bloodbank_bloodpacket.Date DESC "
+        ,':BloodBankID',$BloodBankID);
         return $donation;
     }
 

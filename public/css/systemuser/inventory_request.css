@@ -83,7 +83,7 @@
     width: 22.5%;
     height: 21vh;
     left: 1454px;
-    top: 296px;
+    top: 315px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -95,7 +95,7 @@
     width: 22.5%;
     height: 42.4vh;
     left: 1454px;
-    top: 497px;
+    top: 538px;
     background: #ffffff;
     border: 1.81193px solid #ECEEF7;
     border-radius: 6px;
@@ -145,4 +145,8 @@ td {
     color: #000000;
     text-align: center;
     padding-top: 45px;
+}
+
+.pag-box {
+    margin-right: 235px;
 }

@@ -90,14 +90,9 @@ $metaTitle = "System User Donors"
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/layout/sidebar.php'); ?>  
 
     <?php include($_SERVER['DOCUMENT_ROOT'].'/app/views/systemuser/includes/donor_card_added.php'); ?>
-    
-     
-                    <div id="content" class="box">
-                        <div class="box-top">
-                            <p class="add-reservation-title">Donor info - <?php echo $_SESSION['Donor_det'][0]['Fullname'] ?></p>
 
-                             <a onclick="exportpng();document.getElementById('id01').style.display='block';" class="brown-button card-btn">Issue Card</a>
-                            <img class="typebutton-reservation card-img" src="./../../public/img/dashboard/personalcard.png" alt="add-button">
+                    <a onclick="exportpng();document.getElementById('id01').style.display='block';" class="brown-button card-btn">Issue Card</a>
+                            <img class="typebutton-reservation card-img " src="./../../public/img/dashboard/personalcard.png" alt="add-button">
 
                             
                              <a href="/sys_donors?page=1" class="brown-button donation-btn">Back to Donors</a>
@@ -107,6 +102,12 @@ $metaTitle = "System User Donors"
                                 <img id="sub" class="export-img" src="./../../public/img/dashboard/export-icon.png" alt="">
                                 
                                 </a>
+     
+                    <div id="content" class="box">
+                        <div class="box-top">
+                            <p class="add-reservation-title">Donor info - <?php echo $_SESSION['Donor_det'][0]['Fullname'] ?></p>
+
+                             
                         </div>
                         <div class="box-inner">
                             <div class="flip-card">
