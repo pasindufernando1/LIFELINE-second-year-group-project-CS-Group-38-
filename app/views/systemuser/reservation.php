@@ -215,7 +215,7 @@ $metaTitle = "System User Reservations" ;
                         document.getElementById("pie").style.width = "19%";
                     document.getElementById("pie").style.height = " 38.1%";
                     document.getElementById("pie").style.left = "81%";
-                    document.getElementById("pie").style.top = "583px";
+                    document.getElementById("pie").style.top = "575px";
                     document.getElementById("pie").style.transition = "width 1s";
                     document.getElementById("pie").style.transition = "height 1s";
                     }

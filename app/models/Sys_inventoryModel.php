@@ -196,7 +196,11 @@ public function getAllInventory($id)
             return false;
         };
     }
-
+    public function  getAllInvType()
+    {
+        $inv_types = $this->db->select("*","inventory","GROUP BY Type",null);
+        return $inv_types;
+    }
     public function  getAllInvTypes()
     {
         $inv_types = $this->db->select("*","inventory",null);

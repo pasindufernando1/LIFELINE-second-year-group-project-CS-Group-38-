@@ -14,6 +14,7 @@ class Sys_inventory extends Controller
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "System User") {
                 $BloodBankID = $this ->model -> getBloodBankid($_SESSION['useremail']);
+                 $_SESSION['inv_types'] = $this ->model-> getAllInvType();
                 $_SESSION['invtypes'] = $this ->model-> getAllInvTypes();
                 $_SESSION['invtypesnames'] = $this ->model-> getAllTypesNames();
                 $_SESSION['invtypestypes'] = $this ->model-> getAllTypesType();

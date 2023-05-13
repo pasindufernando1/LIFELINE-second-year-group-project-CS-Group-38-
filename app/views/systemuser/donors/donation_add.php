@@ -67,7 +67,7 @@ $metaTitle = "Donation - Add New" ;
                                 
                                 <datalist id="donors">                                    
                                     <?php 
-                                        $count = count($_SESSION['Donors']);
+                                        $count = count($_SESSION['Donor_dets']);
                                         for ($i=0; $i <$count ; $i++) { 
                                             echo'<option value="'.$_SESSION['Donor_dets'][$i]['NIC'].'">'.$_SESSION['Donor_dets'][$i]['NIC'].' - '.$_SESSION['Donor_dets'][$i]['Fullname'].'</option> ';
                                         }

@@ -503,6 +503,9 @@ a {
     border-radius: 8px;
     padding: 12px 20px;
 }
+.bloodtype-input::placeholder{
+    color: #5C5C5C !important;
+}
 
 .nid-input{
     box-sizing: border-box;
@@ -1582,6 +1585,10 @@ td {
     font-size: larger;
     font-weight: 600;
     padding-left: 67px;
+}
+
+.dob-input::placeholder{
+    color: #949494 !important;
 }
 
 .button-org-add{
