@@ -117,11 +117,12 @@ class Adbadges extends Controller
                         echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
                     } else {
                         echo "Sorry, there was an error uploading your file.";
+                        $uploadOk = 0;
                     }
                 }
                 
                 // Updating tables
-                if (isset($_SESSION['login'])) {
+                if (isset($_SESSION['login']) && $uploadOk == 1) {
                     if ($_SESSION['type'] == "Admin") {
 
                         $Badgename = $_POST['badgename'];

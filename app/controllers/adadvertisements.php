@@ -173,13 +173,14 @@ class Adadvertisements extends Controller
                         echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
                     } else {
                         echo "Sorry, there was an error uploading your file.";
+                        $uploadOk = 0;
                     }
                 }
 
                 
                 // Updating the tables
                 if (isset($_SESSION['login'])) {
-                    if ($_SESSION['type'] == "Admin") {
+                    if ($_SESSION['type'] == "Admin"  && $uploadOk == 1) {
 
                         $Description = $_POST['description'];
                         $Total_amt = $_POST['total_amt'];
@@ -196,6 +197,13 @@ class Adadvertisements extends Controller
                             exit;
                         }
                     }
+                    else{
+                        $this->view->render('admin/ad_upload _failed');
+                        exit;
+                    }
+                }else{
+                    $this->view->render('authentication/login');
+                    exit;
                 }
                         
             }
@@ -284,13 +292,14 @@ class Adadvertisements extends Controller
                         echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
                     } else {
                         echo "Sorry, there was an error uploading your file.";
+                        $uploadOk = 0;
                     }
                 }
 
                 
                 // Updating the tables
                 if (isset($_SESSION['login'])) {
-                    if ($_SESSION['type'] == "Admin") {
+                    if ($_SESSION['type'] == "Admin"  && $uploadOk == 1) {
 
                         $Description = $_POST['description'];
                         $Inventory_category = $_POST['inventory_category'];
@@ -307,6 +316,13 @@ class Adadvertisements extends Controller
                             exit;
                         }
                     }
+                    else{
+                        $this->view->render('admin/badge_upload _failed');
+                        exit;
+                    }
+                }else{
+                    $this->view->render('admin/ad_upload _failed');
+                    exit;
                 }
                         
             }
