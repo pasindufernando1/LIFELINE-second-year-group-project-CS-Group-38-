@@ -4352,10 +4352,11 @@ fieldset {
 }
 
 .campaign-card-img {
-    width: 31%;
+    width: 38%;
     height: 100%;
     border-radius: 8px 0 0 8px;
     float: left;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 2%), 0 6px 9px 0 rgb(0 0 0 / 10%);
 }
 
 
