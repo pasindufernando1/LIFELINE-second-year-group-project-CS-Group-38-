@@ -17,7 +17,7 @@ class notifications extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -42,6 +42,8 @@ class notifications extends Controller
                     exit;
                 
             }
+        }else{
+            $this->view->render('authentication/login');
         }
     }
 }

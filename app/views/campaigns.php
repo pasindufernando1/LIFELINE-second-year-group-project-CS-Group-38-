@@ -31,10 +31,10 @@ require_once __ROOT__ . '/app/views/layout/navigation.php';
         </div>
         <div class="t-boxes">
             
-                <?php if(count($_SESSION['upcoming_campaigns'])> 4){
+                <?php if(count($_SESSION['upcoming_campaigns'])> 6){
                     $count = 0;
                     foreach ($_SESSION['upcoming_campaigns'] as $campaign) {
-                        if($count >6){
+                        if($count >=6){
                             break;
                         }
                         echo '

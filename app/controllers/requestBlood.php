@@ -22,7 +22,7 @@ class requestBlood extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/hospitalslogin');
+            $this->view->render('authentication/login');
         }
     }
      
@@ -35,7 +35,7 @@ class requestBlood extends Controller
             }
         }    
         else{
-            $this->view->render('authentication/hospitalslogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -45,7 +45,7 @@ class requestBlood extends Controller
             $this->view->render('hospitals/requestBlood');
         }
         else{
-            $this->view->render('authentication/hospitalslogin');
+            $this->view->render('authentication/login');
         }
         
     }
@@ -86,7 +86,7 @@ class requestBlood extends Controller
             } 
         }
         else{
-            $this->view->render('authentication/hospitalslogin');
+            $this->view->render('authentication/login');
         }
     }
 

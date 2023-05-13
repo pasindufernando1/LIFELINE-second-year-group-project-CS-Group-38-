@@ -22,7 +22,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
     function typeBloodbank(){
@@ -69,7 +69,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
     function chooseHere()
@@ -78,7 +78,7 @@ class requestApproval extends Controller
             $this->view->render('organization/chooseHere');
             exit();
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -87,7 +87,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/requestApproval');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
     function addRequest()
@@ -142,7 +142,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -194,7 +194,7 @@ class requestApproval extends Controller
         }
             
          else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
         
     }
@@ -208,7 +208,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -289,7 +289,7 @@ class requestApproval extends Controller
             }
         }
         else{
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -365,7 +365,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -386,7 +386,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -400,7 +400,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -419,7 +419,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -434,7 +434,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -444,7 +444,7 @@ class requestApproval extends Controller
             $this->view->render('organization/chooseHere_scheduleTime');
             exit();
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -491,7 +491,7 @@ class requestApproval extends Controller
                
             $this->view->render('organization/scheduleTimeslots');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         } 
     }
     function addTimeslot($TimeslotID)
@@ -522,7 +522,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -560,7 +560,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -599,7 +599,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
      }
 
@@ -666,7 +666,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -704,7 +704,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -721,7 +721,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
     function sendNotifications()
@@ -734,7 +734,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -812,7 +812,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/instructions');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
     function viewBloodbanks()
@@ -824,7 +824,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -833,7 +833,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/inventoryItems');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -842,7 +842,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/accommodation');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -859,7 +859,7 @@ class requestApproval extends Controller
             $_SESSION['InventoryDet']=$data;
             $this->view->render('organization/quantity');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -910,7 +910,7 @@ class requestApproval extends Controller
                 
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -919,7 +919,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/stationaryItems');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -928,7 +928,7 @@ class requestApproval extends Controller
         if ($_SESSION['type'] == 'Organization/Society') {
             $this->view->render('organization/medicalAppliance');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -951,7 +951,7 @@ class requestApproval extends Controller
             $_SESSION['telno'] = $_SESSION['user_details'][2][0];
             $this->view->render('organization/profile');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -975,7 +975,7 @@ class requestApproval extends Controller
 
             $this->view->render('organization/editProfile');
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1075,7 +1075,7 @@ class requestApproval extends Controller
                 header('Location: /requestApproval/edit_profile_successful');
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1087,7 +1087,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1105,7 +1105,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1119,7 +1119,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1135,7 +1135,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1148,7 +1148,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1160,7 +1160,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1172,7 +1172,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1187,7 +1187,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1199,7 +1199,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1212,7 +1212,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1245,7 +1245,7 @@ class requestApproval extends Controller
                 exit();
             }
         } else {
-            $this->view->render('authentication/organizationlogin');
+            $this->view->render('authentication/login');
         }
     }
 
@@ -1434,7 +1434,7 @@ class requestApproval extends Controller
         if(isset($_SESSION['login'])){
             if($_SESSION['type']=='Organization/Society'){
                 if(!(isset($_POST['confirm']))){
-                    header('Location: /requestApproval');
+                    header('Location: /requestApproval/viewProfile');
                 }
                 $password=$_POST['password1'];
                 $password=trim($password);
