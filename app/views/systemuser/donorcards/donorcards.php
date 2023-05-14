@@ -83,7 +83,7 @@ $metaTitle = "System User Reservations"
                                         <td>' . $row["Name"]. "</td>
                                         <td>" . $row["Blood_group"] . "</td>
                                         <td>" . $row["Blood_component"] . "</td>
-                                        <td>" . $row["Quantity"] . "</td>
+                                        <td>" . $row["Quantity"] .' ml'. "</td>
                                         <td>" . $row["Date_requested"] . '</td>
                                         <td> <a class="view-btn" href="blood_requests/request_view/'.$row["RequestID"].'"> View</td>
                                     </tr> </div>';

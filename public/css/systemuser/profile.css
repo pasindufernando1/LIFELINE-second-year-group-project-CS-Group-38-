@@ -1,3 +1,6 @@
+*{
+    font-family: 'Poppins';
+}
 .reservation img {
     position: absolute;
     width: 29px;

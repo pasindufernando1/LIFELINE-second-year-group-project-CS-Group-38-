@@ -98,7 +98,7 @@ $metaTitle = "System User Reservations" ;
                                
                                 echo '<div class="table-content-types"> <tr>
                                         <td>' . $row["Name"] . " " .$row['Subtype'] . "</td>
-                                        <td>" . $row["Quantity"] ." Counts" ."</td>
+                                        <td>" . $row["Quantity"] ." ml" ."</td>
                                         <td>" . $row["Expiry_constraint"] . " Days". "</td>
                                         <td>" ;
                                         if ($row["Status"] == 1) {
@@ -191,7 +191,7 @@ $metaTitle = "System User Reservations" ;
                         foreach($result2 as $item){
                             array_push($lable,($item['type']));
                             array_push($quandata,$item['totalquantity']);
-                        echo ' <p><span class="c-name">'.$item['type'].'</span> -<span class="c-quan"> '.$item['totalquantity']. " Counts".'</span></p>';                    }
+                        echo ' <p><span class="c-name">'.$item['type'].'</span> -<span class="c-quan"> '.$item['totalquantity']. " ml".'</span></p>';                    }
                     
                     ?>
                 </div>
