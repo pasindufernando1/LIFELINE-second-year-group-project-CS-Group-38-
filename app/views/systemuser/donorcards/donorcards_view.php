@@ -83,14 +83,14 @@ $metaTitle = "System User - Blood Requests"
                            <p class="fb-txt2"><span class="fb-span1"> Stock Available </span>  </p>
                            <p class="fb-txt3"><?php 
                            if ($_SESSION['quantity'] == NULL) {
-                            echo "0" ;
+                            echo "0 ml" ;
                            }
                            else{
-                           echo $_SESSION['quantity'] ;
+                           echo $_SESSION['quantity'] . " ml" ;
                            }?></p>
 
                            <p class="fb-txt2"><span class="fb-span1"> Requested Quantity </span>  </p>
-                           <p class="fb-txt3"> <?php echo $_SESSION['request'][0]['Quantity'] ;?></p>
+                           <p class="fb-txt3"> <?php echo $_SESSION['request'][0]['Quantity'] ;?> ml</p>
                                             
                         </div>
 
