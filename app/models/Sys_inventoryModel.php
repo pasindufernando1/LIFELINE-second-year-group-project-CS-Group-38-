@@ -156,7 +156,7 @@ public function getAllInventory($id)
     public function getCountVer($BloodBankID)
     {
         $invdon = $this->db->select('count',"inventory_donation","
-        INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = inventory_donation.DonationID 
+        INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = organization_donations_bloodbank.DonationID 
         INNER JOIN organization_society ON organization_society.UserID = organization_donations_bloodbank.OrganizationUserID
         WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID AND Accepted_date IS NOT NULL",':BloodBankID',$BloodBankID);
         return $invdon;
@@ -165,7 +165,7 @@ public function getAllInventory($id)
     public function getCountVer2($BloodBankID)
     {
         $invdon = $this->db->select('count',"inventory_donation","
-        INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = inventory_donation.DonationID 
+            INNER JOIN organization_donations_bloodbank ON inventory_donation.DonationID = organization_donations_bloodbank.DonationID 
         INNER JOIN organization_society ON organization_society.UserID = organization_donations_bloodbank.OrganizationUserID
         WHERE organization_donations_bloodbank.BloodBankID =:BloodBankID AND Accepted_date IS NULL",':BloodBankID',$BloodBankID);
         return $invdon;
