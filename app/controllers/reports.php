@@ -593,6 +593,7 @@ class Reports extends Controller
     {
         if (isset($_SESSION['login'])) {
             if ($_SESSION['type'] == "Admin") {
+                $_SESSION['inventory_categories'] = $this->model->getInventoryCategories();
                 $this->view->render('admin/inventoryReport');
                 exit;
             }

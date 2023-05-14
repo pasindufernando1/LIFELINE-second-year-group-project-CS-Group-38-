@@ -202,11 +202,15 @@ class RequestBloodModel extends Model
 
     
 
-    public function filter_out($blood_group)
+    public function filter_out($blood_group,$userid)
     {
+        //print_r("awa");die();
         // Get all the type Ids for a given type name
-        $data = $this->db->select("RequestID", "hospital_blood_requests", "WHERE Blood_group = :Blood_group", "Blood_group", $blood_group);
-
+        $columns=array(":Blood_group",":HospitalID");
+        $values=array($blood_group,$userid);
+        $data = $this->db->select("RequestID", "hospital_blood_requests", "WHERE Blood_group = :Blood_group AND HospitalID= :HospitalID", $columns, $values);
+        
+        //print_r($data);die();
         // Get the type ids from the array
         $request_ids = array_column($data, 'RequestID');
         
@@ -220,14 +224,15 @@ class RequestBloodModel extends Model
         return $output;
     }
 
-    public function filter_out_subtypes($type_name,$subtype)
+    public function filter_out_subtypes($type_name,$subtype,$userid)
     {
-        $columns = array(":Blood_group",":Blood_component");
-        $values = array($type_name,$subtype);
+        $columns = array(":Blood_group",":Blood_component",":HospitalID");
+        $values = array($type_name,$subtype,$userid);
 
         // Get all the type Ids for a given type name
-        $data = $this->db->select("RequestID", "hospital_blood_requests", "WHERE Blood_group = :Blood_group AND Blood_component= :Blood_component", $columns, $values);
-        
+        $data = $this->db->select("RequestID", "hospital_blood_requests", "WHERE Blood_group = :Blood_group AND Blood_component= :Blood_component AND HospitalID= :HospitalID", $columns, $values);
+        //$data = $this->db->select("RequestID", "hospital_blood_requests", "WHERE Blood_group = :Blood_group AND Blood_component= :Blood_component AN", $columns, $values);
+        //print_r($data);die();
         // Get the type ids from the array
         $request_ids = array_column($data, 'RequestID');
         

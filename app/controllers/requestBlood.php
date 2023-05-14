@@ -105,7 +105,8 @@ class requestBlood extends Controller
         }    
     }
 
-    function viewRequests(){
+    function type(){
+        //print_r("wawa");die();
         if (isset($_SESSION['login'])) {
             if(isset($_GET['filter'])){
                 $is_filtered = $_GET['filter'];
@@ -113,17 +114,85 @@ class requestBlood extends Controller
             if ($_SESSION['type'] == "Hospital/Medical_Center") {
                 if(!isset($_POST['filter']) && !$is_filtered){
                     $_SESSION['is_filtered'] = false;
-                    $ReqDet=$this->model->getAllRequests( $_SESSION['User_ID']);
-                //print_r($ReqDet[1][6]['Date_requested']);die();
-                    for($i=0;$i<count($ReqDet);$i++){
-                        $BloodBankID=$ReqDet[$i]['BloodBankID'];
-                        //print_r($BloodBankID);die();
-                        $BloodBankName[$i]=$this->model->getBloodBankName($BloodBankID);
-                        //print_r($BloodBankName);die();
-                        //$ReqDet[$i][0]=$BloodBankName;
+                    header("Location: /requestBlood/viewRequests");
+                    $this->view->render('hospitals/viewRequests');
+                    exit;
+                }
+                if(isset($_POST['filter'])){
+                    if(isset($_POST['all_type'])){
+                        $_SESSION['is_filtered'] = true;
+                        header("Location: /requestBlood/viewRequests");
+                        $this->view->render('hospitals/viewRequests');
+                        exit;
                     }
-                    //$_SESSION['bloodBanks'] = $ReqDet;
-                    //print_r($BloodBankName);die();
+                    $output=array();
+                    $_SESSION['is_filtered']=true;
+                    for($i=0;$i<8;$i++){
+                        if(isset($_POST[$i])){
+                            if(!isset($_POST[10]) && !isset($_POST[11]) && !isset($_POST[12]) && !isset($_POST[13])){
+                                $rows = $this->model->filter_out($_POST[$i],$_SESSION['User_ID']);
+                                
+                            }
+                            else{
+                                if(isset($_POST[10])){
+                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[10],$_SESSION['User_ID']);
+                                    
+                                }
+                                if(isset($_POST[11])){
+                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[11],$_SESSION['User_ID']);
+                                    
+                                }
+                                if(isset($_POST[12])){
+                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[12],$_SESSION['User_ID']);
+                                    
+                                }
+                                if(isset($_POST[13])){
+                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[13],$_SESSION['User_ID']);
+                                    
+                                }
+                                
+                            }
+                            for($j=0;$j<count($rows);$j++){
+                                $BloodBankID=$rows[$j]['BloodBankID'];
+                                $BloodBankName[$j]=$this->model->getBloodBankName($BloodBankID);
+                            }
+                           
+                            for($j=0;$j<count($rows);$j++){
+                                $rows[$j]['BloodBank_Name']=$BloodBankName[$j][0]['BloodBank_Name'];
+                            }
+
+                            $output = array_merge($output,$rows);
+
+                        }
+                    }
+                    $_SESSION['bloodBanks'] = $output;
+                    
+                    
+                }
+                $this->view->render('hospitals/viewRequests');
+                exit;
+            }
+             
+        }
+                
+        else{
+            $this->view->render('authentication/login');    
+        } 
+    }
+
+    function viewRequests(){
+        
+        if(isset($_SESSION['login'])){
+            if($_SESSION['type']=='Hospital/Medical_Center'){
+                $ReqDet=$this->model->getAllRequests($_SESSION['User_ID']);
+
+                for($i=0;$i<count($ReqDet);$i++){
+                    $BloodBankID=$ReqDet[$i]['BloodBankID'];
+                    
+                    $BloodBankName[$i]=$this->model->getBloodBankName($BloodBankID);
+                    
+                }
+
                     $data = [];
 
                     for($i=0;$i<count($BloodBankName);$i++){
@@ -132,134 +201,29 @@ class requestBlood extends Controller
                         $data[$i]['Blood_component'] = $ReqDet[$i]['Blood_component'];
                         $data[$i]['Quantity'] = $ReqDet[$i]['Quantity'];
                         $data[$i]['BloodBank_Name'] = $BloodBankName[$i][0]['BloodBank_Name'];
-                        /* $data[$i]['Date_requested']=$reqDet[$i]['Date_requested']; */ 
+                               
                         $data[$i]['Date_requested'] = $ReqDet[$i]['Date_requested'];
-                        //$data[$i]['Date_accepted'] = $ReqDet[$i]['Date_accepted'];
+                                
                         if($ReqDet[$i]['Date_accepted']==null){
                             $data[$i]['Status'] = "Pending";
                         }
                         else{
                             $data[$i]['Status'] = "Accepted";
                         }
-                        //$data[$i]['Status'] = $ReqDet[$i]['Status'];
-                        //print_r($data);die();
-                        /* foreach($reqDet as $r){
-                            if($f['DonorID']==$donorName[$i][0]['UserID']){
-                                $data[$i]['Feedback'] = $f['Feedback'];
-                            }
-                        } */
+                                
                     }
-                    //print_r($data);die();
+                            
                     $_SESSION['bloodBanks'] = $data;
-                    //print_r($ReqDet);die();
-                    //$_SESSION['bloodBanks'] = $this->model->getAllRequests( $_SESSION['User_ID']);
-
-                    //print_r($_SESSION['bloodBanks']);die();
+                            
                     $this->view->render('hospitals/viewrequests');
                     exit;
-                
-                }
-                if(isset($_POST['filter'])){
-                    if(isset($_POST['all_type'])){
-                        $_SESSION['is_filtered'] = true;
-                        $ReqDet=$this->model->getAllRequests( $_SESSION['User_ID']);
-                //print_r($ReqDet[1][6]['Date_requested']);die();
-                        for($i=0;$i<count($ReqDet);$i++){
-                            $BloodBankID=$ReqDet[$i]['BloodBankID'];
-                            //print_r($BloodBankID);die();
-                            $BloodBankName[$i]=$this->model->getBloodBankName($BloodBankID);
-                            //print_r($BloodBankName);die();
-                            //$ReqDet[$i][0]=$BloodBankName;
-                        }
-                        //$_SESSION['bloodBanks'] = $ReqDet;
-                        //print_r($BloodBankName);die();
-                        $data = [];
 
-                        for($i=0;$i<count($BloodBankName);$i++){
-                            $data[$i]['RequestID'] = $ReqDet[$i]['RequestID'];
-                            $data[$i]['Blood_group'] = $ReqDet[$i]['Blood_group'];
-                            $data[$i]['Blood_component'] = $ReqDet[$i]['Blood_component'];
-                            $data[$i]['Quantity'] = $ReqDet[$i]['Quantity'];
-                            $data[$i]['BloodBank_Name'] = $BloodBankName[$i][0]['BloodBank_Name'];
-                            /* $data[$i]['Date_requested']=$reqDet[$i]['Date_requested']; */ 
-                            $data[$i]['Date_requested'] = $ReqDet[$i]['Date_requested'];
-                            //$data[$i]['Date_accepted'] = $ReqDet[$i]['Date_accepted'];
-                            if($ReqDet[$i]['Date_accepted']==null){
-                                $data[$i]['Status'] = "Pending";
-                            }
-                            else{
-                                $data[$i]['Status'] = "Accepted";
-                            }
-                            //$data[$i]['Status'] = $ReqDet[$i]['Status'];
-                            //print_r($data);die();
-                            /* foreach($reqDet as $r){
-                                if($f['DonorID']==$donorName[$i][0]['UserID']){
-                                    $data[$i]['Feedback'] = $f['Feedback'];
-                                }
-                            } */
-                        }
-                        //print_r($data);die();
-                        $_SESSION['bloodBanks'] = $data;
-                        //print_r($ReqDet);die();
-                        //$_SESSION['bloodBanks'] = $this->model->getAllRequests( $_SESSION['User_ID']);
 
-                        //print_r($_SESSION['bloodBanks']);die();
-                        $this->view->render('hospitals/viewrequests');
-                        exit;
-                    
-                    }
-                    $output=array();
-                    $_SESSION['is_filtered']=true;
-                    for($i=0;$i<8;$i++){
-                        if(isset($_POST[$i])){
-                            if(!isset($_POST[10]) && !isset($_POST[11]) && !isset($_POST[12]) && !isset($_POST[13])){
-                                $rows = $this->model->filter_out($_POST[$i]);
-                                $output = array_merge($output,$rows);
-                            }
-                            else{
-                                if(isset($_POST[10])){
-                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[10]);
-                                    $output = array_merge($output,$rows);
-                                }
-                                if(isset($_POST[11])){
-                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[11]);
-                                    $output = array_merge($output,$rows);
-                                }
-                                if(isset($_POST[12])){
-                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[12]);
-                                    $output = array_merge($output,$rows);
-                                }
-                                if(isset($_POST[13])){
-                                    $rows = $this->model->filter_out_subtypes($_POST[$i],$_POST[13]);
-                                    $output = array_merge($output,$rows);
-                                }
-                            }
-                            
-                        }
-                    }
-                    $_SESSION['bloodBanks'] =$output;
-                    
-                        
-                    
-                    // echo "<pre>";
-                    // print_r($_SESSION['reserves']);
-                    // echo "</pre>";
-                }
-                // Unset the post data
-                //unset($_POST);
-                $this->view->render('hospitals/viewRequests');
-                exit;
             }
-
-                
-            
         }
-                
-
-                
         else{
-            $this->view->render('authentication/login');    
-        } 
+            $this->view->render('authentication/login');
+        }
     }
 
     function viewDetails()
