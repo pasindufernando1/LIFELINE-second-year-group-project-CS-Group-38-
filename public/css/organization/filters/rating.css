@@ -57,7 +57,7 @@ button:hover {
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
-    z-index: 2;
+    z-index: 1;
     /* Sit on top */
     left: 0;
     top: 0;
@@ -194,8 +194,8 @@ input[type="date"]{
 
 .remove-filter{
     position: absolute;
-    left: 1178px;
-    top: 203px;
+    left: 1220px;
+    top: 213px;
     color: #640e0b;
     font-family: 'Poppins';
     font-style: normal;

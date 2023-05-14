@@ -84,7 +84,7 @@ $metaTitle = "Deactivated Users"
                         <td>" . $row["UserType"] . "</td>
                         <td>" . $row["Email"] . "</td>
                         <td>" . $row["Username"] . '</td>
-                        <td><a href = "/usermanage/view_deactivateduser/'.$row["UserID"].'"><button class="view-btn" >View</button></a> </td>
+                        <td><a href = "/usermanage/view_user/'.$row["UserID"].'"><button class="view-btn" >View</button></a> </td>
                         <td>
                         <div class="delete-btn-div"> <a onclick="document.getElementById('."'id01'".').style.display='."'block'".';      
                         document.getElementById('."'del'".').action = '."'/usermanage/reactivate_user/".$row["UserID"]."'".'";

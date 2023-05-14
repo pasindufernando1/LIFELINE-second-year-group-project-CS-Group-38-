@@ -130,6 +130,7 @@ $metaTitle = "Blood Usage Vs Expiry Report"
                 // Count the number of elements in the array _SESSION['usageVSexpiry'
                 $count = count($_SESSION['usageVSexpiry']);
                 $district_results = $_SESSION['usageVSexpiry'];
+                //print_r($district_results);die;
                 // Loop through the array and display the piecharts of the districts relevent to the province
                 for($i = 0; $i < $count; $i++){
                     echo "<div class='piechart-districts-content'>";

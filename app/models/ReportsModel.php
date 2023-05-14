@@ -956,17 +956,6 @@ class ReportsModel extends Model
         return $pic;
     }
 
-    // Function to get the inventory categories
-    public function getInventoryCategories()
-    {
-        $categories = $this->db->select(
-            'Name',
-            'inventory',
-            null
-        );
-        return $categories;
-    }
-
     
 
     
