@@ -157,6 +157,7 @@ body {
 }
 
 .head-location {
+    width: 18vw;
     position: absolute;
     left: 81.58%;
     right: 7.87%;
@@ -170,7 +171,6 @@ body {
     /* identical to box height */
     text-transform: uppercase;
     color: #080101;
-    width: 30%;
     
 }
 

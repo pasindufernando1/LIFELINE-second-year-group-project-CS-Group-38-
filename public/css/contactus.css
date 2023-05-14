@@ -297,6 +297,8 @@ footer hr {
     }
 }
 
+
+
 .b1 {
     font-family: 'Work Sans';
     font-style: normal;
@@ -309,7 +311,7 @@ footer hr {
 }
 
 .b2 {
-    width: 40vw;
+    width: 19vw;
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 400;
@@ -318,7 +320,6 @@ footer hr {
     color: #ffffff;
     margin-top: -2%;
 }
-
 .banner {
     width: 100%;
     height: 35vw;
@@ -334,7 +335,7 @@ footer hr {
 
 .ban-con {
     position: absolute;
-    width: 60%;
+    width: 20%;
     height: 30%;
     left: 75.417vw;
     top: 4vw;

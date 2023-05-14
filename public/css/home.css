@@ -218,7 +218,7 @@
 }
 
 .camp {
-    width: 100vw;
+    width: 99vw;
     height: 45.139vw;
     margin-top: 6vw;
     
@@ -331,7 +331,7 @@
 }
 
 .getin {
-    width: 100vw;
+    width: 98vw;
     height: 38.333vw;
     margin: auto;
 }
@@ -367,7 +367,7 @@
 .contact-details {
     display: flex;
     justify-content: space-between;
-    width: 100vw;
+    width: 98vw;
     margin: auto;
 }
 
@@ -396,7 +396,7 @@
 .phone {
     padding-left: 1.042vw;
     padding-top: 1.042vw;
-    width: 23.488vw;
+    width: 23vw;
     height: 17.605vw;
     background-color: #F5AEAC;
 }
@@ -404,7 +404,7 @@
 .locations {
     padding-left: 1.042vw;
     padding-top: 1.042vw;
-    width: 23.488vw;
+    width: 23vw;
     height: 17.605vw;
     background-color: #640E0B;
 }
@@ -417,7 +417,7 @@
 .email {
     padding-left: 1.042vw;
     padding-top: 1.042vw;
-    width: 23.488vw;
+    width: 23vw;
     height: 17.605vw;
     background-color: #F5AEAC;
 }
@@ -425,7 +425,7 @@
 .clock {
     padding-left: 1.042vw;
     padding-top: 1.042vw;
-    width: 23.488vw;
+    width: 23vw;
     height: 17.605vw;
     background-color: #F5AEAC;
 }

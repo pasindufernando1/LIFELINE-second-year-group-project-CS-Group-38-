@@ -43,7 +43,7 @@
                 
             </form>
             <div class="signup-p">
-                <p>Don’t have an account? Sign up</p>
+                 <p>Don’t have an account? <a href="/signup">Sign up</a></p>
 
             </div>
 

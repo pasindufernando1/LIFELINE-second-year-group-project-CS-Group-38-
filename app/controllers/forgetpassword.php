@@ -108,7 +108,7 @@ class ForgetPassword extends Controller
     function password_set() {
         if ($_POST['new_pwd'] == $_POST['con_pwd']) {
             if( $this -> model -> updatePassword($_SESSION['email_reset'],$_POST['new_pwd']) ){
-                header('Location: /systemuser/logout');
+                header('Location: /forgetpassword/password_changed');
             }
             else{
                 print_r('false');die();
@@ -120,6 +120,10 @@ class ForgetPassword extends Controller
         }
         
         
+    }
+
+    function password_changed(){
+        $this->view->render('systemuser/successfully_forget_pwd'); 
     }
 
 
