@@ -67,17 +67,13 @@ $metaTitle = "Hospitals Dashboard";
                             
                             <th>Packet Quantity</th>
                             <th>Requested Date</th>
-                            <!-- <th>Lane Name</th>
-                            <th>City</th>
-                            <th>District</th> -->
-                            
                             <th>Blood Bank</th>
                             <th>Status of the Request</th>
                             <th>Action</th>
                         </tr>
                         <hr class="bloodBanks-line">
                         <?php 
-                        
+                        $status = 'false';
                         if(isset($_SESSION['is_filtered'])){
                             $status = $_SESSION['is_filtered']? 'true' : 'false';
                         }else{
@@ -87,6 +83,7 @@ $metaTitle = "Hospitals Dashboard";
                         $results_per_page = 7;
                         $number_of_results = count($_SESSION['bloodBanks']);
                         $number_of_page = ceil($number_of_results / $results_per_page);
+                        //print_r($number_of_page);die();
                         //$page=$_GET['page'];
                         //print_r($page);die();
                         //determine which page number visitor is currently on  
@@ -127,32 +124,32 @@ $metaTitle = "Hospitals Dashboard";
                         }
                         echo "</table>";
                         echo '<div class="pag-box">';
-if (!isset($_GET['page']) || $_GET['page'] == 1) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
-}
-
-for($page = 1; $page <= $number_of_page; $page++) {  
-    if (!isset($_GET['page'])) {
-        $current_page = 1;
-    } else {
-        $current_page = $_GET['page'];
-    }
-    if ($page == $current_page) {
-        echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
-    } else {
-        echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
-    }
-}
-
-if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
-} else {
-    echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
-}
-
-echo '</div>';
+                        if (!isset($_GET['page']) || $_GET['page'] == 1) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . 1 . '">&laquo;</a> </div>'; 
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] - 1) . '">&laquo;</a> </div>';   
+                        }
+                        
+                        for($page = 1; $page <= $number_of_page; $page++) {  
+                            if (!isset($_GET['page'])) {
+                                $current_page = 1;
+                            } else {
+                                $current_page = $_GET['page'];
+                            }
+                            if ($page == $current_page) {
+                                echo '<div class="pag-div pag-div-'.$page. '"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';
+                            } else {
+                                echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $page . '">' . $page . ' </a> </div>';  
+                            }
+                        }
+                        
+                        if (!isset($_GET['page']) || $_GET['page'] == $number_of_page) {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . $number_of_page . '">&raquo; </a> </div>';
+                        } else {
+                            echo '<div class="pag-div"> <a class="pagination-number" href = "?filter='.$status.'&page=' . ($_GET['page'] + 1) . '">&raquo; </a> </div>';  
+                        }
+                        
+                        echo '</div>';
 ?>
                         
                         

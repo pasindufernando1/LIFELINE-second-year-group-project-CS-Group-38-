@@ -8,7 +8,7 @@
 </html>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" id="del" action="/requestBlood/viewRequests?page=1" method="POST">
+  <form class="modal-content" id="del" action="/requestBlood/type?page=1" method="POST">
   
     <div class="container">
       <h1>Filter & Short</h1>
@@ -40,15 +40,6 @@
             <input name="13" type="checkbox" value="Plasma" id="13">Plasma</input>
         </div>
         
-        <!-- <div>
-        <p>
-            Select Date Range
-        </p>
-            <label for="start">From:</label>
-            <input name="start" type="date" ></input>
-            <label for="end">To:</label>
-            <input name="end" type="date"></input>
-        </div> -->
       </div>
     
       <div class="clearfix">
@@ -59,22 +50,21 @@
   </form>
 </div>
 <script>
-// Get the modal
+
 var modal = document.getElementById('id01');
-// When the user clicks anywhere outside of the modal, close it
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-// Disable the ids 10,11,12,13 default
 document.getElementById("10").disabled = true;
 document.getElementById("11").disabled = true;
 document.getElementById("12").disabled = true;
 document.getElementById("13").disabled = true;
 
-// If either of the ids 0,1,2,3,4,5,6,7 is checked, enable the ids 10,11,12,13 in a loop
+
 for(let i = 0; i < 8; i++){
     document.getElementById(i).addEventListener("click", function() {
         if (document.getElementById(i).checked) {
