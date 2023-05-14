@@ -54,6 +54,7 @@ require_once __ROOT__ . '/app/views/layout/navigation.php';
                 </div>';
                 $count++;
                     }
+                    
                 }
                 else{
                     $count = 0;
