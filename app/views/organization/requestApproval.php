@@ -2,7 +2,7 @@
 //print_r($_SESSION['User_ID']);die();
 $_SESSION['bloodbankID']=intval($_GET['bloodbank']);
 // print_r(gettype($_SESSION['bloodbankID']));die();
-$metaTitle = "organizations Dashboard" 
+$metaTitle = "Organizations Dashboard" 
 ?>
 
 <!DOCTYPE html>

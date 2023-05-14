@@ -192,7 +192,7 @@ $metaTitle = "organizations Dashboard"
                         }    
                         else {
                             echo '<div class="table-content-types"> <tr>
-                                <td> No Feedbacks Yet </td>
+                                <td> No Campaigns Yet </td>
                                 </tr> </div>';
                         }
                         echo '<div class="pag-box">';

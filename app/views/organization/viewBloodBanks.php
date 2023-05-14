@@ -1,6 +1,6 @@
 <?php 
 
-$metaTitle = "organizations Dashboard" 
+$metaTitle = "Organizations Dashboard" 
 
 ?>
 
@@ -167,7 +167,7 @@ $metaTitle = "organizations Dashboard"
                             }
                         } 
                         else {
-                            echo "0 results";
+                            //echo "0 results";
                         } 
                         echo "</table>";
                         echo '<div class="pag-box">';
