@@ -92,10 +92,10 @@ $metaTitle = "Blood Type - Reservations"
                                         <td class="t-det">' . $row["BloodType"] . '</td>
                                         <form action="/reservation/update_quantity/'.$row["PacketID"].'" method="POST">
                                         <td>
-                                            <input title="Input RBC amount in ml" class="sub-input" type="text" id="RBC" name="RBC" placeholder="RBC" required>
-                                            <input title="Input WBC amount in ml" class="sub-input" type="text" id="WBC" name="WBC" placeholder="WBC" required>
-                                            <input title="Input Platelet amount in ml" class="sub-input" type="text" id="Platelet" name="Platelet" placeholder="Platelet" required>
-                                            <input title="Input Plasma amount in ml" class="sub-input" type="text" id="Plasma" name="Plasma" placeholder="Plasma" required>
+                                            <input title="RBC" class="sub-input" type="text" id="RBC" name="RBC" placeholder="RBC" required>
+                                            <input title="WBC" class="sub-input" type="text" id="WBC" name="WBC" placeholder="WBC" required>
+                                            <input title="Platelet" class="sub-input" type="text" id="Platelet" name="Platelet" placeholder="Platelet" required>
+                                            <input title="Plasma" class="sub-input" type="text" id="Plasma" name="Plasma" placeholder="Plasma" required>
                                          </td>
                                         <td> <button type="submit" class="update-btn">Update </button> </td>
                                     </tr> </div>

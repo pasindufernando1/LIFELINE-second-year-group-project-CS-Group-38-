@@ -721,6 +721,107 @@ class Usermanage extends Controller
         }
     }
 
+
+    // Function to view the deactivated user details
+    function view_deactivateduser($user_id){
+        if (isset($_SESSION['login'])) {
+            if ($_SESSION['type'] == "Admin") {
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_type'] = $this->model->getUserType($user_id);
+                if($_SESSION['user_type'] == "Hospital/Medical_Center"){
+                    $_SESSION['user_details'] = $this->model->getHosMedDetails($user_id);
+                    //Get the hosmed details to variables
+                    $_SESSION['Registration_no'] = $_SESSION['user_details'][0][1];
+                    $_SESSION['Name'] = $_SESSION['user_details'][0][2];
+                    $_SESSION['Number'] = $_SESSION['user_details'][0][3];
+                    $_SESSION['LaneName'] = $_SESSION['user_details'][0][4];
+                    $_SESSION['City'] = $_SESSION['user_details'][0][5];
+                    $_SESSION['District'] = $_SESSION['user_details'][0][6];
+                    $_SESSION['Province'] = $_SESSION['user_details'][0][7];
+                    $_SESSION['Status'] = $_SESSION['user_details'][0][8];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1][0];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1][1];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1][2];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2][0];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewDeacHospitalMedicalCenter');
+                    exit;
+                }
+                elseif($_SESSION['user_type'] == "Organization/Society"){
+                    $_SESSION['user_details'] = $this->model->getOrgSocDetails($user_id);
+                    //Get the orgsoc details to variables
+                    $_SESSION['Registration_no'] = $_SESSION['user_details'][0]['Registration_no'];
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Name'];
+                    $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
+                    $_SESSION['LaneName'] = $_SESSION['user_details'][0]['LaneName'];
+                    $_SESSION['City'] = $_SESSION['user_details'][0]['City'];
+                    $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
+                    $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewDeacOrganizationSociety');
+                    exit;
+                }
+                elseif($_SESSION['user_type'] == "Donor"){
+                    $_SESSION['user_details'] = $this->model->getDonorDetails($user_id);
+                    // Get the donor details to variables
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
+                    $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
+                    $_SESSION['Gender'] = $_SESSION['user_details'][0]['Gender'];
+                    $_SESSION['DOB'] = $_SESSION['user_details'][0]['DOB'];
+                    $_SESSION['Bloodtype'] = $_SESSION['user_details'][0]['BloodType'];
+                    $_SESSION['Number'] = $_SESSION['user_details'][0]['Number'];
+                    $_SESSION['LaneName'] = $_SESSION['user_details'][0]['LaneName'];
+                    $_SESSION['City'] = $_SESSION['user_details'][0]['City'];
+                    $_SESSION['District'] = $_SESSION['user_details'][0]['District'];
+                    $_SESSION['Province'] = $_SESSION['user_details'][0]['Province'];
+                    $_SESSION['Donorcard'] = $_SESSION['user_details'][0]['DonorCard_Img'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewDeacDonor');
+                    exit;
+                }
+                elseif($_SESSION['user_type'] == "System User"){
+                    $_SESSION['user_details'] = $this->model->getSystemUserDetails($user_id);
+                    // Get the system user details to variables
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
+                    $_SESSION['NIC'] = $_SESSION['user_details'][0]['NIC'];
+                    $_SESSION['BloodBankID'] = $_SESSION['user_details'][0]['BloodBankID'];
+                    $_SESSION['BloodBankName'] = $_SESSION['BloodBankName'][0]['BloodBank_Name'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewDeacSystemUser');
+                    exit;
+                }
+                elseif($_SESSION['user_type'] == "Admin"){
+                    $_SESSION['user_details'] = $this->model->getAdminDetails($user_id);
+                    // Get the admin details to variables
+                    $_SESSION['Name'] = $_SESSION['user_details'][0]['Fullname'];
+                    $_SESSION['Email'] = $_SESSION['user_details'][1]['Email'];
+                    $_SESSION['Username'] = $_SESSION['user_details'][1]['Username'];
+                    $_SESSION['Password'] = $_SESSION['user_details'][1]['Password'];
+                    $_SESSION['Contact_no'] = $_SESSION['user_details'][2]['ContactNumber'];
+                    $_SESSION['Userpic'] = $_SESSION['user_details'][1][3];
+                    $this->view->render('admin/viewDeacAdmin');
+                    exit;
+                }
+                
+            } 
+        }
+        else{
+            $this->view->render('authentication/login');
+        }
+    }
+
     // Function to render edit hospital/medical center successful page
     function edit_hosmed_successful()
     {

@@ -44,12 +44,10 @@ $metaTitle = "Inventory"
                 <label id= "hospital_name-label" class="quantity-lable" for="category">Inventory Category : </label>
                 <br>
                 <select class="quantity-input" type="text" name="category" id="category" placeholder="Blood Bank ID" required>
-                    <!-- Random options for Inventory category -->
-                    <option value="" disabled selected hidden>Inventory Category</option>
-                    <option value="Bed">Bed</option>
-                    <option value="Pressure Machines">Pressure Machines</option>
-                    <option value="2 Pint container">2 Pint container</option>
-                    <option value="Syringe">Syringe</option>
+                    <option value="" disabled selected hidden>Select Inventory Category</option>
+                        <?php foreach ($_SESSION['inventory_categories'] as $inventory) : ?>
+                            <option value="<?php echo $inventory[0]; ?>"><?php echo $inventory[0]; ?></option>
+                        <?php endforeach; ?>
                 </select>
             <div class="reg-container">
                 <label id ="reg-label" class="reg-lable" for="province">Province:</label>

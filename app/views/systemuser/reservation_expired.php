@@ -95,7 +95,7 @@ $metaTitle = "Blood Type - Reservations"
                                 echo '<div class="table-content-types"> <tr>
                                         
                                         <td>' . $row["Name"] ." ". $row["Subtype"]."</td>
-                                        <td>" . $row["Quantity"] .' ml'. "</td>
+                                        <td>" . $row["Quantity"] . "</td>
                                         <td>" . $row["Date"] . "</td>
                                         <td>" . $ex_date . '</td>
                                         <td> </td>
@@ -177,7 +177,7 @@ $metaTitle = "Blood Type - Reservations"
             echo '  
             <div class = "box-r">
                 <p class="type-p">'.$_SESSION['exp_packs_count'][$i]['type'].'</p>
-                <p class="count-p">'.$_SESSION['exp_packs_count'][$i]['totalquantity']." ml".'</p>
+                <p class="count-p">'.$_SESSION['exp_packs_count'][$i]['totalquantity'].'</p>
             </div>';
         }
         ?>
