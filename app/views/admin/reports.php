@@ -94,8 +94,16 @@ $metaTitle = "Reports"
                         <td>" . $row["Name"] . "</td>
                         <td>" . $row["EntityName"] . "</td>
                         <td>" . $row["Requesting_entity"] . "</td>
-                        <td>" . $row["Date_Generated"] . '</td>
-                        <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reports/download_copy/'.$row["ReportID"].'" download>Download copy<img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a></div></td>
+                        <td>" . $row["Date_Generated"] . '</td>';
+                        if ($row["Requesting_entity"] == "Admin") {
+                            echo '
+                            <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reports/download_copy/'.$row["ReportID"].'" download>Download copy<img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a></div></td>';
+                        } else {
+                            echo '
+                            <td> <div class="action-btns" ><div class="edit-btn-div"> <a href="/reports/download_csv?link='.$row["FileLink"].'" download>Download copy<img class="edit-btn" src="./../../public/img/admindashboard/pdfdown.png" alt="edit-btn"> </a></div></td>';
+                        }
+                        
+                    echo '    
                     </tr> </div>';
                 
             }

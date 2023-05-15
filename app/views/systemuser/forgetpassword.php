@@ -32,7 +32,7 @@
                 <input id="username" class="username-input" type="text" name="username" autofocus placeholder="Enter Email" required>
                 <br>
                 
-                <a href="/systemuser/login" class="forget-password">LOGIN</a>
+                <a href="/login" class="forget-password">LOGIN</a>
                 <br>
                 <?php if (isset($_SESSION['error'])) {  ?>
                 <p class="error-pwd"><?php echo ($_SESSION['error']); ?></p>
